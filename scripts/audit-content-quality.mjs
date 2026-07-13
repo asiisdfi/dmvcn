@@ -66,6 +66,11 @@ const deepReviewTopicSlugs = new Set([
   'sold-car-release-liability-plates-insurance',
   'tickets-tolls-insurance-lapse-registration-hold',
   'driving-record-points-traffic-school',
+  'residency-proof-no-bills-po-box',
+  'standard-license-driving-privilege-no-lawful-status',
+  'teen-driver-permit-gdl-parent-guide',
+  'older-driver-license-renewal-medical-review',
+  'student-temporary-resident-license-registration',
 ]);
 
 assertUnique([...stateIds], 'state id');

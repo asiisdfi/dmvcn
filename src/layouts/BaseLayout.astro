@@ -1,5 +1,5 @@
 ---
-import { CalendarDays, Menu, Search, ShieldCheck, X } from '@lucide/astro/icons';
+import { CalendarDays, Menu, Search, X } from '@lucide/astro/icons';
 import { SITE } from '../data/content';
 import '../styles/global.css';
 
@@ -38,6 +38,7 @@ const siteSchema: JsonLd = {
   publisher: {
     '@type': 'Organization',
     name: SITE.name,
+    logo: new URL('/assets/dmvcn-logo.png', Astro.site).toString(),
   },
 };
 const pageSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
@@ -66,8 +67,9 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/assets/dmvcn-logo.png" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/dmvcn-logo.png" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
@@ -82,7 +84,7 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
     <a class="skip-link" href="#main-content">跳到主要内容</a>
     <header class="site-header">
       <a class="brand" href="/" aria-label="回到首页">
-        <span class="brand-mark"><ShieldCheck size={20} aria-hidden="true" /></span>
+        <img class="brand-mark" src="/assets/dmvcn-logo.png" alt="" width="36" height="36" />
         <span>
           <strong>{SITE.name}</strong>
           <small>独立中文整理，不代替政府机构</small>

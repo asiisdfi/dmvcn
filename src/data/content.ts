@@ -6440,7 +6440,7 @@ export const topics: TopicGuide[] = [
     slug: 'residency-proof-no-bills-po-box',
     title: '没有自己账单、住亲友家或宿舍，地址证明怎么准备',
     eyebrow: '地址证明',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '地址证明最难的情况，往往不是“没有地址”，而是没有一份写着本人姓名和当前居住地址的官方文件。住亲友家、室友家、宿舍、sublease、P.O. Box 和 mailing address，需要按不同规则判断。',
     whoNeedsIt: [
@@ -6455,6 +6455,8 @@ export const topics: TopicGuide[] = [
       'P.O. Box、PMB、学校信箱或只显示 mailing address 的文件，经常不能单独证明居住地址。',
       '没有自己账单时，要查州官方是否接受学校、雇主、银行、保险、政府信件、租约、同住人证明、address certification 或 affidavit。',
       '电子账单、打印件、手机截图、翻译件、同一机构两份文件是否接受，州与州差异很大。',
+      '官方 affidavit 不是一张通用“担保信”。Texas DL-5 和 Florida HSMV 71120 都要求按本州表格、签署人身份和配套地址材料办理。',
+      '少数 P.O. Box / PMB 例外有严格适用范围。South Dakota 的 full-time traveler 路径要求 affidavit、近期住宿收据和 PMB 证明，不能推广为普通申请规则。',
     ],
     checklist: [
       '先确认你办的是 standard license、REAL ID、Enhanced/EDL、外州转入还是地址变更；不同业务的地址证明要求可能不同。',
@@ -6497,6 +6499,55 @@ export const topics: TopicGuide[] = [
         question: '手机里的 PDF 或电子账单可以现场给 DMV 看吗？',
         answer:
           '不要默认可以。Iowa 等州强调打印文件，Pennsylvania 等页面强调 physical documents；有些州接受打印电子账单，有些不接受手机截图。到场前按州官方格式要求准备。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'California REAL ID 申请要提交两份显示申请人姓名和 California 地址的居住证明，不能只准备一份账单。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/',
+        ],
+      },
+      {
+        claim: 'California AB 60 地址清单包含学校、医疗、雇佣、保险、金融和政府文件，并为部分亲属设置了关系文件衔接路径。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/assembly-bill-ab-60-wizard/'],
+      },
+      {
+        claim: 'New Jersey Standard credential 通常要求一份地址证明，REAL ID 要求两份；其地址证明可为符合要求的纸质或电子文件。',
+        sourceUrls: ['https://www.nj.gov/mvc/license/6pointid.htm'],
+      },
+      {
+        claim: 'Pennsylvania REAL ID 要两份显示 Pennsylvania 地址的实体文件，官方页面明确说不能用电子版本替代。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check'],
+      },
+      {
+        claim: 'Washington Enhanced credential 的清单要求两份写有姓名和当前 WA 住宅地址的文件，不接受 P.O. Box，并允许部分账单打印件。',
+        sourceUrls: ['https://dol.wa.gov/forms/view/520431/download?inline='],
+      },
+      {
+        claim: 'Iowa REAL ID 要两份打印出的当前 Iowa 居住证明，地址必须是实际居住地址而不是邮政信箱。',
+        sourceUrls: ['https://ia.iowadot.gov/mvd/realid/success5.aspx'],
+      },
+      {
+        claim: 'Texas 通常要求两份打印的居住文件，其中一份一般要显示申请日前至少 30 天；符合清单的电子账单可打印提交。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards',
+        ],
+      },
+      {
+        claim: 'Texas DL-5 地址 affidavit 要由同住证明人提供两份地址文件；与申请人无亲属关系的证明人还要按表格要求陪同到场。',
+        sourceUrls: ['https://www.dps.texas.gov/internetforms/Forms/DL-5.pdf'],
+      },
+      {
+        claim: 'Florida HSMV 71120 为缺少两份本人名下地址文件的 Class E 驾照或 ID 申请人提供认证路径，但不能用于 CLP 或 CDL。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/pdf/forms/71120.pdf',
+          'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/',
+        ],
+      },
+      {
+        claim: 'South Dakota 允许 full-time traveler 使用 PMB 的规则要求 residency affidavit、近期住宿收据和 PMB 证明，并不适用于普通住宅地址申请。',
+        sourceUrls: ['https://dps.sd.gov/driver-licensing/renew-and-duplicate/full-time-travelers'],
       },
     ],
     editorNotes: [
@@ -6555,6 +6606,38 @@ export const topics: TopicGuide[] = [
         label: 'Oregon REAL ID',
         url: 'https://www.oregon.gov/odot/dmv/pages/real_id.aspx',
       },
+      {
+        label: 'California DMV AB 60 Residency Wizard',
+        url: 'https://www.dmv.ca.gov/portal/assembly-bill-ab-60-wizard/',
+      },
+      {
+        label: 'Washington DOL Enhanced Document Checklist',
+        url: 'https://dol.wa.gov/forms/view/520431/download?inline=',
+      },
+      {
+        label: 'Iowa DOT REAL ID Residency Documents',
+        url: 'https://ia.iowadot.gov/mvd/realid/success5.aspx',
+      },
+      {
+        label: 'Texas DPS Residency Requirement',
+        url: 'https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards',
+      },
+      {
+        label: 'Texas DPS Residency Affidavit DL-5',
+        url: 'https://www.dps.texas.gov/internetforms/Forms/DL-5.pdf',
+      },
+      {
+        label: 'FLHSMV Certification of Address HSMV 71120',
+        url: 'https://www.flhsmv.gov/pdf/forms/71120.pdf',
+      },
+      {
+        label: 'FLHSMV What to Bring - Non-Immigrant',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/',
+      },
+      {
+        label: 'South Dakota DPS Full-Time Travelers',
+        url: 'https://dps.sd.gov/driver-licensing/renew-and-duplicate/full-time-travelers',
+      },
     ],
     relatedStateIds: [
       'california',
@@ -6568,6 +6651,8 @@ export const topics: TopicGuide[] = [
       'south-carolina',
       'mississippi',
       'oregon',
+      'texas',
+      'south-dakota',
     ],
   },
   {
@@ -7039,7 +7124,7 @@ export const topics: TopicGuide[] = [
     slug: 'standard-license-driving-privilege-no-lawful-status',
     title: '没有 lawful status，驾照、REAL ID 和 Driving Privilege Card 怎么分',
     eyebrow: '非 REAL ID 路径',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       'REAL ID 通常要求证明 lawful status，但这不等于所有州都完全不能办理驾驶用途证件。部分州有 Standard license、noncompliant license、drive-only license、AB 60 或 Driving Privilege Card 这类州内驾驶路径，规则必须按州确认。',
     whoNeedsIt: [
@@ -7055,6 +7140,7 @@ export const topics: TopicGuide[] = [
       '这些证件通常不能用于 TSA 国内航班安检、进入部分联邦设施、投票或证明移民身份；卡面常会有 not for federal identification / federal limits apply 等提示。',
       '申请人仍然通常要证明身份、出生日期、州居住地址，并通过知识考试、视力或路考；没有 lawful status 不等于免材料、免考试。',
       'CDL、commercial license、REAL ID、Enhanced license 和部分州 ID 规则更严格，不能把普通非商业驾驶路径套过去。',
+      '证件名称会更新。Illinois 已从 2024 年 7 月 1 日起用四年 Standard driver license 取代旧 TVDL，并在卡面标注 Federal Limits Apply；旧 TVDL 教程不能继续照搬。',
     ],
     checklist: [
       '先确认你的州是否有这类非 REAL ID 驾驶路径；没有全国统一申请入口。',
@@ -7076,7 +7162,7 @@ export const topics: TopicGuide[] = [
       {
         question: '没有 lawful status 是不是一定不能办驾照？',
         answer:
-          '不是全国统一答案。REAL ID 通常不行，但 California、New York、Connecticut、Colorado、Maryland、Utah、Delaware、New Mexico、New Jersey 等官方页面显示过不同形式的非 REAL ID 或驾驶用途路径。必须看所在州。',
+          '不是全国统一答案。REAL ID 通常不行，但 California、New York、Illinois、Connecticut、Colorado、Maryland、Utah、Delaware、New Mexico、New Jersey 等官方页面显示了不同形式的非 REAL ID 或驾驶用途路径。必须看所在州和当前证件名称。',
       },
       {
         question: '这类证件可以坐飞机吗？',
@@ -7097,6 +7183,60 @@ export const topics: TopicGuide[] = [
         question: '拿到 driving privilege card 等于有合法身份吗？',
         answer:
           '不是。这类证件通常只解决州内驾驶资格或有限身份用途，不提供移民身份，也不是公民身份、投票资格或联邦身份文件。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'DHS REAL ID 规则要求申请人证明 lawful status；无法完成该核验时，不能把州级驾驶用途证件当作 REAL ID。',
+        sourceUrls: ['https://www.dhs.gov/real-id'],
+      },
+      {
+        claim: 'California AB 60 允许无法提供 satisfactory legal presence 证明的合格居民申请驾照，但仍要证明身份和 California residency 并完成考试。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/',
+        ],
+      },
+      {
+        claim: 'New York Green Light Law 允许年满 16 岁者不论 citizenship 或 lawful status 申请 Standard 非商业驾照，并可用无 SSN affidavit 路径。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/driver-licenses-and-the-green-light-law'],
+      },
+      {
+        claim: 'New York Green Light 路径不提供 non-driver ID 或 CDL，卡面也会标注其不能用于联邦用途。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/driver-licenses-and-the-green-light-law'],
+      },
+      {
+        claim: 'New Jersey 首次申请人可不论移民身份申请 basic driver license；Standard 身份清单接受 SSN、ITIN 或符合条件的 affidavit 路径。',
+        sourceUrls: [
+          'https://www.nj.gov/mvc/pdf/license/FAQ_firsttime.pdf',
+          'https://www.nj.gov/mvc/license/6pointid.htm',
+        ],
+      },
+      {
+        claim: 'Illinois 自 2024 年 7 月 1 日起以四年 Standard driver license 取代旧 TVDL，新的非 REAL ID 卡面写有 Federal Limits Apply。',
+        sourceUrls: [
+          'https://www.ilsos.gov/news/2024/july/240701d1.pdf',
+          'https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_tvdl22.pdf',
+        ],
+      },
+      {
+        claim: 'Maryland 对没有有效 USCIS 文件的 noncompliant credential 申请人要求取得 Maryland tax certification letter，并先有两年州所得税申报记录。',
+        sourceUrls: [
+          'https://mva.maryland.gov/licenses-ids/additional-driver-id-services/noncompliant-drivers-licenses-ids',
+        ],
+      },
+      {
+        claim: 'Colorado 的 Standard credential 不是 REAL ID，但可作为 Colorado 身份证件；相关申请路径仍要求一份当前实际居住地址证明且不接受 P.O. Box。',
+        sourceUrls: ['https://dmv.colorado.gov/drivers/standard-license-and-ID-cards'],
+      },
+      {
+        claim: 'Connecticut drive-only license 只用于驾驶而不能用于一般身份证明或投票，但可用于在 Connecticut 登记车辆；外州同类证件不能直接转入。',
+        sourceUrls: [
+          'https://portal.ct.gov/dmv/licenses-permits-ids/get-drive-only-license/faqs-drive-only-license',
+        ],
+      },
+      {
+        claim: 'Utah Driving Privilege Card 是 Class D 驾驶用途证件，不能作为 Utah 政府 ID、不能用于 CDL，且通常在申请人下一次生日到期。',
+        sourceUrls: ['https://dld.utah.gov/what-is-a-driving-privilege-card/'],
       },
     ],
     editorNotes: [
@@ -7133,8 +7273,12 @@ export const topics: TopicGuide[] = [
         url: 'https://www.nj.gov/mvc/license/6pointid.htm',
       },
       {
-        label: 'Illinois SOS Non-Citizen and TVDL Information',
+        label: 'Illinois SOS Standard License for Former TVDL Applicants',
         url: 'https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_tvdl22.pdf',
+      },
+      {
+        label: 'Illinois SOS 2024 Standard License Announcement',
+        url: 'https://www.ilsos.gov/news/2024/july/240701d1.pdf',
       },
       {
         label: 'Maryland MVA Noncompliant Driver Licenses and IDs',
@@ -7145,8 +7289,8 @@ export const topics: TopicGuide[] = [
         url: 'https://dmv.colorado.gov/drivers/standard-license-and-ID-cards',
       },
       {
-        label: 'Connecticut DMV Drive-only License',
-        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/get-drive-only-license',
+        label: 'Connecticut DMV Drive-only License FAQ',
+        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/get-drive-only-license/faqs-drive-only-license',
       },
       {
         label: 'Utah DLD Driving Privilege Card',
@@ -7163,6 +7307,10 @@ export const topics: TopicGuide[] = [
       {
         label: 'Washington DOL REAL ID',
         url: 'https://dol.wa.gov/id-cards/real-id',
+      },
+      {
+        label: 'NJ MVC First Time Driver License FAQ',
+        url: 'https://www.nj.gov/mvc/pdf/license/FAQ_firsttime.pdf',
       },
     ],
     relatedStateIds: [
@@ -9130,7 +9278,7 @@ export const topics: TopicGuide[] = [
     slug: 'teen-driver-permit-gdl-parent-guide',
     title: '未成年人考驾照：parent consent、driver education 和 GDL 限制怎么准备',
     eyebrow: '青少年驾照',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '美国青少年考驾照通常不是“考过笔试和路考就结束”。未满 18 或未满 21 的申请人可能要走 graduated driver license (GDL)、父母/监护人签字、driver education、supervised driving hours、夜间练车、乘客限制、curfew、学校证明、保险和路考车辆要求。家长和学生需要逐项核对本州规则。',
     whoNeedsIt: [
@@ -9195,6 +9343,61 @@ export const topics: TopicGuide[] = [
         question: '我们搬州了，外州 permit 或 driver education 还能用吗？',
         answer:
           '不能默认。Washington 要审核 out-of-state traffic safety education；Georgia 对外州 driver education 有特定条件；New York 对 out-of-state learner permit 在纽约驾驶也有单独规则。搬州后先查新州 teen driver 或 new resident 页面。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'NHTSA 将 graduated driver licensing 分为 learner、intermediate 和 full privilege 等阶段，但每州的年龄、等待期和限制由州规则决定。',
+        sourceUrls: ['https://www.nhtsa.gov/road-safety/teen-driving'],
+      },
+      {
+        claim: 'California 未满 18 岁申请 instruction permit 通常至少要 15 岁半，并要完成或正在参加符合要求的 driver education 且取得家长或监护人签字。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/learners-permits/',
+        ],
+      },
+      {
+        claim: 'California 青少年在路考前通常要持 permit 至少六个月，并完成 50 小时监督驾驶，其中 10 小时为夜间驾驶。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-education-and-safety/special-interest-driver-guides/teen-drivers/',
+        ],
+      },
+      {
+        claim: 'Florida learner license 通常要持有 12 个月或到 18 岁，并完成 50 小时驾驶、其中 10 小时夜间；16 岁和 17 岁驾驶人另有不同夜间时段限制。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/traffic-laws-florida-teens/',
+        ],
+      },
+      {
+        claim: 'Washington 16–17 岁申请人要完成 40 小时白天和 10 小时夜间监督驾驶；online self-paced 与 parent-taught course 不算州认可课程。',
+        sourceUrls: [
+          'https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit/driver-license-application-ages-16-17',
+        ],
+      },
+      {
+        claim: 'New Jersey 对 2025 年 2 月 1 日或之后签发 permit 的未满 21 岁申请人要求 50 小时监督驾驶、其中 10 小时在 darkness，并提交 BA-CSD。',
+        sourceUrls: [
+          'https://nj.gov/mvc/press/archives/2025/01312025.htm',
+          'https://www.nj.gov/mvc/pdf/license/BA-CSD.pdf',
+        ],
+      },
+      {
+        claim: 'New Jersey GDL 取得 probationary license 后仍有夜间、乘客、电子设备和红色反光 decal 等限制。',
+        sourceUrls: ['https://www.nj.gov/mvc/about/gdlsafety.htm'],
+      },
+      {
+        claim: 'Pennsylvania 未满 18 岁申请人在路考前要完成 65 小时练车，其中至少 10 小时夜间和 5 小时恶劣天气，并等待 permit 满六个月。',
+        sourceUrls: [
+          'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/applying-for-a-learners-permit',
+        ],
+      },
+      {
+        claim: 'Virginia 18 岁及以下申请人通常要持 learner permit 九个月，并由家长或监护人认证 45 小时练车、其中 15 小时在夜间。',
+        sourceUrls: ['https://www.dmv.virginia.gov/safety/programs/teens/faqs'],
+      },
+      {
+        claim: 'Georgia Joshua’s Law 对 16–17 岁 Class D 路径要求认可课程，并要求 40 小时监督驾驶、其中至少 6 小时夜间。',
+        sourceUrls: ['https://dds.georgia.gov/georgia-licenseid/new-licenseid/joshuas-law-requirements'],
       },
     ],
     editorNotes: [
@@ -9442,6 +9645,14 @@ export const topics: TopicGuide[] = [
         label: 'Mass.gov Junior Operator Violations',
         url: 'https://www.mass.gov/info-details/junior-operator-violations',
       },
+      {
+        label: 'California DMV Teen Drivers Guide',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/special-interest-driver-guides/teen-drivers/',
+      },
+      {
+        label: 'Virginia DMV Teen Driver Safety FAQ',
+        url: 'https://www.dmv.virginia.gov/safety/programs/teens/faqs',
+      },
     ],
     relatedStateIds: [
       'california',
@@ -9460,7 +9671,7 @@ export const topics: TopicGuide[] = [
     slug: 'older-driver-license-renewal-medical-review',
     title: '老人/高龄驾驶人续驾照、视力测试和医疗审查怎么处理',
     eyebrow: '高龄驾驶',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '在美国，older driver / mature driver 相关问题不只是“老人能不能开车”。不同州会把续驾照、视力测试、medical review、driver re-evaluation、家属担心 unsafe driver、医生报告和限制驾照分成不同程序，需要按触发原因找到对应官方入口。',
     whoNeedsIt: [
@@ -9481,6 +9692,8 @@ export const topics: TopicGuide[] = [
       '被要求提交 medical review 文件时，截止日期很重要。Georgia DDS 说明收到 medical / vision form 后若 30 天内不配合，可能进入 revocation notice；New Jersey Medical Review Process 也会给出表格返回期限；New York 说明不提供要求的 medical documentation 可能导致 suspension。',
       '认知障碍、意识丧失、癫痫、视力变化、运动功能或判断力问题，比年龄数字本身更关键。California、New York、Virginia、Florida、Georgia 等州都有 medical conditions / medical review 页面，用来判断是否仍能安全驾驶。',
       '如果已经不适合继续开车，把驾照换成 State ID / non-driver ID 往往比“拖着不处理”更稳。Florida older-driver 页面就把 surrender driver license and obtain an ID card 作为安全选择之一；各州 ID 规则仍要按本州身份和地址材料办。',
+      'Illinois 从 2026 年 7 月 1 日起不再要求 79–86 岁驾驶人仅因年龄参加 routine behind-the-wheel test；他们仍要现场续证和视力检查，87 岁及以上仍按年度路考规则办理。',
+      'California 70 岁及以上仍要每五年现场续证并做视力检查，但从 2024 年 10 月起，大多数驾驶记录合格的续证人不再仅因年龄参加 written knowledge test。',
     ],
     checklist: [
       '确认所在州和年龄：64、75、79、80 岁这些门槛在 Georgia、Virginia、Texas、Florida 等州对应不同 renewal / vision 规则。',
@@ -9526,6 +9739,58 @@ export const topics: TopicGuide[] = [
         question: '收到 medical review / re-evaluation 信后应该怎么做？',
         answer:
           '先看截止日期、表格编号、提交方式和是否需要医生填写。不要把它当成普通 renewal。可能需要 medical documentation、vision report、interview、knowledge test、road skills test 或 driver rehabilitation evaluation；不回应可能导致 suspension、revocation 或 cancel driving privilege。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'NHTSA 提醒高龄驾驶安全决定不应只看年龄，而要结合视力、身体能力、药物、认知和实际驾驶表现。',
+        sourceUrls: ['https://www.nhtsa.gov/road-safety/older-drivers'],
+      },
+      {
+        claim: 'Illinois 自 2026 年 7 月 1 日起取消 79–86 岁仅因年龄触发的 routine road test，但仍要求现场续证和视力检查；87 岁及以上仍需年度路考。',
+        sourceUrls: [
+          'https://www.ilsos.gov/news/2026/june-17-2026-giannoulias-ends-mandatory-road-tests-for-drivers-ages-79-86.html',
+        ],
+      },
+      {
+        claim: 'California 70 岁及以上每五年现场续证并接受视力检查；自 2024 年 10 月起，多数驾驶记录合格者不再按年龄例行参加 written knowledge test。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/senior-drivers/',
+          'https://www.dmv.ca.gov/portal/news-and-media/news-releases/written-knowledge-test-requirement-eliminated-for-most-california-drivers-license-renewals/',
+        ],
+      },
+      {
+        claim: 'Florida Class E 驾照在 80 岁起改为每六年续证；80 岁及以上不符合线上续证资格时要通过 vision test。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/driver-licenses-id-cards/mature-driver/driver-license-renewal-requirements-options-older-drivers/',
+        ],
+      },
+      {
+        claim: 'Texas 79 岁及以上驾驶人要现场续证；79–84 岁证件通常为八年，85 岁及以上通常为两年。',
+        sourceUrls: ['https://www.dps.texas.gov/section/driver-license/senior-drivers-age-79-or-older'],
+      },
+      {
+        claim: 'Washington unsafe-driver report 必须基于本人观察并写具体事实，不接受匿名或二手信息，而且报告在州法下不保密。',
+        sourceUrls: ['https://dol.wa.gov/driver-licenses-and-permits/driver-safety/report-unsafe-drivers'],
+      },
+      {
+        claim: 'New York 对非医疗人员提交的驾驶复查报告逐案处理，不会只因年龄采取行动，并说明不会在 FOIL 请求中披露报告人身份。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/dmv-medical-review-program'],
+      },
+      {
+        claim: 'Pennsylvania 法律要求 health care personnel 报告可能影响安全驾驶的指定医疗状况，最后由 PennDOT 评估是否限制、recall 或 suspend。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/resources/medical-reporting'],
+      },
+      {
+        claim: 'New Jersey medical review 表格通常要在 45 天内交回，逾期会导致 suspension；审查结果可能包括限制、复考、监测或暂停。',
+        sourceUrls: ['https://www.nj.gov/mvc/drivertopics/medreviewprocess.htm'],
+      },
+      {
+        claim: 'Medical review 并不自动等于吊销：Washington 和 New Jersey 都列出补充医疗或视力文件、重新考试、设备或限制等多种可能结果。',
+        sourceUrls: [
+          'https://dol.wa.gov/driver-licenses-and-permits/driver-safety/report-unsafe-drivers',
+          'https://www.nj.gov/mvc/drivertopics/medreviewprocess.htm',
+        ],
       },
     ],
     editorNotes: [
@@ -9776,6 +10041,18 @@ export const topics: TopicGuide[] = [
       {
         label: 'Mass.gov RMV Forms and Applications',
         url: 'https://www.mass.gov/lists/rmv-forms-and-applications',
+      },
+      {
+        label: 'Illinois SOS Road Safety and Fairness Act 2026',
+        url: 'https://www.ilsos.gov/news/2026/june-17-2026-giannoulias-ends-mandatory-road-tests-for-drivers-ages-79-86.html',
+      },
+      {
+        label: 'California DMV Driver License Renewal for 70+',
+        url: 'https://www.dmv.ca.gov/portal/senior-drivers/',
+      },
+      {
+        label: 'California DMV 2024 Knowledge Test Renewal Update',
+        url: 'https://www.dmv.ca.gov/portal/news-and-media/news-releases/written-knowledge-test-requirement-eliminated-for-most-california-drivers-license-renewals/',
       },
     ],
     relatedStateIds: [
@@ -10144,7 +10421,7 @@ export const topics: TopicGuide[] = [
     slug: 'student-temporary-resident-license-registration',
     title: '留学生、访问学者和短期工作，算不算 resident，要不要换驾照或注册车',
     eyebrow: '学生 / 非居民',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       'F-1、J-1、H-1B、访问学者、外州学生、短期工作和陪读家属最容易卡在一个问题：我到底是 visitor、non-resident、temporary visitor，还是已经成为州 resident？这会影响能不能继续用外国/外州驾照、是否要办本州驾照，以及外州车辆是否要 registration。',
     whoNeedsIt: [
@@ -10161,6 +10438,8 @@ export const topics: TopicGuide[] = [
       '临时访客办州驾照时，证件期限可能受 lawful presence 影响。德州 DPS 的 temporary visitor 页面就是典型例子，合格临时访客可能拿到 Limited Term driver license / ID。',
       '车辆 registration 更不能只看签证身份。外州车是否要转入，常取决于车辆实际停放地、使用地、保险、车主居民身份、new resident 规则和州税费规则。',
       '学校国际办公室、雇主或租车公司可以提供方向，但最终办理规则仍以 DMV / DPS / RMV / MVC / DOL / DOR 官方页面为准。',
+      '驾照和车辆期限必须分开抄录：California 新居民通常是驾照 10 天、车辆 20 天；Texas 是车辆 30 天、驾照 90 天；Washington 两者均为 30 天；New Jersey 通常为 60 天或现有证件先到期时更早。',
+      '外国驾照的 visitor 权限也不统一。New York 不要求 IDP 但建议准备；Massachusetts 对非英文外国驾照要求 IDP 或合格英文翻译；Pennsylvania 说明 IDP 建议携带但不是单独驾驶资格。',
     ],
     checklist: [
       '先写清自己的场景：只是短期访问、来上学、交换访问、短期工作、已经毕业工作、搬到新州、买车，还是把外州车带到学校所在州。',
@@ -10204,6 +10483,63 @@ export const topics: TopicGuide[] = [
         question: '学校国际办公室说不用办 DMV，我还能只听学校吗？',
         answer:
           '学校建议很有用，但不能替代 DMV。国际办公室通常熟悉校园和身份文件，DMV 才决定驾照、ID、车辆登记、地址证明、SSN / SSA letter 和 lawful presence 材料是否合格。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'USA.gov 提醒外国驾照和 International Driving Permit 的接受规则由各州决定，IDP 不能脱离本国有效驾照单独提供驾驶资格。',
+        sourceUrls: ['https://www.usa.gov/non-citizen-driving'],
+      },
+      {
+        claim: 'New York DMV 说明来自其他州或国家的学生通常不被视为 New York resident，但一旦成为居民并驾驶，就要在 30 天内取得 New York 驾照。',
+        sourceUrls: [
+          'https://dmv.ny.gov/driver-license/driving-in-new-york-state',
+          'https://dmv.ny.gov/more-info/moving-to-or-from-new-york-state',
+        ],
+      },
+      {
+        claim: 'New York 允许符合条件的 nonresident 使用有效外国驾照驾驶，IDP 不是强制文件，但在驾照非英文时可帮助说明内容。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/driving-in-new-york-state'],
+      },
+      {
+        claim: 'California DMV 说明成为 California resident 后，驾驶人要在 10 天内申请 California driver license。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/file/fast-facts-5-requirements-for-a-california-drivers-license/',
+        ],
+      },
+      {
+        claim: 'California 对带入州内的外州车辆通常要求在成为 resident 或开始在州内工作后的 20 天内办理登记。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/vehicle-registration-requirements/',
+        ],
+      },
+      {
+        claim: 'Florida visitor 可持居住国有效驾照驾驶；一旦符合官方 resident 触发条件，通常要在 30 天内取得 Florida 驾照。',
+        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/'],
+      },
+      {
+        claim: 'Texas 新居民通常要在 30 天内先登记车辆，并可在搬入后最多 90 天内使用外州驾照再申请 Texas 驾照。',
+        sourceUrls: [
+          'https://www.txdmv.gov/motorists/new-to-texas',
+          'https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids',
+        ],
+      },
+      {
+        claim: 'Texas 合格 temporary visitor 会取得标有 Limited Term 的驾照或 ID；证件通常随 lawful presence 到期，duration of status 场景通常为一年。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors',
+        ],
+      },
+      {
+        claim: 'Washington 新居民有 30 天取得 Washington 驾照并登记车辆，而且通常要先取得 Washington 驾照再办理车辆登记。',
+        sourceUrls: [
+          'https://dol.wa.gov/moving-washington',
+          'https://dol.wa.gov/moving-washington/vehicle-registration-and-plates',
+        ],
+      },
+      {
+        claim: 'New Jersey 新居民通常要在搬入后 60 天内或现有驾照和登记先到期前完成驾照与车辆 title / registration 转入。',
+        sourceUrls: ['https://www.nj.gov/mvc/drivertopics/movetonj.htm'],
       },
     ],
     editorNotes: [

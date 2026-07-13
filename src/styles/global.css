@@ -125,14 +125,12 @@ img {
 }
 
 .brand-mark {
-  display: grid;
+  display: block;
   flex: 0 0 36px;
   width: 36px;
   height: 36px;
-  place-items: center;
   border-radius: var(--radius);
-  background: var(--red);
-  color: #fff;
+  object-fit: contain;
 }
 
 .brand strong,
