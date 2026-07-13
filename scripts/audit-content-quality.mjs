@@ -36,16 +36,26 @@ function assertStringList(values, label, minimum, minimumItemLength = 8) {
 const stateIds = new Set(states.map((state) => state.id));
 const topicSlugs = new Set(topics.map((topic) => topic.slug));
 const deepReviewTopicSlugs = new Set([
+  'real-id-basics',
+  'document-checklist',
   'real-id-vs-standard-license',
   'proof-of-residency',
   'ssn-and-itin',
   'name-change-chain',
   'non-citizen-license-id',
+  'state-id-non-driver-id-real-id-card',
+  'airport-travel-after-real-id',
+  'online-office-appointment',
+  'dmv-scam-text-fake-ticket-toll-real-id-phishing',
+  'dmv-fees-mailing-temporary-license',
   'first-driver-license-road-test',
+  'road-test-day-vehicle-sponsor-insurance-rental-retest',
+  'dmv-test-language-translation-interpreter',
   'foreign-license-idp-transfer',
   'moving-to-new-state',
   'lost-stolen-license-id-replacement-identity-theft',
   'driver-license-suspension-reinstatement-sr22',
+  'renewal-replacement-address',
 ]);
 
 assertUnique([...stateIds], 'state id');

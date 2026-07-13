@@ -5895,10 +5895,12 @@ export const topics: TopicGuide[] = [
       '没有有效护照、护照卡、军人证等其他 TSA 接受证件的人。',
     ],
     keyFacts: [
-      'REAL ID 是符合联邦最低安全标准的州驾照或身份证，不是新的驾驶资格。',
-      '国内航班安检可以用 REAL ID 合规州证件，也可以用有效护照等 TSA 接受证件。',
-      '国际旅行仍通常要用护照；REAL ID 不能替代护照。',
-      '如果没有 REAL ID 或其他可接受证件，USA.gov 2026 年说明提到 TSA ConfirmID 身份核验选项；这不是 DMV 证件升级。',
+      'REAL ID 是州驾照或州身份证达到联邦最低签发和安全标准后的合规版本，不是新的驾驶资格，也不会把 State ID 变成驾照。',
+      '自 2025 年 5 月 7 日起，18 岁及以上旅客不能再把非 REAL ID 合规的州驾照/ID 单独用于 TSA 国内航班安检；有效护照等 TSA 接受证件仍可替代。',
+      'REAL ID 是可选项。只开车、投票、看病、去邮局或领取联邦福利，并不会因为没有 REAL ID 就自动受阻；具体设施仍可有自己的进门规则。',
+      '国际航空旅行仍通常需要护照；REAL ID 不能替代护照。临时纸质驾照也不在 TSA 的可接受证件清单内。',
+      'USA.gov 2026 年 4 月更新说明：没有 REAL ID 或其他可接受证件的 18 岁及以上旅客，可提前支付 $45 使用 TSA ConfirmID；核验从出发日起有效 10 天。',
+      '州政府决定申请路径和材料。即使联邦框架相同，各州对原件、SSN 核验、地址证明、姓名变更、费用和是否可线上预审的做法仍不同。',
     ],
     factChecks: [
       {
@@ -5910,8 +5912,36 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://www.tsa.gov/realid', 'https://www.tsa.gov/travel/security-screening/identification'],
       },
       {
-        claim: 'TSA ConfirmID 是没有可接受 ID 时的身份核验路径，不会把普通州驾照升级成 REAL ID。',
-        sourceUrls: ['https://www.usa.gov/real-id', 'https://www.tsa.gov/travel/security-screening/identification'],
+        claim: '自 2025 年 5 月 7 日起，TSA 不再接受非 REAL ID 合规的州驾照或州 ID 作为有效的州签发机场身份证件。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'REAL ID 并非驾驶、投票、看病、进入邮局或领取联邦福利的普遍前提。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/driver-services/real-id'],
+      },
+      {
+        claim: '临时驾照不在 TSA 可接受身份证件清单内，纸质 temporary credential 不能默认用于登机。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'TSA 目前接受清单内证件在过期后最多两年，并通常不要求 18 岁以下儿童在美国境内旅行时向 TSA 出示身份证件。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'USA.gov 2026 年说明将 ConfirmID 列为没有可接受 ID 时的付费身份核验路径，费用为 $45，核验从出发日起有效 10 天。',
+        sourceUrls: ['https://www.usa.gov/real-id'],
+      },
+      {
+        claim: 'TSA ConfirmID 不会把普通州驾照升级成 REAL ID，也不能代替州 DMV 的申请和材料核验。',
+        sourceUrls: ['https://www.usa.gov/real-id', 'https://www.dhs.gov/real-id'],
+      },
+      {
+        claim: 'REAL ID 的申请过程和所需文件由各州决定，申请人应回到本州驾驶证签发机构核对。',
+        sourceUrls: ['https://www.usa.gov/real-id', 'https://www.usa.gov/state-motor-vehicle-services'],
+      },
+      {
+        claim: 'Texas 说明，没有星标的当前有效 Texas 驾照或 ID 仍可用于驾驶和非联邦身份用途。',
+        sourceUrls: ['https://www.texas.gov/driver-services/texas-real-id/'],
       },
     ],
     checklist: [
@@ -5920,11 +5950,15 @@ export const topics: TopicGuide[] = [
       '如果你想用州驾照/ID 做联邦身份用途，再进入本州 DMV REAL ID 页面。',
       '按州官方清单准备身份、SSN、居住地址和姓名变更文件。',
       '临近出行却没有可接受 ID 时，直接查看 TSA/USA.gov 当前身份核验说明，不要把希望全押在 DMV 预约上。',
+      '确认办理后何时收到实体卡；临时纸质驾照不能默认用于 TSA，出发前要保留护照等备用证件。',
     ],
     steps: [
-      '问自己第一句：我是不是只要开车？如果只是驾驶，普通州驾照通常仍可用于驾驶。',
-      '问第二句：我有没有护照等 TSA 接受证件？有的话，国内航班未必需要立刻升级州证件。',
-      '问第三句：我是否想用州驾照/ID 进 TSA 或联邦设施？如果是，再看本州 REAL ID 材料。',
+      '第一步：先写用途。只开车、州内年龄/身份核验和国内航班，是三件不同的事。',
+      '第二步：看现有证件。检查州驾照/ID 的合规标记，并确认护照、护照卡、绿卡或其他 TSA 接受证件是否仍有效。',
+      '第三步：判断是否值得现在升级。有稳定替代证件、近期没有联邦身份用途的人，可以等正常续期；经常飞行的人通常更适合提前办。',
+      '第四步：从 USA.gov 州目录进入本州 DMV，再使用该州 REAL ID document guide，不能拿其他州的清单照抄。',
+      '第五步：核对实体卡交付时间和临时凭证限制。临近出行时，不要把办证预约当成一定能在航班前拿到卡。',
+      '第六步：没有任何可接受证件且行程已迫近时，再把 TSA ConfirmID 或现场身份核验作为备选，并预留额外时间。',
     ],
     faqs: [
       {
@@ -5940,7 +5974,12 @@ export const topics: TopicGuide[] = [
       {
         question: 'TSA ConfirmID 是不是等于办了 REAL ID？',
         answer:
-          '不是。USA.gov 把它描述为没有 REAL ID 或其他可接受证件时的 TSA 身份核验选项；它不改变你的州驾照或 ID 是否 REAL ID 合规。',
+          '不是。USA.gov 把它描述为没有 REAL ID 或其他可接受证件时的付费 TSA 身份核验选项；目前费用为 $45、从出发日起有效 10 天。它不改变你的州驾照或 ID 是否 REAL ID 合规。',
+      },
+      {
+        question: '孩子坐美国国内航班也必须办 REAL ID 吗？',
+        answer:
+          'TSA 通常不要求 18 岁以下儿童在美国境内旅行时出示身份证件，但航空公司可能有自己的未成年人、单独旅行或年龄证明要求。订票后仍要查看航空公司规则。',
       },
     ],
     editorNotes: [
@@ -5949,7 +5988,17 @@ export const topics: TopicGuide[] = [
       '具体材料和卡面标记由州 DMV 执行，纽约、华盛顿、佐治亚等州的名称和标记可能不同。',
       '2026-07-09 复核 USA.gov：该页最后更新为 2026-04-06，并加入 TSA ConfirmID 作为没有可接受 ID 时的身份核验选项。',
     ],
-    sources: federalSources,
+    sources: [
+      ...federalSources,
+      {
+        label: 'PennDOT REAL ID',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id',
+      },
+      {
+        label: 'Texas.gov REAL ID',
+        url: 'https://www.texas.gov/driver-services/texas-real-id/',
+      },
+    ],
     relatedStateIds: ['california', 'new-york', 'texas', 'michigan'],
   },
   {
@@ -6091,7 +6140,7 @@ export const topics: TopicGuide[] = [
     slug: 'document-checklist',
     title: 'REAL ID 常见材料清单',
     eyebrow: '材料准备',
-    reviewedAt: '2026-07-07',
+    reviewedAt: '2026-07-13',
     description:
       '各州表述不同，但 REAL ID 材料通常围绕身份/合法身份、SSN、居住地址和姓名变更四类。最终必须用州官方清单核对。',
     whoNeedsIt: [
@@ -6100,21 +6149,70 @@ export const topics: TopicGuide[] = [
       '姓名、身份、地址文件不完全一致的人。',
     ],
     keyFacts: [
-      '很多州要求原件或 certified copy，不接受普通复印件。',
-      '居住地址证明常需要两份，但州与州之间可接受文件不同。',
-      '姓名不一致时，通常需要提供完整的姓名变更链条。',
+      'REAL ID 材料通常分成四组：身份与 lawful status、SSN 状态、州内居住地址，以及在姓名不一致时补充的法律姓名变更文件。',
+      '很多州要求原件或 certified copy，不接受普通复印件；“扫描件清楚”并不等于符合签发机构的文件形式要求。',
+      '居住地址证明常需要两份，但可接受类别、日期窗口、是否必须纸质、能否来自同一机构，都由州 DMV 决定。',
+      '姓名不一致时，可能要从出生姓名一路连接到当前姓名。护照已经显示当前法定姓名时，部分州会减少姓名链文件要求。',
+      'SSN 规则不能只看“有没有号码”。有的州核验号码、有的要求实体社安卡或显示完整九位号码的文件；没有资格取得 SSN 时，替代证明也按州变化。',
+      '非美国公民可能要提供额外、未过期的移民身份文件，并等待 SAVE 等系统核验；不要把美国公民材料清单直接套用。',
+    ],
+    factChecks: [
+      {
+        claim: 'USA.gov 将 REAL ID 常见材料概括为身份、Social Security number 和本州居住证明，并要求申请人以州签发机构清单为准。',
+        sourceUrls: ['https://www.usa.gov/real-id', 'https://www.usa.gov/state-motor-vehicle-services'],
+      },
+      {
+        claim: 'Pennsylvania 的 REAL ID 清单要求一份身份与 lawful-status 文件、一份 SSN 文件、两份州内居住证明，并在适用时提供姓名变更证明。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check'],
+      },
+      {
+        claim: 'Pennsylvania 明确要求 REAL ID 材料为原件或 certified copy，不接受普通 photocopy。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check'],
+      },
+      {
+        claim: 'Pennsylvania 的 SSN 证明应使用当前法定姓名并显示完整九位号码；该州列出的可选文件包括社安卡、W-2、1099 或完整号码 pay stub。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check'],
+      },
+      {
+        claim: '在 Pennsylvania，没有 SSN 的 REAL ID 申请人要按该州规则提交 SSA ineligibility letter，不能用 ITIN 自动替代。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-info-for-non-us-citizens'],
+      },
+      {
+        claim: 'Pennsylvania 要求两份 physical residency documents；电子文件是否可用及打印格式不能跨州推断。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check'],
+      },
+      {
+        claim: 'Texas 的 REAL ID 指引列出原件或认证出生证明/有效护照、社安卡、车辆登记或 title、车险及适用的姓名变更文件。',
+        sourceUrls: ['https://www.texas.gov/driver-services/texas-real-id/'],
+      },
+      {
+        claim: 'Texas REAL ID Document Check 会按申请人的身份和已有材料生成缺项提示，并要求相关文件上的姓名和出生日期一致。',
+        sourceUrls: ['https://www.dps.texas.gov/apps/DriverLicense/RealID/'],
+      },
+      {
+        claim: 'Pennsylvania 允许在护照已显示当前法定姓名时不再提交姓名变更文件；否则应提供 certified marriage certificate、法院命令等连接文件。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/driver-services/real-id/name-changes-real-id'],
+      },
+      {
+        claim: 'Florida 将美国公民、移民、非移民和加拿大申请人的材料路径分开，申请人应先选择自己的身份类别。',
+        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/'],
+      },
     ],
     checklist: [
       '身份和合法身份文件：例如护照、出生证明、绿卡、移民身份文件等，按州要求选择。',
       'SSN 文件：社安卡、W-2、paystub 或州接受的其他文件。',
       '居住地址证明：账单、银行信、租约、保险、学校或政府信件等，必须查看州清单。',
       '姓名变更文件：结婚证、离婚判决、法院命令等。',
+      '逐份检查有效期、姓名、出生日期、住宅地址和文件编号；需要认证副本时，不要带纪念证书或普通复印件。',
+      '准备预约确认、申请编号、付款方式和一份不同类别的备用地址文件；线上预上传不一定替代现场原件。',
     ],
     steps: [
-      '先打开州 DMV 的 document guide 或 checklist。',
-      '按自己的身份类别生成材料清单。',
-      '检查每份文件上的姓名、生日和地址是否一致。',
-      '把原件/认证副本、预约确认和付款方式放在同一个文件夹。',
+      '第一步：从州 DMV 的具体 REAL ID 页面进入 document guide，不使用博客或其他州的通用清单。',
+      '第二步：选择自己的身份类别。美国公民、永久居民、EAD、学生/临时身份和不可取得 SSN 的路径可能不同。',
+      '第三步：按 identity、SSN、residency、name change 四栏整理文件，并在每一栏写明州要求的数量。',
+      '第四步：逐份核对姓名、出生日期、地址和有效期；不一致时先补齐法律连接文件，不要指望柜台口头解释。',
+      '第五步：确认文件形式。原件、certified copy、打印电子账单和手机截图是四种不同概念，以州页面的措辞为准。',
+      '第六步：把原件/认证副本、预约确认、申请编号、付款方式和备用文件放在同一文件夹，到场前再按官方清单复核一次。',
     ],
     faqs: [
       {
@@ -6126,6 +6224,16 @@ export const topics: TopicGuide[] = [
         question: '地址证明没有我的名字怎么办？',
         answer:
           '不同州有不同替代路径，例如同住人声明、学校文件或政府信件。不要猜，直接看州 DMV document guide。',
+      },
+      {
+        question: '有 ITIN，可以把它填在 SSN 一栏吗？',
+        answer:
+          '不要直接替代。ITIN 不是 SSN；州 DMV 可能要求 SSN、电子核验、SSA ineligibility letter 或其他声明。按本州和本人身份类别的说明处理。',
+      },
+      {
+        question: '护照已经是现在的名字，还要带所有结婚证吗？',
+        answer:
+          '取决于州。Pennsylvania 明确允许护照已显示当前法定姓名时免去姓名变更文件；其他州可能仍有自己的匹配或 SSA 更新要求，必须看本州清单。',
       },
     ],
     editorNotes: [
@@ -6139,8 +6247,24 @@ export const topics: TopicGuide[] = [
         url: 'https://www.dhs.gov/real-id',
       },
       {
+        label: 'USA.gov REAL ID',
+        url: 'https://www.usa.gov/real-id',
+      },
+      {
+        label: 'USA.gov State Motor Vehicle Services',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+      },
+      {
         label: 'PA REAL ID Document Requirements',
         url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check',
+      },
+      {
+        label: 'PA REAL ID for Non-U.S. Citizens',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-info-for-non-us-citizens',
+      },
+      {
+        label: 'PA REAL ID Name Changes',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id/name-changes-real-id',
       },
       {
         label: 'FLHSMV What to Bring',
@@ -6149,6 +6273,10 @@ export const topics: TopicGuide[] = [
       {
         label: 'Texas.gov REAL ID',
         url: 'https://www.texas.gov/driver-services/texas-real-id/',
+      },
+      {
+        label: 'Texas DPS REAL ID Document Check',
+        url: 'https://www.dps.texas.gov/apps/DriverLicense/RealID/',
       },
     ],
     relatedStateIds: ['california', 'texas', 'florida', 'pennsylvania'],
@@ -7055,7 +7183,7 @@ export const topics: TopicGuide[] = [
     slug: 'state-id-non-driver-id-real-id-card',
     title: '不考驾照，只办 State ID / non-driver ID 怎么准备',
     eyebrow: '州身份证',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '不准备开车，也可以在很多州申请 state ID、non-driver ID、photo ID、Mass ID 或 Enhanced ID。先分清普通 ID、REAL ID-compliant ID、Enhanced ID、移动 ID、驾照换 ID、未成年人 ID 和无家可归 / 低收入费用减免，避免把 ID card 当成驾照或护照来用。',
     whoNeedsIt: [
@@ -7076,6 +7204,72 @@ export const topics: TopicGuide[] = [
       '实体卡大多会邮寄。California ID 约 3-4 周寄达；Texas ID 约 2-3 周寄达；Washington ID 约 7-10 天寄达，临时 ID 因没有照片/签名不能当正式 ID 使用；Virginia 也提醒 USPS 不会转寄 ID。',
       '低收入、无家可归、老人或特定人群可能有 fee waiver / reduced fee。California 有 reduced/no-fee/senior ID；Washington 有 unhoused 和 reduced-fee ID 帮助；Pennsylvania 提供无家可归者免费 ID 入口。',
       'Mobile ID 通常是 companion，不应替代实体卡。New York 和 Virginia 都提醒仍要保留或携带 physical driver license / permit / non-driver ID，尤其在驾驶、旅行或机构不接受移动 ID 时。',
+    ],
+    factChecks: [
+      {
+        claim: 'California 的 ID card 用于证明身份或年龄，不提供驾驶资格，并可向符合条件的任何年龄申请人签发。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/identification-id-cards/'],
+      },
+      {
+        claim: 'REAL ID 可以是 driver license，也可以是 state identification card；是否有驾驶资格取决于证件本身是不是驾照。',
+        sourceUrls: ['https://www.dhs.gov/real-id', 'https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'California standard ID 仍可用于州内证明身份或年龄，但不能代替 REAL ID 或其他 TSA 接受证件处理联邦用途。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/identification-id-cards/',
+          'https://www.tsa.gov/travel/security-screening/identification',
+        ],
+      },
+      {
+        claim: 'Washington standard ID 不能用于边境通行；该州 Enhanced ID 可按官方说明用于从陆路或海路返回美国。',
+        sourceUrls: [
+          'https://dol.wa.gov/id-cards/get-id-card',
+          'https://dol.wa.gov/id-cards/enhanced-id-card-eid/get-enhanced-id-card-eid',
+        ],
+      },
+      {
+        claim: 'Texas 申请人如果已经持有 driver license，申请 identification card 时通常必须 surrender 该驾照。',
+        sourceUrls: ['https://www.dps.texas.gov/section/driver-license/how-apply-texas-identification-card'],
+      },
+      {
+        claim: 'State ID 的年龄规则并不统一：California 可向任何年龄签发，Washington 没有最低年龄，Virginia 则分别设置 adult 和 child ID 路径。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/identification-id-cards/',
+          'https://dol.wa.gov/id-cards/get-id-card',
+          'https://www.dmv.virginia.gov/licenses-ids/id-cards/adult-id',
+          'https://www.dmv.virginia.gov/licenses-ids/id-cards/child-id',
+        ],
+      },
+      {
+        claim: 'State ID 不要求路考，但申请人仍可能需要证明身份、SSN、居住地址、lawful presence 和姓名一致性。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/identification-id-cards/',
+          'https://www.dps.texas.gov/section/driver-license/how-apply-texas-identification-card',
+          'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
+        ],
+      },
+      {
+        claim: 'California ID 通常在三到四周内邮寄；Texas ID 通常约两到三周寄达；Washington 的临时 ID 因缺少照片和签名不能当正式 ID 使用。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/identification-id-cards/',
+          'https://www.dps.texas.gov/section/driver-license/how-apply-texas-identification-card',
+          'https://dol.wa.gov/id-cards/get-id-card',
+        ],
+      },
+      {
+        claim: 'California 为符合条件的老人、低收入和无家可归申请人提供 no-fee 或 reduced-fee ID 路径，不能只按普通费用判断。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/identification-id-cards/'],
+      },
+      {
+        claim: 'New Jersey non-driver ID 和 Massachusetts Mass ID 都有自己的身份与地址材料要求，不能用驾照考试清单或其他州清单替代。',
+        sourceUrls: [
+          'https://www.nj.gov/mvc/license/nondriverid.htm',
+          'https://www.nj.gov/mvc/license/6pointid.htm',
+          'https://www.mass.gov/how-to/apply-for-a-massachusetts-identification-card-mass-id',
+          'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
+        ],
+      },
     ],
     checklist: [
       '先决定用途：州内年龄/身份、国内航班、联邦设施、陆海边境回美、银行/学校/租房，还是只是替代不再使用的驾照。',
@@ -7331,10 +7525,12 @@ export const topics: TopicGuide[] = [
       '不想携带护照但经常飞国内的人。',
     ],
     keyFacts: [
-      'TSA 接受的证件不只有 REAL ID；有效美国护照也是常见选择。',
-      '驾照用于驾驶和用于机场安检是两个不同问题。',
-      '旅行前应同时查看 TSA 和州 DMV 页面。',
-      'USA.gov 2026 年说明提到 TSA ConfirmID：没有 REAL ID 或其他可接受证件的 18 岁及以上旅客可付费进行身份核验，核验有效期从出发日起算 10 天。',
+      '18 岁及以上旅客通过 TSA 安检时，可以使用 REAL ID 合规州证件，也可以使用有效护照、护照卡、绿卡、EAD、军人证或 TSA 列出的其他证件。',
+      '自 2025 年 5 月 7 日起，非 REAL ID 合规的州驾照/ID 不再是 TSA 接受的有效州证件；它是否还能用于开车，是另一个州法问题。',
+      'TSA 当前接受清单内证件在过期后最多两年，但 temporary driver license 明确不在可接受列表内。州 DMV 的临时驾驶效力不能替 TSA 作保证。',
+      'TSA 通常不要求 18 岁以下儿童在美国境内旅行时出示身份证件；航空公司仍可能对未成年人、单独旅行或年龄证明另有要求。',
+      '没有可接受证件时，现场身份核验可能带来额外筛查，也可能因无法确认身份而不能进入安检区；不要把它当成保证登机的常规方案。',
+      'USA.gov 2026 年说明：没有 REAL ID 或其他可接受证件的 18 岁及以上旅客可提前支付 $45 使用 TSA ConfirmID，核验从出发日起有效 10 天。',
     ],
     factChecks: [
       {
@@ -7349,6 +7545,37 @@ export const topics: TopicGuide[] = [
         claim: '没有 REAL ID 或其他可接受证件时，ConfirmID 属于付费身份核验备选；它不是一张临时 REAL ID。',
         sourceUrls: ['https://www.usa.gov/real-id', 'https://www.tsa.gov/travel/security-screening/identification'],
       },
+      {
+        claim: '自 2025 年 5 月 7 日起，非 REAL ID 合规的州驾照和州 ID 不再被 TSA 接受为有效的州签发机场身份证件。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'TSA 接受列表还包括护照卡、绿卡、EAD、军人证、Trusted Traveler cards 和部分其他联邦或外国证件。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'TSA 当前接受清单内证件在过期后最多两年，但 temporary driver license 不属于可接受身份证件。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'TSA 通常不要求 18 岁以下儿童在美国境内旅行时提供身份证件，航空公司的未成年人规则需另查。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: '没有可接受 ID 的旅客可能被要求完成身份核验并接受额外筛查；身份无法确认时不能进入安检区。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'USA.gov 2026 年列出的 ConfirmID 费用为 $45，提前办理可减少机场延误，核验从出发日起有效 10 天。',
+        sourceUrls: ['https://www.usa.gov/real-id'],
+      },
+      {
+        claim: 'REAL ID 还适用于需要联邦可接受身份文件的部分联邦设施，但设施可以有各自的访问与安保规则。',
+        sourceUrls: [
+          'https://www.dhs.gov/real-id',
+          'https://www.dhs.gov/sites/default/files/2025-04/25_0414_fps_id-requirements-for-federal-facilities.pdf',
+        ],
+      },
     ],
     checklist: [
       '检查驾照/ID 是否有 REAL ID 合规标记。',
@@ -7356,12 +7583,15 @@ export const topics: TopicGuide[] = [
       '确认姓名与机票姓名一致。',
       '出发前再次查看 TSA identification 页面。',
       '如果已经临近出发且没有可接受 ID，查看 USA.gov 和 TSA 的 ConfirmID 当前说明，并预留机场核验时间。',
+      '同时查看航空公司的姓名、未成年人和证件规则；TSA 接受证件不等于航空公司所有手续都自动满足。',
     ],
     steps: [
-      '先用 TSA 页面确认可接受证件。',
-      '如果想用州驾照/ID 登机，确认它是否 REAL ID 合规。',
-      '如果不合规，决定是办理 REAL ID 还是旅行时带护照。',
-      '没有任何可接受证件时，把 TSA 身份核验当作最后备选，而不是日常出行计划。',
+      '第一步：打开 TSA acceptable identification 页面，用你计划携带的具体证件名称逐项核对。',
+      '第二步：如果要用州驾照/ID，按签发州官方样卡确认是否 REAL ID 合规，不只凭网上流传的星标图片判断。',
+      '第三步：如果州证件不合规，优先选择仍有效的护照、护照卡、绿卡、EAD、军人证或清单内其他实体证件。',
+      '第四步：刚续期或补证时，分清永久卡和 temporary credential；临时纸质驾照不能默认过 TSA。',
+      '第五步：核对机票姓名、证件姓名、航班日期和航空公司的未成年人/国际转机规则，并把主要证件放入随身行李。',
+      '第六步：没有任何可接受证件时，再查看 ConfirmID 或 TSA 现场身份核验，并为额外筛查和不能通过核验的风险预留方案。',
     ],
     faqs: [
       {
@@ -7377,7 +7607,12 @@ export const topics: TopicGuide[] = [
       {
         question: '没有 REAL ID、也没有护照，还能飞吗？',
         answer:
-          'USA.gov 2026 年说明提到 TSA ConfirmID 可作为没有 REAL ID 或其他可接受证件时的身份核验选项，但它需要付费并可能增加时间成本。出发前必须看 TSA/USA.gov 当前页面。',
+          '可能还有 ConfirmID 或 TSA 身份核验路径，但不是保证。USA.gov 当前列出的 ConfirmID 费用为 $45、从出发日起有效 10 天；身份无法确认时，TSA 可以不让旅客进入安检区。',
+      },
+      {
+        question: '过期一年的护照或 REAL ID 还能用吗？',
+        answer:
+          'TSA 当前说明接受其清单内证件在过期后最多两年，但证件必须原本就在接受列表中。航空公司、国际行程和目的地规则可能更严格，不要把这一规则用于国际旅行。',
       },
     ],
     editorNotes: [
@@ -7403,6 +7638,18 @@ export const topics: TopicGuide[] = [
         label: 'USA.gov REAL ID',
         url: 'https://www.usa.gov/real-id',
       },
+      {
+        label: 'DHS Federal Facilities ID Requirements',
+        url: 'https://www.dhs.gov/sites/default/files/2025-04/25_0414_fps_id-requirements-for-federal-facilities.pdf',
+      },
+      {
+        label: 'PennDOT REAL ID',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id',
+      },
+      {
+        label: 'Texas.gov REAL ID',
+        url: 'https://www.texas.gov/driver-services/texas-real-id/',
+      },
     ],
     relatedStateIds: ['texas', 'washington', 'new-york', 'michigan'],
   },
@@ -7410,7 +7657,7 @@ export const topics: TopicGuide[] = [
     slug: 'online-office-appointment',
     title: 'DMV 业务先线上办还是预约到办公室',
     eyebrow: '线上/现场分流',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '续期、补证、地址变更、REAL ID、首次驾照、外州转入和路考，不是都要去同一个 DMV 窗口。先判断能否线上、kiosk、邮寄或必须预约现场，能少跑很多冤枉路。',
     whoNeedsIt: [
@@ -7424,6 +7671,52 @@ export const topics: TopicGuide[] = [
       '预约入口也不是通用钥匙。driver license office、vehicle office、county tax collector、licensing center、testing location 和 REAL ID center 可能办理不同业务。',
       '路考、knowledge test 和 permit 经常有单独入口。预约成功只说明拿到时段，不代表车辆、陪同人、文件、保险或考试语言当天一定合格。',
       '很多州的永久卡片会邮寄；temporary license、receipt 或 paper ID 是否可用于 TSA、驾驶或身份用途，要看州 DMV 和 TSA 当前说明。',
+      '官方系统有时会跳转到州交易平台、县办公室或预约供应商；判断入口真伪的关键是从州 DMV 官网逐层进入，而不是要求所有最终域名都长得一样。',
+    ],
+    factChecks: [
+      {
+        claim: 'USA.gov 提供各州机动车与驾照服务的官方入口，适合在不知道本州机构名称时作为起点。',
+        sourceUrls: ['https://www.usa.gov/state-motor-vehicle-services'],
+      },
+      {
+        claim: 'California DMV 明确把部分常规续期、补证和记录业务移到 online、kiosk、business partner 或 mail，不提供普通柜台办理。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/appointments/'],
+      },
+      {
+        claim: 'California 的 appointment 和 location 页面按业务与地点分流，预约并不代表任意办公室都办理同一项目。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/appointments/', 'https://www.dmv.ca.gov/portal/locations/'],
+      },
+      {
+        claim: 'New York 要求按具体 office location 查看服务和预约安排，不能只凭“附近 DMV”判断。',
+        sourceUrls: ['https://dmv.ny.gov/contact-us/office-locations'],
+      },
+      {
+        claim: 'Texas 的 online eligibility 由 DPS 系统决定，并会按年龄、证件状态、上次续期方式、SSN、身份和驾照状态等条件判断。',
+        sourceUrls: ['https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/'],
+      },
+      {
+        claim: 'Florida 的在线续期、补证和地址更新有资格限制；首次办证、非 REAL ID 合规、姓名变化、CDL 或 TEMPORARY credential 等情形要求现场。',
+        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/'],
+      },
+      {
+        claim: 'Florida 的服务中心和县税务官办公室可能提供不同项目，办理前应在官方 locations 页面核对地点与服务。',
+        sourceUrls: ['https://www.flhsmv.gov/locations/'],
+      },
+      {
+        claim: 'Washington 将 driver licensing office、vehicle licensing office、appointments 和 testing locations 分开，预约入口不是通用窗口。',
+        sourceUrls: [
+          'https://dol.wa.gov/appointments-and-locations',
+          'https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-offices',
+        ],
+      },
+      {
+        claim: 'New Jersey 在线服务分别提供地址变更、duplicate、standard/REAL ID renewal、车辆业务和 driver record 等入口。',
+        sourceUrls: ['https://www.nj.gov/mvc/online-services.html'],
+      },
+      {
+        claim: '临时纸质驾照不在 TSA 可接受身份证件清单内，线上或现场办完拿到 receipt 不等于已拿到可登机实体证件。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
     ],
     checklist: [
       '先把业务写清楚：renewal、replacement、address change、REAL ID upgrade、first license、transfer、road test、vehicle title / registration。',
@@ -7431,6 +7724,7 @@ export const topics: TopicGuide[] = [
       '打开州官方 online services、appointment、locations 或 service advisor 页面，不从第三方广告入口开始。',
       '如果页面要求现场核验，确认地点类型、服务项目、预约类别、材料原件/认证副本、付款方式和是否接受 walk-in。',
       '如果能线上或 kiosk 办理，先确认邮寄地址、临时凭证、处理时间、service fee 和是否需要先完成地址变更。',
+      '保存预约确认、申请编号和取消/改期入口；不要为了抢时间重复创建多个预约而忘记释放不用的时段。',
     ],
     steps: [
       '第一步：不要先搜“附近 DMV”。先打开州 DMV 官方主站、online services 或 service advisor，选择你真正要办的业务。',
@@ -7438,6 +7732,7 @@ export const topics: TopicGuide[] = [
       '第三步：只要涉及首次 REAL ID、首次驾照、外州/外国驾照转入、姓名变化、非公民身份文件、lawful presence、路考或车辆业务，就继续查现场地点和预约类别。',
       '第四步：预约前确认办公室类型。Washington DOL 区分 driver licensing office、vehicle licensing office 和 testing location；Florida 又常由县税务官或服务中心承办。',
       '第五步：到场前一天重新核对预约确认、官方材料清单、原件/认证副本、付款方式、临时凭证和邮寄时间；政府网站临时维护或办公室服务范围变化都可能影响当天办理。',
+      '第六步：办完后保存 receipt、temporary credential、tracking/status 入口和预计邮寄时间；若预约不用了，回官方确认页取消。',
     ],
     faqs: [
       {
@@ -7518,6 +7813,10 @@ export const topics: TopicGuide[] = [
         label: 'NJ MVC Appointment Wizard',
         url: 'https://telegov.njportal.com/njmvc/AppointmentWizard',
       },
+      {
+        label: 'TSA Identification',
+        url: 'https://www.tsa.gov/travel/security-screening/identification',
+      },
     ],
     relatedStateIds: ['california', 'new-york', 'texas', 'florida', 'washington', 'new-jersey', 'michigan', 'north-carolina', 'virginia', 'georgia'],
   },
@@ -7525,7 +7824,7 @@ export const topics: TopicGuide[] = [
     slug: 'dmv-scam-text-fake-ticket-toll-real-id-phishing',
     title: 'DMV 诈骗短信、假罚单和假官网怎么识别',
     eyebrow: '防诈骗',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '收到“DMV 罚单未付”“toll 欠费”“REAL ID 可加急”“驾照将 suspend”的短信、邮件、电话或广告时，先不要点链接。很多州 DMV 和联邦机构都提醒，诈骗信息会伪装成官方页面，诱导你输入驾照号、SSN、银行卡或登录信息。',
     whoNeedsIt: [
@@ -7546,6 +7845,60 @@ export const topics: TopicGuide[] = [
       '如果已经输入银行卡、SSN、driver license、账户密码或验证码，要把它当成身份盗用风险处理：联系银行/信用卡、改密码、查看信用报告、考虑 fraud alert / freeze，并按 IdentityTheft.gov 或州 DMV fraud 页面走。',
       '“我真的有罚单/欠 toll”也不能证明短信是真的。真实欠费应从法院、toll agency、DMV official account、E-ZPass / Toll By Plate 或本州官方系统核验。',
       '本站只做官方入口导航和风险提示，不替你判断某条短信是否一定违法，也不收集你的个人信息；任何付款、报案、身份盗用补救都应回到官方渠道。',
+    ],
+    factChecks: [
+      {
+        claim: 'FTC 提醒，所谓 unpaid toll 短信常把用户带到假付款页，目标可能包括银行卡资料、驾照号码和其他身份信息。',
+        sourceUrls: ['https://consumer.ftc.gov/consumer-alerts/2025/01/got-text-about-unpaid-tolls-its-probably-scam'],
+      },
+      {
+        claim: 'FTC 建议不要点击或回复意外短信，应通过已知真实的 toll agency 入口核验，并可 report junk 或转发到 7726。',
+        sourceUrls: [
+          'https://consumer.ftc.gov/articles/how-recognize-and-report-spam-text-messages',
+          'https://consumer.ftc.gov/consumer-alerts/2025/01/got-text-about-unpaid-tolls-its-probably-scam',
+        ],
+      },
+      {
+        claim: 'FBI IC3 建议在 toll smishing 投诉中保留并提交发件号码和短信所列网址，再用真实 toll service 网站独立核验。',
+        sourceUrls: ['https://www.ic3.gov/PSA/2024/PSA240412'],
+      },
+      {
+        claim: 'California DMV 明确表示不会通过短信索取付款、个人信息或金融信息，并建议直接访问 dmv.ca.gov 或官方客服核验。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/dmv-scam-alert/',
+          'https://www.dmv.ca.gov/portal/news-and-media/dmv-warns-of-fraudulent-text-scam-asking-for-toll-payments/',
+        ],
+      },
+      {
+        claim: 'Florida FLHSMV 不会通过短信要求立即付款，也不会以短信威胁 suspend 驾照、车辆登记或 arrest。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/safety-center/consumer-education/scam-alert/',
+          'https://www.flhsmv.gov/2026/03/24/flhsmv-warns-motorists-of-new-scam-alert/',
+        ],
+      },
+      {
+        claim: 'Washington DOL 目前不通过短信请求付款，并把“付钱跳过排队或加快 REAL ID-compliant document”列为诈骗话术。',
+        sourceUrls: ['https://dol.wa.gov/about/privacy-center/scam-alerts'],
+      },
+      {
+        claim: 'Virginia DMV 提醒 toll 欠费应从真实 toll agency 核验，Virginia DMV 不会发送 toll bill 短信。',
+        sourceUrls: ['https://www.dmv.virginia.gov/news/virginia-dmv-warns-customers-toll-charge-text-scam'],
+      },
+      {
+        claim: 'Georgia 没有名为 State Department of Motor Vehicles 的机构；DDS 表示不会用未请求的短信索取费用或机密信息。',
+        sourceUrls: [
+          'https://dds.georgia.gov/fake-text-scams',
+          'https://dds.georgia.gov/press-releases/2025-05-27/text-message-scam',
+        ],
+      },
+      {
+        claim: 'New York DMV 提醒，钓鱼页面和信息可能复制政府 logo、图片及内容，外观像官网不能证明链接真实。',
+        sourceUrls: ['https://dmv.ny.gov/more-info/phishing-attacks', 'https://dmv.ny.gov/more-info/phishing-examples'],
+      },
+      {
+        claim: '已经泄露银行卡、SSN 或驾照信息时，应按泄露类型联系金融机构、检查或冻结信用，并使用 IdentityTheft.gov 的恢复步骤。',
+        sourceUrls: ['https://www.identitytheft.gov/', 'https://www.identitytheft.gov/Info-Lost-or-Stolen'],
+      },
     ],
     checklist: [
       '先看来源：发件号码、邮箱、域名、链接是否来自你能从官方 DMV/RMV/MVC/DOL/Toll agency 页面反向找到的入口。',
@@ -8214,32 +8567,48 @@ export const topics: TopicGuide[] = [
       '很多州的永久驾照或 ID 会邮寄，不一定现场打印。新泽西 MVC 明确说明因安全变化，agency 办理的 license / ID renewal 或 duplicate 也会邮寄。',
       '临时驾照、receipt、paper ID 或 interim credential 通常只能解决短期驾驶或交易证明，不要默认可用于 TSA、REAL ID 联邦用途、I-9、银行或学校场景。',
       '如果临近航班，优先准备护照等 TSA 接受证件；不要把刚办完 DMV 后的临时纸质文件当作稳定旅行方案。',
+      '官方 processing time 通常只是估算。补件、照片/身份复核、地址错误、邮件退回或系统人工审查都可能延长时间；超过州页面给出的查询节点后再查 status 或联系客服。',
     ],
     factChecks: [
       {
-        claim: 'California 会按 online、kiosk、mail 等办理路径公布不同 processing time，费用和拿证时间不能只看一个总数。',
-        sourceUrls: [
-          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/',
-          'https://www.dmv.ca.gov/portal/about-the-california-department-of-motor-vehicles/renewal-processing-times/',
-        ],
+        claim: 'California 的 licensing fee table 按 original、renewal、replacement、ID 类型和其他具体业务分别列价，不能只用一个“DMV 费用”数字。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/'],
       },
       {
-        claim: 'Florida MyDMV Portal 办理后通常需要等待实体卡邮寄，并可能收取线上 processing fee。',
-        sourceUrls: [
-          'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
-          'https://www.flhsmv.gov/driver-licenses-id-cards/fees/',
-        ],
+        claim: 'California 公布的 DL/ID processing time 会按 online、kiosk 和 mail 等路径分别估算，线上和 kiosk 的实体卡也要等待邮寄。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/about-the-california-department-of-motor-vehicles/renewal-processing-times/'],
       },
       {
-        claim: 'New Jersey 的 renewal / duplicate 证件通常通过邮寄发放，现场办理不等于现场拿到永久卡。',
-        sourceUrls: ['https://www.nj.gov/mvc/license/licrenew.htm', 'https://www.nj.gov/mvc/license/liclost.htm'],
+        claim: 'California 线上续期满足要求时可立即提供 temporary driver license，但该临时文件不能作为 identification 使用。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/about-the-california-department-of-motor-vehicles/renewal-processing-times/'],
       },
       {
-        claim: '临时纸质凭证是否能用于旅行要按 TSA 接受证件列表判断，州 DMV 的临时驾驶效力不能替 TSA 作保证。',
-        sourceUrls: [
-          'https://www.tsa.gov/travel/security-screening/identification',
-          'https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx',
-        ],
+        claim: 'Florida MyDMV Portal 办理后的 credential 通常在 2-3 周内邮寄，并在交易总额中加收 $2 processing fee。',
+        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/'],
+      },
+      {
+        claim: 'Florida 对首次办证、非 REAL ID 合规、姓名变化、更新照片、CDL 或标有 TEMPORARY 的 credential 等情况要求现场办理。',
+        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/'],
+      },
+      {
+        claim: 'New Jersey 的 online renewal 会立即生效并提供 receipt，但永久卡通常需 2-4 周邮寄；即使在 agency 办理也不现场打印永久卡。',
+        sourceUrls: ['https://www.nj.gov/mvc/license/licrenew.htm'],
+      },
+      {
+        claim: 'New Jersey 的 standard license renewal 与 duplicate/change 使用不同费用，REAL ID、endorsement 和其他类别也不能共用一个价格。',
+        sourceUrls: ['https://www.nj.gov/mvc/license/licrenew.htm', 'https://www.nj.gov/mvc/license/licfees.htm?os=os'],
+      },
+      {
+        claim: 'New York 将 license fee、refund 和 replacement 业务分开说明，最终费用会受证件类别与具体交易影响。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/fees-refunds', 'https://dmv.ny.gov/driver-license/replace-a-license-or-permit'],
+      },
+      {
+        claim: 'Texas 说明 driver license 和 ID 费用会按 driver type、年龄以及新办或续期变化，续期方式也有不同资格要求。',
+        sourceUrls: ['https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/'],
+      },
+      {
+        claim: 'TSA 明确不接受 temporary driver license 作为机场身份证件，州内可短期驾驶不等于可用于登机。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
       },
     ],
     checklist: [
@@ -8248,6 +8617,7 @@ export const topics: TopicGuide[] = [
       '确认卡片交付方式：现场发实体卡、邮寄实体卡、先给 temporary credential，还是需要自己打印 receipt。',
       '核对 DMV 记录中的 mailing address；丢证或搬家后，很多场景应先改地址再补证或续期。',
       '有旅行或身份核验需求时，同时查看 TSA identification 页面和州 DMV 对 temporary / interim / paper credential 的说明。',
+      '保存付款收据、确认号、temporary credential、状态查询入口和官方预计时间，避免重复付款或过早重新申请。',
     ],
     steps: [
       '第一步：先别只看价格。把业务类别和证件类型写清楚，因为 renewal、replacement、REAL ID upgrade、Enhanced、late renewal 和 first license 的费用口径可能不同。',
@@ -8255,6 +8625,7 @@ export const topics: TopicGuide[] = [
       '第三步：看是否有线上资格和线上附加费。Florida MyDMV Portal 示例明确写到线上办理后通常 2-3 周邮寄，并有 $2 processing fee；其他州可能用不同名称收取服务费。',
       '第四步：看卡片多久到。California DMV processing times 会按 online、kiosk、mail 等路径给预估；NJ MVC renewal / duplicate 页面提醒实体证通常 2-4 周邮寄。',
       '第五步：临近出行时单独判断 TSA。TSA 接受证件清单和州 DMV 临时证说明要一起看；如果没有实体 REAL ID 或其他可接受 ID，准备护照或查看 TSA 当前身份核验选项。',
+      '第六步：超过官方预计时间后，用 confirmation number 或 card status 页面查询；发现地址错误、退信或重复扣款时，再按州官方客服/退款流程处理。',
     ],
     faqs: [
       {
@@ -8326,6 +8697,10 @@ export const topics: TopicGuide[] = [
       {
         label: 'NJ MVC Duplicate License',
         url: 'https://www.nj.gov/mvc/license/liclost.htm',
+      },
+      {
+        label: 'NJ MVC License and Permit Fees',
+        url: 'https://www.nj.gov/mvc/license/licfees.htm?os=os',
       },
       {
         label: 'Washington DOL Renew Driver License',
@@ -8607,6 +8982,18 @@ export const topics: TopicGuide[] = [
           'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/testing',
           'https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test',
         ],
+      },
+      {
+        claim: 'New Jersey 允许使用原厂 backup camera 和 parking sensors，但 self-parking vehicle 不符合 basic road test 车辆要求。',
+        sourceUrls: ['https://www.nj.gov/mvc/license/roadtest.htm'],
+      },
+      {
+        claim: 'Massachusetts 允许申请人自带 interpreter，也可在预约时请求 RMV 安排；口译员只能翻译考官原话，不能增加驾驶指示。',
+        sourceUrls: ['https://www.mass.gov/info-details/passenger-class-d-road-tests'],
+      },
+      {
+        claim: 'Virginia road skills test 在道路上以英语进行；使用口译员时，口译员须符合年龄和驾照要求，测试车辆还必须有带安全带的后座。',
+        sourceUrls: ['https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test'],
       },
     ],
     checklist: [
@@ -9422,6 +9809,7 @@ export const topics: TopicGuide[] = [
       'Florida 已从 2026 年 2 月 6 日起把所有 driver license knowledge 和 skills exams 改为仅使用英语，并停止考试翻译服务；旧 General Information 页面上的多语言列表属于尚未同步的历史内容。',
       'CDL、Hazmat、commercial exam 或部分特殊考试经常有更严格语言限制；不要把普通 Class D / Class E 笔试规则套到商业驾照。',
       '文件翻译和考试语言不是一回事。非英文身份、姓名、移民或外国驾照文件可能需要 certified translation、English translation、IDP 或州认可翻译格式。',
+      'Texas 从 2026 年 6 月 1 日起把 CDL/CLP knowledge exams 改为 English-only，且禁止 interpreter；这项变化不能反向套到普通非商业驾照笔试。',
     ],
     factChecks: [
       {
@@ -9451,6 +9839,29 @@ export const topics: TopicGuide[] = [
           'https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx',
         ],
       },
+      {
+        claim: 'Texas 从 2026 年 6 月 1 日起仅以英语提供 CDL 和 CLP knowledge examinations，并禁止考试期间使用 interpreter。',
+        sourceUrls: ['https://www.dps.texas.gov/section/driver-license/testing-other-languages'],
+      },
+      {
+        claim: 'New Jersey 当前普通 knowledge test 语言列表包括 Chinese (Mandarin)，缺少母语版本时可请求 MVC 通过州合同安排 interpreter。',
+        sourceUrls: ['https://www.nj.gov/mvc/license/knowledgetest.htm'],
+      },
+      {
+        claim: 'New Jersey oral knowledge test 只提供 English 和 Spanish；CDL knowledge test 与 Hazmat 又有更严格的语言限制。',
+        sourceUrls: ['https://www.nj.gov/mvc/license/knowledgetest.htm'],
+      },
+      {
+        claim: 'North Carolina 普通知识考试提供不同语言并可按请求提供 oral test，语言 interpreter 则要通过独立服务入口申请。',
+        sourceUrls: [
+          'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+          'https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx',
+        ],
+      },
+      {
+        claim: 'California 的多语言 online learning 或 driver materials 只能证明学习资源可用，最终考试语言仍应按对应 test 页面和个人业务确认。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-education-and-safety/online-learning-and-tests/'],
+      },
     ],
     checklist: [
       '先分清你问的是哪一类：网页翻译、driver manual、permit / knowledge test、road test、oral / audio test、文件翻译、CDL / Hazmat。',
@@ -9458,6 +9869,7 @@ export const topics: TopicGuide[] = [
       '如果页面列出中文，确认是 Chinese、Mandarin、Traditional Chinese、Simplified Chinese，还是仅有中文学习资料。',
       '如果需要口译或 oral test，确认是否要提前预约、由 DMV 安排、是否允许私人 interpreter，以及是否适用于 road test。',
       '如果文件不是英文，按州要求准备 certified translation、English translation、IDP 或官方认可翻译，不要用普通自译件替代。',
+      '记录确认日期和考点答复；由第三方学校承办考试时，再向具体 testing location 确认它实际提供的语言。',
     ],
     steps: [
       '第一步：先定位业务。普通非商业知识考试、路考、CDL / Hazmat、外国驾照转入、REAL ID 文件核验，各自语言规则可能不同。',
@@ -9465,6 +9877,7 @@ export const topics: TopicGuide[] = [
       '第三步：把“学习资料”和“考试语言”分开。California、Washington、Michigan 等有多语言学习或线上学习线索，但最终考试可用语言仍要看对应 test 页面。',
       '第四步：把“口译”和“翻译文件”分开。New Jersey 可在缺少母语考试版本时请求 MVC 安排 interpreter；North Carolina 有 interpreter services 页面；外文文件则另看 certified translation 要求。',
       '第五步：预约或考试前重新确认。语言、口译、第三方考点、线上考试和 CDL 限制可能更新；办理 Florida 或 Texas 业务时尤其要以当前官方入口为准。',
+      '第六步：保存官方页面、预约类别和 interpreter 请求确认；若考点无法提供所选语言，先改考点或日期，不要到场后临时找朋友代答。',
     ],
     faqs: [
       {
@@ -13231,9 +13644,12 @@ export const topics: TopicGuide[] = [
       '想在线办理而不想去 DMV 办公室的人。',
     ],
     keyFacts: [
-      '很多州提供线上续期、补证或地址变更，但不是所有人都符合资格。',
-      '地址变化时，先更新 DMV 地址通常更稳妥。',
-      'REAL ID 首次办理或材料核验常常需要现场。',
+      '很多州提供线上续期、补证或地址变更，但入口能打开不等于本人符合资格；年龄、过期时间、证件类别、上次办理方式、SSN 和驾照状态都可能影响结果。',
+      '地址变化时，先更新 DMV 记录再续期或补证通常更稳妥，否则新卡可能寄到旧地址，或线上交易继续带出旧资料。',
+      '地址更新期限按州变化：California 和 New York 通常是 10 天，Florida 和 Massachusetts 通常是 30 天，不能把一个州的期限当成全国规则。',
+      '更改数据库地址不一定自动寄一张新卡。California、New York、Massachusetts 和 New Jersey 都把“更新记录”与“另付费订购 replacement”分开。',
+      'REAL ID 首次核验、姓名变化、CDL、limited-term / temporary credential、非公民身份复核或过期太久，常常需要现场或额外材料。',
+      'driver license / ID 地址与 vehicle title / registration 地址不一定是同一笔交易。Florida 明确要求两组记录都更新，并给出先更新 DL/ID、再处理 title/registration 的顺序。',
     ],
     factChecks: [
       {
@@ -13265,18 +13681,45 @@ export const topics: TopicGuide[] = [
           'https://www.nj.gov/mvc/online-services.html',
         ],
       },
+      {
+        claim: 'California 更改地址不会自动发新驾照；线上续期前应至少提前五天更新地址，并等待记录处理。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/changing-replacing-and-renewing-your-drivers-license/',
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/dl-renewal/',
+        ],
+      },
+      {
+        claim: 'New York 更新地址后不强制订购新 license、permit 或 non-driver ID，但 license/ID 和 vehicle records 都要在期限内更新。',
+        sourceUrls: ['https://dmv.ny.gov/change-address'],
+      },
+      {
+        claim: 'Florida 要求先处理 driver license/ID 的姓名或地址，再更新 title 和 registration；姓名变化还要先完成 SSA 更新。',
+        sourceUrls: ['https://www.flhsmv.gov/name-and-address-changes/'],
+      },
+      {
+        claim: 'New Jersey 把地址变更与订购显示新地址的 replacement credential 分开；只改记录不等于自动收到新卡。',
+        sourceUrls: ['https://www.nj.gov/mvc/Licenses/ChangeAddress.htm', 'https://www.nj.gov/mvc/online-services.html'],
+      },
+      {
+        claim: 'Massachusetts 只改地址时不强制申请新卡；需要新卡显示地址时，要另办 replacement 并支付相应费用。',
+        sourceUrls: ['https://www.mass.gov/how-to/change-your-address-with-the-rmv'],
+      },
     ],
     checklist: [
       '先确认 DMV 记录里的地址是不是当前地址。',
       '看证件状态：是否过期、过期多久、是否 CDL、learner permit 或特殊身份证件。',
       '看是否涉及 REAL ID 首次核验、姓名变更或非公民身份文件。',
       '确认付款方式、邮寄地址、临时证明和确认号保存方式。',
+      '查本州地址变更期限，并区分 residential address、mailing address、driver record 和 vehicle/title/registration record。',
+      '确认“只更新记录”还是“还要订购显示新地址的实体卡”，避免为并不需要的新卡重复付费。',
     ],
     steps: [
       '第一步：先改地址，或确认 DMV 记录中的地址已经正确。',
       '第二步：再检查续期、补证或 replacement 的线上资格。',
       '第三步：如果系统提示不符合线上资格，再预约现场服务，不要反复重试同一个入口。',
       '第四步：保存确认号、临时证明、收据和邮寄追踪信息。',
+      '第五步：有车辆时，再核对 title / registration 地址是否同步更新；不要只看驾照页面就认为车辆记录已经完成。',
+      '第六步：超过官方预计时间仍未收到新卡时，使用 status 查询并检查退信、旧地址或重复交易，再联系州官方客服。',
     ],
     faqs: [
       {
@@ -13288,6 +13731,16 @@ export const topics: TopicGuide[] = [
         question: 'REAL ID 可以线上续期吗？',
         answer:
           '已有 REAL ID 后的后续续期可能可以线上；首次 REAL ID 或未核验材料的人通常需要现场或预验证。',
+      },
+      {
+        question: '在线改完地址，DMV 会自动寄一张新驾照吗？',
+        answer:
+          '通常不能这样假设。California、New York、Massachusetts 和 New Jersey 都把记录更新与 replacement card 分开；需要卡面显示新地址时，可能要另行订购并付费。',
+      },
+      {
+        question: '驾照地址改了，车辆 registration 地址也一定改了吗？',
+        answer:
+          '不一定。New York 和 Florida 都明确提到车辆相关记录；Florida 还要求 DL/ID 与 title/registration 两部分都更新。完成后应分别检查 driver 和 vehicle records。',
       },
     ],
     editorNotes: [
@@ -13327,6 +13780,10 @@ export const topics: TopicGuide[] = [
       {
         label: 'NJ MVC Online Services',
         url: 'https://www.nj.gov/mvc/online-services.html',
+      },
+      {
+        label: 'NJ MVC Change of Address',
+        url: 'https://www.nj.gov/mvc/Licenses/ChangeAddress.htm',
       },
       {
         label: 'Massachusetts Change your address with the RMV',
