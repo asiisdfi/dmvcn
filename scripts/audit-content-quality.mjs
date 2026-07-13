@@ -35,6 +35,18 @@ function assertStringList(values, label, minimum, minimumItemLength = 8) {
 
 const stateIds = new Set(states.map((state) => state.id));
 const topicSlugs = new Set(topics.map((topic) => topic.slug));
+const deepReviewTopicSlugs = new Set([
+  'real-id-vs-standard-license',
+  'proof-of-residency',
+  'ssn-and-itin',
+  'name-change-chain',
+  'non-citizen-license-id',
+  'first-driver-license-road-test',
+  'foreign-license-idp-transfer',
+  'moving-to-new-state',
+  'lost-stolen-license-id-replacement-identity-theft',
+  'driver-license-suspension-reinstatement-sr22',
+]);
 
 assertUnique([...stateIds], 'state id');
 assertUnique([...topicSlugs], 'topic slug');
@@ -121,6 +133,19 @@ for (const topic of topics) {
       assertUrl(url, `${label}: factChecks[${index}] source URL`);
       assert(sourceUrls.has(url), `${label}: factChecks[${index}] source is missing from topic.sources: ${url}`);
     }
+  }
+
+  if (deepReviewTopicSlugs.has(topic.slug)) {
+    const factCheckSourceUrls = new Set((topic.factChecks ?? []).flatMap((factCheck) => factCheck.sourceUrls));
+
+    assert(topic.reviewedAt >= '2026-07-13', `${label}: deep-review date must be 2026-07-13 or later`);
+    assert(topic.keyFacts.length >= 6, `${label}: deep-review topic needs at least 6 key facts`);
+    assert(topic.checklist.length >= 6, `${label}: deep-review topic needs at least 6 checklist items`);
+    assert(topic.steps.length >= 6, `${label}: deep-review topic needs at least 6 steps`);
+    assert(topic.faqs.length >= 4, `${label}: deep-review topic needs at least 4 FAQs`);
+    assert(officialSources.length >= 7, `${label}: deep-review topic needs at least 7 unique official sources`);
+    assert((topic.factChecks ?? []).length >= 10, `${label}: deep-review topic needs at least 10 fact checks`);
+    assert(factCheckSourceUrls.size >= 3, `${label}: deep-review fact checks need at least 3 unique source URLs`);
   }
 }
 

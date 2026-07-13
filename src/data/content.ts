@@ -5326,7 +5326,7 @@ export const states: StateGuide[] = [
     nameEn: 'Nebraska',
     nameZh: '内布拉斯加州',
     agency: 'Nebraska Department of Motor Vehicles',
-    agencyUrl: 'https://dmv.nebraska.gov/dl',
+    agencyUrl: 'https://dmv.nebraska.gov/driver-license',
     reviewedAt: '2026-07-09',
     summary:
       '内布拉斯加州驾照、REAL ID、续期、地址变化和新居民换证由 Nebraska DMV Driver Licensing 处理。Driver License、Document Verification Requirements、New Resident、Renewals 和 Change Address 是核心入口。',
@@ -5956,29 +5956,39 @@ export const topics: TopicGuide[] = [
     slug: 'real-id-vs-standard-license',
     title: 'REAL ID、Enhanced ID 和普通驾照怎么区分',
     eyebrow: '证件类型',
-    reviewedAt: '2026-07-07',
+    reviewedAt: '2026-07-13',
     description:
-      '很多州同时存在 REAL ID、Enhanced Driver License/ID 和 Standard License。三者都可能能驾驶或证明州内身份，但联邦用途不同。',
+      '选证件前先看用途，不要只看卡面名字。Standard、REAL ID 和 Enhanced Driver License/ID 都可能是州签发的驾照或身份证，但联邦身份用途、申请资格和边境用途不同。',
     whoNeedsIt: [
       '正在换证、续期或第一次申请驾照的人。',
       '看到 DMV 页面上有 Standard、REAL ID、Enhanced 多个选项的人。',
       '在纽约、华盛顿等提供 Enhanced 证件的州生活的人。',
     ],
     keyFacts: [
-      'Standard 驾照通常仍可用于驾驶，但不一定能用于 REAL ID 联邦用途。',
-      'REAL ID 是联邦最低标准合规证件。',
-      'Enhanced Driver License/ID 是部分州提供的增强证件，通常还有公民身份和边境旅行相关要求。',
+      'Standard driver license 的驾驶资格和联邦身份用途是两件事。普通驾照通常仍可用于开车，但自 2025 年 5 月 7 日起，非 REAL ID 合规的州驾照/ID 不能再单独作为 TSA 国内航班身份证件。',
+      'REAL ID 不是一种驾驶等级，而是州驾照或州 ID 满足联邦最低签发和安全标准后的合规版本；driver license 才带驾驶资格，non-driver ID 不带驾驶资格。',
+      '没有 REAL ID 不等于不能坐国内航班。有效护照、护照卡、绿卡、EAD、军人证和 TSA 列出的其他证件可能可以替代州 REAL ID。',
+      'Enhanced Driver License/ID 只在部分州提供，通常要求美国公民身份和该州居住证明；不能因为某州有 Enhanced，就假设自己的州也有。',
+      'Enhanced 既满足 REAL ID 联邦用途，又可按签发州说明用于从加拿大、墨西哥及部分加勒比地区经陆路或海路返回美国；它不能替代国际航空旅行所需的护照。',
+      '卡面不一定都有星标。Washington 的 EDL/EID 用美国国旗标记，也是 REAL ID 合规证件；最稳妥的判断方式仍是查看签发州 DMV 的证件说明。',
+      '对只开车、已有有效护照且没有近期联邦身份用途的人，Standard 可能已经够用；对经常国内飞行的人，REAL ID 或 Enhanced 通常更方便。',
     ],
     checklist: [
-      '查看州 DMV 对证件类型的官方定义。',
-      '确认你是否是美国公民；Enhanced 证件常有公民身份要求。',
-      '如果只需要开车，Standard 可能足够。',
-      '如果要登国内航班且不想带护照，REAL ID 或 Enhanced 可能更合适。',
+      '写下主要用途：只开车、州内 photo ID、国内航班、进入受管制联邦设施，还是陆路/海路跨境。',
+      '打开所在州 DMV 的 card type / REAL ID 页面，确认该州提供 Standard、REAL ID、Enhanced 中的哪些选项。',
+      '确认资格：Enhanced 常要求美国公民身份；REAL ID 要按州清单证明身份/合法身份、SSN 状态和居住地址。',
+      '确认已有替代证件：护照、护照卡、绿卡、EAD、军人证或 trusted traveler card 是否仍有效。',
+      '核对办理方式：从 Standard 升级到 REAL ID 或 Enhanced 通常涉及现场文件核验，普通续期未必需要同样流程。',
+      '核对费用和有效期；Enhanced 可能有额外费用，提前续期也可能改变总费用或到期日。',
+      '不要只凭星星、旗帜或卡面颜色判断，按签发州官方样卡和 TSA 接受证件清单复核。',
     ],
     steps: [
-      '先从所在州页面确认可选证件类型。',
-      '对照自己的用途：驾驶、国内航班、联邦设施、边境旅行。',
-      '选择材料要求和办理成本都能接受的证件。',
+      '第一步：只问用途。只开车和州内证明身份，先看 Standard；想用州证件坐国内航班或处理联邦身份用途，再看 REAL ID / Enhanced。',
+      '第二步：看替代证件。已有有效护照等 TSA 接受证件的人，不必为了某一次航班仓促升级州证件。',
+      '第三步：看本州选项。Washington 以 EDL/EID 作为 REAL ID 合规州证件；New York 同时提供 Standard、REAL ID 和 Enhanced，其他州组合可能不同。',
+      '第四步：看资格。非美国公民通常可按 lawful-status 规则申请 REAL ID，但通常不能申请要求美国公民身份的 Enhanced。',
+      '第五步：用本州 document guide 整理身份、SSN、地址和姓名变更材料，再确认预约、费用、照片和旧证处理方式。',
+      '第六步：办完后核对卡面类型，并在出行前再次查看 TSA 当前接受证件清单；临时纸质驾照不在 TSA 接受列表内。',
     ],
     faqs: [
       {
@@ -5989,7 +5999,74 @@ export const topics: TopicGuide[] = [
       {
         question: 'Standard 证件会失效吗？',
         answer:
-          '通常不会因为 REAL ID 而失去驾驶用途，但联邦用途会受限。具体以州 DMV 页面为准。',
+          '不会仅因为 REAL ID 执行而自动失去州内驾驶用途。限制的是相应联邦身份用途，例如不能把非合规州证件单独用于 TSA 国内航班安检；证件本身是否有效仍看卡面到期日和州 DMV 状态。',
+      },
+      {
+        question: '没有 REAL ID，拿护照能坐美国国内航班吗？',
+        answer:
+          '通常可以。TSA 接受有效美国或外国护照，也列出护照卡、绿卡、EAD、军人证等其他证件。出发前仍应查看 TSA 当前清单，并确认具体证件未过期。',
+      },
+      {
+        question: 'Enhanced 可以坐国际航班吗？',
+        answer:
+          '不能把 Enhanced 当国际航空旅行护照。它可用于美国国内航班，并可按官方规则用于从指定地区经陆路或海路返回美国；国际航空旅行仍应准备护照及目的地要求的文件。',
+      },
+      {
+        question: '卡上没有星星，就一定不是 REAL ID 合规吗？',
+        answer:
+          '不一定。Washington EDL/EID 使用美国国旗而不是星标。应按签发州 DMV 的卡面说明判断，不要只靠网上流传的样图。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'Standard 驾照的驾驶资格与 REAL ID 联邦身份用途不同，普通州驾照不会仅因 REAL ID 执行而失去驾驶用途。',
+        sourceUrls: [
+          'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl',
+          'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
+        ],
+      },
+      {
+        claim: '自 2025 年 5 月 7 日起，TSA 不再把非 REAL ID 合规的州驾照或州 ID 作为国内航班安检的有效州证件。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'REAL ID 是州证件达到联邦最低标准后的合规形式，不是新的驾驶等级，也不会让 non-driver ID 获得驾驶资格。',
+        sourceUrls: ['https://www.dhs.gov/real-id', 'https://www.usa.gov/real-id'],
+      },
+      {
+        claim: '护照、护照卡、绿卡、EAD、军人证和部分 trusted traveler cards 都在 TSA 当前可接受身份证件清单中。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'New York 同时比较 Standard、REAL ID 和 Enhanced 三类证件，其中 Standard 不用于联邦 REAL ID 用途。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/enhanced-or-real-id'],
+      },
+      {
+        claim: 'New York 和 Washington 的 Enhanced 证件申请均与美国公民身份及本州居住证明要求相关。',
+        sourceUrls: [
+          'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
+          'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl',
+        ],
+      },
+      {
+        claim: 'Enhanced 证件可用于美国国内航班，并可按签发州说明用于从指定地区经陆路或海路返回美国。',
+        sourceUrls: [
+          'https://www.tsa.gov/travel/security-screening/identification',
+          'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
+          'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl',
+        ],
+      },
+      {
+        claim: 'Enhanced Driver License 不能替代国际航空旅行所需的护照，Washington 明确把其跨境用途限定为陆路或海路。',
+        sourceUrls: ['https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl'],
+      },
+      {
+        claim: 'Washington 的 EDL/EID 以美国国旗而非星标表示其 REAL ID 合规状态，不能只靠“有没有星星”判断。',
+        sourceUrls: ['https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl'],
+      },
+      {
+        claim: '临时驾照不在 TSA 可接受身份证件列表内，办证收据或临时纸张不能默认替代永久 REAL ID。',
+        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
       },
     ],
     editorNotes: [
@@ -6080,41 +6157,114 @@ export const topics: TopicGuide[] = [
     slug: 'proof-of-residency',
     title: '地址证明怎么准备',
     eyebrow: '材料细节',
-    reviewedAt: '2026-07-07',
+    reviewedAt: '2026-07-13',
     description:
-      '地址证明是 REAL ID 和驾照业务最容易出错的材料之一。核心不是“有没有地址”，而是文件类型、姓名、地址、日期和州要求是否匹配。',
+      '地址证明最容易在“看起来合理、官方却不收”这里出错。办事前要同时核对文件数量、本人姓名、住宅地址、日期范围、打印格式和替代证明路径。',
     whoNeedsIt: [
       '刚搬家或刚搬州的人。',
       '住在亲友家、宿舍、sublease 或没有自己账单的人。',
       '准备 REAL ID、换证或地址变更的人。',
     ],
     keyFacts: [
-      '很多州要求两份居住地址证明。',
-      '可接受文件类型因州而异，常见类别包括账单、银行信、租约、保险或政府信件。',
-      '地址证明通常要显示申请人的姓名和当前居住地址。',
+      'REAL ID 经常要求两份地址证明，但 Standard license、初次办证、换州驾照和车辆业务可能要求不同数量；必须按具体业务清单判断。',
+      '文件通常要同时显示申请人姓名和当前 residential / physical address。mailing address、P.O. Box、PMB 和校园信箱不一定能证明实际居住地址。',
+      '电子账单并非一律不收。California、New York 和 Texas 都接受部分打印出来的电子文件，但手机截图或现场展示 PDF 不能自动视为合格。',
+      '日期范围按州和文件类型变化。New York 的常见居住文件通常要求在到访前 365 天内，Texas 对部分账单使用 180 天窗口，Florida 多类地址文件使用 60 天窗口。',
+      'P.O. Box 规则差异明显：New York 不接受只列 P.O. Box 的居住证明；California 可记录 P.O. Box，但至少一份文件还要同时显示 physical residence address。',
+      '住亲友家或文件不在本人名下时，不要直接拿别人的账单冒充自己的证明。California 有关系追溯文件路径，Texas 有符合条件的 Residency Affidavit。',
+      '同一机构出的两份文件未必都算。Texas 只在特定情形下允许同一地方政府或多项住宅服务提供者的不同服务文件，不能用同一服务不同月份凑两份。',
+      '在线预上传只是在到场前预审。California 明确要求申请人到办公室时仍带上传过的原始文件和确认码。',
     ],
     checklist: [
-      '确认州 DMV 要求几份地址证明。',
-      '确认文件是否需要近期日期。',
-      '确认姓名、地址拼写和申请信息一致。',
-      '没有自己账单时，查官方是否接受同住声明或替代文件。',
+      '先写清业务：Standard、REAL ID、Enhanced、first license、out-of-state transfer、renewal 还是 vehicle registration。',
+      '在州官方 document guide 中圈出可接受类别，并确认需要一份还是两份、是否要求不同来源。',
+      '逐份检查五项：本人姓名、当前住宅地址、文件类别、签发日期、纸质/原件/打印件格式。',
+      '把申请表、预约资料和地址文件的门牌号、单元号、方向词及姓名拼写统一。',
+      '优先准备来自不同来源的两份材料，例如租约加银行信、保险单加政府信件，并带一份官方清单内的备用件。',
+      '若只显示 P.O. Box、PMB 或 mailing address，再准备能显示 physical / residential address 的文件。',
+      '若住亲友家、宿舍、shelter 或账单不在本人名下，先下载本州 affidavit / certification 表，或准备官方允许的关系追溯文件。',
+      '打印电子账单完整页面，不裁掉姓名、地址、日期、机构名称或账号识别信息；不要只带手机截图。',
     ],
     steps: [
-      '先用州官方材料指南筛选可接受文件。',
-      '优先选择政府、金融机构、公用事业或保险类文件。',
-      '打印或携带官方接受的版本。',
-      '到场前把地址证明放在材料夹最前面，方便快速核对。',
+      '第一步：从具体业务页进入官方 document guide，而不是用搜索结果里的通用“地址证明清单”。',
+      '第二步：确定数量和来源限制。REAL ID 常见两份，但不同州对同一来源、不同账户和不同文件类别有不同算法。',
+      '第三步：核对住宅地址。只有 mailing address、P.O. Box 或 campus mailbox 时，先查本州 physical-address 规则。',
+      '第四步：核对姓名和日期。姓名不一致时先准备姓名变更链；超出日期窗口的文件不要作为主材料。',
+      '第五步：没有本人账单时走官方替代路径。关系证明、同住人 affidavit、学校/雇主/政府信或 shelter letter 的格式不能自行编造。',
+      '第六步：按官方格式准备纸质材料。允许 printed electronic statement 不等于允许手机截图，也不等于所有电子文件都接受。',
+      '第七步：到场前用清单逐项打勾，并带一份不同类别的备用地址文件；在线上传过的材料仍按州要求带原件或打印件。',
     ],
     faqs: [
       {
         question: '银行电子账单可以吗？',
         answer:
-          '有些州接受打印的电子账单，有些州要求原始邮寄或特定格式。以州官方 document guide 为准。',
+          '有些州接受打印的电子账单。California、New York 和 Texas 的官方材料都提供这种路径，但要按本州要求打印，并保留姓名、地址、日期和机构信息。不要默认手机里的 PDF 或截图可以现场替代。',
       },
       {
         question: '地址只有英文缩写不同会有问题吗？',
         answer:
           '可能不会，也可能被要求解释。为了降低风险，尽量让预约、申请表和地址证明使用一致写法。',
+      },
+      {
+        question: '我住亲友家，账单都不是我的名字怎么办？',
+        answer:
+          '查本州是否有 household member、relationship tracing、residency affidavit 或 certification of address 路径。California 可在特定条件下用出生证、结婚证等追溯与文件持有人的关系；Texas 有 DL-5 affidavit，但签署人和陪同要求必须按表格执行。',
+      },
+      {
+        question: 'P.O. Box 能不能作为地址证明？',
+        answer:
+          '不能一概而论。New York 居住证明不接受 P.O. Box；California 可把 P.O. Box 作为 mailing address，但至少一份文件还要显示 physical residence address。先区分收信地址和实际住宅地址。',
+      },
+      {
+        question: '两份材料可以来自同一家银行或同一家公司吗？',
+        answer:
+          '不一定。部分州限制同一来源或同一类别。Texas 只对特定地方政府或多项住宅服务提供者允许不同服务分别计算，同一服务不同月份不能凑数。最稳妥是准备不同来源的文件。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'California REAL ID 要求两份不同的打印居住文件，两份都要显示申请人的姓名和申请所用地址。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/'],
+      },
+      {
+        claim: 'New York 的 REAL ID 或 Enhanced 通常要两份州居住证明，而 Standard license 或 permit 的数量要求不同。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/enhanced-or-real-id'],
+      },
+      {
+        claim: 'Texas driver license / ID 居住要求通常是两份打印文件，两份都要列出本人姓名和 Texas residential address。',
+        sourceUrls: ['https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards'],
+      },
+      {
+        claim: 'California、New York 和 Texas 接受符合各自清单的打印电子文件，但这不等于手机截图或未打印 PDF 自动合格。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/',
+          'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
+          'https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards',
+        ],
+      },
+      {
+        claim: 'New York 常见居住证明要在到访 DMV 前 365 天内签发，并且只列 P.O. Box 的文件不能作为居住证明。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/enhanced-or-real-id'],
+      },
+      {
+        claim: 'California 允许使用 P.O. Box 作为收信地址时，至少一份居住文件仍要同时显示 P.O. Box 和 physical residence address。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/'],
+      },
+      {
+        claim: 'California 在本人姓名不出现在居住文件上时，允许用出生证、结婚证或 domestic partner registration 等文件追溯关系。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/'],
+      },
+      {
+        claim: 'Texas 无法提供两份常规居住文件的申请人，可能可使用 DL-5 Texas Residency Affidavit 和配套证明。',
+        sourceUrls: ['https://www.dps.texas.gov/internetforms/Forms/DL-5.pdf'],
+      },
+      {
+        claim: 'Texas 对同一来源文件有附加限制：同一服务的不同月份账单不能作为两份证明，部分多项住宅服务例外除外。',
+        sourceUrls: ['https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards'],
+      },
+      {
+        claim: 'California 在线上传 REAL ID 文件只用于预先提交，到 DMV 办公室完成申请时仍要带已上传文件的原件和确认码。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/'],
       },
     ],
     editorNotes: [
@@ -6128,6 +6278,10 @@ export const topics: TopicGuide[] = [
         url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/',
       },
       {
+        label: 'California DMV REAL ID Checklist',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/',
+      },
+      {
         label: 'NJ MVC REAL ID',
         url: 'https://www.nj.gov/mvc/realid/',
       },
@@ -6135,8 +6289,24 @@ export const topics: TopicGuide[] = [
         label: 'PA REAL ID Document Requirements',
         url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check',
       },
+      {
+        label: 'NY DMV Enhanced or REAL ID',
+        url: 'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
+      },
+      {
+        label: 'Texas DPS Residency Requirement',
+        url: 'https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards',
+      },
+      {
+        label: 'Texas DPS Residency Affidavit DL-5',
+        url: 'https://www.dps.texas.gov/internetforms/Forms/DL-5.pdf',
+      },
+      {
+        label: 'FLHSMV What to Bring - Non-Immigrant',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/',
+      },
     ],
-    relatedStateIds: ['california', 'new-jersey', 'pennsylvania', 'florida'],
+    relatedStateIds: ['california', 'new-york', 'texas', 'florida', 'new-jersey', 'pennsylvania'],
   },
   {
     slug: 'residency-proof-no-bills-po-box',
@@ -6276,40 +6446,110 @@ export const topics: TopicGuide[] = [
     slug: 'ssn-and-itin',
     title: 'SSN、ITIN 和不可取得 SSN 的情况',
     eyebrow: '身份文件',
-    reviewedAt: '2026-07-07',
+    reviewedAt: '2026-07-13',
     description:
-      '很多 DMV 业务会核验 SSN 或要求提供 SSN 相关证明。没有 SSN、不符合 SSN 资格或使用 ITIN 的情况，州与州差异很大。',
+      'SSN、SSA denial/ineligibility letter、无 SSN affidavit 和 ITIN 不是四种可以随意互换的材料。先判断自己是否已获发或有资格取得 SSN，再按州、证件类型和身份类别进入正确清单。',
     whoNeedsIt: [
       '留学生、工作签证、家属签证或新移民。',
       '申请 REAL ID 或首次驾照时没有 SSN 的人。',
       '州页面提到 SSN、ITIN 或 ineligibility letter 的人。',
     ],
     keyFacts: [
-      'REAL ID 和驾照业务的 SSN 要求由州 DMV 实施，细节不同。',
-      '有些州允许提供 SSN 不可取得证明或其他替代路径。',
-      'ITIN 是否有用、如何使用，必须看所在州官方页面。',
+      'SSA 说明，一般只有获得 DHS 工作许可的非公民才能取得 SSN；少数依法认可的非工作原因另行适用。是否符合 SSN 资格由 SSA 判断，不由 DMV 或申请人自行判断。',
+      'SSA 同时说明，非公民不需要仅为了取得普通 driver license 而申请 SSN，SSA 也不会仅以申请州驾照为由分配号码。',
+      '已获发 SSN 的人通常必须如实提供并让 DMV 与 SSA 记录核验；“暂时找不到实体卡”和“从未获发 SSN”不是同一场景。',
+      '没有 SSN 的州级路径差异很大，可能要求 SSA denial / ineligibility letter、Affidavit of No SSN、护照与 I-94，或允许某类 Standard license 不提交这些文件。',
+      'ITIN 是 IRS 为联邦税务目的签发的号码，不授权工作、不改变移民身份、不提供 Social Security 福利，也不构成联邦税务体系之外的身份证明。',
+      '州表格即使要求填写 ITIN，也不代表 ITIN 在法律上变成 SSN 或身份证件。应把“州收集号码”和“用号码证明身份/资格”分开理解。',
+      'REAL ID、Standard license、State ID 和 CDL 的 SSN 规则可能不同。New York Standard license 可在没有 SSN card 或 ineligibility letter 时申请，但 REAL ID-compliant document 另有要求。',
+      '姓名不一致会让 SSN 验证失败。Florida 要求 SSN 记录上的姓名与驾照/ID 姓名一致，刚改名的人应先处理 SSA 记录。',
     ],
     checklist: [
-      '先确认自己是否有 SSN。',
-      '如果没有 SSN，查看州 DMV 是否要求 SSA ineligibility letter 或其他文件。',
-      '如果有 ITIN，查看该州是否接受以及适用业务。',
-      '非公民身份文件和 I-94/移民文件要与州要求一起核对。',
+      '先回答：SSN 已获发、正在申请、SSA 判定不符合资格，还是从未向 SSA 申请；不要把四种状态混写。',
+      '确认办理类型：REAL ID、Standard noncommercial license、State ID、permit、CDL 或 vehicle registration。',
+      '已获发 SSN 时，核对 SSA 记录中的完整姓名、生日和号码是否与 DMV 申请一致。',
+      '没有 SSN 时，打开本州官方 no-SSN / non-citizen / document checklist，查要求的是 SSA letter、affidavit 还是其他路径。',
+      '核对 SSA letter 的有效窗口；例如 New York REAL ID 使用的 ineligibility letter 要在申请前 30 天内签发，其他州期限不同。',
+      '如果只有 ITIN，先确认州页面在哪个字段、哪类证件中提到它；不要拿 ITIN 信件替代未被官方清单列出的身份证明。',
+      '把护照、I-94、I-20、DS-2019、EAD 或其他 lawful-status 文件与 SSN 栏目一起核对。',
+      '遇到 DMV 与 SSA 核验不一致时，保存提示或拒绝信，分别联系签发该记录的官方机构，不要重复提交不同拼写。',
     ],
     steps: [
-      '从州 DMV 的身份类别入口进入，而不是只看普通美国公民清单。',
-      '核对 SSN 栏目和 lawful status 栏目。',
-      '如果页面不清楚，优先联系 DMV 或 SSA 官方渠道确认。',
+      '第一步：确认自己有没有已经获发的 SSN。曾经获发过的人不要改用 ITIN 或声称“无 SSN”，应处理遗失卡片或记录问题。',
+      '第二步：没有 SSN 时，用 SSA 官方资格说明判断下一步；不要为了驾照单独申请 ITIN，也不要要求 SSA 仅因驾照申请分配 SSN。',
+      '第三步：选择州证件类型。Standard 与 REAL ID 的无 SSN 规则可能不同，CDL 通常又是另一套要求。',
+      '第四步：按本州清单取得正确替代材料。SSA denial / ineligibility letter、Affidavit of No SSN 和自我声明的效力并不相同。',
+      '第五步：把姓名和身份记录对齐。刚改名时先查看 SSA 更新姓名流程，再核对 DMV 是否要求等待系统同步。',
+      '第六步：把 ITIN 只放在州官方明确要求的字段里；它不能替代护照、lawful-status 文件、SSN 资格证明或州要求的 photo ID。',
+      '第七步：到场前重新查看具体州和证件类型的 current checklist，并保存 SSA letter、affidavit 和预约文件的日期及副本。',
     ],
     faqs: [
       {
         question: '没有 SSN 一定不能办驾照吗？',
         answer:
-          '不一定。很多州有无 SSN 的替代流程，但规则差异很大。不要用其他州经验代替本州官方说明。',
+          '不一定。SSA 明确说非公民不需要仅为了取得普通驾照而申请 SSN，州可以设置其他核验路径。New York Standard、Massachusetts Standard 等就有各自的无 SSN 规则，但 REAL ID、CDL 和其他州不能照搬。',
       },
       {
         question: 'ITIN 可以替代 SSN 吗？',
         answer:
-          '有些州或业务会提到 ITIN，有些不会。它不是全国统一替代物，必须以州 DMV 页面为准。',
+          '不能把它当成全国通用替代物。IRS 明确说 ITIN 只用于联邦税务，不是税务体系之外的身份证明，也不授权工作或改变移民身份。某州业务若收集 ITIN，只能按该州对应表格和用途理解。',
+      },
+      {
+        question: '我有 SSN，但社安卡丢了，可以走“无 SSN”路径吗？',
+        answer:
+          '通常不应这样做。号码一旦获发，你仍属于“有 SSN”的申请人。先看州是否只需电子核验号码、是否接受 W-2/pay stub 等材料，或按 SSA 官方流程补卡。',
+      },
+      {
+        question: 'SSA 会为了我办驾照而给一个 SSN 吗？',
+        answer:
+          '通常不会。SSA 的公开说明和操作政策都写明，申请普通 driver license 本身不是分配 SSN 的有效非工作理由。是否符合工作或其他法定资格仍由 SSA 判断。',
+      },
+      {
+        question: 'SSA denial 或 ineligibility letter 可以一直用吗？',
+        answer:
+          '通常有日期要求，而且州与证件类型不同。New York REAL ID 要求信件在前 30 天内签发；Massachusetts 的清单使用自己的日期窗口。预约前必须重新查看本州 current checklist。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'SSA 说明一般只有获得 DHS 工作许可的非公民可以取得 SSN，另有少数依法认可的非工作用途例外。',
+        sourceUrls: ['https://www.ssa.gov/pubs/EN-05-10096.pdf'],
+      },
+      {
+        claim: 'SSA 说明非公民不需要仅为了取得普通 driver license 而申请 SSN，并可在没有 SSN 时获得某些服务。',
+        sourceUrls: ['https://www.ssa.gov/pubs/EN-05-10096.pdf'],
+      },
+      {
+        claim: 'SSA 的操作政策明确把普通 driver license 排除在分配 SSN 的有效非工作理由之外。',
+        sourceUrls: ['https://secure.ssa.gov/poms.nsf/lnx/0110211615'],
+      },
+      {
+        claim: 'SSA 签发三类 Social Security card，其中临时工作许可和不具工作效力的卡面限制不同。',
+        sourceUrls: ['https://www.ssa.gov/ssnumber/cards.htm'],
+      },
+      {
+        claim: 'IRS 将 ITIN 定义为联邦税务用途号码，它不授权工作、不改变移民身份，也不是联邦税务体系之外的身份证明。',
+        sourceUrls: ['https://www.irs.gov/tin/itin/individual-taxpayer-identification-number-itin'],
+      },
+      {
+        claim: 'IRS 明确回答 ITIN 不能作为取得州驾照时的身份证明，并提醒 DMV 不要把它当成非税务身份证件。',
+        sourceUrls: ['https://www.irs.gov/individuals/additional-itin-information'],
+      },
+      {
+        claim: 'New York Standard license 或 permit 可在没有 Social Security Card 和 ineligibility letter 的情况下申请。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility'],
+      },
+      {
+        claim: 'New York 申请 REAL ID-compliant license 或 permit 时，需要 Social Security Card 或前 30 天内签发的 SSA ineligibility letter。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility'],
+      },
+      {
+        claim: 'Massachusetts 的 Standard 与 REAL ID document checklist 对 SSN、SSA denial notice 和无 SSN affidavit 设置了不同路径。',
+        sourceUrls: ['https://www.mass.gov/info-details/massachusetts-identification-id-requirements'],
+      },
+      {
+        claim: 'Florida 非移民材料页要求 SSN 证明上的姓名与将显示在 Florida license / ID 上的姓名一致。',
+        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/'],
       },
     ],
     editorNotes: [
@@ -6319,6 +6559,30 @@ export const topics: TopicGuide[] = [
     ],
     sources: [
       {
+        label: 'SSA Social Security Numbers for Noncitizens',
+        url: 'https://www.ssa.gov/pubs/EN-05-10096.pdf',
+      },
+      {
+        label: 'SSA Invalid Nonwork Reasons for SSN Assignment',
+        url: 'https://secure.ssa.gov/poms.nsf/lnx/0110211615',
+      },
+      {
+        label: 'SSA Types of Social Security Cards',
+        url: 'https://www.ssa.gov/ssnumber/cards.htm',
+      },
+      {
+        label: 'IRS Individual Taxpayer Identification Number',
+        url: 'https://www.irs.gov/tin/itin/individual-taxpayer-identification-number-itin',
+      },
+      {
+        label: 'IRS Additional ITIN Information',
+        url: 'https://www.irs.gov/individuals/additional-itin-information',
+      },
+      {
+        label: 'NY DMV Standard License Without SSN',
+        url: 'https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility',
+      },
+      {
         label: 'Massachusetts Identification Requirements',
         url: 'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
       },
@@ -6327,51 +6591,120 @@ export const topics: TopicGuide[] = [
         url: 'https://www.nj.gov/mvc/realid/',
       },
       {
-        label: 'FLHSMV What to Bring',
-        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/',
+        label: 'FLHSMV What to Bring - Non-Immigrant',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/',
       },
     ],
-    relatedStateIds: ['massachusetts', 'new-jersey', 'florida', 'california'],
+    relatedStateIds: ['new-york', 'massachusetts', 'new-jersey', 'florida', 'california'],
   },
   {
     slug: 'name-change-chain',
     title: '姓名变更文件怎么整理',
     eyebrow: '姓名一致性',
-    reviewedAt: '2026-07-07',
+    reviewedAt: '2026-07-13',
     description:
-      '如果护照、出生证明、绿卡、SSN、驾照或地址文件上的姓名不一致，DMV 通常会要求法律姓名变更文件来串起完整链条。',
+      '姓名材料的目标不是证明“你平时用哪个名字”，而是用政府签发的文件，把原始身份文件上的姓名连续连接到本次申请使用的 current legal name。',
     whoNeedsIt: [
       '婚后改姓、离婚恢复旧姓或法院改名的人。',
       '英文名、中间名、拼写或顺序在不同文件上不一致的人。',
       '移民文件和州证件姓名不一致的人。',
     ],
     keyFacts: [
-      '常见姓名变更文件包括结婚证、离婚判决和法院命令。',
-      '通常需要原件或认证副本。',
-      '有时需要展示从出生名到当前法定名的完整链条，而不是只带最近一次改名文件。',
+      '昵称、英文常用名、拼音变化和自行选择的 preferred name 通常不能代替 legal name。REAL ID / Enhanced 等证件通常只打印可由法律文件支持的完整法定姓名。',
+      '常见姓名变更依据包括政府签发的 marriage certificate、divorce decree、court order、amended birth certificate 和 naturalization document；教堂纪念证书、普通复印件或自己写的声明通常不等价。',
+      '多次结婚、离婚或法院改名时，要按时间顺序提供每一段连接文件。New York 明确要求一次或多次变更都要证明每一步。',
+      'SSA 和 DMV 是不同记录系统。SSA 要求依法改名的人更新 Social Security 记录；部分州还要求 DMV 申请姓名与 SSA 记录匹配。',
+      'SSA 办 corrected card 时通常要证明身份、新法定姓名和改名事件，并可能要求公民身份或 lawful noncitizen status 证明。',
+      '原件、签发机构 certified copy、电子认证记录和翻译件是否接受，由签发机构与州 DMV 分别决定。SSA 明确不接受普通 photocopy 或仅由公证人认证的副本。',
+      '外文文件不能默认现场口译。应查看州 DMV 是否要求完整 English translation、certified translation、译者声明或原文与译文同时提交。',
+      '地址文件上的旧姓也可能触发补证。先用法律文件把旧姓与当前姓名相连，再确认州是否允许该地址文件继续作为 residency proof。',
     ],
     checklist: [
-      '列出每份身份证明文件上的姓名。',
-      '找出姓名变化发生在哪一步。',
-      '准备每一次变化对应的法律文件。',
-      '确认州 DMV 是否要求文件翻译或 certified copy。',
+      '逐字抄下出生证、护照、绿卡/EAD、I-94、SSN、现有驾照和两份地址文件上的姓名。',
+      '确定本次申请要使用的 current legal name，包括 middle name、hyphen、suffix 和空格，不要临场改拼写。',
+      '画出时间线：原始姓名 -> 第一次婚姻/法院改名 -> 离婚/再婚 -> 当前姓名。',
+      '为每一条箭头准备政府签发的 marriage certificate、divorce decree、court order、naturalization document 或 amended birth certificate。',
+      '确认每份是原件还是签发机构 certified copy；不要把 notarized photocopy 当作 certified copy。',
+      '核对 SSA 记录是否已更新，以及本州 DMV 是否要求先等待姓名同步。',
+      '外文材料按本州 translation 规则准备原文和译文，并检查译者资格、签名或认证要求。',
+      '再检查地址证明、预约和申请表；旧姓文件若无法由姓名链连接，就换成 current-name 文件。',
     ],
     steps: [
-      '先以护照/出生证明/移民文件上的姓名为起点。',
-      '按时间顺序排列结婚、离婚、法院改名等文件。',
-      '把当前申请表姓名和 SSN/地址证明上的姓名对齐。',
-      '不确定时，在预约前联系 DMV 或查看 FAQ。',
+      '第一步：以 REAL ID / DMV 身份清单里准备使用的 primary identity 或 lawful-presence document 为起点。',
+      '第二步：列出每次法律变更，不要只准备最近一次。每份文件必须能解释前一姓名如何变成后一姓名。',
+      '第三步：从签发机构取得原件或 certified copy。缺失婚姻、离婚或法院记录时，应先补记录再约 DMV。',
+      '第四步：需要时先更新 SSA。用 SSA 官方流程申请 corrected card，并让新姓名与 DMV 申请保持一致。',
+      '第五步：处理移民和护照记录差异。DMV 不能替 USCIS、Department of State 或外国签发机构更改其记录。',
+      '第六步：按州规则准备翻译。原文姓名、音译姓名和 legal name 之间的解释不能只靠口头说明。',
+      '第七步：按顺序夹好 primary identity、每段姓名变更文件、SSN 证明和地址文件，并带官方清单内的备用证据。',
     ],
     faqs: [
       {
         question: '只带结婚证可以吗？',
         answer:
-          '如果只有一次婚后改名，可能足够；如果中间还有离婚、再婚或法院改名，通常要完整链条。',
+          '如果原始身份文件到当前姓名之间只有一次、且政府签发的结婚证清楚连接两个姓名，可能足够；中间还有离婚、再婚、法院改名或 naturalization name change 时，应带完整链条。',
       },
       {
         question: '中文名和英文名不同怎么办？',
         answer:
           '这属于高风险材料问题。看州 DMV 对翻译、公证和法律姓名文件的要求，必要时先咨询官方。',
+      },
+      {
+        question: '公证过的复印件等于 certified copy 吗？',
+        answer:
+          '通常不等于。Certified copy 通常由原记录的政府签发机构认证；notary 多数只见证签名或复印行为。SSA 明确不接受普通 photocopy 或仅由 notary 认证的副本，DMV 也应按州清单判断。',
+      },
+      {
+        question: '应该先改 SSN 姓名还是先改驾照？',
+        answer:
+          '很多州会核验 SSA 记录，因此通常先看 SSA corrected-card 流程，再按州 DMV 的等待或同步说明办理。New York Standard name change 就要求请求姓名与 SSA 记录匹配；不同州仍要看本州步骤。',
+      },
+      {
+        question: '地址证明还是旧姓，可以继续用吗？',
+        answer:
+          '可能可以，但必须能用官方姓名变更文件把旧姓连接到当前 legal name，且该州允许这种组合。California REAL ID checklist 就提醒：居住文件姓名因改名不同，会要求额外姓名变更证据。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'SSA 要求因结婚、离婚、法院命令等依法改名的人更新 Social Security 记录并申请姓名正确的 replacement card。',
+        sourceUrls: ['https://www.ssa.gov/faqs/en/questions/KA-01981.html'],
+      },
+      {
+        claim: 'SSA corrected-card 申请通常要提供身份、新法定姓名和改名事件证据，并可能要证明公民身份或 lawful noncitizen status。',
+        sourceUrls: ['https://www.ssa.gov/faqs/en/questions/KA-01981.html'],
+      },
+      {
+        claim: 'SSA 不接受普通 photocopy 或仅由 notary 认证的副本，要求原件或由记录保管机构认证的副本。',
+        sourceUrls: ['https://www.ssa.gov/ssnumber/ss5doc.htm'],
+      },
+      {
+        claim: 'New York REAL ID / Enhanced 只能显示 full legal name，昵称、缩写名或 confirmation name 可能需要额外证明。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/enhanced-or-real-id'],
+      },
+      {
+        claim: 'New York 因一次或多次婚姻、离婚等变更姓名时，要求提供每一次变更的文件来证明连续连接。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/enhanced-or-real-id'],
+      },
+      {
+        claim: 'New York Standard document 的部分姓名变更路径要求新姓名已经在 SSA 记录中更新并与请求的 DMV 姓名准确匹配。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/change-information-on-dmv-photo-documents'],
+      },
+      {
+        claim: 'California REAL ID 的 identity document 姓名与申请姓名不同时，需要相应 legal name change document。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/'],
+      },
+      {
+        claim: 'California 居住文件姓名因婚姻、离婚或法院命令而与关系追溯文件不同时，会要求额外姓名变更证明。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/'],
+      },
+      {
+        claim: 'Massachusetts REAL ID 要求当前姓名与提交文件一致，不一致时要提供 marriage certificate 或 court document 等证明。',
+        sourceUrls: ['https://www.mass.gov/info-details/massachusetts-identification-id-requirements'],
+      },
+      {
+        claim: 'Pennsylvania REAL ID document requirements 将姓名变更文件作为身份材料不一致时的独立证明类别。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check'],
       },
     ],
     editorNotes: [
@@ -6381,8 +6714,28 @@ export const topics: TopicGuide[] = [
     ],
     sources: [
       {
+        label: 'SSA Correct or Change Name FAQ',
+        url: 'https://www.ssa.gov/faqs/en/questions/KA-01981.html',
+      },
+      {
+        label: 'SSA Learn What Documents You Need',
+        url: 'https://www.ssa.gov/ssnumber/ss5doc.htm',
+      },
+      {
         label: 'California DMV REAL ID',
         url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/',
+      },
+      {
+        label: 'California DMV REAL ID Checklist',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/',
+      },
+      {
+        label: 'NY DMV Enhanced or REAL ID',
+        url: 'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
+      },
+      {
+        label: 'NY DMV Change Information on Photo Documents',
+        url: 'https://dmv.ny.gov/driver-license/change-information-on-dmv-photo-documents',
       },
       {
         label: 'PA REAL ID Document Requirements',
@@ -6399,41 +6752,110 @@ export const topics: TopicGuide[] = [
     slug: 'non-citizen-license-id',
     title: '非美国公民办理驾照或 REAL ID 的注意点',
     eyebrow: '身份类别',
-    reviewedAt: '2026-07-07',
+    reviewedAt: '2026-07-13',
     description:
-      '非美国公民办驾照、ID 或 REAL ID 时，通常需要额外核验合法身份和身份有效期。不同州对文件、有效期和预约路径差异很大。',
+      '非美国公民办理驾照或州 ID 时，要把证件类型、个人移民类别、SSN 状态和联邦记录核验分开处理。F-1、J-1、H-1B、家属、绿卡、EAD、庇护等身份不能共用一张材料清单。',
     whoNeedsIt: [
       'F-1、J-1、H-1B、L-1、H-4、绿卡、庇护或其他身份持有人。',
       'I-94、I-20、DS-2019、EAD 或移民文件即将到期的人。',
       '州 DMV 页面有 “non-U.S. citizen” 或 “lawful presence” 分类的人。',
     ],
     keyFacts: [
-      '驾照有效期可能与移民身份或合法居留文件期限相关。',
-      'REAL ID 通常要求证明 lawful status。',
-      '身份核验可能需要联邦系统验证，现场等待或补材料风险更高。',
+      'REAL ID 合规州证件要求按联邦规则证明 lawful status；Standard 或其他州内驾驶路径是否要求同样材料，取决于州法和证件类型。',
+      '非公民不是一个文件类别。Florida 例如要求 I-94 配有效护照，并按 F/M、J、refugee、asylee、parolee 等类别补 I-20、DS-2019 或其他材料。',
+      '同一人的护照、I-94、I-20/DS-2019、EAD、I-797 和 SSA 记录中的姓名、生日、号码及身份类别应相互对得上；旧文件和新文件不要混成一套。',
+      '州机构可能通过 USCIS SAVE 核验公民身份或移民状态。SAVE 向机构返回状态信息，但最终是否签发驾照/ID 仍由州机构决定。',
+      'SAVE 初次未即时核验不等于自动不符合资格。机构可能提交 additional verification，申请人可用 CaseCheck 查看状态并在结果返回后联系 DMV。',
+      '证件期限可能受 lawful-presence 文件影响。Florida、Georgia、California 和 Texas 都有 limited-term / temporary 相关处理，但具体期限和卡面规则不能跨州套用。',
+      '移民文件即将到期不等于一律不能申请，但有些州要求文件至少剩余一定有效期，或只能签发短期凭证；例如 Florida 页面写有超过 30 天的文件有效期条件。',
+      '驾照或 ID 不是美国移民身份的证明。Georgia 明确提醒，LIMITED-TERM 卡本身不证明 lawful status，卡到期也不自动说明持有人失去合法身份。',
     ],
     checklist: [
-      '护照、签证、I-94 和身份文件是否一致。',
-      'I-20、DS-2019、EAD、绿卡或批准通知是否在有效期内。',
-      'SSN 或不可取得 SSN 文件是否符合本州要求。',
-      '地址证明是否显示当前州居住地址。',
+      '先选证件：REAL ID、Standard license、State ID、permit、CDL 或州内特殊驾驶证件。',
+      '按当前身份类别列文件：passport、visa、I-94、I-20、DS-2019、I-797、I-766/EAD、I-551/green card 或相应法院/USCIS 文件。',
+      '核对每份文件的姓名、生日、document number、A-Number、SEVIS ID、admit-until date 和类别是否一致。',
+      '使用最新签发的文件，保留旧文件用于解释历史，但不要把已失效文件作为当前资格的唯一依据。',
+      '确认 SSN 状态：已获发号码、SSA denial/ineligibility letter、Affidavit of No SSN 或州允许的其他路径。',
+      '准备本州要求的一份或两份 residential-address 文件，并按姓名链解释旧姓或不同姓名。',
+      '检查州页面是否要求所有文件为 English、原件/certified copy、完整翻译或现场办理。',
+      '若 DMV 已提交 SAVE 核验，索取或保存 case verification number，用 USCIS CaseCheck 跟踪，不要每天重新申请。',
     ],
     steps: [
-      '进入州 DMV 的 non-citizen 或 lawful presence 材料入口。',
-      '按身份类别准备文件，不要照搬美国公民清单。',
-      '检查身份文件有效期，避免刚到期或即将到期。',
-      '预约时带齐原件，并预留二次核验时间。',
+      '第一步：从州 DMV 的 non-U.S. citizen、temporary visitor 或 lawful presence 入口开始，不使用 U.S. citizen checklist。',
+      '第二步：确认当前身份类别和最新文件。F/M 配 I-20、J 配 DS-2019 等只是州页面示例，个人还可能需要 I-94、passport、I-797 或 EAD。',
+      '第三步：把记录对齐。姓名变更、护照换发、I-94 错误或 SEVIS/USCIS 记录未更新时，先联系有权更改该记录的机构。',
+      '第四步：同时准备 SSN 状态、州居住地址和姓名变更文件；通过 lawful-status 核验并不代表其他材料自动合格。',
+      '第五步：按州要求到场提交原件、certified copy 和译文。Georgia 要求 non-citizen 到 Customer Service Center 现场提交有效移民文件。',
+      '第六步：遇到 SAVE pending 时，向 DMV 确认是否已进入 additional verification，并用 CaseCheck 跟踪；SAVE 返回后仍要联系办理机构继续申请。',
+      '第七步：收到卡后核对姓名、类别、LIMITED-TERM / Federal Limits Apply 标记和到期日；发现错误立即走签发州更正流程。',
     ],
     faqs: [
       {
         question: 'F-1 学生可以办 REAL ID 吗？',
         answer:
-          '是否可以、证件有效期多久、需要哪些文件，取决于所在州和个人身份文件。请以州 DMV lawful presence 清单为准。',
+          '有可能，但不是凭 F-1 标签自动获批。州会按 REAL ID lawful-status 规则和本州清单核验 passport、I-94、I-20、SSN 状态和地址等材料，并可能通过 SAVE 复核；证件期限也可能受文件有效期影响。',
       },
       {
         question: '驾照到期日为什么比别人短？',
         answer:
           '非公民证件有效期有时会受合法身份文件期限影响。具体规则由州 DMV 执行。',
+      },
+      {
+        question: 'SAVE 没有马上通过，是不是我的申请被拒了？',
+        answer:
+          '不一定。SAVE 可能需要 additional verification。它只向办理机构提供移民状态信息，最终资格由 DMV 决定。保存 verification case number，用 USCIS CaseCheck 查看进度，并按 DMV 要求补文件或返回办理。',
+      },
+      {
+        question: 'I-94、I-20 或护照上的姓名不一样怎么办？',
+        answer:
+          '不要只靠现场解释。先判断哪一条记录需要由 CBP、USCIS、学校 DSO、Department of State 或护照签发机构更正，再按州 DMV 姓名链和翻译规则准备证明。DMV 不能替这些机构修改源记录。',
+      },
+      {
+        question: 'LIMITED-TERM 卡到期，是不是代表身份非法？',
+        answer:
+          '不能这样推断。Georgia DDS 明确说 Georgia DL/ID 不是 lawful status 的证明，LIMITED-TERM 卡过期也不表示持有人必然非法停留。移民状态应由相应联邦文件和机构判断。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'REAL ID 合规州证件要求证明 lawful status，州仍可依法签发明确标注为非联邦用途的其他证件。',
+        sourceUrls: ['https://www.dhs.gov/real-id'],
+      },
+      {
+        claim: 'Florida 非移民申请材料将 I-94 与有效护照配套，并要求 F/M 类别带 I-20、J 类别带 DS-2019。',
+        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/'],
+      },
+      {
+        claim: 'Florida 非移民材料页提示相关身份文件在签发日时应有超过 30 天的有效期，并在核验后邮寄正式证件。',
+        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/'],
+      },
+      {
+        claim: 'Georgia 要求 non-U.S. citizens 到 Customer Service Center 现场提交有效移民文件，证明 identity 和 lawful status。',
+        sourceUrls: ['https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens'],
+      },
+      {
+        claim: 'Georgia 要求提交给 DDS 的 non-citizen 文件使用 English，并对外州证件遗失等场景另设 certified driving record 规则。',
+        sourceUrls: ['https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens'],
+      },
+      {
+        claim: 'Georgia 通过 USCIS SAVE 核验非公民移民文件，少数案件可能需要数日而不能在柜台即时完成。',
+        sourceUrls: ['https://dds.georgia.gov/save'],
+      },
+      {
+        claim: 'USCIS SAVE 提供身份状态信息给签发福利或执照的机构，但不替该机构决定申请人是否有资格获得驾照或 ID。',
+        sourceUrls: ['https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVE_FACT_SHEET_for_Benefit_Applicants.pdf'],
+      },
+      {
+        claim: '申请人在机构提交 SAVE 核验后，可以使用 CaseCheck 跟踪核验进度，并在结果返回后联系原办理机构。',
+        sourceUrls: ['https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVE_FACT_SHEET_for_Benefit_Applicants.pdf'],
+      },
+      {
+        claim: 'Georgia LIMITED-TERM DL/ID 的期限可与获准停留时间相关，但卡片本身不是 lawful status 证明。',
+        sourceUrls: ['https://dds.georgia.gov/partners/limited-term-dlids'],
+      },
+      {
+        claim: 'California 对 temporary lawful status 申请人设置 limited-term DL/ID 路径，并要求相应 original identity / lawful-presence 文件。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/limited-term-for-legal-presence/'],
       },
     ],
     editorNotes: [
@@ -6443,8 +6865,12 @@ export const topics: TopicGuide[] = [
     ],
     sources: [
       {
-        label: 'FLHSMV What to Bring',
-        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/',
+        label: 'DHS REAL ID',
+        url: 'https://www.dhs.gov/real-id',
+      },
+      {
+        label: 'FLHSMV What to Bring - Non-Immigrant',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/',
       },
       {
         label: 'Massachusetts Identification Requirements',
@@ -6454,8 +6880,32 @@ export const topics: TopicGuide[] = [
         label: 'Georgia DDS REAL ID',
         url: 'https://dds.georgia.gov/georgia-licenseid/real-id',
       },
+      {
+        label: 'Georgia DDS Information for Non-US Citizens',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens',
+      },
+      {
+        label: 'Georgia DDS SAVE',
+        url: 'https://dds.georgia.gov/save',
+      },
+      {
+        label: 'Georgia DDS Limited Term DL/IDs',
+        url: 'https://dds.georgia.gov/partners/limited-term-dlids',
+      },
+      {
+        label: 'USCIS SAVE for Benefit Applicants',
+        url: 'https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVE_FACT_SHEET_for_Benefit_Applicants.pdf',
+      },
+      {
+        label: 'California DMV Limited Term for Legal Presence',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/limited-term-for-legal-presence/',
+      },
+      {
+        label: 'Texas DPS Verifying Lawful Presence',
+        url: 'https://www.dps.texas.gov/driverlicense/documents/verifyinglawfulpresence.pdf',
+      },
     ],
-    relatedStateIds: ['florida', 'massachusetts', 'georgia', 'california'],
+    relatedStateIds: ['florida', 'massachusetts', 'georgia', 'california', 'texas'],
   },
   {
     slug: 'standard-license-driving-privilege-no-lawful-status',
@@ -7350,7 +7800,7 @@ export const topics: TopicGuide[] = [
     slug: 'lost-stolen-license-id-replacement-identity-theft',
     title: '驾照或 State ID 丢失/被盗后，补证、报案和身份盗用怎么处理',
     eyebrow: '丢证补证',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '驾照、learner permit、State ID、REAL ID 或 Enhanced ID 丢失、被盗、损坏后，最重要的不是只问“能不能马上补一张”。先判断是普通补证、地址/姓名/照片变化、REAL ID 升级、外州旅行，还是已经涉及 identity theft 或 driver license fraud。',
     whoNeedsIt: [
@@ -7417,6 +7867,74 @@ export const topics: TopicGuide[] = [
         question: '如果我后来找回旧驾照，可以留着备用吗？',
         answer:
           '不建议，也可能违反州规则。New Jersey MVC 明确说收到 replacement 后，如果原证还在，应销毁原证，不能持有多份 license 或 permit。其他州也应以 replacement 后的新凭证为准。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'Replacement 或 duplicate 通常用于替换现有证件，California、New York、Texas 和 Florida 都把它与 renewal / information change 分开说明。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/replace-your-driver-license-or-identification-dl-id-card/',
+          'https://dmv.ny.gov/driver-license/replace-a-license-or-permit',
+          'https://www.dps.texas.gov/section/driver-license/replace-your-driver-license-commercial-driver-license-or-id-card',
+          'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
+        ],
+      },
+      {
+        claim: '线上 replacement 有资格限制，证件状态、姓名或地址变更、REAL ID 升级、身份核验和照片需求都可能要求现场办理。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/replace-your-driver-license-or-identification-dl-id-card/',
+          'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/replace-your-license-or-learner-permit',
+          'https://www.dmv.virginia.gov/licenses-ids/license/replace',
+          'https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-replace-license',
+        ],
+      },
+      {
+        claim: 'Washington replacement 会寄到 driver record 地址且邮件不能转寄，因此地址变化时应先按官方流程更新记录。',
+        sourceUrls: ['https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/replace-your-license-or-learner-permit'],
+      },
+      {
+        claim: '被盗证件不会在所有州自动获得新 license number；Texas 和 Georgia 都把号码变更放在 fraud 审核或现场处理路径中。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/section/driver-license/faq/section-4-lost-or-stolen-driver-licenseid-card',
+          'https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/license-fraud',
+        ],
+      },
+      {
+        claim: '警察报告要求按州和场景变化：New York 的特定犯罪丢失免费补证路径需要 MV-78B，而 Maryland 普通 lost/stolen replacement 不作同样要求。',
+        sourceUrls: [
+          'https://dmv.ny.gov/driver-license/replace-a-license-or-permit',
+          'https://mva.maryland.gov/licenses-ids/replace-license-or-id',
+        ],
+      },
+      {
+        claim: '证件或个人信息被盗后，IdentityTheft.gov 和 FTC 将报告、账户处置、fraud alert 或 credit freeze 等作为独立补救步骤。',
+        sourceUrls: [
+          'https://www.identitytheft.gov/Info-Lost-or-Stolen',
+          'https://consumer.ftc.gov/identity-theft-and-online-security/identity-theft',
+        ],
+      },
+      {
+        claim: 'TSA 不接受 temporary driver license 作为其清单内身份证件，没有其他可接受证件时应查看 TSA 当前身份核验说明。',
+        sourceUrls: [
+          'https://www.tsa.gov/travel/security-screening/identification',
+          'https://www.tsa.gov/travel/frequently-asked-questions/i-forgot-my-identification-can-i-still-proceed-through-security',
+          'https://www.tsa.gov/tsaconfirm-id',
+        ],
+      },
+      {
+        claim: 'Virginia Mobile ID 不是所有场景下对实体卡的完整替代，设置和使用仍受官方设备、验证及接受范围限制。',
+        sourceUrls: ['https://www.dmv.virginia.gov/licenses-ids/mobile-id/faq'],
+      },
+      {
+        claim: 'New Jersey 说明收到 duplicate 后如找回原 license 或 permit，应销毁旧证而不是保留两张有效凭证。',
+        sourceUrls: ['https://www.nj.gov/mvc/license/liclost.htm'],
+      },
+      {
+        claim: '人在外州申请 replacement 与转入新州时的 transfer 是不同业务；Washington 和 Georgia 分别提供对应的外州处理路径。',
+        sourceUrls: [
+          'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/replace-your-license-or-learner-permit',
+          'https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid',
+        ],
       },
     ],
     editorNotes: [
@@ -7832,7 +8350,7 @@ export const topics: TopicGuide[] = [
     slug: 'first-driver-license-road-test',
     title: '第一次在美国考驾照：permit、笔试和路考顺序',
     eyebrow: '首次驾照',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '第一次在美国考驾照，不要只问“哪里预约路考”。多数州会先要求身份和居住材料、learner / instruction permit、knowledge test、练车或课程，再进入 road test / skills test 和正式 license。',
     whoNeedsIt: [
@@ -7846,6 +8364,7 @@ export const topics: TopicGuide[] = [
       'knowledge test 可能在线、现场、学校或第三方完成；road test / skills test 可能由 DMV、授权学校或第三方 testing business 执行。',
       '路考不只是预约时间。很多州会检查陪同驾驶人、车辆登记/保险、安全设备、预约确认、permit 和练车记录。',
       '如果已经持有外国驾照或外州驾照，先看 transfer / exchange 规则；它可能改变是否需要 permit、knowledge test 或 road test。',
+      '通过考试不等于当天拿到永久卡。部分州先给 interim / temporary credential，再把正式驾照邮寄到记录地址；办完要核对临时凭证的驾驶效力和邮寄状态。',
     ],
     checklist: [
       '先打开所在州的 first driver license、learner permit 或 new driver 页面，不要直接跳到 road test scheduler。',
@@ -7861,6 +8380,7 @@ export const topics: TopicGuide[] = [
       '第三步：准备并通过 knowledge test。用官方 manual、practice test 或 sample test，不要只背第三方题库。',
       '第四步：按州规则练车或完成课程。纽约有 5-hour pre-licensing course 场景，密歇根成人通常先拿 TIP 并至少练习 30 天；其他州要看本州要求。',
       '第五步：预约 road test / skills test 前核对车辆、陪同人和文件。路考失败常见原因不是不会开，而是车、证件或预约材料不合格。',
+      '第六步：通过后确认照片、姓名、地址、限制条件和 interim credential，并跟踪永久卡邮寄；没有通过则先查正式结果、等待期和重考要求。',
     ],
     faqs: [
       {
@@ -7882,6 +8402,58 @@ export const topics: TopicGuide[] = [
         question: '路考车辆需要准备什么？',
         answer:
           '通常要合法上路、登记和保险有效，灯光、刹车、转向灯、安全带等设备正常，并符合考官检查要求。各州列法不同，预约前必须看 road test 页面。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: '首次普通驾照的 permit、knowledge test、练车和 road test 顺序由州分别执行，不能把一个州的流程当成全国规则。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/instruction-permits/',
+          'https://dmv.ny.gov/driver-license/get-learner-permit',
+          'https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit/driver-license-application-ages-18',
+        ],
+      },
+      {
+        claim: 'California instruction permit 申请和考试准备分别由官方 permit 与 knowledge / drive test 页面说明。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/instruction-permits/',
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/preparing-for-knowledge-and-drive-tests/',
+        ],
+      },
+      {
+        claim: 'New York 首次申请人要先取得 learner permit，再按年龄和经历进入练车、课程与 road test 流程。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/get-learner-permit'],
+      },
+      {
+        claim: 'Texas 首次驾照申请会先核对 citizenship/lawful presence、residency、identity、SSN 和适用的车辆或课程文件。',
+        sourceUrls: ['https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license'],
+      },
+      {
+        claim: 'Florida 将 Class E knowledge exam 和 driving skills test 作为独立考试环节，并发布各自的官方要求。',
+        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/class-e-knowledge-exam-driving-skills-test/'],
+      },
+      {
+        claim: 'Washington 对 18 岁以上首次申请人按是否已有 permit、是否需要练车和测试情况进行分流。',
+        sourceUrls: ['https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit/driver-license-application-ages-18'],
+      },
+      {
+        claim: 'New Jersey 首次驾照使用 graduated driver license 路径，permit、考试和年龄要求不能按成人通用经验跳过。',
+        sourceUrls: ['https://www.nj.gov/mvc/license/firstlic.htm'],
+      },
+      {
+        claim: 'Pennsylvania 首次驾驶路径从 learner permit 开始，并由 PennDOT 官方页面列出申请和测试材料。',
+        sourceUrls: ['https://www.pa.gov/services/dmv/get-a-learners-permit'],
+      },
+      {
+        claim: 'Georgia 和 North Carolina 都通过官方 test / exam 页面说明 knowledge、vision 或 road skills 等考试要求。',
+        sourceUrls: [
+          'https://dds.georgia.gov/testing-and-training/test-and-exams-information',
+          'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+        ],
+      },
+      {
+        claim: 'Michigan 18 岁以上新司机有专门流程，不能直接套用 teen driver education 或其他州的 permit 持有期限。',
+        sourceUrls: ['https://www.michigan.gov/sos/license-id/new-drivers-18-older'],
       },
     ],
     editorNotes: [
@@ -8992,7 +9564,7 @@ export const topics: TopicGuide[] = [
     slug: 'foreign-license-idp-transfer',
     title: '中国/外国驾照、IDP 和美国州驾照怎么衔接',
     eyebrow: '外国驾照',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '持中国或其他外国驾照来美国，先分清自己是短期访客、学生/临时居民，还是已经成为某州居民。IDP 通常只是翻译辅助文件，换成本州驾照仍要看州 DMV 的测试、翻译、身份和互惠规则。',
     whoNeedsIt: [
@@ -9006,6 +9578,8 @@ export const topics: TopicGuide[] = [
       '成为州居民后，很多州要求在规定期限内申请本州 driver license；例如加州居民通常 10 天内要取得 California DL，纽约居民 30 天内要取得 NY license。',
       '外国驾照能否免笔试或路考取决于州和互惠国家/地区。新泽西、宾州、华盛顿、德州等州列出过部分 reciprocity 或 waiver 路径，但适用对象、年龄、非商业驾照和文件要求不同。',
       '非英文外国驾照常会触发 IDP、英文翻译、certified translation 或领馆/官方证明要求；纽约、新泽西、华盛顿、密歇根的官方页面都有相关条件。',
+      '短期访客“能否凭外国驾照驾驶”和新居民“如何申请本州驾照”是两个问题。成为州居民后，原外国驾照即使未到期，也可能不再适用访客驾驶规则。',
+      '办到美国州驾照后，原外国证件是否交回、作废或允许保留也按州和身份变化。不要在提交前假设一定能保留原证。',
     ],
     checklist: [
       '先确认身份：短期访客、学生/临时访客、永久居民或已经建立州居民身份。',
@@ -9021,6 +9595,7 @@ export const topics: TopicGuide[] = [
       '第三步：判断 IDP 的角色。需要时，把 IDP 当翻译和辅助说明；不要把它当成可以单独开车、单独换证或替代身份文件的证件。',
       '第四步：把材料分成三组：驾驶经历证明、身份/合法居留证明、州居住地址证明。密歇根 SOS-428 特别说明 foreign driver license 只能证明 driving experience，不能证明 legal presence 或 identity。',
       '第五步：回到本州 DMV 官方页面确认测试和预约。外国驾照申请人常见结果是要笔试、路考或视力测试；互惠路径则可能免 knowledge / road test，但仍要文件和视力核验。',
+      '第六步：申请完成前确认原外国驾照怎么处理、临时证何时生效、永久卡寄到哪里，以及保险公司是否需要新州驾照号码。',
     ],
     faqs: [
       {
@@ -9042,6 +9617,54 @@ export const topics: TopicGuide[] = [
         question: '我的外国驾照不是英文，要翻译成什么格式？',
         answer:
           '按州看。纽约要求 road test 时带 IDP 或 certified translation，并列明翻译应包含姓名、生日、外国驾照到期日和准驾车型；密歇根要求外国文件英文翻译，外国驾照需 IDP 或 English translation。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'USA.gov 提醒外国访客逐州查询是否需要 International Driving Permit，因为美国各州对外国驾照和 IDP 的要求不同。',
+        sourceUrls: ['https://www.usa.gov/non-citizen-driving'],
+      },
+      {
+        claim: 'USA.gov 说明美国政府不向外国访客签发 IDP，访客应在出发前向本国机动车机构办理。',
+        sourceUrls: ['https://www.usa.gov/non-citizen-driving'],
+      },
+      {
+        claim: 'Pennsylvania 将 IDP 说明为外国驾照的多语言翻译辅助，驾驶人仍要持有效本国驾照并遵守原证限制。',
+        sourceUrls: ['https://www.pa.gov/agencies/dmv/driver-services/driving-in-pennsylvania-with-a-foreign-driver-s-license'],
+      },
+      {
+        claim: 'California 官方说明成为州居民后通常要在 10 天内申请 California driver license，外国驾照申请人仍按州流程测试。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/file/fast-facts-5-requirements-for-a-california-drivers-license/',
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/driver-licenses-dl/',
+        ],
+      },
+      {
+        claim: 'New York 允许非居民使用有效外国驾照驾驶，但成为 New York resident 后要在 30 天内取得州驾照。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/driving-in-new-york-state'],
+      },
+      {
+        claim: 'New York 对美国或加拿大以外的外国驾照持有人采用 original-license 路径，并说明通过路考后交出外国驾照。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/drivers-from-other-countries'],
+      },
+      {
+        claim: 'Washington 是否需要 knowledge 或 drive test 要按原驾照签发地和官方 waiver / reciprocity 页面判断。',
+        sourceUrls: ['https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test'],
+      },
+      {
+        claim: 'Michigan SOS-428 将外国驾照视为 driving experience 证明，而不是 legal presence 或 identity 证明。',
+        sourceUrls: ['https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa'],
+      },
+      {
+        claim: 'Michigan 对外国驾照要求 IDP 或 English translation，并将其与身份、合法居留和州居住证明分开审核。',
+        sourceUrls: ['https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa'],
+      },
+      {
+        claim: 'Massachusetts 明确区分使用外国驾照临时驾驶和把特定外国驾照转换为 Massachusetts license 的不同流程。',
+        sourceUrls: [
+          'https://www.mass.gov/info-details/driving-in-massachusetts-on-a-foreign-drivers-license',
+          'https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country',
+        ],
       },
     ],
     editorNotes: [
@@ -9093,8 +9716,16 @@ export const topics: TopicGuide[] = [
         label: 'Michigan SOS Driver License or ID Requirements PDF',
         url: 'https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa',
       },
+      {
+        label: 'Mass.gov Driving on a Foreign Driver License',
+        url: 'https://www.mass.gov/info-details/driving-in-massachusetts-on-a-foreign-drivers-license',
+      },
+      {
+        label: 'Mass.gov Transfer a Foreign Driver License',
+        url: 'https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country',
+      },
     ],
-    relatedStateIds: ['california', 'new-york', 'new-jersey', 'pennsylvania', 'washington', 'michigan'],
+    relatedStateIds: ['california', 'new-york', 'new-jersey', 'pennsylvania', 'washington', 'michigan', 'massachusetts'],
   },
   {
     slug: 'student-temporary-resident-license-registration',
@@ -9304,41 +9935,120 @@ export const topics: TopicGuide[] = [
     slug: 'moving-to-new-state',
     title: '搬到新州后先办哪件事',
     eyebrow: '搬州',
-    reviewedAt: '2026-07-07',
+    reviewedAt: '2026-07-13',
     description:
-      '搬州不是只换一张驾照。新州地址证明、外州驾照、车辆保险、title/registration 和旧州牌照可能互相卡住，先从新州 new resident 页面排顺序。',
+      '搬州要同时处理“人”和“车”：新州驾照/ID、地址证明、保险、title、registration、inspection、车牌，以及旧州登记和保险收尾。正确顺序取决于新州，不是永远先换驾照。',
     whoNeedsIt: [
       '刚搬到美国另一个州的人。',
       '从外州带车搬入的人。',
       '已有外州驾照，需要换成本州驾照的人。',
     ],
     keyFacts: [
-      '很多州要求新居民在规定时间内换本州驾照，但具体天数不能跨州套用。',
-      '带车搬州时，保险、title、registration 和车检要求常常和驾照一起影响办理顺序。',
-      '外州驾照能否直接 exchange，取决于新州规则、证件是否有效、身份类别和是否有特殊限制。',
+      '各州截止时间和起算点不同。New York 和 Georgia 常见驾照 30 天，New Jersey 常见 60 天或原证先到期者为准，Texas 常见 90 天；这些只适用于对应州。',
+      '驾照与车辆的期限可能不同。Texas 新居民通常 30 天内登记车辆、90 天内换驾照；Florida 页面则把车辆 title/registration 与驾照分成不同时间窗口。',
+      '办理顺序也不同。Washington 明确要求先取得 Washington driver license，再登记车辆；Texas 新居民申请驾照时通常要先出示本人车辆的 Texas registration 和保险证明。',
+      '外州驾照是否能 exchange，取决于证件是否有效/过期多久、年龄、州或国家来源、CDL/permit 类型、限制状态和个人身份文件。',
+      '带车搬入通常先换成新州适用的保险，再做 VIN、inspection / emissions、title / registration 和 plate。不能先取消旧州保险再想车牌怎么处理。',
+      '有 lien 或 lease 时，title 可能在银行或 leasing company 手里。Florida、New Jersey 和 Washington 都提供对应处理提示，但所需授权和寄送方式不同。',
+      '旧州收尾不能省。New York 明确要求在取消 NY liability insurance 前先 surrender NY plates / registration；其他州可能要求退牌、通知搬出或提交 out-of-state registration。',
+      '“resident”不只看搬家日期，也可能看就业、学校、居住意图、投票、车辆或住房事实。学生、军人、跨州通勤和短期工作者要先看州的 resident / exemption 说明。',
     ],
     checklist: [
-      '打开新州 DMV 的 new resident / moving 页面，不要先看泛泛驾照页。',
-      '确认换驾照期限，以及外州驾照是否必须仍然有效。',
-      '有车的人同步看保险、title、registration、车检或排放要求。',
-      '准备身份、SSN、两份地址证明、外州驾照和车辆文件。',
+      '记录真正建立新州 resident 身份的日期，并保存 lease、employment、school、utility 或其他起算依据。',
+      '打开新州官方 new resident 页面，同时开 driver license 和 vehicle title/registration 两个入口。',
+      '分别写下驾照、车辆登记、inspection/emissions 和旧州退牌的截止时间，不把一个日期套给全部业务。',
+      '确认外州驾照状态：valid、expired、permit、CDL、restricted、suspended，或外国驾照；查是否可免 knowledge / road test。',
+      '准备人的材料：identity/lawful status、SSN 状态、姓名链、当前外州驾照和新州 residency proofs。',
+      '准备车的材料：title、registration、VIN、odometer、lienholder/lease 文件、new-state insurance、inspection/emissions 和付款信息。',
+      '向保险公司确认新州保单生效日、车辆 garaging address 和旧保单取消顺序，不制造 coverage lapse。',
+      '查旧州 plate / registration surrender、保险取消和地址更新规则，并保存邮寄追踪、收据和新州登记证明。',
     ],
     steps: [
-      '先把新州居住地址证明整理好，因为换证、REAL ID 和车辆业务都会用到。',
-      '再看外州驾照转换：是否能免笔试/路考、是否需要预约、是否要带身份文件。',
-      '带车搬入时，同步处理新州保险、title/registration 和可能的车检要求。',
-      '最后查旧州是否要求退牌、取消登记或通知搬出，避免后续账单或罚款。',
+      '第一步：确定 resident 起算点和两个期限。用新州 new resident 页面分别记录 driver license 与 vehicle registration 的 deadline。',
+      '第二步：先建立可用的新州地址材料，并预约需要现场核验的驾照或 title 业务；姓名、SSN 和 lawful-status 文件同时整理。',
+      '第三步：按新州指定顺序处理保险和车辆。Florida 要先有 Florida insurance；Washington 要先有 WA driver license；Texas 通常先完成车辆登记再办驾照。',
+      '第四步：处理 title / lien。title 在银行手里时，先让 lienholder 按州或当地 office 指示发送文件，不要到了柜台才联系银行。',
+      '第五步：换驾照。带外州证件及 required documents，确认是否 surrender 旧证、是否免测试、临时证如何使用和正式卡寄送地址。',
+      '第六步：完成 VIN、inspection/emissions、registration 和 plates，并确认保险、registration、title owner 与车辆地址一致。',
+      '第七步：按旧州规则退牌或关闭登记后再取消旧保单；保留新旧州收据，继续检查 toll、parking、property tax 和 renewal notice。',
     ],
     faqs: [
       {
         question: '搬州一定要重新路考吗？',
         answer:
-          '不一定。很多州对有效外州驾照有 exchange 路径，但过期、商业驾照、国际驾照或特殊身份可能规则不同。',
+          '不一定。许多州对 valid out-of-state noncommercial license 有 exchange 或测试豁免，但过期证、permit、CDL、外国驾照、未成年人证件或受限/停牌记录可能走不同路径。',
       },
       {
         question: '先换驾照还是先注册车？',
         answer:
-          '看新州规则、保险和地址证明准备情况。有些州把新居民驾照和车辆登记分成不同入口，最稳妥是按新州 new resident 页面顺序操作。',
+          '看新州。Washington 明确先办 WA driver license 再登记车辆；Texas 新居民通常先登记本人车辆，再在驾照申请时出示 registration；其他州可能允许同日或相反顺序。',
+      },
+      {
+        question: '旧州保险什么时候取消？',
+        answer:
+          '不要在新州保单和登记生效前贸然取消。还要先看旧州是否要求退牌或关闭 registration；New York 明确要求先 surrender NY plates / registration，再取消 NY liability insurance。',
+      },
+      {
+        question: '车贷没还完、title 在银行手里怎么办？',
+        answer:
+          '先看新州 lienholder / leased vehicle 指引，并提前联系银行。New Jersey、Florida 和 Washington 都有由 lienholder 发送 title、复制件或拒绝转 title 说明的路径，但不能跨州套用文件格式。',
+      },
+      {
+        question: '留学生或短期工作搬来，也一定算新州 resident 吗？',
+        answer:
+          '不一定。DMV resident 判断可能参考住房、工作、学校、投票、车辆和居住意图。New York 就说明外州/外国学生通常不算 NY resident；其他州必须看各自 exemption 和 resident 定义。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'California 新居民带入外州或外国登记车辆时，通常要在成为居民或把车带入州内后 20 天内登记。',
+        sourceUrls: ['https://www.dmv.ca.gov/portal/driver-education-and-safety/special-interest-driver-guides/new-to-california/'],
+      },
+      {
+        claim: 'New York 新居民通常要在成为 resident 后 30 天内取得 New York driver license。',
+        sourceUrls: ['https://dmv.ny.gov/more-info/moving-to-or-from-new-york-state'],
+      },
+      {
+        claim: 'New York 车辆使用 NY registration 时必须有 New York insurance，搬出时应先交回 plates / registration 再取消该保险。',
+        sourceUrls: ['https://dmv.ny.gov/more-info/moving-to-or-from-new-york-state'],
+      },
+      {
+        claim: 'New Jersey 新居民通常要在搬入后 60 天内或原 license / registration 到期前完成 license 与 vehicle transfer，以较早者为准。',
+        sourceUrls: ['https://www.nj.gov/mvc/drivertopics/movetonj.htm'],
+      },
+      {
+        claim: 'Georgia 要求成为州居民并在 Georgia 驾驶的人通常在 30 天内申请 Georgia driver license。',
+        sourceUrls: ['https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers'],
+      },
+      {
+        claim: 'Texas 新居民通常在 30 天内登记车辆、90 天内取得 Texas driver license，两项业务由不同机构办理。',
+        sourceUrls: [
+          'https://www.txdmv.gov/motorists/new-to-texas',
+          'https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids',
+        ],
+      },
+      {
+        claim: 'Texas 新居民申请 driver license 时，通常要先完成本人车辆的 Texas registration，并准备相应保险证明。',
+        sourceUrls: ['https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids'],
+      },
+      {
+        claim: 'Florida 新居民页面分别给出驾照与车辆 title/registration 的期限，并要求车辆业务使用 Florida insurance。',
+        sourceUrls: ['https://www.flhsmv.gov/new-resident/'],
+      },
+      {
+        claim: 'Washington 新居民通常有 30 天办理 WA driver license 和 vehicle registration，并要先取得 WA driver license 再登记车辆。',
+        sourceUrls: [
+          'https://dol.wa.gov/moving-washington',
+          'https://dol.wa.gov/moving-washington/vehicle-registration-and-plates',
+        ],
+      },
+      {
+        claim: 'New Jersey、Florida 和 Washington 都对 title 由 lienholder 持有的搬州车辆提供单独文件或联系路径。',
+        sourceUrls: [
+          'https://www.nj.gov/mvc/drivertopics/movetonj.htm',
+          'https://www.flhsmv.gov/new-resident/',
+          'https://dol.wa.gov/moving-washington/vehicle-registration-and-plates',
+        ],
       },
     ],
     editorNotes: [
@@ -9347,6 +10057,10 @@ export const topics: TopicGuide[] = [
       '外州驾照过期、商业驾照、国际驾照、非公民身份或车辆 title 问题，都会让普通 exchange 路径变复杂。',
     ],
     sources: [
+      {
+        label: 'California DMV New to California',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/special-interest-driver-guides/new-to-california/',
+      },
       {
         label: 'NY DMV Moving to or from New York State',
         url: 'https://dmv.ny.gov/more-info/moving-to-or-from-new-york-state',
@@ -9359,8 +10073,28 @@ export const topics: TopicGuide[] = [
         label: 'Georgia DDS New Residents and Out-of-State Transfers',
         url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers',
       },
+      {
+        label: 'Texas DMV New to Texas',
+        url: 'https://www.txdmv.gov/motorists/new-to-texas',
+      },
+      {
+        label: 'Texas DPS Moving to Texas Guide',
+        url: 'https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids',
+      },
+      {
+        label: 'FLHSMV New Resident',
+        url: 'https://www.flhsmv.gov/new-resident/',
+      },
+      {
+        label: 'Washington DOL Moving to Washington',
+        url: 'https://dol.wa.gov/moving-washington',
+      },
+      {
+        label: 'Washington DOL Vehicle Registration and Plates',
+        url: 'https://dol.wa.gov/moving-washington/vehicle-registration-and-plates',
+      },
     ],
-    relatedStateIds: ['new-york', 'new-jersey', 'georgia', 'texas'],
+    relatedStateIds: ['california', 'new-york', 'new-jersey', 'georgia', 'texas', 'florida', 'washington'],
   },
   {
     slug: 'used-car-title-lien-salvage-odometer-check',
@@ -12211,7 +12945,7 @@ export const topics: TopicGuide[] = [
     slug: 'driver-license-suspension-reinstatement-sr22',
     title: '驾照被 suspend 或 revoke 后，恢复驾驶资格先做什么',
     eyebrow: '恢复驾照',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '收到 suspension、revocation、cancellation、denial、reinstatement 或 SR-22 / FR-44 通知时，先不要只问“交多少钱”。恢复驾驶资格通常要同时看 DMV status、法院或发起机构 clearance、保险/financial responsibility、课程、测试、等待期和恢复费用。',
     whoNeedsIt: [
@@ -12271,6 +13005,78 @@ export const topics: TopicGuide[] = [
         question: '我人在外州，原州驾照被 suspend，还能在别州申请新驾照吗？',
         answer:
           '不要假设可以绕过。很多州会检查 out-of-state suspension、driving privilege 或 national record。先按原州要求恢复或解决记录，再看新州 out-of-state transfer 页面。',
+      },
+    ],
+    factChecks: [
+      {
+        claim: 'New York 明确区分 suspension 与 revocation，revoked license 在期限结束后仍可能需要 DMV approval、重新申请、缴费或测试。',
+        sourceUrls: [
+          'https://dmv.ny.gov/points-and-penalties/suspensions-and-revocations',
+          'https://dmv.ny.gov/points-and-penalties/request-restoration-after-a-driver-license-revocation',
+        ],
+      },
+      {
+        claim: 'Suspension period 结束不代表自动恢复；Texas、Pennsylvania 和 Massachusetts 都要求先核对个案 reinstatement requirements。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/section/driver-license/reinstating-your-driver-license-or-driving-privilege',
+          'https://www.pa.gov/services/dmv/request-a-driver-license-restoration-requirements-letter',
+          'https://www.mass.gov/how-to/reinstate-your-drivers-license',
+        ],
+      },
+      {
+        claim: 'New York 与 Texas 都提供官方 license status / eligibility 查询，恢复前应核对系统状态而不是只看付款收据。',
+        sourceUrls: [
+          'https://dmv.ny.gov/driver-license/check-license-or-driving-privilege-status',
+          'https://texas.gov/licenseeligibility',
+        ],
+      },
+      {
+        claim: 'Reinstatement fee 只是可能要求之一，Texas 和 Pennsylvania 仍可能要求提交其他 compliance documents 或完成额外项目。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/section/driver-license/reinstating-your-driver-license-or-driving-privilege',
+          'https://www.pa.gov/agencies/dmv/online-services-dvs/license-and-vehicle-restoration-services',
+        ],
+      },
+      {
+        claim: '法院或其他 reporting agency 发起的 suspension 通常要先由对应机构完成 clearance，再由 DMV 更新 driving privilege。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-suspensions-revocations/other-suspensions-revocations/',
+          'https://www.dps.texas.gov/section/driver-license/reinstating-your-driver-license-or-driving-privilege',
+        ],
+      },
+      {
+        claim: 'SR-22 与 FR-44 属于按州要求提交的 financial responsibility certification，Virginia 对两种证明分别列出适用和提交规则。',
+        sourceUrls: ['https://www.dmv.virginia.gov/businesses/insurance/certifications'],
+      },
+      {
+        claim: 'California 将保险或 financial responsibility 与车辆及驾驶资格的 suspension / reissue 流程分开说明。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/suspensions/',
+          'https://www.dmv.ca.gov/portal/vehicle-registration/insurance-requirements/',
+          'https://www.dmv.ca.gov/portal/dmv-virtual-office/reissue-fees/',
+        ],
+      },
+      {
+        claim: 'Massachusetts 将 required classes / programs 与 suspension hearing 设为独立恢复环节，不能仅靠缴费替代。',
+        sourceUrls: [
+          'https://www.mass.gov/info-details/required-classes-and-programs-to-reinstate-your-drivers-license',
+          'https://www.mass.gov/guides/suspension-hearings-information',
+        ],
+      },
+      {
+        claim: '恢复相关的例外路径并不统一：Texas 单列 special-license 问题，Virginia 则为符合条件的 reinstatement fees 提供 payment plan。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/section/driver-license/faq/section-7-reinstatement-fees-and-special-licenses',
+          'https://www.dmv.virginia.gov/licenses-ids/payment-plan-program',
+        ],
+      },
+      {
+        claim: 'Georgia、Washington 和 New Jersey 都要求按本州 violations / suspended-license / restoration 流程完成要求后再恢复驾驶资格。',
+        sourceUrls: [
+          'https://dds.georgia.gov/georgia-licenseid/violations-suspensions-revocations',
+          'https://dol.wa.gov/driver-licenses-and-permits/suspended-driver-license',
+          'https://www.nj.gov/mvc/license/suspension.htm',
+        ],
       },
     ],
     editorNotes: [
