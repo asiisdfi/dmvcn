@@ -2,6 +2,7 @@
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
+import StatusFilter from '../../components/StatusFilter.astro';
 import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
 
 const rows = states.map((state) => {
@@ -74,15 +75,7 @@ const schema = {
         <label for="service-search">搜索州、机构或业务</label>
         <input id="service-search" type="search" placeholder="例如 renew、地址、appointment、Texas" data-directory-search />
       </div>
-      <div class="field">
-        <label for="service-status">入口状态</label>
-        <select id="service-status" data-directory-status>
-          <option value="">全部状态</option>
-          <option value="ready">内容已核对</option>
-          <option value="watch">已提供备用入口</option>
-          <option value="risk">建议从备用入口进入</option>
-        </select>
-      </div>
+      <StatusFilter id="service-status" />
     </form>
 
     <div class="directory-table service-directory-table" role="list">

@@ -1,12 +1,8 @@
 ---
-import { ArrowRight, CalendarDays, ClipboardList, ExternalLink, FileCheck2, MapPinned, Search, ShieldAlert } from '@lucide/astro/icons';
+import { ArrowRight, BadgeCheck, CalendarDays, CarFront, CircleAlert, IdCard, MapPinned, Route, ShieldAlert } from '@lucide/astro/icons';
+import ServiceFinder from '../components/ServiceFinder.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { REVIEW_DATE, SITE, getStatePublicStatus, states, topics } from '../data/content';
-
-const directoryPages = 13;
-const pageCount = states.length * 2 + topics.length + directoryPages;
-const fallbackStates = states.filter((state) => ['watch', 'risk'].includes(getStatePublicStatus(state).tone));
-const fallbackPreview = fallbackStates.slice(0, 12).map((state) => state.abbr).join(' / ');
+import { REVIEW_DATE, SITE, states } from '../data/content';
 const launchTasks = [
   {
     label: '登机要用驾照',
@@ -236,199 +232,215 @@ const directoryTasks = [
     href: '/quality/',
   },
 ];
+
+const primaryScenarios = [
+  {
+    label: '我要办 REAL ID',
+    detail: '先判断是否真的需要，再看所在州的材料和预约要求。',
+    href: '/topics/real-id-basics/',
+    Icon: BadgeCheck,
+  },
+  {
+    label: '第一次考驾照',
+    detail: '按 permit、笔试、练车、路考和车辆要求排顺序。',
+    href: '/topics/first-driver-license-road-test/',
+    Icon: Route,
+  },
+  {
+    label: '驾照 / ID 丢了',
+    detail: '先分清普通补证、被盗报案、地址更新和临时旅行风险。',
+    href: '/topics/lost-stolen-license-id-replacement-identity-theft/',
+    Icon: IdCard,
+  },
+  {
+    label: '刚搬到新州',
+    detail: '看新居民期限、外州驾照转入、车辆登记和保险顺序。',
+    href: '/topics/moving-to-new-state/',
+    Icon: MapPinned,
+  },
+  {
+    label: '车辆登记 / 车牌',
+    detail: '买车或搬州后，先排 title、registration、保险、车检和旧州退牌。',
+    href: '/topics/vehicle-title-registration-insurance-after-move/',
+    Icon: CarFront,
+  },
+  {
+    label: '驾照被暂停',
+    detail: '先查驾照状态、案件原因、费用、课程和恢复驾驶资格的顺序。',
+    href: '/topics/driver-license-suspension-reinstatement-sr22/',
+    Icon: CircleAlert,
+  },
+];
+
+const taskGroupDefinitions = [
+  {
+    title: '证件与 REAL ID',
+    match: /real-id|residency|ssn|state-id|lost-stolen-license-id|non-citizen|lawful-status|airport-travel/,
+  },
+  {
+    title: '驾照与考试',
+    match: /driver|road-test|teen|older|test-language|foreign-license|student-temporary/,
+  },
+  {
+    title: '搬家与车辆',
+    match: /moving|vehicle|title|parking|temporary-tag|inspection|sold-car/,
+  },
+  {
+    title: '罚单与风险',
+    match: /ticket|toll|points|suspension|scam/,
+  },
+  { title: '日常服务', match: /.*/ },
+];
+const taskGroups = taskGroupDefinitions.map((group, groupIndex) => ({
+  title: group.title,
+  items: launchTasks.filter((task) => {
+    const firstMatch = taskGroupDefinitions.findIndex((candidate) => candidate.match.test(task.href));
+    return firstMatch === groupIndex;
+  }),
+}));
+const directoryHighlights = directoryTasks.slice(0, 8);
+const popularStateIds = new Set([
+  'california',
+  'new-york',
+  'texas',
+  'florida',
+  'washington',
+  'new-jersey',
+  'massachusetts',
+  'illinois',
+  'pennsylvania',
+  'georgia',
+  'virginia',
+  'north-carolina',
+]);
+const popularStates = states.filter((state) => popularStateIds.has(state.id));
 ---
 
 <BaseLayout title="美国 DMV / REAL ID 中文办事信息库" description={SITE.description} updatedAt={REVIEW_DATE}>
-  <section class="hero">
-    <div class="hero-inner desk-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">DMV 办事台账</p>
-        <h1>选州，直达官方入口</h1>
-        <p class="lead">
-          短句、清单、官方链接。先用中文确认路线，最后回到 DMV / DPS / RMV / MVC 官方系统办理。
-        </p>
-        <div class="hero-stats" aria-label="站点概况">
-          <span class="stat-pill"><MapPinned size={17} aria-hidden="true" />{states.length} 个州</span>
-          <span class="stat-pill"><FileCheck2 size={17} aria-hidden="true" />{pageCount} 页资料</span>
-          <span class="stat-pill"><CalendarDays size={17} aria-hidden="true" />核对到 {REVIEW_DATE}</span>
-        </div>
-        <form class="finder" data-finder>
-          <div class="field">
-            <label for="state-select">所在州</label>
-            <select id="state-select" name="state">
-              <option value="">先看通用专题</option>
-              {states.map((state) => (
-                <option value={state.id}>{state.nameZh} / {state.abbr}</option>
-              ))}
-            </select>
-          </div>
-          <div class="field">
-            <label for="task-select">办理事项</label>
-            <select id="task-select" name="task">
-              <option value="overview">州 DMV 总览</option>
-              <option value="real-id">REAL ID 州清单</option>
-              {topics.map((topic) => (
-                <option value={`topic:${topic.slug}`}>{topic.title}</option>
-              ))}
-            </select>
-          </div>
-          <button class="button primary" type="submit">
-            <Search size={18} aria-hidden="true" />
-            找入口
-          </button>
-        </form>
-      </div>
-      <aside class="counter-visual" aria-label="资料状态">
-        <img
-          src="/assets/dmv-guide-hero.jpg"
-          alt="桌面上的文件夹、清单和手机日历"
-          width="1672"
-          height="941"
-          fetchpriority="high"
-          decoding="async"
-        />
-        <dl class="status-ledger">
-          <div>
-            <dt>州指南</dt>
-            <dd>{states.length}/{states.length}</dd>
-          </div>
-          <div>
-            <dt>专题复核</dt>
-            <dd>{topics.length}/{topics.length}</dd>
-          </div>
-          <div>
-            <dt>备用入口</dt>
-            <dd title={fallbackPreview}>{fallbackStates.length ? `${fallbackStates.length} 州` : '无'}</dd>
-          </div>
-        </dl>
-      </aside>
+  <section class="finder-band">
+    <div class="section">
+      <ServiceFinder />
     </div>
   </section>
 
-  <section class="section route-section">
-    <div class="section-header">
-      <div>
-        <p class="eyebrow">先选场景</p>
-        <h2>办事路径分流</h2>
-        <p>多数失败不是材料少一张，而是先后顺序走错。</p>
-      </div>
-    </div>
-    <div class="task-lanes">
-      {launchTasks.map((task, index) => (
-        <a class="task-lane" href={task.href}>
-          <span>{String(index + 1).padStart(2, '0')}</span>
-          <strong>{task.label}</strong>
-          <p>{task.detail}</p>
-          <ArrowRight size={16} aria-hidden="true" />
-        </a>
-      ))}
-    </div>
-  </section>
+  <section class="section home-workspace">
+    <div class="home-reading">
+      <p class="eyebrow">从具体情况开始</p>
+      <h1>先说你遇到的情况</h1>
+      <p class="lead">不用先搞懂所有 DMV 术语。选一个最接近的场景，再按顺序准备材料和官方入口。</p>
 
-  <section class="section compact-section">
-    <div class="notice">
-      <ShieldAlert size={22} aria-hidden="true" />
-      <div>
-        <strong>先说清楚</strong>
-        <p>{SITE.disclaimer} 这里负责把官方信息拆成中文路径，不负责判断你最终能不能办成。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section route-section">
-    <div class="section-header">
-      <div>
-        <p class="eyebrow">入口查表</p>
-        <h2>不想读长文，直接查入口</h2>
-        <p>把 50 州常用官方入口整理成表格，适合已经知道自己要办什么的人。</p>
-      </div>
-      <a class="text-link" href="/directories/">查看入口表 <ArrowRight size={16} aria-hidden="true" /></a>
-    </div>
-    <div class="task-lanes">
-      {directoryTasks.map((task, index) => (
-        <a class="task-lane" href={task.href}>
-          <span>{String(index + 1).padStart(2, '0')}</span>
-          <strong>{task.label}</strong>
-          <p>{task.detail}</p>
-          <ArrowRight size={16} aria-hidden="true" />
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-header">
-      <div>
-        <p class="eyebrow">州入口</p>
-        <h2>州入口台账</h2>
-        <p>先从州机构进入，再看 REAL ID、地址变更、续期或预约路径。</p>
-      </div>
-      <a class="text-link" href="/states/">查看全部州 <ArrowRight size={16} aria-hidden="true" /></a>
-    </div>
-    <div class="state-table" role="list">
-      {states.map((state) => (
-        <article class="state-row" role="listitem">
-          <a class="state-main" href={`/states/${state.id}/`}>
-            <span class="state-badge">{state.abbr}</span>
-            <span>
-              <strong>{state.nameZh}</strong>
-              <small>{state.agency}</small>
+      <div class="scenario-list" role="list">
+        {primaryScenarios.map(({ label, detail, href, Icon }) => (
+          <a class="scenario-row" href={href} role="listitem">
+            <span class="scenario-icon"><Icon size={24} stroke-width={1.8} aria-hidden="true" /></span>
+            <span class="scenario-copy">
+              <strong>{label}</strong>
+              <small>{detail}</small>
             </span>
+            <ArrowRight size={20} aria-hidden="true" />
           </a>
-          <div class="state-row-note">
-            <ClipboardList size={17} aria-hidden="true" />
-            <span>{state.documentHighlights[0]}</span>
-          </div>
-          <div class="state-row-actions">
-            <a href={`/states/${state.id}/`}>总览</a>
-            <a href={`/states/${state.id}/real-id/`}>REAL ID</a>
-          </div>
-        </article>
-      ))}
+        ))}
+      </div>
+    </div>
+
+    <aside class="home-guidance" aria-label="办事前提醒">
+      <section class="guidance-block">
+        <h2>办事前记住</h2>
+        <ol class="guidance-list">
+          <li><strong>先确认州和业务</strong><span>同一份材料，不同州可能有不同要求。</span></li>
+          <li><strong>原件优先，复印件谨慎</strong><span>线上上传不等于现场不用带原件。</span></li>
+          <li><strong>付款、预约只走官方系统</strong><span>本站不收集申请信息，也不代办 DMV 业务。</span></li>
+        </ol>
+      </section>
+
+      <section class="home-update-note">
+        <CalendarDays size={19} aria-hidden="true" />
+        <div>
+          <strong>资料最后核对 {REVIEW_DATE}</strong>
+          <p>我们保留每页的官方来源和核对日期。</p>
+          <a class="text-link" href="/quality/">查看更新说明 <ArrowRight size={15} aria-hidden="true" /></a>
+        </div>
+      </section>
+
+      <section class="home-independence-note">
+        <ShieldAlert size={19} aria-hidden="true" />
+        <p>{SITE.disclaimer}</p>
+      </section>
+    </aside>
+  </section>
+
+  <section class="home-band home-band-soft">
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">按事项查</p>
+          <h2>更多办事场景</h2>
+          <p>按证件、驾照、车辆和风险分组，不需要在几十个长标题里硬找。</p>
+        </div>
+        <a class="text-link" href="/topics/">查看全部事项 <ArrowRight size={16} aria-hidden="true" /></a>
+      </div>
+
+      <div class="task-groups">
+        {taskGroups.map((group, index) => (
+          <details class="task-group" open={index === 0}>
+            <summary>
+              <span>{group.title}</span>
+              <ArrowRight size={18} aria-hidden="true" />
+            </summary>
+            <div class="task-link-list">
+              {group.items.map((task) => (
+                <a href={task.href}>
+                  <span><strong>{task.label}</strong><small>{task.detail}</small></span>
+                  <ArrowRight size={17} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-header">
       <div>
-        <p class="eyebrow">办事提醒</p>
-        <h2>办事前最容易卡住的点</h2>
-        <p>这些不是泛泛科普，而是整理材料时最常见的分岔口。</p>
+        <p class="eyebrow">已经知道要办什么</p>
+        <h2>直接查官方入口表</h2>
+        <p>适合查预约、续期、地址变更、费用、考试和各州 REAL ID 入口。</p>
       </div>
-      <a class="text-link" href="/topics/">查看全部专题 <ArrowRight size={16} aria-hidden="true" /></a>
+      <a class="text-link" href="/directories/">全部入口表 <ArrowRight size={16} aria-hidden="true" /></a>
     </div>
-    <div class="topic-strip">
-      {topics.slice(0, 6).map((topic) => (
-        <article class="topic-note">
-          <span class="small-badge">{topic.eyebrow}</span>
-          <h3>{topic.title}</h3>
-          <p>{topic.description}</p>
-          <a class="text-link" href={`/topics/${topic.slug}/`}>查看 <ExternalLink size={15} aria-hidden="true" /></a>
-        </article>
+
+    <div class="directory-link-list">
+      {directoryHighlights.map((task) => (
+        <a href={task.href}>
+          <span><strong>{task.label}</strong><small>{task.detail}</small></span>
+          <ArrowRight size={18} aria-hidden="true" />
+        </a>
       ))}
     </div>
   </section>
 
-  <script>
-    const finder = document.querySelector('[data-finder]');
-    finder?.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const form = event.currentTarget;
-      if (!(form instanceof HTMLFormElement)) return;
-      const state = String(new FormData(form).get('state') || '');
-      const task = String(new FormData(form).get('task') || 'overview');
+  <section class="home-band state-shortcut-band">
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">按州查</p>
+          <h2>常用州指南</h2>
+          <p>本站覆盖美国 50 个州；进入州总览后，再看 REAL ID、续期、补证、搬州和车辆业务。</p>
+        </div>
+        <a class="text-link" href="/states/">查看 50 州 <ArrowRight size={16} aria-hidden="true" /></a>
+      </div>
 
-      if (task.startsWith('topic:')) {
-        window.location.href = `/topics/${task.replace('topic:', '')}/`;
-        return;
-      }
-
-      if (!state) {
-        window.location.href = '/topics/real-id-basics/';
-        return;
-      }
-
-      window.location.href = task === 'real-id' ? `/states/${state}/real-id/` : `/states/${state}/`;
-    });
-  </script>
+      <nav class="state-shortcuts" aria-label="常用州">
+        {popularStates.map((state) => (
+          <a href={`/states/${state.id}/`}>
+            <span>{state.abbr}</span>
+            <strong>{state.nameZh}</strong>
+            <ArrowRight size={16} aria-hidden="true" />
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
 </BaseLayout>

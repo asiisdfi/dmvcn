@@ -2,6 +2,7 @@
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
+import StatusFilter from '../../components/StatusFilter.astro';
 import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
 
 const rows = states.map((state) => {
@@ -67,15 +68,7 @@ const schema = {
         <label for="real-id-search">搜索州或机构</label>
         <input id="real-id-search" type="search" placeholder="例如 California、加州、CA、RMV" data-directory-search />
       </div>
-      <div class="field">
-        <label for="real-id-status">入口状态</label>
-        <select id="real-id-status" data-directory-status>
-          <option value="">全部状态</option>
-          <option value="ready">内容已核对</option>
-          <option value="watch">已提供备用入口</option>
-          <option value="risk">建议从备用入口进入</option>
-        </select>
-      </div>
+      <StatusFilter id="real-id-status" />
     </form>
 
     <div class="directory-table" role="list" data-directory-table>

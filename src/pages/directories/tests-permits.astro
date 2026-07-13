@@ -2,6 +2,7 @@
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
+import StatusFilter from '../../components/StatusFilter.astro';
 import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
 
 type StateGuide = (typeof states)[number];
@@ -221,15 +222,7 @@ const schema = {
         <label for="test-search">搜索州、考试或 permit</label>
         <input id="test-search" type="search" placeholder="例如 learner permit、knowledge test、road test、GDL、Michigan" data-directory-search />
       </div>
-      <div class="field">
-        <label for="test-status">入口状态</label>
-        <select id="test-status" data-directory-status>
-          <option value="">全部状态</option>
-          <option value="ready">内容已核对</option>
-          <option value="watch">已提供备用入口</option>
-          <option value="risk">建议从备用入口进入</option>
-        </select>
-      </div>
+      <StatusFilter id="test-status" />
     </form>
 
     <div class="directory-table test-permit-table" role="list">

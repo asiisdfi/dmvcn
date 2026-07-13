@@ -68,6 +68,7 @@ function resolveBuiltFile(pathname, fileSet) {
   const decodedPath = decodeUrlPart(pathname, pathname);
   const normalizedPath = path.posix.normalize(decodedPath);
   if (!normalizedPath.startsWith('/') || normalizedPath.startsWith('/../')) return '';
+  if (normalizedPath === '/404/' && fileSet.has('404.html')) return '404.html';
 
   const relativePath = normalizedPath.slice(1);
   const candidates = [];

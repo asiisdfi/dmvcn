@@ -1,0 +1,25 @@
+---
+import CustomSelect, { type ChoiceOption } from './CustomSelect.astro';
+
+type Props = {
+  id: string;
+};
+
+const { id } = Astro.props as Props;
+const options: ChoiceOption[] = [
+  { value: '', label: '全部状态' },
+  { value: 'ready', label: '内容已核对' },
+  { value: 'watch', label: '已提供备用入口' },
+  { value: 'risk', label: '建议从备用入口进入' },
+];
+---
+
+<CustomSelect
+  id={id}
+  label="入口状态"
+  options={options}
+  value=""
+  searchable={false}
+  compact
+  dataDirectoryStatus
+/>

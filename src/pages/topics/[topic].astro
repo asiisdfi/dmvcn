@@ -102,20 +102,9 @@ const schema = [
       <p class="eyebrow">{topic.eyebrow}</p>
       <h1>{topic.title}</h1>
       <p class="lead">{topic.description}</p>
-      <ReviewBadge date={topic.reviewedAt} />
-      <div class="page-ledger" aria-label="页面状态">
-        <div>
-          <strong>{reviewedAt}</strong>
-          <span>专题核对</span>
-        </div>
-        <div>
-          <strong>{officialSources.length}</strong>
-          <span>官方来源</span>
-        </div>
-        <div>
-          <strong>{relatedStates.length}</strong>
-          <span>关联州</span>
-        </div>
+      <div class="article-meta">
+        <ReviewBadge date={topic.reviewedAt} />
+        <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
     </div>
   </section>

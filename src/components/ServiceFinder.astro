@@ -1,0 +1,136 @@
+---
+import { ArrowRight } from '@lucide/astro/icons';
+import { states, topics } from '../data/content';
+import CustomSelect, { type ChoiceOption } from './CustomSelect.astro';
+
+const stateGroup = (nameEn: string) => {
+  const first = nameEn[0]?.toUpperCase() || 'A';
+  if (first <= 'F') return 'A–F';
+  if (first <= 'M') return 'G–M';
+  if (first <= 'R') return 'N–R';
+  return 'S–W';
+};
+
+const topicGroup = (slug: string) => {
+  if (/real-id|residency|ssn|name-change|non-citizen|lawful-status|state-id|airport-travel/.test(slug)) {
+    return '证件与 REAL ID';
+  }
+  if (/driver|road-test|teen|older|test-language|foreign-license|student-temporary/.test(slug)) {
+    return '驾照与考试';
+  }
+  if (/moving|vehicle|title|parking|sold-car|temporary-tag|inspection/.test(slug)) {
+    return '搬家与车辆';
+  }
+  if (/ticket|toll|suspension|points|scam/.test(slug)) {
+    return '罚单与恢复';
+  }
+  return '日常服务';
+};
+
+const stateOptions: ChoiceOption[] = [...states].sort((a, b) => a.nameEn.localeCompare(b.nameEn)).map((state) => ({
+  value: state.id,
+  label: `${state.nameZh} ${state.abbr}`,
+  keywords: `${state.nameEn} ${state.abbr} ${state.agency}`,
+  group: stateGroup(state.nameEn),
+}));
+
+const taskOptions: ChoiceOption[] = [
+  { value: 'overview', label: '州 DMV 办事总览', keywords: 'dmv agency', group: '常用入口' },
+  { value: 'real-id', label: 'REAL ID 州材料清单', keywords: 'real id', group: '常用入口' },
+  ...topics.map((topic) => ({
+    value: `topic:${topic.slug}`,
+    label: topic.title,
+    keywords: `${topic.eyebrow} ${topic.description}`,
+    group: topicGroup(topic.slug),
+  })),
+];
+---
+
+<form class="service-finder" id="finder" data-service-finder>
+  <div class="finder-intro">
+    <p class="eyebrow">快速查找</p>
+    <h2>先定位州，再选办理事项</h2>
+    <p>中文页帮你看懂路线；申请、付款和预约仍在官方系统完成。</p>
+  </div>
+
+  <div class="finder-controls">
+    <div class="finder-step">
+      <span aria-hidden="true">1</span>
+      <CustomSelect
+        id="finder-state"
+        name="state"
+        label="所在州"
+        options={stateOptions}
+        placeholder="选择所在州"
+        searchPlaceholder="输入州名、英文名或缩写"
+        featuredValues={['california', 'new-york', 'texas', 'florida', 'washington', 'new-jersey', 'massachusetts', 'illinois']}
+      />
+    </div>
+
+    <div class="finder-step">
+      <span aria-hidden="true">2</span>
+      <CustomSelect
+        id="finder-task"
+        name="task"
+        label="办理事项"
+        options={taskOptions}
+        placeholder="选择办理事项"
+        searchPlaceholder="搜索 REAL ID、续期、路考、车辆……"
+        featuredValues={[
+          'real-id',
+          'topic:first-driver-license-road-test',
+          'topic:lost-stolen-license-id-replacement-identity-theft',
+          'topic:moving-to-new-state',
+        ]}
+      />
+    </div>
+
+    <button class="finder-submit" type="submit">
+      打开指南
+      <ArrowRight size={18} aria-hidden="true" />
+    </button>
+  </div>
+
+  <p class="finder-feedback" role="status" aria-live="polite" data-finder-feedback></p>
+</form>
+
+<script>
+  const serviceFinder = document.querySelector<HTMLFormElement>('[data-service-finder]');
+
+  serviceFinder?.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const stateSelect = serviceFinder.querySelector<HTMLSelectElement>('[name="state"]');
+    const taskSelect = serviceFinder.querySelector<HTMLSelectElement>('[name="task"]');
+    const feedback = serviceFinder.querySelector<HTMLElement>('[data-finder-feedback]');
+    const state = stateSelect?.value || '';
+    const task = taskSelect?.value || '';
+
+    const showError = (message: string, select: HTMLSelectElement | null) => {
+      if (feedback) feedback.textContent = message;
+      const menu = select?.closest<HTMLElement>('[data-choice-menu]');
+      const trigger = menu?.querySelector<HTMLButtonElement>('[data-choice-trigger]');
+      trigger?.focus();
+      trigger?.click();
+    };
+
+    if (!task) {
+      showError('先选择你要办的事项。', taskSelect || null);
+      return;
+    }
+
+    if ((task === 'overview' || task === 'real-id') && !state) {
+      showError('这个事项需要先选择所在州。', stateSelect || null);
+      return;
+    }
+
+    if (feedback) feedback.textContent = '';
+
+    if (task.startsWith('topic:')) {
+      window.location.href = `/topics/${task.replace('topic:', '')}/`;
+      return;
+    }
+
+    window.location.href = task === 'real-id' ? `/states/${state}/real-id/` : `/states/${state}/`;
+  });
+</script>

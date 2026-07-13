@@ -2,6 +2,7 @@
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
+import StatusFilter from '../../components/StatusFilter.astro';
 import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
 
 const deadlinePattern = /\d+\s*(?:天|日|days?|business days?|个工作日|个月|months?|years?|年)|\d+\s*[-–]\s*\d+\s*(?:天|日|days?|business days?|个月|months?|years?|年)|\d+\s*to\s*\d+\s*(?:days?|business days?|months?|years?)/gi;
@@ -134,15 +135,7 @@ const schema = {
         <label for="deadline-search">搜索州、期限或事项</label>
         <input id="deadline-search" type="search" placeholder="例如 10 天、30 天、地址、renew、California" data-directory-search />
       </div>
-      <div class="field">
-        <label for="deadline-status">入口状态</label>
-        <select id="deadline-status" data-directory-status>
-          <option value="">全部状态</option>
-          <option value="ready">内容已核对</option>
-          <option value="watch">已提供备用入口</option>
-          <option value="risk">建议从备用入口进入</option>
-        </select>
-      </div>
+      <StatusFilter id="deadline-status" />
     </form>
 
     <div class="directory-table deadline-table" role="list">

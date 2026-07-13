@@ -182,20 +182,9 @@ const schema = [
       <p class="eyebrow">{state.abbr} / {state.agency}</p>
       <h1>{state.nameZh} DMV 办事总览</h1>
       <p class="lead">{state.summary}</p>
-      <ReviewBadge date={state.reviewedAt} />
-      <div class="page-ledger" aria-label="页面状态">
-        <div>
-          <strong>{reviewedAt}</strong>
-          <span>内容核对</span>
-        </div>
-        <div>
-          <strong>{officialSources.length}</strong>
-          <span>官方来源</span>
-        </div>
-        <div>
-          <strong>{state.actionLinks.length}</strong>
-          <span>办理入口</span>
-        </div>
+      <div class="article-meta">
+        <ReviewBadge date={state.reviewedAt} />
+        <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
     </div>
   </section>

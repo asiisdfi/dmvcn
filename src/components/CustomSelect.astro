@@ -1,0 +1,303 @@
+---
+import { Check, ChevronDown, Search, X } from '@lucide/astro/icons';
+
+export type ChoiceOption = {
+  value: string;
+  label: string;
+  keywords?: string;
+  group?: string;
+};
+
+type Props = {
+  id: string;
+  label: string;
+  options: ChoiceOption[];
+  name?: string;
+  value?: string;
+  placeholder?: string;
+  searchable?: boolean;
+  searchPlaceholder?: string;
+  featuredValues?: string[];
+  compact?: boolean;
+  dataDirectoryStatus?: boolean;
+};
+
+const {
+  id,
+  label,
+  options,
+  name,
+  value = '',
+  placeholder = '请选择',
+  searchable = true,
+  searchPlaceholder = '搜索',
+  featuredValues = [],
+  compact = false,
+  dataDirectoryStatus = false,
+} = Astro.props as Props;
+
+const selectedOption = options.find((option) => option.value === value);
+const hasEmptyOption = options.some((option) => option.value === '');
+const featuredSet = new Set(featuredValues);
+const featuredOptions = featuredValues
+  .map((featuredValue) => options.find((option) => option.value === featuredValue))
+  .filter((option): option is ChoiceOption => Boolean(option));
+const regularOptions = options.filter((option) => !featuredSet.has(option.value));
+const groups = Array.from(new Set(regularOptions.map((option) => option.group || '')));
+---
+
+<div class:list={['choice-field', compact && 'choice-field-compact']} data-choice-menu>
+  <span class="choice-label" id={`${id}-label`}>{label}</span>
+  <select
+    class="choice-native"
+    id={id}
+    name={name}
+    tabindex="-1"
+    aria-hidden="true"
+    data-choice-input
+    data-directory-status={dataDirectoryStatus ? '' : undefined}
+  >
+    {!hasEmptyOption && <option value="" selected={value === ''}>{placeholder}</option>}
+    {options.map((option) => (
+      <option value={option.value} selected={option.value === value}>{option.label}</option>
+    ))}
+  </select>
+
+  <button
+    class="choice-trigger"
+    type="button"
+    aria-haspopup="listbox"
+    aria-expanded="false"
+    aria-controls={`${id}-popover`}
+    aria-labelledby={`${id}-label ${id}-value`}
+    data-choice-trigger
+  >
+    <span id={`${id}-value`} data-choice-value data-placeholder={placeholder}>
+      {selectedOption?.label || placeholder}
+    </span>
+    <ChevronDown size={18} aria-hidden="true" />
+  </button>
+
+  <div class="choice-popover" id={`${id}-popover`} data-choice-popover hidden>
+    <div class="choice-popover-title">
+      <strong>{label}</strong>
+      <button type="button" aria-label={`关闭${label}选择器`} data-choice-close>
+        <X size={20} aria-hidden="true" />
+      </button>
+    </div>
+    {searchable && (
+      <div class="choice-search">
+        <Search size={17} aria-hidden="true" />
+        <input type="search" placeholder={searchPlaceholder} aria-label={searchPlaceholder} autocomplete="off" data-choice-search />
+      </div>
+    )}
+
+    <div class="choice-scroll" role="listbox" aria-labelledby={`${id}-label`} data-choice-list>
+      {featuredOptions.length > 0 && (
+        <section class="choice-group choice-featured" data-choice-group>
+          <p>常用</p>
+          <div class="choice-featured-grid">
+            {featuredOptions.map((option) => (
+              <button
+                type="button"
+                role="option"
+                aria-selected={option.value === value ? 'true' : 'false'}
+                data-choice-option
+                data-value={option.value}
+                data-label={option.label}
+                data-keywords={`${option.label} ${option.keywords || ''}`}
+              >
+                <span>{option.label}</span>
+                <Check size={16} aria-hidden="true" />
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {groups.map((group) => {
+        const groupedOptions = regularOptions.filter((option) => (option.group || '') === group);
+        return (
+          <section class="choice-group" data-choice-group>
+            {group && <p>{group}</p>}
+            <div class="choice-option-list">
+              {groupedOptions.map((option) => (
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={option.value === value ? 'true' : 'false'}
+                  data-choice-option
+                  data-value={option.value}
+                  data-label={option.label}
+                  data-keywords={`${option.label} ${option.keywords || ''}`}
+                >
+                  <span>{option.label}</span>
+                  <Check size={16} aria-hidden="true" />
+                </button>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+
+      <p class="choice-empty" data-choice-empty hidden>没有找到匹配项。</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const normalizeChoiceText = (value: string) =>
+    value.normalize('NFKC').trim().toLocaleLowerCase('zh-Hans');
+
+  const choiceMenus = document.querySelectorAll<HTMLElement>('[data-choice-menu]:not([data-choice-ready])');
+
+  choiceMenus.forEach((menu) => {
+    menu.dataset.choiceReady = 'true';
+
+    const trigger = menu.querySelector<HTMLButtonElement>('[data-choice-trigger]');
+    const popover = menu.querySelector<HTMLElement>('[data-choice-popover]');
+    const nativeSelect = menu.querySelector<HTMLSelectElement>('[data-choice-input]');
+    const valueLabel = menu.querySelector<HTMLElement>('[data-choice-value]');
+    const search = menu.querySelector<HTMLInputElement>('[data-choice-search]');
+    const closeButton = menu.querySelector<HTMLButtonElement>('[data-choice-close]');
+    const empty = menu.querySelector<HTMLElement>('[data-choice-empty]');
+    const optionButtons = Array.from(menu.querySelectorAll<HTMLButtonElement>('[data-choice-option]'));
+    const groups = Array.from(menu.querySelectorAll<HTMLElement>('[data-choice-group]'));
+
+    if (!trigger || !popover || !nativeSelect || !valueLabel) return;
+
+    const visibleOptions = () => optionButtons.filter((option) => !option.hidden);
+
+    const applySearch = (query = '') => {
+      const normalizedQuery = normalizeChoiceText(query);
+      let visibleCount = 0;
+
+      optionButtons.forEach((option) => {
+        const haystack = normalizeChoiceText(option.dataset.keywords || option.dataset.label || '');
+        const show = !normalizedQuery || haystack.includes(normalizedQuery);
+        option.hidden = !show;
+        if (show) visibleCount += 1;
+      });
+
+      groups.forEach((group) => {
+        group.hidden = !group.querySelector('[data-choice-option]:not([hidden])');
+      });
+
+      if (empty) empty.hidden = visibleCount > 0;
+    };
+
+    const closeMenu = (restoreFocus = false) => {
+      popover.hidden = true;
+      menu.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      if (search) {
+        search.value = '';
+        applySearch();
+      }
+      if (restoreFocus) trigger.focus();
+    };
+
+    const closeOtherMenus = () => {
+      document.querySelectorAll<HTMLElement>('[data-choice-menu].is-open').forEach((otherMenu) => {
+        if (otherMenu !== menu) otherMenu.dispatchEvent(new CustomEvent('choice:close'));
+      });
+    };
+
+    const openMenu = (focusOption = false) => {
+      closeOtherMenus();
+      popover.hidden = false;
+      menu.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+
+      if (search && !focusOption) {
+        search.focus();
+        return;
+      }
+
+      const selected = optionButtons.find((option) => option.getAttribute('aria-selected') === 'true');
+      (selected || visibleOptions()[0])?.focus();
+    };
+
+    const selectOption = (option: HTMLButtonElement) => {
+      const nextValue = option.dataset.value || '';
+      const nextLabel = option.dataset.label || valueLabel.dataset.placeholder || '';
+
+      nativeSelect.value = nextValue;
+      valueLabel.textContent = nextLabel;
+      optionButtons.forEach((item) => item.setAttribute('aria-selected', item.dataset.value === nextValue ? 'true' : 'false'));
+      nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      closeMenu(true);
+    };
+
+    const moveOptionFocus = (current: HTMLButtonElement, direction: number) => {
+      const options = visibleOptions();
+      const currentIndex = options.indexOf(current);
+      const nextIndex = Math.max(0, Math.min(options.length - 1, currentIndex + direction));
+      options[nextIndex]?.focus();
+    };
+
+    menu.addEventListener('choice:close', () => closeMenu());
+
+    trigger.addEventListener('click', () => {
+      if (menu.classList.contains('is-open')) closeMenu();
+      else openMenu();
+    });
+
+    trigger.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        openMenu(true);
+      }
+    });
+
+    closeButton?.addEventListener('click', () => closeMenu(true));
+
+    search?.addEventListener('input', () => applySearch(search.value));
+    search?.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        visibleOptions()[0]?.focus();
+      }
+      if (event.key === 'Enter') {
+        const firstMatch = visibleOptions()[0];
+        if (firstMatch) {
+          event.preventDefault();
+          selectOption(firstMatch);
+        }
+      }
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMenu(true);
+      }
+    });
+
+    optionButtons.forEach((option) => {
+      option.addEventListener('click', () => selectOption(option));
+      option.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          selectOption(option);
+        } else if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          moveOptionFocus(option, 1);
+        } else if (event.key === 'ArrowUp') {
+          event.preventDefault();
+          moveOptionFocus(option, -1);
+        } else if (event.key === 'Home') {
+          event.preventDefault();
+          visibleOptions()[0]?.focus();
+        } else if (event.key === 'End') {
+          event.preventDefault();
+          visibleOptions().at(-1)?.focus();
+        } else if (event.key === 'Escape') {
+          event.preventDefault();
+          closeMenu(true);
+        }
+      });
+    });
+
+    document.addEventListener('pointerdown', (event) => {
+      if (event.target instanceof Node && !menu.contains(event.target)) closeMenu();
+    });
+  });
+</script>

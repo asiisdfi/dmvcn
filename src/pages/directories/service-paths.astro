@@ -2,6 +2,7 @@
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
+import StatusFilter from '../../components/StatusFilter.astro';
 import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
 
 type StateGuide = (typeof states)[number];
@@ -207,15 +208,7 @@ const schema = {
         <label for="path-search">搜索州、路径或业务</label>
         <input id="path-search" type="search" placeholder="例如 线上、现场、预约、地址、renew、California" data-directory-search />
       </div>
-      <div class="field">
-        <label for="path-status">入口状态</label>
-        <select id="path-status" data-directory-status>
-          <option value="">全部状态</option>
-          <option value="ready">内容已核对</option>
-          <option value="watch">已提供备用入口</option>
-          <option value="risk">建议从备用入口进入</option>
-        </select>
-      </div>
+      <StatusFilter id="path-status" />
     </form>
 
     <div class="directory-table service-path-table" role="list">

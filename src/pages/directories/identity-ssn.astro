@@ -2,6 +2,7 @@
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
+import StatusFilter from '../../components/StatusFilter.astro';
 import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
 
 type StateGuide = (typeof states)[number];
@@ -209,15 +210,7 @@ const schema = {
         <label for="identity-search">搜索州、身份类别或材料</label>
         <input id="identity-search" type="search" placeholder="例如 无 SSN、ITIN、I-94、lawful、California" data-directory-search />
       </div>
-      <div class="field">
-        <label for="identity-status">入口状态</label>
-        <select id="identity-status" data-directory-status>
-          <option value="">全部状态</option>
-          <option value="ready">内容已核对</option>
-          <option value="watch">已提供备用入口</option>
-          <option value="risk">建议从备用入口进入</option>
-        </select>
-      </div>
+      <StatusFilter id="identity-status" />
     </form>
 
     <div class="directory-table identity-ssn-table" role="list">

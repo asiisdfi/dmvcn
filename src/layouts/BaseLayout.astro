@@ -1,5 +1,5 @@
 ---
-import { CalendarDays, ClipboardList, FileCheck2, Home, MapPinned, Search, ShieldCheck } from '@lucide/astro/icons';
+import { CalendarDays, Menu, Search, ShieldCheck, X } from '@lucide/astro/icons';
 import { SITE } from '../data/content';
 import '../styles/global.css';
 
@@ -46,6 +46,15 @@ const jsonLdItems = [siteSchema, ...pageSchemas].map((item) =>
     ? item
     : { '@context': 'https://schema.org', ...item },
 );
+const currentPath = Astro.url.pathname;
+const navItems = [
+  { href: '/', label: '首页' },
+  { href: '/states/', label: '州指南' },
+  { href: '/topics/', label: '事项大全' },
+  { href: '/directories/', label: '官方入口表' },
+  { href: '/quality/', label: '来源与更新' },
+];
+const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : currentPath.startsWith(href);
 ---
 
 <!doctype html>
@@ -70,43 +79,75 @@ const jsonLdItems = [siteSchema, ...pageSchemas].map((item) =>
     {jsonLdItems.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
   </head>
   <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
     <header class="site-header">
       <a class="brand" href="/" aria-label="回到首页">
         <span class="brand-mark"><ShieldCheck size={20} aria-hidden="true" /></span>
         <span>
           <strong>{SITE.name}</strong>
-          <small>独立中文整理</small>
+          <small>独立中文整理，不代替政府机构</small>
         </span>
       </a>
-      <nav class="main-nav" aria-label="主导航">
-        <a href="/"><Home size={16} aria-hidden="true" />首页</a>
-        <a href="/states/"><MapPinned size={16} aria-hidden="true" />州指南</a>
-        <a href="/directories/"><ClipboardList size={16} aria-hidden="true" />入口表</a>
-        <a href="/topics/"><Search size={16} aria-hidden="true" />专题</a>
-        <a href="/quality/"><FileCheck2 size={16} aria-hidden="true" />来源与更新</a>
+
+      <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="main-nav" data-nav-toggle>
+        <Menu class="nav-open-icon" size={22} aria-hidden="true" />
+        <X class="nav-close-icon" size={22} aria-hidden="true" />
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="主导航" data-main-nav>
+        {navItems.map((item) => (
+          <a href={item.href} class:list={[isCurrentNav(item.href) && 'is-current']} aria-current={isCurrentNav(item.href) ? 'page' : undefined}>
+            {item.label}
+          </a>
+        ))}
+        <a class="nav-find" href="/#finder"><Search size={16} aria-hidden="true" />查办事</a>
       </nav>
     </header>
 
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
     <footer class="site-footer">
-      <div>
+      <div class="footer-brand">
         <strong>{SITE.name}</strong>
         <p>{SITE.disclaimer}</p>
       </div>
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="页脚导航">
         <a href="/about/">关于</a>
         <a href="/contact/">联系</a>
         <a href="/privacy/">隐私</a>
         <a href="/terms/">条款</a>
         <a href="/directories/">入口表</a>
         <a href="/sources/">来源</a>
-      </div>
+      </nav>
       <p class="review-note">
         <CalendarDays size={15} aria-hidden="true" />每页保留来源和核对日期；费用、预约和材料要求请在办理前回官方页面确认。
       </p>
     </footer>
+
+    <script>
+      const navToggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+      const mainNav = document.querySelector<HTMLElement>('[data-main-nav]');
+
+      const setNavOpen = (open: boolean) => {
+        if (!navToggle || !mainNav) return;
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? '关闭导航' : '打开导航');
+        mainNav.classList.toggle('is-open', open);
+      };
+
+      navToggle?.addEventListener('click', () => {
+        setNavOpen(navToggle.getAttribute('aria-expanded') !== 'true');
+      });
+
+      mainNav?.addEventListener('click', (event) => {
+        if (event.target instanceof HTMLAnchorElement) setNavOpen(false);
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 760) setNavOpen(false);
+      });
+    </script>
   </body>
 </html>
