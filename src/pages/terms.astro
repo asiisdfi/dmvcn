@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../data/content';
+---
+
+<BaseLayout title="使用条款" description="DMV中文办事库使用条款，说明本站非政府网站，内容仅供中文理解和官方入口导航参考。">
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>使用条款</span></nav>
+      <p class="eyebrow">条款</p>
+      <h1>使用条款</h1>
+      <p class="lead">使用本站即表示你理解本站只是信息整理，不是政府机构或专业顾问。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="article-stack">
+      <section class="panel">
+        <h2>非政府网站</h2>
+        <p>{SITE.disclaimer}</p>
+      </section>
+      <section class="panel">
+        <h2>内容准确性</h2>
+        <p>我们会尽量使用官方来源并标注核对日期，但 DMV 规则、费用、预约和材料要求可能随时变化。办理前请以官方页面和现场工作人员要求为准。</p>
+      </section>
+      <section class="panel">
+        <h2>外部链接</h2>
+        <p>本站链接到第三方和政府网站。我们不控制这些网站的内容、可用性、安全性或服务结果。</p>
+      </section>
+      <section class="panel">
+        <h2>责任限制</h2>
+        <p>因依赖本站信息导致的预约失败、材料不足、费用变化或其他损失，本站不承担责任。高风险事项请直接联系官方机构。</p>
+      </section>
+    </div>
+  </section>
+</BaseLayout>

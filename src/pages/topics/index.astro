@@ -1,0 +1,61 @@
+---
+import { ArrowRight } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, topics } from '../../data/content';
+---
+
+<BaseLayout title="DMV 高频专题" description="REAL ID、地址证明、SSN、姓名变更、非公民身份、搬州和续期顺序等高频问题整理。" updatedAt={REVIEW_DATE}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>专题</span></nav>
+      <p class="eyebrow">专题入口</p>
+      <h1>DMV 高频专题</h1>
+      <p class="lead">这些页面用来回答跨州高频问题，再把你带回具体州的官方入口。</p>
+      <ReviewBadge />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="registry-summary" aria-label="专题内容状态">
+      <div>
+        <strong>{topics.length}</strong>
+        <span>跨州专题</span>
+      </div>
+      <div>
+        <strong>{topics.filter((topic) => topic.reviewedAt).length}/{topics.length}</strong>
+        <span>已显示专题核对日期</span>
+      </div>
+      <div>
+        <strong>官方来源</strong>
+        <span>每页保留来源列表</span>
+      </div>
+    </div>
+
+    <div class="registry-table topic-registry" role="list">
+      {topics.map((topic) => (
+        <article class="registry-row" role="listitem">
+          <a class="registry-main" href={`/topics/${topic.slug}/`}>
+            <span class="small-badge">{topic.eyebrow}</span>
+            <span>
+              <strong>{topic.title}</strong>
+              <small>{topic.reviewedAt ? `核对 ${topic.reviewedAt}` : '使用全站默认核对日期'}</small>
+            </span>
+          </a>
+          <div class="registry-copy">
+            <p>{topic.description}</p>
+            <small>{topic.sources.length} 个官方来源 · {topic.relatedStateIds.length} 个关联州</small>
+          </div>
+          <div class="registry-status">
+            <span class="status-chip ready">已复核</span>
+          </div>
+          <div class="registry-actions">
+            <a href={`/topics/${topic.slug}/`}>
+              打开专题 <ArrowRight size={14} aria-hidden="true" />
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

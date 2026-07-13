@@ -1,0 +1,120 @@
+---
+import { FileCheck2 } from '@lucide/astro/icons';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReviewBadge from '../components/ReviewBadge.astro';
+import { REVIEW_DATE, federalSources, getStatePublicStatus, states, topics } from '../data/content';
+
+const statePages = states.length * 2;
+const reviewedStates = states.filter((state) => state.reviewedAt).length;
+const reviewedTopics = topics.filter((topic) => topic.reviewedAt).length;
+const factCheckedTopics = topics.filter((topic) => topic.factChecks?.length).length;
+const factChecks = topics.reduce((total, topic) => total + (topic.factChecks?.length ?? 0), 0);
+const officialUrls = new Set([
+  ...federalSources.map((source) => source.url),
+  ...states.flatMap((state) => [
+    state.agencyUrl,
+    ...state.sources.map((source) => source.url),
+    ...state.actionLinks.map((link) => link.url),
+  ]),
+  ...topics.flatMap((topic) => topic.sources.map((source) => source.url)),
+]);
+const browserCheckStates = states.filter((state) => ['watch', 'risk'].includes(getStatePublicStatus(state).tone));
+const sampleBrowserCheckStates = browserCheckStates.slice(0, 12);
+const qualitySteps = [
+  '先从官方 DMV/DPS/RMV/MVC/DDS、DHS、TSA 或 USA.gov 页面确认事实。',
+  '再写成中文路径、材料提醒、顺序和常见错误，不复制官方原文。',
+  '最后把官方入口放回页面，让读者回到官方系统办理。',
+];
+---
+
+<BaseLayout title="来源与更新" description="DMV中文办事库的来源、核对日期、官方链接、中文整理原则和上线后复核规则。" updatedAt={REVIEW_DATE}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>来源与更新</span></nav>
+      <p class="eyebrow">来源规则</p>
+      <h1>来源与更新</h1>
+      <p class="lead">本站按“官方来源、核对日期、中文整理、风险提醒”的顺序维护页面，重要办事页会定期复核。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="当前维护台账">
+        <div>
+          <strong>{states.length} 州</strong>
+          <span>覆盖范围</span>
+        </div>
+        <div>
+          <strong>{statePages + topics.length} 页</strong>
+          <span>核心内容页</span>
+        </div>
+        <div>
+          <strong>{officialUrls.size}</strong>
+          <span>官方 URL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="registry-summary quality-summary" aria-label="内容复核状态">
+      <div>
+        <strong>{reviewedStates}/{states.length}</strong>
+        <span>州资料有核对日期</span>
+      </div>
+      <div>
+        <strong>{reviewedTopics}/{topics.length}</strong>
+        <span>专题有核对日期</span>
+      </div>
+      <div>
+        <strong>{browserCheckStates.length} 州</strong>
+        <span>提供备用官方入口</span>
+      </div>
+      <div>
+        <strong>{factChecks} 条</strong>
+        <span>{factCheckedTopics} 个专题重点事实直连来源</span>
+      </div>
+    </div>
+
+    {browserCheckStates.length > 0 && (
+      <div class="panel audit-strip">
+        <div>
+          <h2>深层官方页面打不开时</h2>
+          <p>部分州政府深层页面可能受网络位置或安全验证影响。相关州页会保留原始官方 URL，并提供 USA.gov 或州级备用入口。</p>
+        </div>
+        <div class="state-chip-list" aria-label="提供备用官方入口的州样例">
+          {sampleBrowserCheckStates.map((state) => (
+            <a href={`/states/${state.id}/`}>{state.abbr}</a>
+          ))}
+          {browserCheckStates.length > sampleBrowserCheckStates.length && <span>+{browserCheckStates.length - sampleBrowserCheckStates.length}</span>}
+        </div>
+      </div>
+    )}
+
+    <div class="grid two">
+      <article class="card">
+        <div class="card-top"><FileCheck2 size={22} aria-hidden="true" /><span class="small-badge">必须有</span></div>
+        <h2>官方来源</h2>
+        <p>优先 DHS、TSA、USA.gov 和州 DMV/DPS/RMV/MVC/DDS 官方页面。每个内容页都要列出来源。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><FileCheck2 size={22} aria-hidden="true" /><span class="small-badge">谨慎写</span></div>
+        <h2>易变信息</h2>
+        <p>费用、日期、资格、材料等容易变动的信息要谨慎表达，并引导用户回到官方页确认。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><FileCheck2 size={22} aria-hidden="true" /><span class="small-badge">不是改写</span></div>
+        <h2>整理价值</h2>
+        <p>页面必须有清单、步骤、常见错误、官方入口或对比说明，不能只是翻译/改写官网。</p>
+      </article>
+      <article class="card">
+        <div class="card-top"><FileCheck2 size={22} aria-hidden="true" /><span class="small-badge">复核</span></div>
+        <h2>逐页复核标准</h2>
+        <p>中文表达要清楚，标题要匹配搜索意图，敏感内容要有免责声明，页面不能误导为政府官方网站。</p>
+      </article>
+    </div>
+
+    <section class="panel quality-process">
+      <h2>一页内容怎么进库</h2>
+      <ol class="step-list">
+        {qualitySteps.map((step) => <li>{step}</li>)}
+      </ol>
+    </section>
+  </section>
+</BaseLayout>

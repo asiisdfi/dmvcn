@@ -1,0 +1,65 @@
+---
+import { ArrowRight } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
+
+const readyStates = states.filter((state) => getStatePublicStatus(state).tone === 'ready');
+const manualCheckStates = states.filter((state) => ['watch', 'risk'].includes(getStatePublicStatus(state).tone));
+---
+
+<BaseLayout title="州 DMV 指南" description="按州查找 DMV、REAL ID、驾照、地址变更、预约和线上服务入口。" updatedAt={REVIEW_DATE}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>州指南</span></nav>
+      <p class="eyebrow">州指南</p>
+      <h1>州 DMV 指南</h1>
+      <p class="lead">当前覆盖美国 {states.length} 州。每个州页负责业务分流和官方入口，REAL ID 页单独提供材料与办理顺序。</p>
+      <ReviewBadge />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="registry-summary" aria-label="州内容状态">
+      <div>
+        <strong>{readyStates.length}</strong>
+        <span>内容已核对</span>
+      </div>
+      <div>
+        <strong>{states.length * 2}</strong>
+        <span>州总览 + REAL ID 页</span>
+      </div>
+      <div>
+        <strong>{manualCheckStates.length ? `${manualCheckStates.length} 州` : '无'}</strong>
+        <span>已提供备用入口</span>
+      </div>
+    </div>
+
+    <div class="registry-table state-registry" role="list">
+      {states.map((state) => (
+        <article class="registry-row" role="listitem">
+          <a class="registry-main" href={`/states/${state.id}/`}>
+            <span class="state-badge">{state.abbr}</span>
+            <span>
+              <strong>{state.nameZh}</strong>
+              <small>{state.agency}</small>
+            </span>
+          </a>
+          <div class="registry-copy">
+            <p>{state.documentHighlights[0]}</p>
+            <small>{state.reviewedAt ? `核对 ${state.reviewedAt}` : '使用全站默认核对日期'} · {state.sources.length} 个官方来源</small>
+          </div>
+          <div class="registry-status">
+            <span class={`status-chip ${getStatePublicStatus(state).tone}`}>{getStatePublicStatus(state).label}</span>
+          </div>
+          <div class="registry-actions">
+            <a href={`/states/${state.id}/`}>总览</a>
+            <a href={`/states/${state.id}/real-id/`}>
+              REAL ID <ArrowRight size={14} aria-hidden="true" />
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

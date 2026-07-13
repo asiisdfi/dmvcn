@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../data/content';
+
+const contactEmail = SITE.contactEmail.trim();
+const hasContactEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail);
+---
+
+<BaseLayout title="联系" description="联系 DMV中文办事库维护者，反馈失效链接、官方来源变化、材料清单错误或页面更新建议。">
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>联系</span></nav>
+      <p class="eyebrow">联系</p>
+      <h1>联系</h1>
+      <p class="lead">发现链接失效、材料变化或内容错误时，请反馈给站点维护者。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="article-stack">
+      <section class="panel">
+        <h2>反馈内容</h2>
+        <ul class="check-list">
+          <li>页面 URL。</li>
+          <li>你认为需要更新的字段或链接。</li>
+          <li>对应的官方来源链接。</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h2>联系邮箱</h2>
+        {hasContactEmail ? (
+          <p>
+            请发送到 <a class="text-link" href={`mailto:${contactEmail}`}>{contactEmail}</a>。请不要通过邮件发送 SSN、驾照号码、护照、地址证明或移民文件。
+          </p>
+        ) : (
+          <p>维护邮箱暂未公开。本站会使用域名邮箱接收页面纠错和官方链接更新反馈；在邮箱公布前，请以各页官方入口办理业务。</p>
+        )}
+      </section>
+    </div>
+  </section>
+</BaseLayout>

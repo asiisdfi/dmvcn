@@ -1,0 +1,311 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+
+type StateGuide = (typeof states)[number];
+
+const identityPattern =
+  /SSN|Social Security|\bSSA\b|ITIN|affidavit|ineligibility|lawful|legal presence|legal status|authorized presence|non.?citizen|non.?immigrant|immigrant|temporary visitor|Limited Term|visa|I-94|I-20|DS-2019|EAD|green card|USCIS|SAVE|AB 60|citizenship|citizen|身份|合法|非公民|非美国公民|非移民|移民|临时访客|公民|无 SSN|没有 SSN|不可取得|拒信|核验/i;
+const nonIdentityPattern =
+  /费用|fee|payment|pay|付款|支付|邮寄|mailed|mailing|处理时间|processing|wait time|office|appointment|预约|location|地址变更|change your address/i;
+
+function hasIdentityCue(text: string) {
+  if (!identityPattern.test(text)) return false;
+  if (/temporary|临时/i.test(text) && !/visitor|paper permit|legal status|lawful|driver license|license|I-94|visa|non.?citizen|非公民|临时访客/i.test(text)) {
+    return false;
+  }
+  return !nonIdentityPattern.test(text) || /SSN|\bSSA\b|ITIN|lawful|legal|citizen|immigrant|visa|I-94|身份|合法|非公民|移民|公民|AB 60/i.test(text);
+}
+
+function classifyIdentityCue(text: string) {
+  if (/AB 60/i.test(text)) return 'AB 60';
+  if (/ITIN|affidavit|宣誓/i.test(text)) return 'ITIN / affidavit';
+  if (/无 SSN|没有 SSN|ineligibility|not eligible|\bSSA\b|拒信|不可取得/i.test(text)) return '无 SSN / SSA';
+  if (/SSN|Social Security|full 9|完整 9 位/i.test(text)) return 'SSN';
+  if (/lawful|legal presence|legal status|authorized presence|合法/i.test(text)) return 'lawful presence';
+  if (/non.?citizen|non.?immigrant|immigrant|非公民|非美国公民|非移民|移民|temporary visitor|Limited Term|临时访客/i.test(text)) return '非公民 / 临时访客';
+  if (/visa|I-94|I-20|DS-2019|EAD|green card|USCIS|SAVE/i.test(text)) return '移民文件';
+  if (/citizenship|citizen|公民|EDL|EID/i.test(text)) return '公民身份';
+  if (/name|姓名|translation|翻译|match|一致/i.test(text)) return '姓名 / 翻译';
+  return '身份核验';
+}
+
+function identityNoteScore(text: string, category: string) {
+  let score = 0;
+  if (/AB 60|ITIN|affidavit|ineligibility|\bSSA\b/i.test(text)) score += 24;
+  if (/lawful|legal presence|legal status|authorized presence|合法/i.test(text)) score += 22;
+  if (/non.?citizen|non.?immigrant|immigrant|temporary visitor|Limited Term|非公民|非移民|移民|临时访客/i.test(text)) score += 21;
+  if (/SSN|Social Security|full 9|完整 9 位/i.test(text)) score += 18;
+  if (/visa|I-94|I-20|DS-2019|EAD|green card|USCIS|SAVE/i.test(text)) score += 16;
+  if (/citizenship|citizen|公民|EDL|EID/i.test(text)) score += 12;
+  if (/translation|翻译|name|姓名|match|一致/i.test(text)) score += 8;
+  if (category === '身份核验') score -= 4;
+  return score;
+}
+
+function identityNotesFor(state: StateGuide) {
+  const candidates = [
+    ...getPublicEditorialNotes(state.editorNotes).map((text) => ({ text, sourceScore: 16 })),
+    ...state.documentHighlights.map((text) => ({ text, sourceScore: 12 })),
+    ...state.recommendedSteps.map((text) => ({ text, sourceScore: 8 })),
+    { text: state.realIdSummary, sourceScore: 6 },
+    { text: state.licenseSummary, sourceScore: 4 },
+    { text: state.appointmentNote, sourceScore: -4 },
+  ];
+  const seen = new Set<string>();
+  const notes: { category: string; text: string; score: number; index: number }[] = [];
+
+  for (const [index, candidate] of candidates.entries()) {
+    const compact = candidate.text.replace(/\s+/g, ' ').trim();
+    if (!compact || seen.has(compact) || !hasIdentityCue(compact)) continue;
+    seen.add(compact);
+    const category = classifyIdentityCue(compact);
+    notes.push({ category, text: compact, score: identityNoteScore(compact, category) + candidate.sourceScore, index });
+  }
+
+  const priority = [
+    'AB 60',
+    '无 SSN / SSA',
+    'ITIN / affidavit',
+    'SSN',
+    'lawful presence',
+    '非公民 / 临时访客',
+    '移民文件',
+    '公民身份',
+    '姓名 / 翻译',
+    '身份核验',
+  ];
+
+  return notes
+    .sort((a, b) => b.score - a.score || priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
+    .slice(0, 4)
+    .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
+    .map(({ category, text }) => ({ category, text }));
+}
+
+function identityBadges(notes: { category: string; text: string }[]) {
+  return [...new Set(notes.map((note) => note.category))].slice(0, 4);
+}
+
+function pickIdentityLinks(state: StateGuide) {
+  const links = state.actionLinks.filter((link) =>
+    /SSN|Social Security|\bSSA\b|ITIN|affidavit|lawful|legal|presence|status|citizen|immigrant|non.?immigrant|temporary visitor|Limited Term|visa|I-94|identity|document|requirements|REAL ID|AB 60|材料|身份|非公民|移民|合法|公民/i.test(
+      `${link.label} ${link.description} ${link.url}`,
+    ),
+  );
+  return (links.length ? links : state.actionLinks).slice(0, 5);
+}
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const notes = identityNotesFor(state);
+  const badges = identityBadges(notes);
+  const links = pickIdentityLinks(state);
+  return {
+    state,
+    status,
+    notes,
+    badges,
+    links,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      ...badges,
+      ...notes.flatMap((note) => [note.category, note.text]),
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+
+const rowsWithIdentityCues = rows.filter((row) => row.notes.length > 0);
+const rowsWithNoSsnCues = rows.filter((row) => /无 ssn|没有 ssn|\bssa\b|itin|affidavit|ineligibility/i.test(row.searchText));
+const rowsWithNonCitizenCues = rows.filter((row) => /non.?citizen|non.?immigrant|immigrant|lawful|legal presence|legal status|visa|i-94|非公民|非移民|移民|合法/i.test(row.searchText));
+const quickFilters = [
+  { label: 'SSN', value: 'ssn', note: '号码' },
+  { label: '无 SSN', value: '无 ssn', note: '替代路径' },
+  { label: 'SSA letter', value: 'ineligibility', note: 'SSA' },
+  { label: 'ITIN', value: 'itin', note: '州别' },
+  { label: 'lawful presence', value: 'lawful', note: '合法身份' },
+  { label: '非公民', value: '非公民', note: '身份类别' },
+  { label: 'I-94 / visa', value: 'i-94', note: '移民文件' },
+].map((filter) => ({
+  ...filter,
+  count: rows.filter((row) => row.searchText.includes(filter.value.toLowerCase())).length,
+}));
+
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'DMV SSN 和身份类别分流表',
+  description: '按州整理 DMV / REAL ID 办理中的 SSN、无 SSN、SSA ineligibility、ITIN、lawful presence、非公民和临时访客材料入口。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} DMV SSN 和身份类别分流`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="DMV SSN 和身份类别分流表" description="按州查找 DMV / REAL ID 办理中的 SSN、无 SSN、SSA ineligibility、ITIN、lawful presence、非公民和临时访客材料入口。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>SSN 和身份类别</span>
+      </nav>
+      <p class="eyebrow">SSN / 身份类别</p>
+      <h1>DMV SSN 和身份类别分流表</h1>
+      <p class="lead">先判断你走的是 SSN、无 SSN、ITIN、lawful presence、非公民、临时访客还是州内特殊路径。这里不替你判断移民身份，只把官方入口和容易卡住的材料点放在一张表里。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="SSN 和身份类别分流表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{rowsWithIdentityCues.length} 州</strong>
+          <span>已整理州级线索</span>
+        </div>
+        <div>
+          <strong>{rowsWithNoSsnCues.length} 州</strong>
+          <span>含无 SSN 线索</span>
+        </div>
+        <div>
+          <strong>{rowsWithNonCitizenCues.length} 州</strong>
+          <span>含非公民线索</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice compact-notice">
+      <div>
+        <strong>先看这一句</strong>
+        <p>SSN、lawful presence、REAL ID 和普通驾照不是同一个问题。没有 SSN、持临时身份、或材料姓名不一致时，先打开对应州的官方身份类别入口，再决定是否预约。</p>
+      </div>
+    </div>
+
+    <div class="quick-filter-board" aria-label="SSN 和身份类别快速筛选">
+      {quickFilters.map((filter) => (
+        <button type="button" class="quick-filter-button" data-quick-identity={filter.value}>
+          <span>{filter.label}</span>
+          <small>{filter.note} · {filter.count} 州</small>
+        </button>
+      ))}
+    </div>
+
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="identity-search">搜索州、身份类别或材料</label>
+        <input id="identity-search" type="search" placeholder="例如 无 SSN、ITIN、I-94、lawful、California" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="identity-status">入口状态</label>
+        <select id="identity-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table identity-ssn-table" role="list">
+      <div class="directory-row identity-ssn-row directory-head" role="presentation">
+        <span>州</span>
+        <span>身份 / SSN 分流</span>
+        <span>官方入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row identity-ssn-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="identity-notes">
+            <div class="path-badges" aria-label={`${row.state.nameZh} 身份和 SSN 分流`}>
+              {row.badges.length ? row.badges.map((badge) => <span>{badge}</span>) : <span>需核对</span>}
+            </div>
+            {row.notes.length ? (
+              row.notes.map((note) => (
+                <p>
+                  <span>{note.category}</span>
+                  {note.text}
+                </p>
+              ))
+            ) : (
+              <p>
+                <span>需核对</span>
+                当前表格未列出明确 SSN 或身份类别说明；请从州官方材料入口确认。
+              </p>
+            )}
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 身份和 SSN 相关官方入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/real-id/`}>REAL ID <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、身份类别或材料。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+    const quickButtons = Array.from(document.querySelectorAll('[data-quick-identity]'));
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    quickButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLElement) || !(search instanceof HTMLInputElement)) return;
+        search.value = String(button.dataset.quickIdentity || '');
+        search.focus();
+        applyFilter();
+      });
+    });
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>

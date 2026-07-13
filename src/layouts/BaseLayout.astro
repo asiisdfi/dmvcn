@@ -1,0 +1,112 @@
+---
+import { CalendarDays, ClipboardList, FileCheck2, Home, MapPinned, Search, ShieldCheck } from '@lucide/astro/icons';
+import { SITE } from '../data/content';
+import '../styles/global.css';
+
+type JsonLd = Record<string, unknown>;
+
+type Props = {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: JsonLd | JsonLd[];
+  updatedAt?: string;
+};
+
+const {
+  title,
+  description = SITE.description,
+  canonical,
+  ogImage = '/assets/dmv-guide-hero.jpg',
+  schema,
+  updatedAt,
+} = Astro.props as Props;
+
+const pageTitle = title ? `${title} | ${SITE.name}` : SITE.name;
+const canonicalUrl = canonical
+  ? new URL(canonical, Astro.site).toString()
+  : new URL(Astro.url.pathname, Astro.site).toString();
+const ogImageUrl = new URL(ogImage, Astro.site).toString();
+const siteSchema: JsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  description: SITE.description,
+  url: new URL('/', Astro.site).toString(),
+  inLanguage: 'zh-Hans',
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+  },
+};
+const pageSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const jsonLdItems = [siteSchema, ...pageSchemas].map((item) =>
+  Object.prototype.hasOwnProperty.call(item, '@context')
+    ? item
+    : { '@context': 'https://schema.org', ...item },
+);
+---
+
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="zh_CN" />
+    {updatedAt && <meta property="article:modified_time" content={updatedAt} />}
+    {updatedAt && <meta property="og:updated_time" content={updatedAt} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    {jsonLdItems.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} />)}
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="回到首页">
+        <span class="brand-mark"><ShieldCheck size={20} aria-hidden="true" /></span>
+        <span>
+          <strong>{SITE.name}</strong>
+          <small>独立中文整理</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="/"><Home size={16} aria-hidden="true" />首页</a>
+        <a href="/states/"><MapPinned size={16} aria-hidden="true" />州指南</a>
+        <a href="/directories/"><ClipboardList size={16} aria-hidden="true" />入口表</a>
+        <a href="/topics/"><Search size={16} aria-hidden="true" />专题</a>
+        <a href="/quality/"><FileCheck2 size={16} aria-hidden="true" />来源与更新</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>{SITE.name}</strong>
+        <p>{SITE.disclaimer}</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about/">关于</a>
+        <a href="/contact/">联系</a>
+        <a href="/privacy/">隐私</a>
+        <a href="/terms/">条款</a>
+        <a href="/directories/">入口表</a>
+        <a href="/sources/">来源</a>
+      </div>
+      <p class="review-note">
+        <CalendarDays size={15} aria-hidden="true" />每页保留来源和核对日期；费用、预约和材料要求请在办理前回官方页面确认。
+      </p>
+    </footer>
+  </body>
+</html>

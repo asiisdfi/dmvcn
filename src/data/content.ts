@@ -1,0 +1,12549 @@
+export const REVIEW_DATE = '2026-07-13';
+
+const contactEmail = (
+  import.meta.env?.PUBLIC_CONTACT_EMAIL ??
+  (typeof process !== 'undefined' ? process.env.PUBLIC_CONTACT_EMAIL : '') ??
+  ''
+).trim();
+
+export const SITE = {
+  name: 'DMV中文办事库',
+  shortName: 'DMV中文',
+  description:
+    '面向在美国中文用户的 DMV、REAL ID、驾照和地址变更办事信息库。重要办事事实附官方来源，并标注核对日期。',
+  disclaimer:
+    '本站不是政府网站，也不提供法律、移民或税务建议。所有办理要求、费用和预约规则请以官方页面为准。',
+  contactEmail,
+};
+
+export type Source = {
+  label: string;
+  url: string;
+  note?: string;
+};
+
+export type ActionLink = {
+  label: string;
+  url: string;
+  description: string;
+};
+
+export type StateGuide = {
+  id: string;
+  abbr: string;
+  nameEn: string;
+  nameZh: string;
+  agency: string;
+  agencyUrl: string;
+  reviewedAt?: string;
+  summary: string;
+  realIdSummary: string;
+  licenseSummary: string;
+  appointmentNote: string;
+  documentHighlights: string[];
+  commonMistakes: string[];
+  recommendedSteps: string[];
+  editorNotes?: string[];
+  accessStatus?: {
+    label: string;
+    tone: 'ready' | 'watch' | 'risk' | 'draft';
+    note: string;
+    fallbackLabel?: string;
+    fallbackUrl?: string;
+  };
+  actionLinks: ActionLink[];
+  sources: Source[];
+  relatedTopicSlugs: string[];
+};
+
+export function getStatePublicStatus(state: StateGuide): NonNullable<StateGuide['accessStatus']> {
+  if (state.accessStatus) {
+    const needsExtraCare = state.accessStatus.tone === 'risk';
+
+    return {
+      ...state.accessStatus,
+      label: needsExtraCare ? '建议从备用入口进入' : '已提供备用入口',
+      note: needsExtraCare
+        ? '部分州政府深层页面可能因网络位置或安全验证无法直接打开。请从本页备用官方入口进入，并在提交前确认最新要求。'
+        : '部分州政府深层页面可能因网络位置或安全验证暂时无法打开。若遇到问题，请从本页备用官方入口重新进入州政府网站。',
+    };
+  }
+
+  return {
+    label: state.reviewedAt ? '内容已核对' : '待补核对',
+    tone: state.reviewedAt ? 'ready' : 'draft',
+    note: state.reviewedAt
+      ? '页面已完成基础来源整理；办理前仍请以官方页面的最新要求为准。'
+      : '页面还在补充核对，暂时只适合做初步方向参考。',
+  };
+}
+
+const privateEditorialPatterns = [
+  /本环境|本轮.*复核|自动(?:化|链接|审计)?检查|无头浏览器|browser check/i,
+  /CloudFront|Akamai|Access Denied|HTTP2|request blocked|service unavailable/i,
+  /返回\s*(?:403|404|500)|链接审计|搜索索引|来源线索|应标\s*watch|accessStatus|fallback/i,
+  /中文页|页面线索|页面(?:还)?要核对|页面(?:都)?(?:不要|不应|应|要(?!求)|需要)|页面(?:的)?(?:核心|最重要)|适合放(?:到|进)|适合(?:中文用户)?(?:重点)?提示|不要写成/i,
+  /这页(?:要|只)|本站(?:应|保留)|上线后|目录.*互补|避免和.*重复|两个页面应|专题应同步|来自.*线索|页面用“/i,
+  /这(?:一)?页|本页|整页|编辑重点|页面(?:措辞|目标|定位|的核心|的重点)|正文|写作|后续扩展|当前阶段/i,
+  /高价值更新点|每次更新|更新(?:这页|时)|抽取线索|分工不同|专门服务|故意不写|核心判断句/i,
+  /(?:不要|避免)把.*(?:写成|误写|套用|泛化)|必须(?:写清|引用)|要分开写/i,
+];
+
+export function getPublicEditorialNotes(notes?: string[]) {
+  return (notes ?? []).filter((note) => !privateEditorialPatterns.some((pattern) => pattern.test(note)));
+}
+
+export type TopicGuide = {
+  slug: string;
+  title: string;
+  eyebrow: string;
+  reviewedAt?: string;
+  description: string;
+  whoNeedsIt: string[];
+  keyFacts: string[];
+  checklist: string[];
+  steps: string[];
+  faqs: { question: string; answer: string }[];
+  factChecks?: { claim: string; sourceUrls: string[] }[];
+  editorNotes?: string[];
+  relatedDirectory?: {
+    label: string;
+    href: string;
+    description: string;
+  };
+  sources: Source[];
+  relatedStateIds: string[];
+};
+
+export const federalSources: Source[] = [
+  {
+    label: 'DHS REAL ID 官方说明',
+    url: 'https://www.dhs.gov/real-id',
+    note: 'REAL ID 联邦项目、执行日期和基本要求。',
+  },
+  {
+    label: 'TSA REAL ID 旅行说明',
+    url: 'https://www.tsa.gov/realid',
+    note: '机场安检接受证件和 REAL ID 旅行提醒。',
+  },
+  {
+    label: 'TSA 可接受身份证件列表',
+    url: 'https://www.tsa.gov/travel/security-screening/identification',
+    note: '国内航班可使用的身份证件清单。',
+  },
+  {
+    label: 'USA.gov REAL ID',
+    url: 'https://www.usa.gov/real-id',
+    note: '面向公众的 REAL ID 概览和州 DMV 入口。',
+  },
+  {
+    label: 'USA.gov 州机动车服务目录',
+    url: 'https://www.usa.gov/state-motor-vehicle-services',
+    note: '按州进入 DMV、驾照、登记和机动车服务官方入口。',
+  },
+];
+
+export const states: StateGuide[] = [
+  {
+    id: 'california',
+    abbr: 'CA',
+    nameEn: 'California',
+    nameZh: '加州',
+    agency: 'California DMV',
+    agencyUrl: 'https://www.dmv.ca.gov/',
+    reviewedAt: '2026-07-05',
+    summary:
+      '加州 DMV 的 REAL ID 页面建议先用互动清单准备材料、在线提交申请并上传文件，再带原件和确认码去 DMV 办公室完成核验。',
+    realIdSummary:
+      '加州 REAL ID 申请会要求证明身份和居住地址等文件。在线上传可以节省现场时间，但办公室核验时仍要带上传过的原始文件和确认码。',
+    licenseSummary:
+      '普通加州驾照仍可用于驾驶。若要用州驾照/ID 处理国内航班安检或部分联邦设施身份用途，需要 REAL ID 合规证件或 TSA 接受的其他证件。',
+    appointmentNote:
+      'California DMV 明确提示不少常规业务不提供柜台服务，应在线、在 kiosk、通过业务伙伴或邮寄处理；首次 REAL ID 这类需要文件核验的业务才更可能需要办公室。',
+    documentHighlights: [
+      '先使用 California DMV 的互动 REAL ID document checklist。',
+      'REAL ID 居住证明通常要两份不同文件，常见例子包括 utility bill、bank statement、vehicle registration 等。',
+      '在线申请时按提示上传身份和居住地址文件。',
+      '办公室办理时带上传过的原始文件和 confirmation code。',
+      '搬家后需要在 10 天内通知 California DMV；如果刚提交地址变更，续期或补证前通常要预留最多 3 天处理时间。',
+      '不能提供美国合法居留证明、但能满足 California DMV 身份和加州居住证明要求的人，应单独查看 AB 60 driver license 路径；AB 60 不是 REAL ID。',
+    ],
+    commonMistakes: [
+      '以为在线上传文件后，现场就不用带原件。',
+      '搬家超过 10 天还没通知 DMV，或刚改地址就立刻续期/补证。',
+      '把普通驾照误认为一定可以用于 REAL ID 联邦用途。',
+      '去 DMV 办公室办理本应在线、kiosk、业务伙伴或邮寄完成的常规业务。',
+    ],
+    recommendedSteps: [
+      '先判断自己是否要用加州驾照/ID 处理联邦身份用途；有有效护照的人可以把护照作为备选证件。',
+      '打开加州 DMV REAL ID 页面，用互动清单确认文件。',
+      '在线提交申请并上传文件后，保存 confirmation code。',
+      '地址变化时先在 10 天内完成 DMV 地址更新；需要办公室核验时，带原始文件和确认码，并提前看 wait times 或预约入口。',
+    ],
+    editorNotes: [
+      'California DMV REAL ID 页面强调在线申请、上传文件和办公室带原件是连续流程，不是二选一。',
+      'California DMV driver handbook / update information 页面说明搬家后 10 天内通知 DMV；Change of Address 页面提示处理最多可能需要 3 天。',
+      '预约页面提示 DMV 不为部分常规续期、记录和 replacement 服务提供柜台服务，用户应先判断是否真的需要去办公室。',
+      'California DMV locations 页面提醒多数 DMV 业务可先线上开始或完成；搜索办公室前应先用 online services 或 Service Advisor 判断是否必须到场。',
+      'California DMV 首页也提示 most DMV business can be started and/or completed online；分流页应把“先线上查”放在办公室之前。',
+      'California DMV licensing fees 页面列出 Class C 原办/续期、replacement、ID card 和付款方式；信用卡、借记卡和移动支付可能有 service fee。',
+      'California DMV processing times 页面把 DL/ID online 处理估为 2 weeks，kiosk hard copy 邮寄约 2 weeks，mail 约 4 weeks；临时驾照不能当身份证件使用。',
+      'California DMV AB 60 页面说明该路径面向无法提供美国合法居留证明、但能提供身份和加州居住证明并满足 DMV 要求的 driver license 申请人；AB 60 申请人不能取得 REAL ID。',
+      'California DMV instruction permit 页面说明申请 permit 要参加 knowledge test，常见通过要求是 80%；Preparing for Knowledge and Drive Tests 页面提供线上测试准备和 drive test 路径。',
+      'California DMV Online Learning 页面说明符合条件的 renewal noncommercial Class C 申请人可用 eLearning 替代 written / online exam；eLearning 目前有 English、Spanish、Traditional Chinese，并带 Mandarin audio。',
+      'California DMV 页面明确英文网页是官方准确来源，Google Translate 或第三方机器翻译不具法律效力；涉及材料、考试和费用时要回英文原文确认。',
+      'California DMV Fast Facts 5 说明 18 岁以上访客如持有效本州或本国驾照，可在加州驾驶；一旦成为 California resident，必须在 10 天内取得 California DL。',
+      'California DMV Driver Licenses 页面说明持外国驾照申请 California DL 时按已持外州 DL 路径办理，但还需通过 driving test；有效外国 DL 去路考时需要 accompanying driver。',
+    ],
+    actionLinks: [
+      {
+        label: '加州 REAL ID 官方页',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/',
+        description: '查看加州 REAL ID 资格、材料和办理入口。',
+      },
+      {
+        label: 'REAL ID 材料清单',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/',
+        description: '使用 California DMV 互动清单核对身份、SSN 和居住证明。',
+      },
+      {
+        label: '驾照与身份证业务',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/driver-licenses-dl/',
+        description: '普通驾照、身份证和相关服务入口。',
+      },
+      {
+        label: 'New California Resident',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/special-interest-driver-guides/new-to-california/',
+        description: 'California DMV 新居民驾照、车辆注册和搬入后 DMV 事项入口。',
+      },
+      {
+        label: 'Instruction Permits',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/instruction-permits/',
+        description: '加州 learner / instruction permit、knowledge test 和练车路径。',
+      },
+      {
+        label: 'Knowledge / Drive Tests',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/preparing-for-knowledge-and-drive-tests/',
+        description: '加州 knowledge test、drive test 和线上准备入口。',
+      },
+      {
+        label: 'Online Learning / Tests',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/online-learning-and-tests/',
+        description: '加州 eLearning、线上考试、Traditional Chinese / Mandarin audio 和翻译免责声明。',
+      },
+      {
+        label: 'Driver Handbooks',
+        url: 'https://www.dmv.ca.gov/portal/driver-handbooks/',
+        description: 'California DMV driver handbook 和多语言学习资料入口。',
+      },
+      {
+        label: 'AB 60 驾照',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/',
+        description: '加州无法提供美国合法居留证明时的 AB 60 driver license 路径；不是 REAL ID。',
+      },
+      {
+        label: '地址变更',
+        url: 'https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/',
+        description: '在线提交 DMV 地址变更。',
+      },
+      {
+        label: '预约入口',
+        url: 'https://www.dmv.ca.gov/portal/appointments/',
+        description: '查找可预约的 DMV 办公室服务。',
+      },
+      {
+        label: 'DMV 地点查询',
+        url: 'https://www.dmv.ca.gov/portal/locations/',
+        description: '查询 DMV office、kiosk、业务伙伴和服务地点。',
+      },
+      {
+        label: '费用和付款方式',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/',
+        description: '查看加州驾照、ID、补证、信息变更费用和支付方式。',
+      },
+      {
+        label: '处理时间',
+        url: 'https://www.dmv.ca.gov/portal/about-the-california-department-of-motor-vehicles/renewal-processing-times/',
+        description: '查看加州 DL/ID、地址变更和其他业务的预估处理时间。',
+      },
+    ],
+    sources: [
+      {
+        label: 'California DMV REAL ID',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/',
+      },
+      {
+        label: 'California DMV REAL ID Checklist',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/',
+      },
+      {
+        label: 'California DMV Driver Licenses',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/driver-licenses-dl/',
+      },
+      {
+        label: 'California DMV Fast Facts 5',
+        url: 'https://www.dmv.ca.gov/portal/file/fast-facts-5-requirements-for-a-california-drivers-license/',
+      },
+      {
+        label: 'California DMV New to California',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/special-interest-driver-guides/new-to-california/',
+      },
+      {
+        label: 'California DMV Instruction Permits',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/instruction-permits/',
+      },
+      {
+        label: 'California DMV Prepare for Knowledge and Drive Tests',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/preparing-for-knowledge-and-drive-tests/',
+      },
+      {
+        label: 'California DMV Online Learning and Tests',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/online-learning-and-tests/',
+      },
+      {
+        label: 'California DMV Driver Handbooks',
+        url: 'https://www.dmv.ca.gov/portal/driver-handbooks/',
+      },
+      {
+        label: 'California DMV AB 60 Driver Licenses',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/',
+      },
+      {
+        label: 'California DMV Change of Address',
+        url: 'https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/',
+      },
+      {
+        label: 'California DMV Service Locations',
+        url: 'https://www.dmv.ca.gov/portal/locations/',
+      },
+      {
+        label: 'California DMV Update Information',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/updating-information-on-your-driver-license-or-identification-dl-id-card/',
+      },
+      {
+        label: 'California DMV Licensing Fees',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/',
+      },
+      {
+        label: 'California DMV Processing Times',
+        url: 'https://www.dmv.ca.gov/portal/about-the-california-department-of-motor-vehicles/renewal-processing-times/',
+      },
+    ],
+    relatedTopicSlugs: [
+      'real-id-basics',
+      'document-checklist',
+      'renewal-replacement-address',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+      'vehicle-registration-renewal-expired-tags-non-operation',
+    ],
+  },
+  {
+    id: 'new-york',
+    abbr: 'NY',
+    nameEn: 'New York',
+    nameZh: '纽约州',
+    agency: 'New York DMV',
+    agencyUrl: 'https://dmv.ny.gov/',
+    reviewedAt: '2026-07-05',
+    summary:
+      '纽约 DMV 把 Standard、REAL ID 和 Enhanced 三类证件分开说明。REAL ID 解决联邦身份用途；Enhanced 另有陆路/海路从部分地区返美用途。',
+    realIdSummary:
+      '纽约 REAL ID 没有额外 REAL ID 费用，但正常交易费用仍适用；Enhanced 证件有额外费用，并且面向符合条件的美国公民和纽约居民。',
+    licenseSummary:
+      '纽约 Standard 驾照仍可用于驾驶和普通照片 ID 用途，但不能用于 REAL ID 联邦用途；没有星标或旗帜标记的证件不属于 REAL ID/Enhanced 合规证件。',
+    appointmentNote:
+      '纽约 DMV 办公室页面提示可按城市或 ZIP 查办公室，点 View Details 查看服务并预约；预约并非所有办公室都可用，但长等待时可能只允许预约用户进入。',
+    documentHighlights: [
+      '使用纽约 DMV Document Guide 生成个人化材料清单。',
+      'REAL ID 和 Enhanced 申请前可使用官方 pre-screening tool 预审文件。',
+      'ID-44 材料表说明 REAL ID / Enhanced 通常要 2 份 New York State residency；Standard 通常要 1 份。',
+      'Residence proof 要显示当前 New York State 地址，P.O. Box 不接受；同一来源或同一类型文件不要重复凑数。',
+      'Enhanced License/ID 另有美国公民和纽约居民相关要求。',
+      'REAL ID 如果不能取得 SSN，要按 NY DMV 要求带 SSA 30 天内出具的不符合资格证明和相应 DHS 文件。',
+      '地址变化后，纽约 DMV 页面要求 10 天内更新 license、permit、non-driver ID 和车辆记录地址。',
+    ],
+    commonMistakes: [
+      '把 Enhanced ID 和 REAL ID 混为一谈。',
+      '把 Enhanced 当作国际航空旅行护照替代品；官方页面说明它不适用于这些国家之间的空中旅行。',
+      '用 P.O. Box 或两份同一来源账单当作 REAL ID / Enhanced 居住证明。',
+      '搬家后先续期或补证，却没有在 10 天内更新 DMV 地址。',
+      '去办公室前没有查看 View Details 或预约规则。',
+    ],
+    recommendedSteps: [
+      '先决定 Standard、REAL ID、Enhanced 哪一种适合你。',
+      '用纽约 DMV 的 pre-screening tool 或 Document Guide 核对材料。',
+      '如果要换成 REAL ID 或 Enhanced，提前准备 full legal name、两份 New York State residency、SSN / SSA ineligibility 和 lawful status 相关证明。',
+      '地址变化时先在 10 天内完成地址更新，再做续期或补证。',
+      '需要现场办理时，在办公室页面按 ZIP/城市查 View Details 和预约说明。',
+    ],
+    editorNotes: [
+      'NY DMV 页面明确区分 Standard、REAL ID、Enhanced；Enhanced 可用于陆/海从加拿大、墨西哥和部分加勒比国家返美，但不是这些国家间空中旅行证件。',
+      'NY DMV ID-44 PDF 对 REAL ID / Enhanced 居住证明、P.O. Box、SSN ineligibility、certified translation 和姓名链条有细则，应作为材料页主来源之一。',
+      'NY DMV renewal 页面说明已有 Enhanced/REAL ID 或保持 Standard 时可线上续期，document type 不变；升级 REAL ID / Enhanced 则走材料清单和办公室路径。',
+      'NY DMV 地址变更页明确写明搬家后 10 天内更新 DMV 地址。',
+      'NY DMV 办公室页提示并非所有 office 都可预约；长等待时可能只允许有 reservation 的用户进入。',
+      'NY DMV fees/refunds 页面列出 replacement driver license 或 learner permit 为 $17.50，amend 信息变更为 $12.50，Enhanced Driver License / Permit 另加 $30。',
+      'NY DMV fees/refunds 页面说明办公室可用多数信用卡、借记卡、现金、支票或 money order；线上支付需要信用卡/借记卡，邮寄不要寄现金。',
+      'NY DMV replace 页面提醒补证会寄到 DMV 记录地址；搬家后应先改地址再 order replacement，线上补证不能使用临时邮寄地址。',
+      'NY DMV learner permit 页面把流程拆成 permit test、pre-licensing requirements 和 road test；线上 permit test 通过后，DMV 需要 3 个工作日审核考试结果和身份文件。',
+      'NY DMV road test 页面说明未满 18 岁通常要从拿到 learner permit 日期起等至少 6 个月才能预约 road test。',
+      'NY DMV permit test 页面说明 Class D permit tests 提供 20 种语言，包括 Chinese；同时 NY DMV language assistance 页面说明可为英语能力有限用户提供语言协助。',
+      'NY DMV Drivers from Other Countries 页面说明持有效外国驾照可在纽约州驾驶；成为纽约州居民后才需要申请 NY license。申请 NY license 时必须通过 written test、5-hour pre-licensing course 和 road test，并在 road test 通过时交出 foreign driver license。',
+      'NY DMV Drivers from Other Countries 页面说明若外国驾照不是英文，参加 road test 时必须带 International Driving Permit 或 certified translation。',
+    ],
+    actionLinks: [
+      {
+        label: '纽约 REAL ID / Enhanced',
+        url: 'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
+        description: '比较纽约 REAL ID、Enhanced 和 Standard 证件。',
+      },
+      {
+        label: 'DMV Document Guide',
+        url: 'https://dmv.ny.gov/more-info/dmv-document-guide',
+        description: '用纽约 DMV 官方工具确认所需身份证明和材料。',
+      },
+      {
+        label: 'ID-44 材料 PDF',
+        url: 'https://dmv.ny.gov/forms/id44.pdf',
+        description: '纽约 learner permit、driver license、non-driver ID 的证明文件表。',
+      },
+      {
+        label: '无 SSN / ineligibility',
+        url: 'https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility',
+        description: '纽约 Standard 与 REAL ID 在 SSN、SSA ineligibility letter 和 Form NSS-1A 上的差异。',
+      },
+      {
+        label: '首次驾照',
+        url: 'https://dmv.ny.gov/driver-license/get-learner-permit',
+        description: '纽约 learner permit 和首次驾照流程。',
+      },
+      {
+        label: 'Permit Test',
+        url: 'https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test',
+        description: '纽约 permit test、20 种语言、线上测试和办公室完成交易说明。',
+      },
+      {
+        label: 'Drivers from Other Countries',
+        url: 'https://dmv.ny.gov/driver-license/drivers-from-other-countries',
+        description: '纽约州外国驾照驾驶、申请 NY license、IDP / certified translation 和交 foreign license 说明。',
+      },
+      {
+        label: 'Exchange Out-of-State License',
+        url: 'https://dmv.ny.gov/driver-license/exchange-out-of-state-driver-license',
+        description: '纽约外州、美国属地、联邦区和加拿大省份驾照换证入口。',
+      },
+      {
+        label: 'Language Assistance',
+        url: 'https://dmv.ny.gov/more-info/language-assistance',
+        description: '纽约 DMV 语言协助、口译和重要文件多语言服务说明。',
+      },
+      {
+        label: 'Road Test',
+        url: 'https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test',
+        description: '纽约 road test 预约、资格和考试准备说明。',
+      },
+      {
+        label: '续期驾照',
+        url: 'https://dmv.ny.gov/driver-license/renew-a-driver-license',
+        description: '纽约驾照线上、邮寄和办公室续期路径。',
+      },
+      {
+        label: '地址变更',
+        url: 'https://dmv.ny.gov/records/change-your-address',
+        description: '纽约 DMV 地址变更说明。',
+      },
+      {
+        label: '办公室与预约',
+        url: 'https://dmv.ny.gov/contact-us/office-locations',
+        description: '查找纽约 DMV 办公室和预约信息。',
+      },
+      {
+        label: '费用和退款',
+        url: 'https://dmv.ny.gov/driver-license/fees-refunds',
+        description: '查看纽约驾照、learner permit、Enhanced、MCTD 和付款方式说明。',
+      },
+      {
+        label: '补办驾照或 permit',
+        url: 'https://dmv.ny.gov/driver-license/replace-a-license-or-permit',
+        description: '纽约补证费用、付款方式、地址和邮寄说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'NY DMV Enhanced or REAL ID',
+        url: 'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
+      },
+      {
+        label: 'NY DMV Document Guide',
+        url: 'https://dmv.ny.gov/more-info/dmv-document-guide',
+      },
+      {
+        label: 'NY DMV ID-44',
+        url: 'https://dmv.ny.gov/forms/id44.pdf',
+      },
+      {
+        label: 'NY DMV Applying Without SSN or Ineligibility',
+        url: 'https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility',
+      },
+      {
+        label: 'NY DMV Driver License',
+        url: 'https://dmv.ny.gov/driver-license',
+      },
+      {
+        label: 'NY DMV Permit Test',
+        url: 'https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test',
+      },
+      {
+        label: 'NY DMV Drivers from Other Countries',
+        url: 'https://dmv.ny.gov/driver-license/drivers-from-other-countries',
+      },
+      {
+        label: 'NY DMV Exchange Out-of-State Driver License',
+        url: 'https://dmv.ny.gov/driver-license/exchange-out-of-state-driver-license',
+      },
+      {
+        label: 'NY DMV Language Assistance',
+        url: 'https://dmv.ny.gov/more-info/language-assistance',
+      },
+      {
+        label: 'NY DMV Schedule and Take a Road Test',
+        url: 'https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test',
+      },
+      {
+        label: 'NY DMV Renew a Driver License',
+        url: 'https://dmv.ny.gov/driver-license/renew-a-driver-license',
+      },
+      {
+        label: 'NY DMV Change Your Address',
+        url: 'https://dmv.ny.gov/records/change-your-address',
+      },
+      {
+        label: 'NY DMV Driver License Fees and Refunds',
+        url: 'https://dmv.ny.gov/driver-license/fees-refunds',
+      },
+      {
+        label: 'NY DMV Replace a License or Permit',
+        url: 'https://dmv.ny.gov/driver-license/replace-a-license-or-permit',
+      },
+    ],
+    relatedTopicSlugs: [
+      'real-id-vs-standard-license',
+      'moving-to-new-state',
+      'name-change-chain',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+      'vehicle-registration-renewal-expired-tags-non-operation',
+    ],
+  },
+  {
+    id: 'texas',
+    abbr: 'TX',
+    nameEn: 'Texas',
+    nameZh: '德州',
+    agency: 'Texas Department of Public Safety',
+    agencyUrl: 'https://www.dps.texas.gov/section/driver-license',
+    reviewedAt: '2026-07-05',
+    summary:
+      '德州驾照和身份证由 Texas DPS 管理，Texas.gov 也提供 REAL ID、线上续期/补证/地址变更资格检查等入口。',
+    realIdSummary:
+      '德州 REAL ID 合规证件右上角有星标。Texas.gov 页面说明，没有星标的用户可在下次续期或申请 replacement card 时取得星标。',
+    licenseSummary:
+      '当前有效德州驾照仍可用于驾驶；若没有星标，联邦用途需要 REAL ID 合规证件、护照或其他 TSA 接受证件。',
+    appointmentNote:
+      '续期、补证和地址变更先用 Texas.gov online eligibility 判断线上资格；首次申请、REAL ID 文件核验和驾驶考试再进入 DPS 对应预约或办公室路径。',
+    documentHighlights: [
+      '先看德州证件右上角是否有星标。',
+      'Texas.gov REAL ID 页面提供 REAL ID overview、document checklist 和 driver license office 相关入口。',
+      'Texas DPS residency requirement 页面要求两份打印的 Texas residency 文件，且文件要显示姓名和 Texas residential address。',
+      '申请新的 REAL ID-compliant Texas driver license 或 ID 时，Texas.gov 页面指向 in-person DPS 路径。',
+      '地址变化后，Texas DPS 要求 30 天内更新 driver license 或 ID card 地址。',
+    ],
+    commonMistakes: [
+      '只看 Texas.gov 概览，没有用 DPS Document Check 生成个人化清单。',
+      '没有预约就前往 DPS 驾照办公室。',
+      '以为所有续期都能在线完成；Texas.gov online eligibility 页面会按年龄、license class、视力/身体状况、欠票或 suspended/revoked 状态等条件判断。',
+      '搬家后超过 30 天还没有更新 Texas driver license / ID 地址。',
+    ],
+    recommendedSteps: [
+      '先查看证件右上角是否有 REAL ID 星标。',
+      '先进入 Texas.gov REAL ID 页了解州级路径，再按页面提示进入 DPS 文档检查工具。',
+      '如果需要现场办理，优先从 Texas.gov 或 DPS 主站进入预约页面，避免依赖深层旧链接。',
+      '若只是续期、补证或地址变更，先用 Texas.gov 在线资格页面判断是否可线上完成；搬家后按 30 天规则更新地址。',
+    ],
+    editorNotes: [
+      'Texas.gov REAL ID 和在线资格检查页面已通过来源检查，适合作为主入口。',
+      'Texas DPS 深层 REAL ID/预约链接在自动化和无头浏览器检查中超时，保留为官方参考，但不应作为唯一入口。',
+      '页面措辞要避免承诺“可在线办理”；Texas.gov/DPS 会根据个人情况判断资格。',
+      'Texas.gov online eligibility 页面明确 79 岁及以上通常要 in person renewal，这类条件适合放到线上/现场分流表。',
+      'Texas DPS change information 页面明确 driver license / ID 地址变化后 30 天内更新。',
+      'Texas.gov renewals/replacements 页面说明 driver license fees 会按 driver type、age、新办或续期等变化，应回到 DPS fee table 核对。',
+      'Texas DPS fee table 列出常见 renewal、replacement 和 ID fee；DPS FAQ 说明临时 driver license 通常 60 天有效，并可查询卡片邮寄状态。',
+      'Texas DPS 身份证申请页说明新卡通常 2-3 weeks 邮寄到达，适合作为卡片等待时间提醒。',
+      'Texas DPS temporary visitors 页面说明符合要求的临时访客会收到印有 Limited Term 的 driver license 或 ID；期限会跟 lawful presence 期限相关。',
+      'Texas DPS apply for driver license 页面说明申请驾照通常要通过 written knowledge test 和 practical driving skills test；driving test 要通过 DPS appointment 或授权第三方测试路径安排。',
+      'Texas DPS Testing in Other Languages 页面说明 driver license knowledge test 只能提供 English 或 Spanish；CDL administration 中 interpreter prohibited，中文用户不要默认有中文笔试。',
+      'Texas DPS Moving to Texas Guide 说明德州与 France、Germany、South Korea、United Arab Emirates 和 Taiwan 有 license reciprocity；符合条件的有效 foreign license 可按 reciprocity 路径处理。',
+      'Texas DPS Driving Privilege Reciprocity 页面说明持有效、未过期 foreign license 的人可在 Texas 驾驶最多一年；这不等于所有外国驾照都能直接换成 Texas license。',
+    ],
+    actionLinks: [
+      {
+        label: 'Texas REAL ID',
+        url: 'https://www.texas.gov/driver-services/texas-real-id/',
+        description: 'Texas.gov 的 REAL ID 合规证件说明。',
+      },
+      {
+        label: 'Texas Driver Services',
+        url: 'https://www.texas.gov/driver-services/',
+        description: 'Texas.gov 驾照、REAL ID 和相关服务总入口。',
+      },
+      {
+        label: 'Texas Residency Requirement',
+        url: 'https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards',
+        description: 'Texas DPS 对两份 residency 文件、姓名和住址显示方式的要求。',
+      },
+      {
+        label: '续期/补证入口',
+        url: 'https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/',
+        description: 'Texas.gov 驾照和 ID 续期、补证、升级和改地址入口。',
+      },
+      {
+        label: '申请 Texas DL',
+        url: 'https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license',
+        description: '德州首次驾照、knowledge test、driving skills test 和办公室申请说明。',
+      },
+      {
+        label: 'Moving to Texas Guide',
+        url: 'https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids',
+        description: 'Texas DPS 新居民、外州/外国驾照、reciprocity 和 Texas driver license / ID 办理说明。',
+      },
+      {
+        label: 'Driving Privilege Reciprocity',
+        url: 'https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity',
+        description: 'Texas DPS 关于有效 foreign license 在 Texas 驾驶、reciprocity 国家和期限的说明。',
+      },
+      {
+        label: 'Testing in Other Languages',
+        url: 'https://www.dps.texas.gov/section/driver-license/testing-other-languages',
+        description: 'Texas DPS 关于 English / Spanish knowledge test、CDL 口译限制和其他语言考试的说明。',
+      },
+      {
+        label: '预约 Driving Test',
+        url: 'https://www.dps.texas.gov/section/driver-license/schedule-your-driving-test-appointment',
+        description: 'Texas DPS driving test 预约说明。',
+      },
+      {
+        label: '线上续期/补证资格',
+        url: 'https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/',
+        description: '检查德州驾照、CDL 或 ID 是否可在线办理。',
+      },
+      {
+        label: '地址/信息变更',
+        url: 'https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card',
+        description: 'Texas DPS 驾照或 ID 地址、姓名等信息变更说明。',
+      },
+      {
+        label: 'Driver License Fees',
+        url: 'https://www.dps.texas.gov/section/driver-license/driver-license-fees',
+        description: 'Texas DPS 驾照、ID、续期、补证和相关费用表。',
+      },
+      {
+        label: 'Temporary Visitors',
+        url: 'https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors',
+        description: 'Texas DPS 临时访客、lawful presence 和 Limited Term 证件说明。',
+      },
+      {
+        label: '临时凭证 FAQ',
+        url: 'https://www.dps.texas.gov/section/driver-license/faq/section-3-issuing-temporary-permit',
+        description: 'Texas DPS 临时 permit / license 和卡片邮寄状态说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Texas.gov REAL ID',
+        url: 'https://www.texas.gov/driver-services/texas-real-id/',
+      },
+      {
+        label: 'Texas.gov Driver Services',
+        url: 'https://www.texas.gov/driver-services/',
+      },
+      {
+        label: 'Texas Driver License Online Eligibility',
+        url: 'https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/',
+      },
+      {
+        label: 'Texas DPS Apply for a Driver License',
+        url: 'https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license',
+      },
+      {
+        label: 'Texas DPS Moving to Texas Guide',
+        url: 'https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids',
+      },
+      {
+        label: 'Texas DPS Driving Privilege Reciprocity',
+        url: 'https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity',
+      },
+      {
+        label: 'Texas DPS Testing in Other Languages',
+        url: 'https://www.dps.texas.gov/section/driver-license/testing-other-languages',
+      },
+      {
+        label: 'Texas DPS Schedule Your Driving Test Appointment',
+        url: 'https://www.dps.texas.gov/section/driver-license/schedule-your-driving-test-appointment',
+      },
+      {
+        label: 'Texas DPS Change Information',
+        url: 'https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card',
+      },
+      {
+        label: 'Texas DPS Residency Requirement',
+        url: 'https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards',
+      },
+      {
+        label: 'Texas DPS Driver License Fees',
+        url: 'https://www.dps.texas.gov/section/driver-license/driver-license-fees',
+      },
+      {
+        label: 'Texas DPS Temporary Visitors',
+        url: 'https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors',
+      },
+      {
+        label: 'Texas DPS Temporary Permit FAQ',
+        url: 'https://www.dps.texas.gov/section/driver-license/faq/section-3-issuing-temporary-permit',
+      },
+      {
+        label: 'Texas DPS Identification Card',
+        url: 'https://www.dps.texas.gov/section/driver-license/how-apply-texas-identification-card',
+      },
+    ],
+    relatedTopicSlugs: [
+      'document-checklist',
+      'airport-travel-after-real-id',
+      'renewal-replacement-address',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+      'vehicle-registration-renewal-expired-tags-non-operation',
+    ],
+  },
+  {
+    id: 'florida',
+    abbr: 'FL',
+    nameEn: 'Florida',
+    nameZh: '佛州',
+    agency: 'Florida Highway Safety and Motor Vehicles',
+    agencyUrl: 'https://www.flhsmv.gov/',
+    reviewedAt: '2026-07-13',
+    summary:
+      '佛州 FLHSMV 的 What to Bring 是材料主入口，续期、补证和地址更新则先从 MyDMV Portal 判断资格。不要只看一张清单，先确认自己是首次办证、续期、补证、改名，还是只是改地址。',
+    realIdSummary:
+      '佛州从 2010 年 1 月 1 日开始签发 REAL ID-compliant 证件。第一次到办公室核发、现有证件没有星标且到期、或姓名变更时，通常需要带原始文件验证身份、SSN 和佛州居住地址。',
+    licenseSummary:
+      '佛州驾照或 ID 通常每 8 年续一次；驾照最多可提前 18 个月续，ID 最多可提前 12 个月续。线上续期不是每次都能用，FLHSMV 说明 online convenience renewal 一般隔一次续期可用一次。',
+    appointmentNote:
+      '佛州很多服务由县税务官办公室或服务中心承办，预约规则按县和地点变化。FLHSMV locations 页面明确提醒 many offices require appointments，先查县和办公室，再决定是否现场去。',
+    editorNotes: [
+      '佛州页面的核心判断是“有没有星标”和“这是不是 2010 年后第一次 in-office issuance”，不要把线上续期写成所有人都可用。',
+      '地址变更有 30 天要求；如果要在新地址上拿到实体证件，通常是先处理地址，再按 replacement/renewal 路径走。',
+      'What to Bring 会按 U.S. Citizen、Immigrant、Non-Immigrant、Canadian 分材料，非公民身份不能照搬美国公民清单。',
+      '2026-07-09 普通浏览器点验显示 FLHSMV 域名在本环境仍返回 Access Denied；如果用户也被拦，应从 USA.gov 州机动车服务目录进入 Florida 官方入口。',
+      'FLHSMV renew/replace 页面说明 MyDMV Portal 办理后 credential 通常 2-3 weeks 邮寄到达，并会在总交易中加收 $2.00 processing fee。',
+      'FLHSMV renew/replace 页面说明需要办公室办理的情况包括上次已用 online convenience renewal、非 REAL ID compliant、换照片、改名、首次佛州证件、CDL 或证件上有 TEMPORARY 字样。',
+      'FLHSMV Non-Immigrant 页面说明非美国公民首次申请 driver license 时可能先拿到 60-day temporary paper permit；身份和 legal status 核验后，证件会在 60 天内邮寄。',
+      'FLHSMV Class E Knowledge Exam 页面说明 learner license 申请人要通过 50 题 Class E Knowledge Exam。',
+      '自 2026 年 2 月 6 日起，Florida driver license knowledge 和 skills exams 仅使用英语，考试期间不再允许语言翻译服务。旧 General Information 页面仍可能显示历史语言列表，应以 2026 FLHSMV English-only 公告为准。',
+      'FLHSMV Visiting Florida FAQ 说明外国访客在佛州驾驶时要随身持有居住国签发的有效 driver license；成为 Florida resident 后必须在 30 天内取得 Florida license。',
+      'FLHSMV FAQ 说明持有效 out-of-state driver license 申请佛州 license 时通常不需要重考 written 或 driving test，但所有 out-of-state driver 都要做 vision test；材料不足但外州证件有效或过期 60 天内时，可能先发 60-day temporary permit。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'FLHSMV 官方域名在本环境普通浏览器点验中返回 Access Denied。本站保留官方深层链接；如果你打开也被拦截，请从 USA.gov 州机动车服务目录选择 Florida，再进入官方机动车服务。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      '首次办公室核发或升级 REAL ID 时，重点是身份、SSN 和佛州居住地址三组原始材料。',
+      'Florida residential address 通常要两份不同文件；部分账单、付款册、雇主文件等要特别看 60 天内日期。',
+      '如果证件没有右上角星标，或姓名在上次核发后变过，要按 FLHSMV 的触发条件准备现场材料。',
+      '新佛州居民通常要在建立 residency 后 30 天内取得佛州驾照；车辆 title / registration 路径还要核对保险和登记期限。',
+      '姓名变更链条要能从出生姓名追到当前姓名；多次改名时不要只带最后一张文件。',
+      '非美国公民、加拿大申请人和其他身份类别，要进入 What to Bring 的对应分支。',
+      'Non-Immigrant、Immigrant、Canadian 和 U.S. Citizen 的材料分支不同；不要用美国公民清单替代自己的身份类别。',
+    ],
+    commonMistakes: [
+      '把 MyDMV Portal 能打开误解为本人一定有线上资格。',
+      '上次已经用过 online convenience renewal，这次仍按线上续期准备。',
+      '搬家后超过 30 天才想起更新地址，或者先续期后才发现地址还没改。',
+      '只带照片、扫描件或普通复印件，而不是官方要求的原始材料或认证文件。',
+    ],
+    recommendedSteps: [
+      '先看现有佛州证件右上角是否有星标，并确认本次是首次、续期、补证、改名还是改地址。',
+      '只是续期、补证或地址更新时，先进入 MyDMV Portal，让系统判断是否可线上完成。',
+      '需要现场办理时，用 locations 页面按县查办公室，并确认是否必须预约。',
+      '刚搬到佛州时先看 New Resident；地址或姓名变化时按 30 天要求更新 driver license / ID 和 title / registration。',
+      '到场前按 What to Bring 的身份类别准备原始文件、姓名变更文件、地址证明和付款方式。',
+    ],
+    actionLinks: [
+      {
+        label: 'What to Bring',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/',
+        description: '佛州办理驾照、ID 和 REAL ID 的材料分类入口。',
+      },
+      {
+        label: 'U.S. Citizen 材料',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/',
+        description: '佛州美国公民身份、SSN 和两份居住地址文件示例。',
+      },
+      {
+        label: 'Non-Immigrant 材料',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/',
+        description: '佛州非移民身份、legal status 核验和 60 天临时纸质许可说明。',
+      },
+      {
+        label: '续期或补证',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
+        description: '佛州驾照或 ID 续期、补证、线上处理费和 2-3 周邮寄说明。',
+      },
+      {
+        label: 'Class E Knowledge / Skills',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/class-e-knowledge-exam-driving-skills-test/',
+        description: '佛州 Class E knowledge exam、driving skills test 和 learner license 考试说明。',
+      },
+      {
+        label: 'Driver License Exams',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-exams/',
+        description: '佛州 driver license exams、第三方考试、成绩提交和当前考试语言点验入口。',
+      },
+      {
+        label: 'English-only Exams Announcement',
+        url: 'https://www.flhsmv.gov/2026/01/30/flhsmv-announces-driver-license-exams-to-be-administered-in-english-only/',
+        description: 'FLHSMV 2026 年关于 driver license exams English-only 政策更新的官方公告。',
+      },
+      {
+        label: '费用表',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/fees/',
+        description: '佛州驾照、ID 和相关业务官方费用入口。',
+      },
+      {
+        label: 'MyDMV Portal / GoRenew',
+        url: 'https://services.flhsmv.gov/VirtualOffice/',
+        description: '佛州线上服务入口。',
+      },
+      {
+        label: '新居民入口',
+        url: 'https://www.flhsmv.gov/new-resident/',
+        description: '佛州新居民驾照、保险、title 和 registration 说明。',
+      },
+      {
+        label: 'Visiting Florida FAQs',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/',
+        description: '佛州外国访客驾驶、成为 resident 后 30 天内取得 Florida license、材料不足临时 permit 和访客常见问题。',
+      },
+      {
+        label: 'What to Bring FAQ',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/',
+        description: '佛州关于 out-of-state license 换证、written / driving test 豁免和 vision test 的 FAQ。',
+      },
+      {
+        label: '姓名和地址变更',
+        url: 'https://www.flhsmv.gov/name-and-address-changes/',
+        description: '佛州 driver license / ID 和 title / registration 姓名地址变更说明。',
+      },
+      {
+        label: '服务中心位置',
+        url: 'https://www.flhsmv.gov/locations/',
+        description: '查询佛州服务中心地点和服务方式。',
+      },
+      {
+        label: 'USA.gov 州机动车服务目录',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: '如果 FLHSMV 官方页被拦截，可从 USA.gov 选择 Florida 后进入官方机动车服务入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'FLHSMV What to Bring',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/',
+      },
+      {
+        label: 'FLHSMV What to Bring - U.S. Citizen',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/',
+      },
+      {
+        label: 'FLHSMV What to Bring - Non-Immigrant',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/',
+      },
+      {
+        label: 'FLHSMV Renew or Replace',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
+      },
+      {
+        label: 'FLHSMV Class E Knowledge Exam and Driving Skills Test',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/class-e-knowledge-exam-driving-skills-test/',
+      },
+      {
+        label: 'FLHSMV Driver License Exams',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-exams/',
+      },
+      {
+        label: 'FLHSMV English-only Exams Announcement',
+        url: 'https://www.flhsmv.gov/2026/01/30/flhsmv-announces-driver-license-exams-to-be-administered-in-english-only/',
+      },
+      {
+        label: 'FLHSMV Driver License and ID Fees',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/fees/',
+      },
+      {
+        label: 'FLHSMV Locations',
+        url: 'https://www.flhsmv.gov/locations/',
+      },
+      {
+        label: 'FLHSMV MyDMV Portal',
+        url: 'https://services.flhsmv.gov/VirtualOffice/',
+      },
+      {
+        label: 'FLHSMV New Resident',
+        url: 'https://www.flhsmv.gov/new-resident/',
+      },
+      {
+        label: 'FLHSMV Visiting Florida FAQs',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/',
+      },
+      {
+        label: 'FLHSMV What to Bring FAQ',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/',
+      },
+      {
+        label: 'FLHSMV Name and Address Changes',
+        url: 'https://www.flhsmv.gov/name-and-address-changes/',
+      },
+    ],
+    relatedTopicSlugs: [
+      'proof-of-residency',
+      'non-citizen-license-id',
+      'renewal-replacement-address',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+      'vehicle-registration-renewal-expired-tags-non-operation',
+    ],
+  },
+  {
+    id: 'washington',
+    abbr: 'WA',
+    nameEn: 'Washington',
+    nameZh: '华盛顿州',
+    agency: 'Washington State Department of Licensing',
+    agencyUrl: 'https://dol.wa.gov/',
+    reviewedAt: '2026-07-07',
+    summary:
+      '华盛顿州 DOL 的关键不是“标准证件升级成带星 REAL ID”，而是普通驾照/ID 与 Enhanced Driver License/ID 分开。EDL/EID 是华盛顿州的 REAL ID-compliant 证件，普通证件仍可用于驾驶和州内身份用途。',
+    realIdSummary:
+      '华盛顿州 EDL/EID 没有其他州常见的星标，而是用美国国旗标记。DOL 说明 EDL/EID 符合 REAL ID 联邦要求；标准驾照或 ID 不符合国内航班等联邦用途。',
+    licenseSummary:
+      '普通华盛顿州驾照仍可用于驾驶，不表示居住或合法身份状态。国内航班、部分联邦设施和陆路/海路边境用途，要比较 EDL/EID、护照、绿卡、军人证等 TSA 或联邦接受证件。',
+    appointmentNote:
+      'DOL 把 driver licensing office、vehicle licensing office、testing/training location 分得很清楚。EDL 申请页面说预约 preferred but not required；driver licensing office 页面也强烈建议预约，知识/路考等业务可能有硬性预约要求。',
+    editorNotes: [
+      '华盛顿州的编辑重点是把 REAL ID 解释成“合规用途”，而不是把它写成一张带星卡。',
+      'EDL/EID 要求美国公民身份；非公民读者应优先看普通驾照/ID或其他 TSA 接受证件，不要套用 EDL 清单。',
+      'DOL 页面有简体中文翻译入口，也有 EDL printable checklist 的中文版本，可作为中文用户的低摩擦入口。',
+      '2026-07-09 普通浏览器点验显示 WA DOL 域名在本环境仍返回 403；如果用户也被拦，应从 USA.gov 州机动车服务目录进入 Washington 官方入口。',
+      'Washington DOL renew driver license 页面说明 standard license 续期按 $10/year 计算，6 年为 $61、8 年为 $81，费用还会受 EDL、late renewal、endorsement 和期限选择影响。',
+      'Washington DOL renewal 页面说明 70+、需要 vision screening、新照片、上次线上续期等情况要到 driver licensing office；过期超过 60 天会有 $10 late fee。',
+      'Washington DOL 首次驾照页面说明现场会给 temporary license，正式 license 通常 mail within 7-10 days；搬入华州页面则提示临时 license 可驾驶 45 days。',
+      'Washington DOL driver training and testing 页面把 knowledge test、drive skills test、testing location 和 driver guide 分开；Do I need to take a test 页面说明 knowledge test 40 题需答对 32 题，成绩通常 2 年有效。',
+      'Washington DOL Do I Need a Test 页面说明 knowledge test 提供 12 种语言，包括 Traditional Chinese 和 Chinese Simplified；DOL 同时提醒要向 testing location 确认所需语言。',
+      'Washington DOL driver guides 页面提供多语言 driver guide；外州/外国驾照路径里，部分国家或地区执照会要求 translated certification。',
+      'Washington DOL Moving to Washington 页面说明搬入后 30 天内取得 WA driver license，办证时要预约 driver licensing office，带 proof of identity including out-of-state license；离开办公室前旧外州证件会被打孔并退回，临时 license 可驾驶 45 天。',
+      'Washington DOL Do I Need a Test 页面说明 18 岁以上持部分 U.S. / Canada / Germany / South Korea 等有效 license 可免测试；Taiwan 和 Japan 需要联系相应办事处并提供 translated certification；未列出的国家/加拿大省份要按 first license 全流程。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'Washington DOL 官方域名在本环境普通浏览器点验中返回 403。本站保留官方深层链接；如果你打开也被拦截，请从 USA.gov 州机动车服务目录选择 Washington，再进入官方机动车服务。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      'EDL/EID 申请需要证明美国公民身份、身份、华盛顿州居住地址，并提供 SSN。',
+      'Washington enhanced checklist 要求两份含本人 first/last name 和当前 WA residential address 的居住证明，并注明 no PO Box。',
+      'DOL 建议用 enhanced document tool 或 printable checklist 准备材料；中文清单链接在官方页面上可见。',
+      '标准 driver license、instruction permit 或 ID 要证明身份；Washington DOL 说明如果有 SSN，需要提供 SSN。',
+      '临时 EDL 离开办公室即可拿到，但不能用于边境通行，正式卡通常邮寄。',
+      '搬家后，Washington DOL 要求 10 天内更新 driver license 或 ID 地址。',
+      'EDL/EID 可用于美国与加拿大、墨西哥、百慕大和加勒比之间的陆路/海路重新入境，但不能代替国际航空旅行证件。',
+    ],
+    commonMistakes: [
+      '看到 REAL ID 后去找星标，忽略华盛顿州 EDL/EID 使用国旗标记。',
+      '非美国公民按 EDL 材料准备，到了才发现资格不匹配。',
+      '把 vehicle licensing office 当成 driver licensing office。',
+      '搬家后只改了 vehicle registration 地址，却忘了 driver license / ID 也有 10 天更新要求。',
+      '以为 EDL 可以用于国际航空旅行，或以为临时 EDL 能直接过边境。',
+    ],
+    recommendedSteps: [
+      '先判断你是否已有护照、绿卡、军人证等可替代 REAL ID 用途的证件。',
+      '如果仍需要州证件用于联邦用途，进入 DOL REAL ID 页面确认 EDL/EID 逻辑。',
+      '确认自己是否符合 EDL/EID 的美国公民身份要求，再使用 enhanced document tool 或清单准备材料。',
+      '地址变化时先按 10 天规则更新 driver license / ID 地址；预约前确认地点是 driver licensing office，并预留 document review 和 in-person interview 时间。',
+    ],
+    actionLinks: [
+      {
+        label: 'WA REAL ID 说明',
+        url: 'https://dol.wa.gov/id-cards/real-id',
+        description: '华盛顿州 REAL ID、EDL/EID 和标准证件差异。',
+      },
+      {
+        label: 'Enhanced Driver License/ID',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl',
+        description: '华盛顿州 Enhanced 证件说明。',
+      },
+      {
+        label: 'EDL 办理指南',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/guide-enhanced-driver-licenses-edl',
+        description: 'Washington DOL 对 EDL 身份、公民身份和居住证明的说明。',
+      },
+      {
+        label: '驾照与许可入口',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits',
+        description: '普通驾照、permit、续期和相关服务。',
+      },
+      {
+        label: '身份证明文件',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity',
+        description: 'Washington DOL 标准驾照、permit 或 ID 的身份文件和 SSN 说明。',
+      },
+      {
+        label: '续期驾照',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/renew-driver-license',
+        description: '华盛顿州驾照续期、费用、晚续费和现场续期条件。',
+      },
+      {
+        label: '首次驾照 18+',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit/driver-license-application-ages-18',
+        description: '华盛顿州成人首次驾照、临时证和正式卡邮寄说明。',
+      },
+      {
+        label: 'Driver Training / Testing',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing',
+        description: '华州 knowledge test、drive skills test、测试地点和学习资料入口。',
+      },
+      {
+        label: 'Do I Need a Test',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
+        description: '华州是否需要 knowledge / drive test、考试语言、通过分数和成绩有效期说明。',
+      },
+      {
+        label: 'Moving to Washington',
+        url: 'https://dol.wa.gov/moving-washington',
+        description: '华州搬入后 30 天换证、车辆注册和新居民入口。',
+      },
+      {
+        label: 'Get WA Driver License',
+        url: 'https://dol.wa.gov/moving-washington/get-driver-license',
+        description: '华州新居民换证预约、外州证件打孔退回、45 天 temporary license 和邮寄时间说明。',
+      },
+      {
+        label: 'Washington Driver Guides',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/driver-guides',
+        description: 'Washington DOL 多语言 driver guide 和学习资料入口。',
+      },
+      {
+        label: '预约与地点',
+        url: 'https://dol.wa.gov/appointments-and-locations',
+        description: '查找 DOL 预约和办公室信息。',
+      },
+      {
+        label: '驾照办公室',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-offices',
+        description: '确认 driver licensing office 服务范围。',
+      },
+      {
+        label: '姓名或地址变更',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/update-driver-license-information/change-your-name-or-address-your-driver-license',
+        description: 'Washington DOL 驾照或 ID 姓名、地址变更说明。',
+      },
+      {
+        label: 'USA.gov 州机动车服务目录',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: '如果 WA DOL 官方页被拦截，可从 USA.gov 选择 Washington 后进入官方机动车服务入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'WA DOL Enhanced Driver License',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl',
+      },
+      {
+        label: 'WA DOL Guide to Enhanced Driver Licenses',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/guide-enhanced-driver-licenses-edl',
+      },
+      {
+        label: 'WA DOL REAL ID',
+        url: 'https://dol.wa.gov/id-cards/real-id',
+      },
+      {
+        label: 'WA DOL Do I Need to Take a Test',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
+      },
+      {
+        label: 'WA DOL Moving to Washington',
+        url: 'https://dol.wa.gov/moving-washington',
+      },
+      {
+        label: 'WA DOL Moving to Washington: Get a Driver License',
+        url: 'https://dol.wa.gov/moving-washington/get-driver-license',
+      },
+      {
+        label: 'WA DOL Driver Guides',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/driver-guides',
+      },
+      {
+        label: 'WA DOL Get an Enhanced Driver License',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/get-enhanced-driver-license-edl',
+      },
+      {
+        label: 'WA DOL Driver Licenses and Permits',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits',
+      },
+      {
+        label: 'WA DOL Documents for Proof of Identity',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity',
+      },
+      {
+        label: 'WA DOL Appointments and Locations',
+        url: 'https://dol.wa.gov/appointments-and-locations',
+      },
+      {
+        label: 'WA DOL Driver Licensing Offices',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-offices',
+      },
+      {
+        label: 'WA DOL Change Name or Address',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/update-driver-license-information/change-your-name-or-address-your-driver-license',
+      },
+      {
+        label: 'WA DOL Renew Driver License',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/renew-driver-license',
+      },
+      {
+        label: 'WA DOL First License Ages 18+',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit/driver-license-application-ages-18',
+      },
+      {
+        label: 'WA DOL Driver Training and Testing',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing',
+      },
+      {
+        label: 'WA DOL Do I Need to Take a Test',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
+      },
+    ],
+    relatedTopicSlugs: [
+      'real-id-vs-standard-license',
+      'airport-travel-after-real-id',
+      'document-checklist',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+      'vehicle-registration-renewal-expired-tags-non-operation',
+    ],
+  },
+  {
+    id: 'new-jersey',
+    abbr: 'NJ',
+    nameEn: 'New Jersey',
+    nameZh: '新泽西',
+    agency: 'New Jersey Motor Vehicle Commission',
+    agencyUrl: 'https://www.nj.gov/mvc/',
+    reviewedAt: '2026-07-07',
+    summary:
+      '新泽西 MVC 的 REAL ID 页面先帮你判断是否真的需要升级；材料准备则看 Document Selector 的 2 + 1 + 6 逻辑。Standard 驾照可继续用于驾驶，但不满足国内航班等 REAL ID 联邦用途。',
+    realIdSummary:
+      '新泽西 REAL ID 不是人人必须办。MVC 明确说明，如果你通常用驾照或 non-driver ID 乘坐美国国内航班，而没有护照或其他联邦接受证件，就应该考虑升级。',
+    licenseSummary:
+      'Standard New Jersey driver license 仍可用于驾驶。外州搬入通常要在 60 天内转入 license 和车辆 title/registration；州内搬家后地址变更一般按 7 天要求处理。',
+    appointmentNote:
+      'REAL ID 在 Licensing Centers 预约办理。Appointment Wizard 里 REAL ID 类别注明：如果你未来 3 个月内符合续期资格，应选 Renewal Appointment，而不是普通 REAL ID appointment。',
+    editorNotes: [
+      '新泽西页面要把“是否需要 REAL ID”和“要带哪些文件”拆开写：前者看 REAL ID ready 工具，后者看 Document Selector。',
+      '材料清单用 MVC 自己的 2 proofs of address + 1 full SSN proof + 6 Points of ID 结构，比泛泛写身份证明更可靠。',
+      '地址变更不是“可线上”，而是 MVC 页面写明必须在线完成；NJ MVC 官方邮件页提示搬家后 7 天内改地址，需要新地址实体卡时再处理 replacement。',
+      'NJ MVC license renewal 页面说明多数人可 online renewal，甚至 renewal form 要求到 agency 的情况也多半仍可线上续；REAL ID 则在 Licensing Centers by appointment。',
+      'NJ MVC license renewal 页面说明 Same-Day Online Renewal 立即生效，可打印收据随身带着；新证件通常 2-4 weeks 邮寄到达。',
+      'NJ MVC renewal 页面列出 standard license agency 续期 $24，可用 credit/debit card、cash、check 或 money order；因 2020 security change，续期或补证在 agency 办也会邮寄。',
+      'NJ MVC duplicate 页面说明 Licenses/IDs no longer printed in person；补证或续期都要预留邮寄时间。',
+      'NJ MVC First Driver License 和 Testing and Preparation 页面说明首次驾照要走 GDL 路径；road test 通常在 knowledge 和 vision test 通过后进行。',
+      'NJ MVC Knowledge Test 页面列出 Chinese (Mandarin) 等书面考试语言；如果没有母语版本，可在 permit appointment 请求 MVC 安排州合约 interpreter，通常 4-6 周。',
+      'NJ MVC Moving To New Jersey 页面说明外州 transfer 要预约 Licensing Center，符合条件的有效 non-provisional out-of-state license 可免 knowledge / road tests，但 Hazmat written test 例外；完成后需 surrender out-of-state license。',
+      'NJ MVC Moving To New Jersey 页面说明美国访客可持 foreign license 加本国签发的 International Driving Permit 驾驶最多 1 年；台湾和韩国与 NJ 有互惠，符合文件条件时可免 knowledge 和 road tests。',
+    ],
+    documentHighlights: [
+      'REAL ID 材料核心是 2 份新泽西居住地址证明、1 份完整 SSN 证明、以及 primary/secondary 合计 6 points。',
+      'Document Selector 只允许从 Primary 中选一份，secondary 中 1-point 文件也有限制。',
+      '所有身份文件通常要是原件或带州/市政印章的认证副本；英文以外文件要配 certified translation。',
+      'Standard license / ID 材料页允许 SSN、ITIN 或 affidavit 满足对应号码栏；REAL ID 则按 REAL ID 材料清单核对 full SSN proof。',
+      '姓名不一致时，可能需要婚姻、离婚、法院命令等文件把姓名变化链条连起来。',
+      '外州搬入新泽西时，先看 Moving To New Jersey 的 60 天转入要求。',
+    ],
+    commonMistakes: [
+      '只凑够 6 points，却忘了 REAL ID 还要 2 份地址证明和 1 份完整 SSN 证明。',
+      '拿普通复印件或不合规的出生/婚姻文件去现场。',
+      '本来应选 Renewal Appointment，却在预约系统里选了 REAL ID 类别。',
+      '搬家后直接补证或续期，没有先完成 online address change。',
+      '外州搬入超过 60 天还没处理 New Jersey license 或 vehicle title / registration transfer。',
+    ],
+    recommendedSteps: [
+      '先用 MVC REAL ID 页面判断你是否已有星标、护照或其他可替代证件。',
+      '决定升级后，用 Document Selector 选出 2 + 1 + 6 的材料组合并打印或保存清单。',
+      '如果地址变了，按 7 天规则先完成 online address change；如果刚搬入新泽西，先看 60 天 transfer 要求。',
+      '预约时按 Appointment Wizard 的服务类型说明选择 Renewal、REAL ID、Non-Driver ID 或 Transfer 等类别。',
+    ],
+    actionLinks: [
+      {
+        label: 'NJ REAL ID',
+        url: 'https://www.nj.gov/mvc/realid/',
+        description: '新泽西 REAL ID 官方入口。',
+      },
+      {
+        label: '材料选择器',
+        url: 'https://www.nj.gov/mvc/realid/selector.html',
+        description: '按 2 + 1 + 6 规则选择 REAL ID 材料。',
+      },
+      {
+        label: '6 Points of ID',
+        url: 'https://www.nj.gov/mvc/license/6pointid.htm',
+        description: '新泽西 Standard license/ID 的 6 Points、SSN/ITIN/affidavit 和翻译要求。',
+      },
+      {
+        label: 'Online Services',
+        url: 'https://www.nj.gov/mvc/online-services.html',
+        description: '地址变更、续期、补证等线上入口。',
+      },
+      {
+        label: 'License Renewal',
+        url: 'https://www.nj.gov/mvc/license/licrenew.htm',
+        description: '新泽西驾照线上续期、$24 standard fee、收据和 2-4 周邮寄说明。',
+      },
+      {
+        label: '补证 / Duplicate',
+        url: 'https://www.nj.gov/mvc/license/liclost.htm',
+        description: '新泽西补证和证件邮寄说明。',
+      },
+      {
+        label: '地址变更',
+        url: 'https://www.nj.gov/mvc/drivertopics/addchange.htm',
+        description: 'MVC 地址变更说明。',
+      },
+      {
+        label: 'Moving To New Jersey',
+        url: 'https://www.nj.gov/mvc/drivertopics/movetonj.htm',
+        description: '新泽西外州/外国驾照转入、IDP、台湾/韩国互惠、title 和 registration 转入说明。',
+      },
+      {
+        label: '预约向导',
+        url: 'https://telegov.njportal.com/njmvc/AppointmentWizard',
+        description: '新泽西 MVC 预约入口。',
+      },
+      {
+        label: 'First Driver License',
+        url: 'https://www.nj.gov/mvc/license/firstlic.htm',
+        description: '新泽西首次驾照、knowledge test、permit 和 GDL 路径。',
+      },
+      {
+        label: 'Knowledge Test',
+        url: 'https://www.nj.gov/mvc/license/knowledgetest.htm',
+        description: '新泽西 knowledge test、Chinese (Mandarin)、口译安排、CDL/Hazmat 语言限制说明。',
+      },
+      {
+        label: 'Driver Manuals',
+        url: 'https://www.nj.gov/mvc/about/manuals.htm',
+        description: '新泽西 driver manuals、学习资料和考试准备入口。',
+      },
+      {
+        label: 'Basic Road Test',
+        url: 'https://www.nj.gov/mvc/license/roadtest.htm',
+        description: '新泽西 road test 材料、陪同驾驶人和车辆要求说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'NJ MVC REAL ID',
+        url: 'https://www.nj.gov/mvc/realid/',
+      },
+      {
+        label: 'NJ MVC REAL ID Document Selector',
+        url: 'https://www.nj.gov/mvc/realid/selector.html',
+      },
+      {
+        label: 'NJ MVC 6 Points of ID',
+        url: 'https://www.nj.gov/mvc/license/6pointid.htm',
+      },
+      {
+        label: 'NJ MVC Knowledge Test',
+        url: 'https://www.nj.gov/mvc/license/knowledgetest.htm',
+      },
+      {
+        label: 'NJ MVC Driver Manuals',
+        url: 'https://www.nj.gov/mvc/about/manuals.htm',
+      },
+      {
+        label: 'NJ MVC Affidavit of No SSN or ITIN',
+        url: 'https://www.nj.gov/mvc/pdf/license/affidavit.pdf',
+      },
+      {
+        label: 'NJ MVC Online Services',
+        url: 'https://www.nj.gov/mvc/online-services.html',
+      },
+      {
+        label: 'NJ MVC License Renewal',
+        url: 'https://www.nj.gov/mvc/license/licrenew.htm',
+      },
+      {
+        label: 'NJ MVC Duplicate License',
+        url: 'https://www.nj.gov/mvc/license/liclost.htm',
+      },
+      {
+        label: 'NJ MVC Change of Address',
+        url: 'https://www.nj.gov/mvc/drivertopics/addchange.htm',
+      },
+      {
+        label: 'NJ MVC Moving To New Jersey',
+        url: 'https://www.nj.gov/mvc/drivertopics/movetonj.htm',
+      },
+      {
+        label: 'NJ MVC Contact by Email',
+        url: 'https://www.nj.gov/mvc/about/email.htm',
+      },
+      {
+        label: 'NJ MVC Appointment Wizard',
+        url: 'https://telegov.njportal.com/njmvc/AppointmentWizard',
+      },
+      {
+        label: 'NJ MVC First Driver License',
+        url: 'https://www.nj.gov/mvc/license/firstlic.htm',
+      },
+      {
+        label: 'NJ MVC Knowledge Test',
+        url: 'https://www.nj.gov/mvc/license/knowledgetest.htm',
+      },
+      {
+        label: 'NJ MVC Basic Road Test',
+        url: 'https://www.nj.gov/mvc/license/roadtest.htm',
+      },
+    ],
+    relatedTopicSlugs: [
+      'real-id-basics',
+      'proof-of-residency',
+      'renewal-replacement-address',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+    ],
+  },
+  {
+    id: 'massachusetts',
+    abbr: 'MA',
+    nameEn: 'Massachusetts',
+    nameZh: '马萨诸塞州',
+    agency: 'Massachusetts RMV',
+    agencyUrl: 'https://www.mass.gov/orgs/massachusetts-registry-of-motor-vehicles',
+    reviewedAt: '2026-07-03',
+    summary:
+      '马萨诸塞 RMV 把 REAL ID、REAL Mass ID、Standard license、Standard Mass ID、permit 和 CDL 分开列材料。先选证件类型，再进入 MyRMV 或服务中心路径。',
+    realIdSummary:
+      '马州 REAL ID 或 REAL Mass ID 的材料要求与 Standard 证件不同。官方材料页会按证件类型列出需要提交的身份、SSN、居住地址和姓名变更相关文件。',
+    licenseSummary:
+      'RMV 提供线上续期、地址变更和多项在线服务；但是否能线上完成取决于证件类型、到期状态、REAL ID 升级需求和个人账户访问方式。',
+    appointmentNote:
+      'RMV 官方通知显示，部分 MyRMV 个人在线服务已经改为需要 MyMassGov 访问。开始办理前，先确认当前线上入口和是否需要到服务中心核验材料。',
+    documentHighlights: [
+      '在 Massachusetts Identification Requirements 页面先选择 REAL ID driver’s license 或 REAL Mass ID。',
+      'REAL ID 通常要证明 lawful presence、完整 SSN 和两份 Massachusetts residency；当前姓名还要和 lawful presence 文件匹配。',
+      '不要把 Standard license、Standard Mass ID 或 permit 的材料清单直接套用到 REAL ID。',
+      '按官方页面核对身份、SSN、马州居住地址和姓名变更文件类别。',
+      '如果只是地址变更，官方页面要求地址变化后 30 天内通知 RMV。',
+    ],
+    commonMistakes: [
+      '没有区分 REAL ID、REAL Mass ID、Standard license 和 Standard Mass ID 的材料要求。',
+      '续期前没有先处理地址变更。',
+      '看到“renew online”就以为可以同时完成首次 REAL ID 材料核验。',
+      '忽略 MyMassGov/MyRMV 访问方式变化，临到办理时才发现无法进入线上服务。',
+    ],
+    recommendedSteps: [
+      '先在 Massachusetts Identification Requirements 页面选择你要办的证件类型。',
+      '如果是续期，进入 RMV 续期页面判断是否续 Standard 证件，还是升级 REAL ID。',
+      '如果只是搬家，先按地址变更页在 30 天内更新 RMV 记录。',
+      '需要现场核验时，再预约或前往 RMV Service Center，并带齐官方清单要求的文件。',
+    ],
+    editorNotes: [
+      'Mass.gov 的材料页不是一张通用清单，而是按 REAL ID、Standard、permit、CDL 等证件类型分开列要求。',
+      'RMV 地址变更页明确提到地址变化后 30 天内通知 RMV。',
+      'Mass.gov 当前有 MyRMV/MyMassGov 访问方式变化提醒；线上办理前要确认账户入口。',
+      'Mass.gov REAL ID 页面说明可用 Online Service Center renew or replace REAL ID，但首次/升级材料仍要按 RMV 指示准备文件和服务中心路径。',
+      'Mass.gov RMV fees 页面列出 passenger Class D license $50、duplicate license $25、amended license $25，完整费用仍以官方表为准。',
+      'Mass.gov REAL ID 和 replacement 页面说明部分 REAL ID / Mass ID 续期或补证可走 Online Service Center；证件会按官方页面说明邮寄，常见页面提示约 7-10 days 或需按具体业务确认。',
+      'Mass.gov first-time driver 和 learner permit 页面说明 Class D permit exam 通常 25 题、答对 18 题通过；拿到 Class D permit 后还要通过 Class D road test 才能取得 license。',
+      'Mass.gov first-time driver / learner permit 页面说明 Class D learner permit exams 有 37 种语言；外语 oral exam 需联系 RMV Interpreter Services。',
+      'Mass.gov RMV Translated Documents 页面提供多语言材料清单和说明，其中包括中文译文和 learner permit 相关说明。',
+      'Mass.gov Transfer your driver license from a foreign country 页面说明不能把 International Driving Permit 转成 Massachusetts permit；部分国家/地区 foreign license 可能走 conversion 信息页，其他情况通常按 permit、written / road test 路径处理。',
+      'Mass.gov foreign license conversion 信息页说明符合条件的外国驾照转换要提供 30 天内 certified driving record，并按来源国家/地区决定是否仍要 written 和 road test。',
+    ],
+    actionLinks: [
+      {
+        label: '身份材料要求',
+        url: 'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
+        description: '按 REAL ID、REAL Mass ID、Standard 证件等类型查看材料要求。',
+      },
+      {
+        label: 'REAL ID in Massachusetts',
+        url: 'https://www.mass.gov/info-details/real-id-in-massachusetts',
+        description: '马州 REAL ID 用途、Online Service Center 和续期/补证路径说明。',
+      },
+      {
+        label: '续期驾照',
+        url: 'https://www.mass.gov/how-to/renew-your-drivers-license',
+        description: '马州驾照续期说明。',
+      },
+      {
+        label: 'First-time Driver',
+        url: 'https://www.mass.gov/guides/first-time-driver-start-here',
+        description: '马州首次驾照、learner permit、road test 和年龄路径总览。',
+      },
+      {
+        label: 'Transfer Foreign License',
+        url: 'https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country',
+        description: 'Massachusetts 从外国驾照转入、International Driving Permit 限制和测试路径说明。',
+      },
+      {
+        label: 'Foreign License Conversion',
+        url: 'https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses',
+        description: 'Massachusetts 对部分外国驾照转换、certified driving record、written / road test 的说明。',
+      },
+      {
+        label: 'Class D Learner Permit',
+        url: 'https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit',
+        description: '马州 Class D learner permit、37 种考试语言和 oral exam 请求说明。',
+      },
+      {
+        label: 'RMV Translated Documents',
+        url: 'https://www.mass.gov/lists/rmv-translated-documents',
+        description: 'Massachusetts RMV 多语言材料、中文译文和 learner permit 说明入口。',
+      },
+      {
+        label: 'Schedule Road Test',
+        url: 'https://www.mass.gov/how-to/schedule-your-road-test',
+        description: '马州 road test 在线预约入口。',
+      },
+      {
+        label: 'RMV 费用表',
+        url: 'https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees',
+        description: 'Massachusetts RMV 驾照、ID、补证和信息变更费用表。',
+      },
+      {
+        label: '补办 Mass ID',
+        url: 'https://www.mass.gov/how-to/replace-your-massachusetts-id-card',
+        description: 'Massachusetts ID 补证、线上路径和邮寄说明。',
+      },
+      {
+        label: '地址变更',
+        url: 'https://www.mass.gov/how-to/change-your-address-with-the-rmv',
+        description: 'RMV 地址变更流程。',
+      },
+      {
+        label: 'MyRMV',
+        url: 'https://atlas-myrmv.massdot.state.ma.us/myrmv/_/',
+        description: '马州 RMV 线上服务入口，部分服务可能需要 MyMassGov。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Massachusetts Identification Requirements',
+        url: 'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
+      },
+      {
+        label: 'REAL ID in Massachusetts',
+        url: 'https://www.mass.gov/info-details/real-id-in-massachusetts',
+      },
+      {
+        label: 'Renew your driver’s license',
+        url: 'https://www.mass.gov/how-to/renew-your-drivers-license',
+      },
+      {
+        label: 'Mass.gov Class D Learner Permit',
+        url: 'https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit',
+      },
+      {
+        label: 'Mass.gov RMV Translated Documents',
+        url: 'https://www.mass.gov/lists/rmv-translated-documents',
+      },
+      {
+        label: 'Massachusetts RMV Fees',
+        url: 'https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees',
+      },
+      {
+        label: 'Mass.gov First Time Driver',
+        url: 'https://www.mass.gov/guides/first-time-driver-start-here',
+      },
+      {
+        label: 'Mass.gov Transfer Foreign Driver License',
+        url: 'https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country',
+      },
+      {
+        label: 'Mass.gov Foreign License Conversion',
+        url: 'https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses',
+      },
+      {
+        label: 'Mass.gov Class D Learner Permit',
+        url: 'https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit',
+      },
+      {
+        label: 'Mass.gov Schedule Your Road Test',
+        url: 'https://www.mass.gov/how-to/schedule-your-road-test',
+      },
+      {
+        label: 'Replace your Massachusetts ID card',
+        url: 'https://www.mass.gov/how-to/replace-your-massachusetts-id-card',
+      },
+      {
+        label: 'Change your address with the RMV',
+        url: 'https://www.mass.gov/how-to/change-your-address-with-the-rmv',
+      },
+    ],
+    relatedTopicSlugs: [
+      'document-checklist',
+      'name-change-chain',
+      'ssn-and-itin',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+      'vehicle-registration-renewal-expired-tags-non-operation',
+    ],
+  },
+  {
+    id: 'illinois',
+    abbr: 'IL',
+    nameEn: 'Illinois',
+    nameZh: '伊利诺伊州',
+    agency: 'Illinois Secretary of State',
+    agencyUrl: 'https://www.ilsos.gov/',
+    reviewedAt: '2026-07-05',
+    summary:
+      '伊州驾照和 REAL ID 由 Secretary of State 管理。REAL ID、材料要求、普通续期和办公室预约是不同入口，先确认业务类型，再选择线上续期或现场文件核验。',
+    realIdSummary:
+      '伊州 REAL ID 通常要求按官方材料类别准备身份、SSN、居住地址、签名和合法身份相关文件；官方 REAL ID 页面和 PDF 是核对核心。',
+    licenseSummary:
+      '普通伊州驾照仍可用于驾驶。部分续期可线上完成，但申请 REAL ID、材料核验或特殊情况可能需要现场服务。',
+    appointmentNote:
+      '普通驾照续期可先查看 online renewal 资格；REAL ID、首次申请或需要文件核验时，应使用 facility finder 和预约入口确认可办理地点。',
+    documentHighlights: [
+      '查看 Illinois REAL ID 官方页面。',
+      '使用官方 document requirements PDF 核对材料类别。',
+      '续期前确认是否符合 online renewal 条件。',
+      '需要现场服务时使用 DMV Appointments 或 facility finder。',
+    ],
+    commonMistakes: [
+      '只看第三方清单，没有打开 Secretary of State 官方材料 PDF。',
+      '需要 REAL ID 却尝试走普通线上续期路径。',
+      '没有提前查找可办理相应服务的 DMV facility。',
+      '没有先确认具体 facility 是否办理 REAL ID、首次申请或所需预约类别。',
+    ],
+    recommendedSteps: [
+      '先打开伊州 REAL ID 页面判断是否需要办理。',
+      '下载或查看官方 document requirements PDF。',
+      '需要现场时查找设施和预约。',
+      '如果只是普通续期，先检查 online renewal 页面。',
+    ],
+    editorNotes: [
+      'Illinois Secretary of State 域名在本轮自动化和浏览器复核中均出现访问限制。',
+      '2026-07-09 普通浏览器点验显示 Illinois Secretary of State 域名在本环境仍返回 Access Denied。',
+      '本页保留官方 URL 作为来源线索，同时提供 USA.gov 州机动车服务目录作为备用官方入口。',
+    ],
+    accessStatus: {
+      label: '待普通浏览器复核',
+      tone: 'risk',
+      note: 'Illinois Secretary of State 官方域名在自动化检查和本环境普通浏览器点验中都返回 Access Denied。办理前仍需从普通美国用户浏览器复测；当前可先从 USA.gov 州机动车服务目录选择 Illinois。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    actionLinks: [
+      {
+        label: 'Illinois REAL ID',
+        url: 'https://www.ilsos.gov/content/realid/us/en.html',
+        description: '伊州 REAL ID 官方入口。',
+      },
+      {
+        label: '材料要求 PDF',
+        url: 'https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_x173.pdf',
+        description: '伊州驾照/州 ID 材料要求 PDF。',
+      },
+      {
+        label: '线上续期',
+        url: 'https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html',
+        description: '伊州驾照或 ID 线上续期说明。',
+      },
+      {
+        label: 'DMV Appointments',
+        url: 'https://apps.ilsos.gov/dlexamcheck/',
+        description: '伊州 DMV 预约与服务检查入口。',
+      },
+      {
+        label: 'USA.gov 州机动车服务目录',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: '如果 Illinois Secretary of State 官方页被拦截，可从 USA.gov 选择 Illinois 后进入官方机动车服务入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Illinois REAL ID',
+        url: 'https://www.ilsos.gov/content/realid/us/en.html',
+      },
+      {
+        label: 'Document Requirements PDF',
+        url: 'https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_x173.pdf',
+      },
+      {
+        label: 'Illinois Driver License Renewal',
+        url: 'https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html',
+      },
+    ],
+    relatedTopicSlugs: [
+      'document-checklist',
+      'real-id-vs-standard-license',
+      'renewal-replacement-address',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+    ],
+  },
+  {
+    id: 'pennsylvania',
+    abbr: 'PA',
+    nameEn: 'Pennsylvania',
+    nameZh: '宾夕法尼亚州',
+    agency: 'PennDOT Driver and Vehicle Services',
+    agencyUrl: 'https://www.pa.gov/agencies/dmv',
+    reviewedAt: '2026-07-07',
+    summary:
+      'PennDOT 的 REAL ID 页面不是单一路径，而是按“已预验证可线上订购、续期时一起办、现在单独申请、非美国公民、CDL 持有人”分流。先判断自己是否被 PennDOT 预验证，再决定线上还是现场。',
+    realIdSummary:
+      '宾州 REAL ID 是可选证件；不办也仍可驾驶、投票、去医院、邮局、联邦法院或申请联邦福利，但国内航班和部分联邦设施需要 REAL ID 或护照、军人证等联邦接受证件。',
+    licenseSummary:
+      '普通宾州驾照仍可用于驾驶。已被 PennDOT 预验证的人可在线订购 REAL ID；未预验证的人通常要到 Driver License Center 让文件被 vet、image、verify。',
+    appointmentNote:
+      'Same-Day REAL ID Center 会实时核验文件并当天签发；普通 Driver License Center 也可现场申请，但 REAL ID 会邮寄，官方页面写的是 15 个工作日内。',
+    editorNotes: [
+      '宾州页面的重点是先问“PennDOT 是否已有你的文件”，不要把所有人都引到现场或都引到线上。',
+      '材料页明确说即使已有 PA driver’s license 或 ID，也仍需提供 REAL ID 文件；不要让读者误以为旧驾照本身就是材料豁免。',
+      '居住证明要求 two physical, not electronic documents。电子账单这类边界要提醒读者回到官方清单确认。',
+      'REAL ID Center 可当天发证；普通 Driver License Center 申请后通常等邮寄，PennDOT 页面写的是 15 个工作日内。',
+      'PennDOT learner permit 页面说明取得驾照前要通过 vision、knowledge 和 road tests；Schedule Driver’s Test 页面支持线上安排 road test、motorcycle road test、CDL road test 和 written special points test。',
+      'PennDOT Driver Manual 说明 Knowledge Test 可用 written / audio format，提供 Chinese (Mandarin) 等多种语言，并可按需在 Driver License Centers 提供。',
+      'PennDOT Driver Licensing FAQ 和 driver manual 说明持有效 foreign driver license 的人可在入境美国后最多一年内在宾州驾驶，或直到 foreign license 过期，以较早者为准；International Driving Permit strongly recommended but not required。',
+      'PennDOT driver manual 说明 France、Germany、Korea 和 Taiwan 与 Pennsylvania 有互惠，符合条件的有效 non-commercial foreign license 可免 road / knowledge testing，但仍需 vision test；外州或加拿大 license 新居民通常 60 天内换 PA license 并 surrender out-of-state license。',
+    ],
+    documentHighlights: [
+      '一份 identity and lawful status 文件，且必须是原件或认证副本，普通复印件不接受。',
+      '一份 SSN 证明，需显示当前 legal name 和完整 9 位 SSN；没有 SSN 时要看 SSA ineligibility letter 要求。',
+      '两份宾州居住地址证明，PennDOT 写明需要 physical documents，不是电子文件。',
+      '姓名、出生日期或性别标记与身份文件不一致时，要带相应法律变更文件；多次婚姻改名要能串起链条。',
+    ],
+    commonMistakes: [
+      '把“2003 年后首次拿 PA 证件可能已有文件在档”理解成自己一定已预验证。',
+      '拿电子居住证明或普通复印件去现场。',
+      'CDL 持有人尝试走普通线上 REAL ID 路径，忽略官方要求 CDL holders in person。',
+      '没有区分 Same-Day REAL ID Center 和普通 Driver License Center 的当天发证/邮寄差异。',
+    ],
+    recommendedSteps: [
+      '先读 PennDOT REAL ID 页面，选择最符合你的路径：已预验证、续期一起办、现在单独办、非公民或 CDL。',
+      '如果你在 2003 年 9 月后第一次拿 PA license、permit 或 photo ID，先检查 PennDOT 是否已有文件在档。',
+      '未预验证或材料有变化时，用 Document Requirements 页面准备原件/认证副本和两份 physical 地址证明。',
+      '赶时间拿卡时优先查 Same-Day REAL ID Center；不方便去 REAL ID Center 时，再评估普通 Driver License Center 的 15 个工作日邮寄时间。',
+    ],
+    actionLinks: [
+      {
+        label: 'PennDOT REAL ID',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id',
+        description: '宾州 REAL ID 官方说明。',
+      },
+      {
+        label: 'REAL ID 材料要求',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check',
+        description: '宾州 REAL ID 文件要求清单。',
+      },
+      {
+        label: '已预验证线上订购',
+        url: 'https://www.pa.gov/services/dmv/apply-for-real-id-pre-verification',
+        description: '检查或进入 PennDOT REAL ID 预验证相关路径。',
+      },
+      {
+        label: '线上 DMV 服务',
+        url: 'https://www.pa.gov/agencies/dmv/online-services-dvs',
+        description: 'PennDOT 线上驾照和车辆服务。',
+      },
+      {
+        label: 'Learner Permit',
+        url: 'https://www.pa.gov/services/dmv/get-a-learners-permit',
+        description: '宾州 learner permit、vision、knowledge 和 road test 路径。',
+      },
+      {
+        label: 'Foreign License FAQ',
+        url: 'https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/driver-and-licensing-miscellaneous-faqs',
+        description: 'PennDOT 关于 foreign driver license、one-year driving window 和 IDP 建议的 FAQ。',
+      },
+      {
+        label: 'Moving to Pennsylvania',
+        url: 'https://www.pa.gov/agencies/dmv/resources/relocation/moving-to-pennsylvania',
+        description: '搬到 Pennsylvania 后 out-of-state license surrender、vision screening 和 60 天换证说明。',
+      },
+      {
+        label: 'PennDOT Driver Manual PDF',
+        url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bdl/bdl-manuals/pa-drivers-manual-non-commercial/english/pub%2095.pdf',
+        description: 'PennDOT driver manual，含 knowledge test 语言、audio/written format 和考试准备说明。',
+      },
+      {
+        label: 'Schedule Driver Test',
+        url: 'https://www.pa.gov/services/dmv/schedule-drivers-test',
+        description: '宾州 road test、motorcycle road test、CDL road test 和 written special points test 在线预约。',
+      },
+      {
+        label: 'REAL ID Center',
+        url: 'https://www.pa.gov/agencies/dmv/find-a-location/real-id-center-locations',
+        description: '查找宾州 REAL ID Center。',
+      },
+      {
+        label: 'Find a Location',
+        url: 'https://www.pa.gov/agencies/dmv/find-a-location',
+        description: '查找 PennDOT Driver License Center、REAL ID Center 和其他服务地点。',
+      },
+    ],
+    sources: [
+      {
+        label: 'PennDOT REAL ID',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id',
+      },
+      {
+        label: 'REAL ID Document Requirements',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check',
+      },
+      {
+        label: 'PennDOT Online Driver and Vehicle Services',
+        url: 'https://www.pa.gov/agencies/dmv/online-services-dvs',
+      },
+      {
+        label: 'PennDOT Driver Manual PDF',
+        url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bdl/bdl-manuals/pa-drivers-manual-non-commercial/english/pub%2095.pdf',
+      },
+      {
+        label: 'PennDOT Driver and Licensing Miscellaneous FAQs',
+        url: 'https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/driver-and-licensing-miscellaneous-faqs',
+      },
+      {
+        label: 'PennDOT Moving to Pennsylvania',
+        url: 'https://www.pa.gov/agencies/dmv/resources/relocation/moving-to-pennsylvania',
+      },
+      {
+        label: 'PennDOT Get a Learner Permit',
+        url: 'https://www.pa.gov/services/dmv/get-a-learners-permit',
+      },
+      {
+        label: 'PennDOT Schedule a Driver Test',
+        url: 'https://www.pa.gov/services/dmv/schedule-drivers-test',
+      },
+      {
+        label: 'REAL ID Center Locations',
+        url: 'https://www.pa.gov/agencies/dmv/find-a-location/real-id-center-locations',
+      },
+      {
+        label: 'PennDOT Find a Location',
+        url: 'https://www.pa.gov/agencies/dmv/find-a-location',
+      },
+    ],
+    relatedTopicSlugs: [
+      'document-checklist',
+      'proof-of-residency',
+      'real-id-basics',
+      'vehicle-registration-renewal-expired-tags-non-operation',
+    ],
+  },
+  {
+    id: 'georgia',
+    abbr: 'GA',
+    nameEn: 'Georgia',
+    nameZh: '佐治亚州',
+    agency: 'Georgia Department of Driver Services',
+    agencyUrl: 'https://dds.georgia.gov/',
+    reviewedAt: '2026-07-07',
+    summary:
+      '佐治亚州 DDS 把 REAL ID 称为 Secure ID initiative。2012 年后签发的 Georgia license/ID 通常是 REAL ID-compliant，卡面右上角有 gold 或 black star；但临时纸质证件不能用于 TSA 登机。',
+    realIdSummary:
+      '如果你已经持有带星 Georgia REAL ID 且是美国公民，通常不需要重新提交文件，除非改名、更新 gender marker 或办理其他身份核验服务。没有 REAL ID、外州/外国驾照转入、或非公民身份，则要按 DDS 清单准备原件或认证文件。',
+    licenseSummary:
+      '佐州新居民必须在成为 Georgia resident 后 30 天内申请 Georgia driver’s license。续期可线上、现场或邮寄办理，DDS 说明一般最多可提前 150 天续，永久证件邮寄可能需要较长时间。',
+    appointmentNote:
+      'DDS Customer Service Center 页面按地点列出 First Issuance、Renewals、Out of State Transfers、Road Test、CDL 等服务。不是每个地点都适合所有业务；到场前要按地点核对服务项目，并优先看 Online Services。',
+    editorNotes: [
+      '佐州要解释 Secure ID 和 REAL ID 是同一套联邦合规语境，不要另造一个“Secure ID 特殊证件”。',
+      '卡面星标可以是 gold 或 black；颜色差异来自卡片设计，不要写成只有金星才合规。',
+      'DDS 页面明确提醒 TSA 不接受 temporary/interim licenses or IDs；如果读者临近出行换证，这一点比材料清单更要紧。',
+      'Georgia DDS Test and Exams 页面说明 knowledge exam 分 Road Rules 和 Road Signs，两部分通常都要 15/20 通过；road test 需要预约，permit / knowledge test 通常不需要预约。',
+      'Georgia DDS List of Languages 页面说明 Non-Commercial knowledge exams 的 Road Rules 和 Road Signs 部分提供 26 种语言，包括 Chinese。',
+      'Georgia DDS View Manuals in Other Languages 页面用 Google Translate website 模式引导用户查看手册译文；译文适合辅助学习，不应替代官方英语规则判断。',
+      'Georgia DDS Drivers From Other Nations 页面说明持外国驾照者成为 Georgia resident 前不必申请 Georgia license；成为 resident 后要满足 identity、citizenship 和 residency 要求。',
+      'Georgia DDS Drivers From Other Nations 页面说明 South Korea 符合领馆证明条件时可免 knowledge 和 road tests、但仍需 vision exam；没有互惠协议的国家通常要通过 written、road 和 vision tests。Georgia also has reciprocity with Taiwan。',
+      'Georgia DDS Drivers From Other Nations 页面说明多数 Foreign/International Licenses 会退还，但申请 Commercial License / Permit 或美国公民持外国辖区证件等情况有例外。',
+    ],
+    documentHighlights: [
+      '需要 REAL ID 或外州/外国证件转入时，到 Customer Service Center 带身份文件；美国公民常见例子包括认证出生证、有效美国护照、入籍/公民纸。',
+      'SSN 通常先在 online License/ID/Permit Form 填完整号码；如果系统无法验证，再按 DDS 清单带 SSN 证明。',
+      '两份 Georgia residency 文件要来自不同来源或不同账户，显示姓名和当前居住地址，P.O. Box 不能证明 residency。',
+      '姓名不同要带 name change history；持有有效 GA license/ID 的客户通常提交最近一次姓名变更的原件或认证文件。',
+      '非美国公民需要原始移民文件；DDS 页面还说明其不接受 translated documents，外文文件场景要先查官方或联系 DDS。',
+    ],
+    commonMistakes: [
+      '看到黑色星标以为不是 REAL ID，或者以为一张驾照和一张 ID 都可以同时有物理 REAL ID 星标。',
+      '临近航班才换证，拿到 interim paper license 后以为 TSA 会接受。',
+      '非公民把翻译件当作 DDS 可接受文件，或忽略移民文件姓名必须精确匹配。',
+      '新居民超过 30 天才处理 Georgia license 转入。',
+      '没有确认 Customer Service Center 是否提供需要的测试、转入或 CDL 服务。',
+    ],
+    recommendedSteps: [
+      '先看现有 Georgia license/ID 右上角是否有 gold 或 black star，并确认是否临近出行。',
+      '如果没有 REAL ID、要从外州/外国转入，或需要改名/更新身份信息，进入 DDS REAL ID 页面按身份类别准备材料。',
+      '新居民先看 New Georgia Residents and Out-of-State License Transfers，确认 30 天规则和是否需要 surrender 外州证件。',
+      '能线上完成的续期、补证、预约或缴费先走 DDS Online Services；需要现场时再按 Customer Service Center 服务项目选择地点。',
+    ],
+    actionLinks: [
+      {
+        label: 'Georgia REAL ID',
+        url: 'https://dds.georgia.gov/georgia-licenseid/real-id',
+        description: '佐治亚 REAL ID 官方说明。',
+      },
+      {
+        label: 'Georgia License/ID',
+        url: 'https://dds.georgia.gov/georgia-licenseid',
+        description: '驾照和 ID 业务总入口。',
+      },
+      {
+        label: '新居民与外州转入',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers',
+        description: '佐州新居民和外州驾照转入说明。',
+      },
+      {
+        label: 'Drivers From Other Nations',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations',
+        description: 'Georgia DDS 外国驾照、South Korea / Taiwan 互惠、测试和 foreign license 退还规则。',
+      },
+      {
+        label: 'Transfer Foreign License',
+        url: 'https://dds.georgia.gov/transfer-unexpired-foreign-drivers-license',
+        description: 'Georgia DDS 转入未过期 foreign / international driver license 所需身份、住址和 lawful status 文件。',
+      },
+      {
+        label: '续期 License/ID',
+        url: 'https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id',
+        description: '佐州驾照或 ID 续期说明。',
+      },
+      {
+        label: '客户服务中心',
+        url: 'https://dds.georgia.gov/locations/customer-service-center',
+        description: '查找 DDS 客户服务中心。',
+      },
+      {
+        label: 'Test and Exams',
+        url: 'https://dds.georgia.gov/testing-and-training/test-and-exams-information',
+        description: '佐州 knowledge exam、road rules、road signs 和测试说明。',
+      },
+      {
+        label: 'Knowledge Exam Languages',
+        url: 'https://dds.georgia.gov/list-languages',
+        description: 'Georgia DDS Non-Commercial knowledge exam 的 26 种语言列表，包括 Chinese。',
+      },
+      {
+        label: 'Manuals in Other Languages',
+        url: 'https://dds.georgia.gov/how-do-i-view-manuals-other-languages',
+        description: 'Georgia DDS 关于用 Google Translate 查看 driver manual 译文的官方说明。',
+      },
+      {
+        label: 'Road Test',
+        url: 'https://dds.georgia.gov/testing-and-training/road-test',
+        description: '佐州 road test 预约、permit 和车辆/陪同要求。',
+      },
+      {
+        label: 'Practice Test',
+        url: 'https://dds.georgia.gov/testing-and-training/practice-test',
+        description: '佐州 DDS 官方 practice test 和 driver manual 入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Georgia DDS REAL ID',
+        url: 'https://dds.georgia.gov/georgia-licenseid/real-id',
+      },
+      {
+        label: 'Georgia DDS License/ID',
+        url: 'https://dds.georgia.gov/georgia-licenseid',
+      },
+      {
+        label: 'New Georgia Residents and Out-of-State License Transfers',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers',
+      },
+      {
+        label: 'Georgia DDS Drivers From Other Nations',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations',
+      },
+      {
+        label: 'Georgia DDS Transfer Unexpired Foreign Driver License',
+        url: 'https://dds.georgia.gov/transfer-unexpired-foreign-drivers-license',
+      },
+      {
+        label: 'Georgia DDS Renew License or ID',
+        url: 'https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id',
+      },
+      {
+        label: 'Georgia DDS List of Languages',
+        url: 'https://dds.georgia.gov/list-languages',
+      },
+      {
+        label: 'Georgia DDS Manuals in Other Languages',
+        url: 'https://dds.georgia.gov/how-do-i-view-manuals-other-languages',
+      },
+      {
+        label: 'DDS Customer Service Centers',
+        url: 'https://dds.georgia.gov/locations/customer-service-center',
+      },
+      {
+        label: 'Georgia DDS Test and Exams Information',
+        url: 'https://dds.georgia.gov/testing-and-training/test-and-exams-information',
+      },
+      {
+        label: 'Georgia DDS Road Test',
+        url: 'https://dds.georgia.gov/testing-and-training/road-test',
+      },
+      {
+        label: 'Georgia DDS Practice Test',
+        url: 'https://dds.georgia.gov/testing-and-training/practice-test',
+      },
+    ],
+    relatedTopicSlugs: [
+      'moving-to-new-state',
+      'document-checklist',
+      'non-citizen-license-id',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+      'vehicle-registration-renewal-expired-tags-non-operation',
+    ],
+  },
+  {
+    id: 'maryland',
+    abbr: 'MD',
+    nameEn: 'Maryland',
+    nameZh: '马里兰州',
+    agency: 'Maryland Motor Vehicle Administration',
+    agencyUrl: 'https://mva.maryland.gov/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '马里兰 MVA 的 Licenses & IDs 页面是主入口：先查自己的 REAL ID 状态和材料，再决定是线上处理、预约、还是按新居民路径到 MVA 办理。',
+    realIdSummary:
+      '马里兰 REAL ID 材料围绕年龄/身份、SSN 和两份马里兰居住地址证明。MVA 页面提示该州大多数记录已合规，但个人是否合规仍要用官方 REAL ID Check 或 MVA 通知核对。',
+    licenseSummary:
+      '续期、补证、地址/姓名更新和新居民换证分别有不同入口。能否线上完成取决于个人记录、证件类型、MVA 通知和是否需要重新核验材料。',
+    appointmentNote:
+      '先从 MVA appointments / online services 页面判断业务是否能线上做；新居民、首次 REAL ID 材料核验、姓名或身份信息变化，通常更需要按 MVA 指示预约或到场。',
+    editorNotes: [
+      'Maryland MVA Licenses & IDs 页面强调先用 REAL ID Check 和 document guide 判断个人状态，不要因为全州合规率高就默认自己的证件已经没问题。',
+      '材料要求可用官方州页面交叉核对：一份 age/identity、SSN 证明和两份 Maryland residency 是高频核心。',
+      '新居民路径和普通续期路径要分开写；外州迁入通常不是简单 online renewal。',
+      '2026-07-09 普通浏览器点验显示 Maryland MVA 域名在本环境触发 Cloudflare block；如果用户也被拦，应从 USA.gov 州机动车服务目录进入 Maryland 官方入口。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'Maryland MVA 官方域名在本环境普通浏览器点验中触发 Cloudflare block。本站保留官方深层链接；如果你打开也被拦截，请从 USA.gov 州机动车服务目录选择 Maryland，再进入官方机动车服务。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      '先在 Maryland MVA Licenses & IDs 页面进入 REAL ID Check 或材料指南。',
+      '准备年龄/身份、合法身份、SSN 和两份马里兰居住地址证明。',
+      '续期或补证时，按 renewal notice、appointment confirmation 或 MVA 账户提示带额外文件。',
+      '搬入马里兰的新居民，应从 New Maryland Residents guide 进入，而不是直接套用本州续期流程。',
+    ],
+    commonMistakes: [
+      '看到“Maryland 高比例 REAL ID compliant”就不查自己的证件状态。',
+      '只准备一份地址证明，到了现场才发现还需要第二份居住地址文件。',
+      '外州刚搬来却走普通马里兰续期路径。',
+      '没有看 appointment confirmation 上列出的具体文件。',
+    ],
+    recommendedSteps: [
+      '打开 MVA Licenses & IDs，先判断自己是 REAL ID 状态核对、续期、补证、地址更新，还是新居民换证。',
+      '用官方 document guide 或 appointment notice 整理材料，尤其核对两份 Maryland residency 文件。',
+      '能线上完成的业务先走 myMVA/online services；需要核验原件时再预约或到场。',
+      '提交前确认姓名、SSN、地址和移民/合法身份文件是否互相匹配。',
+    ],
+    actionLinks: [
+      {
+        label: 'MVA Licenses & IDs',
+        url: 'https://mva.maryland.gov/licenses-ids',
+        description: '马里兰驾照、ID、REAL ID 和材料指南主入口。',
+      },
+      {
+        label: '续期 License / ID',
+        url: 'https://mva.maryland.gov/licenses-ids/renew-license-or-id',
+        description: '马里兰驾照或 ID 续期说明。',
+      },
+      {
+        label: '更新姓名/地址等信息',
+        url: 'https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info',
+        description: '处理地址、姓名和其他证件信息变更。',
+      },
+      {
+        label: '预约与线上服务',
+        url: 'https://mva.maryland.gov/appointments-online-services',
+        description: '查看 MVA 预约和线上办理入口。',
+      },
+      {
+        label: '新居民驾照/ID',
+        url: 'https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card',
+        description: '搬到马里兰后的驾照或 ID 申请路径。',
+      },
+      {
+        label: 'USA.gov 州机动车服务目录',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: '如果 Maryland MVA 官方页被拦截，可从 USA.gov 选择 Maryland 后进入官方机动车服务入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Maryland MVA Licenses & IDs',
+        url: 'https://mva.maryland.gov/licenses-ids',
+      },
+      {
+        label: 'Maryland MVA Renew License or ID',
+        url: 'https://mva.maryland.gov/licenses-ids/renew-license-or-id',
+      },
+      {
+        label: 'Maryland MVA Update Name, Address or License Info',
+        url: 'https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info',
+      },
+      {
+        label: 'Maryland MVA Appointments and Online Services',
+        url: 'https://mva.maryland.gov/appointments-online-services',
+      },
+      {
+        label: 'Maryland Department of Health REAL ID Vital Records',
+        url: 'https://health.maryland.gov/vsa/Pages/realid.aspx',
+      },
+    ],
+    relatedTopicSlugs: ['document-checklist', 'proof-of-residency', 'renewal-replacement-address'],
+  },
+  {
+    id: 'virginia',
+    abbr: 'VA',
+    nameEn: 'Virginia',
+    nameZh: '弗吉尼亚州',
+    agency: 'Virginia Department of Motor Vehicles',
+    agencyUrl: 'https://www.dmv.virginia.gov/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '弗吉尼亚 DMV 把 REAL ID 明确写成可选升级证件。办理逻辑是先完成申请，再把原始文件带到 DMV customer service center 核验。',
+    realIdSummary:
+      '弗吉尼亚 REAL ID 通常需要一份 identity、两份 Virginia residency、一份 legal presence、SSN 证明以及姓名变更文件；DMV 页面特别提醒不要把文件上传给非官方网站。',
+    licenseSummary:
+      '标准弗吉尼亚驾照仍可驾驶和办理不少日常用途，但证件会标注 Federal Limits Apply，不能替代 REAL ID 或 TSA 接受的其他证件用于相应联邦用途。',
+    appointmentNote:
+      'REAL ID 可先 online start application，但官方页面说明这不会要求上传文件。需要把材料带到 DMV customer service center；地址变更等记录业务通常先查 online services。',
+    editorNotes: [
+      'Virginia DMV 页面直接警告：声称可以在家预扫并上传 REAL ID 文件的网站不是 DMV，用户不应提交证件图片。',
+      '弗吉尼亚搬家后有 30 天地址更新要求；无论跨州迁入还是州内搬家，都应先处理 DMV 记录地址。',
+      '材料页面允许部分 online residency document printouts，但 temporary documents 和 photocopies 不接受。',
+    ],
+    documentHighlights: [
+      '一份 identity 文件、两份 Virginia residency 文件、一份 legal presence 文件。',
+      '如果已签发 SSN，要提供 SSN 证明；部分情况下 DMV 可电子核验。',
+      '姓名不一致时，要带认证的姓名变更文件，可能需要完整链条。',
+      '文件通常要是原件；临时文件和普通复印件不能替代。',
+    ],
+    commonMistakes: [
+      '相信第三方网站可以替你上传 REAL ID 文件。',
+      '只在线填了申请，以为不需要到 DMV 带原件。',
+      '搬家后没有在 30 天内更新 DMV 地址。',
+      '用一份地址证明或复印件去办理。',
+    ],
+    recommendedSteps: [
+      '先进入 Virginia REAL ID 页面，确认是否真的需要升级。',
+      '使用 DMV online document guide 生成材料清单。',
+      '可以先在线开始申请，但不要向第三方网站上传证件文件。',
+      '带原件到 customer service center，并在地址变化时先处理 address update。',
+    ],
+    actionLinks: [
+      {
+        label: 'Virginia REAL ID',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/real-id',
+        description: '弗吉尼亚 REAL ID 官方说明。',
+      },
+      {
+        label: 'REAL ID FAQ',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/real-id/faq',
+        description: 'REAL ID 常见问题和防诈骗提醒。',
+      },
+      {
+        label: 'Online Services',
+        url: 'https://www.dmv.virginia.gov/online-services-all',
+        description: '弗吉尼亚 DMV 线上服务总入口。',
+      },
+      {
+        label: '地址/姓名更新',
+        url: 'https://www.dmv.virginia.gov/records/personal-information-updates',
+        description: '更新地址、姓名或性别标记等记录。',
+      },
+      {
+        label: '预约与排队',
+        url: 'https://www.dmv.virginia.gov/appointments',
+        description: '查看 DMV 预约、e-ticket 和 walk-in 说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Virginia DMV REAL ID',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/real-id',
+      },
+      {
+        label: 'Virginia DMV REAL ID FAQ',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/real-id/faq',
+      },
+      {
+        label: 'Virginia DMV Personal Information Updates',
+        url: 'https://www.dmv.virginia.gov/records/personal-information-updates',
+      },
+      {
+        label: 'Virginia DMV Moving to Virginia',
+        url: 'https://www.dmv.virginia.gov/moving/moves-virginia',
+      },
+    ],
+    relatedTopicSlugs: [
+      'document-checklist',
+      'renewal-replacement-address',
+      'moving-to-new-state',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+      'vehicle-registration-renewal-expired-tags-non-operation',
+    ],
+  },
+  {
+    id: 'north-carolina',
+    abbr: 'NC',
+    nameEn: 'North Carolina',
+    nameZh: '北卡罗来纳州',
+    agency: 'North Carolina Division of Motor Vehicles',
+    agencyUrl: 'https://www.ncdot.gov/dmv/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '北卡 NCDMV 对首次 REAL ID 的规则很清楚：第一次必须到 driver license office，让文件被扫描进 NCDMV 记录；已有 REAL ID 后才可能像普通证件一样线上续期。',
+    realIdSummary:
+      'N.C. REAL ID 材料通常包括身份/生日、SSN、两份北卡居住地址、非美国出生者的 legal presence、姓名变更文件；申请驾照还可能需要 liability insurance proof。',
+    licenseSummary:
+      '驾照、ID、续期、补证和预约都在 NCDMV License & ID 体系下，但 license plate agency 不是 driver license office。需要 REAL ID 或驾照业务时要选对办公室类型。',
+    appointmentNote:
+      'NCDMV driver license appointments 页面说明预约针对 driver license office，通常最多提前 7 天开放；CDL road test 不能在线预约。',
+    editorNotes: [
+      '北卡页面必须强调“first REAL ID in person”，这比普通材料清单更重要。',
+      '搬到北卡或州内搬家后的地址/证件/车辆记录处理页面写有 60 天窗口，应提醒用户优先看 moving 页面。',
+      '预约地点容易混淆：license plate agency 处理车辆牌照，不等于 driver license office。',
+      'NCDMV Driver License Tests 页面说明测试包括 written knowledge、traffic signs、vision 和 driving skills；Getting a License or Learner Permit 页面要求到 driver license office 完成材料和测试。',
+      'NCDMV Driver License Tests 页面说明 written knowledge tests offered in different languages，oral tests available upon request；需要口试或语言协助时到场/预约前确认。',
+      'NCDMV Moving to North Carolina 页面说明申请 NC driver license 要到 driver license office，带 out-of-state license 或身份/出生日期文件、SSN 文件、NC physical address 文件；非美国出生还要 lawful status 文件。',
+      'NCDMV Moving to North Carolina 页面说明 valid out-of-state license 可能免 written 和 road tests；但 North Carolina law enforcement authorities do not recognize international driver licenses，有外国驾照或 IDP 场景不要把 IDP 当驾照本身。',
+    ],
+    documentHighlights: [
+      '一份 identity/date of birth 文件和一份完整 SSN 文件。',
+      '两份 current physical address 的 North Carolina residency 文件。',
+      '非美国公民或非美国出生场景，要按 legal presence/lawful status 要求准备文件。',
+      '申请 driver license 时，可能需要北卡认可保险公司的 liability insurance proof；learner permit 例外。',
+    ],
+    commonMistakes: [
+      '以为第一次 REAL ID 可以在线办理或在线续期时顺便升级。',
+      '只准备一份北卡地址证明。',
+      '把 license plate agency 当成能办 REAL ID 的 driver license office。',
+      '搬入北卡后没有在官方 moving 页面给出的期限内处理地址、驾照和车辆记录。',
+    ],
+    recommendedSteps: [
+      '打开 NCDMV REAL ID 页面，先确认是否是第一次 REAL ID。',
+      '第一次 REAL ID 用 requirements 页面核对材料，并预约 driver license office。',
+      '已有 REAL ID 后，续期前再看 license renewal 页面判断是否可线上完成。',
+      '搬家或搬入北卡时，从 NCDMV moving 页面开始，按地址、驾照、车辆记录顺序处理。',
+    ],
+    actionLinks: [
+      {
+        label: 'N.C. REAL ID',
+        url: 'https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx',
+        description: '北卡 REAL ID 官方说明。',
+      },
+      {
+        label: 'REAL ID Requirements',
+        url: 'https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx',
+        description: '北卡 REAL ID 材料要求。',
+      },
+      {
+        label: 'License & ID Renewal',
+        url: 'https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx',
+        description: '北卡驾照和 ID 续期说明。',
+      },
+      {
+        label: '搬家 / 新居民',
+        url: 'https://www.ncdot.gov/dmv/help/moving/Pages/default.aspx',
+        description: '搬到北卡或州内搬家后的 DMV 事项。',
+      },
+      {
+        label: 'New Residents',
+        url: 'https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx',
+        description: 'NCDMV 搬入北卡后 driver license、out-of-state license、国际驾照不被承认、车辆登记和保险顺序说明。',
+      },
+      {
+        label: 'Driver License Appointments',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx',
+        description: '北卡 driver license office 预约说明。',
+      },
+      {
+        label: 'DMV Office Locations',
+        url: 'https://www.ncdot.gov/dmv/offices-services/locate-dmv-office/Pages/dmv-offices.aspx',
+        description: '查找北卡 driver license office 和其他 DMV 办公地点。',
+      },
+      {
+        label: 'Driver License Tests',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+        description: '北卡 written knowledge、不同语言测试、oral test 请求、traffic signs、vision 和 driving skills 说明。',
+      },
+      {
+        label: 'Interpreter Services',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx',
+        description: 'NCDMV 口译服务和语言协助说明。',
+      },
+      {
+        label: 'License or Learner Permit',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/license-learner-permit.aspx',
+        description: '北卡首次 license / learner permit、测试和材料要求。',
+      },
+    ],
+    sources: [
+      {
+        label: 'NCDMV N.C. REAL ID',
+        url: 'https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx',
+      },
+      {
+        label: 'NCDMV REAL ID Requirements',
+        url: 'https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx',
+      },
+      {
+        label: 'NCDMV License & ID Renewal',
+        url: 'https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx',
+      },
+      {
+        label: 'NCDMV Driver License Tests',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+      },
+      {
+        label: 'NCDMV Interpreter Services',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx',
+      },
+      {
+        label: 'NCDMV Moving',
+        url: 'https://www.ncdot.gov/dmv/help/moving/Pages/default.aspx',
+      },
+      {
+        label: 'NCDMV Moving to North Carolina',
+        url: 'https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx',
+      },
+      {
+        label: 'NCDMV Driver License Appointments',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx',
+      },
+      {
+        label: 'NCDMV DMV Office Locations',
+        url: 'https://www.ncdot.gov/dmv/offices-services/locate-dmv-office/Pages/dmv-offices.aspx',
+      },
+      {
+        label: 'NCDMV Driver License Tests',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+      },
+      {
+        label: 'NCDMV Getting a License or Learner Permit',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/license-learner-permit.aspx',
+      },
+    ],
+    relatedTopicSlugs: [
+      'real-id-basics',
+      'document-checklist',
+      'moving-to-new-state',
+      'vehicle-registration-renewal-expired-tags-non-operation',
+    ],
+  },
+  {
+    id: 'michigan',
+    abbr: 'MI',
+    nameEn: 'Michigan',
+    nameZh: '密歇根州',
+    agency: 'Michigan Secretary of State',
+    agencyUrl: 'https://www.michigan.gov/sos/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '密歇根驾照和 ID 由 Secretary of State 管理。标准证件可转换为 REAL ID，但通常需要到 SOS office 带当前证件和 legal presence / citizenship 文件。',
+    realIdSummary:
+      'Michigan REAL ID 页面说明，转换 REAL ID 要带当前 Michigan license/ID、legal presence 或 citizenship 证明，以及姓名不一致时的认证姓名变更文件；文件核验可能不止一天。',
+    licenseSummary:
+      'Michigan license/ID 通常每 4 年在生日到期；很多续期、补证和地址变更可用 Online Services，但多数居民大约每 12 年仍需到办公室更新照片和视力等项目。',
+    appointmentNote:
+      'SOS Online Services 是续期、补证、地址变更和预申请的主入口。需要 REAL ID 转换、首次办证或文件核验时，按页面提示预约或前往 Secretary of State office。',
+    editorNotes: [
+      'Michigan 页面要避免承诺“全部可线上办”；REAL ID 转换和首次办证仍有办公室与原件核验要求。',
+      '地址变更页面要求提供 Michigan license/ID number 和 SSN 后四位等信息；车辆地址更新还会涉及 plate number。',
+      'Michigan SOS 页面和 USA.gov 都已出现 TSA ConfirmID 2026 口径，机场专题应同步提醒这只是身份核验备选，不是 DMV 证件升级。',
+      'Michigan SOS license/ID replacement 页面说明补证可 online、out-of-state by mail、self-service station 或 office visit；self-service station 可购买 replacement 并打印 temporary credential。',
+      'Michigan SOS replacement FAQ 列出 duplicate standard license/ID/permit 为 $9，enhanced 为 $24；线上可用 credit/debit card 或 e-check/bank account number，信用/借记卡会有 additional fees。',
+      'Michigan SOS license/ID FAQ 提供 View Credential Mail Status，可查看 credential processed、mailed 或 USPS undeliverable 状态。',
+      'Michigan SOS new drivers 页面说明成人通常先取得 Temporary Instruction Permit，至少练习 30 天后再参加 driving skills test；Michigan 不由州政府直接 administer driving skills tests，而是使用 approved driver testing businesses。',
+      'Michigan SOS 2025 官方新闻说明符合条件的成人可在线参加 driver knowledge test；具体资格、语言/音频选项和费用应以 SOS 当前入口为准。',
+      'Michigan SOS New Drivers 18+ 页面说明 knowledge test 有 English 和多种 foreign languages，并有 audio / written format；What Every Driver Must Know 页面提供 Chinese Mandarin manual。',
+      'Michigan SOS first-time license / ID 页面说明所有文件必须是英文或带英文翻译；语言服务页面还提供 browser translation 说明。',
+      'Michigan SOS First-time license or ID 页面说明持有效、未过期 U.S. state / territory 或 Canada driver license 的人可在 SOS office 转成 Michigan license，并提供当前 out-of-state license 和所有要求文件。',
+      'Michigan SOS-428 文件说明 foreign documents must be translated；foreign driver licenses 需要 International Driving Permit 或 English translation，且 foreign driver license 只能作为 driving experience proof，不能作为 legal presence 或 identity proof。',
+    ],
+    documentHighlights: [
+      '转换 REAL ID 时，带当前 Michigan driver license 或 ID。',
+      '带 U.S. citizenship 或 legal presence 证明；姓名不同则带认证姓名变更文件。',
+      '首次 license/ID 还要准备 SSN、identity、Michigan residency 和可能的翻译文件。',
+      'Michigan SOS FAQ 说明 branch office 不接受 identity documents 的 photocopies 或 fax copies；法律/身份文件要用原件或认证副本。',
+      '首次 license / ID 页面提醒所有文件要是英文，或带英文翻译。',
+      '文件会被 issuing agency 验证，可能当天无法完成批准。',
+    ],
+    commonMistakes: [
+      '以为有 Michigan 标准驾照就能线上一键变成 REAL ID。',
+      '带普通复印件或传真件去 branch office 办 identity document 核验。',
+      '忘记姓名不一致时要带认证姓名变更文件。',
+      '把 4 年续期周期和约 12 年一次的办公室照片/视力要求混为一谈。',
+      '地址变更时没有准备 license/ID number、SSN 后四位或车辆 plate number。',
+    ],
+    recommendedSteps: [
+      '先看卡面是否有 REAL ID 星标，并确认是否只是驾驶用途。',
+      '需要转换 REAL ID 时，打开 Michigan REAL ID 页面核对 legal presence/citizenship 和姓名文件。',
+      '首次办证或文件核验时，按 First-time License or ID 页面把 legal presence、SSN、identity、Michigan residency、姓名变化和翻译文件分组。',
+      '续期、补证或地址变更先进入 Online Services，按系统判断资格。',
+      '首次办证、文件不一致或需要照片/视力更新时，预申请后再安排 SOS office。',
+    ],
+    actionLinks: [
+      {
+        label: 'Michigan REAL ID',
+        url: 'https://www.michigan.gov/sos/license-id/real-id',
+        description: '密歇根 REAL ID 官方说明。',
+      },
+      {
+        label: 'License and ID information',
+        url: 'https://www.michigan.gov/sos/license-id/license-and-id',
+        description: '密歇根驾照和 ID 综合说明。',
+      },
+      {
+        label: 'First-time license or ID',
+        url: 'https://www.michigan.gov/sos/all-services/first-time-license-or-id',
+        description: '首次密歇根驾照或 ID、外州/加拿大 license 转入、材料、预申请和办公室路径。',
+      },
+      {
+        label: 'Driver License Requirements PDF',
+        url: 'https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa',
+        description: 'Michigan SOS-428 文件，说明 foreign documents、foreign driver license、IDP / English translation 和证明用途限制。',
+      },
+      {
+        label: 'Foreign DL Law Enforcement PDF',
+        url: 'https://www.michigan.gov/-/media/Project/Websites/sos/10lawensn/Foreign_DL_Law_Enforcement.pdf?rev=9fde1916b25c4e48a9f004d516952945',
+        description: 'Michigan SOS 关于 foreign driver license、International Driving Permit 和英文翻译的执法说明。',
+      },
+      {
+        label: 'Document requirements FAQ',
+        url: 'https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements',
+        description: '密歇根 identity、legal presence、residency、SSN 和原件/认证副本说明。',
+      },
+      {
+        label: 'License or ID renewal',
+        url: 'https://www.michigan.gov/sos/all-services/license-or-id-renewal',
+        description: '密歇根驾照或 ID 续期说明。',
+      },
+      {
+        label: 'License / ID / permit replacement',
+        url: 'https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement',
+        description: '密歇根补证、临时凭证、付款方式和 duplicate fee 说明。',
+      },
+      {
+        label: 'License and ID FAQ',
+        url: 'https://www.michigan.gov/sos/faqs/license-and-id/licenses-and-id',
+        description: '密歇根驾照和 ID 常见问题，包括 credential mail status。',
+      },
+      {
+        label: 'Change of address',
+        url: 'https://www.michigan.gov/sos/all-services/change-of-address',
+        description: '密歇根地址变更说明。',
+      },
+      {
+        label: 'Online Services',
+        url: 'https://dsvsesvc.sos.state.mi.us/TAP/_/',
+        description: 'Michigan SOS 线上服务入口。',
+      },
+      {
+        label: 'New Drivers 18+',
+        url: 'https://www.michigan.gov/sos/license-id/new-drivers-18-older',
+        description: '密歇根成人首次驾照、TIP、knowledge test 语言/音频格式和 driving skills test 路径。',
+      },
+      {
+        label: 'What Every Driver Must Know',
+        url: 'https://www.michigan.gov/sos/resources/forms/what-every-driver-must-know',
+        description: 'Michigan SOS driver manual 和 Chinese Mandarin 等多语言学习资料入口。',
+      },
+      {
+        label: 'Michigan Language Services',
+        url: 'https://www.michigan.gov/sos/language-services',
+        description: 'Michigan SOS browser translation、forms/publications 和语言服务入口。',
+      },
+      {
+        label: 'New Drivers Under 18',
+        url: 'https://www.michigan.gov/sos/license-id/new-drivers-under-18',
+        description: '密歇根 teen GDL、driver education、Level 1/2/3 说明。',
+      },
+      {
+        label: 'Driver Testing Businesses',
+        url: 'https://www.michigan.gov/sos/industry-services/driver-testing-businesses-and-examiners',
+        description: '密歇根 approved driver testing businesses、skills test 和投诉入口。',
+      },
+      {
+        label: 'Online Knowledge Test News',
+        url: 'https://www.michigan.gov/sos/resources/news/2025/07/02/michigan-secretary-of-state-now-offers-online-drivers-license-testing-for-adults',
+        description: 'Michigan SOS 关于成人 online driver knowledge test 的官方新闻。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Michigan SOS REAL ID',
+        url: 'https://www.michigan.gov/sos/license-id/real-id',
+      },
+      {
+        label: 'Michigan SOS License and ID Information',
+        url: 'https://www.michigan.gov/sos/license-id/license-and-id',
+      },
+      {
+        label: 'Michigan SOS License or ID Renewal',
+        url: 'https://www.michigan.gov/sos/all-services/license-or-id-renewal',
+      },
+      {
+        label: 'Michigan SOS License, ID or Permit Replacement',
+        url: 'https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement',
+      },
+      {
+        label: 'Michigan SOS Licenses and ID FAQ',
+        url: 'https://www.michigan.gov/sos/faqs/license-and-id/licenses-and-id',
+      },
+      {
+        label: 'Michigan SOS Change of Address',
+        url: 'https://www.michigan.gov/sos/all-services/change-of-address',
+      },
+      {
+        label: 'Michigan SOS First-time License or ID',
+        url: 'https://www.michigan.gov/sos/all-services/first-time-license-or-id',
+      },
+      {
+        label: 'Michigan SOS Driver License or ID Requirements PDF',
+        url: 'https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa',
+      },
+      {
+        label: 'Michigan SOS Foreign Driver License Law Enforcement PDF',
+        url: 'https://www.michigan.gov/-/media/Project/Websites/sos/10lawensn/Foreign_DL_Law_Enforcement.pdf?rev=9fde1916b25c4e48a9f004d516952945',
+      },
+      {
+        label: 'Michigan SOS License and ID Document Requirements',
+        url: 'https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements',
+      },
+      {
+        label: 'Michigan SOS New Drivers 18 and Older',
+        url: 'https://www.michigan.gov/sos/license-id/new-drivers-18-older',
+      },
+      {
+        label: 'Michigan SOS What Every Driver Must Know',
+        url: 'https://www.michigan.gov/sos/resources/forms/what-every-driver-must-know',
+      },
+      {
+        label: 'Michigan SOS Language Services',
+        url: 'https://www.michigan.gov/sos/language-services',
+      },
+      {
+        label: 'Michigan SOS New Drivers Under 18',
+        url: 'https://www.michigan.gov/sos/license-id/new-drivers-under-18',
+      },
+      {
+        label: 'Michigan SOS Driver Testing Businesses and Examiners',
+        url: 'https://www.michigan.gov/sos/industry-services/driver-testing-businesses-and-examiners',
+      },
+      {
+        label: 'Michigan SOS Online Driver Knowledge Test News',
+        url: 'https://www.michigan.gov/sos/resources/news/2025/07/02/michigan-secretary-of-state-now-offers-online-drivers-license-testing-for-adults',
+      },
+    ],
+    relatedTopicSlugs: ['renewal-replacement-address', 'real-id-basics', 'moving-to-new-state'],
+  },
+  {
+    id: 'ohio',
+    abbr: 'OH',
+    nameEn: 'Ohio',
+    nameZh: '俄亥俄州',
+    agency: 'Ohio Bureau of Motor Vehicles',
+    agencyUrl: 'https://www.bmv.ohio.gov/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '俄亥俄 BMV 把 REAL ID 合规证件称为 Compliant Card。办卡前先用 Acceptable Documents 页面核对 full legal name、date of birth、SSN、legal presence 和 Ohio residency。',
+    realIdSummary:
+      'Ohio REAL ID / compliant card 需要证明全名、生日、SSN、俄亥俄居住地址和在美国的 legal presence。BMV 页面还提醒，合规卡通常在访问 deputy registrar 后邮寄，并非现场立刻拿到永久卡。',
+    licenseSummary:
+      '续期、补证、reprint、地址变更和部分服务可从 BMV Online Services 开始；但 REAL ID 合规卡和材料变更仍要按 acceptable documents 和 deputy registrar 路径核对。',
+    appointmentNote:
+      '俄亥俄很多驾照/ID 业务通过 deputy registrar license agency 办理。临近旅行时要考虑实体卡邮寄时间，不能只按现场办理当天完成来安排。',
+    editorNotes: [
+      'Ohio 页面要把“Compliant Card”解释成 REAL ID 合规证件，不要让中文读者误以为这是另一种无关卡。',
+      'Ohio BMV 文档页写明 Ohio street address 需要两份文件，且常见清单强调来自不同来源更稳妥。',
+      'REAL ID card 页面提到 visiting deputy registrar 后卡片邮寄，页面要提醒用户预留邮寄时间。',
+    ],
+    documentHighlights: [
+      'full legal name、date of birth、SSN、legal presence 和 Ohio residency 都要能证明。',
+      'Ohio street address 通常需要两份地址证明；到场前用 BMV acceptable documents 页面逐项核对。',
+      '新居民应从 New Ohio Residents 页面开始，先收集 legal name、DOB、SSN、citizenship/legal presence 和 Ohio residency 文件。',
+      '如果个人信息变化，补证/reprint 前要看 BMV 对证明文件的要求。',
+    ],
+    commonMistakes: [
+      '不知道 Ohio 的 compliant card 就是 REAL ID 合规卡。',
+      '只带一份 Ohio 地址证明。',
+      '临近航班才去 deputy registrar，忽略实体卡邮寄时间。',
+      '线上服务能打开就以为本人所有续期、补证或信息变更都能线上完成。',
+    ],
+    recommendedSteps: [
+      '先判断自己是否需要 Compliant Card，或是否已有护照等 TSA 接受证件。',
+      '打开 BMV REAL ID / acceptable documents 页面，按五类证明整理文件。',
+      '新居民先看 New Ohio Residents；现有居民续期先看 current license renewal 和 online services。',
+      '需要实体合规卡时，预留 deputy registrar 办理和邮寄时间。',
+    ],
+    actionLinks: [
+      {
+        label: 'Ohio REAL ID card',
+        url: 'https://www.bmv.ohio.gov/dl-real-id.aspx',
+        description: '俄亥俄 REAL ID / Compliant Card 官方说明。',
+      },
+      {
+        label: 'Acceptable Documents',
+        url: 'https://www.bmv.ohio.gov/dl-identity-documents.aspx',
+        description: '俄亥俄驾照和 ID 可接受文件清单。',
+      },
+      {
+        label: 'BMV Online Services',
+        url: 'https://bmvonline.dps.ohio.gov/',
+        description: '续期、reprint、地址变更等线上服务入口。',
+      },
+      {
+        label: 'New Ohio Residents',
+        url: 'https://www.bmv.ohio.gov/new-to-ohio.aspx',
+        description: '新搬到俄亥俄后的 BMV 事项。',
+      },
+      {
+        label: 'Current Ohio License Renewal',
+        url: 'https://www.bmv.ohio.gov/dl-renewal-current.aspx',
+        description: '当前俄亥俄驾照续期说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Ohio BMV REAL ID Card',
+        url: 'https://www.bmv.ohio.gov/dl-real-id.aspx',
+      },
+      {
+        label: 'Ohio BMV Acceptable Documents',
+        url: 'https://www.bmv.ohio.gov/dl-identity-documents.aspx',
+      },
+      {
+        label: 'Ohio BMV Online Services',
+        url: 'https://bmvonline.dps.ohio.gov/',
+      },
+      {
+        label: 'Ohio BMV New Ohio Residents',
+        url: 'https://www.bmv.ohio.gov/new-to-ohio.aspx',
+      },
+      {
+        label: 'Ohio BMV Current License Renewal',
+        url: 'https://www.bmv.ohio.gov/dl-renewal-current.aspx',
+      },
+    ],
+    relatedTopicSlugs: ['document-checklist', 'proof-of-residency', 'moving-to-new-state'],
+  },
+  {
+    id: 'arizona',
+    abbr: 'AZ',
+    nameEn: 'Arizona',
+    nameZh: '亚利桑那州',
+    agency: 'Arizona Motor Vehicle Division',
+    agencyUrl: 'https://azdot.gov/mvd',
+    reviewedAt: '2026-07-09',
+    summary:
+      '亚利桑那把 REAL ID 合规驾照/ID 称为 Arizona Travel ID。优先从 ADOT MVD 的 Travel ID、New to Arizona、地址变更和姓名变更页面开始，确认自己是首次办证、换州、续期还是只改资料。',
+    realIdSummary:
+      'Arizona Travel ID 通常要准备身份证明或合法身份文件、Social Security Number，以及两份当前 Arizona 居住地址证明。官方文件清单会区分原件、认证副本和可接受地址文件。',
+    licenseSummary:
+      '普通亚利桑那驾照仍用于驾驶。搬到 Arizona、地址变化或姓名变化时，要分别看 New to Arizona、Change Your Address 和 Change Your Name 页面；姓名变化通常不能只靠普通在线地址变更完成。',
+    appointmentNote:
+      'Arizona MVD 和授权第三方办公室的可办业务不同。先用官方页面确认业务入口；如果 AZDOT 深层页面在你的浏览器也被拦截，可先从 USA.gov 州机动车目录进入 Arizona 官方机动车服务。',
+    editorNotes: [
+      'Arizona 官方 Travel ID 页面把 Travel ID 作为 REAL ID 合规证件说明，中文页应直接解释这个命名差异。',
+      'New to Arizona 和 Travel ID 材料口径都强调 Arizona 地址证明；页面不要把一份地址证明写成足够。',
+      'AZDOT 官方域名在本环境自动检查中返回 CloudFront 403，因此保留官方深层链接并提供 USA.gov 备用入口。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'AZDOT / Arizona MVD 官方深层页面在本环境自动检查中触发 CloudFront 403。本站保留官方链接；如果你也打不开，请从 USA.gov 州机动车服务目录选择 Arizona。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      'Travel ID 通常需要一份身份证明或合法身份文件。',
+      '准备 Social Security Number；如姓名不一致，先核对官方姓名变更要求。',
+      '准备两份当前 Arizona 居住地址证明，例如官方清单接受的账单、银行/信用卡账单或保险文件等类别。',
+      '所有材料都以 ADOT MVD 当前 document list 为准；不要只按二手清单准备。',
+    ],
+    commonMistakes: [
+      '不知道 Arizona Travel ID 就是该州 REAL ID 合规证件的名称。',
+      '只带一份 Arizona 地址证明。',
+      '姓名已经变化，但没有准备能把旧名和当前 legal name 连起来的文件。',
+      '把 Change Your Address 和 Change Your Name 当成同一个线上流程。',
+    ],
+    recommendedSteps: [
+      '先判断自己是否需要 Travel ID；如果已有有效护照，也可以作为 TSA 接受证件备选。',
+      '打开 Arizona Travel ID 页面，按官方材料清单准备身份、SSN 和两份地址证明。',
+      '新搬到 Arizona 的用户先看 New to Arizona，再决定是否同时办 Travel ID。',
+      '只改地址或姓名时，分别使用 ADOT 的 Change Your Address 或 Change Your Name 页面确认路径。',
+      '如果 AZDOT 页面打不开，先从 USA.gov 州机动车目录进入 Arizona 官方服务，再回到 Travel ID 或 MVD 办事入口。',
+    ],
+    actionLinks: [
+      {
+        label: 'Arizona Travel ID',
+        url: 'https://azdot.gov/mvd/services/driver-services/arizona-travel-id',
+        description: '亚利桑那 REAL ID 合规证件官方说明。',
+      },
+      {
+        label: 'New to Arizona',
+        url: 'https://azdot.gov/mvd/services/driver-license-ID/new-to-arizona',
+        description: '新搬到亚利桑那后的驾照和 ID 办理入口。',
+      },
+      {
+        label: 'Change Your Address',
+        url: 'https://azdot.gov/mvd/services/driver-license-ID/change-your-address',
+        description: '亚利桑那 MVD 地址变更说明。',
+      },
+      {
+        label: 'Change Your Name',
+        url: 'https://azdot.gov/mvd/services/driver-license-ID/change-your-name',
+        description: '姓名变更后的驾照/ID 更新说明。',
+      },
+      {
+        label: 'USA.gov 备用入口',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: 'AZDOT 页面被拦截时，从联邦目录进入 Arizona 官方机动车服务。',
+      },
+    ],
+    sources: [
+      {
+        label: 'ADOT MVD Arizona Travel ID',
+        url: 'https://azdot.gov/mvd/services/driver-services/arizona-travel-id',
+      },
+      {
+        label: 'ADOT MVD New to Arizona',
+        url: 'https://azdot.gov/mvd/services/driver-license-ID/new-to-arizona',
+      },
+      {
+        label: 'ADOT MVD Change Your Address',
+        url: 'https://azdot.gov/mvd/services/driver-license-ID/change-your-address',
+      },
+      {
+        label: 'ADOT MVD Change Your Name',
+        url: 'https://azdot.gov/mvd/services/driver-license-ID/change-your-name',
+      },
+    ],
+    relatedTopicSlugs: [
+      'document-checklist',
+      'proof-of-residency',
+      'moving-to-new-state',
+      'lost-vehicle-title-replacement-electronic-title-lien-sale',
+    ],
+  },
+  {
+    id: 'colorado',
+    abbr: 'CO',
+    nameEn: 'Colorado',
+    nameZh: '科罗拉多州',
+    agency: 'Colorado Division of Motor Vehicles',
+    agencyUrl: 'https://dmv.colorado.gov/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '科罗拉多 DMV 说明该州驾照和 ID 为 REAL ID 合规体系。新居民通常要预约到办公室办理，并建议先在线预登记，再带身份证明、合法身份、居住地址和 SSN 相关材料。',
+    realIdSummary:
+      'Colorado REAL ID 相关页面要求核对身份、lawful status、Colorado residency 和 Social Security Number。姓名不一致时，需要把姓名变更文件准备齐。',
+    licenseSummary:
+      '续期、地址变更和新居民换证要分别看 DMV 页面。地址已经变化且需要新卡时，官方 FAQ 指向办公室路径，并要求携带当前证件、两份 Colorado 地址证明和付款方式。',
+    appointmentNote:
+      'Colorado 新居民页面提示所有新居民都要预约，并建议到场前在线预登记。能线上处理的续期可先从 renewal 页面判断资格；首次文件核验仍按办公室流程准备。',
+    editorNotes: [
+      'Colorado 页面明确把 REAL ID 执行和 TSA 接受证件联系起来；机场用途要提示护照等替代证件仍可用。',
+      '新居民页面强调 appointment 和 preregister，页面要把“先预约”放在步骤前面。',
+      '地址变更如果只是更新记录和如果要印新卡，用户路径可能不同，中文页要提醒不要混在一起。',
+      '2026-07-09 普通浏览器点验显示 Colorado DMV 域名从本环境返回 CloudFront country block；如果用户也遇到阻挡，应从 USA.gov 州机动车服务目录进入 Colorado 官方入口。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'Colorado DMV 官方深层页面在本环境普通浏览器点验中返回 CloudFront country block。本站保留官方链接；如果你也打不开，请从 USA.gov 州机动车服务目录选择 Colorado。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      '身份证明和 lawful status 文件。',
+      'Colorado residency 证明；若地址变更并要新卡，准备两份当前 Colorado 地址证明。',
+      'Social Security Number 或官方要求的 SSN 证明路径。',
+      '姓名前后不一致时，带 marriage certificate、court order 等能连接姓名变化的文件。',
+    ],
+    commonMistakes: [
+      '新搬到 Colorado 后直接去办公室，没先预约或预登记。',
+      '以为已有其他身份证件就不用提交 Colorado DMV 要求的文件。',
+      '改地址后想要新卡，却没有准备两份 Colorado 地址证明。',
+      '姓名文件和当前 legal name 对不上。',
+    ],
+    recommendedSteps: [
+      '新居民先打开 New to Colorado 页面预约，并按提示预登记。',
+      '申请或转换 REAL ID 时，用 Real ID and Colorado 页面进入 identification requirements。',
+      '续期先看 renewal 页面，判断是否能线上办。',
+      '地址变化时先更新地址；如果要印新卡，再按 Colorado DMV 说明准备当前证件和两份地址证明。',
+    ],
+    actionLinks: [
+      {
+        label: 'Colorado REAL ID',
+        url: 'https://dmv.colorado.gov/real-id-and-colorado',
+        description: '科罗拉多 REAL ID 和所需身份证明入口。',
+      },
+      {
+        label: 'New to Colorado',
+        url: 'https://dmv.colorado.gov/new-to-colorado',
+        description: '新居民换证、预约和材料说明。',
+      },
+      {
+        label: 'Renew license / permit / ID',
+        url: 'https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card',
+        description: '续期资格、线上和办公室路径。',
+      },
+      {
+        label: 'Change license / ID address',
+        url: 'https://dmv.colorado.gov/change-your-license/id/permit-address',
+        description: '驾照、ID 或 permit 地址变更说明。',
+      },
+      {
+        label: 'Colorado DMV 首页',
+        url: 'https://dmv.colorado.gov/',
+        description: '进入 Colorado DMV 驾照、ID、预约和线上服务。',
+      },
+      {
+        label: 'USA.gov 备用入口',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: 'Colorado DMV 页面被拦截时，从联邦目录进入 Colorado 官方机动车服务。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Colorado DMV REAL ID and Colorado',
+        url: 'https://dmv.colorado.gov/real-id-and-colorado',
+      },
+      {
+        label: 'Colorado DMV New to Colorado',
+        url: 'https://dmv.colorado.gov/new-to-colorado',
+      },
+      {
+        label: 'Colorado DMV Renew License Permit or ID',
+        url: 'https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card',
+      },
+      {
+        label: 'Colorado DMV Change License/ID/Permit Address',
+        url: 'https://dmv.colorado.gov/change-your-license/id/permit-address',
+      },
+      {
+        label: 'Colorado DMV FAQ Driver License',
+        url: 'https://dmv.colorado.gov/faq-driver-license',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'moving-to-new-state', 'renewal-replacement-address'],
+  },
+  {
+    id: 'nevada',
+    abbr: 'NV',
+    nameEn: 'Nevada',
+    nameZh: '内华达州',
+    agency: 'Nevada Department of Motor Vehicles',
+    agencyUrl: 'https://dmv.nv.gov/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '内华达 DMV 把 REAL ID、地址证明、新居民和线上服务分成多个官方页面。REAL ID 或首次 license/ID 不能只靠线上完成，需要带原件到 DMV 办公室核验。',
+    realIdSummary:
+      'Nevada REAL ID 要围绕 identity、Social Security、Nevada residency 和姓名变更文件准备。官方材料页要求两份 Nevada 居住地址证明，并提醒外文文件需要 DMV 认可翻译。',
+    licenseSummary:
+      '新居民页面列出身份、姓名变更、SSN、两份 Nevada 地址证明和现有外州证件等材料。续期和地址变更可先看 MyDMV / Online Services，但 71 岁以上、非美国公民、CDL、DAC 等情况可能不能线上续期。',
+    appointmentNote:
+      '先用 Nevada DMV REAL ID 或材料页判断是否需要办公室；REAL ID、首次办证和很多文件核验业务要预约或到 DMV office，卡片通常不是现场永久卡片即时交付。',
+    editorNotes: [
+      'Nevada DMV Online Services 页面明确写明不能在线取得 REAL ID / license / ID；页面要避免暗示线上即可完成。',
+      'Nevada residency 页面要求 originals 或 certified copies，并提到 DMV-approved translations，适合中文用户重点提示。',
+      '续期页面对 71+、非美国公民、CDL、DAC、limited-term 等限制较多，页面只写“先判断资格”更稳妥。',
+    ],
+    documentHighlights: [
+      'proof of identity 和所有姓名变更文件。',
+      'Social Security Number 相关证明。',
+      '两份 Nevada residential address 证明。',
+      '外文材料要使用 Nevada DMV 认可翻译；不要带普通自译件。',
+      'limited-term 或移民身份相关证件在续期、变更时可能需要重新出示。',
+    ],
+    commonMistakes: [
+      '以为 Nevada REAL ID 可以在线申请完成。',
+      '只带一份 Nevada 地址证明。',
+      '外文文件没有准备 DMV 认可翻译。',
+      '搬家后没先更新地址，就直接续期或补证。',
+      '非美国公民或 limited-term 身份用户忽略每次续期/变更可能要带移民文件。',
+    ],
+    recommendedSteps: [
+      '先打开 Nevada DMV REAL ID 页面，确认自己要办 REAL ID 还是普通业务。',
+      '用 Nevada DMV Residency and Proof of Identity 页面整理身份、SSN、地址和姓名文件。',
+      '新搬到 Nevada 的用户按 New Resident Guide 准备外州证件和两份 Nevada 地址证明。',
+      '续期或地址变更先进入 Online Services 判断资格；不符合线上条件时再预约办公室。',
+      '外文材料提前找 DMV 认可翻译，不要等到窗口才处理。',
+    ],
+    actionLinks: [
+      {
+        label: 'Nevada DMV REAL ID',
+        url: 'https://dmv.nv.gov/realid.htm',
+        description: '内华达 REAL ID 官方说明和材料准备入口。',
+      },
+      {
+        label: 'Residency and Proof of Identity',
+        url: 'https://dmv.nv.gov/dlresidency.htm',
+        description: '身份、地址、SSN 和翻译文件要求。',
+      },
+      {
+        label: 'New Resident Guide',
+        url: 'https://dmv.nv.gov/newresident.htm',
+        description: '新搬到 Nevada 后换证和登记相关说明。',
+      },
+      {
+        label: 'Online Services',
+        url: 'https://dmv.nv.gov/onlineservices.htm',
+        description: '地址变更、续期资格和线上服务入口。',
+      },
+      {
+        label: 'Driver License Renewal',
+        url: 'https://dmv.nv.gov/dlrenewal.htm',
+        description: 'Nevada 驾照续期和不能线上续期的情况。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Nevada DMV REAL ID',
+        url: 'https://dmv.nv.gov/realid.htm',
+      },
+      {
+        label: 'Nevada DMV Residency and Proof of Identity',
+        url: 'https://dmv.nv.gov/dlresidency.htm',
+      },
+      {
+        label: 'Nevada DMV New Resident Guide',
+        url: 'https://dmv.nv.gov/newresident.htm',
+      },
+      {
+        label: 'Nevada DMV Online Services',
+        url: 'https://dmv.nv.gov/onlineservices.htm',
+      },
+      {
+        label: 'Nevada DMV Driver License Renewal',
+        url: 'https://dmv.nv.gov/dlrenewal.htm',
+      },
+    ],
+    relatedTopicSlugs: ['proof-of-residency', 'non-citizen-license-id', 'moving-to-new-state'],
+  },
+  {
+    id: 'oregon',
+    abbr: 'OR',
+    nameEn: 'Oregon',
+    nameZh: '俄勒冈州',
+    agency: 'Oregon Driver and Motor Vehicle Services',
+    agencyUrl: 'https://www.oregon.gov/odot/dmv/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '俄勒冈 DMV 的 REAL ID 页面把旅行用途、材料清单和 DMV2U 预约放在一起说明。第一次申请 REAL ID 不能在线完成，需要到 DMV 办公室带原件或认证副本核验。',
+    realIdSummary:
+      'Oregon REAL ID 要准备身份证明、生日、lawful status、SSN 或不符合 SSN 的证明，以及两份来自不同来源的 Oregon 地址证明；地址证明不能只用 PO Box。',
+    licenseSummary:
+      '地址变更可在线或电话处理；2020 年起不再发地址贴纸，如需显示新地址可申请 replacement card。已经拥有 Oregon REAL ID 的用户在符合条件时可在线续期。',
+    appointmentNote:
+      'DMV2U 可用于材料清单、预约和部分线上业务。临近旅行时要预留实体卡邮寄时间；Oregon DMV 特别提醒 temporary paper ID 不被 TSA 接受，REAL ID 卡片可能需要最多约 3 周寄达。',
+    editorNotes: [
+      'Oregon REAL ID Traveler 页面把 temporary paper ID 不被 TSA 接受写得很清楚，机场专题和州页都要提醒。',
+      'REAL ID 页面要求两份地址证明来自 different sources，且 no PO Box，是中文用户常见失误点。',
+      '地址变更页面说明不再发 sticker，replacement card 只是需要新卡面时的选择。',
+    ],
+    documentHighlights: [
+      '一份 identity / date of birth / lawful status 相关证明。',
+      'SSN，或官方接受的 SSN 不适用证明。',
+      '两份 Oregon 居住地址证明，来自不同来源，不能只显示 PO Box。',
+      '原件或认证副本；电子版、影印件通常不能替代。',
+      '非美国公民按官方页面准备未过期护照、签证、I-94 或 I-797A 等适用文件。',
+    ],
+    commonMistakes: [
+      '临近航班才办 REAL ID，没有预留最多约 3 周收卡时间。',
+      '以为 DMV 给的 temporary paper ID 可以过 TSA 安检。',
+      '带两份同一来源地址证明，或只显示 PO Box。',
+      '带手机照片、扫描件或普通复印件替代原件/认证副本。',
+      '地址变更后等待 DMV 寄地址贴纸。',
+    ],
+    recommendedSteps: [
+      '先在 Oregon REAL ID Traveler 页面判断是否真的需要 REAL ID，或是否可以用护照等替代证件。',
+      '使用 DMV2U 或官方 checklist 整理 identity、SSN、lawful status 和两份地址证明。',
+      '第一次申请 REAL ID 时预约 DMV office，并带原件或认证副本。',
+      '旅行前至少预留寄卡时间；不要依赖 temporary paper ID 乘机。',
+      '只是搬家时，先用 Change of Address 页面更新记录，再决定是否补办新卡。',
+    ],
+    actionLinks: [
+      {
+        label: 'Oregon REAL ID Traveler',
+        url: 'https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx',
+        description: '俄勒冈 REAL ID 旅行用途、材料和预约说明。',
+      },
+      {
+        label: 'Oregon REAL ID',
+        url: 'https://www.oregon.gov/odot/dmv/pages/real_id.aspx',
+        description: 'REAL ID 标识、首次申请和材料要求。',
+      },
+      {
+        label: 'Change of Address',
+        url: 'https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx',
+        description: 'Oregon DMV 地址变更说明。',
+      },
+      {
+        label: 'DMV2U',
+        url: 'https://dmv2u.oregon.gov/',
+        description: '俄勒冈 DMV 线上服务、清单和预约入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Oregon DMV REAL ID Traveler',
+        url: 'https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx',
+      },
+      {
+        label: 'Oregon DMV REAL ID',
+        url: 'https://www.oregon.gov/odot/dmv/pages/real_id.aspx',
+      },
+      {
+        label: 'Oregon DMV Change of Address',
+        url: 'https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx',
+      },
+      {
+        label: 'Oregon DMV2U',
+        url: 'https://dmv2u.oregon.gov/',
+      },
+    ],
+    relatedTopicSlugs: ['airport-travel-after-real-id', 'proof-of-residency', 'renewal-replacement-address'],
+  },
+  {
+    id: 'connecticut',
+    abbr: 'CT',
+    nameEn: 'Connecticut',
+    nameZh: '康涅狄格州',
+    agency: 'Connecticut Department of Motor Vehicles',
+    agencyUrl: 'https://portal.ct.gov/dmv',
+    reviewedAt: '2026-07-09',
+    summary:
+      '康涅狄格 DMV 用金色星标标识 REAL ID。续期、地址变更和转入外州驾照有独立页面；第一次申请 REAL ID、非美国公民、CDL、Drive-only 等情况通常不能按普通线上续期处理。',
+    realIdSummary:
+      'Connecticut REAL ID 页面要求准备 SSN、姓名变更文件和两份 Connecticut 居住地址证明。limited-term 或部分合法身份文件还要注意剩余有效期和 SAVE 验证时间。',
+    licenseSummary:
+      '普通续期可先看 online renewal 资格；页面列出不能线上续期的情况，例如第一次申请 REAL ID、非美国公民、CDL、驾照 suspended、Drive-only license、过期两年以上等。地址变化最好在续期前至少一周先处理。',
+    appointmentNote:
+      'CT DMV 线上服务可做部分续期和地址变更，但首次 REAL ID、转入外州驾照、文件核验或身份状态复杂时，应按页面要求准备原件并预约/到 DMV 或合作点办理。',
+    editorNotes: [
+      'CT renewal 页面明确把 first REAL ID 排除在线续期，页面要把“第一次 REAL ID 不走普通线上续期”讲清楚。',
+      'CT REAL ID 页面提到 SAVE 验证可能需要 10+ business days，非公民用户应提前规划。',
+      '转入外州驾照页面要求两份 Connecticut 地址证明且 PO Box 不可作为居住地址，适合放进材料提醒。',
+      '2026-07-09 普通浏览器点验显示 CT DMV 页面从本环境返回 request blocked / service unavailable；如果用户也遇到阻挡，应从 USA.gov 州机动车服务目录进入 Connecticut 官方入口。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'Connecticut DMV 官方深层页面在本环境普通浏览器点验中返回 request blocked / service unavailable。本站保留官方链接；如果你也打不开，请从 USA.gov 州机动车服务目录选择 Connecticut。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      'Social Security Number 相关证明。',
+      '两份 Connecticut 居住地址证明；PO Box 通常不能作为居住地址。',
+      '姓名变化时带 marriage certificate、court order 等连接姓名的文件。',
+      '非美国公民或 limited-term 文件要留意合法身份文件剩余有效期。',
+      '身份状态需 SAVE 验证时，可能需要额外等待时间。',
+    ],
+    commonMistakes: [
+      '第一次申请 REAL ID 却走普通 online renewal。',
+      '地址已经变化，但没有在续期前至少一周先做地址变更。',
+      '用 PO Box 当作 Connecticut 居住地址证明。',
+      '非美国公民没有预留 SAVE 验证时间。',
+      '姓名在 SSA 或其他证件上没有先更新，就去 DMV 改 REAL ID。',
+    ],
+    recommendedSteps: [
+      '先看自己是否已有金色星标；如果只是驾驶用途，不一定必须马上升级。',
+      '第一次申请 REAL ID 时，打开 Get REAL ID 页面核对 SSN、姓名和两份地址证明。',
+      '续期前先读 renewal 页面，确认自己是否符合 online renewal 条件。',
+      '搬家后先做地址变更；如果马上要续期，至少提前一周处理更稳妥。',
+      '从外州搬入 Connecticut 的用户先看 transfer out-of-state license 页面准备外州证件和 CT 地址证明。',
+    ],
+    actionLinks: [
+      {
+        label: 'Get REAL ID',
+        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/get-real-id',
+        description: '康州 REAL ID 材料、身份和地址证明说明。',
+      },
+      {
+        label: 'Renew Driver License',
+        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/renew-driver-license',
+        description: '康州驾照续期和线上续期资格。',
+      },
+      {
+        label: 'Transfer Out-of-State License',
+        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/transfer-out-of-state-license',
+        description: '外州驾照转入 Connecticut 的材料和流程。',
+      },
+      {
+        label: 'Change Driver License',
+        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/change-driver-license',
+        description: '姓名、地址或驾照信息变更入口。',
+      },
+      {
+        label: 'Online Change of Address',
+        url: 'https://dmv.service.ct.gov/CustomerOnlineServices/s/Authenticate?ServiceID=COA&language=en_US',
+        description: 'Connecticut DMV 在线地址变更服务。',
+      },
+      {
+        label: 'USA.gov 备用入口',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: 'CT DMV 页面被拦截时，从联邦目录进入 Connecticut 官方机动车服务。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Connecticut DMV Get REAL ID',
+        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/get-real-id',
+      },
+      {
+        label: 'Connecticut DMV Renew Driver License',
+        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/renew-driver-license',
+      },
+      {
+        label: 'Connecticut DMV Transfer Out-of-State License',
+        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/transfer-out-of-state-license',
+      },
+      {
+        label: 'Connecticut DMV Change Driver License',
+        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/change-driver-license',
+      },
+      {
+        label: 'Connecticut DMV Online Change of Address',
+        url: 'https://dmv.service.ct.gov/CustomerOnlineServices/s/Authenticate?ServiceID=COA&language=en_US',
+      },
+    ],
+    relatedTopicSlugs: ['non-citizen-license-id', 'renewal-replacement-address', 'moving-to-new-state'],
+  },
+  {
+    id: 'minnesota',
+    abbr: 'MN',
+    nameEn: 'Minnesota',
+    nameZh: '明尼苏达州',
+    agency: 'Minnesota Driver and Vehicle Services',
+    agencyUrl: 'https://onlineservices.dps.mn.gov/EServices/_/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '明尼苏达驾照和 ID 由 Department of Public Safety 旗下 Driver and Vehicle Services 管理。该州同时有 Standard、REAL ID 和 Enhanced 相关证件路径，先确认自己是为了驾驶、国内航班，还是边境/联邦用途。',
+    realIdSummary:
+      'Minnesota REAL ID 要围绕身份、SSN、居住地址和姓名一致性准备材料。DPS 官方材料清单强调地址证明要来自可接受文件类别，并且通常要能显示当前 Minnesota 居住地址。',
+    licenseSummary:
+      '续期、补证、预申请和部分记录更新可从 Drive.mn.gov 或 DVS 服务入口开始；但首次 REAL ID、Enhanced 或文件核验仍要按 DVS 官方清单准备原件和现场办理路径。',
+    appointmentNote:
+      '明尼苏达很多驾照业务由 DVS exam station 或 deputy registrar / driver license agent 承办。先用官方服务入口确认地点、预约和业务类型，不要只按最近办公室判断能不能办。',
+    editorNotes: [
+      'Minnesota 页面要把 Standard、REAL ID、Enhanced 分开解释，避免用户把 Enhanced 当成普通 REAL ID。',
+      '地址证明和姓名链条是高风险点；如果文件上姓名不一致，要先整理 legal name change 文件。',
+      'Minnesota DPS 旧 DVS 页面和 REALID.dps.mn.gov 短域在 2026-07-09 自动检查中最终返回 404；页面改用官方材料 PDF、官方在线服务入口和 USA.gov 备用目录。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'Minnesota DPS/DVS 官方页面近期迁移，旧 DVS 深层链接和 REALID.dps.mn.gov 短域会返回 404，线上服务入口在自动检查中返回 403。本站改用官方材料 PDF 和在线服务入口；如果你打不开，请从 USA.gov 州机动车服务目录选择 Minnesota。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      '身份证明和 lawful presence / identity 类文件。',
+      'Social Security Number 相关证明或官方接受的替代路径。',
+      '两份 Minnesota 居住地址证明，优先使用官方清单列出的账单、金融、租约、保险或政府文件类别。',
+      '姓名不一致时，准备结婚证、法院命令、离婚判决等能串起当前 legal name 的文件。',
+      '外文文件、影印件或电子文件是否可用，要回到 DVS 当前材料要求确认。',
+    ],
+    commonMistakes: [
+      '只知道要办 REAL ID，却没先看 Standard、REAL ID、Enhanced 的区别。',
+      '用 PO Box 或不显示当前 Minnesota 居住地址的文件当地址证明。',
+      'Drive.mn.gov 预申请完成后，以为现场不用带原始材料。',
+      '姓名文件只带最后一次改名材料，无法串起完整姓名链条。',
+    ],
+    recommendedSteps: [
+      '先判断自己是否需要 REAL ID 或 Enhanced；如果只是驾驶，普通证件用途不同。',
+      '打开 Minnesota DVS document requirements，按身份、SSN、地址和姓名文件整理材料。',
+      '需要续期、补证或预申请时，从 Drive.mn.gov 开始判断线上或现场路径。',
+      '选办公室前确认该地点是否办理 driver license / ID 业务，以及是否需要预约。',
+      '到场前再核对原件、认证副本、付款方式和预约确认。',
+    ],
+    actionLinks: [
+      {
+        label: 'Minnesota REAL ID Document Requirements',
+        url: 'https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf',
+        description: '明尼苏达 DVS REAL ID 官方材料清单 PDF。',
+      },
+      {
+        label: 'Minnesota Online Services',
+        url: 'https://onlineservices.dps.mn.gov/EServices/_/',
+        description: '明尼苏达 DVS 线上服务、预申请和部分驾照服务入口。',
+      },
+      {
+        label: 'USA.gov 备用入口',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: 'Minnesota 官方页面迁移或被拦截时，从联邦目录进入州机动车服务。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Minnesota DVS Document Requirements PDF',
+        url: 'https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf',
+      },
+      {
+        label: 'Minnesota Online Services',
+        url: 'https://onlineservices.dps.mn.gov/EServices/_/',
+      },
+      {
+        label: 'Minnesota License/Permit/ID Application PDF',
+        url: 'https://assets.dps.mn.gov/files/dvs/dvs-license-permit-id-application.pdf',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'document-checklist', 'proof-of-residency'],
+  },
+  {
+    id: 'indiana',
+    abbr: 'IN',
+    nameEn: 'Indiana',
+    nameZh: '印第安纳州',
+    agency: 'Indiana Bureau of Motor Vehicles',
+    agencyUrl: 'https://www.in.gov/bmv/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '印第安纳 BMV 把 REAL ID、驾照、ID、续期、地址变更和外州转入放在 BMV 服务体系内。先判断是否要 REAL ID，再看是否属于新居民、续期、补证或信息变更。',
+    realIdSummary:
+      'Indiana REAL ID 通常围绕身份、lawful status、SSN、Indiana residency 和姓名变更文件准备。BMV 官方页面要求用可接受文件证明身份和居住地址，现场核验时应带原件或官方接受形式。',
+    licenseSummary:
+      '续期、补证和地址变更可从 myBMV / BMV online services 判断资格；搬到 Indiana 的外州驾照持有人要看 new Indiana resident / transfer 路径，而不是直接按普通 renewal 处理。',
+    appointmentNote:
+      'Indiana BMV 分支机构、线上服务和 myBMV 可处理不同业务。第一次 REAL ID、外州转入、姓名变化或身份文件核验时，先查 BMV 说明和分支服务，再决定是否预约或到场。',
+    editorNotes: [
+      'Indiana BMV REAL ID 页面是州级官方入口，页面要把“升级 REAL ID”和“普通续期”分成两条路径。',
+      'myBMV 能打开不代表本人一定符合线上资格；身份、姓名、地址或 REAL ID 首次核验都可能把用户引到分支机构。',
+      '新居民要先看 transfer / new resident 规则，外州驾照状态会影响是否需要考试或额外材料。',
+    ],
+    documentHighlights: [
+      '身份证明和 lawful status 文件。',
+      'Social Security Number 相关证明。',
+      '两份 Indiana residency 证明，按 BMV 可接受文件清单准备；REAL ID overview 明确要求 TWO printed documents。',
+      'BMV Documentation List 要求 residency 文件显示姓名和 Indiana residential address，P.O. Box 不接受。',
+      'New resident packet 示例提醒部分账单类居住证明要注意 60 天内日期，SSN 文件要显示完整号码。',
+      '姓名不一致时，准备能连接旧名和当前 legal name 的文件。',
+      '外州驾照转入时，带现有外州证件和 BMV 要求的身份/地址材料。',
+    ],
+    commonMistakes: [
+      '续期时才发现第一次 REAL ID 需要额外材料。',
+      '把 myBMV 线上入口当作所有人都能完成续期或补证的保证。',
+      '新搬到 Indiana 后没有先看外州驾照 transfer 规则。',
+      '用 P.O. Box 或没有完整姓名/住址的文件凑 Indiana residency。',
+      '地址变更后没有确认新卡寄送地址或 BMV 记录地址。',
+    ],
+    recommendedSteps: [
+      '先看卡面是否已经 REAL ID 合规，并决定是否需要升级。',
+      '打开 Indiana BMV REAL ID 页面和 Documentation List，按 identity、lawful status、full SSN、two residency、name change 分组。',
+      '续期、补证或地址变更先进入 BMV online services / myBMV 判断资格。',
+      '新居民先看 transfer / new resident 路径，确认外州驾照、地址证明和预约要求。',
+      '如果涉及姓名、身份或首次 REAL ID 核验，按 BMV 分支机构路径准备原件。',
+    ],
+    actionLinks: [
+      {
+        label: 'Indiana REAL ID',
+        url: 'https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/',
+        description: '印第安纳 REAL ID 官方说明。',
+      },
+      {
+        label: 'Documentation Checklist PDF',
+        url: 'https://www.in.gov/bmv/files/BMV_Documentation_List.pdf',
+        description: 'Indiana BMV REAL ID 和证件办理可接受文件清单。',
+      },
+      {
+        label: 'New Indiana Residents',
+        url: 'https://www.in.gov/bmv/licenses-permits-ids/new-indiana-residents',
+        description: '新搬到 Indiana 后驾照、ID、title 和 registration 路径。',
+      },
+      {
+        label: 'BMV Licenses, Permits, and IDs',
+        url: 'https://www.in.gov/bmv/licenses-permits-ids/',
+        description: '驾照、permit、ID 和相关业务总入口。',
+      },
+      {
+        label: 'myBMV Online Services',
+        url: 'https://www.in.gov/bmv/online-services-and-bmv-connect/',
+        description: '线上续期、补证、地址等服务资格入口。',
+      },
+      {
+        label: 'BMV Branch Locations',
+        url: 'https://www.in.gov/bmv/branch-locations-and-hours/',
+        description: '查找 Indiana BMV 分支机构和营业时间。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Indiana BMV REAL ID Overview',
+        url: 'https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/',
+      },
+      {
+        label: 'Indiana BMV Documentation List',
+        url: 'https://www.in.gov/bmv/files/BMV_Documentation_List.pdf',
+      },
+      {
+        label: 'Indiana BMV New Indiana Residents',
+        url: 'https://www.in.gov/bmv/licenses-permits-ids/new-indiana-residents',
+      },
+      {
+        label: 'Indiana BMV Licenses, Permits, and IDs',
+        url: 'https://www.in.gov/bmv/licenses-permits-ids/',
+      },
+      {
+        label: 'Indiana BMV Online Services and BMV Connect',
+        url: 'https://www.in.gov/bmv/online-services-and-bmv-connect/',
+      },
+      {
+        label: 'Indiana BMV Branch Locations and Hours',
+        url: 'https://www.in.gov/bmv/branch-locations-and-hours/',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'moving-to-new-state', 'renewal-replacement-address'],
+  },
+  {
+    id: 'tennessee',
+    abbr: 'TN',
+    nameEn: 'Tennessee',
+    nameZh: '田纳西州',
+    agency: 'Tennessee Driver Services',
+    agencyUrl: 'https://www.tn.gov/safety/driver-services.html',
+    reviewedAt: '2026-07-09',
+    summary:
+      '田纳西 Driver Services 管理驾照、ID、REAL ID、续期、地址变更和新居民换证。该州官方页面把 REAL ID、Class D license、new resident 和 online services 分成不同入口。',
+    realIdSummary:
+      'Tennessee REAL ID 要按官方页面准备身份、lawful presence、SSN、Tennessee residency 和姓名变更文件。第一次 REAL ID 或文件核验通常要按 Driver Services Center 路径办理。',
+    licenseSummary:
+      '普通 Class D 驾照、新居民换证、续期和地址变更各有官方说明。线上续期或地址服务是否可用取决于资格；外州搬入用户应先看 New Resident 页面。',
+    appointmentNote:
+      'Tennessee Driver Services Center 和线上服务可处理不同业务。先确定自己是 REAL ID、new resident、renewal 还是 duplicate / address，再查看是否能线上办或需要预约现场。',
+    editorNotes: [
+      'Tennessee 的 Class D first license、new resident transfer 和 REAL ID 是不同流程，先按当前业务选择入口。',
+      '新居民要先看 TN.gov New Resident 页面，外州驾照、地址证明和身份文件会决定下一步。',
+      'REAL ID 页面应提醒用户最终材料、费用、预约和是否需要现场核验都以 TN Driver Services 当前页面为准。',
+    ],
+    documentHighlights: [
+      'proof of identity / lawful presence 文件。',
+      'Social Security Number 相关证明。',
+      '两份 Tennessee residency 证明，按 TN.gov 官方清单确认。',
+      '姓名不一致时，带 legal name change 文件。',
+      '外州驾照转入时，准备现有外州驾照和新州地址证明。',
+    ],
+    commonMistakes: [
+      '刚搬到 Tennessee 却按普通续期页面操作。',
+      '以为线上服务可替代第一次 REAL ID 文件核验。',
+      '只准备一份 Tennessee 地址证明。',
+      '没有把姓名变更文件和 SSN/身份文件一起核对。',
+    ],
+    recommendedSteps: [
+      '先决定是否需要 REAL ID；有护照的人可以把护照作为国内航班证件备选。',
+      '打开 TN REAL ID 页面，按官方材料清单准备身份、SSN、地址和姓名文件。',
+      '新居民先看 New Resident 页面，再处理外州驾照转入和车辆相关事项。',
+      '续期、补证或地址变更先看 Online Services 判断是否能线上完成。',
+      '需要现场时，查 Driver Services Center 服务和预约规则。',
+    ],
+    actionLinks: [
+      {
+        label: 'Tennessee REAL ID',
+        url: 'https://www.tn.gov/safety/driver-services/helpful-information/real-id.html',
+        description: '田纳西 REAL ID 官方说明和材料入口。',
+      },
+      {
+        label: 'New Residents',
+        url: 'https://www.tn.gov/safety/driver-services/classd/dlnew.html',
+        description: '新搬到 Tennessee 后的驾照办理说明。',
+      },
+      {
+        label: 'Online Services',
+        url: 'https://www.tn.gov/safety/driver-services/online.html',
+        description: '续期、补证、地址等线上服务入口。',
+      },
+      {
+        label: 'Driver Services Centers',
+        url: 'https://www.tn.gov/safety/driver-services/locations.html',
+        description: '查找 Tennessee Driver Services 办公地点。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Tennessee Driver Services REAL ID',
+        url: 'https://www.tn.gov/safety/driver-services/helpful-information/real-id.html',
+      },
+      {
+        label: 'Tennessee Driver Services New Residents',
+        url: 'https://www.tn.gov/safety/driver-services/classd/dlnew.html',
+      },
+      {
+        label: 'Tennessee Driver Services Online Services',
+        url: 'https://www.tn.gov/safety/driver-services/online.html',
+      },
+      {
+        label: 'Tennessee Driver Services Locations',
+        url: 'https://www.tn.gov/safety/driver-services/locations.html',
+      },
+    ],
+    relatedTopicSlugs: ['moving-to-new-state', 'document-checklist', 'renewal-replacement-address'],
+  },
+  {
+    id: 'wisconsin',
+    abbr: 'WI',
+    nameEn: 'Wisconsin',
+    nameZh: '威斯康星州',
+    agency: 'Wisconsin Division of Motor Vehicles',
+    agencyUrl: 'https://wisconsindot.gov/Pages/online-srvcs/external/dmv.aspx',
+    reviewedAt: '2026-07-09',
+    summary:
+      '威斯康星 DMV 由 Wisconsin Department of Transportation 管理。REAL ID、普通驾照、外州搬入、地址变更和线上续期/补证都有独立官方页面。',
+    realIdSummary:
+      'Wisconsin REAL ID 要准备身份、lawful status、SSN、Wisconsin residency 和姓名变更材料。官方页面用 REAL ID / non-REAL ID 区分卡面用途，材料要求要回到 WisDOT DMV 当前清单确认。',
+    licenseSummary:
+      '新居民、续期、补证和地址变更要分开看。搬到 Wisconsin 后，应先查 new resident / out-of-state driver license 路径；续期和补证是否可线上处理要看 DMV online services 资格。',
+    appointmentNote:
+      'Wisconsin DMV Service Centers 和线上服务可办理不同事项。首次 REAL ID、外州换证、姓名变化或身份文件核验时，不要只看线上入口，先确认是否需要到 service center。',
+    editorNotes: [
+      'Wisconsin 页面要把 REAL ID 机场/联邦用途和普通驾驶用途分开说。',
+      '新居民、地址变更、续期和 replacement 在 WisDOT 页面中是不同路径，用户要先判断当前事项。',
+      'Wisconsin 部分在线服务会先判断资格；能打开入口不代表每位申请人都能在线完成。',
+    ],
+    documentHighlights: [
+      'proof of name and date of birth / identity 文件。',
+      'proof of legal presence 或公民/身份文件。',
+      'Social Security Number 相关证明。',
+      'Wisconsin residency 证明；REAL ID compliant card 官方页面要求 2 份，文件要显示姓名和当前 Wisconsin 地址。',
+      'WisDOT residency 页面说明 utility bill、paystub 等电子文件 printouts 可接受；到场前仍要按当前清单核对。',
+      '姓名不一致时，带法律姓名变更文件；WisDOT documentation 页面提醒每次姓名变化都需要证明。',
+    ],
+    commonMistakes: [
+      '搬到 Wisconsin 后直接按 renewal 处理，而不是先看 new resident 路径。',
+      '把 non-REAL ID 驾照当成可用于 TSA REAL ID 用途的证件。',
+      '只准备一份 Wisconsin residency，或地址文件没有当前 Wisconsin 地址。',
+      '地址变更后没有确认 DMV 记录和新卡邮寄信息。',
+      '线上服务中途被资格判断挡住，却没有准备 service center 现场路径。',
+    ],
+    recommendedSteps: [
+      '先确认是否需要 REAL ID，或是否已有护照等 TSA 接受证件。',
+      '打开 Wisconsin DMV REAL ID 页面，按官方材料清单准备 identity、SSN、residency 和姓名文件。',
+      '新居民先看 out-of-state / new resident 驾照页面，再处理车辆登记和保险。',
+      '续期、补证、地址变更先看 online services，确认本人是否符合线上资格。',
+      '需要现场时，查 DMV Service Center 地点和业务类型。',
+    ],
+    actionLinks: [
+      {
+        label: 'Wisconsin REAL ID',
+        url: 'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/realid.aspx',
+        description: '威斯康星 REAL ID 官方说明。',
+      },
+      {
+        label: 'Driver license documentation',
+        url: 'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx',
+        description: 'WisDOT 驾照或 ID 的身份、居住、SSN、姓名变化材料入口。',
+      },
+      {
+        label: 'Proof of Wisconsin residency',
+        url: 'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/residency.aspx',
+        description: '可接受 Wisconsin residency 文件和 REAL ID 两份证明要求。',
+      },
+      {
+        label: 'Apply for a Driver License',
+        url: 'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/ooslicense.aspx',
+        description: '首次申请或外州转入驾照说明。',
+      },
+      {
+        label: 'DMV Online Services',
+        url: 'https://wisconsindot.gov/Pages/online-srvcs/external/dmv.aspx',
+        description: '威斯康星 DMV 线上服务入口。',
+      },
+      {
+        label: 'DMV Service Centers',
+        url: 'https://wisconsindot.gov/Pages/online-srvcs/find-dmv/default.aspx',
+        description: '查找 Wisconsin DMV 服务中心。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Wisconsin DMV REAL ID',
+        url: 'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/realid.aspx',
+      },
+      {
+        label: 'Wisconsin DMV Driver License Documentation',
+        url: 'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx',
+      },
+      {
+        label: 'Wisconsin DMV Proof of Residency',
+        url: 'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/residency.aspx',
+      },
+      {
+        label: 'Wisconsin DMV Apply for a Driver License',
+        url: 'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/ooslicense.aspx',
+      },
+      {
+        label: 'Wisconsin DMV Online Services',
+        url: 'https://wisconsindot.gov/Pages/online-srvcs/external/dmv.aspx',
+      },
+      {
+        label: 'Wisconsin DMV Service Centers',
+        url: 'https://wisconsindot.gov/Pages/online-srvcs/find-dmv/default.aspx',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'moving-to-new-state', 'renewal-replacement-address'],
+  },
+  {
+    id: 'utah',
+    abbr: 'UT',
+    nameEn: 'Utah',
+    nameZh: '犹他州',
+    agency: 'Utah Driver License Division',
+    agencyUrl: 'https://dld.utah.gov/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '犹他驾照和 ID 由 Utah Driver License Division 管理。Utah 的驾照/ID 材料页把身份、合法身份、SSN、Utah 地址和姓名变更分成清单，适合先按材料类别整理。',
+    realIdSummary:
+      'Utah REAL ID / identification requirements 要围绕身份、lawful status、SSN、Utah residency 和姓名一致性准备。首次办证、外州转入或升级时，应从 DLD required documents 页面开始。',
+    licenseSummary:
+      '续期、地址变更、补证和外州转入不应混在一起。Utah DLD 提供 online renewal、address change 和 adult original / out-of-state 相关入口，系统会按资格分流。',
+    appointmentNote:
+      'Utah DLD 办事处和 online services 的可办事项不同。首次申请、REAL ID 材料核验、姓名变化或外州转入时，先看 required documents，再预约或进入对应业务入口。',
+    editorNotes: [
+      'Utah DLD 页面有清晰的 required documents 入口，中文页应引导用户按材料类别准备，而不是给一张固定通用清单。',
+      '地址变更和 renewal 是不同业务；搬家后先确保 Utah DLD 记录地址正确，再做补证或续期更稳妥。',
+      '外州转入、非公民身份、姓名不一致时，线上路径可能不足以完成核验。',
+    ],
+    documentHighlights: [
+      'identity / lawful presence 文件。',
+      'Social Security Number 相关证明。',
+      '两份 Utah residency 证明，按 DLD required documents 页面确认。',
+      '姓名变化时，准备能连接当前 legal name 的文件。',
+      '外州转入或首次办证时，带现有证件、身份文件和 Utah 地址材料。',
+    ],
+    commonMistakes: [
+      '先点 online renewal，却没有确认本人是否符合线上资格。',
+      '搬家后没有先改 Utah DLD 记录地址，就申请补证或续期。',
+      '把一份地址文件当成两份 residency proof。',
+      '外州转入时没有准备 current Utah address 证明。',
+    ],
+    recommendedSteps: [
+      '先打开 Utah DLD required documents 页面，按身份、SSN、地址、姓名四组材料整理。',
+      '如果刚搬到 Utah，先看 adult original / out-of-state license 路径。',
+      '地址变化时先使用 DLD address change 页面更新记录。',
+      '续期先看 regular renewal / online renewal 资格，再决定线上或现场。',
+      '到场前再次核对预约、原件、付款方式和是否需要额外身份文件。',
+    ],
+    actionLinks: [
+      {
+        label: 'Utah Required Documents',
+        url: 'https://dld.utah.gov/required-documents/',
+        description: 'Utah DLD 身份、SSN、地址和姓名文件清单。',
+      },
+      {
+        label: 'Adult Original / Out-of-State',
+        url: 'https://dld.utah.gov/regular-original/',
+        description: '首次 Utah 驾照或外州转入相关路径。',
+      },
+      {
+        label: 'Address Change',
+        url: 'https://dld.utah.gov/address-change-regular/',
+        description: 'Utah DLD 地址变更说明。',
+      },
+      {
+        label: 'Renewal',
+        url: 'https://dld.utah.gov/regular-renewal/',
+        description: 'Utah 驾照续期说明和入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Utah DLD Required Documentation',
+        url: 'https://dld.utah.gov/required-documents/',
+      },
+      {
+        label: 'Utah DLD Adult Original',
+        url: 'https://dld.utah.gov/regular-original/',
+      },
+      {
+        label: 'Utah DLD Address Change',
+        url: 'https://dld.utah.gov/address-change-regular/',
+      },
+      {
+        label: 'Utah DLD Regular Renewal',
+        url: 'https://dld.utah.gov/regular-renewal/',
+      },
+    ],
+    relatedTopicSlugs: ['document-checklist', 'moving-to-new-state', 'renewal-replacement-address'],
+  },
+  {
+    id: 'missouri',
+    abbr: 'MO',
+    nameEn: 'Missouri',
+    nameZh: '密苏里州',
+    agency: 'Missouri Department of Revenue',
+    agencyUrl: 'https://dor.mo.gov/driver-license/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '密苏里驾照和 non-driver ID 由 Department of Revenue 管理。REAL ID、普通驾照、renewal、duplicate、地址变化和材料核验都从 DOR Driver License 与 REAL ID 页面分流。',
+    realIdSummary:
+      'Missouri REAL ID 要在 license office 现场申请，材料围绕身份、lawful status、SSN、两份 Missouri residential address 和姓名变更文件。DOR 页面提醒申请 REAL ID 后通常要预留 10 到 15 天制卡寄送时间。',
+    licenseSummary:
+      'Missouri REAL ID 不影响驾驶、投票、州内用途或年龄验证；如果只是开车，普通驾照仍是驾驶证件。续期、补证和升级 REAL ID 时，要先看 required documents checklist，因为地址未变和地址已变的材料要求不同。',
+    appointmentNote:
+      'Missouri 有 170 多个 license office，但 REAL ID、首次申请、外州转入、姓名变化或地址变化时都要按 DOR 清单带原件或官方接受文件。若 DOR 页面在浏览器中被拦截，可从 USA.gov 州机动车服务目录重新进入。',
+    editorNotes: [
+      'Missouri REAL ID 页面明确说 REAL ID 是选择，不是州法强制；页面要避免把驾驶用途和机场/联邦用途混成一个问题。',
+      'DOR required documents checklist 把 renewal、duplicate、office locations、地址变化和姓名变化放在同一套分流中，中文页应先让用户判断业务类型。',
+      '2026-07-09 自动检查中 dor.mo.gov 返回 403 / HTTP2 framing layer 错误；保留官方链接并显示 USA.gov fallback。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'Missouri DOR 官方页面在本环境自动检查中返回 403。本站保留 DOR 官方链接；如果你打不开，请从 USA.gov 州机动车服务目录选择 Missouri。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      '一份 identity / date of birth 文件。',
+      'lawful status 证明，常与身份文件相关但仍要按 DOR 清单核对。',
+      'Social Security Number 文件，文件上通常要显示完整 SSN。',
+      '两份 Missouri residential address 证明；REAL ID 和部分 CDL/CLP 情况尤其要注意两份地址文件。',
+      '姓名不一致时，准备 marriage certificate、court order 或其他 legal name change 文件。',
+    ],
+    commonMistakes: [
+      '以为 Missouri REAL ID 是开车必需，其实它主要影响机场和部分联邦用途。',
+      '没有预留 10 到 15 天制卡寄送时间。',
+      '地址变化后还按“地址未变”的续期材料准备。',
+      '外州转入时没有准备 surrender / prior credential 和完整身份材料。',
+    ],
+    recommendedSteps: [
+      '先判断用途：只驾驶、国内航班、联邦设施，还是同时需要 non-driver ID。',
+      '打开 Missouri REAL ID 页面确认是否需要 REAL ID 或可用护照替代。',
+      '用 required documents checklist 按 renewal、duplicate、新申请或地址/姓名变化整理文件。',
+      '选择 license office 前确认该地点办理 driver license / ID 业务。',
+      '现场办理后预留制卡寄送时间，不要把临近航班押在最后几天。',
+    ],
+    actionLinks: [
+      {
+        label: 'Missouri REAL ID',
+        url: 'https://dor.mo.gov/driver-license/issuance/real-id/',
+        description: 'Missouri DOR REAL ID 用途、材料和办理说明。',
+      },
+      {
+        label: 'Required Documents Checklist',
+        url: 'https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html',
+        description: '按 renewal、duplicate、地址变化和姓名变化核对材料。',
+      },
+      {
+        label: 'Driver License',
+        url: 'https://dor.mo.gov/driver-license/',
+        description: 'Missouri DOR 驾照、ID、表格和办事入口。',
+      },
+      {
+        label: 'License Office Locator',
+        url: 'https://dor.mo.gov/license-office-locator/',
+        description: '查找 Missouri license office。',
+      },
+      {
+        label: 'USA.gov 备用入口',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: 'DOR 页面被拦截时，从联邦目录进入 Missouri 官方机动车服务。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Missouri DOR REAL ID',
+        url: 'https://dor.mo.gov/driver-license/issuance/real-id/',
+      },
+      {
+        label: 'Missouri DOR Required Documents Checklist',
+        url: 'https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html',
+      },
+      {
+        label: 'Missouri DOR Driver License',
+        url: 'https://dor.mo.gov/driver-license/',
+      },
+      {
+        label: 'Missouri DOR REAL ID Acceptable Documents PDF',
+        url: 'https://dor.mo.gov/driver-license/issuance/real-id/documents/RID.pdf',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'document-checklist', 'proof-of-residency'],
+  },
+  {
+    id: 'iowa',
+    abbr: 'IA',
+    nameEn: 'Iowa',
+    nameZh: '爱荷华州',
+    agency: 'Iowa Department of Transportation',
+    agencyUrl: 'https://iowadot.gov/drivers-licenses-ids',
+    reviewedAt: '2026-07-09',
+    summary:
+      '爱荷华驾照和 ID 由 Iowa DOT 管理。REAL ID、new to Iowa、renewal、change information、lost/stolen duplicate、预约和 DMV location 都有独立官方入口。',
+    realIdSummary:
+      'Iowa REAL ID 页面要求准备身份、date of birth、lawful status、SSN，以及两份打印的当前 Iowa residential address 证明；地址必须是实际居住地址，不能只用 PO Box。',
+    licenseSummary:
+      '搬到 Iowa 后先看 New to Iowa；续期、补证、姓名或地址变化要分开处理。Iowa DOT 页面说明姓名变化通常要预约并到 DMV 现场办理，补证和部分服务有独立费用和资格要求。',
+    appointmentNote:
+      'Iowa DOT 支持预约和地点查询；部分 DMV 可以 walk-in，但官方仍建议预约以获得更稳定的服务时间。REAL ID 第一次加金星通常需要现场带材料。',
+    editorNotes: [
+      'Iowa REAL ID 页面强调 two printed documents 和 current Iowa residential address，中文页要明确“打印”和“实际居住地址”。',
+      'New to Iowa、renewal、change information 和 lost/stolen license 是不同路径，不应让用户直接从 REAL ID 页面处理所有业务。',
+      '2026-07-09 自动检查中 iowadot.gov 深层页面返回 Akamai 403；保留官方链接并显示 USA.gov fallback。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'Iowa DOT 官方深层页面在本环境自动检查中返回 Akamai 403。本站保留 Iowa DOT 官方链接；如果你打不开，请从 USA.gov 州机动车服务目录选择 Iowa。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      'identity、date of birth 和 lawful status 文件。',
+      'Social Security Number 证明。',
+      '两份打印的 Iowa residential address 证明，地址应为当前实际居住地址。',
+      '姓名变化时，准备能证明 legal name change 的文件。',
+      '新居民或外州证件持有人准备当前证件和 Iowa 地址材料。',
+    ],
+    commonMistakes: [
+      '带电子账单但没有打印版本。',
+      '地址文件只显示 PO Box 或 mailing address。',
+      '搬到 Iowa 后直接按普通 renewal 操作，没有先看 New to Iowa。',
+      '姓名变化以为可以完全线上处理。',
+    ],
+    recommendedSteps: [
+      '先确认你是 new to Iowa、REAL ID upgrade、renewal、duplicate 还是 change information。',
+      'REAL ID 用户打开 Iowa DOT REAL ID 页面，按身份、SSN 和两份地址证明整理材料。',
+      '新居民先看 New to Iowa，再决定是否同时处理 REAL ID。',
+      '姓名或地址变化时查看 Change Information 页面，并预约需要现场处理的业务。',
+      '用 Iowa DOT schedule appointment 或 location 页面确认最近 DMV 的服务方式。',
+    ],
+    actionLinks: [
+      {
+        label: 'Iowa REAL ID',
+        url: 'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id',
+        description: 'Iowa DOT REAL ID 金星证件和材料说明。',
+      },
+      {
+        label: 'New to Iowa',
+        url: 'https://iowadot.gov/drivers-licenses-ids/new-iowa',
+        description: '新搬到 Iowa 后获取驾照或 ID 的入口。',
+      },
+      {
+        label: 'Renew Driver License',
+        url: 'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license',
+        description: 'Iowa 驾照续期资格和办理方式。',
+      },
+      {
+        label: 'Change Information',
+        url: 'https://iowadot.gov/drivers-licenses-ids/other-services/change-information',
+        description: '更改姓名、地址或证件信息。',
+      },
+      {
+        label: 'Schedule Appointment',
+        url: 'https://iowadot.gov/drivers-licenses-ids/schedule-appointment',
+        description: '预约 Iowa DOT DMV 服务。',
+      },
+      {
+        label: 'USA.gov 备用入口',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: 'Iowa DOT 页面被拦截时，从联邦目录进入州机动车服务。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Iowa DOT REAL ID',
+        url: 'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id',
+      },
+      {
+        label: 'Iowa DOT New to Iowa',
+        url: 'https://iowadot.gov/drivers-licenses-ids/new-iowa',
+      },
+      {
+        label: 'Iowa DOT Renew Driver License',
+        url: 'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license',
+      },
+      {
+        label: 'Iowa DOT Change Information',
+        url: 'https://iowadot.gov/drivers-licenses-ids/other-services/change-information',
+      },
+      {
+        label: 'Iowa DOT Schedule Appointment',
+        url: 'https://iowadot.gov/drivers-licenses-ids/schedule-appointment',
+      },
+    ],
+    relatedTopicSlugs: ['proof-of-residency', 'moving-to-new-state', 'renewal-replacement-address'],
+  },
+  {
+    id: 'kansas',
+    abbr: 'KS',
+    nameEn: 'Kansas',
+    nameZh: '堪萨斯州',
+    agency: 'Kansas Department of Revenue Division of Vehicles',
+    agencyUrl: 'https://www.ksrevenue.gov/dovindex.html',
+    reviewedAt: '2026-07-09',
+    summary:
+      '堪萨斯驾照和 ID 由 Kansas Department of Revenue Division of Vehicles 管理。REAL ID、required documents、renewal、address change、iKan online services 和 appointment 都要分路径处理。',
+    realIdSummary:
+      'Kansas REAL ID 要准备 lawful presence、SSN、两份当前 Kansas residential address 证明和必要的 legal name change 文件。KDOR 页面说明地址证明要在有效时间范围内，junk mail 或 personal letters 不适合作为地址证明。',
+    licenseSummary:
+      'Kansas 的 renewal、address change 和部分 online services 可从 KDOR 或 iKan 入口开始，但第一次 REAL ID、身份核验、姓名变化或复杂身份材料仍应按官方清单到场准备。',
+    appointmentNote:
+      'Kansas KDOR appointment / required documents 页面会按业务列出材料和地点要求；预约前先确认办公室类型、服务项目和需要携带的文件。',
+    editorNotes: [
+      'Kansas REAL ID 页面强调两份 current Kansas residential address proof，且 junk mail / personal letters 不可用，中文页要把这个风险提前说。',
+      'iKan 可做部分线上服务，但 REAL ID 文件核验和姓名/身份问题不能默认线上完成。',
+      '2026-07-09 自动检查中 ksrevenue.gov 多个页面超时；保留官方链接并显示 USA.gov fallback。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'Kansas KDOR 官方页面在本环境自动检查中多次超时。本站保留 KDOR 官方链接；如果你打不开，请从 USA.gov 州机动车服务目录选择 Kansas。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      'lawful presence / identity 文件。',
+      'Social Security Number 证明。',
+      '两份 Kansas residential address 证明，通常要是近期、当前地址，不能用 junk mail 或 personal letters。',
+      '姓名不一致时准备 certified legal name change 文件。',
+      '预约或到场前核对 KDOR required documents 页面列出的当前版本。',
+    ],
+    commonMistakes: [
+      '只带一份 Kansas 地址证明。',
+      '用私人信件、广告邮件或过旧文件证明地址。',
+      '以为 iKan 能处理第一次 REAL ID 文件核验。',
+      '姓名和 SSN/身份文件不一致却没有准备 legal name change 文件。',
+    ],
+    recommendedSteps: [
+      '先打开 Kansas REAL ID 页面，确认自己是否需要 REAL ID 或可用护照替代。',
+      '用 required documents / appointment 页面核对 lawful presence、SSN、两份地址证明和姓名文件。',
+      '只是地址变化或 renewal 时，再看 KDOR online services / iKan 是否可办。',
+      '需要现场时使用 appointment 信息确认 office 和服务类型。',
+      '如果 KDOR 页面打不开，从 USA.gov 官方目录进入 Kansas Division of Vehicles。',
+    ],
+    actionLinks: [
+      {
+        label: 'Kansas REAL ID',
+        url: 'https://www.ksrevenue.gov/dovrealid.html',
+        description: 'Kansas KDOR REAL ID 要求和材料说明。',
+      },
+      {
+        label: 'Required Documents and Appointment',
+        url: 'https://www.ksrevenue.gov/dovqflowreq.html',
+        description: 'REAL ID 所需文件和预约前核对。',
+      },
+      {
+        label: 'Driver License Information',
+        url: 'https://www.ksrevenue.gov/dovdrlic.html',
+        description: 'Kansas 驾照、renewal、address change 和常见入口。',
+      },
+      {
+        label: 'Online Services',
+        url: 'https://www.ksrevenue.gov/dovonlineservices.html',
+        description: 'KDOR / iKan 线上服务入口。',
+      },
+      {
+        label: 'USA.gov 备用入口',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: 'KDOR 页面超时时，从联邦目录进入 Kansas 官方机动车服务。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Kansas KDOR REAL ID',
+        url: 'https://www.ksrevenue.gov/dovrealid.html',
+      },
+      {
+        label: 'Kansas KDOR Required Documents and Appointment',
+        url: 'https://www.ksrevenue.gov/dovqflowreq.html',
+      },
+      {
+        label: 'Kansas KDOR Driver License Information',
+        url: 'https://www.ksrevenue.gov/dovdrlic.html',
+      },
+      {
+        label: 'Kansas KDOR Online Services',
+        url: 'https://www.ksrevenue.gov/dovonlineservices.html',
+      },
+      {
+        label: 'Kansas KDOR REAL ID FAQ',
+        url: 'https://www.ksrevenue.gov/dovrealidfaq.html',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'proof-of-residency', 'renewal-replacement-address'],
+  },
+  {
+    id: 'south-carolina',
+    abbr: 'SC',
+    nameEn: 'South Carolina',
+    nameZh: '南卡罗来纳州',
+    agency: 'South Carolina Department of Motor Vehicles',
+    agencyUrl: 'https://dmv.sc.gov/driver-services',
+    reviewedAt: '2026-07-09',
+    summary:
+      '南卡驾照和 ID 由 SCDMV 管理。Driver License、ID card、Moving to SC、Renewals、Address or Name Change 和 branch appointment 是常用入口。',
+    realIdSummary:
+      'South Carolina 申请驾照或 ID 时可选择带星标的 REAL ID 或标注限制用途的标准证件。REAL ID 通常要按 SCDMV Form MV-93 准备身份、SSN、当前 SC physical address 和姓名变更文件。',
+    licenseSummary:
+      '新搬到 South Carolina、续期、补证、地址或姓名变化是不同业务。SCDMV 页面提示地址或姓名变化要及时更新；REAL ID 地址证明通常需要两份当前 physical SC address 文件。',
+    appointmentNote:
+      'SCDMV branch 和 online transaction list 可处理不同服务。首次 REAL ID、外州转入、非美国公民、姓名变化或材料核验时，应先确认 branch 是否办理对应业务。',
+    editorNotes: [
+      'SCDMV 页面把 REAL ID 和 standard license 放在同一申请选择里，中文页要提醒用户先按用途选择。',
+      'Moving to SC 页面和 ID 页面都强调 current physical SC address；REAL ID 通常需要两份地址证明。',
+      '2026-07-09 自动检查中 dmv.sc.gov 返回 CloudFront 403，scdmvonline 入口超时；保留官方链接并显示 USA.gov fallback。',
+    ],
+    accessStatus: {
+      label: '官方页需点验',
+      tone: 'watch',
+      note: 'SCDMV 官方页面在本环境自动检查中返回 CloudFront 403 或超时。本站保留 SCDMV 官方链接；如果你打不开，请从 USA.gov 州机动车服务目录选择 South Carolina。',
+      fallbackLabel: 'USA.gov 备用入口',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      '身份和合法身份文件，按 SCDMV checklist 准备。',
+      'Social Security Number 相关证明。',
+      '当前 South Carolina physical address 证明；REAL ID 通常要两份。',
+      '姓名变化时准备 legal name change 文件。',
+      '非美国公民按 SCDMV lawfully present non-US citizens 路径确认可办理 branch。',
+    ],
+    commonMistakes: [
+      '把 standard license 和 REAL ID 当成同一种证件。',
+      '用 mailing address 或 PO Box 替代 current physical SC address。',
+      '地址或姓名变化后没有及时更新 SCDMV 记录。',
+      '非美国公民没有先确认可办理的 SCDMV branch。',
+    ],
+    recommendedSteps: [
+      '先打开 SCDMV Driver License 页面，确认要 standard license 还是 REAL ID。',
+      '用 MV-93 checklist 按身份、SSN、地址和姓名文件整理材料。',
+      '新搬到 South Carolina 时先看 Moving to SC，再处理 REAL ID 或换证。',
+      '地址或姓名变化先看 Address or Name Change 页面。',
+      '预约或到 branch 前确认该地点办理 driver license / REAL ID / non-US citizen 业务。',
+    ],
+    actionLinks: [
+      {
+        label: 'SCDMV Driver License',
+        url: 'https://dmv.sc.gov/driver-services/drivers-license',
+        description: 'South Carolina 驾照和 REAL ID / standard license 选择。',
+      },
+      {
+        label: 'Moving to SC',
+        url: 'https://dmv.sc.gov/driver-services/moving-to-sc',
+        description: '新搬到 South Carolina 后换证说明。',
+      },
+      {
+        label: 'Renewals',
+        url: 'https://dmv.sc.gov/driver-services/renewals',
+        description: 'South Carolina 驾照续期说明。',
+      },
+      {
+        label: 'Address or Name Change',
+        url: 'https://dmv.sc.gov/driver-services/drivers-license/address-or-name-change',
+        description: '更改地址或姓名的官方入口。',
+      },
+      {
+        label: 'USA.gov 备用入口',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: 'SCDMV 页面被拦截时，从联邦目录进入州机动车服务。',
+      },
+    ],
+    sources: [
+      {
+        label: 'SCDMV Driver License',
+        url: 'https://dmv.sc.gov/driver-services/drivers-license',
+      },
+      {
+        label: 'SCDMV Moving to SC',
+        url: 'https://dmv.sc.gov/driver-services/moving-to-sc',
+      },
+      {
+        label: 'SCDMV Renewals',
+        url: 'https://dmv.sc.gov/driver-services/renewals',
+      },
+      {
+        label: 'SCDMV Address or Name Change',
+        url: 'https://dmv.sc.gov/driver-services/drivers-license/address-or-name-change',
+      },
+      {
+        label: 'SCDMV Form MV-93',
+        url: 'https://dmv.sc.gov/sites/scdmv/files/media/Forms/MV-93.pdf',
+      },
+    ],
+    relatedTopicSlugs: ['moving-to-new-state', 'document-checklist', 'name-change-chain'],
+  },
+  {
+    id: 'kentucky',
+    abbr: 'KY',
+    nameEn: 'Kentucky',
+    nameZh: '肯塔基州',
+    agency: 'Kentucky Transportation Cabinet',
+    agencyUrl: 'https://drive.ky.gov/Pages/index.aspx',
+    reviewedAt: '2026-07-09',
+    summary:
+      '肯塔基驾照、REAL ID 和 ID 服务由 Kentucky Transportation Cabinet / DRIVE 管理。REAL ID、What You Need、New to Kentucky、renewal、update/replace 和 myDrive 是核心路径。',
+    realIdSummary:
+      'Kentucky REAL ID 要证明 identity、Social Security、residency，以及任何姓名或 gender changes。What You Need 页面明确要求带 original 或 certified document，不接受普通复印件。',
+    licenseSummary:
+      '新居民通常要在建立 Kentucky residency 后 30 天内取得 Kentucky driver license；续期要注意 vision screening。想升级 REAL ID 时，官方 renewal 页面说明不能在线或邮寄完成升级，必须到 Regional Office 并带额外材料。',
+    appointmentNote:
+      'Kentucky 的 myDrive 可处理部分续期、补证和地址更新，但需要创建账户并连接 credential。REAL ID 升级、姓名变化、新居民转入或材料核验时，应优先看 Regional Office 路径。',
+    editorNotes: [
+      'Kentucky 2026 页面加入 myDrive / Letter ID 账户连接说明，线上服务文案要提醒用户不是所有业务都能直接在线办。',
+      'REAL ID upgrade 不能在线或邮寄完成，这是 renewal/replacement 专题里的高价值提醒。',
+      'New To Kentucky 页面明确 30 天换证要求，中文页要在搬州路径中前置。',
+    ],
+    documentHighlights: [
+      '一份 original 或 certified identity 文件；普通 photocopy 不适合作为身份原件。',
+      'Social Security 证明。',
+      'Kentucky residency 证明，按 What You Need 页面确认数量和类别。',
+      '姓名或 gender changes 时准备法律证明文件。',
+      '新居民带有效外州 license / permit 和 Kentucky required documents。',
+    ],
+    commonMistakes: [
+      '想在线续期时顺便升级 REAL ID。',
+      '忘记 renewal 前需要 vision screening。',
+      '新搬到 Kentucky 超过 30 天还没有处理州内驾照。',
+      '带普通复印件替代 original 或 certified document。',
+    ],
+    recommendedSteps: [
+      '先用 Kentucky REAL ID 页面判断是否需要 REAL ID，或是否能用护照替代。',
+      '打开 What You Need，按 identity、SSN、residency、name/gender change 分组准备材料。',
+      '新居民先看 New To Kentucky，确认 30 天换证和外州 license transfer 要求。',
+      '续期先看 License / Permit Renewal，确认 vision screening 和线上资格。',
+      '需要 REAL ID upgrade、姓名变化或材料核验时，选择 Driver Licensing Regional Office 路径。',
+    ],
+    actionLinks: [
+      {
+        label: 'Kentucky REAL ID',
+        url: 'https://drive.ky.gov/RealID/Pages/default.aspx',
+        description: 'Kentucky REAL ID 用途、材料和办理入口。',
+      },
+      {
+        label: 'What You Need',
+        url: 'https://drive.ky.gov/RealID/Pages/What-You-Need.aspx',
+        description: 'REAL ID identity、SSN、residency 和姓名/性别变化材料说明。',
+      },
+      {
+        label: 'New To Kentucky',
+        url: 'https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx',
+        description: '新居民换 Kentucky 驾照说明。',
+      },
+      {
+        label: 'License / Permit Renewal',
+        url: 'https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx',
+        description: '续期、vision screening 和 REAL ID upgrade 限制。',
+      },
+      {
+        label: 'Update or Replace',
+        url: 'https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx',
+        description: '更新地址、姓名或补证说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Kentucky REAL ID',
+        url: 'https://drive.ky.gov/RealID/Pages/default.aspx',
+      },
+      {
+        label: 'Kentucky REAL ID What You Need',
+        url: 'https://drive.ky.gov/RealID/Pages/What-You-Need.aspx',
+      },
+      {
+        label: 'Kentucky New To Kentucky',
+        url: 'https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx',
+      },
+      {
+        label: 'Kentucky License / Permit Renewal',
+        url: 'https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx',
+      },
+      {
+        label: 'Kentucky Update or Replace',
+        url: 'https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'moving-to-new-state', 'renewal-replacement-address'],
+  },
+  {
+    id: 'louisiana',
+    abbr: 'LA',
+    nameEn: 'Louisiana',
+    nameZh: '路易斯安那州',
+    agency: 'Louisiana Office of Motor Vehicles',
+    agencyUrl: 'https://expresslane.la.gov/omv/drivers/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '路易斯安那州驾照、REAL ID、续期、补证和外州转入由 Office of Motor Vehicles 的 ExpressLane 系统分流。高频入口是 REAL ID、License Renewal、License Transfers、Duplicate / Replacement 和 Online Services。',
+    realIdSummary:
+      'Louisiana REAL ID 要证明 identity、lawful status、date of birth、Social Security number 和两份 principal residence。居住证明必须是申请人姓名和 Louisiana street address，且来自两个独立来源；SSN 信息可以口头提供并由 OMV 通过 SSOLV 核验。',
+    licenseSummary:
+      '续期通常要准备 proper identification、Social Security 信息、视力测试、Louisiana residency；如适用，还要有 liability insurance。外州转入和临时身份文件会进入额外核验，访问者身份不一定符合 Louisiana 驾照或 ID 资格。',
+    appointmentNote:
+      '很多 OMV 业务可以从 Online Services 开始，但地址、姓名、身份材料核验、首次 REAL ID 和外州转入更适合先查具体页面再预约或去 Office / Public Tag Agent。不要只从“续期”按钮判断自己是否能线上完成。',
+    editorNotes: [
+      'Louisiana REAL ID 页面明确 two original residence documents must be from separate/independent sources，这是中文用户最容易漏的细节。',
+      'Louisiana 可通过 SSOLV 核验口头提供的 SSN，并非每位申请人都被要求携带实体 Social Security card。',
+      'License Renewal 页面把 liability insurance、vision test 和 residency 放在同一组要求里，续期页需要提醒用户先确认是否适用。',
+    ],
+    documentHighlights: [
+      '身份、出生日期和 lawful status 文件，例如有效美国护照、州签发出生纸或入籍/公民证明。',
+      'Social Security 信息；可口头提供，但最好带 SSN card、W-2、1099 或 pay stub 作为备用。',
+      '两份 Louisiana principal residence 原件，显示本人姓名和 Louisiana street address，且来自不同来源。',
+      '续期时准备 proper identification、视力测试相关要求，以及适用时的 Louisiana liability insurance。',
+      '外州转入或非美国公民身份文件，按 License Transfers 页面准备身份和移民状态核验材料。',
+    ],
+    commonMistakes: [
+      '拿两份同一家机构的账单当作两个独立居住来源。',
+      '以为 SSN 必须只能用实体 Social Security card，没看 OMV 的 SSOLV 说明。',
+      '在线续期前没有处理地址或姓名变化。',
+      '外州转入时只带旧驾照，没准备 Louisiana residency 和身份状态文件。',
+    ],
+    recommendedSteps: [
+      '先打开 Louisiana REAL ID 页面，判断是否需要 REAL ID，或是否用护照等替代证件更省事。',
+      '按 identity / lawful status、SSN、two proofs of residence 三组整理材料，并确认居住证明是独立来源。',
+      '续期先看 License Renewal 页面，确认 vision、insurance、residency 和线上资格。',
+      '外州搬入先看 License Transfers，特别是临时身份、外籍驾照和翻译要求。',
+      '最后用 Online Services 或 Locations 选择线上办理、预约或最近办公室。',
+    ],
+    actionLinks: [
+      {
+        label: 'Louisiana REAL ID',
+        url: 'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/',
+        description: 'REAL ID 用途、材料、SSN 核验和两份居住证明说明。',
+      },
+      {
+        label: 'Louisiana License Renewal',
+        url: 'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-renewal/',
+        description: '驾照续期要求、视力、保险和线上/线下路径。',
+      },
+      {
+        label: 'Louisiana License Transfers',
+        url: 'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-transfers/',
+        description: '外州或部分境外驾照转入 Louisiana 的要求。',
+      },
+      {
+        label: 'Duplicate / Replacement Cards',
+        url: 'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/duplicate-replacement-reconstructed-cards/',
+        description: '补证、换卡和重建卡说明。',
+      },
+      {
+        label: 'Louisiana OMV Online Services',
+        url: 'https://expresslane.la.gov/omv/online-services/',
+        description: '在线续期、补证、状态查询和其他 OMV 线上服务入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Louisiana OMV REAL ID',
+        url: 'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/',
+      },
+      {
+        label: 'Louisiana OMV License Renewal',
+        url: 'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-renewal/',
+      },
+      {
+        label: 'Louisiana OMV License Transfers',
+        url: 'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-transfers/',
+      },
+      {
+        label: 'Louisiana OMV Duplicate / Replacement Cards',
+        url: 'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/duplicate-replacement-reconstructed-cards/',
+      },
+      {
+        label: 'Louisiana OMV Online Services',
+        url: 'https://expresslane.la.gov/omv/online-services/',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'moving-to-new-state', 'renewal-replacement-address'],
+  },
+  {
+    id: 'oklahoma',
+    abbr: 'OK',
+    nameEn: 'Oklahoma',
+    nameZh: '俄克拉荷马州',
+    agency: 'Service Oklahoma',
+    agencyUrl: 'https://oklahoma.gov/service.html',
+    reviewedAt: '2026-07-09',
+    summary:
+      '俄克拉荷马州驾照和 REAL ID 由 Service Oklahoma 与 Licensed Operator / Licensing Office 路径共同处理。REAL ID checklist、Required Documents、Out-of-State Transfer、Renew/Replace 和 Address Update 是最重要的入口。',
+    realIdSummary:
+      'Oklahoma REAL ID 需要一份 identity、两份 Oklahoma residency、SSN 信息、所有自出生以来姓名变化文件，以及适用时的 immigration / legal presence 文件。官方页面明确实体 SSN card 不要求，但号码本身需要提供。',
+    licenseSummary:
+      '外州转入通常要准备 identity、lawful presence、Oklahoma residency、外州 license、SSN 和姓名变化材料；如果同时办 REAL ID，居住证明数量会按 REAL ID 标准增加到两份。续期和补证可以先看线上资格，再决定是否去办公室。',
+    appointmentNote:
+      '首次 REAL ID 不能只靠邮寄或线上续期完成，需要去 Licensed Operator 或 Service Oklahoma Licensing Office。Service Oklahoma 也提供 live wait times / waitlist，适合出发前先看排队情况。',
+    editorNotes: [
+      'Oklahoma REAL ID 页面把 physical card not required 写得很清楚，中文页应避免把 SSN card 误写成硬性必带。',
+      '姓名变化要求覆盖 all name changes since birth，适合在中文页强调“每一次更名链条”。',
+      'Temporary paper credential is not accepted by TSA 的提醒要放进旅行用户 FAQ 或避坑区。',
+    ],
+    documentHighlights: [
+      '一份 proof of identity，例如 birth certificate 或 U.S. passport。',
+      '两份 Oklahoma residency，REAL ID 场景通常按两份准备。',
+      'Social Security number；实体 SSN card 不强制，但号码要能核验。',
+      '所有自出生以来的姓名变化证明，例如 marriage certificate、divorce decree 或 court order。',
+      '外州转入时带有效外州 license，以及 lawful presence / immigration 文件（如适用）。',
+    ],
+    commonMistakes: [
+      '只带一份 Oklahoma 地址证明去办 REAL ID。',
+      '以为没有实体 SSN card 就完全不能开始。',
+      '只带最近一次结婚证，漏掉更早的离婚、改名或法院文件。',
+      '拿临时纸质 REAL ID 去机场，以为 TSA 会接受。',
+    ],
+    recommendedSteps: [
+      '先用 Service Oklahoma REAL ID checklist 判断自己缺哪一类文件。',
+      '如果是外州搬入，先看 Out-of-State Transfer 页面，再决定是否同步升级 REAL ID。',
+      '续期、补证或地址更新先看 online eligibility；姓名变化通常需要现场处理。',
+      '需要首次 REAL ID 时，选择 Licensed Operator 或 Service Oklahoma Licensing Office，并出发前查看 wait times。',
+      '有旅行计划时至少预留邮寄时间，不把临时纸质 credential 当作 TSA 证件。',
+    ],
+    actionLinks: [
+      {
+        label: 'Oklahoma REAL ID Checklist',
+        url: 'https://oklahoma.gov/service/popular-services/real-id-checklist.html',
+        description: 'REAL ID 材料、办理地点、费用和旅行提醒。',
+      },
+      {
+        label: 'Oklahoma Required Documents',
+        url: 'https://oklahoma.gov/service/all-pages/required-documents.html',
+        description: '身份、居住、合法身份和姓名变化文件说明。',
+      },
+      {
+        label: 'Transfer a Driver License',
+        url: 'https://oklahoma.gov/service/all-pages/out-of-state-transfers-dl.html',
+        description: '外州驾照转入 Oklahoma 的材料和流程。',
+      },
+      {
+        label: 'Renew or Replace',
+        url: 'https://oklahoma.gov/service/popular-services/renew-replace.html',
+        description: '续期、补证和线上/现场办理入口。',
+      },
+      {
+        label: 'Address Update',
+        url: 'https://oklahoma.gov/service/popular-services/address-update.html',
+        description: '驾照或 State ID 地址更新入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Service Oklahoma REAL ID Checklist',
+        url: 'https://oklahoma.gov/service/popular-services/real-id-checklist.html',
+      },
+      {
+        label: 'Service Oklahoma Required Documents',
+        url: 'https://oklahoma.gov/service/all-pages/required-documents.html',
+      },
+      {
+        label: 'Service Oklahoma Out-of-State Transfer',
+        url: 'https://oklahoma.gov/service/all-pages/out-of-state-transfers-dl.html',
+      },
+      {
+        label: 'Service Oklahoma Renew / Replace',
+        url: 'https://oklahoma.gov/service/popular-services/renew-replace.html',
+      },
+      {
+        label: 'Service Oklahoma Address Update',
+        url: 'https://oklahoma.gov/service/popular-services/address-update.html',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'moving-to-new-state', 'name-change-chain'],
+  },
+  {
+    id: 'alabama',
+    abbr: 'AL',
+    nameEn: 'Alabama',
+    nameZh: '阿拉巴马州',
+    agency: 'Alabama Law Enforcement Agency',
+    agencyUrl: 'https://www.alea.gov/dps/driver-license',
+    reviewedAt: '2026-07-09',
+    summary:
+      '阿拉巴马州把 REAL ID 称为 STAR ID，由 Alabama Law Enforcement Agency 管理。首次 STAR ID、外州转入和材料核验要看 ALEA Driver License Exam Office；县级办公室更多处理续期和 duplicate。',
+    realIdSummary:
+      'Alabama STAR ID 需要四类材料：身份/出生日期、完整 SSN、两份 principal residence、以及姓名变化时的 certified legal documents。官方 STAR ID document list 明确 photocopies not acceptable。',
+    licenseSummary:
+      '外州驾照转入通常要到 ALEA Office，带当前驾照、Social Security card、两份 principal residence、primary document 并支付相应费用。普通 license / ID 与 STAR ID 的办理地点不同，是阿拉巴马页最需要提前说清的点。',
+    appointmentNote:
+      '如果是首次加 STAR，优先查 ALEA Driver License Exam Office；county operated license offices 可以继续处理 renewals / duplicates，但不应被当作首次 STAR ID 的主入口。',
+    editorNotes: [
+      'Alabama 页面必须使用 STAR ID 这个州内名称，否则用户在 ALEA 官方站搜索时容易找不到对应入口。',
+      'STAR ID originally issued only at ALEA Driver License exam offices，是页面的关键分流信息。',
+      'Document List 明确 four documents 和 photocopies not acceptable，适合放在材料区第一屏。',
+    ],
+    documentHighlights: [
+      '一份 identity / date of birth 文件，例如有效美国护照或州 vital statistics 签发的 certified birth certificate。',
+      '一份显示完整 Social Security number 的文件，例如 Social Security card、W-2 或符合要求的 Medicare/Medicaid ID。',
+      '两份 Alabama principal residence 文件，例如 utility bill、lease、vehicle registration 或 voter registration。',
+      '姓名变化时带 certified documents，例如 marriage certificate、adoption record 或 court order。',
+      '外州转入时带当前 out-of-state license 和 ALEA 要求的 primary document。',
+    ],
+    commonMistakes: [
+      '去 county license office 首次申请 STAR ID。',
+      '带普通复印件，而不是可接受的原件或 certified 文件。',
+      'SSN 文件没有显示完整号码。',
+      '居住证明在配偶或父母名下，却没有带婚姻或出生关系证明。',
+    ],
+    recommendedSteps: [
+      '先确认你要办的是普通 Alabama license / ID，还是带星标的 STAR ID。',
+      '首次 STAR ID 直接查 ALEA Driver License Exam Office，不要只看县办公室。',
+      '按 STAR ID Document List 凑齐 identity、full SSN、two residence proofs 和姓名变化文件。',
+      '外州转入查看 Document Requirements and Fees，确认当前驾照、费用和办公室路径。',
+      '普通续期或 duplicate 再看 county operated offices 或 ALEA online services。',
+    ],
+    actionLinks: [
+      {
+        label: 'Alabama STAR ID',
+        url: 'https://www.alea.gov/dps/driver-license/star-id',
+        description: 'STAR ID 用途、办理地点和联邦 REAL ID 说明。',
+      },
+      {
+        label: 'STAR ID Document List',
+        url: 'https://www.alea.gov/dps/driver-license/star-id/star-id-document-list',
+        description: '四类材料、完整 SSN、两份居住证明和复印件限制。',
+      },
+      {
+        label: 'Document Requirements and Fees',
+        url: 'https://www.alea.gov/dps/driver-license/document-requirements-and-fees',
+        description: '外州转入、材料和费用说明。',
+      },
+      {
+        label: 'License and ID Cards',
+        url: 'https://www.alea.gov/dps/driver-license/license-and-id-cards',
+        description: '普通驾照、ID、外州转入和不同证件类别说明。',
+      },
+      {
+        label: 'Driver License Offices',
+        url: 'https://www.alea.gov/dps/driver-license/driver-license-offices',
+        description: 'ALEA Driver License office 列表和预约相关入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'ALEA STAR ID',
+        url: 'https://www.alea.gov/dps/driver-license/star-id',
+      },
+      {
+        label: 'ALEA STAR ID Document List',
+        url: 'https://www.alea.gov/dps/driver-license/star-id/star-id-document-list',
+      },
+      {
+        label: 'ALEA Document Requirements and Fees',
+        url: 'https://www.alea.gov/dps/driver-license/document-requirements-and-fees',
+      },
+      {
+        label: 'ALEA License and ID Cards',
+        url: 'https://www.alea.gov/dps/driver-license/license-and-id-cards',
+      },
+      {
+        label: 'ALEA Driver License Offices',
+        url: 'https://www.alea.gov/dps/driver-license/driver-license-offices',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'document-checklist', 'moving-to-new-state'],
+  },
+  {
+    id: 'arkansas',
+    abbr: 'AR',
+    nameEn: 'Arkansas',
+    nameZh: '阿肯色州',
+    agency: 'Arkansas Department of Finance and Administration',
+    agencyUrl: 'https://www.dfa.arkansas.gov/online-services/drivers/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '阿肯色州驾照、ID 和 REAL ID 由 Department of Finance and Administration / Driver Services 处理。REAL ID 页面、Revenue Office locations、MyDMV、online driver services 和 appointment 是当前最实用的入口。',
+    realIdSummary:
+      'Arkansas REAL ID 要带 legal presence、identity、Social Security number 和两份 residency。官方页面明确 Social Security Card must be provided；居住证明可包括水电燃气账单、六个月内工资单或银行账单、当前税表或保险文件等。',
+    licenseSummary:
+      '普通驾照续期和补证要区分是否需要 REAL ID 升级。DFA 的 online services 覆盖 replacement、地址更新和部分预登记，但 REAL ID 材料核验仍要按 Revenue Office 路径准备。',
+    appointmentNote:
+      'Arkansas DFA 表示 REAL ID 可在全州 Revenue Offices 办理；预约有帮助但不是所有场景都强制，到场前仍要确认具体办公室的服务和时间。',
+    editorNotes: [
+      'Arkansas REAL ID 页面明确 Social Security Card must be provided，这一点和部分州“SSN 可核验不必带卡”不同。',
+      'DFA 旧 Driver Services 深层入口在自动检查中返回 500，部分 DFA / MyDMV 页面也可能返回 403；应优先保留可用的 Online Driver Services、REAL ID 和 USA.gov 备用路径。',
+      'Appointment recommended but not required 的语气要谨慎，避免写成必须预约。',
+    ],
+    accessStatus: {
+      label: '官方入口可能触发安全拦截',
+      tone: 'watch',
+      note: 'Arkansas DFA 部分深层页面在自动链接检查中可能返回 403 或 500。若你也打不开，请从 USA.gov 州机动车服务目录、DFA Online Driver Services 或 DFA Revenue Office locations 重新进入。',
+      fallbackLabel: 'USA.gov 州机动车服务目录',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      '一份 proof of legal presence，例如 U.S. birth certificate 或 U.S. passport。',
+      '一份 proof of identity，例如当前 driver license / ID、school ID、vehicle registration / title、marriage certificate 或 military ID。',
+      'Social Security Card；DFA REAL ID 页面写明 must be provided。',
+      '两份 Arkansas residency，例如水电燃气账单、六个月内 pay stub、六个月内银行账单、当前税表或房屋/租客/机动车保险。',
+      '如果只是 replacement 或 address update，先看 DFA online driver services 是否可在线处理。',
+    ],
+    commonMistakes: [
+      '照搬其他州经验，以为只报 SSN 就够了，忘记 Arkansas 要 Social Security Card。',
+      '把 appointment recommended 理解成完全不用看办公室排队和营业时间。',
+      '只带一份居住证明。',
+      '在线更新地址后，以为系统一定会自动寄出新卡，没看对应服务说明。',
+    ],
+    recommendedSteps: [
+      '先打开 Arkansas REAL ID 页面或 Real ID Quiz，确认自己需要的材料组合。',
+      '按 legal presence、identity、SSN card、two residency proofs 四组准备原件。',
+      '使用 Revenue Office locations 查办公室，必要时预约，但也确认是否可 walk-in。',
+      '补证、地址更新或预登记先看 online driver services，避免为了可在线处理的业务跑办公室。',
+      '如果 DFA 页面打不开，从 USA.gov 州机动车服务目录进入 Arkansas 官方机动车服务。',
+    ],
+    actionLinks: [
+      {
+        label: 'Arkansas Real ID',
+        url: 'https://www.dfa.arkansas.gov/real-id/',
+        description: 'REAL ID 材料、Revenue Office、预约和 FAQ 入口。',
+      },
+      {
+        label: 'DFA Online Driver Services',
+        url: 'https://www.dfa.arkansas.gov/online-services/drivers/',
+        description: 'Arkansas REAL ID、驾照、ID、permit、补证、地址更新和驾驶员在线服务入口。',
+      },
+      {
+        label: 'DFA MyDMV',
+        url: 'https://www.dfa.arkansas.gov/office/mydmv/',
+        description: '预约、REAL ID、replacement 和 MyDMV 服务入口。',
+      },
+      {
+        label: 'USA.gov State Motor Vehicle Services',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+        description: 'DFA 页面打不开时使用的联邦官方州机动车服务目录。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Arkansas DFA Real ID',
+        url: 'https://www.dfa.arkansas.gov/real-id/',
+      },
+      {
+        label: 'Arkansas DFA Online Driver Services',
+        url: 'https://www.dfa.arkansas.gov/online-services/drivers/',
+      },
+      {
+        label: 'Arkansas DFA Online Driver Services',
+        url: 'https://www.dfa.arkansas.gov/online-services/drivers/',
+      },
+      {
+        label: 'Arkansas DFA MyDMV',
+        url: 'https://www.dfa.arkansas.gov/office/mydmv/',
+      },
+      {
+        label: 'USA.gov State Motor Vehicle Services',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'document-checklist', 'renewal-replacement-address'],
+  },
+  {
+    id: 'new-mexico',
+    abbr: 'NM',
+    nameEn: 'New Mexico',
+    nameZh: '新墨西哥州',
+    agency: 'New Mexico Motor Vehicle Division',
+    agencyUrl: 'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '新墨西哥州 MVD 同时提供 REAL ID 和 Standard Driver License / ID。中文用户最需要先判断：自己要的是可用于联邦用途的 REAL ID，还是只用于驾驶和州内一般身份用途的 Standard credential。',
+    realIdSummary:
+      'New Mexico REAL ID 要证明 Lawful Identity and Age、Identification Number 和 New Mexico Residency。MVD 明确要求 original 或 certified copy；photocopies、notarized photocopies 和 non-certified copies 不接受，且法律身份和识别号码会做电子核验。',
+    licenseSummary:
+      'Standard Driver License / ID 只需要一份 identity and age 与两份 New Mexico residency，不需要 fingerprints，也不需要 Social Security number；两类 license 都可用于驾驶，但 Standard 不能用于 REAL ID 联邦身份用途。',
+    appointmentNote:
+      'REAL ID 通常需要到 MVD office 完成文件核验；部分 Standard renewal / replacement 可能符合线上资格。材料准备优先查看 REAL ID microsite 和 acceptable documents PDF。',
+    editorNotes: [
+      'New Mexico 与很多州不同，Standard license 不要求 SSN 和 fingerprints；页面要把 Standard 与 REAL ID 分开写清楚。',
+      'REAL ID 页面明确 original or certified copy，且会通过 VLS/SAVE、USPVS、SSOLV 等系统核验，适合提醒用户不要带普通扫描件。',
+      '非英文文件必须有完整 certified translation，对中文出生、婚姻或法院文件用户很关键。',
+    ],
+    accessStatus: {
+      label: '部分 MVD 深层页面可能阻挡',
+      tone: 'watch',
+      note: 'New Mexico REAL ID microsite 可访问；MVD 主站部分深层链接在自动检查中可能返回 403。若页面打不开，请从 MVD 首页或 USA.gov 州机动车服务目录重新进入。',
+      fallbackLabel: 'USA.gov 州机动车服务目录',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      'REAL ID: Lawful Identity and Age，例如 U.S. passport、birth certificate 或符合条件的移民文件。',
+      'REAL ID: Identification Number，例如 SSN card、W-2、1099 或带完整 SSN 的 pay stub。',
+      'REAL ID: New Mexico residency，按官方清单准备两份，并注意账单或文件日期限制。',
+      'Standard license / ID: 一份 identity and age 加两份 New Mexico residency；不需要 SSN，也不需要 fingerprints。',
+      '非英文文件要配完整 certified English translation；姓名变化要提供清晰的 linking documents。',
+    ],
+    commonMistakes: [
+      '把 Standard license 当作 REAL ID 去机场或联邦设施使用。',
+      '带普通复印件、拍照件或 notarized photocopy 代替 original / certified copy。',
+      '中文文件没有准备 certified English translation。',
+      '只带当前姓名文件，没带从出生姓名到当前 legal name 的完整变化链。',
+    ],
+    recommendedSteps: [
+      '先决定要 REAL ID 还是 Standard credential：只开车和州内一般用途时，Standard 可能够用。',
+      '如果要 REAL ID，用 New Mexico REAL ID Companion 或 acceptable documents PDF 核对三类材料。',
+      '把非英文文件送做 certified translation，并整理姓名变化链条。',
+      '确认居住证明的日期和 physical residential address 要求，避免 PO Box 或过期账单。',
+      '需要文件核验时安排 MVD office；只做 renewal / replacement 时再看是否符合线上资格。',
+    ],
+    actionLinks: [
+      {
+        label: 'New Mexico REAL ID',
+        url: 'https://realid.mvd.newmexico.gov/',
+        description: 'REAL ID 与 Standard license 区别、材料要求、FAQ 和 RIC 入口。',
+      },
+      {
+        label: 'REAL ID Acceptable Documents PDF',
+        url: 'https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf',
+        description: 'New Mexico REAL ID 可接受文件完整清单。',
+      },
+      {
+        label: 'MVD Licenses and IDs',
+        url: 'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/',
+        description: 'New Mexico 驾照、ID、renewal、address change 和 office 入口。',
+      },
+      {
+        label: 'Renew a Driving Credential',
+        url: 'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/renew-a-driving-credential/',
+        description: '驾照或 ID 续期路径。',
+      },
+      {
+        label: 'Change Your Address',
+        url: 'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/change-your-address/',
+        description: 'MVD 地址变更说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'New Mexico REAL ID',
+        url: 'https://realid.mvd.newmexico.gov/',
+      },
+      {
+        label: 'New Mexico REAL ID Acceptable Documents',
+        url: 'https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf',
+      },
+      {
+        label: 'New Mexico MVD Licenses and IDs',
+        url: 'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/',
+      },
+      {
+        label: 'New Mexico MVD Renewal',
+        url: 'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/renew-a-driving-credential/',
+      },
+      {
+        label: 'New Mexico MVD Address Change',
+        url: 'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/change-your-address/',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'document-checklist', 'name-change-chain'],
+  },
+  {
+    id: 'delaware',
+    abbr: 'DE',
+    nameEn: 'Delaware',
+    nameZh: '特拉华州',
+    agency: 'Delaware Division of Motor Vehicles',
+    agencyUrl: 'https://dmv.de.gov/DriverServices/drivers_license/index.shtml',
+    reviewedAt: '2026-07-09',
+    summary:
+      '特拉华州驾照、REAL ID、续期、外州转入和地址/姓名更新由 Delaware Division of Motor Vehicles 管理。Delaware DMV 页面把 REAL ID 称为 federally compliant driver license / ID card，并把材料、续期、搬入和线上服务分在不同入口。',
+    realIdSummary:
+      'Delaware federally compliant DL/ID 要证明 identity / lawful status、date of birth、Social Security number 和 Delaware residence。官方页面强调 existing holders 在 renewal 时也要做一次 original source documents revalidation；所有文件必须是 original 或 certified copy，普通复印件和 non-certified 文件不接受。',
+    licenseSummary:
+      'Delaware 要求成为 bona fide resident 后 60 天内取得 Delaware driver license。续期可在到期前 180 天内进行，可在 DMV facility 或 online 办理；续期时要交回旧 license、完成申请并通过 eye-screening，搬家或 REAL ID revalidation 时可能要补居住、SSN 或 legal presence 材料。',
+    appointmentNote:
+      '先用 REAL ID / SecureID 页面确认是否需要 compliant card，再看 renewal、transfer 或 address/name change 页面。地址变化后 30 天内要通知 DMV；姓名变化要先更新 Social Security 记录，并按 DMV 说明等待数据库同步后再去办公室。',
+    editorNotes: [
+      'Delaware 有 one-time revalidation 要求；老用户续期时也可能需要重新携带 original source documents。',
+      'Residency proofs 要来自 separate sources、显示 physical address，且 mail 通常要在 60 天内；这比只写“两份地址证明”更有用。',
+      'Name change 页面要求先改 SSA，并等待 48-72 小时；中文页需要把这一步放在 DMV 前面。',
+    ],
+    documentHighlights: [
+      '一份 proof of identity / legal presence，例如 certified U.S. birth certificate、有效 U.S. passport、Certificate of Naturalization 或合格移民文件。',
+      'Social Security number 证明，例如 SSN card、W-2、SSA-1099、1099、含完整 SSN 的 pay stub，或 SSA ineligibility letter。',
+      '两份 Delaware residency，来自不同来源，显示 physical address；P.O. Box 不适合作为主要居住地址。',
+      '姓名变化时带全部 marriage certificate、divorce decree 或 court order，且文件要能串起姓名变化链。',
+      '新居民转入时带外州 license 或 certified driving record，并准备 legal presence、SSN 和两份 Delaware residency。',
+    ],
+    commonMistakes: [
+      '以为已经有 Delaware license，REAL ID 续期时就不用再带原始身份文件。',
+      '带打印账单、普通复印件或没有邮戳/日期的地址材料。',
+      '姓名变化后直接去 DMV，没先更新 Social Security 记录。',
+      '搬到 Delaware 后超过 60 天才处理外州 license transfer。',
+    ],
+    recommendedSteps: [
+      '先看 SecureID / REAL ID 页面，决定要 federally compliant card 还是 non-compliant card。',
+      '按 identity/legal presence、SSN、two Delaware residency、name-change chain 四组准备原件或 certified copy。',
+      '如果是外州搬入，先看 New Resident Transfer License，确认 60 天要求和旧 license / driving record。',
+      '如果只是续期，先看 License Renewals，确认 online eligibility、eye-screening 和是否要 REAL ID revalidation。',
+      '地址或姓名变化先看 Other / Name & Address Change，尤其是 30 天地址通知和 SSA 先行规则。',
+    ],
+    actionLinks: [
+      {
+        label: 'Delaware SecureID / REAL ID',
+        url: 'https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml',
+        description: 'Federally compliant driver license / ID card 材料和 FAQ。',
+      },
+      {
+        label: 'Delaware General Requirements',
+        url: 'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req',
+        description: '驾照申请、身份、SSN、居住和合法身份基础要求。',
+      },
+      {
+        label: 'New Resident Transfer License',
+        url: 'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18',
+        description: '外州搬入 Delaware 后换证要求。',
+      },
+      {
+        label: 'Delaware License Renewals',
+        url: 'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals',
+        description: '续期、180 天窗口、eye-screening 和 online renewal 说明。',
+      },
+      {
+        label: 'Name and Address Change',
+        url: 'https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change',
+        description: '姓名变化、地址变化和 30 天通知说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Delaware SecureID / Federally Compliant DL/ID',
+        url: 'https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml',
+      },
+      {
+        label: 'Delaware General Requirements',
+        url: 'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req',
+      },
+      {
+        label: 'Delaware New Resident Transfer License',
+        url: 'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18',
+      },
+      {
+        label: 'Delaware License Renewals',
+        url: 'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals',
+      },
+      {
+        label: 'Delaware Name and Address Change',
+        url: 'https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'moving-to-new-state', 'name-change-chain'],
+  },
+  {
+    id: 'rhode-island',
+    abbr: 'RI',
+    nameEn: 'Rhode Island',
+    nameZh: '罗得岛州',
+    agency: 'Rhode Island Division of Motor Vehicles',
+    agencyUrl: 'https://dmv.ri.gov/licenses-permits-ids',
+    reviewedAt: '2026-07-09',
+    summary:
+      '罗得岛州驾照、REAL ID、续期、地址/姓名变化和外州转入由 Rhode Island DMV 管理。RI DMV 的实用入口是 REAL ID 页面、License Renewal、Out of State/Country Transfers、Name & Address Change，以及官方 Document Checklist PDF。',
+    realIdSummary:
+      'Rhode Island REAL ID 交易通常要 completed LI-1 form、one proof of identity、Social Security number / SSA ineligibility、two proofs of Rhode Island residency，并按交易类型补充 current license、out-of-state license 或姓名变化文件。官方 checklist 明确 P.O. Box 不接受作居住地址。',
+    licenseSummary:
+      'Rhode Island license 可在到期前最多 90 天续期，可 online、DMV branch、AAA branch 或 mail 等路径处理。外州转入时通常要带当前外州 license、两份 RI residency、SSN 信息；如果外州 license 不在手，需要 driving record 或 verification 加 identity document。',
+    appointmentNote:
+      '办理前优先查看 RI DMV 页面和 Document Checklist PDF；AAA 只承办部分会员交易，外州转入、姓名变化、州 ID 等复杂业务要确认是否必须到 DMV branch。',
+    editorNotes: [
+      'RI 的 LI-1 是关键动作词，页面需要提醒“不是只带材料，还要带表”。',
+      'Document Checklist 对 REAL ID / non-REAL ID、renewal、address change、out-of-state transfer 有不同格子，中文页避免写成所有交易同一套。',
+      'RI 官方页面自动检查 403，保留 accessStatus 和 USA.gov fallback，避免用户误以为链接硬坏。',
+    ],
+    accessStatus: {
+      label: '官方页需普通浏览器点验',
+      tone: 'watch',
+      note: 'Rhode Island DMV 官方页面和 PDF 在本环境自动检查中返回 403。本站保留官方链接；如果你也打不开，请从 USA.gov 州机动车服务目录进入 Rhode Island DMV。',
+      fallbackLabel: 'USA.gov 州机动车服务目录',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      'Completed LI-1 form；REAL ID license / ID 交易通常都要带。',
+      '一份 proof of identity，常见例子包括有效 U.S. passport 或 certified birth certificate。',
+      'Social Security number 写在 LI-1 上，或带 SSA 出具的不符合取得 SSN 的证明。',
+      '两份 Rhode Island residency，P.O. Box 不接受；utility bill、bank statement、payroll check 等通常要注意 60 天内日期。',
+      '外州转入带当前 out-of-state license；没有旧证时准备 driving record 或 verification 和 identity document。',
+    ],
+    commonMistakes: [
+      '只看 REAL ID 页面，没下载或填写 LI-1 表。',
+      '地址证明使用 P.O. Box，或账单日期太旧。',
+      '外州 license 已遗失，却没有提前准备 driving record / verification。',
+      '把 AAA 分支当成所有 RI DMV 交易都能办的入口。',
+    ],
+    recommendedSteps: [
+      '先打开 RI REAL ID 页面，确认你要 REAL ID 还是 non-REAL ID credential。',
+      '下载 Document Checklist 和 LI-1，按交易类型框选所需材料。',
+      '把 identity、SSN、two residency 和姓名变化文件分成四组，日期和 P.O. Box 要特别检查。',
+      '续期先看 License Renewal，确认是否能 online / mail / AAA，或是否需要 DMV branch。',
+      '外州转入先看 Out of State/Country Transfers，确认旧 license、driving record 和居住证明。',
+    ],
+    actionLinks: [
+      {
+        label: 'Rhode Island REAL ID',
+        url: 'https://dmv.ri.gov/licenses-permits-ids/real-id',
+        description: 'RI REAL ID 用途、材料和办理入口。',
+      },
+      {
+        label: 'RI Document Checklist PDF',
+        url: 'https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf',
+        description: 'REAL ID / non-REAL ID、续期、地址变化和转入材料表。',
+      },
+      {
+        label: 'RI License Renewal',
+        url: 'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal',
+        description: '续期窗口和 online / branch / mail 路径。',
+      },
+      {
+        label: 'Out of State/Country Transfers',
+        url: 'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers',
+        description: '外州或境外 license 转入 Rhode Island 的要求。',
+      },
+      {
+        label: 'Name & Address Change',
+        url: 'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/name-address-change',
+        description: '驾照/ID 姓名和地址变更说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'RI DMV REAL ID',
+        url: 'https://dmv.ri.gov/licenses-permits-ids/real-id',
+      },
+      {
+        label: 'RI DMV Document Checklist',
+        url: 'https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf',
+      },
+      {
+        label: 'RI DMV License Renewal',
+        url: 'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal',
+      },
+      {
+        label: 'RI DMV Out of State/Country Transfers',
+        url: 'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers',
+      },
+      {
+        label: 'RI DMV Name & Address Change',
+        url: 'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/name-address-change',
+      },
+    ],
+    relatedTopicSlugs: ['document-checklist', 'moving-to-new-state', 'renewal-replacement-address'],
+  },
+  {
+    id: 'new-hampshire',
+    abbr: 'NH',
+    nameEn: 'New Hampshire',
+    nameZh: '新罕布什尔州',
+    agency: 'New Hampshire Division of Motor Vehicles',
+    agencyUrl: 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids',
+    reviewedAt: '2026-07-09',
+    summary:
+      '新罕布什尔州驾照、REAL ID、续期、外州转入和个人信息更新由 New Hampshire Division of Motor Vehicles 管理。NH DMV 的核心入口是 REAL ID、required documents、renewal、transfer from another state、update personal information 和 online renewals。',
+    realIdSummary:
+      'New Hampshire REAL ID 要用官方 required documents 清单证明 identity、Social Security number 和 New Hampshire residency。官方页面强调 proof of identity 文件上的姓名要与当前姓名匹配；如果出生证或护照姓名不同，需要能连接姓名变化的文件。',
+    licenseSummary:
+      '搬入 New Hampshire 后，官方 transfer 页面说明需要在建立 residency 后 60 天内取得 New Hampshire driver license。续期可在符合条件时 online，但要以 renewal notice / RIN 和 NH DMV online renewals 页面为准。',
+    appointmentNote:
+      'REAL ID upgrade 通常要到 NH DMV 并带 proof of identity、proof of residency 和相应费用；地址变化按州说明应在 30 天内通知 DMV。',
+    editorNotes: [
+      'NH 的两个时间点很适合前置：新居民 60 天换证，地址变化 30 天通知。',
+      'REAL ID 页面强调 name matching 和 required documents PDF，中文页要引导用户先核对姓名链条。',
+      '所有 NH 官方深层链接自动检查 403，必须保留 accessStatus，使用前建议普通浏览器点验一次。',
+    ],
+    accessStatus: {
+      label: '官方页需普通浏览器点验',
+      tone: 'watch',
+      note: 'New Hampshire DMV 官方深层页面在本环境自动检查中返回 403。本站保留官方链接；如果你也打不开，请从 USA.gov 州机动车服务目录进入 New Hampshire DMV。',
+      fallbackLabel: 'USA.gov 州机动车服务目录',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      'Proof of identity，例如 birth certificate、passport 或 NH DMV REAL ID required documents list 中列出的身份文件。',
+      'Proof of Social Security number，按 REAL ID required documents 清单准备。',
+      'Proof of New Hampshire residency；REAL ID 和 transfer 场景都要按官方清单确认。',
+      '姓名变化文件：如果 birth certificate 或 passport 与当前姓名不一致，需要连接姓名变化的法律文件。',
+      '外州转入时带现有外州 license / non-driver ID，并按 transfer 页面准备 identity 和 NH residency。',
+    ],
+    commonMistakes: [
+      '搬入 New Hampshire 后没有在 60 天内处理换证。',
+      '只看 REAL ID 介绍，没下载或核对 required documents PDF。',
+      '出生证、护照、SSN 文件姓名不一致，却没有带 name change chain。',
+      '收到 renewal notice 后直接线上续期，没确认 RIN、资格和是否需要现场办理。',
+    ],
+    recommendedSteps: [
+      '先看 NH REAL ID 页面和 Required Documents REAL ID compliant PDF，确认 identity、SSN、residency 三组材料。',
+      '如果刚搬来，优先看 Transfer License From Another State，按 60 天规则安排 DMV。',
+      '姓名不一致时先整理 marriage、divorce、court order 等连接文件。',
+      '续期先看 Renew Driver License / Non Driver ID 和 Online Renewals，确认是否有 RIN、是否符合线上资格。',
+      '地址变化先看 Update Personal Information，按 30 天通知要求处理。',
+    ],
+    actionLinks: [
+      {
+        label: 'NH REAL ID',
+        url: 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/real-id',
+        description: 'REAL ID 说明、required documents 和升级入口。',
+      },
+      {
+        label: 'NH Required Documents',
+        url: 'https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf',
+        description: 'REAL ID compliant identity and residency requirements PDF。',
+      },
+      {
+        label: 'Renew Driver License / Non Driver ID',
+        url: 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/renew-driver-licensenon-driver-id',
+        description: '驾照或 non-driver ID 续期说明。',
+      },
+      {
+        label: 'Transfer License From Another State',
+        url: 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/transfer-license-another-state',
+        description: '外州搬入 New Hampshire 后换证说明。',
+      },
+      {
+        label: 'Update Personal Information',
+        url: 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/update-personal-information',
+        description: '地址或个人信息变化说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'NH DMV REAL ID',
+        url: 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/real-id',
+      },
+      {
+        label: 'NH DMV REAL ID Required Documents PDF',
+        url: 'https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf',
+      },
+      {
+        label: 'NH DMV Renewal',
+        url: 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/renew-driver-licensenon-driver-id',
+      },
+      {
+        label: 'NH DMV Transfer License From Another State',
+        url: 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/transfer-license-another-state',
+      },
+      {
+        label: 'NH DMV Update Personal Information',
+        url: 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/update-personal-information',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'moving-to-new-state', 'name-change-chain'],
+  },
+  {
+    id: 'maine',
+    abbr: 'ME',
+    nameEn: 'Maine',
+    nameZh: '缅因州',
+    agency: 'Maine Bureau of Motor Vehicles',
+    agencyUrl: 'https://www.maine.gov/sos/bmv',
+    reviewedAt: '2026-07-09',
+    summary:
+      '缅因州驾照、REAL ID、续期、补证和地址/姓名更新由 Maine Bureau of Motor Vehicles 管理。BMV 官网现在把 REAL ID、branch appointment、online renewal / replacement 和 online REAL ID renewal 放在同一组高频入口里。',
+    realIdSummary:
+      'Maine REAL ID 初次申请必须到 BMV branch office 或 mobile unit。需要一份 identity / date of birth / lawful status 文件、Social Security Number 或不符合 SSN 资格证明、两份 Maine residence；P.O. Box 不接受。文件必须是 original 或 issuing agency certified。',
+    licenseSummary:
+      'Maine online renewal / replacement 可用于部分 active non-commercial license、motorcycle license、motor driven cycle restricted license 或 Maine ID。已有 REAL ID 的用户在满足 U.S. citizen、non-commercial、无需 vision screening、不改资料、照片符合 federal guidelines 等条件时，可能可以在线 renewal / duplicate。',
+    appointmentNote:
+      '初次 REAL ID 仍要去 BMV branch 或 mobile unit。线上服务不能改 license / ID 当前信息；如果要改地址、姓名或其他资料，BMV online renewal 页面要求联系 207-624-9000 x 52114 或去 office。',
+    editorNotes: [
+      'Maine 2025 后的变化很重要：已有 REAL ID 的部分用户可以 online renewal，但初次 REAL ID 仍是现场。',
+      'Maine REAL ID FAQ 明确 SSN card 不必带，但要能提供号码，这和 Arkansas 等州不同。',
+      'Online renewal 页面把不能线上处理的情形列得很清楚，中文页要帮助用户先排除 name change、vision、non-citizen、out-of-state license 等情况。',
+    ],
+    documentHighlights: [
+      '一份 identity、date of birth 和 lawful status 文件，例如 birth certificate、passport 或合格移民文件。',
+      'Social Security Number；REAL ID FAQ 说明不需要带 Social Security Card，但要能提供号码。',
+      '两份 Maine residence，P.O. Box 不接受。',
+      '姓名变化时提供 marriage license、divorce decree 或 court order，并显示从身份文件姓名到当前姓名的 clear trail。',
+      '线上续期时准备 SSN、信用卡和打印条件；如系统提示缺 legal presence 或 Maine residence，要按 BMV 指示电话或去 office。',
+    ],
+    commonMistakes: [
+      '第一次申请 Maine REAL ID 时尝试完全在线办理。',
+      '已有 REAL ID 但同时要改地址或姓名，却仍然尝试 online renewal。',
+      '以为必须带实体 SSN card，忽略 BMV 只要求能提供号码。',
+      '用 P.O. Box 当作 Maine residential address。',
+    ],
+    recommendedSteps: [
+      '先看 Maine REAL ID FAQ，决定是初次 REAL ID、已有 REAL ID 续期，还是 non-REAL ID 普通续期。',
+      '初次 REAL ID 按 identity/lawful status、SSN、two Maine residence、name-change chain 准备 original 或 certified documents。',
+      '已有 REAL ID 续期先看 online renewal 页面，逐项排除 vision screening、data change、non-citizen、CDL 等不符合线上条件。',
+      '需要改地址、姓名或其他资料时，先联系 BMV 或安排 branch office，不要直接提交线上续期。',
+      '有旅行需求时仍准备护照等 TSA 接受证件作为备选。',
+    ],
+    actionLinks: [
+      {
+        label: 'Maine REAL ID',
+        url: 'https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id',
+        description: 'REAL ID FAQ、材料、branch office 和 online renewal 更新说明。',
+      },
+      {
+        label: 'Maine BMV Home',
+        url: 'https://www.maine.gov/sos/bmv',
+        description: 'BMV 总入口、online services、appointments 和 branch office 入口。',
+      },
+      {
+        label: 'Maine Online Renewal / Replacement',
+        url: 'https://apps1.web.maine.gov/online/bmv/dlr_v2/',
+        description: '驾照、ID 和符合条件的 REAL ID renewal / duplicate online service。',
+      },
+      {
+        label: 'Online Renewal FAQ',
+        url: 'https://www.maine.gov/online/bmv/dlr/faq.html',
+        description: '线上续期资格、vision screening、地址变化和邮寄时间说明。',
+      },
+      {
+        label: 'BMV Appointment System',
+        url: 'https://mainebmvappt.cxmflow.com/',
+        description: 'BMV branch office 预约入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Maine BMV REAL ID',
+        url: 'https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id',
+      },
+      {
+        label: 'Maine BMV Home',
+        url: 'https://www.maine.gov/sos/bmv',
+      },
+      {
+        label: 'Maine Online Renewal / Replacement',
+        url: 'https://apps1.web.maine.gov/online/bmv/dlr_v2/',
+      },
+      {
+        label: 'Maine Online Renewal FAQ',
+        url: 'https://www.maine.gov/online/bmv/dlr/faq.html',
+      },
+      {
+        label: 'Maine BMV Appointment System',
+        url: 'https://mainebmvappt.cxmflow.com/',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'renewal-replacement-address', 'proof-of-residency'],
+  },
+  {
+    id: 'hawaii',
+    abbr: 'HI',
+    nameEn: 'Hawaii',
+    nameZh: '夏威夷州',
+    agency: 'Hawaii Department of Transportation / County DMV Offices',
+    agencyUrl: 'https://hidot.hawaii.gov/driverslicense/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '夏威夷州的 driver license / state ID 规则由 Hawaii DOT 提供州级说明，但实际办理由各县 Driver Licensing / DMV office 处理。Oahu 用户看 Honolulu Department of Customer Services，其他岛屿也要回到本县办公室确认预约和材料。',
+    realIdSummary:
+      'Hawaii REAL ID compliant credential 通常带 star。初次申请或材料未在档时，要证明 legal presence、legal name、date of birth、Social Security number 和 Hawaii principal residence address。Hawaii 官方 PDF 说明材料必须是 valid originals 或 certified copies；notarized copies 或 faxes 不接受。',
+    licenseSummary:
+      'Hawaii 有一个很容易办错的规则：Federal and state law 只允许持有一张 REAL ID-compliant card，driver license 和 state ID 不能同时都作为 REAL ID。临时卡或办理时给的 document 也不能用于 federal purposes 或旅行，Honolulu 页面提醒永久塑料卡可能需要 6-8 周寄达。',
+    appointmentNote:
+      '先从 HIDOT driver license 页面确认州级 documentary proof，再进入所在县预约或 office 页面。Honolulu 页面说明 REAL ID driver license 不能首次 online 申请；如果只申请带星标 duplicate，且信息已在档，Oahu 用户可能有 online duplicate 路径。',
+    editorNotes: [
+      'Hawaii 页面要明确“州级规则 + 县级办理”，否则用户会误以为 HIDOT 就是统一柜台。',
+      'Hawaii 一人只能持有一个 REAL ID compliant credential，是 driver license 和 state ID 切换时的高风险点。',
+      'SSN documentation 在 Hawaii 文档中标注 optional since 2021，但初次申请仍把 SSN category 纳入核验框架，文案要谨慎写成“号码/类别核验”而不是人人必须带卡。',
+    ],
+    accessStatus: {
+      label: '县级页面状态不一',
+      tone: 'watch',
+      note: 'Hawaii DOT 与 Honolulu 官方页面可访问；部分县级 DMV 页面在自动检查中可能返回 403。请从 HIDOT county contacts 或本县官方预约系统进入最终办理页面。',
+      fallbackLabel: 'HIDOT Driver License',
+      fallbackUrl: 'https://hidot.hawaii.gov/driverslicense/',
+    },
+    documentHighlights: [
+      'Legal presence、legal name、date of birth 文件，例如 U.S. birth certificate、U.S. passport、Permanent Resident Card 或合格移民文件。',
+      'Social Security number 类别文件；Hawaii 官方材料说明 SSN documentation optional since June 18, 2021，但仍应按县办公室要求准备号码或证明。',
+      '两份 Hawaii principal residence address，来自不同 entities 或 accounts，并显示申请人 full first and last name。',
+      '姓名不一致时准备 connecting documents，例如 marriage certificate、court order、divorce 或 Hawaii Lieutenant Governor name change decree。',
+      '如果 mailing address 和 physical address 不同，部分县 renewal 页面要求分别提供 mailing 和 physical address 文件。',
+    ],
+    commonMistakes: [
+      '以为可以同时持有 REAL ID driver license 和 REAL ID state ID。',
+      '拿 temporary card 去机场或联邦设施。',
+      '把 notarized copy、fax、普通复印件当作 certified copy。',
+      '只看 Honolulu 页面，却住在其他县，没有回到本县 DMV office 确认预约和地址材料。',
+    ],
+    recommendedSteps: [
+      '先确认你要把 driver license 还是 state ID 作为唯一 REAL ID compliant credential。',
+      '打开 HIDOT driver license 页面和 acceptable documents PDF，按五类材料核对。',
+      '进入所在县 DMV / Driver Licensing office 页面，确认预约、office、支付方式和是否接受 online duplicate。',
+      '如果姓名或身份状态有变化，先整理 connecting documents；非永久身份用户续期通常要现场证明 continued legal presence。',
+      '有出行计划时预留永久卡邮寄时间，并准备 passport 等 TSA 接受证件作为备用。',
+    ],
+    actionLinks: [
+      {
+        label: 'HIDOT Driver License',
+        url: 'https://hidot.hawaii.gov/driverslicense/',
+        description: 'Hawaii driver license 州级 documentary proof FAQ 和县级联系入口。',
+      },
+      {
+        label: 'Honolulu REAL ID',
+        url: 'https://www.honolulu.gov/csd/real-id/',
+        description: 'Oahu REAL ID、one compliant card、temporary card 和办理地点说明。',
+      },
+      {
+        label: 'Hawaii Acceptable Documents PDF',
+        url: 'https://hidot.hawaii.gov/highways/files/2023/07/Acceptable-Documents-for-a-REAL-ID-Compliant-Star-DL-SID-Print-Button-2023-07-18-3.pdf',
+        description: 'Hawaii REAL ID compliant driver license / state ID 可接受文件清单。',
+      },
+      {
+        label: 'Honolulu Driver License',
+        url: 'https://www.honolulu.gov/csd/dllicense/',
+        description: 'Oahu driver license 服务入口。',
+      },
+      {
+        label: 'Honolulu Driver Licensing Centers',
+        url: 'https://www.honolulu.gov/csd/driver-licensing-centers/',
+        description: 'Oahu driver licensing center 列表。',
+      },
+    ],
+    sources: [
+      {
+        label: 'HIDOT Driver License',
+        url: 'https://hidot.hawaii.gov/driverslicense/',
+      },
+      {
+        label: 'Honolulu REAL ID',
+        url: 'https://www.honolulu.gov/csd/real-id/',
+      },
+      {
+        label: 'Hawaii Acceptable Documents PDF',
+        url: 'https://hidot.hawaii.gov/highways/files/2023/07/Acceptable-Documents-for-a-REAL-ID-Compliant-Star-DL-SID-Print-Button-2023-07-18-3.pdf',
+      },
+      {
+        label: 'Honolulu Driver License',
+        url: 'https://www.honolulu.gov/csd/dllicense/',
+      },
+      {
+        label: 'Honolulu Driver Licensing Centers',
+        url: 'https://www.honolulu.gov/csd/driver-licensing-centers/',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'document-checklist', 'proof-of-residency'],
+  },
+  {
+    id: 'alaska',
+    abbr: 'AK',
+    nameEn: 'Alaska',
+    nameZh: '阿拉斯加州',
+    agency: 'Alaska Division of Motor Vehicles',
+    agencyUrl: 'https://dmv.alaska.gov/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '阿拉斯加州驾照、REAL ID、续期、补证和身份信息变化由 Alaska DMV 处理。最实用的入口是 REAL ID Update、REAL ID Checklist、Credential Services、Changing Identification Details 和 Online DMV。',
+    realIdSummary:
+      'Alaska REAL ID 需要 proof of U.S. citizenship / permanent residency / lawful status、适用时的 name change documents、两份 Alaska residency、Social Security Number；没有 SSN 时要 SSA ineligibility letter。',
+    licenseSummary:
+      '普通续期、补证和地址更新很多可以从 Online DMV 开始，但 REAL ID 材料核验、姓名变化、法定身份变化和多次姓名变化链条通常要按 DMV 页面准备原件或 certified copy。',
+    appointmentNote:
+      'Alaska DMV 对姓名和地址变化有 30 天通知要求。Changing Identification Details 页面明确 name-change 文件必须是 original certified copy，photocopies 和 fax copies 不接受。',
+    editorNotes: [
+      'Alaska 的 REAL ID 页面把 SSN 和 SSA ineligibility letter 分开写，适合提醒没有 SSN 的非公民用户不要空着不处理。',
+      'Changing Identification Details 页面明确 30 天 name/address change notification，是中文页的高价值提醒。',
+      'Alaska 有在线 REAL ID checklist，页面要引导用户先生成材料路径，再决定是否去办公室。',
+    ],
+    documentHighlights: [
+      'Proof of U.S. citizenship、permanent residency 或 lawful status。',
+      'Social Security Number；没有 SSN 时提供 Social Security Administration 的 ineligibility letter。',
+      '两份 Alaska residency 文件。',
+      '姓名变化时提供 marriage certificate、divorce decree、court order、naturalization certificate 等 original certified copy。',
+      '地址或身份信息变化时准备 Form D1，并确认是否需要 vision test 或 replacement credential fee。',
+    ],
+    commonMistakes: [
+      '以为 Online DMV 能完成首次 REAL ID 材料核验。',
+      '姓名变化带普通复印件或传真件。',
+      '搬家或改名超过 30 天才通知 DMV。',
+      '没有 SSN 时没准备 SSA ineligibility letter。',
+    ],
+    recommendedSteps: [
+      '先用 Alaska REAL ID Checklist 判断材料组合。',
+      '按 lawful status、SSN、two Alaska residency、name change 四组整理原件或 certified copy。',
+      '普通续期或补证先看 Online DMV，确认能否线上处理。',
+      '姓名、地址、SSN、出生日期或性别等信息变化时看 Changing Identification Details。',
+      '需要现场办理时再用 DMV locations / appointment 入口安排时间。',
+    ],
+    actionLinks: [
+      {
+        label: 'Alaska REAL ID Update',
+        url: 'https://dmv.alaska.gov/credential-services/realidupdate/',
+        description: 'Alaska REAL ID 材料类别和官方更新说明。',
+      },
+      {
+        label: 'Alaska REAL ID Checklist',
+        url: 'https://online.dmv.alaska.gov/REALIdChecklist',
+        description: '互动 REAL ID 材料清单入口。',
+      },
+      {
+        label: 'Credential Services',
+        url: 'https://dmv.alaska.gov/credential-services/credential-services/',
+        description: '驾照、ID、续期、补证和 REAL ID 服务总入口。',
+      },
+      {
+        label: 'Changing Identification Details',
+        url: 'https://dmv.alaska.gov/credential-services/changing-identification-details/',
+        description: '姓名、地址、SSN、出生日期和性别等信息变化说明。',
+      },
+      {
+        label: 'Alaska Online DMV',
+        url: 'https://online.dmv.alaska.gov/',
+        description: '线上地址变化、续期、补证和 DMV 服务入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Alaska DMV REAL ID Update',
+        url: 'https://dmv.alaska.gov/credential-services/realidupdate/',
+      },
+      {
+        label: 'Alaska DMV REAL ID Checklist',
+        url: 'https://online.dmv.alaska.gov/REALIdChecklist',
+      },
+      {
+        label: 'Alaska DMV Credential Services',
+        url: 'https://dmv.alaska.gov/credential-services/credential-services/',
+      },
+      {
+        label: 'Alaska DMV Changing Identification Details',
+        url: 'https://dmv.alaska.gov/credential-services/changing-identification-details/',
+      },
+      {
+        label: 'Alaska Online DMV',
+        url: 'https://online.dmv.alaska.gov/',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'name-change-chain', 'renewal-replacement-address'],
+  },
+  {
+    id: 'idaho',
+    abbr: 'ID',
+    nameEn: 'Idaho',
+    nameZh: '爱达荷州',
+    agency: 'Idaho Transportation Department',
+    agencyUrl: 'https://itd.idaho.gov/itddmv/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '爱达荷州把 REAL ID compliant credential 称为 Star Card，由 Idaho Transportation Department / county driver license offices 处理。Star Card、acceptable documents、Add the Star tool 和 Idaho DMV portal 是核心入口。',
+    realIdSummary:
+      'Idaho Star Card 需要证明 identity、Social Security number 和 Idaho residency。官方说明强调 out-of-state license 即使带 REAL ID 标记，也不能单独用来证明 identity；它只能作为 photo identity document，还要补 identity、SSN 和 residency 文件。',
+    licenseSummary:
+      '申请 Star Card 比普通 license / ID 要多材料。两份 Idaho residency 文件必须显示 current physical address，P.O. Box 不接受，通常要在一年内、来自不同来源；originals 或 printed e-documents 可用，fax 不接受。',
+    appointmentNote:
+      'Idaho 驾照和 Star Card 通常由 county driver license office 办理；到场前先确认县办公室地点、预约方式和本次业务所需材料。',
+    editorNotes: [
+      'Idaho 的州内名称是 Star Card，中文页应同时写 Star Card 和 REAL ID，方便用户对照官方站。',
+      'Out-of-state REAL ID 不能单独证明 identity，是搬州用户最容易误判的点。',
+      'Residency docs 要 current legal name、within one year、physical address、different sources，页面要比泛泛“两份地址证明”更具体。',
+    ],
+    accessStatus: {
+      label: '官方页自动检查超时',
+      tone: 'watch',
+      note: 'Idaho ITD / DMV 官方页面在本环境自动链接检查中超时。本站保留官方链接；如果你也打不开，请从 USA.gov 州机动车服务目录或县级 driver license office 进入。',
+      fallbackLabel: 'USA.gov 州机动车服务目录',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      'Identity 文件，例如 birth certificate、passport 或 ITD Star Card 清单接受的身份文件。',
+      'Social Security number 证明，例如 Social Security card、W-2、1099 或含完整 SSN 的 paystub。',
+      '两份 Idaho residency，显示 current physical address，P.O. Box 不接受。',
+      '居住证明要在 current legal name 下、通常在一年内、来自不同来源；fax 不接受。',
+      '外州搬入时带 out-of-state license，但不要把它当作唯一 identity proof。',
+    ],
+    commonMistakes: [
+      '以为外州 REAL ID license 可以直接换 Idaho Star Card，不用再带 birth certificate 或 passport。',
+      '两份地址证明来自同一来源，或只显示 P.O. Box。',
+      '带 fax 文件或截图文件。',
+      '只准备普通 Idaho license 材料，没看 Star Card 的额外要求。',
+    ],
+    recommendedSteps: [
+      '先打开 Idaho Star Card 页面，确认是否需要带星卡或用护照替代。',
+      '用 Acceptable Documents / Add the Star Tool 核对 identity、SSN、two residency。',
+      '搬州用户特别检查 out-of-state license 只能作为 photo identity document 的限制。',
+      '把 residency 文件按来源分开，并确认姓名、地址和日期。',
+      '最后从 Idaho DMV portal 或 county office 选择办理地点。',
+    ],
+    actionLinks: [
+      {
+        label: 'Idaho Star Card',
+        url: 'https://itd.idaho.gov/starcard/',
+        description: 'Idaho REAL ID / Star Card 总入口。',
+      },
+      {
+        label: 'Star Card Acceptable Documents',
+        url: 'https://itd.idaho.gov/starcard/star-card-acceptable-documents/',
+        description: 'Star Card 可接受 identity、SSN 和 Idaho residency 文件。',
+      },
+      {
+        label: 'Add the Star Tool',
+        url: 'https://itd.idaho.gov/starcard/add-the-star-tool/',
+        description: '按个人情况核对 Star Card 材料。',
+      },
+      {
+        label: 'Idaho DMV',
+        url: 'https://dmv.idaho.gov/',
+        description: 'Idaho DMV 线上服务和 county office 入口。',
+      },
+      {
+        label: 'ITD DMV',
+        url: 'https://itd.idaho.gov/itddmv/',
+        description: 'Idaho Transportation Department DMV 服务入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Idaho ITD Star Card',
+        url: 'https://itd.idaho.gov/starcard/',
+      },
+      {
+        label: 'Idaho Star Card Acceptable Documents',
+        url: 'https://itd.idaho.gov/starcard/star-card-acceptable-documents/',
+      },
+      {
+        label: 'Idaho Add the Star Tool',
+        url: 'https://itd.idaho.gov/starcard/add-the-star-tool/',
+      },
+      {
+        label: 'Idaho DMV',
+        url: 'https://dmv.idaho.gov/',
+      },
+      {
+        label: 'ITD DMV',
+        url: 'https://itd.idaho.gov/itddmv/',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'document-checklist', 'moving-to-new-state'],
+  },
+  {
+    id: 'mississippi',
+    abbr: 'MS',
+    nameEn: 'Mississippi',
+    nameZh: '密西西比州',
+    agency: 'Mississippi Driver Service Bureau',
+    agencyUrl: 'https://www.driverservicebureau.dps.ms.gov/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '密西西比州驾照、REAL ID、续期、ID card、非公民身份和地址/姓名材料由 Driver Service Bureau 处理。DSB 首页、Required Documents、Renew Driver License / ID、Identification Cards 和 Non-U.S. Citizen 页面是核心入口。',
+    realIdSummary:
+      'Mississippi REAL ID / compliant license 的高频材料是 original birth certificate 或其他 acceptable identity document、SSN card 或显示完整 9 位 SSN 的官方文件、两份 Mississippi residency，以及姓名变化法律文件。',
+    licenseSummary:
+      '续期时，如果 license / ID 过期未超过 60 个月，官方 renewal 页面说明通常不要求文件；超过 60 个月则要重新带 birth certificate、SSN 和两份 residency，且 driver license 还要重新参加 knowledge exam。',
+    appointmentNote:
+      'Driver Service Bureau 强烈建议预约。Mississippi residency 文件必须显示申请人姓名和 Mississippi residence address；P.O. Box、不请自来的 junk mail、信封、手写文件/信件不接受。',
+    editorNotes: [
+      'Mississippi 的 60 months renewal rule 很具体，页面要避免只写“续期带材料”。',
+      'Residency 页面明确 no P.O. boxes、no junk mail、no envelopes、no handwritten letters，是防止白跑的重点。',
+      'SSN 要 SSN card 或官方 correspondence 显示 full 9 digits，不能只写“提供 SSN”。',
+    ],
+    documentHighlights: [
+      'Original Birth Certificate 或其他 acceptable identity document；DSB 页面明确 No Photocopies Accepted。',
+      'SSN Card 或官方政府 correspondence，显示完整 9 位 SSN。',
+      '两份 Mississippi residency，显示本人姓名和 Mississippi residence address。',
+      '姓名变化时带 marriage license、divorce decree、adoption order 或 court order。',
+      '非美国公民还要带 I-94、valid visa、resident alien card 等 official immigration papers（如适用）。',
+    ],
+    commonMistakes: [
+      '地址证明用 P.O. Box、信封、junk mail 或手写信。',
+      'license 过期超过 60 个月还按普通续期准备。',
+      'SSN 文件只显示后四位。',
+      '姓名变化只带普通复印件或非法律文件。',
+    ],
+    recommendedSteps: [
+      '先看 Required Documents，把 identity、SSN、two residency、name change 分组。',
+      '续期先看 Renew Driver License / ID，确认是否超过 60 个月。',
+      '需要 ID card 或非公民 credential 时分别看 Identification Cards 或 Non-U.S. Citizen 页面。',
+      '地址证明逐项排除 P.O. Box、junk mail、envelopes 和 handwritten documents。',
+      '最后从 DSB 首页预约或选择 Driver Service location。',
+    ],
+    actionLinks: [
+      {
+        label: 'Mississippi Driver Service Bureau',
+        url: 'https://www.driverservicebureau.dps.ms.gov/',
+        description: '预约、线上续期、地点和 Driver Service 总入口。',
+      },
+      {
+        label: 'Required Documents',
+        url: 'https://www.driverservicebureau.dps.ms.gov/node/303',
+        description: 'Mississippi residency、姓名变化和材料要求。',
+      },
+      {
+        label: 'Renew Driver License / ID',
+        url: 'https://www.driverservicebureau.dps.ms.gov/node/298',
+        description: '续期材料、60 个月过期规则和预约提醒。',
+      },
+      {
+        label: 'Identification Cards',
+        url: 'https://www.driverservicebureau.dps.ms.gov/Drivers/Identification_Cards',
+        description: 'State ID 申请材料。',
+      },
+      {
+        label: 'Non-U.S. Citizen Information',
+        url: 'https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen',
+        description: '非美国公民驾照/ID 材料。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Mississippi Driver Service Bureau',
+        url: 'https://www.driverservicebureau.dps.ms.gov/',
+      },
+      {
+        label: 'Mississippi Required Documents',
+        url: 'https://www.driverservicebureau.dps.ms.gov/node/303',
+      },
+      {
+        label: 'Mississippi Renew Driver License / ID',
+        url: 'https://www.driverservicebureau.dps.ms.gov/node/298',
+      },
+      {
+        label: 'Mississippi Identification Cards',
+        url: 'https://www.driverservicebureau.dps.ms.gov/Drivers/Identification_Cards',
+      },
+      {
+        label: 'Mississippi Non-U.S. Citizen Information',
+        url: 'https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen',
+      },
+    ],
+    relatedTopicSlugs: ['document-checklist', 'renewal-replacement-address', 'name-change-chain'],
+  },
+  {
+    id: 'montana',
+    abbr: 'MT',
+    nameEn: 'Montana',
+    nameZh: '蒙大拿州',
+    agency: 'Montana Motor Vehicle Division',
+    agencyUrl: 'https://mvdmt.gov/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '蒙大拿州驾照、REAL ID、续期、补证、地址变化和新居民换证由 Montana Motor Vehicle Division 管理。MVD 官方入口包括 REAL ID、Required Documents、Renew License / ID、Address Change 和 Drivers New to Montana。',
+    realIdSummary:
+      'Montana REAL ID 要证明 name/date of birth/authorized presence、Montana residency 和适用时的 name change。官方 REAL ID 页面和 checklist 要求两份 Montana residency；P.O. Box 不接受，文件要显示 physical address。',
+    licenseSummary:
+      'Montana 支持部分 online renewal，但要满足资格，例如 U.S. citizen、处于 renewal timeframe 等。地址变化可提交 Change of Driver License Address - Electronic Record 表更新 MVD 记录；如要新卡显示新地址，则要办理 replacement 或 renewal。',
+    appointmentNote:
+      'Montana REAL ID 和首次文件核验通常需要现场办理；续期、补证和地址变化则先查看 online eligibility、预约系统和具体办公室服务。',
+    editorNotes: [
+      'Montana 2026 REAL ID checklist 是当前来源；链接审计 403 但搜索索引能确认内容，应标 watch 而非删除。',
+      'Address change record update 与重新制卡是两件事，中文页要分开解释。',
+      'MVD Express 是第三方承办/便利服务，本站应优先引用 mvdmt.gov 官方来源。',
+    ],
+    accessStatus: {
+      label: '官方页自动检查 403',
+      tone: 'watch',
+      note: 'Montana MVD 官方页面在本环境自动检查中返回 403。本站保留官方链接；如果你也打不开，请从 USA.gov 州机动车服务目录或 Montana DOJ / MVD 官方入口重新进入。',
+      fallbackLabel: 'USA.gov 州机动车服务目录',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      '一份证明 name、date of birth 和 authorized presence 的文件，例如 certified birth certificate、valid passport、certificate of citizenship 或 naturalization。',
+      '两份 Montana residency，显示本人姓名和 physical address；P.O. Box 不接受。',
+      '姓名变化时每次变化都准备 certified marriage、divorce、court order 或等效法律文件。',
+      '续期或补证前确认是否符合 online renewal / replacement 条件。',
+      '地址变化可先更新 MVD electronic record；想让新地址印在卡面上还要申请新 credential。',
+    ],
+    commonMistakes: [
+      '把 P.O. Box 当作 Montana residency。',
+      '用第三方 MVD Express 页面替代州官方要求。',
+      '只更新地址记录，却以为卡面地址也会自动变。',
+      'online renewal 前没确认自己是否在 renewal timeframe 或是否符合 U.S. citizen 等资格。',
+    ],
+    recommendedSteps: [
+      '先看 Montana REAL ID 页面和 2026 checklist，确认材料类别。',
+      '按 authorized presence、two Montana residency、name change 三组准备文件。',
+      '续期先看 Renew License / ID，确认 online、mail 或 in-person 路径。',
+      '新居民先看 Drivers New to Montana，确认 vision/health evaluation 和外州 license 转入。',
+      '地址变化先看 Address Change 页面，决定只更新记录还是申请新卡。',
+    ],
+    actionLinks: [
+      {
+        label: 'Montana REAL ID',
+        url: 'https://mvdmt.gov/real-id/',
+        description: 'Montana REAL ID 用途、材料和办理入口。',
+      },
+      {
+        label: 'Montana REAL ID Checklist PDF',
+        url: 'https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf',
+        description: '2026 Montana REAL ID checklist。',
+      },
+      {
+        label: 'Required Documents',
+        url: 'https://mvdmt.gov/required-documents/',
+        description: 'Montana driver license / ID 所需文件。',
+      },
+      {
+        label: 'Renew License / ID',
+        url: 'https://mvdmt.gov/renew-license-id/',
+        description: '续期和 online renewal 资格说明。',
+      },
+      {
+        label: 'Address Change',
+        url: 'https://mvdmt.gov/address-change/',
+        description: 'Montana driver license 地址记录更新说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Montana MVD REAL ID',
+        url: 'https://mvdmt.gov/real-id/',
+      },
+      {
+        label: 'Montana REAL ID Checklist',
+        url: 'https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf',
+      },
+      {
+        label: 'Montana Required Documents',
+        url: 'https://mvdmt.gov/required-documents/',
+      },
+      {
+        label: 'Montana Renew License / ID',
+        url: 'https://mvdmt.gov/renew-license-id/',
+      },
+      {
+        label: 'Montana Address Change',
+        url: 'https://mvdmt.gov/address-change/',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'proof-of-residency', 'renewal-replacement-address'],
+  },
+  {
+    id: 'nebraska',
+    abbr: 'NE',
+    nameEn: 'Nebraska',
+    nameZh: '内布拉斯加州',
+    agency: 'Nebraska Department of Motor Vehicles',
+    agencyUrl: 'https://dmv.nebraska.gov/dl',
+    reviewedAt: '2026-07-09',
+    summary:
+      '内布拉斯加州驾照、REAL ID、续期、地址变化和新居民换证由 Nebraska DMV Driver Licensing 处理。Driver License、Document Verification Requirements、New Resident、Renewals 和 Change Address 是核心入口。',
+    realIdSummary:
+      'Nebraska 初次申请或外州文件转入时，需要一次性提供 U.S. citizenship 或 lawful status、identity、两份 Nebraska principal address，以及可由 SSA 核验的 valid Social Security number 或豁免证明。',
+    licenseSummary:
+      'Nebraska 新居民持有效外州 license 时，需要在 30 天内取得 Nebraska license。续期或地址变化时，如果地址未曾验证或已经搬家，通常要提供两份 proof of address。',
+    appointmentNote:
+      'Nebraska DMV 多个页面都把 Data Form、Acceptable Proof of Identification、Identification / Address Verification Requirements 串在一起。出发前先把表格和地址文件准备好，现场还会拍新照片，并可能要 vision / medical requirements。',
+    editorNotes: [
+      'Nebraska 的 one-time citizenship proof 适合解释成“首次或外州转入时做一次身份/合法状态建档”。',
+      '新居民 30 天换证规则要写进搬州路径。',
+      '地址变化/续期时的两份地址证明是条件触发：地址未验证或已搬家时需要。',
+    ],
+    documentHighlights: [
+      'Proof of U.S. citizenship 或 lawful status，包含姓名、出生日期和 identity。',
+      '两份 Nebraska principal address / proof of address。',
+      'Valid Social Security number，可由 Social Security Administration 核验；不能提供时按 I-94 / I-94A 豁免路径。',
+      '姓名变化时带 certified marriage license、certified divorce decree 或 court order，把旧名和当前名连接起来。',
+      '续期、replacement 或地址变化时准备 data form，并确认是否需要 vision / medical requirements。',
+    ],
+    commonMistakes: [
+      '搬来 Nebraska 超过 30 天还没换本州 license。',
+      '地址变化时只带一份地址证明。',
+      '认为以前在别州提供过 citizenship proof，Nebraska 就一定不用再看。',
+      '姓名变化文件无法把两个名字连接起来。',
+    ],
+    recommendedSteps: [
+      '先看 Driver License 页面，确认是初次、外州转入、续期还是地址变化。',
+      '新居民先看 New Nebraska Resident Driver Licensing，按 30 天规则安排。',
+      '用 Document Verification Requirements 核对 citizenship/lawful status、address、SSN。',
+      '续期或地址变化先看 Renewals / Change Address，确认是否需要两份 proof of address。',
+      '到 Driver Licensing Office 前准备 data form、费用和可能的 vision/medical requirement。',
+    ],
+    actionLinks: [
+      {
+        label: 'Nebraska Driver License',
+        url: 'https://dmv.nebraska.gov/dl/driver-license',
+        description: 'Class O driver license、材料和新居民 30 天要求。',
+      },
+      {
+        label: 'Document Verification Requirements',
+        url: 'https://dmv.nebraska.gov/dl/document-verification-requirements',
+        description: 'Nebraska identity、citizenship/lawful status、address 和 SSN 核验。',
+      },
+      {
+        label: 'New Nebraska Resident',
+        url: 'https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing',
+        description: '外州搬入 Nebraska 后换证材料。',
+      },
+      {
+        label: 'Nebraska Renewals',
+        url: 'https://dmv.nebraska.gov/dl/renewals',
+        description: '续期材料、地址证明和 vision / medical requirement。',
+      },
+      {
+        label: 'Change of Address',
+        url: 'https://dmv.nebraska.gov/dl/change-address',
+        description: '驾照、permit 和 state ID 地址变化说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Nebraska Driver License',
+        url: 'https://dmv.nebraska.gov/dl/driver-license',
+      },
+      {
+        label: 'Nebraska Document Verification Requirements',
+        url: 'https://dmv.nebraska.gov/dl/document-verification-requirements',
+      },
+      {
+        label: 'Nebraska New Resident Driver Licensing',
+        url: 'https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing',
+      },
+      {
+        label: 'Nebraska Renewals',
+        url: 'https://dmv.nebraska.gov/dl/renewals',
+      },
+      {
+        label: 'Nebraska Change of Address',
+        url: 'https://dmv.nebraska.gov/dl/change-address',
+      },
+    ],
+    relatedTopicSlugs: ['moving-to-new-state', 'document-checklist', 'proof-of-residency'],
+  },
+  {
+    id: 'north-dakota',
+    abbr: 'ND',
+    nameEn: 'North Dakota',
+    nameZh: '北达科他州',
+    agency: 'North Dakota Department of Transportation',
+    agencyUrl: 'https://www.dot.nd.gov/driver',
+    reviewedAt: '2026-07-09',
+    summary:
+      '北达科他州驾照、REAL ID、续期、外州转入和姓名/地址变化由 NDDOT Driver License 处理。REAL ID Information、Real ID Checklist PDF、Requirements Transferring License、Driver License 和 Driver License Renewal 是核心入口。',
+    realIdSummary:
+      'North Dakota REAL ID 要从四类文件中准备：proof of identification / legal presence、proof of name change、proof of Social Security Number、proof of North Dakota residence address。所有关键文件必须是 original 或 certified copies，photocopies 不接受。',
+    licenseSummary:
+      'North Dakota address / name change 页面要求姓名变化必须本人带 certified documentation 到 Driver License site；普通地址变化可在线处理。REAL ID 初次文件、duplicate 或转入时要按 REAL ID documentation 准备。',
+    appointmentNote:
+      'NDDOT 页面提示不少 driver license services 需要 appointment。REAL ID residence documents 必须显示本人姓名和 current physical residence address，Post Office Boxes 不接受。',
+    editorNotes: [
+      'ND REAL ID 页面结构清晰，四类材料可以直接转成中文清单。',
+      'Transfer 页面注明非 REAL ID 转入时地址证明数量可能不同，但 REAL ID 需要 SSN proof 和两份地址证明，中文页应按 REAL ID 路径保守提醒。',
+      'Name change 必须 in person，适合放进 common mistakes。',
+    ],
+    documentHighlights: [
+      'Category 1: proof of identification、date of birth 和 legal presence，例如 certified birth certificate、passport、permanent resident card 等。',
+      'Category 2: name change documents，例如 certified marriage certificate、adoption document 或 sealed court order。',
+      'Category 3: full Social Security number proof，例如 SSN card、W-2、SSA-1099、1099 或 pay stub。',
+      'Category 4: 两份 North Dakota residence address，显示 physical address；P.O. Box 不接受。',
+      '外州转入或 duplicate 时，按 NDDOT transfer / replacement 页面确认是否必须去 Driver License Site。',
+    ],
+    commonMistakes: [
+      '带 photocopy 或 hospital certificate 当作 identity document。',
+      'SSN 文件只显示后四位。',
+      '居住证明使用 P.O. Box。',
+      '姓名变化想在线处理，而不是带 certified documents 到现场。',
+    ],
+    recommendedSteps: [
+      '先打开 NDDOT REAL ID Information，按 Category 1-4 列材料。',
+      '下载 REAL ID Checklist PDF 做逐项打勾。',
+      '外州转入先看 Requirements Transferring License，确认 address 和 SSN 文件。',
+      '续期先看 Driver License Renewal，确认 online / in-person 和 CDL 特殊文件。',
+      '姓名变化先看 Driver License 页面，准备 certified marriage、divorce 或 court order。',
+    ],
+    actionLinks: [
+      {
+        label: 'NDDOT REAL ID Information',
+        url: 'https://www.dot.nd.gov/driver/real-id-information',
+        description: 'North Dakota REAL ID 四类材料和办理说明。',
+      },
+      {
+        label: 'North Dakota REAL ID Checklist PDF',
+        url: 'https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf',
+        description: 'REAL ID checklist PDF。',
+      },
+      {
+        label: 'Requirements Transferring License',
+        url: 'https://www.dot.nd.gov/driver/requirements-transferring-license',
+        description: '外州 license 转入 North Dakota 的要求。',
+      },
+      {
+        label: 'NDDOT Driver License',
+        url: 'https://www.dot.nd.gov/driver/driver-license',
+        description: '姓名/地址变化和 Driver License 总入口。',
+      },
+      {
+        label: 'Driver License Renewal',
+        url: 'https://www.dot.nd.gov/driver/online-services-drivers/driver-license-renewal',
+        description: '续期和在线服务说明。',
+      },
+    ],
+    sources: [
+      {
+        label: 'NDDOT REAL ID Information',
+        url: 'https://www.dot.nd.gov/driver/real-id-information',
+      },
+      {
+        label: 'North Dakota REAL ID Checklist PDF',
+        url: 'https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf',
+      },
+      {
+        label: 'NDDOT Requirements Transferring License',
+        url: 'https://www.dot.nd.gov/driver/requirements-transferring-license',
+      },
+      {
+        label: 'NDDOT Driver License',
+        url: 'https://www.dot.nd.gov/driver/driver-license',
+      },
+      {
+        label: 'NDDOT Driver License Renewal',
+        url: 'https://www.dot.nd.gov/driver/online-services-drivers/driver-license-renewal',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'document-checklist', 'moving-to-new-state'],
+  },
+  {
+    id: 'south-dakota',
+    abbr: 'SD',
+    nameEn: 'South Dakota',
+    nameZh: '南达科他州',
+    agency: 'South Dakota Department of Public Safety',
+    agencyUrl: 'https://www.sd.gov/dps',
+    reviewedAt: '2026-07-09',
+    summary:
+      '南达科他州驾照、REAL ID、续期、补证、地址更新和预约由 South Dakota DPS / SD.gov 处理。Required Documents、Renew or Replace Online、Appointment Information 和 Applications and Forms 是核心入口。',
+    realIdSummary:
+      'South Dakota required documents 页面把申请人分为三类：new drivers / new residents、out-of-state transfers with REAL ID compliant licenses、current South Dakota REAL ID holders。新申请或新居民通常要 identity、SSN、两份 South Dakota physical address；多次姓名变化要每一次都能追溯。',
+    licenseSummary:
+      '在线 renew / replace 要满足条件：通常要 U.S. citizen 或 permanent resident、当前持有未过期 federally compliant card、提供 DL/ID number、DOB、SSN 后四位，并提交两份姓名和 physical address 文件。姓名变化、十年内未现场办理、测试要求等要去 exam station。',
+    appointmentNote:
+      'South Dakota 对 full-time traveler / personal mailbox 用户有特殊材料要求：需要过去一年在 South Dakota overnight stay receipt、PMB 地址邮件或收据，以及 Residency Affidavit；virtual address 不接受。',
+    editorNotes: [
+      'South Dakota 的 full-time traveler / PMB 规则很独特，页面要单独写出来。',
+      'Required documents 页面按 Section 1/2/3 分流，中文页要避免把三类申请人混在一起。',
+      'Online renewal 页面有很多排除项：十年内未 in-person、name change、class/endorsement change、USCIS status 更新等。',
+    ],
+    documentHighlights: [
+      '新申请/新居民：one identity document、one Social Security document、two proofs of South Dakota physical address。',
+      '多次姓名变化时，要提供每一次 name change 文件，让 DMV 能从 birth certificate 追到当前姓名。',
+      '当前 South Dakota REAL ID 持有人续期或补证：通常也要 identity document 和两份 address proofs。',
+      'Online renewal / replacement：两份地址文件要显示姓名和 physical address，通常要 less than one year old。',
+      'Full-time traveler / PMB 用户还要 overnight stay receipt、PMB address proof 和 Residency Affidavit。',
+    ],
+    commonMistakes: [
+      '用 virtual address 或普通 PMB 当作完整居住证明。',
+      '在线续期时没准备两份地址文件。',
+      '姓名变化后仍尝试 online renewal。',
+      'license 过期超过 30 天，还以为可以不用 knowledge test 或现场办理。',
+    ],
+    recommendedSteps: [
+      '先用 Required Documents 页面判断你属于 Section 1、Section 2 还是 Section 3。',
+      '按 identity、SSN、two physical address、name change chain 准备材料。',
+      '如果是 full-time traveler 或 PMB 用户，先准备 overnight stay receipt 和 Residency Affidavit。',
+      '续期或补证先看 Renew / Replace Online，确认是否符合线上资格。',
+      '需要现场办理时看 Appointment Information，预约或选择 Driver License Exam Location。',
+    ],
+    actionLinks: [
+      {
+        label: 'South Dakota Required Documents',
+        url: 'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395',
+        description: 'REAL ID / driver license required documents 分区清单。',
+      },
+      {
+        label: 'Renew or Replace Online',
+        url: 'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275',
+        description: '在线续期、补证、地址文件和排除条件。',
+      },
+      {
+        label: 'Appointment Information',
+        url: 'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043548',
+        description: 'Driver exam station 预约、现场办理和 testing 说明。',
+      },
+      {
+        label: 'Applications and Forms',
+        url: 'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043707',
+        description: '申请表、renew/replace/update address 和表格入口。',
+      },
+      {
+        label: 'South Dakota DPS',
+        url: 'https://www.sd.gov/dps',
+        description: 'DPS driver licensing 服务总入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'South Dakota Required Documents',
+        url: 'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395',
+      },
+      {
+        label: 'South Dakota Renew or Replace Online',
+        url: 'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275',
+      },
+      {
+        label: 'South Dakota Appointment Information',
+        url: 'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043548',
+      },
+      {
+        label: 'South Dakota Applications and Forms',
+        url: 'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043707',
+      },
+      {
+        label: 'South Dakota DPS',
+        url: 'https://www.sd.gov/dps',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'proof-of-residency', 'renewal-replacement-address'],
+  },
+  {
+    id: 'vermont',
+    abbr: 'VT',
+    nameEn: 'Vermont',
+    nameZh: '佛蒙特州',
+    agency: 'Vermont Department of Motor Vehicles',
+    agencyUrl: 'https://dmv.vermont.gov/',
+    reviewedAt: '2026-07-09',
+    summary:
+      '佛蒙特州驾照、REAL ID、Enhanced Driver License、续期、外州转入和地址变化由 Vermont DMV 管理。Vermont 是少数同时有 REAL ID 和 Enhanced Driver License / ID 路径的州，旅行用户要先判断自己需要哪一种。',
+    realIdSummary:
+      'Vermont REAL ID 通常要原件或 certified proof documents，包括 proof of identity、lawful presence、Social Security number 和两份 Vermont residency。Enhanced Driver License / ID 可用于部分陆路/海路边境场景，但不是护照替代所有国际旅行。',
+    licenseSummary:
+      '搬入 Vermont 后，持有效外州 license 的驾驶人通常要在 60 天内取得 Vermont license；CDL 转入通常有更短要求。续期、转入、地址变化和 Enhanced / REAL ID 要分别看 DMV 页面和 appointment / mail / online 选项。',
+    appointmentNote:
+      'Vermont REAL ID、EDL、普通续期和外州转入使用不同表格与入口；办理前确认业务类型、当前表格、付款方式和是否需要预约。',
+    editorNotes: [
+      'Vermont 的 EDL/EID 与 REAL ID 容易被混淆，中文页要先做用途分流。',
+      '搜索索引能确认 REAL ID 材料类别，但官方页自动检查 403，应保留 accessStatus。',
+      'Vermont 新居民 60 天换证规则来自 DMV license/general info 线索，页面用“通常”表达并引导官方确认。',
+    ],
+    accessStatus: {
+      label: '官方页自动检查 403',
+      tone: 'watch',
+      note: 'Vermont DMV 官方页面在本环境自动检查中返回 403。本站保留官方链接；如果你也打不开，请从 USA.gov 州机动车服务目录进入 Vermont DMV。',
+      fallbackLabel: 'USA.gov 州机动车服务目录',
+      fallbackUrl: 'https://www.usa.gov/state-motor-vehicle-services',
+    },
+    documentHighlights: [
+      'Proof of identity，例如 valid passport 或 official / certified birth certificate。',
+      'Proof of lawful presence，按 Vermont DMV REAL ID 页面确认类别。',
+      'Social Security number 证明，例如 SSN card 或显示 SSN 的税务/工资文件。',
+      '两份 Vermont residency，显示姓名和 Vermont street address，而不是单纯 P.O. Box。',
+      'Enhanced Driver License / ID 可能要额外申请、面谈或公民身份材料，先看 EDL 页面。',
+    ],
+    commonMistakes: [
+      '把 REAL ID 和 Enhanced Driver License 当成同一件事。',
+      '搬入 Vermont 后超过 60 天才处理外州 license transfer。',
+      '只带当前 license 和 passport，忘记两份 Vermont residency。',
+      '用临时纸质 credential 或 EDL 替代国际旅行护照。',
+    ],
+    recommendedSteps: [
+      '先判断用途：国内航班/联邦设施看 REAL ID；加拿大等陆路/海路边境场景再看 EDL。',
+      '打开 Vermont REAL ID 页面，核对 identity、lawful presence、SSN、two residency。',
+      '外州搬入看 transfer 页面，按 60 天规则安排。',
+      '续期先看 renew 页面，确认 online、mail 或 in-person 资格。',
+      '地址变化看 change-address 页面，处理 DMV 记录和必要的新卡。',
+    ],
+    actionLinks: [
+      {
+        label: 'Vermont REAL ID',
+        url: 'https://dmv.vermont.gov/licenses/types-of-licenses-ids/real-id',
+        description: 'Vermont REAL ID 用途、材料和办理入口。',
+      },
+      {
+        label: 'Enhanced Driver License / ID',
+        url: 'https://dmv.vermont.gov/licenses/types-of-licenses-ids/enhanced-drivers-license-edl',
+        description: 'Vermont Enhanced Driver License / ID 说明。',
+      },
+      {
+        label: 'New Vermont License',
+        url: 'https://dmv.vermont.gov/licenses/new',
+        description: '新申请或外州转入 Vermont license 入口。',
+      },
+      {
+        label: 'Renew License',
+        url: 'https://dmv.vermont.gov/licenses/renew',
+        description: 'Vermont license 续期说明。',
+      },
+      {
+        label: 'Vermont myDMV Update My Address',
+        url: 'https://mydmv.vermont.gov/?Check=1',
+        description: 'Vermont myDMV 地址更新和线上服务入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Vermont DMV REAL ID',
+        url: 'https://dmv.vermont.gov/licenses/types-of-licenses-ids/real-id',
+      },
+      {
+        label: 'Vermont DMV Enhanced Driver License',
+        url: 'https://dmv.vermont.gov/licenses/types-of-licenses-ids/enhanced-drivers-license-edl',
+      },
+      {
+        label: 'Vermont DMV New License',
+        url: 'https://dmv.vermont.gov/licenses/new',
+      },
+      {
+        label: 'Vermont DMV Renew License',
+        url: 'https://dmv.vermont.gov/licenses/renew',
+      },
+      {
+        label: 'Vermont myDMV Update My Address',
+        url: 'https://mydmv.vermont.gov/?Check=1',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-vs-standard-license', 'moving-to-new-state', 'airport-travel-after-real-id'],
+  },
+  {
+    id: 'west-virginia',
+    abbr: 'WV',
+    nameEn: 'West Virginia',
+    nameZh: '西弗吉尼亚州',
+    agency: 'West Virginia Division of Motor Vehicles',
+    agencyUrl: 'https://transportation.wv.gov/DMV/Pages/default.aspx',
+    reviewedAt: '2026-07-09',
+    summary:
+      '西弗吉尼亚州驾照、REAL ID、续期、地址变化和 HeadStart 由 WV Division of Motor Vehicles 处理。REAL ID、Driver Licenses / ID Cards、Renewal、Skip the Trip 和 REAL ID brochure 是核心入口。',
+    realIdSummary:
+      'West Virginia REAL ID / For Federal Use card 要到 Regional Office 带 proof of identity、proof of Social Security Number、两份 physical residency；如果姓名和 identity document 不一致，要带 name change documents 建立 link。',
+    licenseSummary:
+      'WV online renewal 可以处理部分 driver license / state ID，但不能在线把 Not for Federal Use 升级为 For Federal Use / REAL ID。升级 REAL ID 要预约 regional office；REAL ID HeadStart 可先上传材料，减少现场时间。',
+    appointmentNote:
+      'WV DMV 官方页面提示 appointments strongly encouraged。首次申请人或需要 REAL ID re-enrollment 的用户要按 brochure 准备 identity、two residency、legal name change 等文件。',
+    editorNotes: [
+      'West Virginia 不能在 online renewal 中升级 REAL ID；需要升级时应改走官方现场办理路径。',
+      'REAL ID HeadStart 是高价值入口，可帮助用户先上传材料但不是完全在线拿卡。',
+      'WV 对 For Federal Use 有额外 $10 processing/shipping fee 的页面线索，但费用容易变，中文页不硬写金额。',
+    ],
+    documentHighlights: [
+      'Proof of identity，例如 birth certificate、passport 或 WV DMV 列出的身份文件。',
+      'Proof of Social Security Number；WV appointment document 页面提示 know your number or bring proof。',
+      '两份 West Virginia physical residency，显示姓名和 physical address。',
+      '姓名变化时带 marriage、divorce、court order 等 documents，DMV 必须能建立所有 name changes 的 link。',
+      '外州转入还要带 previous state driver license 或 driving record。',
+    ],
+    commonMistakes: [
+      '想在线把 Not for Federal Use 升级成 REAL ID。',
+      '只上传 HeadStart 文件，以为不用去 regional office。',
+      '地址变化或姓名变化时没有准备两份 WV residence 或 name-change documents。',
+      '外州转入忘记带旧 license 或 driving record。',
+    ],
+    recommendedSteps: [
+      '先看 WV REAL ID 页面，判断是否需要 For Federal Use card。',
+      '用 Driver Licenses / ID Cards 或 brochure 核对 identity、SSN、two residency、name changes。',
+      '想节省现场时间时先用 REAL ID HeadStart 上传材料。',
+      '续期先看 Online Renewal，确认是否能 online；REAL ID upgrade 直接预约 Regional Office。',
+      '外州转入按 appointment documents 准备 previous license / driving record。',
+    ],
+    actionLinks: [
+      {
+        label: 'WV REAL ID',
+        url: 'https://transportation.wv.gov/DMV/realid/Pages/default.aspx',
+        description: 'REAL ID / For Federal Use 说明和材料类别。',
+      },
+      {
+        label: 'Driver Licenses and ID Cards',
+        url: 'https://transportation.wv.gov/DMV/drivers-licenses/Pages/default.aspx',
+        description: 'WV license / ID 材料要求。',
+      },
+      {
+        label: 'Online Renewal',
+        url: 'https://apps.wv.gov/dmv/selfservice/dl',
+        description: '在线续期和 REAL ID upgrade 限制。',
+      },
+      {
+        label: 'WV DMV Skip the Trip',
+        url: 'https://go.wv.gov/selfservice',
+        description: '续期、REAL ID HeadStart、地址变化和自助服务入口。',
+      },
+      {
+        label: 'WV REAL ID Brochure PDF',
+        url: 'https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf',
+        description: 'West Virginia driver license / ID card requirements brochure。',
+      },
+    ],
+    sources: [
+      {
+        label: 'WV DMV REAL ID',
+        url: 'https://transportation.wv.gov/DMV/realid/Pages/default.aspx',
+      },
+      {
+        label: 'WV Driver Licenses and ID Cards',
+        url: 'https://transportation.wv.gov/DMV/drivers-licenses/Pages/default.aspx',
+      },
+      {
+        label: 'WV Online Renewal',
+        url: 'https://apps.wv.gov/dmv/selfservice/dl',
+      },
+      {
+        label: 'WV DMV Skip the Trip',
+        url: 'https://go.wv.gov/selfservice',
+      },
+      {
+        label: 'WV REAL ID Brochure',
+        url: 'https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf',
+      },
+    ],
+    relatedTopicSlugs: ['real-id-basics', 'renewal-replacement-address', 'moving-to-new-state'],
+  },
+  {
+    id: 'wyoming',
+    abbr: 'WY',
+    nameEn: 'Wyoming',
+    nameZh: '怀俄明州',
+    agency: 'Wyoming Department of Transportation',
+    agencyUrl: 'https://www.dot.state.wy.us/driverservices',
+    reviewedAt: '2026-07-09',
+    summary:
+      '怀俄明州驾照、REAL ID、续期、地址变化和 oneWYO 线上服务由 Wyoming DOT Driver Services 处理。Driver License、Lost / Renewal、Add / Change Information、General Forms 和 Driver Services 是核心入口。',
+    realIdSummary:
+      'Wyoming 自 2011 年起签发的 driver license / ID 规则已符合 REAL ID。续期时如果之前未提供 REAL ID documents，需要带 valid U.S. passport、state-certified birth certificate 或 immigration documents、两份 45 天内 Wyoming residency、以及姓名变化文件。',
+    licenseSummary:
+      'Wyoming 新居民通常在建立 residency 后一年内取得 Wyoming license；但若持有某些州 license 或 CDL，建立 residency 后要申请 Wyoming license。每 10 年必须本人到场续期一次并拍照、做 vision screening。',
+    appointmentNote:
+      'oneWYO 可以处理部分续期、duplicate、地址更新、driving record 和医疗/视力表上传。地址变化表只更新 driving record；如果要新地址出现在 driver license / ID card 上，需要申请新 credential。',
+    editorNotes: [
+      'Wyoming 的“一年内换证”和“某些州/CDL 例外”很独特，要写得谨慎。',
+      'Residency proof no more than 45 days old 是非常具体的要求。',
+      'Address change form does not print a new card，是常见误区。',
+    ],
+    documentHighlights: [
+      'Valid U.S. passport、state-certified birth certificate 或 immigration documents。',
+      '两份 current Wyoming residency，通常 no more than 45 days old。',
+      '姓名变化时带 marriage certificate、divorce decree、court order 等文件。',
+      '非美国公民每次 renewal 或服务通常要出示 USCIS / immigration documents。',
+      '地址变化表只更新记录；想要卡面显示新地址需办理新 license / ID。',
+    ],
+    commonMistakes: [
+      '用超过 45 天的地址证明去办 Wyoming REAL ID renewal。',
+      '更新 address record 后，以为卡面地址也自动改变。',
+      '十年内必须本人续期一次，却一直尝试 mail / online renewal。',
+      '新居民持特殊州 license 或 CDL 时没有及时转 Wyoming license。',
+    ],
+    recommendedSteps: [
+      '先看 Wyoming Driver License 页面，确认新居民、续期还是 oneWYO 在线服务。',
+      '续期前看 Lost / Renewal 页面，确认是否需要重新提交 REAL ID documents。',
+      '准备 identity/immigration、two Wyoming residency within 45 days、name change documents。',
+      '地址变化先看 Add / Change Information 和 Notice of Change of Address form。',
+      '需要线上办理时用 oneWYO；需要首次或过期 renewal 时安排 local driver exam station。',
+    ],
+    actionLinks: [
+      {
+        label: 'Wyoming Driver License',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/driver-license.html',
+        description: 'Wyoming license、新居民、oneWYO 和 REAL ID 说明。',
+      },
+      {
+        label: 'Lost / Renewal',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html',
+        description: '续期、REAL ID documents、10 年本人到场和 vision screening。',
+      },
+      {
+        label: 'Add / Change Information',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html',
+        description: 'oneWYO、地址和信息变化说明。',
+      },
+      {
+        label: 'Notice of Change of Address PDF',
+        url: 'https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Address%20Change%2020190715.pdf',
+        description: '地址变化表；只更新 record，不自动换卡。',
+      },
+      {
+        label: 'Driver Services',
+        url: 'https://www.dot.state.wy.us/driverservices',
+        description: 'Wyoming DOT Driver Services 总入口。',
+      },
+    ],
+    sources: [
+      {
+        label: 'Wyoming Driver License',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/driver-license.html',
+      },
+      {
+        label: 'Wyoming Lost / Renewal',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html',
+      },
+      {
+        label: 'Wyoming Add / Change Information',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html',
+      },
+      {
+        label: 'Wyoming Notice of Change of Address',
+        url: 'https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Address%20Change%2020190715.pdf',
+      },
+      {
+        label: 'Wyoming Driver Services',
+        url: 'https://www.dot.state.wy.us/driverservices',
+      },
+    ],
+    relatedTopicSlugs: ['renewal-replacement-address', 'moving-to-new-state', 'proof-of-residency'],
+  },
+];
+
+export const topics: TopicGuide[] = [
+  {
+    slug: 'real-id-basics',
+    title: 'REAL ID 到底要不要办',
+    eyebrow: '联邦规则',
+    reviewedAt: '2026-07-13',
+    description:
+      '先别急着预约。REAL ID 只解决州驾照/ID 的联邦身份用途；如果你有有效护照或其他 TSA 接受证件，很多场景可以先不升级。',
+    whoNeedsIt: [
+      '想用州驾照或州 ID 过美国国内航班 TSA 安检的人。',
+      '需要进入某些联邦设施、军事基地或核电站的人。',
+      '没有有效护照、护照卡、军人证等其他 TSA 接受证件的人。',
+    ],
+    keyFacts: [
+      'REAL ID 是符合联邦最低安全标准的州驾照或身份证，不是新的驾驶资格。',
+      '国内航班安检可以用 REAL ID 合规州证件，也可以用有效护照等 TSA 接受证件。',
+      '国际旅行仍通常要用护照；REAL ID 不能替代护照。',
+      '如果没有 REAL ID 或其他可接受证件，USA.gov 2026 年说明提到 TSA ConfirmID 身份核验选项；这不是 DMV 证件升级。',
+    ],
+    factChecks: [
+      {
+        claim: 'REAL ID 是州驾照或身份证的联邦安全标准，不会创造新的驾驶资格；州内驾驶权限仍由州证件规则决定。',
+        sourceUrls: ['https://www.dhs.gov/real-id', 'https://www.usa.gov/real-id'],
+      },
+      {
+        claim: '美国国内航班安检不只接受 REAL ID；有效护照、护照卡和 TSA 列出的其他证件也可以作为替代。',
+        sourceUrls: ['https://www.tsa.gov/realid', 'https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'TSA ConfirmID 是没有可接受 ID 时的身份核验路径，不会把普通州驾照升级成 REAL ID。',
+        sourceUrls: ['https://www.usa.gov/real-id', 'https://www.tsa.gov/travel/security-screening/identification'],
+      },
+    ],
+    checklist: [
+      '先看卡面：有没有星标或本州说明的 REAL ID 合规标记。',
+      '再看替代证件：你是否有有效护照、护照卡、军人证或 TSA 接受的其他 ID。',
+      '如果你想用州驾照/ID 做联邦身份用途，再进入本州 DMV REAL ID 页面。',
+      '按州官方清单准备身份、SSN、居住地址和姓名变更文件。',
+      '临近出行却没有可接受 ID 时，直接查看 TSA/USA.gov 当前身份核验说明，不要把希望全押在 DMV 预约上。',
+    ],
+    steps: [
+      '问自己第一句：我是不是只要开车？如果只是驾驶，普通州驾照通常仍可用于驾驶。',
+      '问第二句：我有没有护照等 TSA 接受证件？有的话，国内航班未必需要立刻升级州证件。',
+      '问第三句：我是否想用州驾照/ID 进 TSA 或联邦设施？如果是，再看本州 REAL ID 材料。',
+    ],
+    faqs: [
+      {
+        question: '没有 REAL ID 还能开车吗？',
+        answer:
+          '通常可以。REAL ID 主要影响联邦身份用途，不是驾驶资格本身；具体证件用途仍要看所在州 DMV 说明。',
+      },
+      {
+        question: '有护照还需要 REAL ID 吗？',
+        answer:
+          '不一定。有效护照通常可用于 TSA 身份核验。REAL ID 的便利在于你可以用合规州驾照/ID 处理部分联邦身份用途。',
+      },
+      {
+        question: 'TSA ConfirmID 是不是等于办了 REAL ID？',
+        answer:
+          '不是。USA.gov 把它描述为没有 REAL ID 或其他可接受证件时的 TSA 身份核验选项；它不改变你的州驾照或 ID 是否 REAL ID 合规。',
+      },
+    ],
+    editorNotes: [
+      '这页只解释联邦用途，不判断个人是否必须办。有效护照、护照卡、军人证等 TSA 接受证件常可替代 REAL ID。',
+      'REAL ID 不改变驾驶资格本身；没有 REAL ID 通常仍可开车，但不能把普通州证件用于相应联邦身份用途。',
+      '具体材料和卡面标记由州 DMV 执行，纽约、华盛顿、佐治亚等州的名称和标记可能不同。',
+      '2026-07-09 复核 USA.gov：该页最后更新为 2026-04-06，并加入 TSA ConfirmID 作为没有可接受 ID 时的身份核验选项。',
+    ],
+    sources: federalSources,
+    relatedStateIds: ['california', 'new-york', 'texas', 'michigan'],
+  },
+  {
+    slug: 'real-id-vs-standard-license',
+    title: 'REAL ID、Enhanced ID 和普通驾照怎么区分',
+    eyebrow: '证件类型',
+    reviewedAt: '2026-07-07',
+    description:
+      '很多州同时存在 REAL ID、Enhanced Driver License/ID 和 Standard License。三者都可能能驾驶或证明州内身份，但联邦用途不同。',
+    whoNeedsIt: [
+      '正在换证、续期或第一次申请驾照的人。',
+      '看到 DMV 页面上有 Standard、REAL ID、Enhanced 多个选项的人。',
+      '在纽约、华盛顿等提供 Enhanced 证件的州生活的人。',
+    ],
+    keyFacts: [
+      'Standard 驾照通常仍可用于驾驶，但不一定能用于 REAL ID 联邦用途。',
+      'REAL ID 是联邦最低标准合规证件。',
+      'Enhanced Driver License/ID 是部分州提供的增强证件，通常还有公民身份和边境旅行相关要求。',
+    ],
+    checklist: [
+      '查看州 DMV 对证件类型的官方定义。',
+      '确认你是否是美国公民；Enhanced 证件常有公民身份要求。',
+      '如果只需要开车，Standard 可能足够。',
+      '如果要登国内航班且不想带护照，REAL ID 或 Enhanced 可能更合适。',
+    ],
+    steps: [
+      '先从所在州页面确认可选证件类型。',
+      '对照自己的用途：驾驶、国内航班、联邦设施、边境旅行。',
+      '选择材料要求和办理成本都能接受的证件。',
+    ],
+    faqs: [
+      {
+        question: 'Enhanced 一定比 REAL ID 更好吗？',
+        answer:
+          '不一定。Enhanced 可能有额外用途，也可能有更严格资格要求。对多数只关心国内航班的人，REAL ID 或护照已经足够。',
+      },
+      {
+        question: 'Standard 证件会失效吗？',
+        answer:
+          '通常不会因为 REAL ID 而失去驾驶用途，但联邦用途会受限。具体以州 DMV 页面为准。',
+      },
+    ],
+    editorNotes: [
+      'Enhanced 不是全国统一选项，常见于纽约、华盛顿等少数州；有些 Enhanced 证件涉及美国公民身份和边境通行用途。',
+      '卡面标记不能只看“星星”：华盛顿州 EDL/EID 使用美国国旗标记，佐治亚星标可能是 gold 或 black。',
+      'Standard 证件通常仍可用于驾驶，但用户要回到所在州页面确认能否用于特定联邦设施或旅行场景。',
+    ],
+    sources: [
+      ...federalSources,
+      {
+        label: 'NY DMV Enhanced or REAL ID',
+        url: 'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
+      },
+      {
+        label: 'WA DOL Enhanced Driver License',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl',
+      },
+    ],
+    relatedStateIds: ['new-york', 'washington', 'new-jersey', 'illinois'],
+  },
+  {
+    slug: 'document-checklist',
+    title: 'REAL ID 常见材料清单',
+    eyebrow: '材料准备',
+    reviewedAt: '2026-07-07',
+    description:
+      '各州表述不同，但 REAL ID 材料通常围绕身份/合法身份、SSN、居住地址和姓名变更四类。最终必须用州官方清单核对。',
+    whoNeedsIt: [
+      '第一次办理 REAL ID 的人。',
+      '搬州后需要换驾照或 ID 的人。',
+      '姓名、身份、地址文件不完全一致的人。',
+    ],
+    keyFacts: [
+      '很多州要求原件或 certified copy，不接受普通复印件。',
+      '居住地址证明常需要两份，但州与州之间可接受文件不同。',
+      '姓名不一致时，通常需要提供完整的姓名变更链条。',
+    ],
+    checklist: [
+      '身份和合法身份文件：例如护照、出生证明、绿卡、移民身份文件等，按州要求选择。',
+      'SSN 文件：社安卡、W-2、paystub 或州接受的其他文件。',
+      '居住地址证明：账单、银行信、租约、保险、学校或政府信件等，必须查看州清单。',
+      '姓名变更文件：结婚证、离婚判决、法院命令等。',
+    ],
+    steps: [
+      '先打开州 DMV 的 document guide 或 checklist。',
+      '按自己的身份类别生成材料清单。',
+      '检查每份文件上的姓名、生日和地址是否一致。',
+      '把原件/认证副本、预约确认和付款方式放在同一个文件夹。',
+    ],
+    faqs: [
+      {
+        question: '可以用手机照片或 PDF 代替纸质原件吗？',
+        answer:
+          '多数 REAL ID 材料核验要求原件或认证副本。电子版是否接受必须看州官方说明。',
+      },
+      {
+        question: '地址证明没有我的名字怎么办？',
+        answer:
+          '不同州有不同替代路径，例如同住人声明、学校文件或政府信件。不要猜，直接看州 DMV document guide。',
+      },
+    ],
+    editorNotes: [
+      '这页不能替代州官方 document selector。宾州、新泽西、佛州等州都按自己的材料结构和身份类别分流。',
+      '“原件或认证副本”是高频要求，但电子文件、打印件、翻译件是否接受必须看州页面。',
+      '姓名、SSN、居住地址和 lawful status 是最容易互相卡住的四组材料，准备时要一起核对。',
+    ],
+    sources: [
+      {
+        label: 'DHS REAL ID',
+        url: 'https://www.dhs.gov/real-id',
+      },
+      {
+        label: 'PA REAL ID Document Requirements',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check',
+      },
+      {
+        label: 'FLHSMV What to Bring',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/',
+      },
+      {
+        label: 'Texas.gov REAL ID',
+        url: 'https://www.texas.gov/driver-services/texas-real-id/',
+      },
+    ],
+    relatedStateIds: ['california', 'texas', 'florida', 'pennsylvania'],
+  },
+  {
+    slug: 'proof-of-residency',
+    title: '地址证明怎么准备',
+    eyebrow: '材料细节',
+    reviewedAt: '2026-07-07',
+    description:
+      '地址证明是 REAL ID 和驾照业务最容易出错的材料之一。核心不是“有没有地址”，而是文件类型、姓名、地址、日期和州要求是否匹配。',
+    whoNeedsIt: [
+      '刚搬家或刚搬州的人。',
+      '住在亲友家、宿舍、sublease 或没有自己账单的人。',
+      '准备 REAL ID、换证或地址变更的人。',
+    ],
+    keyFacts: [
+      '很多州要求两份居住地址证明。',
+      '可接受文件类型因州而异，常见类别包括账单、银行信、租约、保险或政府信件。',
+      '地址证明通常要显示申请人的姓名和当前居住地址。',
+    ],
+    checklist: [
+      '确认州 DMV 要求几份地址证明。',
+      '确认文件是否需要近期日期。',
+      '确认姓名、地址拼写和申请信息一致。',
+      '没有自己账单时，查官方是否接受同住声明或替代文件。',
+    ],
+    steps: [
+      '先用州官方材料指南筛选可接受文件。',
+      '优先选择政府、金融机构、公用事业或保险类文件。',
+      '打印或携带官方接受的版本。',
+      '到场前把地址证明放在材料夹最前面，方便快速核对。',
+    ],
+    faqs: [
+      {
+        question: '银行电子账单可以吗？',
+        answer:
+          '有些州接受打印的电子账单，有些州要求原始邮寄或特定格式。以州官方 document guide 为准。',
+      },
+      {
+        question: '地址只有英文缩写不同会有问题吗？',
+        answer:
+          '可能不会，也可能被要求解释。为了降低风险，尽量让预约、申请表和地址证明使用一致写法。',
+      },
+    ],
+    editorNotes: [
+      '地址证明是“DMV 是否接受这份文件”的问题，不等同于移民或税务意义上的 residence 判断。',
+      '很多州要两份地址证明，但文件类型、日期范围、是否接受电子账单差异很大；宾州还明确强调 physical documents。',
+      '住亲友家、宿舍、sublease 或账单不在自己名下时，不要套通用清单，直接查州官方替代路径。',
+    ],
+    sources: [
+      {
+        label: 'California DMV REAL ID',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/',
+      },
+      {
+        label: 'NJ MVC REAL ID',
+        url: 'https://www.nj.gov/mvc/realid/',
+      },
+      {
+        label: 'PA REAL ID Document Requirements',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check',
+      },
+    ],
+    relatedStateIds: ['california', 'new-jersey', 'pennsylvania', 'florida'],
+  },
+  {
+    slug: 'residency-proof-no-bills-po-box',
+    title: '没有自己账单、住亲友家或宿舍，地址证明怎么准备',
+    eyebrow: '地址证明',
+    reviewedAt: '2026-07-10',
+    description:
+      '地址证明最难的情况，往往不是“没有地址”，而是没有一份写着本人姓名和当前居住地址的官方文件。住亲友家、室友家、宿舍、sublease、P.O. Box 和 mailing address，需要按不同规则判断。',
+    whoNeedsIt: [
+      '住在亲友家、室友家、学校宿舍、短租、sublease、公司宿舍或临时住处的人。',
+      '水电、网费、租约、保险或银行信不在自己名下的人。',
+      '文件只显示 P.O. Box、PMB、campus mailbox 或 mailing address 的人。',
+      '搬州、首次 REAL ID、换州驾照或补证前担心地址材料被退的人。',
+    ],
+    keyFacts: [
+      'DMV 通常核对的是 current residential address、physical address 或 residence address，不是单纯收信地址。',
+      '很多 REAL ID、Enhanced 或首次驾照业务要求两份地址证明；有些州还要求来自不同来源、不同账户或不同文件类别。',
+      'P.O. Box、PMB、学校信箱或只显示 mailing address 的文件，经常不能单独证明居住地址。',
+      '没有自己账单时，要查州官方是否接受学校、雇主、银行、保险、政府信件、租约、同住人证明、address certification 或 affidavit。',
+      '电子账单、打印件、手机截图、翻译件、同一机构两份文件是否接受，州与州差异很大。',
+    ],
+    checklist: [
+      '先确认你办的是 standard license、REAL ID、Enhanced/EDL、外州转入还是地址变更；不同业务的地址证明要求可能不同。',
+      '把当前居住地址写成一行标准格式，和申请表、预约、租约、银行、学校系统里的写法尽量一致。',
+      '优先准备两份写有本人姓名和当前居住地址的文件，并尽量来自不同来源。',
+      '如果账单不在自己名下，不要只拿别人的账单；查官方是否有 household member、certification of address 或 affidavit 路径。',
+      '如果文件显示 P.O. Box、PMB 或 mailing address，另找能显示 physical / residential street address 的文件。',
+      '到场前核对日期范围、原件/打印件要求、是否接受电子文件，以及外文文件是否要 certified translation。',
+    ],
+    steps: [
+      '第一步：打开州 DMV 的 document guide、REAL ID checklist 或 required documents 页面，先看“residence / residency / address proof”栏目。',
+      '第二步：给每份备选文件做五项检查：本人姓名、当前居住地址、文件类别、日期范围、文件格式。',
+      '第三步：如果住亲友家或室友家，查官方是否允许同住人声明、地址认证表或 affidavit，并确认签署人是否也要提供自己的地址证明。',
+      '第四步：如果住学校宿舍，优先找官方清单列出的 school record、enrollment、housing letter、tuition bill 或学校寄送文件；不要只依赖 campus mailbox。',
+      '第五步：如果是 sublease、短租或没有正式租约，用官方清单里的银行、保险、工资、税务、政府、医疗或学校文件补强。',
+      '第六步：如果只有 P.O. Box 或 mailing address，先补一份显示 physical residential address 的文件；有些州可单独记录 mailing address，但它不能替代居住地址。',
+    ],
+    faqs: [
+      {
+        question: '没有自己水电账单，是不是就办不了 REAL ID？',
+        answer:
+          '不一定。很多州接受银行、保险、学校、雇主、政府、租约或其他文件类别；关键是文件必须在该州官方清单内，并显示本人姓名和当前居住地址。',
+      },
+      {
+        question: '住亲友家，可以直接用对方的账单吗？',
+        answer:
+          '通常不能把别人的账单当成自己的地址证明。若州允许 household member 证明、address certification 或 affidavit，通常还会要求按官方表格、签名、身份证明或同住关系规则办理。',
+      },
+      {
+        question: 'P.O. Box、PMB 或学校信箱可以作为地址证明吗？',
+        answer:
+          '多数 DMV 地址证明要求 physical 或 residential address。P.O. Box、PMB、campus mailbox 往往只能作为收信地址；全职旅行者、无固定住址等特殊路径必须看州官方说明。',
+      },
+      {
+        question: '两份文件都来自同一家银行可以吗？',
+        answer:
+          '不一定。有些州要求不同来源、不同账户或不同文件类别。最稳妥的做法是准备两份不同来源的文件，例如银行信加保险、租约加政府信件。',
+      },
+      {
+        question: '手机里的 PDF 或电子账单可以现场给 DMV 看吗？',
+        answer:
+          '不要默认可以。Iowa 等州强调打印文件，Pennsylvania 等页面强调 physical documents；有些州接受打印电子账单，有些不接受手机截图。到场前按州官方格式要求准备。',
+      },
+    ],
+    editorNotes: [
+      '这页只解释 DMV 文件接受规则，不判断移民、税务、学费或法律意义上的 residency。',
+      '官方页面里的 residence、residency、residential address、physical address 和 mailing address 不是同一个概念；中文页必须保留这些区别。',
+      '“没有自己账单”没有全国统一答案，页面应引导用户回到州官方 document guide，而不是给通用承诺。',
+      'South Dakota 等少数州会给 full-time traveler、PMB 或 affidavit 单独路径；不能把这些特殊规则套到所有州。',
+    ],
+    relatedDirectory: {
+      label: '查看 DMV 材料规则表',
+      href: '/directories/document-rules/',
+      description: '按州查地址证明、SSN、姓名链条、原件/认证副本、P.O. Box 和翻译规则。',
+    },
+    sources: [
+      {
+        label: 'California DMV REAL ID Checklist',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/',
+      },
+      {
+        label: 'NY DMV ID-44',
+        url: 'https://dmv.ny.gov/forms/id44.pdf',
+      },
+      {
+        label: 'NJ MVC 6 Points of ID',
+        url: 'https://www.nj.gov/mvc/license/6pointid.htm',
+      },
+      {
+        label: 'FLHSMV What to Bring - U.S. Citizen',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/',
+      },
+      {
+        label: 'PA REAL ID Document Requirements',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check',
+      },
+      {
+        label: 'WA DOL Enhanced Driver License Guide',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/guide-enhanced-driver-licenses-edl',
+      },
+      {
+        label: 'Iowa DOT REAL ID',
+        url: 'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id',
+      },
+      {
+        label: 'Kansas REAL ID',
+        url: 'https://www.ksrevenue.gov/dovrealid.html',
+      },
+      {
+        label: 'SCDMV Form MV-93',
+        url: 'https://dmv.sc.gov/sites/scdmv/files/media/Forms/MV-93.pdf',
+      },
+      {
+        label: 'Mississippi Required Documents',
+        url: 'https://www.driverservicebureau.dps.ms.gov/node/303',
+      },
+      {
+        label: 'Oregon REAL ID',
+        url: 'https://www.oregon.gov/odot/dmv/pages/real_id.aspx',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'new-jersey',
+      'florida',
+      'pennsylvania',
+      'washington',
+      'iowa',
+      'kansas',
+      'south-carolina',
+      'mississippi',
+      'oregon',
+    ],
+  },
+  {
+    slug: 'ssn-and-itin',
+    title: 'SSN、ITIN 和不可取得 SSN 的情况',
+    eyebrow: '身份文件',
+    reviewedAt: '2026-07-07',
+    description:
+      '很多 DMV 业务会核验 SSN 或要求提供 SSN 相关证明。没有 SSN、不符合 SSN 资格或使用 ITIN 的情况，州与州差异很大。',
+    whoNeedsIt: [
+      '留学生、工作签证、家属签证或新移民。',
+      '申请 REAL ID 或首次驾照时没有 SSN 的人。',
+      '州页面提到 SSN、ITIN 或 ineligibility letter 的人。',
+    ],
+    keyFacts: [
+      'REAL ID 和驾照业务的 SSN 要求由州 DMV 实施，细节不同。',
+      '有些州允许提供 SSN 不可取得证明或其他替代路径。',
+      'ITIN 是否有用、如何使用，必须看所在州官方页面。',
+    ],
+    checklist: [
+      '先确认自己是否有 SSN。',
+      '如果没有 SSN，查看州 DMV 是否要求 SSA ineligibility letter 或其他文件。',
+      '如果有 ITIN，查看该州是否接受以及适用业务。',
+      '非公民身份文件和 I-94/移民文件要与州要求一起核对。',
+    ],
+    steps: [
+      '从州 DMV 的身份类别入口进入，而不是只看普通美国公民清单。',
+      '核对 SSN 栏目和 lawful status 栏目。',
+      '如果页面不清楚，优先联系 DMV 或 SSA 官方渠道确认。',
+    ],
+    faqs: [
+      {
+        question: '没有 SSN 一定不能办驾照吗？',
+        answer:
+          '不一定。很多州有无 SSN 的替代流程，但规则差异很大。不要用其他州经验代替本州官方说明。',
+      },
+      {
+        question: 'ITIN 可以替代 SSN 吗？',
+        answer:
+          '有些州或业务会提到 ITIN，有些不会。它不是全国统一替代物，必须以州 DMV 页面为准。',
+      },
+    ],
+    editorNotes: [
+      'SSN、ITIN 和 SSA ineligibility letter 不是全国统一替代关系；不同州会把它们放在不同业务和身份类别下。',
+      '非公民读者应先走州 DMV 的 lawful presence 或 non-U.S. citizen 材料入口，再看 SSN 栏目。',
+      '如果州页面没有明确写接受 ITIN，不要默认 ITIN 可以替代 SSN。',
+    ],
+    sources: [
+      {
+        label: 'Massachusetts Identification Requirements',
+        url: 'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
+      },
+      {
+        label: 'NJ MVC REAL ID',
+        url: 'https://www.nj.gov/mvc/realid/',
+      },
+      {
+        label: 'FLHSMV What to Bring',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/',
+      },
+    ],
+    relatedStateIds: ['massachusetts', 'new-jersey', 'florida', 'california'],
+  },
+  {
+    slug: 'name-change-chain',
+    title: '姓名变更文件怎么整理',
+    eyebrow: '姓名一致性',
+    reviewedAt: '2026-07-07',
+    description:
+      '如果护照、出生证明、绿卡、SSN、驾照或地址文件上的姓名不一致，DMV 通常会要求法律姓名变更文件来串起完整链条。',
+    whoNeedsIt: [
+      '婚后改姓、离婚恢复旧姓或法院改名的人。',
+      '英文名、中间名、拼写或顺序在不同文件上不一致的人。',
+      '移民文件和州证件姓名不一致的人。',
+    ],
+    keyFacts: [
+      '常见姓名变更文件包括结婚证、离婚判决和法院命令。',
+      '通常需要原件或认证副本。',
+      '有时需要展示从出生名到当前法定名的完整链条，而不是只带最近一次改名文件。',
+    ],
+    checklist: [
+      '列出每份身份证明文件上的姓名。',
+      '找出姓名变化发生在哪一步。',
+      '准备每一次变化对应的法律文件。',
+      '确认州 DMV 是否要求文件翻译或 certified copy。',
+    ],
+    steps: [
+      '先以护照/出生证明/移民文件上的姓名为起点。',
+      '按时间顺序排列结婚、离婚、法院改名等文件。',
+      '把当前申请表姓名和 SSN/地址证明上的姓名对齐。',
+      '不确定时，在预约前联系 DMV 或查看 FAQ。',
+    ],
+    faqs: [
+      {
+        question: '只带结婚证可以吗？',
+        answer:
+          '如果只有一次婚后改名，可能足够；如果中间还有离婚、再婚或法院改名，通常要完整链条。',
+      },
+      {
+        question: '中文名和英文名不同怎么办？',
+        answer:
+          '这属于高风险材料问题。看州 DMV 对翻译、公证和法律姓名文件的要求，必要时先咨询官方。',
+      },
+    ],
+    editorNotes: [
+      '这页的核心不是“带一张结婚证”，而是证明从原始身份文件姓名到当前法定姓名的连续链条。',
+      '不同州对认证副本、翻译件和多次改名文件要求不同；外文文件尤其要回到州页面确认。',
+      '如果 SSN 记录、移民文件和驾照申请姓名不一致，可能先要处理记录更新，再办理 DMV 业务。',
+    ],
+    sources: [
+      {
+        label: 'California DMV REAL ID',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/',
+      },
+      {
+        label: 'PA REAL ID Document Requirements',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check',
+      },
+      {
+        label: 'Massachusetts Identification Requirements',
+        url: 'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
+      },
+    ],
+    relatedStateIds: ['california', 'new-york', 'massachusetts', 'pennsylvania'],
+  },
+  {
+    slug: 'non-citizen-license-id',
+    title: '非美国公民办理驾照或 REAL ID 的注意点',
+    eyebrow: '身份类别',
+    reviewedAt: '2026-07-07',
+    description:
+      '非美国公民办驾照、ID 或 REAL ID 时，通常需要额外核验合法身份和身份有效期。不同州对文件、有效期和预约路径差异很大。',
+    whoNeedsIt: [
+      'F-1、J-1、H-1B、L-1、H-4、绿卡、庇护或其他身份持有人。',
+      'I-94、I-20、DS-2019、EAD 或移民文件即将到期的人。',
+      '州 DMV 页面有 “non-U.S. citizen” 或 “lawful presence” 分类的人。',
+    ],
+    keyFacts: [
+      '驾照有效期可能与移民身份或合法居留文件期限相关。',
+      'REAL ID 通常要求证明 lawful status。',
+      '身份核验可能需要联邦系统验证，现场等待或补材料风险更高。',
+    ],
+    checklist: [
+      '护照、签证、I-94 和身份文件是否一致。',
+      'I-20、DS-2019、EAD、绿卡或批准通知是否在有效期内。',
+      'SSN 或不可取得 SSN 文件是否符合本州要求。',
+      '地址证明是否显示当前州居住地址。',
+    ],
+    steps: [
+      '进入州 DMV 的 non-citizen 或 lawful presence 材料入口。',
+      '按身份类别准备文件，不要照搬美国公民清单。',
+      '检查身份文件有效期，避免刚到期或即将到期。',
+      '预约时带齐原件，并预留二次核验时间。',
+    ],
+    faqs: [
+      {
+        question: 'F-1 学生可以办 REAL ID 吗？',
+        answer:
+          '是否可以、证件有效期多久、需要哪些文件，取决于所在州和个人身份文件。请以州 DMV lawful presence 清单为准。',
+      },
+      {
+        question: '驾照到期日为什么比别人短？',
+        answer:
+          '非公民证件有效期有时会受合法身份文件期限影响。具体规则由州 DMV 执行。',
+      },
+    ],
+    editorNotes: [
+      '这页不是移民建议，只提醒 DMV 办证时常见的 lawful presence、身份有效期和二次核验问题。',
+      '非公民不要使用美国公民材料清单；佛州、马州、佐州等页面都会按身份类别或合法身份分流。',
+      '身份文件接近到期、姓名不一致、I-94/护照/签证记录不一致时，现场失败或延迟风险更高。',
+    ],
+    sources: [
+      {
+        label: 'FLHSMV What to Bring',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/',
+      },
+      {
+        label: 'Massachusetts Identification Requirements',
+        url: 'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
+      },
+      {
+        label: 'Georgia DDS REAL ID',
+        url: 'https://dds.georgia.gov/georgia-licenseid/real-id',
+      },
+    ],
+    relatedStateIds: ['florida', 'massachusetts', 'georgia', 'california'],
+  },
+  {
+    slug: 'standard-license-driving-privilege-no-lawful-status',
+    title: '没有 lawful status，驾照、REAL ID 和 Driving Privilege Card 怎么分',
+    eyebrow: '非 REAL ID 路径',
+    reviewedAt: '2026-07-10',
+    description:
+      'REAL ID 通常要求证明 lawful status，但这不等于所有州都完全不能办理驾驶用途证件。部分州有 Standard license、noncompliant license、drive-only license、AB 60 或 Driving Privilege Card 这类州内驾驶路径，规则必须按州确认。',
+    whoNeedsIt: [
+      '无法提供美国合法居留证明，但想确认是否能在所在州合法开车的人。',
+      '看到 AB 60、Green Light Law、drive-only、DPC、noncompliant 或 standard license 等词但不确定差别的人。',
+      '有外国护照、领馆证、ITIN、无 SSN affidavit 或州居住材料，但不能办 REAL ID 的人。',
+      '担心拿到的证件不能登机、不能做联邦身份用途或不能作为政府 ID 的人。',
+    ],
+    keyFacts: [
+      'REAL ID 和驾驶用途证件是两个问题。REAL ID 用于联邦身份用途，州内驾驶证件用于证明驾驶资格。',
+      'DHS REAL ID 框架和州 DMV 页面通常把 REAL ID 与 lawful status / legal presence 核验绑定；无法证明 lawful status 的人不要按 REAL ID 清单准备。',
+      '部分州提供非 REAL ID 驾驶路径，但名称不同：California AB 60、New York Standard license、Connecticut drive-only license、Utah / Delaware Driving Privilege Card、Maryland noncompliant license、Colorado standard credential 等。',
+      '这些证件通常不能用于 TSA 国内航班安检、进入部分联邦设施、投票或证明移民身份；卡面常会有 not for federal identification / federal limits apply 等提示。',
+      '申请人仍然通常要证明身份、出生日期、州居住地址，并通过知识考试、视力或路考；没有 lawful status 不等于免材料、免考试。',
+      'CDL、commercial license、REAL ID、Enhanced license 和部分州 ID 规则更严格，不能把普通非商业驾驶路径套过去。',
+    ],
+    checklist: [
+      '先确认你的州是否有这类非 REAL ID 驾驶路径；没有全国统一申请入口。',
+      '分清证件名称：standard license、noncompliant license、drive-only license、AB 60、DPC 或普通 REAL ID 不是同一种证件。',
+      '核对身份文件：外国护照、领馆证、出生证明、EAD、法院/学校/银行文件或州认可文件是否在官方清单内。',
+      '核对号码要求：SSN、ITIN、无 SSN/ITIN affidavit 或 SSA ineligibility letter 的规则各州不同。',
+      '准备州居住地址证明，并确认 P.O. Box、PMB、宿舍信箱或别人的账单是否可用。',
+      '确认卡面用途限制：是否能登机、是否能作政府 ID、是否有联邦用途限制、有效期多久。',
+    ],
+    steps: [
+      '第一步：打开本州 DMV 的 non-citizen、standard license、drive-only、driving privilege、AB 60 或 noncompliant license 页面，而不是只看 REAL ID 页面。',
+      '第二步：确认这个路径是否适用于无法证明 lawful status 的居民，还是只适用于 temporary lawful presence、无 SSN、或其他身份类别。',
+      '第三步：把材料分成四组：身份和生日、州居住地址、SSN / ITIN / affidavit、考试或驾驶经历。',
+      '第四步：如果文件不是英文，先查 certified translation、English translation 或领馆文件规则，避免现场被退。',
+      '第五步：预约前确认办公室类型。有些州把这类申请放在指定 DMV、licensing center 或必须预约的服务中。',
+      '第六步：拿到证件后，按卡面限制使用。需要登机、联邦设施、国际旅行或移民身份用途时，改查 TSA、DHS 或护照/移民文件要求。',
+    ],
+    faqs: [
+      {
+        question: '没有 lawful status 是不是一定不能办驾照？',
+        answer:
+          '不是全国统一答案。REAL ID 通常不行，但 California、New York、Connecticut、Colorado、Maryland、Utah、Delaware、New Mexico、New Jersey 等官方页面显示过不同形式的非 REAL ID 或驾驶用途路径。必须看所在州。',
+      },
+      {
+        question: '这类证件可以坐飞机吗？',
+        answer:
+          '通常不能当作 REAL ID 使用。TSA 国内航班需要 REAL ID 合规证件或 TSA 接受的其他证件，例如护照。Standard、drive-only、DPC 或 noncompliant 证件要按卡面和 TSA 页面确认。',
+      },
+      {
+        question: 'Standard license 和 REAL ID license 外观看起来很像，怎么判断？',
+        answer:
+          '看卡面标记和州说明。很多州会用星标表示 REAL ID 合规；非合规证件可能写有 Federal Limits Apply、Not for Federal Identification、Not Valid for Federal Official Purposes 等类似提示。',
+      },
+      {
+        question: '有 ITIN 或没有 SSN affidavit 就一定能办吗？',
+        answer:
+          '不一定。NJ、NY 等州有自己的 SSN / ITIN / affidavit 规则；其他州可能完全不同。号码文件只是材料的一组，还要满足身份、居住、考试和州资格要求。',
+      },
+      {
+        question: '拿到 driving privilege card 等于有合法身份吗？',
+        answer:
+          '不是。这类证件通常只解决州内驾驶资格或有限身份用途，不提供移民身份，也不是公民身份、投票资格或联邦身份文件。',
+      },
+    ],
+    editorNotes: [
+      '这页不提供移民法律建议，也不判断个人是否应申请；只解释 DMV 证件路径和用途限制。',
+      '“没有 lawful status”不能写成一个全国规则。不同州可能完全无此路径，或把路径限定为 standard / noncompliant / drive-only / DPC。',
+      'REAL ID、Enhanced ID、CDL 和普通非商业驾驶证件要明确分开；尤其 Enhanced 通常还涉及美国公民身份。',
+      '纽约 Green Light Law 页面强调这只涉及纽约州驾驶权限，不提供公民身份路径；这类句子应作为整页风险提醒。',
+      '如果州页面要求 affidavit、税务 filing、领馆证、翻译件或指定预约，不要把其他州的宽松规则套用过来。',
+    ],
+    relatedDirectory: {
+      label: '查看 SSN / 身份类别分流表',
+      href: '/directories/identity-ssn/',
+      description: '按州查 lawful presence、SSN、ITIN、无 SSN affidavit、非公民材料和标准/REAL ID 路径。',
+    },
+    sources: [
+      {
+        label: 'DHS REAL ID',
+        url: 'https://www.dhs.gov/real-id',
+      },
+      {
+        label: 'California DMV AB 60 Driver Licenses',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/',
+      },
+      {
+        label: 'NY DMV Green Light Law',
+        url: 'https://dmv.ny.gov/driver-license/driver-licenses-and-the-green-light-law',
+      },
+      {
+        label: 'NY DMV Standard License Without SSN',
+        url: 'https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility',
+      },
+      {
+        label: 'NJ MVC 6 Points of ID',
+        url: 'https://www.nj.gov/mvc/license/6pointid.htm',
+      },
+      {
+        label: 'Illinois SOS Non-Citizen and TVDL Information',
+        url: 'https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_tvdl22.pdf',
+      },
+      {
+        label: 'Maryland MVA Noncompliant Driver Licenses and IDs',
+        url: 'https://mva.maryland.gov/licenses-ids/additional-driver-id-services/noncompliant-drivers-licenses-ids',
+      },
+      {
+        label: 'Colorado DMV Standard Licenses and IDs',
+        url: 'https://dmv.colorado.gov/drivers/standard-license-and-ID-cards',
+      },
+      {
+        label: 'Connecticut DMV Drive-only License',
+        url: 'https://portal.ct.gov/dmv/licenses-permits-ids/get-drive-only-license',
+      },
+      {
+        label: 'Utah DLD Driving Privilege Card',
+        url: 'https://dld.utah.gov/what-is-a-driving-privilege-card/',
+      },
+      {
+        label: 'Delaware DMV Driving Privilege Card',
+        url: 'https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml',
+      },
+      {
+        label: 'New Mexico MVD Driver Licenses and IDs',
+        url: 'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/',
+      },
+      {
+        label: 'Washington DOL REAL ID',
+        url: 'https://dol.wa.gov/id-cards/real-id',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'new-jersey',
+      'illinois',
+      'maryland',
+      'colorado',
+      'connecticut',
+      'utah',
+      'delaware',
+      'new-mexico',
+      'washington',
+    ],
+  },
+  {
+    slug: 'state-id-non-driver-id-real-id-card',
+    title: '不考驾照，只办 State ID / non-driver ID 怎么准备',
+    eyebrow: '州身份证',
+    reviewedAt: '2026-07-10',
+    description:
+      '不准备开车，也可以在很多州申请 state ID、non-driver ID、photo ID、Mass ID 或 Enhanced ID。先分清普通 ID、REAL ID-compliant ID、Enhanced ID、移动 ID、驾照换 ID、未成年人 ID 和无家可归 / 低收入费用减免，避免把 ID card 当成驾照或护照来用。',
+    whoNeedsIt: [
+      '不准备考驾照，但需要银行、学校、租房、年龄证明、机场安检或日常身份证件的人。',
+      '留学生、访问学者、H-4 / J-2 家属、老人、不会开车的人，想知道是否必须先考 permit 或 road test 的人。',
+      '已经有驾照但不再开车，想把 driver license surrender / exchange 成 ID card 的人。',
+      '给未成年孩子、老人、无家可归者、无固定账单者或低收入申请人准备州 ID 材料的人。',
+      '不确定普通 state ID、REAL ID ID card、Enhanced ID、mobile ID 和护照各自能用在哪里的人。',
+    ],
+    keyFacts: [
+      'State ID / non-driver ID 是身份证件，不是驾驶资格。California DMV 明确说 ID card 可用于证明身份或年龄，但不允许驾驶；PennDOT 也说明 photo ID 不是 driver license。',
+      'REAL ID 可以是 driver license，也可以是 identification card。DHS、TSA、California、Florida、Virginia、Pennsylvania 等官方页面都把 REAL ID-compliant driver license / ID card 放在同一类联邦身份用途里。',
+      '普通 ID 不一定能登机。California 和 Washington 都说明 standard ID 有州内身份用途，但不能替代 REAL ID、passport 或 Enhanced ID 处理特定联邦 / 边境用途。',
+      'Enhanced ID 不是每个州都有。Washington DOL 说明 EID 可作为从陆路或海路返回美国的 passport alternative，但 standard ID 不能用于 border crossing；申请 EID 还有更严格材料。',
+      '有些州不允许同时持有 driver license 和 ID card，或要求换 ID 时 surrender license。Texas DPS 和 Virginia DMV 都明确写到，持有 driver license 时申请 ID 需要 surrender 或 exchange；Georgia 则有自己的 online / in-person 条件。',
+      '年龄门槛州别化。California 和 New York 都提到任何年龄可申请 ID / non-driver ID；Washington 说没有最低年龄；Pennsylvania photo ID 要求至少 10 岁；Virginia 把 adult ID 和 child ID 拆开。',
+      '材料通常还是 identity、lawful presence / legal presence、SSN、residency、name change 这些组。State ID 不考试，但不等于材料更少。',
+      '实体卡大多会邮寄。California ID 约 3-4 周寄达；Texas ID 约 2-3 周寄达；Washington ID 约 7-10 天寄达，临时 ID 因没有照片/签名不能当正式 ID 使用；Virginia 也提醒 USPS 不会转寄 ID。',
+      '低收入、无家可归、老人或特定人群可能有 fee waiver / reduced fee。California 有 reduced/no-fee/senior ID；Washington 有 unhoused 和 reduced-fee ID 帮助；Pennsylvania 提供无家可归者免费 ID 入口。',
+      'Mobile ID 通常是 companion，不应替代实体卡。New York 和 Virginia 都提醒仍要保留或携带 physical driver license / permit / non-driver ID，尤其在驾驶、旅行或机构不接受移动 ID 时。',
+    ],
+    checklist: [
+      '先决定用途：州内年龄/身份、国内航班、联邦设施、陆海边境回美、银行/学校/租房，还是只是替代不再使用的驾照。',
+      '确认证件类型：standard ID、REAL ID ID card、Enhanced ID / EID、Mass ID、photo ID、non-driver ID、child ID、senior ID、mobile ID 或 replacement。',
+      '准备身份和生日文件：护照、出生证明、绿卡、EAD、I-94/签证文件、领馆证、州认可身份证明等，按本州清单选。',
+      '准备 SSN 或替代路径：SSN、W-2、SSA 文件、ITIN、affidavit、不可取得 SSN 说明或州认可的电子核验方式。',
+      '准备居住地址证明：通常需要当前州 residential address；P.O. Box、转寄地址、宿舍、shelter 或朋友家地址要单独查本州规则。',
+      '姓名不一致时准备完整 name change chain：婚姻、离婚、法院改名、收养、入籍文件等原件或 certified copy。',
+      '如果已经有 driver license、learner permit 或外州 ID，确认是否必须 surrender、exchange、destroy duplicate，或是否不能同时持有两种 credential。',
+      '确认申请方式、预约、照片、费用、邮寄地址、临时 ID 的限制，以及实体卡预计多久寄到。',
+    ],
+    steps: [
+      '第一步：不要从“驾照考试”入口开始。打开州 DMV / DPS / RMV / MVC / DOL 的 ID card、non-driver ID、photo ID 或 identification card 页面。',
+      '第二步：按用途选证件。只要州内日常身份，可看 standard ID；要登机或联邦设施，查 REAL ID ID card；要陆海边境回美且本州提供 EID，再看 Enhanced ID。',
+      '第三步：确认是否已有驾照或 permit。Texas 和 Virginia 明确把 driver license 与 ID card 持有关系写出来；如果你要把驾照换成 ID，按 exchange / surrender 路径准备。',
+      '第四步：用州官方 document guide 或 checklist 整理材料。State ID 不需要路考，但 identity、SSN、residency、lawful presence、name change 仍可能要原件。',
+      '第五步：预约或到 office 办理时确认照片、指纹/签名、付款方式和邮寄地址。搬家、地址不稳或使用 shelter / organization 地址时，先看无家可归或特殊地址帮助页面。',
+      '第六步：拿到临时 ID 后不要马上当成正式 ID 使用。等实体卡到手；如果近期要坐飞机，带护照或 TSA 接受的其他实体证件更稳。',
+      '第七步：续期、补证、升级 REAL ID 或换地址时回到同州 ID card 页面。不要用 driver license renewal 页面假设 ID card 规则完全相同。',
+    ],
+    faqs: [
+      {
+        question: '不考驾照，可以直接办 State ID 吗？',
+        answer:
+          '通常可以。很多州的 ID card / non-driver ID 就是给不驾驶的人使用的 photo ID。它一般不要求 permit、笔试或路考，但仍要按州要求证明身份、居住地址、SSN / lawful presence 和姓名一致性。',
+      },
+      {
+        question: 'State ID 可以坐美国国内航班吗？',
+        answer:
+          '只有 REAL ID-compliant ID card 或 TSA 接受的其他证件才更稳。普通 standard ID 在很多州仍可证明州内身份或年龄，但不能用于 REAL ID 联邦用途。没有 REAL ID ID card 时，护照通常是更稳的旅行备选。',
+      },
+      {
+        question: '我可以同时拿 driver license 和 non-driver ID 吗？',
+        answer:
+          '不能跨州假设。Texas 和 Virginia 明确写到，持有 driver license 时申请 ID 要 surrender 或 exchange；有些州规则不同。申请前看本州是否允许同时持有，尤其是从驾照转 ID、搬州或外州 credential 场景。',
+      },
+      {
+        question: 'Mobile ID 能不能替代实体 ID？',
+        answer:
+          '不要默认可以。New York 和 Virginia 都把 mobile ID 写成便利的数字形式，但仍提醒保留或携带 physical credential。机场、银行、学校、警察、酒类销售或外州机构是否接受 mobile ID，要看具体机构和州规则。',
+      },
+      {
+        question: '没有固定住址或没有自己账单，还能办 ID 吗？',
+        answer:
+          '可能有特殊路径。California 有 no-fee / reduced-fee ID，Washington 有 ID help for the unhoused 和 mailing address 说明，Pennsylvania 有无家可归者免费 ID 入口。不要自己编地址；先找州 DMV 特殊地址、shelter、community organization 或 social service 路径。',
+      },
+    ],
+    editorNotes: [
+      '这页专门服务“不考驾照但需要官方 photo ID”的用户，避免把 first-driver-license-road-test 页面拉得太宽。',
+      '不要把 State ID 写成全国统一规则。年龄、是否可同时持有驾照、费用减免、实体卡邮寄、mobile ID 和 Enhanced ID 都高度州别化。',
+      'REAL ID、Enhanced ID、standard ID、mobile ID 和 passport 要分开写。REAL ID 是联邦用途合规，Enhanced ID 还有边境用途，mobile ID 是接受范围问题，passport 是联邦证件。',
+      '无家可归、shelter、低收入、老人、未成年人是高帮助价值分支，但每州项目不同，页面只给判断逻辑和官方入口，不承诺资格。',
+      '数字 ID、临时 ID、receipt 和实体 ID 的可用性很容易被误解；所有旅行和联邦用途都应回到 TSA / DHS / 州 DMV 当前页面。',
+    ],
+    relatedDirectory: {
+      label: '查看 DMV 材料规则表',
+      href: '/directories/document-rules/',
+      description: '按州查看 identity、SSN、地址证明、P.O. Box、姓名变更、原件/认证副本和翻译要求。',
+    },
+    sources: [
+      {
+        label: 'DHS REAL ID',
+        url: 'https://www.dhs.gov/real-id',
+      },
+      {
+        label: 'TSA Identification',
+        url: 'https://www.tsa.gov/travel/security-screening/identification',
+      },
+      {
+        label: 'USA.gov REAL ID',
+        url: 'https://www.usa.gov/real-id',
+      },
+      {
+        label: 'California DMV ID Cards',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/identification-id-cards/',
+      },
+      {
+        label: 'California DMV Driver License or ID Card Application',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/dl-id-online-app-edl-44/',
+      },
+      {
+        label: 'California DMV REAL ID',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/',
+      },
+      {
+        label: 'NY DMV Non-Driver ID Cards',
+        url: 'https://dmv.ny.gov/non-driver-id-card',
+      },
+      {
+        label: 'NY DMV Get a Non-Driver ID',
+        url: 'https://dmv.ny.gov/non-driver-id/get-a-non-driver-id',
+      },
+      {
+        label: 'NY DMV Exchange License or Permit for Non-Driver ID',
+        url: 'https://dmv.ny.gov/non-driver-id/exchange-driver-license-non-driver-id',
+      },
+      {
+        label: 'NY DMV Renew a Non-Driver ID',
+        url: 'https://dmv.ny.gov/non-driver-id/renew-a-non-driver-id',
+      },
+      {
+        label: 'NY DMV Replace a Non-Driver ID',
+        url: 'https://dmv.ny.gov/non-driver-id/replace-a-non-driver-id',
+      },
+      {
+        label: 'Texas DPS Apply for a Texas Identification Card',
+        url: 'https://www.dps.texas.gov/section/driver-license/how-apply-texas-identification-card',
+      },
+      {
+        label: 'Texas DPS Identification Requirements',
+        url: 'https://www.dps.texas.gov/section/driver-license/identification-requirements',
+      },
+      {
+        label: 'Texas DPS Replace Driver License or ID Card',
+        url: 'https://www.dps.texas.gov/section/driver-license/replace-your-driver-license-commercial-driver-license-or-id-card',
+      },
+      {
+        label: 'FLHSMV Driver Licenses & ID Cards',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/',
+      },
+      {
+        label: 'FLHSMV What to Bring',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/',
+      },
+      {
+        label: 'FLHSMV REAL ID',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/real-id/',
+      },
+      {
+        label: 'FLHSMV Renew or Replace Your Florida Driver License or ID Card',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
+      },
+      {
+        label: 'Washington DOL Get an ID Card',
+        url: 'https://dol.wa.gov/id-cards/get-id-card',
+      },
+      {
+        label: 'Washington DOL Documents for Proof of Identity',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity',
+      },
+      {
+        label: 'Washington DOL REAL ID',
+        url: 'https://dol.wa.gov/id-cards/real-id',
+      },
+      {
+        label: 'Washington DOL Enhanced ID Card',
+        url: 'https://dol.wa.gov/id-cards/enhanced-id-card-eid/get-enhanced-id-card-eid',
+      },
+      {
+        label: 'Washington DOL ID Help for the Unhoused',
+        url: 'https://dol.wa.gov/id-cards/id-help-unhoused',
+      },
+      {
+        label: 'PennDOT Get a Photo ID',
+        url: 'https://www.pa.gov/services/dmv/get-a-photo-id',
+      },
+      {
+        label: 'PennDOT Renew a Photo ID',
+        url: 'https://www.pa.gov/services/dmv/renew-a-photo-id',
+      },
+      {
+        label: 'PennDOT Replace a Photo ID',
+        url: 'https://www.pa.gov/services/dmv/replace-a-photo-id',
+      },
+      {
+        label: 'PennDOT REAL ID',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/real-id',
+      },
+      {
+        label: 'Virginia DMV Get an Identification Card',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/id-cards/get-id',
+      },
+      {
+        label: 'Virginia DMV Adult ID Card',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/id-cards/adult-id',
+      },
+      {
+        label: 'Virginia DMV Child ID Card',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/id-cards/child-id',
+      },
+      {
+        label: 'Virginia DMV Replace Your Identification Card',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/id-cards/replacement-id',
+      },
+      {
+        label: 'Virginia DMV REAL ID',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/real-id',
+      },
+      {
+        label: 'Georgia DDS Get a Georgia State ID Card',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-id-card',
+      },
+      {
+        label: 'Georgia DDS Apply for an ID Card',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/apply-id-card',
+      },
+      {
+        label: 'Georgia DDS REAL ID',
+        url: 'https://dds.georgia.gov/georgia-licenseid/real-id',
+      },
+      {
+        label: 'NJ MVC Non-Driver Identification Card',
+        url: 'https://www.nj.gov/mvc/license/nondriverid.htm',
+      },
+      {
+        label: 'NJ MVC 6 Points of ID',
+        url: 'https://www.nj.gov/mvc/license/6pointid.htm',
+      },
+      {
+        label: 'NJ MVC Application for Permit License or Non-Driver ID PDF',
+        url: 'https://www.nj.gov/mvc/pdf/license/BA-208.pdf',
+      },
+      {
+        label: 'NJ MVC Lost or Stolen License or Non-Driver ID',
+        url: 'https://www.nj.gov/mvc/license/liclost.htm',
+      },
+      {
+        label: 'Mass.gov Apply for a Massachusetts Identification Card',
+        url: 'https://www.mass.gov/how-to/apply-for-a-massachusetts-identification-card-mass-id',
+      },
+      {
+        label: 'Mass.gov RMV-issued Identification Cards',
+        url: 'https://www.mass.gov/rmv-issued-identification-cards',
+      },
+      {
+        label: 'Mass.gov Massachusetts Identification Requirements',
+        url: 'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'florida',
+      'washington',
+      'pennsylvania',
+      'virginia',
+      'georgia',
+      'new-jersey',
+      'massachusetts',
+    ],
+  },
+  {
+    slug: 'airport-travel-after-real-id',
+    title: 'REAL ID 后坐美国国内航班要带什么',
+    eyebrow: '机场安检',
+    reviewedAt: '2026-07-13',
+    description:
+      'REAL ID 联邦执行已经开始。18 岁及以上旅客通过 TSA 机场安检时，通常需要 REAL ID 合规驾照/ID，或护照、军人证等 TSA 接受的其他证件；没有可接受 ID 时，再查看 TSA 当前身份核验选项。',
+    whoNeedsIt: [
+      '计划坐美国国内航班的人。',
+      '驾照上没有 REAL ID 星标或不确定是否合规的人。',
+      '不想携带护照但经常飞国内的人。',
+    ],
+    keyFacts: [
+      'TSA 接受的证件不只有 REAL ID；有效美国护照也是常见选择。',
+      '驾照用于驾驶和用于机场安检是两个不同问题。',
+      '旅行前应同时查看 TSA 和州 DMV 页面。',
+      'USA.gov 2026 年说明提到 TSA ConfirmID：没有 REAL ID 或其他可接受证件的 18 岁及以上旅客可付费进行身份核验，核验有效期从出发日起算 10 天。',
+    ],
+    factChecks: [
+      {
+        claim: '18 岁及以上旅客可以使用 REAL ID 合规州证件，或 TSA 接受列表中的护照等其他身份证件。',
+        sourceUrls: ['https://www.tsa.gov/realid', 'https://www.tsa.gov/travel/security-screening/identification'],
+      },
+      {
+        claim: 'REAL ID 只解决相应联邦身份用途，不能替代国际旅行所需的护照。',
+        sourceUrls: ['https://www.dhs.gov/real-id', 'https://www.usa.gov/real-id'],
+      },
+      {
+        claim: '没有 REAL ID 或其他可接受证件时，ConfirmID 属于付费身份核验备选；它不是一张临时 REAL ID。',
+        sourceUrls: ['https://www.usa.gov/real-id', 'https://www.tsa.gov/travel/security-screening/identification'],
+      },
+    ],
+    checklist: [
+      '检查驾照/ID 是否有 REAL ID 合规标记。',
+      '如果没有，准备有效护照、护照卡或 TSA 接受的其他证件。',
+      '确认姓名与机票姓名一致。',
+      '出发前再次查看 TSA identification 页面。',
+      '如果已经临近出发且没有可接受 ID，查看 USA.gov 和 TSA 的 ConfirmID 当前说明，并预留机场核验时间。',
+    ],
+    steps: [
+      '先用 TSA 页面确认可接受证件。',
+      '如果想用州驾照/ID 登机，确认它是否 REAL ID 合规。',
+      '如果不合规，决定是办理 REAL ID 还是旅行时带护照。',
+      '没有任何可接受证件时，把 TSA 身份核验当作最后备选，而不是日常出行计划。',
+    ],
+    faqs: [
+      {
+        question: '护照可以代替 REAL ID 吗？',
+        answer:
+          '通常可以。TSA 接受有效护照作为身份文件。REAL ID 的好处是可以用合规州驾照/ID 处理国内航班身份核验。',
+      },
+      {
+        question: '名字有中间名差异会影响登机吗？',
+        answer:
+          '可能会带来额外核验。尽量让机票姓名与所用证件姓名一致。',
+      },
+      {
+        question: '没有 REAL ID、也没有护照，还能飞吗？',
+        answer:
+          'USA.gov 2026 年说明提到 TSA ConfirmID 可作为没有 REAL ID 或其他可接受证件时的身份核验选项，但它需要付费并可能增加时间成本。出发前必须看 TSA/USA.gov 当前页面。',
+      },
+    ],
+    editorNotes: [
+      '机场场景优先看 TSA 接受证件列表；州 DMV 页面只解决州证件是否 REAL ID-compliant。',
+      '临时纸质驾照、interim license 或刚换证的收据未必能通过 TSA，临近出行时应准备护照等替代证件。',
+      'REAL ID 不替代国际旅行护照，也不解决签证、入境或航空公司姓名规则问题。',
+      'ConfirmID 应写成没有可接受 ID 时的身份核验备选，不要写成“可以买一个 REAL ID 替代品”。',
+    ],
+    sources: [
+      {
+        label: 'TSA REAL ID',
+        url: 'https://www.tsa.gov/realid',
+      },
+      {
+        label: 'TSA Identification',
+        url: 'https://www.tsa.gov/travel/security-screening/identification',
+      },
+      {
+        label: 'DHS REAL ID',
+        url: 'https://www.dhs.gov/real-id',
+      },
+      {
+        label: 'USA.gov REAL ID',
+        url: 'https://www.usa.gov/real-id',
+      },
+    ],
+    relatedStateIds: ['texas', 'washington', 'new-york', 'michigan'],
+  },
+  {
+    slug: 'online-office-appointment',
+    title: 'DMV 业务先线上办还是预约到办公室',
+    eyebrow: '线上/现场分流',
+    reviewedAt: '2026-07-10',
+    description:
+      '续期、补证、地址变更、REAL ID、首次驾照、外州转入和路考，不是都要去同一个 DMV 窗口。先判断能否线上、kiosk、邮寄或必须预约现场，能少跑很多冤枉路。',
+    whoNeedsIt: [
+      '不知道自己的 DMV 业务能不能线上办理，或是否必须预约办公室的人。',
+      '准备续期、补证、地址变更、升级 REAL ID、外州转入、首次驾照或路考的人。',
+      '刚搬家、姓名变化、非公民身份、无 SSN、证件快过期或材料不一致的人。',
+    ],
+    keyFacts: [
+      '官方线上入口能打开，不等于本人一定符合线上资格；很多州会在系统里按年龄、证件状态、REAL ID 状态、地址、身份或业务类型再判断。',
+      '常规续期、补证和地址变更常有 online、kiosk、mail 或第三方路径；首次 REAL ID、首次驾照、外州转入、姓名变化和 lawful presence 核验更常需要现场。',
+      '预约入口也不是通用钥匙。driver license office、vehicle office、county tax collector、licensing center、testing location 和 REAL ID center 可能办理不同业务。',
+      '路考、knowledge test 和 permit 经常有单独入口。预约成功只说明拿到时段，不代表车辆、陪同人、文件、保险或考试语言当天一定合格。',
+      '很多州的永久卡片会邮寄；temporary license、receipt 或 paper ID 是否可用于 TSA、驾驶或身份用途，要看州 DMV 和 TSA 当前说明。',
+    ],
+    checklist: [
+      '先把业务写清楚：renewal、replacement、address change、REAL ID upgrade、first license、transfer、road test、vehicle title / registration。',
+      '检查当前证件：是否过期、是否有 REAL ID 星标、地址是否正确、姓名是否变化、是否 CDL / permit / limited-term / non-citizen 场景。',
+      '打开州官方 online services、appointment、locations 或 service advisor 页面，不从第三方广告入口开始。',
+      '如果页面要求现场核验，确认地点类型、服务项目、预约类别、材料原件/认证副本、付款方式和是否接受 walk-in。',
+      '如果能线上或 kiosk 办理，先确认邮寄地址、临时凭证、处理时间、service fee 和是否需要先完成地址变更。',
+    ],
+    steps: [
+      '第一步：不要先搜“附近 DMV”。先打开州 DMV 官方主站、online services 或 service advisor，选择你真正要办的业务。',
+      '第二步：让官方系统或页面判断线上资格。Texas、New Jersey、Florida、Michigan 等州都把续期、补证、地址或 replacement 的资格拆到线上服务里。',
+      '第三步：只要涉及首次 REAL ID、首次驾照、外州/外国驾照转入、姓名变化、非公民身份文件、lawful presence、路考或车辆业务，就继续查现场地点和预约类别。',
+      '第四步：预约前确认办公室类型。Washington DOL 区分 driver licensing office、vehicle licensing office 和 testing location；Florida 又常由县税务官或服务中心承办。',
+      '第五步：到场前一天重新核对预约确认、官方材料清单、原件/认证副本、付款方式、临时凭证和邮寄时间；政府网站临时维护或办公室服务范围变化都可能影响当天办理。',
+    ],
+    faqs: [
+      {
+        question: '能不能直接 walk-in 去 DMV？',
+        answer:
+          '有些州或地点接受 walk-in，有些服务必须预约，有些办公室只办特定业务。最稳妥是先看州官方 locations / appointment 页面，确认地点类型和服务项目。',
+      },
+      {
+        question: '线上续期页面能打开，是不是我一定能线上续？',
+        answer:
+          '不是。线上入口通常还会按本人条件判断资格，例如证件类型、年龄、过期时间、上次办理方式、REAL ID 材料状态、地址、身份或是否需要视力/照片更新。',
+      },
+      {
+        question: '预约 REAL ID、续期、补证可以选同一个类别吗？',
+        answer:
+          '不一定。新泽西 MVC 的预约说明就把 REAL ID 和 renewal 类别分开；如果未来几个月内符合续期资格，可能应选 Renewal Appointment。其他州也可能按业务分不同窗口。',
+      },
+      {
+        question: '办完后拿到纸质临时证，可以直接去坐飞机吗？',
+        answer:
+          '不要默认可以。临时纸质证件、receipt 或 interim license 是否被 TSA 接受要看 TSA 和州 DMV 当前说明；临近旅行时应准备护照等 TSA 接受证件。',
+      },
+    ],
+    editorNotes: [
+      '这页是分流逻辑，不替代具体州页面。真正提交申请、预约、付款或上传材料，必须回到州 DMV / DPS / RMV / MVC / DOL 官方系统。',
+      'California DMV 明确提醒许多常规业务不提供柜台服务，并把 online、kiosk、business partner、mail 和 office location 分开；这适合提示用户先判断是否需要到场。',
+      'New York DMV office 页面强调按地点查看服务和预约；New Jersey MVC 把 Online Services、REAL ID、renewal 和 Appointment Wizard 拆开，说明预约类别本身就会影响能否办成。',
+      'Florida 和 Washington 特别适合解释“办公室类型不同”：佛州许多服务由县税务官办公室或服务中心承办；华州把 driver licensing、vehicle licensing 和 testing/training location 分得很细。',
+      '政府网站可能对自动化检查、地区或频率做限制。本站保留官方深层链接，但用户如果打不开，应从州官方首页或 USA.gov 州机动车服务目录重新进入。',
+    ],
+    relatedDirectory: {
+      label: '50 州线上/现场分流表',
+      href: '/directories/service-paths/',
+      description: '按州查看续期、补证、地址变更、REAL ID、预约、办公室和线上服务的官方入口。',
+    },
+    sources: [
+      {
+        label: 'USA.gov State Motor Vehicle Services',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+      },
+      {
+        label: 'California DMV Appointments',
+        url: 'https://www.dmv.ca.gov/portal/appointments/',
+      },
+      {
+        label: 'California DMV Locations',
+        url: 'https://www.dmv.ca.gov/portal/locations/',
+      },
+      {
+        label: 'NY DMV Office Locations',
+        url: 'https://dmv.ny.gov/contact-us/office-locations',
+      },
+      {
+        label: 'Texas Online Eligibility',
+        url: 'https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/',
+      },
+      {
+        label: 'FLHSMV Renew or Replace',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
+      },
+      {
+        label: 'FLHSMV Locations',
+        url: 'https://www.flhsmv.gov/locations/',
+      },
+      {
+        label: 'Washington DOL Appointments and Locations',
+        url: 'https://dol.wa.gov/appointments-and-locations',
+      },
+      {
+        label: 'Washington DOL Driver Licensing Offices',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-offices',
+      },
+      {
+        label: 'NJ MVC Online Services',
+        url: 'https://www.nj.gov/mvc/online-services.html',
+      },
+      {
+        label: 'NJ MVC Appointment Wizard',
+        url: 'https://telegov.njportal.com/njmvc/AppointmentWizard',
+      },
+    ],
+    relatedStateIds: ['california', 'new-york', 'texas', 'florida', 'washington', 'new-jersey', 'michigan', 'north-carolina', 'virginia', 'georgia'],
+  },
+  {
+    slug: 'dmv-scam-text-fake-ticket-toll-real-id-phishing',
+    title: 'DMV 诈骗短信、假罚单和假官网怎么识别',
+    eyebrow: '防诈骗',
+    reviewedAt: '2026-07-10',
+    description:
+      '收到“DMV 罚单未付”“toll 欠费”“REAL ID 可加急”“驾照将 suspend”的短信、邮件、电话或广告时，先不要点链接。很多州 DMV 和联邦机构都提醒，诈骗信息会伪装成官方页面，诱导你输入驾照号、SSN、银行卡或登录信息。',
+    whoNeedsIt: [
+      '收到短信或邮件，说有 unpaid ticket、toll、fine、registration hold、license suspension、legal action 或 arrest risk 的人。',
+      '在搜索引擎或社交媒体看到“DMV 加急”“REAL ID 快速办理”“registration discount”“pay ticket now”广告，不确定是不是官方入口的人。',
+      '被要求输入 driver license number、SSN、date of birth、credit card、bank account、verification code 或上传证件照片的人。',
+      '已经点过可疑链接、输入过资料、付款过，想知道下一步应该报告哪里、怎么保护账户的人。',
+      '帮英文不熟的家人处理 DMV、罚单、toll 或 REAL ID 信息，担心对方被威胁性短信吓到的人。',
+    ],
+    keyFacts: [
+      'California DMV、Florida FLHSMV、Washington DOL、Virginia DMV、Georgia DDS、Massachusetts RMV、Maryland MVA 等官方页面都反复强调：他们不会通过短信索取付款、个人信息或金融信息，也不会用短信威胁你立即付款。',
+      '诈骗信息会做得像真的。New York DMV 提醒，诈骗者可能复制 DMV 或州政府网站的 logo、图片和内容，让短信、邮件、社交账号或假网站看起来很像官方页面。',
+      '最常见诱饵是“欠费 + 时间压力”：unpaid toll、traffic ticket、registration violation、license suspension、late fee、legal action、arrest、REAL ID 快速办理、跳过排队、折扣 registration renewal。',
+      '不要从短信链接进入付款或登录页面。FTC、FBI IC3、PennDOT、Virginia DMV、Washington DOL 等来源都建议：用你已知真实的官网、官方 app 或官方客服电话独立核验，不要用短信里的网址和电话。',
+      '不是所有官方入口都长得一样。有些州会使用官方交易平台、县税务官、toll agency、E-ZPass、Texas by Texas、DDS Online Services 等系统；正确做法是从州 DMV/RMV/MVC/DOL 官网或 USA.gov 目录逐层进入，而不是相信广告或短信。',
+      'Traffic ticket、toll、parking citation 和 court fine 通常分属不同机构。随机短信说“State DMV 收罚单”本身就可疑；Georgia DDS 还特别指出，Georgia 没有所谓“State Department of Motor Vehicles (DMV)”。',
+      '如果只是收到可疑短信，通常应该不点击、不回复、截图保存、删除或标记 spam，并按 FTC / 7726 / IC3 / 州 DMV 提供的渠道报告。',
+      '如果已经输入银行卡、SSN、driver license、账户密码或验证码，要把它当成身份盗用风险处理：联系银行/信用卡、改密码、查看信用报告、考虑 fraud alert / freeze，并按 IdentityTheft.gov 或州 DMV fraud 页面走。',
+      '“我真的有罚单/欠 toll”也不能证明短信是真的。真实欠费应从法院、toll agency、DMV official account、E-ZPass / Toll By Plate 或本州官方系统核验。',
+      '本站只做官方入口导航和风险提示，不替你判断某条短信是否一定违法，也不收集你的个人信息；任何付款、报案、身份盗用补救都应回到官方渠道。',
+    ],
+    checklist: [
+      '先看来源：发件号码、邮箱、域名、链接是否来自你能从官方 DMV/RMV/MVC/DOL/Toll agency 页面反向找到的入口。',
+      '看话术：是否催你今天/几天内付款、威胁 suspension、arrest、legal action、late fee、registration loss 或 license cancellation。',
+      '看索取内容：是否要求 SSN、driver license number、date of birth、银行卡、bank login、one-time code、证件照片或 gift card / Venmo / Zelle 等付款方式。',
+      '看业务逻辑：罚单是否应由 court clerk 处理，toll 是否应由 toll agency 处理，registration 是否应由 DMV/county tax office 处理，REAL ID 是否必须本人到 office 核验。',
+      '不要点短信链接；用浏览器手动输入官方域名，或从本网站的州页面/入口表/USA.gov 州机动车目录进入。',
+      '可疑信息先截图，保留号码、时间、链接和文字，再删除、block、report junk 或转发 7726。',
+      '已经输入信息时，列出泄露内容：银行卡、SSN、DL/ID、密码、验证码、地址、生日、证件照片；不同信息对应不同补救动作。',
+      '如果涉及 driver license / ID 被冒用，按本州 DMV fraud / identity theft 页面报；如果涉及银行卡或信用账户，先联系金融机构。',
+    ],
+    steps: [
+      '第一步：先停下，不点、不回、不付款。诈骗信息最常用的是“马上付款，否则 suspend / arrest / legal action”。',
+      '第二步：截图保存短信、链接、号码、时间和金额。不要为了“测试”而打开链接；截图足够给 FTC、IC3、手机运营商或 DMV fraud 页面使用。',
+      '第三步：从官方路径独立核验。罚单查法院或 citation 所在 county；toll 查官方 toll agency / E-ZPass / Toll By Plate；驾照状态查本州 DMV / DPS / RMV / MVC / DOL；REAL ID 查本州 REAL ID 页面。',
+      '第四步：报告可疑短信。普通 scam text 可按 FTC 建议转发到 7726、在手机里 report junk，并到 ReportFraud.ftc.gov；toll smishing 可按 FBI IC3 页面提交号码和网址。',
+      '第五步：如果点了链接但没有输入资料，关闭页面，删除短信，留意手机和账户异常；如果下载了文件或安装了 app，尽快移除并检查设备安全。',
+      '第六步：如果输入了银行卡、SSN、driver license、密码或验证码，马上联系银行/信用卡、修改相关密码、开启多因素认证、查看信用报告，并按 IdentityTheft.gov 和本州 DMV fraud 页面补救。',
+      '第七步：之后把常用官方入口收藏。以后收到“DMV / toll / ticket / REAL ID”通知时，只从收藏或官方入口表进去核对。',
+    ],
+    faqs: [
+      {
+        question: '短信说我欠 DMV ticket 或 toll，链接看起来像政府网站，可以点吗？',
+        answer:
+          '不要从短信点。California DMV、Florida FLHSMV、Virginia DMV、Washington DOL、Massachusetts RMV 等都提醒不会用短信要求付款或索取个人/金融信息。用法院、toll agency 或州 DMV 官方入口独立核验。',
+      },
+      {
+        question: '我真的可能有罚单或欠 toll，怎么确认？',
+        answer:
+          '看业务归属。交通罚单通常查 citation 上的法院或 county clerk；toll 查官方 toll agency / E-ZPass / Toll By Plate；license status 查本州 DMV。不要用短信里的网址或电话，用官方页面上列出的入口。',
+      },
+      {
+        question: 'REAL ID 可以短信付款加急或跳过排队吗？',
+        answer:
+          '通常不要相信。Washington DOL 明确把“付钱跳过 DMV 排队、加快 REAL ID-compliant document”列为 scam 场景；REAL ID / Enhanced ID 是否能预申请、预约或现场核验，要按本州官方页面走。',
+      },
+      {
+        question: '我已经点了链接并输入了 driver license / SSN / 银行卡，怎么办？',
+        answer:
+          '把它当身份盗用风险处理：联系银行或信用卡、改相关密码、查看信用报告、考虑 fraud alert / freeze，到 IdentityTheft.gov 建立补救步骤，并按本州 DMV fraud 页面报告 driver license / ID 相关问题。',
+      },
+      {
+        question: '第三方 DMV 网站一定是诈骗吗？',
+        answer:
+          '不一定。有些州有官方授权的业务伙伴、kiosk、county office、toll app 或交易平台；但随机广告、折扣注册、付费加急、索取敏感信息的入口很危险。稳妥做法是从州 DMV 官网或 USA.gov 目录进入，再跳转到官方列出的系统。',
+      },
+    ],
+    editorNotes: [
+      '这页的定位是“官方入口安全和身份保护”，不是网络安全教程。不要写成杀毒软件推荐，也不要收集用户个人信息。',
+      '核心判断句要保守：很多官方页面说“不会通过 text 要求 payment / personal / financial information”，但少数州可能提供用户主动订阅的 reminder；所以要强调 unsolicited、threatening、payment link 和 sensitive information。',
+      '把 ticket / toll / DMV / court / REAL ID 分开。真实欠费可能存在，但诈骗短信不能作为付款入口。',
+      '不要把所有第三方服务一概写成违法；要区分官方授权 partner / kiosk / county / toll app 与无法从官方页面反向验证的广告或短信链接。',
+      '身份盗用补救要引到 IdentityTheft.gov、FTC、IC3、手机运营商和州 DMV fraud 页面，不给个案法律意见。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '从官方 DMV / DPS / RMV / MVC / DOL 入口进入，避免从可疑短信、广告或假网站付款。',
+    },
+    sources: [
+      {
+        label: 'FTC ReportFraud.gov',
+        url: 'https://reportfraud.ftc.gov/',
+      },
+      {
+        label: 'FTC How to Recognize and Report Spam Text Messages',
+        url: 'https://consumer.ftc.gov/articles/how-recognize-and-report-spam-text-messages',
+      },
+      {
+        label: 'FTC Unpaid Toll Text Scam Alert',
+        url: 'https://consumer.ftc.gov/consumer-alerts/2025/01/got-text-about-unpaid-tolls-its-probably-scam',
+      },
+      {
+        label: 'IdentityTheft.gov',
+        url: 'https://www.identitytheft.gov/',
+      },
+      {
+        label: 'IdentityTheft.gov When Information Is Lost or Exposed',
+        url: 'https://www.identitytheft.gov/Info-Lost-or-Stolen',
+      },
+      {
+        label: 'FTC Report Identity Theft',
+        url: 'https://www.ftc.gov/news-events/topics/identity-theft/report-identity-theft',
+      },
+      {
+        label: 'FBI IC3 Smishing Scam Regarding Road Toll Services',
+        url: 'https://www.ic3.gov/PSA/2024/PSA240412',
+      },
+      {
+        label: 'FCC Stop Unwanted Robocalls and Texts',
+        url: 'https://www.fcc.gov/consumers/guides/stop-unwanted-robocalls-and-texts',
+      },
+      {
+        label: 'California DMV Scam Alert',
+        url: 'https://www.dmv.ca.gov/portal/dmv-scam-alert/',
+      },
+      {
+        label: 'California DMV Fraudulent Toll Text Scam Warning',
+        url: 'https://www.dmv.ca.gov/portal/news-and-media/dmv-warns-of-fraudulent-text-scam-asking-for-toll-payments/',
+      },
+      {
+        label: 'California DMV REAL ID Update Notification Warning',
+        url: 'https://www.dmv.ca.gov/portal/news-and-media/dmv-notifies-customers-who-need-to-update-their-real-ids/',
+      },
+      {
+        label: 'California DMV Fraudulent Discount Registration Ads Warning',
+        url: 'https://www.dmv.ca.gov/portal/news-and-media/news-releases/dmv-warns-of-fraudulent-advertisements-on-discounted-vehicle-registration/',
+      },
+      {
+        label: 'California DMV Customer Support and Fraud Complaint',
+        url: 'https://www.dmv.ca.gov/portal/customer-service/report-an-issue-or-complaint/',
+      },
+      {
+        label: 'NY DMV Phishing Attacks',
+        url: 'https://dmv.ny.gov/more-info/phishing-attacks',
+      },
+      {
+        label: 'NY DMV Phishing Examples',
+        url: 'https://dmv.ny.gov/more-info/phishing-examples',
+      },
+      {
+        label: 'NY DMV Latest Barrage of Scam Texts',
+        url: 'https://dmv.ny.gov/news/dmv-warns-new-yorkers-about-latest-barrage-of-scam-texts',
+      },
+      {
+        label: 'NY DMV Email and Text Reminders',
+        url: 'https://dmv.ny.gov/more-info/get-email-and-text-reminders',
+      },
+      {
+        label: 'FLHSMV Scam Alert',
+        url: 'https://www.flhsmv.gov/safety-center/consumer-education/scam-alert/',
+      },
+      {
+        label: 'FLHSMV 2026 Scam Alert',
+        url: 'https://www.flhsmv.gov/2026/03/24/flhsmv-warns-motorists-of-new-scam-alert/',
+      },
+      {
+        label: 'FLHSMV Fraud',
+        url: 'https://www.flhsmv.gov/safety-center/consumer-education/fraud/',
+      },
+      {
+        label: 'FLHSMV Identity Theft and Driver License Fraud',
+        url: 'https://www.flhsmv.gov/safety-center/consumer-education/fraud/identity-theft-driver-license-fraud/',
+      },
+      {
+        label: 'Washington DOL Scam Alerts',
+        url: 'https://dol.wa.gov/about/privacy-center/scam-alerts',
+      },
+      {
+        label: 'Washington DOL Identity Crimes or Fraud',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/identity-crimes-or-fraud',
+      },
+      {
+        label: 'Washington DOL Fraud and Identity Theft',
+        url: 'https://dol.wa.gov/about/privacy-center/fraud-and-identity-theft',
+      },
+      {
+        label: 'NJ MVC REAL ID System Upgrade Scam Advisory',
+        url: 'https://www.nj.gov/mvc/press/archives/2023/111523.htm',
+      },
+      {
+        label: 'NJ MVC Contact and Fraud Tip Line',
+        url: 'https://www.nj.gov/mvc/about/contact.htm',
+      },
+      {
+        label: 'PennDOT Text Phishing Scam Warning',
+        url: 'https://www.pa.gov/agencies/penndot/news-and-media/newsroom/statewide/2026/shapiro-administration-warns-of-text-phishing-scams-aimed-at-pen',
+      },
+      {
+        label: 'PennDOT Driver and Vehicle Services Alerts',
+        url: 'https://www.pa.gov/agencies/dmv/alerts',
+      },
+      {
+        label: 'PennDOT Report Driver License, ID, or Vehicle Fraud',
+        url: 'https://www.pa.gov/services/dmv/report-drivers-license-identification-card-or-vehicle-fraud',
+      },
+      {
+        label: 'Virginia DMV Text Scam Warning',
+        url: 'https://www.dmv.virginia.gov/news/virginia-dmv-warns-customers-text-scam',
+      },
+      {
+        label: 'Virginia DMV Toll Charge Text Scam Warning',
+        url: 'https://www.dmv.virginia.gov/news/virginia-dmv-warns-customers-toll-charge-text-scam',
+      },
+      {
+        label: 'Virginia DMV Reporting Fraud',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/zero-fraud',
+      },
+      {
+        label: 'Georgia DDS Fake Text Scams',
+        url: 'https://dds.georgia.gov/fake-text-scams',
+      },
+      {
+        label: 'Georgia DDS Text Message Scam',
+        url: 'https://dds.georgia.gov/press-releases/2025-05-27/text-message-scam',
+      },
+      {
+        label: 'Georgia DDS Continued Text Message Scams',
+        url: 'https://dds.georgia.gov/press-releases/2025-09-15/continued-text-message-scams',
+      },
+      {
+        label: "TxDMV Don't Click It Text Scam Warning PDF",
+        url: 'https://www.txdmv.gov/sites/default/files/body-files/2025-08-07_Beware_of_Scam_Text_Messages.pdf',
+      },
+      {
+        label: 'TxDMV Fake Fines Real Fraud PDF',
+        url: 'https://www.txdmv.gov/sites/default/files/body-files/2026-03-25_Beware_of_Scam_Text_Messages.pdf',
+      },
+      {
+        label: 'TxDMV Cyber Alert PDF',
+        url: 'https://www.txdmv.gov/sites/default/files/body-files/Cyber_Alert_Media_Advisory_17JUN21.pdf',
+      },
+      {
+        label: 'Texas DPS Failure to Appear / Failure to Pay Program',
+        url: 'https://www.dps.texas.gov/section/driver-license/failure-appearfailure-pay-program',
+      },
+      {
+        label: 'Mass.gov RMV Motor Vehicle Violation Text Scam Warning',
+        url: 'https://www.mass.gov/news/rmv-cautions-public-to-beware-of-scam-texts-stating-money-is-owed-for-motor-vehicle-violations-0',
+      },
+      {
+        label: 'Mass.gov RMV Text Scams Warning',
+        url: 'https://www.mass.gov/news/massachusetts-rmv-cautions-public-to-beware-of-text-scams',
+      },
+      {
+        label: 'MassDOT Fraudulent Text Messages Warning',
+        url: 'https://www.mass.gov/news/massachusetts-department-of-transportation-reminds-residents-to-beware-of-fraudulent-text-messages',
+      },
+      {
+        label: 'Maryland MVA Privacy and Security',
+        url: 'https://mva.maryland.gov/privacy-security',
+      },
+      {
+        label: 'Illinois DOT Text Scam Alert',
+        url: 'https://idot.illinois.gov/about-idot/contact-us/report-a-problem/text-scam-alert.html',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'florida',
+      'washington',
+      'new-jersey',
+      'pennsylvania',
+      'virginia',
+      'georgia',
+      'texas',
+      'massachusetts',
+    ],
+  },
+  {
+    slug: 'lost-stolen-license-id-replacement-identity-theft',
+    title: '驾照或 State ID 丢失/被盗后，补证、报案和身份盗用怎么处理',
+    eyebrow: '丢证补证',
+    reviewedAt: '2026-07-10',
+    description:
+      '驾照、learner permit、State ID、REAL ID 或 Enhanced ID 丢失、被盗、损坏后，最重要的不是只问“能不能马上补一张”。先判断是普通补证、地址/姓名/照片变化、REAL ID 升级、外州旅行，还是已经涉及 identity theft 或 driver license fraud。',
+    whoNeedsIt: [
+      '驾照、permit、State ID、non-driver ID、REAL ID 或 Enhanced ID 丢失、被偷、损坏、被洗衣机洗坏或钱包被盗的人。',
+      '补证时发现地址不对、卡快过期、姓名变更、照片太旧、REAL ID / Enhanced ID 状态不确定的人。',
+      '担心别人用自己的 driver license number、ID card、SSN、生日、银行卡或照片开账户、租车、被拦车或提交假申请的人。',
+      '出门旅行、搬州、入职、租车、考试或银行开户前突然没有实体证件，想知道临时证、TSA 和替代 ID 怎么处理的人。',
+      '人在外州、国外、学校或军队，不能马上回本州 DMV/RMV/MVC/DOL 办补证的人。',
+    ],
+    keyFacts: [
+      'Replacement / duplicate 通常是替换现有证件，不等于 renewal、name change、first license 或 REAL ID upgrade。很多州会保留原来的 expiration date，有些州如果快过期会建议或要求 renewal。',
+      '线上补证通常有条件。常见限制包括：证件已过期、被 suspend / revoked、未满 18 岁、需要改姓名、需要新照片、需要证明 legal presence、要升级 REAL ID、欠 DMV 费用、今天已申请过补证，或需要重新核验 customer number。',
+      '先改地址再补证往往更稳。Washington DOL 明确提醒 replacement 会寄到系统里的地址且不能 forward；很多州也把地址变更和 replacement 分成不同步骤。',
+      '被偷不一定自动换新 license number。Texas DPS 说如果证件被盗且被他人使用，要报警并带 police report，office 会判断是否需要新号码；Georgia DDS 说变更号码要到 Customer Service Center；Florida、Virginia、PennDOT、California 等也有 fraud / identity theft 路径。',
+      '警察报告规则按州和场景不同。New York 对因犯罪丢失/被盗的免费 replacement 要 police agency 的 MV-78B；Texas、Florida、Virginia 等身份盗用场景都强调先联系 law enforcement；Maryland MVA 则说明普通 lost/stolen replacement 不要求 police report。',
+      '补证不等于身份盗用问题解决。如果钱包里还有 SSN、银行卡、医保卡、护照、学生证或登录设备，应该按 IdentityTheft.gov、FTC、USA.gov 的步骤处理 fraud alert、credit freeze、银行/信用卡和账户密码。',
+      '临时纸质证件和 mobile ID 不能无脑替代实体卡。Illinois temporary secure paper document 有期限；Virginia Mobile ID 设置通常需要扫描实体卡，且官方新闻仍提醒驾驶时继续携带实体 ID 作为 backup。',
+      '临近航班要看 TSA。TSA 的 acceptable ID、forgot-ID FAQ 和 ConfirmID 页面才是机场安检依据；DMV 临时收据、paper credential 或补证确认号不一定能当作可接受 ID。',
+      '如果之后找回旧证，不要把它当第二张备用。New Jersey MVC 明确说收到 replacement 后，如果原证还在，应销毁（destroy）原证，不能持有多份 license / permit。',
+      '外州转入或人在外州丢证要单独看规则。Washington 支持部分 out-of-state mail replacement；Georgia 转入时若外州卡丢失/被盗，可能要求原签发州的 MVR / driving record；Maryland 新居民也可能要求 certified driving record。',
+    ],
+    checklist: [
+      '先判断丢失对象：driver license、learner permit、non-driver ID、State ID、REAL ID、Enhanced ID、CDL、driver privilege card、vehicle registration、title 或 license plate。',
+      '记录发现时间、地点、是否钱包/手机一起丢、是否可能被偷、是否已出现账户异常、罚单、贷款、银行交易或 DMV 记录异常。',
+      '确认 DMV 记录地址是否正确；如果不正确，先查是否需要先 change address，再申请 replacement。',
+      '看本人是否符合 online replacement：证件是否 valid、未 suspend/revoked、无需改姓名、无需新照片、无需 REAL ID upgrade、年龄和身份类别是否允许线上处理。',
+      '如果被盗、被他人使用或涉及 identity theft，先报警或按州 DMV fraud 页面报告，并保存 police report / incident number / FTC Identity Theft Report。',
+      '如果 SSN、银行卡、护照、医保卡、学校/公司 ID 或手机同时丢失，列出每一项并分别联系签发机构、银行、信用卡和账户服务商。',
+      '有航班、入职、租车或考试时，确认是否有 passport、passport card、permanent resident card、EAD、military ID、Global Entry card 或其他 TSA / employer / school 接受的证件。',
+      '补证提交后保存 receipt、temporary credential、mailing confirmation、tracking 或 status-check 页面；收到新卡后停用或销毁找回的旧卡。',
+    ],
+    steps: [
+      '第一步：先不要反复搜索第三方“DMV replacement”广告。从本州 DMV / DPS / RMV / MVC / DOL 官网、官方 online services 或本站入口表进入。',
+      '第二步：把场景分成两类：普通 lost / damaged replacement，还是 stolen / identity theft / fraud。普通补证先看 replacement 页面；盗用风险先看 police report、DMV fraud 和 IdentityTheft.gov。',
+      '第三步：确认地址、姓名、REAL ID 和照片。地址错就先按官方地址变更路径处理；姓名变化、REAL ID 升级、新照片或 legal presence 复核往往需要现场。',
+      '第四步：选择线上、电话、邮寄或现场。California、Texas、Florida、Washington、New Jersey、Georgia、Maryland 等州有线上补证路径，但条件不同；Virginia、Washington 等页面列出不能线上补证的情况。',
+      '第五步：如果证件被盗或被人使用，联系本地 police / sheriff 取得 report 或 incident number，再按本州 DMV fraud / identity theft 页面提交材料。不要假设新卡会自动阻止旧号码被滥用。',
+      '第六步：如果钱包或资料一起丢，联系银行/信用卡、改账户密码、开启多因素认证、查看信用报告，并考虑 fraud alert 或 credit freeze；用 IdentityTheft.gov 生成补救清单。',
+      '第七步：如果临近旅行，优先找 TSA 可接受的其他 ID。没有实体 ID 时，查看 TSA forgot-ID 和 ConfirmID 页面，预留额外时间，并准备可能被拒绝或额外核验。',
+      '第八步：收到 replacement 后核对姓名、地址、REAL ID / Federal Limits Apply 标记、expiration date 和 class / endorsement。若旧卡找回，按州规则销毁或停用，不要作为备用证件继续使用。',
+    ],
+    faqs: [
+      {
+        question: '驾照丢了或被偷，一定要报警吗？',
+        answer:
+          '普通丢失不一定每州都要求报警；但如果被偷、被他人使用、钱包一起被盗、想申请某些免费 replacement，或担心 identity theft，报警通常很重要。New York 因犯罪丢失/被盗的免费 replacement 要 police agency 的 MV-78B；Texas、Florida、Virginia 等身份盗用路径也强调 police report。',
+      },
+      {
+        question: '补证会给我一个新的 driver license number 吗？',
+        answer:
+          '通常不会自动换。多数 replacement 只是补发同一凭证。Texas DPS 说 office 会在审核被盗且被使用的 case 时判断是否需要新号码；Georgia DDS 要到 Customer Service Center 申请号码变更；Florida、California、Virginia 等则有 fraud / identity theft 审查路径。',
+      },
+      {
+        question: '地址已经变了，能直接补证寄到新地址吗？',
+        answer:
+          '不要假设可以。很多州会把 change address 和 replacement 分开。Washington DOL 明确提醒 replacement 会寄到系统记录地址，且不能转寄；如果地址变了，应先按州官方流程更新地址，再申请 replacement。',
+      },
+      {
+        question: '补证确认页、receipt 或临时纸质证能坐飞机吗？',
+        answer:
+          '不稳。TSA 接受证件清单和 ConfirmID / forgot-ID 页面才是机场依据。临近航班时，优先使用护照、passport card、绿卡、EAD、military ID、Global Entry card 等 TSA 接受证件；没有可接受 ID 时按 TSA 当前身份核验流程处理。',
+      },
+      {
+        question: '如果我后来找回旧驾照，可以留着备用吗？',
+        answer:
+          '不建议，也可能违反州规则。New Jersey MVC 明确说收到 replacement 后，如果原证还在，应销毁原证，不能持有多份 license 或 permit。其他州也应以 replacement 后的新凭证为准。',
+      },
+    ],
+    editorNotes: [
+      '这页和“续期/补证/地址变更”页分工不同：那页讲顺序，这页讲 lost/stolen/fraud 的风险分流。',
+      '不要承诺“换新号码”或“报警一定免费补证”。官方来源显示不同州差异很大，且新号码通常需要 fraud / identity theft 审核。',
+      '旅行相关必须引用 TSA，不要把州 DMV 的 temporary credential 写成 TSA 一定接受。',
+      '移动 ID 只能写成 companion / limited acceptance，不要把 mobile ID 当实体卡的完整替代。',
+      '身份盗用补救以 IdentityTheft.gov、FTC、USA.gov、州 DMV fraud 页面为主，不提供法律意见或信用修复服务推荐。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州进入官方 replacement、identity theft、driver record、status 和 DMV online services 页面。',
+    },
+    sources: [
+      {
+        label: 'USA.gov State Motor Vehicle Services',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+      },
+      {
+        label: 'IdentityTheft.gov',
+        url: 'https://www.identitytheft.gov/',
+      },
+      {
+        label: 'IdentityTheft.gov When Information Is Lost or Exposed',
+        url: 'https://www.identitytheft.gov/Info-Lost-or-Stolen',
+      },
+      {
+        label: 'FTC Identity Theft Consumer Advice',
+        url: 'https://consumer.ftc.gov/identity-theft-and-online-security/identity-theft',
+      },
+      {
+        label: 'FTC Report Identity Theft',
+        url: 'https://www.ftc.gov/news-events/topics/identity-theft/report-identity-theft',
+      },
+      {
+        label: 'USA.gov Identity Theft',
+        url: 'https://www.usa.gov/identity-theft',
+      },
+      {
+        label: 'TSA Acceptable Identification',
+        url: 'https://www.tsa.gov/travel/security-screening/identification',
+      },
+      {
+        label: 'TSA Forgot Identification FAQ',
+        url: 'https://www.tsa.gov/travel/frequently-asked-questions/i-forgot-my-identification-can-i-still-proceed-through-security',
+      },
+      {
+        label: 'TSA ConfirmID',
+        url: 'https://www.tsa.gov/tsaconfirm-id',
+      },
+      {
+        label: "California DMV Replace Driver's License or ID Card",
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/replace-your-driver-license-or-identification-dl-id-card/',
+      },
+      {
+        label: 'California DMV Update Information on DL/ID',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/updating-information-on-your-driver-license-or-identification-dl-id-card/',
+      },
+      {
+        label: 'California DMV Fraud Review of DL/ID Record (INV 35 PDF)',
+        url: 'https://www.dmv.ca.gov/portal/uploads/2020/07/inv35.pdf',
+      },
+      {
+        label: 'NY DMV Replace a License or Permit',
+        url: 'https://dmv.ny.gov/driver-license/replace-a-license-or-permit',
+      },
+      {
+        label: 'NY DMV Replace a Non-Driver ID',
+        url: 'https://dmv.ny.gov/non-driver-id/replace-a-non-driver-id',
+      },
+      {
+        label: 'Texas DPS Replace Driver License, CDL, or ID Card',
+        url: 'https://www.dps.texas.gov/section/driver-license/replace-your-driver-license-commercial-driver-license-or-id-card',
+      },
+      {
+        label: 'Texas DPS Lost or Stolen Driver License/ID FAQ',
+        url: 'https://www.dps.texas.gov/section/driver-license/faq/section-4-lost-or-stolen-driver-licenseid-card',
+      },
+      {
+        label: 'Texas DPS Identity Theft Information Guide',
+        url: 'https://www.dps.texas.gov/section/driver-license/identity-theft-information-guide',
+      },
+      {
+        label: 'Texas DPS Change Information on DL/ID',
+        url: 'https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card',
+      },
+      {
+        label: 'FLHSMV Renew or Replace Driver License or ID',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
+      },
+      {
+        label: 'FLHSMV Identity Theft and Driver License Fraud',
+        url: 'https://www.flhsmv.gov/safety-center/consumer-education/fraud/identity-theft-driver-license-fraud/',
+      },
+      {
+        label: 'FLHSMV Driver License General Information',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/general-information/',
+      },
+      {
+        label: 'Washington DOL Renew or Replace Driver License',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license',
+      },
+      {
+        label: 'Washington DOL Replace License or Learner Permit',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/replace-your-license-or-learner-permit',
+      },
+      {
+        label: 'Washington DOL Replace ID Card',
+        url: 'https://dol.wa.gov/id-cards/replace-id-card',
+      },
+      {
+        label: 'Washington DOL Identity Crimes or Fraud',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/identity-crimes-or-fraud',
+      },
+      {
+        label: 'Washington DOL Replace Enhanced Driver License',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/replace-enhanced-driver-license-edl',
+      },
+      {
+        label: 'NJ MVC Lost or Stolen Licenses / Duplicate',
+        url: 'https://www.nj.gov/mvc/license/liclost.htm',
+      },
+      {
+        label: 'NJ MVC Non-Driver Identification Card',
+        url: 'https://www.nj.gov/mvc/license/nondriverid.htm',
+      },
+      {
+        label: 'NJ MVC Online Services',
+        url: 'https://www.nj.gov/mvc/online-services.html',
+      },
+      {
+        label: 'NJ MVC 6 Points of ID',
+        url: 'https://www.nj.gov/mvc/license/6pointid.htm',
+      },
+      {
+        label: 'NJ MVC REAL ID Emergency Issuance Program',
+        url: 'https://www.nj.gov/mvc/license/realidemergency.htm',
+      },
+      {
+        label: 'PennDOT Driver Licensing FAQs',
+        url: 'https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/dl-lp-id-faqs',
+      },
+      {
+        label: 'PennDOT Report Driver License, ID, or Vehicle Fraud',
+        url: 'https://www.pa.gov/services/dmv/report-drivers-license-identification-card-or-vehicle-fraud',
+      },
+      {
+        label: "PennDOT Driver's Licenses and Photo IDs",
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/licenses-and-photo-ids',
+      },
+      {
+        label: "PennDOT Interim Driver's Licenses and Photo IDs",
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/licenses-and-photo-ids/interim-product-information',
+      },
+      {
+        label: "Virginia DMV Replace Driver's License or Learner's Permit",
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/replace',
+      },
+      {
+        label: 'Virginia DMV Replace Identification Card',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/id-cards/replacement-id',
+      },
+      {
+        label: 'Virginia DMV How DMV Protects Your Identity',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/applying/identity-theft',
+      },
+      {
+        label: 'Virginia DMV REAL ID',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/real-id',
+      },
+      {
+        label: 'Virginia Mobile ID FAQ',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/mobile-id/faq',
+      },
+      {
+        label: 'Virginia DMV Replace Driver Privilege Card',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/driver-privilege-card/replacement',
+      },
+      {
+        label: 'Georgia DDS Replace License',
+        url: 'https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-replace-license',
+      },
+      {
+        label: 'Georgia DDS Replacements FAQs',
+        url: 'https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/replacements-faqs',
+      },
+      {
+        label: 'Georgia DDS License Fraud FAQs',
+        url: 'https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/license-fraud',
+      },
+      {
+        label: 'Georgia DDS Transfer Out-of-State Driver License/ID',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid',
+      },
+      {
+        label: 'Georgia DDS Online Services FAQs',
+        url: 'https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/online-services-faqs',
+      },
+      {
+        label: "Mass.gov Replace Your Driver's License",
+        url: 'https://www.mass.gov/how-to/replace-your-drivers-license',
+      },
+      {
+        label: 'Mass.gov Replace Your Massachusetts ID Card',
+        url: 'https://www.mass.gov/how-to/replace-your-massachusetts-id-card',
+      },
+      {
+        label: 'Mass.gov Identity Theft',
+        url: 'https://www.mass.gov/info-details/identity-theft',
+      },
+      {
+        label: 'Mass.gov Report Identity Theft',
+        url: 'https://www.mass.gov/info-details/report-identity-theft',
+      },
+      {
+        label: 'Mass.gov REAL ID in Massachusetts',
+        url: 'https://www.mass.gov/info-details/real-id-in-massachusetts',
+      },
+      {
+        label: "Illinois SOS Driver's License and State ID Card Information",
+        url: 'https://www.ilsos.gov/departments/drivers/drivers-license/drlicid.html',
+      },
+      {
+        label: 'Illinois SOS Driver License and State ID FAQ',
+        url: 'https://www.ilsos.gov/departments/drivers/drivers-license/dlfaq.html',
+      },
+      {
+        label: 'Illinois SOS Lost or Stolen DL/ID PDF',
+        url: 'https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_x165.pdf',
+      },
+      {
+        label: 'Illinois SOS Central Issuance FAQ',
+        url: 'https://www.ilsos.gov/departments/drivers/drivers-license/central-issuance/cifaq.html',
+      },
+      {
+        label: 'Maryland MVA Replace a License or ID',
+        url: 'https://mva.maryland.gov/licenses-ids/replace-license-or-id',
+      },
+      {
+        label: 'Maryland MVA Identification ID Card',
+        url: 'https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card',
+      },
+      {
+        label: 'Maryland MVA Update Name, Address or Other Info',
+        url: 'https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'florida',
+      'washington',
+      'new-jersey',
+      'pennsylvania',
+      'virginia',
+      'georgia',
+      'massachusetts',
+    ],
+  },
+  {
+    slug: 'dmv-fees-mailing-temporary-license',
+    title: 'DMV 费用、邮寄时间和临时证件怎么查',
+    eyebrow: '费用 / 拿证时间',
+    reviewedAt: '2026-07-13',
+    description:
+      'DMV 办证不只是交一笔固定费用。线上服务费、现场付款方式、补证/续期类别、临时凭证、实体卡邮寄时间和 TSA 是否接受，都可能影响你什么时候真正能用上新证件。',
+    whoNeedsIt: [
+      '准备续期、补证、换 REAL ID、改地址或刚办完驾照/ID，想知道费用和多久拿到卡的人。',
+      '临近旅行、入职、租车、考试或买保险，需要判断临时纸质证件能不能用的人。',
+      '想在线办理但不确定是否有 service fee、processing fee、邮寄地址或临时凭证限制的人。',
+    ],
+    keyFacts: [
+      'DMV 费用通常按业务、证件类型、期限、年龄、是否 REAL ID / Enhanced / duplicate / late renewal 和线上服务费分开计算，不能跨州套用。',
+      '线上入口可能有额外 service fee 或 processing fee；现场可能接受现金、支票、money order、credit / debit card，但具体付款方式按州和地点变化。',
+      '很多州的永久驾照或 ID 会邮寄，不一定现场打印。新泽西 MVC 明确说明因安全变化，agency 办理的 license / ID renewal 或 duplicate 也会邮寄。',
+      '临时驾照、receipt、paper ID 或 interim credential 通常只能解决短期驾驶或交易证明，不要默认可用于 TSA、REAL ID 联邦用途、I-9、银行或学校场景。',
+      '如果临近航班，优先准备护照等 TSA 接受证件；不要把刚办完 DMV 后的临时纸质文件当作稳定旅行方案。',
+    ],
+    factChecks: [
+      {
+        claim: 'California 会按 online、kiosk、mail 等办理路径公布不同 processing time，费用和拿证时间不能只看一个总数。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/',
+          'https://www.dmv.ca.gov/portal/about-the-california-department-of-motor-vehicles/renewal-processing-times/',
+        ],
+      },
+      {
+        claim: 'Florida MyDMV Portal 办理后通常需要等待实体卡邮寄，并可能收取线上 processing fee。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
+          'https://www.flhsmv.gov/driver-licenses-id-cards/fees/',
+        ],
+      },
+      {
+        claim: 'New Jersey 的 renewal / duplicate 证件通常通过邮寄发放，现场办理不等于现场拿到永久卡。',
+        sourceUrls: ['https://www.nj.gov/mvc/license/licrenew.htm', 'https://www.nj.gov/mvc/license/liclost.htm'],
+      },
+      {
+        claim: '临时纸质凭证是否能用于旅行要按 TSA 接受证件列表判断，州 DMV 的临时驾驶效力不能替 TSA 作保证。',
+        sourceUrls: [
+          'https://www.tsa.gov/travel/security-screening/identification',
+          'https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx',
+        ],
+      },
+    ],
+    checklist: [
+      '确认业务类型：original、renewal、replacement / duplicate、address change、REAL ID upgrade、Enhanced、late renewal、first license 或 transfer。',
+      '打开州官方 fee table 或对应业务页，核对基础费用、附加费用、线上服务费、late fee 和 payment method。',
+      '确认卡片交付方式：现场发实体卡、邮寄实体卡、先给 temporary credential，还是需要自己打印 receipt。',
+      '核对 DMV 记录中的 mailing address；丢证或搬家后，很多场景应先改地址再补证或续期。',
+      '有旅行或身份核验需求时，同时查看 TSA identification 页面和州 DMV 对 temporary / interim / paper credential 的说明。',
+    ],
+    steps: [
+      '第一步：先别只看价格。把业务类别和证件类型写清楚，因为 renewal、replacement、REAL ID upgrade、Enhanced、late renewal 和 first license 的费用口径可能不同。',
+      '第二步：进入官方 fee / renew / replace 页面。加州、纽约、佛州、新泽西、华州、密歇根等州都把费用、付款方式或邮寄时间放在具体业务页里。',
+      '第三步：看是否有线上资格和线上附加费。Florida MyDMV Portal 示例明确写到线上办理后通常 2-3 周邮寄，并有 $2 processing fee；其他州可能用不同名称收取服务费。',
+      '第四步：看卡片多久到。California DMV processing times 会按 online、kiosk、mail 等路径给预估；NJ MVC renewal / duplicate 页面提醒实体证通常 2-4 周邮寄。',
+      '第五步：临近出行时单独判断 TSA。TSA 接受证件清单和州 DMV 临时证说明要一起看；如果没有实体 REAL ID 或其他可接受 ID，准备护照或查看 TSA 当前身份核验选项。',
+    ],
+    faqs: [
+      {
+        question: 'DMV 网站上看到的费用会不会就是最终价格？',
+        answer:
+          '不一定。最终金额可能受证件期限、late fee、REAL ID / Enhanced、duplicate、线上服务费、县级服务费、付款方式或当地办公室规则影响。支付前以州官方系统显示为准。',
+      },
+      {
+        question: '线上补证或续期后，新卡一般多久到？',
+        answer:
+          '看州和业务。加州有 processing times 页面；佛州 renew/replace 页面写 MyDMV Portal 办理后 credential 通常 2-3 周寄达；新泽西 renewal / duplicate 页面常见 2-4 周邮寄窗口。办理前看本州当前页面。',
+      },
+      {
+        question: '临时纸质驾照可以坐美国国内航班吗？',
+        answer:
+          '不要默认可以。TSA 看的是可接受身份证件；很多州提醒 temporary、interim 或 paper credential 不能替代正式 REAL ID 或其他 TSA 接受证件。临近航班时带护照更稳。',
+      },
+      {
+        question: '搬家后丢了驾照，能直接补证吗？',
+        answer:
+          '先确认 DMV 记录地址。很多州的新证会寄到记录地址；如果地址已经变了，通常先改地址再补证更稳，否则新卡可能寄到旧地址。',
+      },
+    ],
+    editorNotes: [
+      '这页不维护跨州固定价目表，因为金额和服务费变化快。页面目标是让用户知道该看 fee table、renew / replace 业务页、online eligibility 和 card mailing / temporary credential 说明。',
+      'California DMV processing times、FLHSMV renew / replace、NJ MVC renewal / duplicate、Michigan replacement 和 Washington renewal 页面共同支持“拿到临时凭证不等于拿到永久卡”的提醒。',
+      '旅行场景必须回到 TSA identification 页面；州 DMV 临时证说明只能解释州证件状态，不能替 TSA 承诺安检结果。',
+      '付款方式要写成“按州和地点确认”，不要泛化成全美都收信用卡或全美都收现金。',
+      '这页和 `/directories/costs-timing/` 互补：专题讲判断逻辑，目录表按州给入口和抽取线索。',
+    ],
+    relatedDirectory: {
+      label: '50 州费用和拿证时间表',
+      href: '/directories/costs-timing/',
+      description: '按州查看 DMV / REAL ID / 驾照续期、补证、付款方式、临时凭证、卡片邮寄和处理时间提醒。',
+    },
+    sources: [
+      {
+        label: 'California DMV Licensing Fees',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/',
+      },
+      {
+        label: 'California DMV Processing Times',
+        url: 'https://www.dmv.ca.gov/portal/about-the-california-department-of-motor-vehicles/renewal-processing-times/',
+      },
+      {
+        label: 'NY DMV Fees and Refunds',
+        url: 'https://dmv.ny.gov/driver-license/fees-refunds',
+      },
+      {
+        label: 'NY DMV Replace a License or Permit',
+        url: 'https://dmv.ny.gov/driver-license/replace-a-license-or-permit',
+      },
+      {
+        label: 'Texas.gov Driver License Renewals and Replacements',
+        url: 'https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/',
+      },
+      {
+        label: 'FLHSMV Renew or Replace',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
+      },
+      {
+        label: 'FLHSMV Fees',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/fees/',
+      },
+      {
+        label: 'NJ MVC License Renewal',
+        url: 'https://www.nj.gov/mvc/license/licrenew.htm',
+      },
+      {
+        label: 'NJ MVC Duplicate License',
+        url: 'https://www.nj.gov/mvc/license/liclost.htm',
+      },
+      {
+        label: 'Washington DOL Renew Driver License',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/renew-driver-license',
+      },
+      {
+        label: 'Michigan SOS License, ID or Permit Replacement',
+        url: 'https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement',
+      },
+      {
+        label: 'Oregon DMV REAL ID Traveler',
+        url: 'https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx',
+      },
+      {
+        label: 'TSA Identification',
+        url: 'https://www.tsa.gov/travel/security-screening/identification',
+      },
+    ],
+    relatedStateIds: ['california', 'new-york', 'texas', 'florida', 'new-jersey', 'washington', 'michigan', 'oregon', 'georgia', 'pennsylvania'],
+  },
+  {
+    slug: 'first-driver-license-road-test',
+    title: '第一次在美国考驾照：permit、笔试和路考顺序',
+    eyebrow: '首次驾照',
+    reviewedAt: '2026-07-10',
+    description:
+      '第一次在美国考驾照，不要只问“哪里预约路考”。多数州会先要求身份和居住材料、learner / instruction permit、knowledge test、练车或课程，再进入 road test / skills test 和正式 license。',
+    whoNeedsIt: [
+      '在美国第一次申请普通非商业驾照的人。',
+      '已经会开车，但没有美国州驾照、需要从 permit 或 first license 入口开始的人。',
+      '准备考笔试、路考，或想确认中文/多语言考试、第三方考点和车辆要求的人。',
+    ],
+    keyFacts: [
+      'permit、knowledge test 和 road test 的顺序由州执行；成年人是否必须先拿 learner permit、练多久、是否要课程，不能跨州套用。',
+      '多数州会先核验身份、合法身份/SSN、居住地址和可能的姓名文件；非公民身份、无 SSN、外文材料或外州/外国驾照会让路径分叉。',
+      'knowledge test 可能在线、现场、学校或第三方完成；road test / skills test 可能由 DMV、授权学校或第三方 testing business 执行。',
+      '路考不只是预约时间。很多州会检查陪同驾驶人、车辆登记/保险、安全设备、预约确认、permit 和练车记录。',
+      '如果已经持有外国驾照或外州驾照，先看 transfer / exchange 规则；它可能改变是否需要 permit、knowledge test 或 road test。',
+    ],
+    checklist: [
+      '先打开所在州的 first driver license、learner permit 或 new driver 页面，不要直接跳到 road test scheduler。',
+      '准备身份、合法身份、SSN 或替代文件、州居住地址证明和姓名变更文件。',
+      '确认年龄路径：teen / GDL、18+ 成人、未成年人家长同意和驾驶教育要求通常不同。',
+      '确认知识考试：考试语言、是否可线上考、是否要预约、是否有重考等待期和费用。',
+      '确认练车/课程：是否必须持 permit 一段时间、是否要求 supervised driving、5-hour course、driver education 或证书。',
+      '确认路考车辆和陪同要求：保险、registration、inspection、brake lights、turn signals、licensed driver、预约确认和 permit。',
+    ],
+    steps: [
+      '第一步：按年龄和身份选入口。成年人通常看 first license / new driver 18+，未成年人看 teen / GDL，外州或外国驾照持有人先看 transfer。',
+      '第二步：把材料准备好。即使只是考 permit，很多州也会先核验身份、SSN / lawful status 和居住地址。',
+      '第三步：准备并通过 knowledge test。用官方 manual、practice test 或 sample test，不要只背第三方题库。',
+      '第四步：按州规则练车或完成课程。纽约有 5-hour pre-licensing course 场景，密歇根成人通常先拿 TIP 并至少练习 30 天；其他州要看本州要求。',
+      '第五步：预约 road test / skills test 前核对车辆、陪同人和文件。路考失败常见原因不是不会开，而是车、证件或预约材料不合格。',
+    ],
+    faqs: [
+      {
+        question: '成年人第一次考驾照，也一定要 learner permit 吗？',
+        answer:
+          '不一定，但很多州仍有 permit、temporary instruction permit 或 first-license 入口。华盛顿成人页面还区分是否想先练车；密歇根成人通常先取得 TIP。必须按所在州 first license 页面判断。',
+      },
+      {
+        question: '我会开车，可以直接预约路考吗？',
+        answer:
+          '可能不行。很多州会先要求身份材料、knowledge test、permit、课程或练车期限。已有外国驾照或外州驾照的人，也可能走 transfer / reciprocity 规则，而不是普通首次驾照路径。',
+      },
+      {
+        question: '笔试可以用中文吗？',
+        answer:
+          '看州。加州、纽约、华盛顿、新泽西、佐治亚、密歇根等州页面都出现过多语言或中文相关资料/考试说明，但德州等州限制更多。应回到州官方 language / knowledge test 页面确认。',
+      },
+      {
+        question: '路考车辆需要准备什么？',
+        answer:
+          '通常要合法上路、登记和保险有效，灯光、刹车、转向灯、安全带等设备正常，并符合考官检查要求。各州列法不同，预约前必须看 road test 页面。',
+      },
+    ],
+    editorNotes: [
+      '这页只做跨州流程判断，不给某一州的固定天数或费用；permit 持有期、课程、重考等待期和第三方考点规则都高度州别化。',
+      '第一次考驾照的信息容易和外州/外国驾照 transfer 混在一起。已有有效外州或外国驾照的人，应先看 transfer / reciprocity，再决定是否走 permit 路径。',
+      '中文用户常把“笔试语言”和“路考语言/口译”混为一谈。多数州即使提供多语言 knowledge test，也未必允许路考口译或 CDL 口译。',
+      '路考前的车辆合格性是高风险点：预约成功不代表当天车辆、陪同人、保险或 permit 文件一定合格。',
+    ],
+    relatedDirectory: {
+      label: '50 州笔试、路考和 learner permit 入口表',
+      href: '/directories/tests-permits/',
+      description: '按州查看 learner permit、knowledge test、road test、GDL、practice test 和第三方考点官方入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Instruction Permits',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/instruction-permits/',
+      },
+      {
+        label: 'California DMV Preparing for Knowledge and Drive Tests',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/preparing-for-knowledge-and-drive-tests/',
+      },
+      {
+        label: 'NY DMV Get Learner Permit',
+        url: 'https://dmv.ny.gov/driver-license/get-learner-permit',
+      },
+      {
+        label: 'Texas DPS Apply for a Driver License',
+        url: 'https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license',
+      },
+      {
+        label: 'FLHSMV Class E Knowledge Exam and Driving Skills Test',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/class-e-knowledge-exam-driving-skills-test/',
+      },
+      {
+        label: 'Washington DOL Driver License Application Ages 18+',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit/driver-license-application-ages-18',
+      },
+      {
+        label: 'NJ MVC First Driver License',
+        url: 'https://www.nj.gov/mvc/license/firstlic.htm',
+      },
+      {
+        label: 'PennDOT Get a Learner Permit',
+        url: 'https://www.pa.gov/services/dmv/get-a-learners-permit',
+      },
+      {
+        label: 'Georgia DDS Test and Exams Information',
+        url: 'https://dds.georgia.gov/testing-and-training/test-and-exams-information',
+      },
+      {
+        label: 'NCDMV Driver License Tests',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+      },
+      {
+        label: 'Michigan SOS New Drivers 18 and Older',
+        url: 'https://www.michigan.gov/sos/license-id/new-drivers-18-older',
+      },
+    ],
+    relatedStateIds: ['california', 'new-york', 'texas', 'florida', 'washington', 'new-jersey', 'pennsylvania', 'georgia', 'north-carolina', 'michigan'],
+  },
+  {
+    slug: 'road-test-day-vehicle-sponsor-insurance-rental-retest',
+    title: '路考当天带什么：车辆、陪同人、保险、租车和失败重约',
+    eyebrow: '路考当天',
+    reviewedAt: '2026-07-13',
+    description:
+      '路考预约成功不等于当天一定能开考。Permit、课程证明、陪同驾驶人、registration、insurance、inspection、车辆设备、租车合同、临牌和迟到规则都可能让考试在上路前就被取消或改期。',
+    whoNeedsIt: [
+      '已经通过 knowledge test、拿到 learner / instruction permit，并预约了普通非商业路考的人。',
+      '准备借家人或朋友的车、租车、驾校车，或使用外州登记车辆参加路考的人。',
+      '不确定陪同人年龄、驾照签发州、持证年限、是否要带实体驾照或是否要留在考场的人。',
+      '车辆使用 temporary tag、刚买车、inspection 快过期，或保险卡只保存在手机里的人。',
+      '已经被拒考、迟到、路考失败，想确认结果、等待期、重约和额外费用的人。',
+    ],
+    keyFacts: [
+      '路考当天通常有两道独立检查：先看申请人是否具备考试资格和文件，再看测试车辆是否能合法、安全地参加考试。预约确认本身不能替代 permit、课程证明、陪同人或车辆文件。',
+      '有效 registration 和 liability insurance 是高频共同要求；部分州还明确要求 inspection sticker、emissions sticker、实体 registration card、固定车牌、current tabs 或纸质 insurance card。不要只带手机截图。',
+      '陪同驾驶人不是“随便找一个有驾照的人”。年龄、持证年限、驾照签发州、是否允许外国驾照、是否必须带 physical license，以及申请人能否自己把车开到考场，都按州和年龄路径变化。',
+      '租车并非全国统一禁止。California、Texas、New Jersey、Virginia 和 Georgia 等官方页面要求申请人列在 rental agreement 上，Texas 和 California 还提醒合同不能排除 road test；Washington 明确允许使用 rental car，但仍要满足测试地点要求。',
+      '车辆预检常见项目包括 brakes、parking brake、brake lights、turn signals、horn、mirrors、windshield / wipers、tires、doors、seat belts 和可用座位。New Jersey 和 Massachusetts 还特别关注考官能否从乘客侧接触 emergency / parking brake。',
+      '临时牌照和刚买车辆差异很大。New York 不接受 in-transit permit 参加 road test；Texas 对符合条件的新购车允许用 Buyer’s Receipt 证明登记；Georgia 对 temporary dealer tag 或近期购车要求 bill of sale。',
+      '失败后的等待期、可考次数、重考费和结果领取方式不统一。New York 和 New Jersey 的普通路考通常要等至少 14 天，Virginia 前两次失败后通常等两天，Massachusetts 限制 12 个月内最多参加 6 次 Class D road test。',
+    ],
+    factChecks: [
+      {
+        claim: '测试车辆通常必须有有效登记、保险并通过现场安全检查；具体还可能要求 inspection、tabs、固定车牌或原始车辆文件。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/the-testing-process/',
+          'https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test',
+          'https://www.dps.texas.gov/section/driver-license/schedule-your-driving-test-appointment',
+          'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/',
+          'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
+          'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/testing',
+        ],
+      },
+      {
+        claim: '陪同人资格按州变化：California、New York、New Jersey、Massachusetts、Pennsylvania 和 Georgia 对年龄、驾照或持证经验有各自要求。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/the-testing-process/',
+          'https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test',
+          'https://www.nj.gov/mvc/license/roadtest.htm',
+          'https://www.mass.gov/info-details/passenger-class-d-road-tests',
+          'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/testing',
+          'https://dds.georgia.gov/how-do-i-make-road-test-appointment',
+        ],
+      },
+      {
+        claim: '使用租车时，申请人通常要列在 rental agreement 上，并确认租车合同和保险允许 road test；Washington 虽明确允许租车，仍要按考点规则准备。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/the-testing-process/',
+          'https://www.dps.texas.gov/section/driver-license/schedule-your-driving-test-appointment',
+          'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
+          'https://www.nj.gov/mvc/license/roadtest.htm',
+          'https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test',
+          'https://dds.georgia.gov/how-do-i-make-road-test-appointment',
+        ],
+      },
+      {
+        claim: '车辆设备不合格会导致拒考或改期；刹车、灯光、转向灯、轮胎、安全带、雨刷和考官可接触的 parking brake 都是高频检查项。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/the-testing-process/',
+          'https://www.nj.gov/mvc/license/roadtest.htm',
+          'https://www.mass.gov/info-details/passenger-class-d-road-tests',
+          'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/testing',
+          'https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test',
+        ],
+      },
+      {
+        claim: '临牌、近期购车和电子证件不能跨州套用：New York 禁止 in-transit permit，Texas 和 Georgia 对近期购车各有替代登记文件规则。',
+        sourceUrls: [
+          'https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test',
+          'https://www.dps.texas.gov/section/driver-license/faq/section-2-scheduling-road-test',
+          'https://dds.georgia.gov/how-do-i-make-road-test-appointment',
+        ],
+      },
+      {
+        claim: '重考等待期并不统一：New York 和 New Jersey 通常至少 14 天，Virginia 前两次失败通常等待两天，Massachusetts 另有年度尝试次数限制。',
+        sourceUrls: [
+          'https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test',
+          'https://www.nj.gov/mvc/license/roadtest.htm',
+          'https://www.mass.gov/info-details/passenger-class-d-road-tests',
+          'https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test',
+        ],
+      },
+      {
+        claim: '翻译人员、乘客、录音和辅助驾驶功能的规则各州不同；预约前必须分别核对，不能把倒车影像可用理解成 self-parking 也可用。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/the-testing-process/',
+          'https://www.nj.gov/mvc/license/roadtest.htm',
+          'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/testing',
+          'https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test',
+        ],
+      },
+    ],
+    checklist: [
+      '预约确认：姓名、考试类型、地点、日期、报到时间、取消/改期规则和天气停考入口。',
+      '申请人文件：physical learner / instruction permit、要求的身份证明、眼镜或隐形眼镜、预约编号。',
+      '课程和练车证明：pre-licensing certificate、driver education certificate、supervised driving certification、practice log 或州指定表格；需要原件时不要带复印件替代。',
+      '陪同驾驶人：实体有效驾照、年龄和持证年限符合要求，并确认其驾照类别可以驾驶测试车辆。',
+      '车辆登记：current registration card、有效车牌、tabs / sticker、inspection / emissions 文件，按州要求准备实体或纸质版本。',
+      '保险：current liability insurance card / policy proof，核对 VIN、车主或 policy holder 信息，并确认申请人不是 excluded driver。',
+      '租车或驾校车：rental agreement、authorized driver 名单、road-test 使用许可和保险证明；驾校车要确认考点接受。',
+      '临牌或刚买车：temporary tag、dealer paperwork、Buyer’s Receipt 或 bill of sale；先确认本州是否允许该类型车辆参加路考。',
+      '车辆设备：brakes、parking brake、brake lights、headlights、turn signals、horn、mirrors、wipers、tires、doors、windows、seat belts 和车内清洁。',
+      '考后安排：结果查询方式、interim license、permit 是否继续有效、重考等待期、额外费用和下一次预约资料。',
+    ],
+    steps: [
+      '第一步：只看考试州的 official road test / skills test 页面和具体考点通知。不要用驾校口头说法替代 DMV 对车辆、陪同人和文件的当前要求。',
+      '第二步：确认自己已经满足 permit 持有期、knowledge test、课程、练车小时、年龄和身份文件要求。把“有预约”和“有资格考试”分开核对。',
+      '第三步：确认陪同驾驶人。核对年龄、持证年限、驾照签发州、实体证件和是否需要作为 sponsor 留在考场或坐在后排。',
+      '第四步：选定测试车辆。借车先问车主和保险；租车先读合同并把申请人列为 authorized driver；驾校车先确认考点和时间。',
+      '第五步：前一天做一次完整车辆预检。不要只看仪表盘是否亮故障灯，要实际测试 brake lights、turn signals、horn、wipers、parking brake、doors、windows 和每条 seat belt。',
+      '第六步：当天带齐 permit、课程/练车证明、陪同人驾照、registration、insurance、inspection、租车合同或购车证明，提前到场并检查天气取消信息。',
+      '第七步：考后按官方方式取结果。通过后确认 interim license 怎么配合 permit 使用；未通过或被拒考时，先查原因、等待期和费用，再重约。',
+    ],
+    faqs: [
+      {
+        question: '可以借家人或朋友的车参加路考吗？',
+        answer:
+          '很多州允许使用并非本人名下的合格车辆，但必须有车主许可，registration、insurance 和 inspection 有效，申请人也不能被保险明确排除。考官是否要求纸质文件、陪同人是否必须与车主相同，要看考试州和考点。',
+      },
+      {
+        question: '可以用租车参加路考吗？',
+        answer:
+          '部分州可以，但申请人通常必须列在 rental agreement 上，并确认租车公司没有禁止 road test。California、Texas、New Jersey、Virginia 和 Georgia 都有授权驾驶人或合同要求；Washington 明确写可用 rental car。不要到考场才第一次问租车公司。',
+      },
+      {
+        question: '保险卡上必须有我的名字吗？',
+        answer:
+          '没有全国统一答案。Texas DPS 明确说申请人不一定要列在保单上，但不能是 excluded driver；其他州或考点可能要求保险卡、policy、车辆信息或外州保额证明。应把保险证明和 rental agreement / owner permission 分开核对。',
+      },
+      {
+        question: 'temporary tag 或刚买的车能参加路考吗？',
+        answer:
+          '取决于州和临时凭证类型。New York 不接受 in-transit permit；Texas 对有固定 metal plates 的近期购车可能接受 Buyer’s Receipt；Georgia 对 temporary dealer tag 或近期购车要求 bill of sale。不要把普通临牌、trip permit 和正式 registration 当成一回事。',
+      },
+      {
+        question: '车辆预检没通过，算路考失败吗？',
+        answer:
+          '各州记录方式和费用处理不同，但通常当天不会继续上路考试。California 说车辆不合格会改期，New Jersey 会拒绝考试，Massachusetts 也把车辆未通过检查列为 unprepared 场景。先问清是 vehicle rejection、no-show、cancellation 还是 driving failure，再处理重约。',
+      },
+      {
+        question: '倒车影像、parking sensor 或自动泊车能用吗？',
+        answer:
+          '不要混为一谈。New Jersey 允许原厂 backup camera 和 parking sensors，但 self-parking vehicle 不合格；California 禁止 automated parallel parking、lane departure 和 adaptive cruise control 等高级辅助完成考试动作；Pennsylvania 允许有 self-parking 的车参加，但功能必须关闭。',
+      },
+      {
+        question: '路考失败后多久可以再考？',
+        answer:
+          '看州和失败次数。New York、New Jersey 普通路考通常至少等 14 天；Virginia 前两次失败后通常等两天，第三次失败后会触发额外 driver education 要求；Massachusetts 还限制 12 个月内最多 6 次 Class D road tests。重约前同时确认新费用和 permit 有效期。',
+      },
+    ],
+    editorNotes: [
+      '本专题只处理普通非商业 passenger vehicle road test，不把 motorcycle、CDL、medical re-exam 或 reinstatement road test 的规则混入通用清单。',
+      '来源优先使用各州 road test / skills test 当前页面；driver handbook 只补充车辆设备和考试动作，不替代预约页面。',
+      '陪同人、租车、电子保险卡、临牌、第三方考点、口译和重考规则都属于高变化字段，后续复核优先看这些项目。',
+      'Florida General Information 仍可能显示旧考试语言，本专题不引用该页的语言清单；语言政策继续以 2026 English-only 公告为准。',
+      'Mass.gov、Texas DPS 和 Georgia DDS 可能限制自动访问；链接状态为 watch 时仍保留官方来源，并从机构首页复核。',
+    ],
+    relatedDirectory: {
+      label: '50 州笔试、路考和 learner permit 入口表',
+      href: '/directories/tests-permits/',
+      description: '按州查看 learner permit、knowledge test、road test、GDL、practice test 和第三方考点官方入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Testing Process',
+        url: 'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/the-testing-process/',
+      },
+      {
+        label: 'California DMV Learner Permits',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/learners-permits/',
+      },
+      {
+        label: 'NY DMV Schedule and Take a Road Test',
+        url: 'https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test',
+      },
+      {
+        label: 'Texas DPS Schedule Your Driving Test Appointment',
+        url: 'https://www.dps.texas.gov/section/driver-license/schedule-your-driving-test-appointment',
+      },
+      {
+        label: 'Texas DPS Scheduling a Road Test FAQ',
+        url: 'https://www.dps.texas.gov/section/driver-license/faq/section-2-scheduling-road-test',
+      },
+      {
+        label: 'FLHSMV Teen Licensing and Driving Skills Test Requirements',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/',
+      },
+      {
+        label: 'FLHSMV Driver License Exams',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-exams/',
+      },
+      {
+        label: 'Washington DOL Do I Need to Take a Test',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
+      },
+      {
+        label: 'Washington State Driver Guide',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/driver-guides/washington-state-driver-guide-text-only',
+      },
+      {
+        label: 'NJ MVC Road Test',
+        url: 'https://www.nj.gov/mvc/license/roadtest.htm',
+      },
+      {
+        label: 'Mass.gov Passenger Class D Road Tests',
+        url: 'https://www.mass.gov/info-details/passenger-class-d-road-tests',
+      },
+      {
+        label: 'PennDOT Driver Manual Testing',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/testing',
+      },
+      {
+        label: 'Virginia DMV Road Skills Tests',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test',
+      },
+      {
+        label: 'Georgia DDS Make a Road Test Appointment',
+        url: 'https://dds.georgia.gov/how-do-i-make-road-test-appointment',
+      },
+    ],
+    relatedStateIds: ['california', 'new-york', 'texas', 'florida', 'washington', 'new-jersey', 'massachusetts', 'pennsylvania', 'virginia', 'georgia'],
+  },
+  {
+    slug: 'teen-driver-permit-gdl-parent-guide',
+    title: '未成年人考驾照：parent consent、driver education 和 GDL 限制怎么准备',
+    eyebrow: '青少年驾照',
+    reviewedAt: '2026-07-10',
+    description:
+      '美国青少年考驾照通常不是“考过笔试和路考就结束”。未满 18 或未满 21 的申请人可能要走 graduated driver license (GDL)、父母/监护人签字、driver education、supervised driving hours、夜间练车、乘客限制、curfew、学校证明、保险和路考车辆要求。家长和学生需要逐项核对本州规则。',
+    whoNeedsIt: [
+      '家里有 15-17 岁孩子，准备申请 learner permit、instruction permit、junior license、provisional license、probationary license 或 Class D license 的家长。',
+      '不确定孩子是否必须上 driver education、behind-the-wheel training、parent-taught course、5-hour course、TLSAE/DETS 或 Joshua’s Law 课程的人。',
+      '已经有 permit，准备路考，但不确定练车小时、夜间小时、父母签字、school enrollment、保险和考试车辆要求的人。',
+      '刚搬州，孩子有外州 permit、外州 driver education certificate 或外州 teen license，不确定新州是否承认的人。',
+      '拿到 provisional / junior / probationary license 后，想确认夜间驾驶、乘客人数、手机、贴纸、seat belt 和违规后果的人。',
+    ],
+    keyFacts: [
+      'Teen licensing 是州法，不是全美统一。NHTSA 说明各州和 DC 都有 GDL 类规则，但具体年龄、阶段、限制和课程要求由州决定。',
+      'Permit 年龄差很多。California teen permit 是 15 1/2；Florida、Georgia 是 15；Virginia 是 15 years and 6 months；New York、Pennsylvania 和 Massachusetts 通常从 16 岁开始；New Jersey special learner permit 可在 16 岁配合 behind-the-wheel 课程取得。',
+      'Parent / guardian consent 通常不是形式。California permit application、Florida parental consent、Virginia learner permit、Washington online / in-person license application、Pennsylvania under-18 consent 和 Massachusetts online permit 都要求家长或监护人参与或签字。',
+      'Driver education 必须看是否“州认可”。Washington 明确不接受 online self-paced 或 parent-taught course 作为未满 18 取 license 的 approved course；Georgia Joshua’s Law 也要求 DDS-approved / certified course；California 对 under 18 有 DE / DT 要求。',
+      '练车小时不是全国统一。California 要 50 小时、10 小时夜间；Florida 要 50 小时、10 小时夜间；Washington 要 40 小时白天和 10 小时夜间；Virginia 要 45 小时、15 小时日落后；Georgia 要 40 小时、6 小时夜间；Pennsylvania young driver guidance 指向 65 小时 supervised skill building。',
+      'GDL 限制拿到 license 后仍然存在。New York under 18 GDL、Florida 16/17 岁 curfew、New Jersey under 21 decal / passenger / night restrictions、Georgia Class D curfew / passenger limits、Massachusetts JOL restrictions 都说明拿到卡不等于 unrestricted license。',
+      '路考前要确认车辆和保险。Florida teen licensing 页面明确 road test vehicle 需要 valid registration、proof of insurance 并通过基本车辆检查；很多州也要求陪同人、车辆文件或考试预约条件。',
+      '外州搬入或外州课程不能默认被承认。Washington 要把 out-of-state traffic safety education 提交给 DOL 审核；Georgia teen FAQ 对 out-of-state driver education 有特定条件；New York 对 out-of-state permit 在纽约驾驶也有单独规则。',
+      '违规后果可能比成年人更重。Pennsylvania young driver materials、Georgia Class D restrictions、Massachusetts junior operator violations 和 New Jersey GDL sticker / restriction rules都把 suspension、罚款、延迟升级或额外限制写得更严。',
+    ],
+    checklist: [
+      '确认年龄和目标阶段：learner / instruction permit、special learner permit、junior / provisional / probationary license，还是 full unrestricted license。',
+      '确认居住州和学校/家庭场景：本州 resident、刚搬州、homeschool、外州 permit、外州 driver education certificate、军人家庭或临时身份。',
+      '准备身份和地址材料：identity、lawful presence / legal presence、SSN、residency、name change，以及本州要求的 school enrollment / attendance 或未成年人证明。',
+      '准备父母/监护人文件：签 application、notarized consent、online permission、parent/teen course、practice log、minor driving experience certification 或 completion certificate。',
+      '确认课程是否被官方接受：driver education、driver training、behind-the-wheel、parent-taught guide、TLSAE/DETS、5-hour course、Joshua’s Law 或州认证 driving school。',
+      '记录练车小时：总小时、夜间小时、监督驾驶人年龄和驾照条件；不要等路考当天才让家长补签。',
+      '路考前确认预约、permit 持有时间、违规记录、考试车辆 registration、insurance、inspection、陪同驾驶人和文件原件。',
+      '拿证后单独读 GDL restrictions：night curfew、passenger limit、cell phone、seat belt、decal/sticker、work/school exception、violation suspension 和升级时间。',
+    ],
+    steps: [
+      '第一步：先不要只看 adult first license 页面。打开州 DMV / DPS / DOL / MVC / RMV 的 teen driver、GDL、junior operator、provisional license 或 ages 16-17 页面。',
+      '第二步：按年龄确认第一张 permit。15、15 1/2、15 years 6 months、16、17 在不同州对应不同 permit 和课程路径。',
+      '第三步：把 permit、课程、练车、路考、license 限制分成五张清单。permit 材料过了，不代表课程完成；路考过了，也不代表 GDL 限制结束。',
+      '第四步：先验证课程。只报名“网上驾校”不一定能被州接受；Washington、Georgia、California、Massachusetts 等都要求官方认可课程、学校或证书。',
+      '第五步：安排练车日志和家长签字。California、Florida、Washington、Virginia、Georgia、Pennsylvania 等州对小时数、夜间小时、监督人条件或家长认证有明确要求。',
+      '第六步：路考前做车辆和保险检查。确认 registration、insurance、基本设备、陪同人、permit 原件、driver education proof、completion certificate 和预约规则。',
+      '第七步：拿到 provisional / junior / probationary license 后，把夜间、乘客、手机、贴纸和违规后果贴在家庭规则里。很多限制到 18 或升级 full license 前才解除。',
+    ],
+    faqs: [
+      {
+        question: '孩子 15 岁可以开始办 learner permit 吗？',
+        answer:
+          '要看州。Florida 和 Georgia 通常 15 岁可开始 learner / instructional permit；California 是 15 1/2；Virginia 是 15 years and 6 months；New York、Pennsylvania、Massachusetts 一般要 16 岁。不要按朋友所在州推断。',
+      },
+      {
+        question: '父母自己教开车，可以替代驾校吗？',
+        answer:
+          '有些州允许 parent-taught 或 parent/teen guide 作为某些部分，有些州不接受。Washington 明确不接受 online self-paced 或 parent-taught course 作为未满 18 取 license 的 approved course；Georgia Joshua’s Law 有多种 DDS-approved 方法，其中一些可结合 Parent/Teen Driving Guide。先查本州官方课程要求。',
+      },
+      {
+        question: '练车小时要不要真的记录？',
+        answer:
+          '最好记录。Florida、California、Washington、Virginia、Georgia、Pennsylvania 都有小时数或家长/成人认证要求，只是表格和是否强制日志不同。即使州不收纸质 log，父母或监护人也可能要 certify / swear / affirm 练车小时。',
+      },
+      {
+        question: '拿到 provisional / junior / probationary license 后，可以像成年人一样开吗？',
+        answer:
+          '通常不可以。GDL 阶段常有限制：夜间不能开、乘客人数限制、不能用手机、必须贴 decal、不能有 moving violation、要遵守 seat belt 等。Georgia、Florida、New Jersey、New York、Massachusetts 都有明显的 teen / junior / GDL restrictions。',
+      },
+      {
+        question: '我们搬州了，外州 permit 或 driver education 还能用吗？',
+        answer:
+          '不能默认。Washington 要审核 out-of-state traffic safety education；Georgia 对外州 driver education 有特定条件；New York 对 out-of-state learner permit 在纽约驾驶也有单独规则。搬州后先查新州 teen driver 或 new resident 页面。',
+      },
+    ],
+    editorNotes: [
+      '这页专门服务未成年人和家长，避免把 first-driver-license-road-test 页面变成过宽的“所有新司机”页面。',
+      '不要把 GDL 写成一个全国统一制度。NHTSA 可作为全国安全和 GDL 背景，但具体年龄、小时数、限制、课程和文件必须以州 DMV 为准。',
+      '父母签字、课程认可、练车小时、夜间小时、permit holding period、违规后果是本页最有价值的中文解释点。',
+      '外州搬入的 teen driver 要谨慎：permit、课程证书、driver training school、practice hours 和 provisional restrictions 可能不能直接转。',
+      '这页不提供保险、法律或学校纪律建议；只解释 DMV / motor vehicle agency 的 permit、license 和 GDL 路径。',
+    ],
+    relatedDirectory: {
+      label: '查看 DMV 笔试、路考和 learner permit 入口表',
+      href: '/directories/tests-permits/',
+      description: '按州查 permit、knowledge test、road test、driver manual、teen driver、GDL 和考试预约入口。',
+    },
+    sources: [
+      {
+        label: 'NHTSA Teen Driving',
+        url: 'https://www.nhtsa.gov/road-safety/teen-driving',
+      },
+      {
+        label: 'California DMV Learner’s Permits',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/learners-permits/',
+      },
+      {
+        label: 'California DMV Driver Licenses',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/driver-licenses-dl/',
+      },
+      {
+        label: 'California Driver Handbook: Instruction Permit and Driver License',
+        url: 'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/getting-an-instruction-permit-and-drivers-license/',
+      },
+      {
+        label: 'California DMV Driver Training Schools',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/driver-training-schools/',
+      },
+      {
+        label: 'California DMV Teen Driver Roadmap',
+        url: 'https://www.dmv.ca.gov/portal/teen-drivers/',
+      },
+      {
+        label: 'California DMV Parent Teen Training Guide',
+        url: 'https://www.dmv.ca.gov/portal/uploads/2020/06/dl603_compressed.pdf',
+      },
+      {
+        label: 'NY DMV Get Learner Permit',
+        url: 'https://dmv.ny.gov/driver-license/get-learner-permit',
+      },
+      {
+        label: 'NY DMV Learner Permit Restrictions',
+        url: 'https://dmv.ny.gov/driver-license/learner-permit-restrictions',
+      },
+      {
+        label: 'NY DMV Graduated License Law',
+        url: 'https://dmv.ny.gov/driver-license/younger-driver/the-graduated-license-law',
+      },
+      {
+        label: 'NY DMV Younger Driver Resources',
+        url: 'https://dmv.ny.gov/driver-license/younger-driver',
+      },
+      {
+        label: 'NY DMV Drive in New York with an Out-of-State Permit',
+        url: 'https://dmv.ny.gov/driver-license/younger-driver/drive-in-new-york-state-with-an-out-of-state-permit',
+      },
+      {
+        label: 'Texas DPS Texas Learner License as a Teen',
+        url: 'https://www.dps.texas.gov/section/driver-license/texas-learners-license-teen',
+      },
+      {
+        label: 'Texas DPS Texas Provisional License as a Teen',
+        url: 'https://www.dps.texas.gov/section/driver-license/texas-provisional-license-teen',
+      },
+      {
+        label: 'Texas DPS Graduated Driver License and Hardship License',
+        url: 'https://www.dps.texas.gov/section/driver-license/graduated-driver-license-gdl-and-hardship-license',
+      },
+      {
+        label: 'Texas DPS Impact Texas Drivers Program',
+        url: 'https://www.dps.texas.gov/section/driver-license/impact-texas-drivers-itd-program',
+      },
+      {
+        label: 'Texas DPS Choosing a Driver Education Course',
+        url: 'https://www.dps.texas.gov/section/driver-license/choosing-driver-education-course',
+      },
+      {
+        label: 'FLHSMV Teen Licensing Requirements and GDL Laws',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/',
+      },
+      {
+        label: 'FLHSMV Traffic Laws for Florida Teens',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/traffic-laws-florida-teens/',
+      },
+      {
+        label: 'FLHSMV Class E Knowledge Exam and Driving Skills Test',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/class-e-knowledge-exam-driving-skills-test/',
+      },
+      {
+        label: 'FLHSMV Required Forms for Teens',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/required-forms-teens/',
+      },
+      {
+        label: 'FLHSMV Teen Driver FAQ',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/frequently-asked-questions/',
+      },
+      {
+        label: 'FLHSMV Teen Drivers',
+        url: 'https://www.flhsmv.gov/safety-center/driving-safety/teen-drivers/',
+      },
+      {
+        label: 'Washington DOL Get Your First License or Permit',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit',
+      },
+      {
+        label: 'Washington DOL Driver License Application Ages 16 to 17',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit/driver-license-application-ages-16-17',
+      },
+      {
+        label: 'Washington DOL Washington State Driver Guide Text Only',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/driver-guides/washington-state-driver-guide-text-only',
+      },
+      {
+        label: 'Washington DOL Driver Licensing Fees',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-fees',
+      },
+      {
+        label: 'Washington DOL Pre-Apply Online',
+        url: 'https://dol.wa.gov/pre-apply-online',
+      },
+      {
+        label: 'NJ MVC First Driver License',
+        url: 'https://www.nj.gov/mvc/license/firstlic.htm',
+      },
+      {
+        label: 'NJ MVC Graduated Driver License',
+        url: 'https://www.nj.gov/mvc/about/gdlsafety.htm',
+      },
+      {
+        label: 'NJ MVC Testing and Preparation',
+        url: 'https://www.nj.gov/mvc/license/testprep.htm',
+      },
+      {
+        label: 'NJ MVC License and Permit Fees',
+        url: 'https://www.nj.gov/mvc/license/licfees.htm',
+      },
+      {
+        label: 'NJ MVC Supervised Driving Certification BA-CSD',
+        url: 'https://www.nj.gov/mvc/pdf/license/BA-CSD.pdf',
+      },
+      {
+        label: 'NJ MVC Practice Driving Requirement Announcement',
+        url: 'https://nj.gov/mvc/press/archives/2025/01312025.htm',
+      },
+      {
+        label: 'PennDOT Teen Drivers',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/teen-drivers',
+      },
+      {
+        label: 'PennDOT Get a Learner Permit',
+        url: 'https://www.pa.gov/services/dmv/get-a-learners-permit',
+      },
+      {
+        label: 'PennDOT Get a Driver License',
+        url: 'https://www.pa.gov/services/dmv/get-a-driver-license',
+      },
+      {
+        label: 'PennDOT Young Driver',
+        url: 'https://www.pa.gov/agencies/penndot/traveling-in-pa/safety/traffic-safety-driver-topics/young-driver',
+      },
+      {
+        label: 'PennDOT Driver Manual Applying for a Learner Permit',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/applying-for-a-learners-permit',
+      },
+      {
+        label: 'PennDOT Junior Learner Permit and Junior Driver License Guide',
+        url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bdl/bdl-publications/pub%20178.pdf',
+      },
+      {
+        label: 'Virginia DMV Apply for a Learner Permit',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/learners/apply',
+      },
+      {
+        label: 'Virginia DMV Driver Education',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/learners/ed-reqs',
+      },
+      {
+        label: 'Virginia DMV Teen Driver Resources',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/learners/teen',
+      },
+      {
+        label: 'Virginia DMV Teen Driving Restrictions',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/learners/restrictions',
+      },
+      {
+        label: 'Virginia DMV Driver Education for Home Schoolers',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/learners/homeschool',
+      },
+      {
+        label: 'Virginia DMV Driver Training Schools',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/training/driver-training-schools',
+      },
+      {
+        label: 'Georgia DDS Teen Drivers',
+        url: 'https://dds.georgia.gov/teen-drivers',
+      },
+      {
+        label: 'Georgia DDS Learners Permit',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-learners-permit',
+      },
+      {
+        label: 'Georgia DDS Class D Provisional License',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-class-d',
+      },
+      {
+        label: 'Georgia DDS Joshua’s Law Requirements',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/joshuas-law-requirements',
+      },
+      {
+        label: 'Georgia DDS Teen Driving Laws FAQs',
+        url: 'https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/teen-driving-laws-faqs',
+      },
+      {
+        label: 'Georgia DDS Driver Education FAQs',
+        url: 'https://dds.georgia.gov/driver-education-faqs',
+      },
+      {
+        label: 'Mass.gov Teen Drivers',
+        url: 'https://www.mass.gov/info-details/teen-drivers',
+      },
+      {
+        label: 'Mass.gov Junior Operator License Requirements',
+        url: 'https://www.mass.gov/info-details/junior-operator-license-jol-requirements',
+      },
+      {
+        label: 'Mass.gov Apply for a Passenger Class D Learner Permit',
+        url: 'https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit',
+      },
+      {
+        label: 'Mass.gov Driver Education Programs',
+        url: 'https://www.mass.gov/info-details/drivers-education-programs',
+      },
+      {
+        label: 'Mass.gov Passenger Class D Road Tests',
+        url: 'https://www.mass.gov/info-details/passenger-class-d-road-tests',
+      },
+      {
+        label: 'Mass.gov Junior Operator Violations',
+        url: 'https://www.mass.gov/info-details/junior-operator-violations',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'florida',
+      'washington',
+      'new-jersey',
+      'pennsylvania',
+      'virginia',
+      'georgia',
+      'massachusetts',
+    ],
+  },
+  {
+    slug: 'older-driver-license-renewal-medical-review',
+    title: '老人/高龄驾驶人续驾照、视力测试和医疗审查怎么处理',
+    eyebrow: '高龄驾驶',
+    reviewedAt: '2026-07-10',
+    description:
+      '在美国，older driver / mature driver 相关问题不只是“老人能不能开车”。不同州会把续驾照、视力测试、medical review、driver re-evaluation、家属担心 unsafe driver、医生报告和限制驾照分成不同程序，需要按触发原因找到对应官方入口。',
+    whoNeedsIt: [
+      '家里有 64、75、79、80 岁以上的父母或长辈，要续 driver license、确认是否必须现场办理或做 vision test 的人。',
+      '长辈最近发生事故、迷路、意识丧失、反应明显变慢、视力变差、认知变化、服药影响驾驶，家属不知道能否向 DMV 报告的人。',
+      '收到 DMV / DPS / DOL / MVC / RMV 的 medical review、driver re-evaluation、vision report、road test 或 doctor certification 信件，不知道下一步的人。',
+      '想区分“年龄触发的续证/视力规则”和“医疗条件触发的安全审查”的申请人、家属或照护者。',
+      '考虑把驾照换成 State ID / non-driver ID，或需要讨论替代交通、限制驾照、白天驾驶、区域驾驶的人。',
+    ],
+    keyFacts: [
+      '年龄本身通常不是吊销或复查驾照的充分理由。NHTSA 明确把安全重点放在 vision、physical fitness、reflexes、medical conditions、medications、attention 和反应能力变化上，而不是单纯年龄。',
+      '有些州确实设置年龄触发的续证或视力规则。Florida 80 岁起 Class E 驾照改为每 6 年续一次，且不能线上续时要通过 vision test；Virginia 75 岁及以上续驾照必须到 DMV customer service center，并完成 vision screening 或提交 vision report；Georgia 64 岁及以上每次续证都要 vision screening；Texas 79 岁及以上通常要现场续驾照。',
+      '普通续期、视力测试、medical review 和 driver re-evaluation 是不同程序。续期是 license renewal；vision test 只看视力标准；medical review 可能要求医生表格、病情控制证明或定期 recertification；re-evaluation 可能要求面谈、eye test、written test 或 road skills test。',
+      '家属或旁人报告 unsafe driver 不能只写“年纪大了”。Washington DOL 明确要求具体描述驾驶能力、medical / vision conditions，并且信息必须来自个人观察；New York 和 Georgia 也说明 age alone 不能作为行动依据。',
+      '报告路径的保密性不同。New York 对非医生报告人的身份有保护口径；Washington 说明 unsafe-driver report 在州法下不保密，司机或律师可能申请副本；Virginia 对亲属或治疗医疗人员的部分来源/理由有保密规则；New Jersey 不接受匿名报告。',
+      '医生/医疗人员报告在部分州不是“可选提醒”。Pennsylvania 要求 health care personnel 报告影响安全驾驶的病人；New Jersey 要求医生报告 recurrent seizure、recurrent unconsciousness 或 motor coordination impairment 等情况。',
+      'DMV 的结果不一定是吊销。官方流程里常见结果包括要求 medical / vision certificate、医生复核、knowledge test、road skills test、驾驶康复评估、车辆辅助设备、限制驾照、白天驾驶、区域驾驶、定期复审，或者在风险较高时 suspend / revoke / cancel driving privilege。',
+      '被要求提交 medical review 文件时，截止日期很重要。Georgia DDS 说明收到 medical / vision form 后若 30 天内不配合，可能进入 revocation notice；New Jersey Medical Review Process 也会给出表格返回期限；New York 说明不提供要求的 medical documentation 可能导致 suspension。',
+      '认知障碍、意识丧失、癫痫、视力变化、运动功能或判断力问题，比年龄数字本身更关键。California、New York、Virginia、Florida、Georgia 等州都有 medical conditions / medical review 页面，用来判断是否仍能安全驾驶。',
+      '如果已经不适合继续开车，把驾照换成 State ID / non-driver ID 往往比“拖着不处理”更稳。Florida older-driver 页面就把 surrender driver license and obtain an ID card 作为安全选择之一；各州 ID 规则仍要按本州身份和地址材料办。',
+    ],
+    checklist: [
+      '确认所在州和年龄：64、75、79、80 岁这些门槛在 Georgia、Virginia、Texas、Florida 等州对应不同 renewal / vision 规则。',
+      '确认问题类型：普通续驾照、视力不达标、医疗条件变化、医生报告、家属报告、事故后复查、road skills test，还是想主动换成 State ID。',
+      '收集官方信件：DMV case number、Medical Review Unit / Driver Safety / MRS / DDS letter、表格编号、提交期限、医生填写要求、是否要求原件或线上提交。',
+      '准备医疗和视力材料：vision report、eye exam、doctor certification、medical evaluation form、medication list、specialist note、driver rehabilitation evaluation 或州指定表格。',
+      '记录具体驾驶观察：迷路、撞车、逆行、闯灯、刮蹭、反应迟缓、看不清路标、找不到车道、意识短暂丧失；报告 unsafe driver 时不要只写“年纪大”。',
+      '确认报告是否保密、是否接受匿名、是否必须亲属/医生/执法机关提出，以及报告后 DMV 是否会向家属反馈结果。',
+      '如果 DMV 要求考试，确认是 vision test、knowledge test、road skills test、supplemental driving performance evaluation、driver re-evaluation 还是完整重新申请。',
+      '和家人同步替代方案：白天/熟悉路线驾驶、限制上高速、家人接送、公共交通、社区交通、rideshare、State ID / non-driver ID、保险和车辆处置。',
+    ],
+    steps: [
+      '第一步：先查本州 mature driver / older driver / senior driver 页面。不要只按年龄猜，因为有些州写 64+、75+、79+、80+，有些州没有单独高龄续证门槛。',
+      '第二步：把“能续证吗”和“还能安全驾驶吗”分开。续期页面告诉你怎么 renew；medical review / unsafe driver 页面才处理视力、意识、认知、运动功能或病情控制。',
+      '第三步：如果只是续驾照，按州规则走 renewal、vision screening、线上资格、现场预约和费用。Florida、Virginia、Georgia、Texas 的年龄触发规则尤其要先看官方页面。',
+      '第四步：如果是医疗或视力问题，先看本州 Medical Review / Driver Safety / Medical Advisory Board 页面，确认谁能提交、用哪张表、医生是否必须填写、多久内返回。',
+      '第五步：如果家属担心 unsafe driver，先写事实清单。Washington 要具体、个人观察；New Jersey 不收匿名；New York age alone 不行动；Georgia 的 request driver review 也不能只靠年龄。',
+      '第六步：收到 DMV 信后按截止日期处理。可能需要医生表格、eye doctor report、面谈、written test、road skills test、driving evaluation 或限制驾照；错过期限可能导致 suspension、revocation 或 cancel driving privilege。',
+      '第七步：如果决定不再开车，查 State ID / non-driver ID 的材料和预约，同时处理保险、车辆登记、车牌、title、停车牌、医疗交通和家庭出行安排。',
+    ],
+    faqs: [
+      {
+        question: '年纪大了 DMV 会自动吊销驾照吗？',
+        answer:
+          '通常不会只因为年龄自动吊销。很多州有年龄触发的续证、现场办理或视力测试规则，但吊销、暂停或限制通常要看 medical condition、vision、driving record、事故、医生报告或复查结果。NHTSA 也强调 decisions should never be based on age alone。',
+      },
+      {
+        question: '家属能不能向 DMV 报告 unsafe driver？',
+        answer:
+          '很多州可以，但规则差异很大。Washington 要求具体事实和个人观察，且报告不保密；New Jersey 不接受匿名报告；New York 接受 DS-7 driver review，但 age alone 不足以采取行动；Georgia 的 DDS 270 也不能只把年龄作为理由。',
+      },
+      {
+        question: '医生报告后会马上吊销驾照吗？',
+        answer:
+          '不一定。New York 可能要求医生证明病情已被治疗或控制；Virginia MRS 会审核医疗/视力情况；Georgia 可能先寄 medical / vision form；New Jersey 可能要求 physician forms。部分州对特定情况有强制医生报告，结果可能是补材料、限制、复考、暂停或吊销。',
+      },
+      {
+        question: '视力测试不达标是不是一定不能开车？',
+        answer:
+          '不一定，但不能硬闯。州 DMV 可能要求 eye specialist report、vision report、corrective lenses、白天限制、区域限制或进一步 road skills test。Florida 80 岁以上续证可能要 HSMV 72119 S 或 eye exam；Georgia 64+ 每次续证要 vision screening，并列出非商业驾照最低视力标准。',
+      },
+      {
+        question: '收到 medical review / re-evaluation 信后应该怎么做？',
+        answer:
+          '先看截止日期、表格编号、提交方式和是否需要医生填写。不要把它当成普通 renewal。可能需要 medical documentation、vision report、interview、knowledge test、road skills test 或 driver rehabilitation evaluation；不回应可能导致 suspension、revocation 或 cancel driving privilege。',
+      },
+    ],
+    editorNotes: [
+      '本页必须避免“老人不能开车”的偏见表达。官方来源的共同重点是 medical / vision / cognitive / driving behavior risk，而不是年龄本身。',
+      'medical review 是高风险主题，不做医学诊断、法律建议或家庭决策建议；只解释 DMV / motor vehicle agency 的官方程序。',
+      '每次更新要分清 renewal age threshold、vision standard、unsafe driver report、doctor mandatory report、medical review、driver re-evaluation、road skills test 和 ID card surrender。',
+      '家属报告类内容要提醒读者写具体观察、保存信件、尊重长辈，并确认保密性；不同州对匿名和报告副本的规则非常不同。',
+      'Mass.gov、Texas DPS 和部分 PDF 可能在自动链接检查中返回 403、超时或安全拦截；只要不是硬死链，保留为官方来源并在审计中标 watch。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 driver license renewal、medical review、driver safety、forms、office appointment 和 license status 官方入口。',
+    },
+    sources: [
+      {
+        label: 'NHTSA Older Drivers',
+        url: 'https://www.nhtsa.gov/road-safety/older-drivers',
+      },
+      {
+        label: 'NHTSA Driving Safely While Aging Gracefully',
+        url: 'https://www.nhtsa.gov/older-drivers/driving-safely-while-aging-gracefully',
+      },
+      {
+        label: 'NHTSA How to Understand and Influence Older Drivers',
+        url: 'https://www.nhtsa.gov/older-drivers/how-understand-and-influence-older-drivers',
+      },
+      {
+        label: 'California DMV Senior Drivers',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/special-interest-driver-guides/senior-drivers/',
+      },
+      {
+        label: 'California DMV Maintaining Driving Independence and Safety',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/maintaining-driving-independence-and-safety/',
+      },
+      {
+        label: 'California DMV Deteriorated Driving Skill',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/dmv-safety-guidelines-actions/deteriorated-driving-skill/',
+      },
+      {
+        label: 'California Driver Handbook: Seniors and Driving',
+        url: 'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/seniors-and-driving/',
+      },
+      {
+        label: 'California Driver Handbook: Driver Safety',
+        url: 'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/driver-safety/',
+      },
+      {
+        label: 'California DMV Medical Conditions and Driving',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/medical-conditions-and-driving/',
+      },
+      {
+        label: 'California DMV Dementia and Driving',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/medical-conditions-and-driving/dementia/',
+      },
+      {
+        label: 'California DMV Driver Medical Evaluation DS 326',
+        url: 'https://www.dmv.ca.gov/portal/uploads/2020/06/DS326.pdf',
+      },
+      {
+        label: 'NY DMV Older Driver Driving',
+        url: 'https://dmv.ny.gov/driver-license/older-driver/driving',
+      },
+      {
+        label: 'NY DMV Renew a Driver License',
+        url: 'https://dmv.ny.gov/driver-license/renew-a-driver-license',
+      },
+      {
+        label: 'NY DMV Vision Requirements and Restrictions',
+        url: 'https://dmv.ny.gov/driver-license/vision-requirements-and-restrictions',
+      },
+      {
+        label: 'NY DMV Online Vision Registry',
+        url: 'https://dmv.ny.gov/driver-license/online-vision-registry',
+      },
+      {
+        label: 'NY DMV Medical Review Program',
+        url: 'https://dmv.ny.gov/driver-license/dmv-medical-review-program',
+      },
+      {
+        label: 'NY DMV Report a Medical Condition',
+        url: 'https://dmv.ny.gov/report-a-medical-condition',
+      },
+      {
+        label: 'NY DMV Driver Re-Evaluation Program',
+        url: 'https://dmv.ny.gov/driver-re-evaluation-program',
+      },
+      {
+        label: 'NY DMV Request for Driver Review DS-7',
+        url: 'https://dmv.ny.gov/forms/ds7.pdf',
+      },
+      {
+        label: 'Texas DPS Senior Drivers Age 79 or Older',
+        url: 'https://www.dps.texas.gov/section/driver-license/senior-drivers-age-79-or-older',
+      },
+      {
+        label: 'Texas DPS Medical Evaluation Process for Driver Licensing',
+        url: 'https://www.dps.texas.gov/section/driver-license/texas-medical-evaluation-process-driver-licensing',
+      },
+      {
+        label: 'Texas DPS Medical Advisory Board FAQ',
+        url: 'https://www.dps.texas.gov/section/driver-license/faq/section-11-medical-advisory-board-mab',
+      },
+      {
+        label: 'Texas DPS Examination Request DL-76',
+        url: 'https://www.dps.texas.gov/internetforms/Forms/DL-76.pdf',
+      },
+      {
+        label: 'FLHSMV Driver License Renewal Requirements for Older Drivers',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/mature-driver/driver-license-renewal-requirements-options-older-drivers/',
+      },
+      {
+        label: 'FLHSMV Vision Standards',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/medical-review/vision-standards/',
+      },
+      {
+        label: 'FLHSMV Forms for Older Drivers',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/mature-driver/forms-for-older-drivers/',
+      },
+      {
+        label: 'FLHSMV Medical Review',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/medical-review/',
+      },
+      {
+        label: 'FLHSMV Medical Review Process',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/medical-review/the-medical-review-process/',
+      },
+      {
+        label: 'FLHSMV Medical Review Frequently Asked Questions',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/medical-review/medical-review-frequently-asked-questions/',
+      },
+      {
+        label: 'FLHSMV Mature Driver Vision Test HSMV 72119',
+        url: 'https://www.flhsmv.gov/pdf/forms/72119.pdf',
+      },
+      {
+        label: 'Washington DOL Report Unsafe Drivers',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-safety/report-unsafe-drivers',
+      },
+      {
+        label: 'Washington DOL Driver Evaluation Request Form',
+        url: 'https://dol.wa.gov/forms/view/500008/download?inline=',
+      },
+      {
+        label: 'Washington State Driver Guide Text Only',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/driver-guides/washington-state-driver-guide-text-only',
+      },
+      {
+        label: 'NJ MVC Reporting a Concern',
+        url: 'https://www.nj.gov/mvc/drivertopics/reportconcern.htm',
+      },
+      {
+        label: 'NJ MVC Why Medical Review Is Needed',
+        url: 'https://www.nj.gov/mvc/drivertopics/medwhy.htm',
+      },
+      {
+        label: 'NJ MVC Medical Review Process',
+        url: 'https://www.nj.gov/mvc/drivertopics/medreviewprocess.htm',
+      },
+      {
+        label: 'NJ MVC Law Enforcement and Physicians Reporting',
+        url: 'https://www.nj.gov/mvc/drivertopics/lawmedreport.htm',
+      },
+      {
+        label: 'PennDOT Mature Drivers',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/mature-drivers',
+      },
+      {
+        label: 'PennDOT Medical Reporting',
+        url: 'https://www.pa.gov/agencies/dmv/resources/medical-reporting',
+      },
+      {
+        label: 'PennDOT Medical Reporting FAQs',
+        url: 'https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/medical-reporting-faqs',
+      },
+      {
+        label: 'PennDOT PA Drivers and Families',
+        url: 'https://www.pa.gov/agencies/dmv/resources/medical-reporting/pa-drivers-and-families',
+      },
+      {
+        label: 'PennDOT Medically Impaired Driver Law',
+        url: 'https://www.pa.gov/agencies/dmv/resources/laws-and-regulations/medically-impaired-driver-law',
+      },
+      {
+        label: 'PennDOT Older Driver Safety',
+        url: 'https://www.pa.gov/agencies/penndot/traveling-in-pa/safety/traffic-safety-driver-topics/older-driver',
+      },
+      {
+        label: 'Virginia DMV Mature Drivers',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/mature',
+      },
+      {
+        label: 'Virginia DMV Mature Driver Safety',
+        url: 'https://www.dmv.virginia.gov/safety/programs/mature-driver',
+      },
+      {
+        label: 'Virginia DMV Report an Impaired Driver',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/medical/impaired-hp',
+      },
+      {
+        label: 'Virginia DMV Medical Review of Drivers',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/medical/review',
+      },
+      {
+        label: 'Virginia DMV Medical Review Special Restrictions',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/medical/spec-restrict',
+      },
+      {
+        label: 'Virginia DMV Vision Requirements',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/medical/vision',
+      },
+      {
+        label: 'Virginia DMV Cognitive Impairment Policy',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/medical/cognitive',
+      },
+      {
+        label: 'Georgia DDS Drivers 64 and Over',
+        url: 'https://dds.georgia.gov/georgia-licenseid/drivers-64-and-over',
+      },
+      {
+        label: 'Georgia DDS Medical Review Process',
+        url: 'https://dds.georgia.gov/medical-review-process',
+      },
+      {
+        label: 'Georgia DDS Request for Driver Review DDS-270',
+        url: 'https://dds.georgia.gov/document/document/request-driver-review-dds-270/download',
+      },
+      {
+        label: 'Georgia DDS Test and Exams Information',
+        url: 'https://dds.georgia.gov/testing-and-training/test-and-exams-information',
+      },
+      {
+        label: 'Mass.gov RMV Information for Older Drivers',
+        url: 'https://www.mass.gov/info-details/massachusetts-rmv-information-for-older-drivers',
+      },
+      {
+        label: 'Mass.gov Report a Medically Impaired Driver',
+        url: 'https://www.mass.gov/how-to/report-a-medically-impaired-driver',
+      },
+      {
+        label: 'Mass.gov Medical Standards for Class D and Class M Licenses',
+        url: 'https://www.mass.gov/info-details/medical-standards-for-passenger-class-d-and-motorcycle-class-m-drivers-licenses',
+      },
+      {
+        label: 'Mass.gov Your Health and Driving Safely',
+        url: 'https://www.mass.gov/doc/your-health-and-driving-safely-0/download',
+      },
+      {
+        label: 'Mass.gov RMV Forms and Applications',
+        url: 'https://www.mass.gov/lists/rmv-forms-and-applications',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'florida',
+      'washington',
+      'new-jersey',
+      'pennsylvania',
+      'virginia',
+      'georgia',
+      'massachusetts',
+    ],
+  },
+  {
+    slug: 'dmv-test-language-translation-interpreter',
+    title: 'DMV 中文笔试、文件翻译和口译怎么判断',
+    eyebrow: '语言 / 翻译',
+    reviewedAt: '2026-07-13',
+    description:
+      '美国 DMV 的语言规则不能只问“有没有中文”。网页翻译、中文手册、knowledge test 语言、road test 口译、CDL / Hazmat 限制、外文文件 certified translation，常常是几套完全不同的规则。',
+    whoNeedsIt: [
+      '想确认驾照笔试、permit test 或 knowledge test 是否有中文、普通话、简体或繁体选项的人。',
+      '需要带中文出生证明、结婚证、法院文件、外国驾照或其他非英文文件去 DMV 的人。',
+      '英语不流利，想知道路考、口试、口译、audio test 或 interpreter 能不能使用的人。',
+    ],
+    keyFacts: [
+      '有中文网页或中文手册，不代表笔试一定有中文；有中文笔试，也不代表路考可用中文或可带私人翻译。',
+      '考试语言高度州别化。纽约、新泽西、华盛顿、佐治亚、宾州、密歇根等官方页面列出过中文或多语言考试/资料线索，德州则把 driver license knowledge test 限在 English / Spanish 方向。',
+      'Florida 已从 2026 年 2 月 6 日起把所有 driver license knowledge 和 skills exams 改为仅使用英语，并停止考试翻译服务；旧 General Information 页面上的多语言列表属于尚未同步的历史内容。',
+      'CDL、Hazmat、commercial exam 或部分特殊考试经常有更严格语言限制；不要把普通 Class D / Class E 笔试规则套到商业驾照。',
+      '文件翻译和考试语言不是一回事。非英文身份、姓名、移民或外国驾照文件可能需要 certified translation、English translation、IDP 或州认可翻译格式。',
+    ],
+    factChecks: [
+      {
+        claim: 'Florida 从 2026 年 2 月 6 日起将 driver license knowledge 和 skills exams 改为 English-only，并停止考试翻译服务。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/2026/01/30/flhsmv-announces-driver-license-exams-to-be-administered-in-english-only/',
+        ],
+      },
+      {
+        claim: 'Texas 普通 driver license knowledge test 的官方语言说明集中在 English / Spanish，并对 CDL interpreter 另设限制。',
+        sourceUrls: ['https://www.dps.texas.gov/section/driver-license/testing-other-languages'],
+      },
+      {
+        claim: 'Washington 的 knowledge test 官方页面列出 Traditional Chinese 和 Simplified Chinese，但仍要向具体 testing location 确认可用语言。',
+        sourceUrls: [
+          'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
+        ],
+      },
+      {
+        claim: 'New Jersey 把 knowledge-test language 和 interpreter 安排放在考试规则中处理，不能仅凭中文手册判断考场语言。',
+        sourceUrls: ['https://www.nj.gov/mvc/license/knowledgetest.htm'],
+      },
+      {
+        claim: 'North Carolina 将多语言笔试、oral test 和 interpreter services 分开说明，口译需求应在到场前确认。',
+        sourceUrls: [
+          'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+          'https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx',
+        ],
+      },
+    ],
+    checklist: [
+      '先分清你问的是哪一类：网页翻译、driver manual、permit / knowledge test、road test、oral / audio test、文件翻译、CDL / Hazmat。',
+      '打开州 DMV 的 knowledge test、driver manual、language assistance、interpreter services 或 document requirements 页面。',
+      '如果页面列出中文，确认是 Chinese、Mandarin、Traditional Chinese、Simplified Chinese，还是仅有中文学习资料。',
+      '如果需要口译或 oral test，确认是否要提前预约、由 DMV 安排、是否允许私人 interpreter，以及是否适用于 road test。',
+      '如果文件不是英文，按州要求准备 certified translation、English translation、IDP 或官方认可翻译，不要用普通自译件替代。',
+    ],
+    steps: [
+      '第一步：先定位业务。普通非商业知识考试、路考、CDL / Hazmat、外国驾照转入、REAL ID 文件核验，各自语言规则可能不同。',
+      '第二步：查本州官方 language / test 页面。不要只看中文社群经验，因为同一州也可能按考点、考试类别或第三方测试机构变化。',
+      '第三步：把“学习资料”和“考试语言”分开。California、Washington、Michigan 等有多语言学习或线上学习线索，但最终考试可用语言仍要看对应 test 页面。',
+      '第四步：把“口译”和“翻译文件”分开。New Jersey 可在缺少母语考试版本时请求 MVC 安排 interpreter；North Carolina 有 interpreter services 页面；外文文件则另看 certified translation 要求。',
+      '第五步：预约或考试前重新确认。语言、口译、第三方考点、线上考试和 CDL 限制可能更新；办理 Florida 或 Texas 业务时尤其要以当前官方入口为准。',
+    ],
+    faqs: [
+      {
+        question: '美国驾照笔试一定有中文吗？',
+        answer:
+          '不是。部分州明确列出 Chinese、Mandarin、Traditional Chinese 或 Simplified Chinese 选项，部分州没有中文，部分州只提供 English / Spanish 或按考点变化。必须查本州 knowledge test 页面。',
+      },
+      {
+        question: '有中文 driver manual，是不是考试也能用中文？',
+        answer:
+          '不一定。中文手册或网页翻译只是学习材料或辅助阅读，不能证明考试系统一定提供中文。考试语言要看 permit test / knowledge test 官方页面。',
+      },
+      {
+        question: '路考可以带朋友翻译吗？',
+        answer:
+          '不要默认可以。很多州即使有多语言笔试，也不一定允许 road test 口译；有些口译必须由 DMV 安排，或只适用于特定服务。预约前查 interpreter / language assistance 页面。',
+      },
+      {
+        question: '中文文件翻译有什么统一格式吗？',
+        answer:
+          '没有全美统一格式。州 DMV 可能要求 certified translation、English translation、IDP、官方认可译者或特定文件内容。出生、婚姻、法院、外国驾照和移民文件要按本州材料页处理。',
+      },
+    ],
+    editorNotes: [
+      '这页要避免一句“有中文考试”。更准确的写法是按州、考试类型、考点和时间确认。',
+      '语言规则最容易混淆四层：网页/手册语言、knowledge test 语言、road test / oral / interpreter 规则、外文文件翻译规则。',
+      'Florida 和 Texas 是风险提醒样本：Florida 有 English-only 政策更新线索，Texas DPS Testing in Other Languages 对 English / Spanish 和 CDL interpreter 限制更明确。',
+      '商业驾照和 Hazmat 不要套普通驾照规则。NJ MVC 和 Texas DPS 都提供过商业/特殊考试语言限制线索。',
+      '这页和 `/directories/language-access/` 互补：专题解释判断逻辑，目录按州给入口和抽取线索。',
+    ],
+    relatedDirectory: {
+      label: '50 州考试语言、翻译和口译入口表',
+      href: '/directories/language-access/',
+      description: '按州查看 DMV 笔试语言、中文/多语言考试、文件翻译、口译请求、driver manual 和 English-only / CDL 限制。',
+    },
+    sources: [
+      {
+        label: 'California DMV Online Learning and Tests',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/online-learning-and-tests/',
+      },
+      {
+        label: 'NY DMV Permit Test',
+        url: 'https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test',
+      },
+      {
+        label: 'NY DMV Language Assistance',
+        url: 'https://dmv.ny.gov/more-info/language-assistance',
+      },
+      {
+        label: 'Texas DPS Testing in Other Languages',
+        url: 'https://www.dps.texas.gov/section/driver-license/testing-other-languages',
+      },
+      {
+        label: 'FLHSMV English-only Exams Announcement',
+        url: 'https://www.flhsmv.gov/2026/01/30/flhsmv-announces-driver-license-exams-to-be-administered-in-english-only/',
+      },
+      {
+        label: 'Washington DOL Do I Need to Take a Test',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
+      },
+      {
+        label: 'Washington DOL Driver Guides',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/driver-guides',
+      },
+      {
+        label: 'NJ MVC Knowledge Test',
+        url: 'https://www.nj.gov/mvc/license/knowledgetest.htm',
+      },
+      {
+        label: 'PennDOT Driver Manual - Testing',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/testing',
+      },
+      {
+        label: 'Georgia DDS List of Languages',
+        url: 'https://dds.georgia.gov/list-languages',
+      },
+      {
+        label: 'NCDMV Driver License Tests',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+      },
+      {
+        label: 'NCDMV Interpreter Services',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx',
+      },
+      {
+        label: 'Michigan SOS New Drivers 18 and Older',
+        url: 'https://www.michigan.gov/sos/license-id/new-drivers-18-older',
+      },
+      {
+        label: 'Michigan SOS What Every Driver Must Know',
+        url: 'https://www.michigan.gov/sos/resources/forms/what-every-driver-must-know',
+      },
+    ],
+    relatedStateIds: ['california', 'new-york', 'texas', 'florida', 'washington', 'new-jersey', 'pennsylvania', 'georgia', 'north-carolina', 'michigan'],
+  },
+  {
+    slug: 'foreign-license-idp-transfer',
+    title: '中国/外国驾照、IDP 和美国州驾照怎么衔接',
+    eyebrow: '外国驾照',
+    reviewedAt: '2026-07-10',
+    description:
+      '持中国或其他外国驾照来美国，先分清自己是短期访客、学生/临时居民，还是已经成为某州居民。IDP 通常只是翻译辅助文件，换成本州驾照仍要看州 DMV 的测试、翻译、身份和互惠规则。',
+    whoNeedsIt: [
+      '持中国驾照、台湾驾照、韩国驾照、欧洲驾照或其他外国驾照来美国的人。',
+      '刚搬到某州，想知道外国驾照能不能直接换成本州驾照的人。',
+      '准备租车、路考、买保险，或被要求提供 International Driving Permit / certified translation 的人。',
+    ],
+    keyFacts: [
+      'USA.gov 说明并非每个州都要求 IDP；外国访客应按计划驾驶的州逐一核对 DMV 要求，而且美国不向外国访客签发 IDP。',
+      'IDP 通常是把外国驾照翻译成多语言的辅助文件，不等于单独有效的驾驶执照；宾州和密歇根官方页面都明确提醒 IDP 不能替代原驾照。',
+      '成为州居民后，很多州要求在规定期限内申请本州 driver license；例如加州居民通常 10 天内要取得 California DL，纽约居民 30 天内要取得 NY license。',
+      '外国驾照能否免笔试或路考取决于州和互惠国家/地区。新泽西、宾州、华盛顿、德州等州列出过部分 reciprocity 或 waiver 路径，但适用对象、年龄、非商业驾照和文件要求不同。',
+      '非英文外国驾照常会触发 IDP、英文翻译、certified translation 或领馆/官方证明要求；纽约、新泽西、华盛顿、密歇根的官方页面都有相关条件。',
+    ],
+    checklist: [
+      '先确认身份：短期访客、学生/临时访客、永久居民或已经建立州居民身份。',
+      '带原外国驾照；如果驾照不是英文，再核对本州是否要求 IDP、英文翻译或 certified translation。',
+      '准备护照、I-94/合法身份文件、SSN 或不可取得 SSN 文件、当前州居住地址证明和姓名变更文件。',
+      '如果要换本州驾照，查本州是否要求 knowledge test、road test、vision test、5-hour course、driver record 或领馆证明。',
+      '如果来自互惠国家/地区，核对该州列出的国家/地区、年龄、非商业驾照、证件有效期、翻译和合法居留期限要求。',
+      '路考当天确认是否必须交出外国驾照或带 accompanying driver；纽约和加州页面都对外国驾照场景写了额外要求。',
+    ],
+    steps: [
+      '第一步：判断你是不是该州居民。只是短期访问通常先看 visitor / non-resident 规则；已经搬入并建立居民身份时，要看本州 new resident 或 first license 页面。',
+      '第二步：判断你的原驾照来源。美国其他州/加拿大驾照、外国驾照、学习许可、CDL、过期驾照和互惠国家驾照通常走不同路径。',
+      '第三步：判断 IDP 的角色。需要时，把 IDP 当翻译和辅助说明；不要把它当成可以单独开车、单独换证或替代身份文件的证件。',
+      '第四步：把材料分成三组：驾驶经历证明、身份/合法居留证明、州居住地址证明。密歇根 SOS-428 特别说明 foreign driver license 只能证明 driving experience，不能证明 legal presence 或 identity。',
+      '第五步：回到本州 DMV 官方页面确认测试和预约。外国驾照申请人常见结果是要笔试、路考或视力测试；互惠路径则可能免 knowledge / road test，但仍要文件和视力核验。',
+    ],
+    faqs: [
+      {
+        question: '中国驾照加 IDP 在美国一定能开车吗？',
+        answer:
+          '不能这样绝对说。USA.gov 明确提醒不是每个州都要求或按同一方式处理 IDP，必须联系或查看计划驾驶州的 DMV 要求。IDP 通常还要和原外国驾照一起使用。',
+      },
+      {
+        question: 'IDP 可以拿去 DMV 直接换美国驾照吗？',
+        answer:
+          '通常不可以。IDP 更像翻译辅助文件，不是原始驾驶资格本身。马萨诸塞页面也提醒不能只把 IDP 转成 Massachusetts permit 或 license；要看原外国驾照、身份文件和该州 transfer / first license 规则。',
+      },
+      {
+        question: '外国驾照换美国州驾照一定要路考吗？',
+        answer:
+          '不一定。加州页面显示外国驾照申请 California DL 仍要 driving test；纽约对非美国/加拿大驾照要求原始申请路径并在通过路考后交出外国驾照。另一方面，宾州、新泽西、华盛顿、德州等州对部分国家/地区有互惠或测试豁免路径。',
+      },
+      {
+        question: '我的外国驾照不是英文，要翻译成什么格式？',
+        answer:
+          '按州看。纽约要求 road test 时带 IDP 或 certified translation，并列明翻译应包含姓名、生日、外国驾照到期日和准驾车型；密歇根要求外国文件英文翻译，外国驾照需 IDP 或 English translation。',
+      },
+    ],
+    editorNotes: [
+      '这一页故意不写“全美国都可以”或“全美国都不可以”，因为 USA.gov 和州 DMV 都把 IDP、访客驾驶和居民换证交给州规则执行。',
+      '外国驾照问题要拆成三层：能否作为访客开车、成为居民后何时必须换证、换证时能否免测试。把三层混在一起最容易误导用户。',
+      'IDP / International Driving Permit 在纽约还可能指 Impaired Driver Program；写作和站内搜索时必须用上下文区分“国际驾驶许可”和纽约处罚课程。',
+      '互惠国家/地区不能跨州套用。新泽西、宾州、德州、华盛顿列出的国家/地区和要求并不完全相同。',
+      '外国驾照不等于身份文件。密歇根 SOS-428 的表述很适合作为风险提醒：foreign driver license 可作为 driving experience proof，但不能证明 legal presence 或 identity。',
+    ],
+    relatedDirectory: {
+      label: '50 州外国/外州驾照转入入口表',
+      href: '/directories/foreign-license/',
+      description: '按州查看 foreign license、out-of-state transfer、IDP、互惠免考、翻译和交旧证官方入口。',
+    },
+    sources: [
+      {
+        label: 'USA.gov Driving in the U.S. if you are not a citizen',
+        url: 'https://www.usa.gov/non-citizen-driving',
+      },
+      {
+        label: 'California DMV Driver Licenses',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/driver-licenses-dl/',
+      },
+      {
+        label: 'California DMV Fast Facts 5',
+        url: 'https://www.dmv.ca.gov/portal/file/fast-facts-5-requirements-for-a-california-drivers-license/',
+      },
+      {
+        label: 'NY DMV Driving in New York State',
+        url: 'https://dmv.ny.gov/driver-license/driving-in-new-york-state',
+      },
+      {
+        label: 'NY DMV Drivers from Other Countries',
+        url: 'https://dmv.ny.gov/driver-license/drivers-from-other-countries',
+      },
+      {
+        label: 'NJ MVC Moving To New Jersey',
+        url: 'https://www.nj.gov/mvc/drivertopics/movetonj.htm',
+      },
+      {
+        label: 'PennDOT Driving in Pennsylvania with a Foreign Driver License',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/driving-in-pennsylvania-with-a-foreign-driver-s-license',
+      },
+      {
+        label: 'Washington DOL Do I Need to Take a Test',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
+      },
+      {
+        label: 'Michigan SOS Driver License or ID Requirements PDF',
+        url: 'https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa',
+      },
+    ],
+    relatedStateIds: ['california', 'new-york', 'new-jersey', 'pennsylvania', 'washington', 'michigan'],
+  },
+  {
+    slug: 'student-temporary-resident-license-registration',
+    title: '留学生、访问学者和短期工作，算不算 resident，要不要换驾照或注册车',
+    eyebrow: '学生 / 非居民',
+    reviewedAt: '2026-07-10',
+    description:
+      'F-1、J-1、H-1B、访问学者、外州学生、短期工作和陪读家属最容易卡在一个问题：我到底是 visitor、non-resident、temporary visitor，还是已经成为州 resident？这会影响能不能继续用外国/外州驾照、是否要办本州驾照，以及外州车辆是否要 registration。',
+    whoNeedsIt: [
+      '持 F-1、J-1、H-1B、L-1、H-4、J-2、F-2 等身份在美国读书、访问或短期工作的人。',
+      '拿外国驾照、IDP 或外州驾照在美国开车，不确定什么时候要换本州驾照的人。',
+      '外州学生把车开到学校所在州，想知道车牌、保险和 registration 是否要换的人。',
+      '刚毕业、开始工作、搬家、买车或把外州车带到新州，身份从“临时停留”变成“居住生活”的人。',
+    ],
+    keyFacts: [
+      '“签证身份”和“州 DMV 的 resident 判断”不是同一件事。F-1 / J-1 可能是 non-immigrant，但某州 DMV 仍会按居住事实、工作、学校、车辆、住房或停留意图判断你是否要办本州业务。',
+      '纽约 DMV 是重要例子：来自其他州或国家的学生通常不被视为纽约居民，但纽约居民必须在规定期限内取得纽约驾照。这个例子说明“学生身份”可以影响居民判断，但不能跨州套用。',
+      '加州、佛州、德州、华盛顿、宾州、佐州、新泽西等州把 new resident、temporary visitor、foreign license、out-of-state transfer 和 vehicle registration 分成不同入口；驾照和车辆登记也可能有不同期限。',
+      '外国驾照 / IDP 只能先解决“能不能作为访客驾驶”的问题，不能自动证明你不需要本州驾照。成为州 resident 后，通常要看本州 first license、foreign license 或 out-of-state transfer 页面。',
+      '临时访客办州驾照时，证件期限可能受 lawful presence 影响。德州 DPS 的 temporary visitor 页面就是典型例子，合格临时访客可能拿到 Limited Term driver license / ID。',
+      '车辆 registration 更不能只看签证身份。外州车是否要转入，常取决于车辆实际停放地、使用地、保险、车主居民身份、new resident 规则和州税费规则。',
+      '学校国际办公室、雇主或租车公司可以提供方向，但最终办理规则仍以 DMV / DPS / RMV / MVC / DOL / DOR 官方页面为准。',
+    ],
+    checklist: [
+      '先写清自己的场景：只是短期访问、来上学、交换访问、短期工作、已经毕业工作、搬到新州、买车，还是把外州车带到学校所在州。',
+      '确认你当前拿什么驾驶资格：外国驾照、IDP、外州驾照、学习许可、过期驾照、国际互惠国家驾照，还是没有驾照。',
+      '确认州 DMV 如何定义 resident / non-resident / temporary visitor / new resident；不要只用移民法里的 non-immigrant 来判断 DMV 规则。',
+      '准备身份和合法停留文件：passport、visa、I-94、I-20、DS-2019、I-797、EAD、green card、SSN 或 SSA ineligibility letter。',
+      '准备州居住地址证明；临时访客、学生宿舍、sublease、住亲友家或没有账单时，回到本州 proof of residency 页面确认替代路径。',
+      '如果有车，准备 title / registration、insurance、VIN、plate、parking address、campus parking permit、inspection / emissions 文件。',
+      '保存学校、雇主、lease、utility、bank、insurance、DMV notice 和 vehicle paperwork；这些文件可能同时影响驾照、地址证明、保险和车辆登记。',
+    ],
+    steps: [
+      '第一步：先判断“人”的身份路径。只是访客或外州学生时，看 visitor / non-resident / foreign license 页面；已经建立州 resident 身份时，看 new resident、first license 或 transfer 页面。',
+      '第二步：再判断“车”的登记路径。外州车辆是否要转入，可能和驾照期限不同；不要因为自己暂时不用换驾照，就自动认为车辆也不用 registration。',
+      '第三步：把州页面分成三组读：driver license、non-citizen / temporary visitor documents、vehicle registration。三组页面的材料、期限和承办机构可能不同。',
+      '第四步：如果拿外国驾照，先确认是否需要 IDP 或 certified translation；如果拿外州驾照，确认是否能 exchange、是否要 surrender old license、是否要测试。',
+      '第五步：如果 status、I-20 / DS-2019、I-94 或 work authorization 快到期，先查 DMV 对 lawful presence 和 card expiration 的规则，再决定是否现在申请。',
+      '第六步：如果学校州、居住州、车牌州和保险州不一致，先问保险公司覆盖是否有效，再回到 DMV / DOR / county 页面确认登记和税费规则。',
+    ],
+    faqs: [
+      {
+        question: '留学生一定不用换本州驾照吗？',
+        answer:
+          '不能这样一概而论。纽约 DMV 明确说外州或外国学生通常不算纽约居民，这是纽约规则；其他州要看本州 resident / new resident 页面。毕业、工作、长期租房、买车或建立居住事实后，判断可能改变。',
+      },
+      {
+        question: '我是 F-1 / J-1，办驾照会不会只能拿短期驾照？',
+        answer:
+          '很多州会按 lawful presence 期限处理非公民或 temporary visitor 证件。德州页面就把合格 temporary visitor 的 driver license / ID 与 Limited Term 和合法停留期限联系起来。具体期限和材料看本州页面。',
+      },
+      {
+        question: '我有中国驾照和 IDP，可以一直开吗？',
+        answer:
+          'IDP 通常只是翻译辅助文件，不是单独驾驶资格。短期访客能否驾驶、能开多久、是否需要翻译或 IDP，都要看计划驾驶州；成为州 resident 后通常要看本州驾照申请或换证规则。',
+      },
+      {
+        question: '外州学生把车开到学校所在州，车牌一定要换吗？',
+        answer:
+          '不一定，但也不能自动说不用。车辆 registration 看车辆实际使用地、停放地、保险、州 new resident 规则、学生/非居民例外和州税费规则。驾照居民身份和车辆登记可能分开判断。',
+      },
+      {
+        question: '学校国际办公室说不用办 DMV，我还能只听学校吗？',
+        answer:
+          '学校建议很有用，但不能替代 DMV。国际办公室通常熟悉校园和身份文件，DMV 才决定驾照、ID、车辆登记、地址证明、SSN / SSA letter 和 lawful presence 材料是否合格。',
+      },
+    ],
+    editorNotes: [
+      '这页的核心是把 immigration status、state residency、driver license eligibility 和 vehicle registration 分开，避免中文用户把“非移民身份”误读成“DMV 非居民”。',
+      '纽约 DMV 的 student language 很适合做正例，但正文必须明确不能跨州套用。',
+      '临时访客证件期限要谨慎，只写 lawful presence / Limited Term 关系，不替用户判断具体 I-20、DS-2019、I-94 或 I-797 到期日。',
+      '车辆登记与驾照不同步是高风险点，特别是外州学生、跨州通勤、校园停车和保险州别不一致的场景。',
+      '这页不是移民法律建议，也不判断 tax resident、in-state tuition、domicile 或保险合同义务。',
+    ],
+    relatedDirectory: {
+      label: '查看 SSN / 身份类别分流表',
+      href: '/directories/identity-ssn/',
+      description: '按州查 non-citizen、temporary visitor、lawful presence、SSN、SSA letter、I-94、I-20、DS-2019 和相关材料入口。',
+    },
+    sources: [
+      {
+        label: 'USA.gov Driving in the U.S. if you are not a citizen',
+        url: 'https://www.usa.gov/non-citizen-driving',
+      },
+      {
+        label: 'California DMV New to California',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/special-interest-driver-guides/new-to-california/',
+      },
+      {
+        label: 'California DMV Fast Facts 5',
+        url: 'https://www.dmv.ca.gov/portal/file/fast-facts-5-requirements-for-a-california-drivers-license/',
+      },
+      {
+        label: 'California DMV Privileges of Nonresidents',
+        url: 'https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/nonresident-vehicles/privileges-of-nonresidents/',
+      },
+      {
+        label: 'California Driver Handbook Vehicle Registration Requirements',
+        url: 'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/vehicle-registration-requirements/',
+      },
+      {
+        label: 'NY DMV Driving in New York State',
+        url: 'https://dmv.ny.gov/driver-license/driving-in-new-york-state',
+      },
+      {
+        label: 'NY DMV Moving to or from New York State',
+        url: 'https://dmv.ny.gov/more-info/moving-to-or-from-new-york-state',
+      },
+      {
+        label: 'NY DMV Resources for Non-US Citizens',
+        url: 'https://dmv.ny.gov/driver-license/resources-for-non-us-citizens',
+      },
+      {
+        label: 'FLHSMV Visiting Florida FAQs',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/',
+      },
+      {
+        label: 'FLHSMV New Resident',
+        url: 'https://www.flhsmv.gov/new-resident/',
+      },
+      {
+        label: 'FLHSMV What to Bring - Non-Immigrant',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/',
+      },
+      {
+        label: 'Texas DMV New to Texas',
+        url: 'https://www.txdmv.gov/motorists/new-to-texas',
+      },
+      {
+        label: 'Texas DPS Temporary Visitors',
+        url: 'https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors',
+      },
+      {
+        label: 'Texas DPS Moving to Texas Guide',
+        url: 'https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids',
+      },
+      {
+        label: 'Texas DMV Register Your Vehicle',
+        url: 'https://www.txdmv.gov/motorists/register-your-vehicle',
+      },
+      {
+        label: 'Washington DOL Moving to Washington',
+        url: 'https://dol.wa.gov/moving-washington',
+      },
+      {
+        label: 'Washington DOL Get a Driver License',
+        url: 'https://dol.wa.gov/moving-washington/get-driver-license',
+      },
+      {
+        label: 'Washington DOL Get Vehicle Registration and Plates',
+        url: 'https://dol.wa.gov/moving-washington/vehicle-registration-and-plates',
+      },
+      {
+        label: 'Mass.gov Driving in Massachusetts on a Foreign Driver License',
+        url: 'https://www.mass.gov/info-details/driving-in-massachusetts-on-a-foreign-drivers-license',
+      },
+      {
+        label: 'Mass.gov Transfer Your Driver License from a Foreign Country',
+        url: 'https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country',
+      },
+      {
+        label: 'PennDOT Driving in Pennsylvania with a Foreign Driver License',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/driving-in-pennsylvania-with-a-foreign-driver-s-license',
+      },
+      {
+        label: 'PennDOT Moving to Pennsylvania',
+        url: 'https://www.pa.gov/agencies/dmv/resources/relocation/moving-to-pennsylvania',
+      },
+      {
+        label: 'PennDOT Transfer Vehicle Registration from Another State',
+        url: 'https://www.pa.gov/services/dmv/transfer-vehicle-registration-from-another-state',
+      },
+      {
+        label: 'Georgia DDS Drivers From Other Nations',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations',
+      },
+      {
+        label: 'Georgia DDS Information for Non-US Citizens',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens',
+      },
+      {
+        label: 'Georgia DOR When and Where to Register Your Vehicle',
+        url: 'https://dor.georgia.gov/when-where-register-your-vehicle',
+      },
+      {
+        label: 'NJ MVC Moving To New Jersey',
+        url: 'https://www.nj.gov/mvc/drivertopics/movetonj.htm',
+      },
+      {
+        label: 'NJ MVC First Time Driver License FAQ',
+        url: 'https://www.nj.gov/mvc/pdf/license/FAQ_firsttime.pdf',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'florida',
+      'texas',
+      'washington',
+      'massachusetts',
+      'pennsylvania',
+      'georgia',
+      'new-jersey',
+    ],
+  },
+  {
+    slug: 'moving-to-new-state',
+    title: '搬到新州后先办哪件事',
+    eyebrow: '搬州',
+    reviewedAt: '2026-07-07',
+    description:
+      '搬州不是只换一张驾照。新州地址证明、外州驾照、车辆保险、title/registration 和旧州牌照可能互相卡住，先从新州 new resident 页面排顺序。',
+    whoNeedsIt: [
+      '刚搬到美国另一个州的人。',
+      '从外州带车搬入的人。',
+      '已有外州驾照，需要换成本州驾照的人。',
+    ],
+    keyFacts: [
+      '很多州要求新居民在规定时间内换本州驾照，但具体天数不能跨州套用。',
+      '带车搬州时，保险、title、registration 和车检要求常常和驾照一起影响办理顺序。',
+      '外州驾照能否直接 exchange，取决于新州规则、证件是否有效、身份类别和是否有特殊限制。',
+    ],
+    checklist: [
+      '打开新州 DMV 的 new resident / moving 页面，不要先看泛泛驾照页。',
+      '确认换驾照期限，以及外州驾照是否必须仍然有效。',
+      '有车的人同步看保险、title、registration、车检或排放要求。',
+      '准备身份、SSN、两份地址证明、外州驾照和车辆文件。',
+    ],
+    steps: [
+      '先把新州居住地址证明整理好，因为换证、REAL ID 和车辆业务都会用到。',
+      '再看外州驾照转换：是否能免笔试/路考、是否需要预约、是否要带身份文件。',
+      '带车搬入时，同步处理新州保险、title/registration 和可能的车检要求。',
+      '最后查旧州是否要求退牌、取消登记或通知搬出，避免后续账单或罚款。',
+    ],
+    faqs: [
+      {
+        question: '搬州一定要重新路考吗？',
+        answer:
+          '不一定。很多州对有效外州驾照有 exchange 路径，但过期、商业驾照、国际驾照或特殊身份可能规则不同。',
+      },
+      {
+        question: '先换驾照还是先注册车？',
+        answer:
+          '看新州规则、保险和地址证明准备情况。有些州把新居民驾照和车辆登记分成不同入口，最稳妥是按新州 new resident 页面顺序操作。',
+      },
+    ],
+    editorNotes: [
+      '搬州期限高度州别化：佐州新居民是 30 天，其他州可能不同。不要把一个州的天数套到另一个州。',
+      '驾照转换、车辆登记、保险和退旧州牌照可能属于不同机构或不同顺序，先看新州 new resident 页面。',
+      '外州驾照过期、商业驾照、国际驾照、非公民身份或车辆 title 问题，都会让普通 exchange 路径变复杂。',
+    ],
+    sources: [
+      {
+        label: 'NY DMV Moving to or from New York State',
+        url: 'https://dmv.ny.gov/more-info/moving-to-or-from-new-york-state',
+      },
+      {
+        label: 'NJ MVC Moving To New Jersey',
+        url: 'https://www.nj.gov/mvc/drivertopics/movetonj.htm',
+      },
+      {
+        label: 'Georgia DDS New Residents and Out-of-State Transfers',
+        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers',
+      },
+    ],
+    relatedStateIds: ['new-york', 'new-jersey', 'georgia', 'texas'],
+  },
+  {
+    slug: 'used-car-title-lien-salvage-odometer-check',
+    title: '买二手车前，title、lien、salvage 和 odometer 怎么查',
+    eyebrow: '买二手车',
+    reviewedAt: '2026-07-10',
+    description:
+      '私人买二手车或网上买 used car 时，不要只看价格和 Carfax 截图。先用 VIN、title、lien release、salvage / flood brand、odometer disclosure、seller name 和 DMV transfer 要求，判断这辆车能不能顺利过户和登记。',
+    whoNeedsIt: [
+      '准备从私人卖家、Facebook Marketplace、Craigslist、朋友或小车行买二手车的人。',
+      '看到 clean title、rebuilt、salvage、flood、not actual mileage、lien、no title、lost title、bill of sale only 等关键词，不确定风险的人。',
+      '准备跨州买车、网上看车、先付 deposit，或买车后才发现 title / VIN / 里程 / lien 不对的人。',
+      '已经读过车辆 title / registration 顺序页，但想在付款前做买方检查的人。',
+    ],
+    keyFacts: [
+      'Title 是买方能不能把车转到自己名下的核心文件。California DMV 明确提醒，如果卖家不是 title 上的 owner 或 owner 授权代理，卖家无权出售，买方也不能把车转到自己名下。',
+      'Bill of sale 通常不能替代 title。很多州把 bill of sale、odometer、damage disclosure、tax form、title application 和 lien release 当作不同文件；只拿收据不等于能过户。',
+      'Lien 是高风险项。NY DMV Driver Manual 提醒，title 上有 lien holder 时，要向卖家索取贷款已还清的官方 lien release；否则 lien holder 仍可能 repossess 车辆。',
+      'Salvage、rebuilt、flood、junk、not actual mileage 等 title brand 会影响登记、保险、安全和转售。NMVTIS 说明 brand 由州用于标记车辆当前或历史状态，并且 brand washing 可能发生在跨州重新 title 时。',
+      'Odometer disclosure 不是一句口头承诺。NHTSA 说明转移所有权时联邦规则要求书面 mileage disclosure；Texas DMV 和 NY DMV 都提醒要把 title 上的里程与车上 odometer、维修/检查记录对照。',
+      'Vehicle history report 有用，但不能替代 DMV 文件和机械检查。Washington DOL、Texas DMV 和 FTC 都建议查历史报告，同时找独立 mechanic 检查。',
+      'Dealer used car 和 private sale 不是同一套保护。FTC Used Car Rule 要求多数 used-car dealers 张贴 Buyers Guide；NY DMV 明确提醒 private seller 不受很多 dealer 规则约束，私人交易纠纷通常更难处理。',
+      '付款前先验证 VIN、title owner、title brand、lien、odometer、seller 身份和本州 transfer 要求。Texas DMV 甚至明确提醒私人交易不要在没拿到 title 的情况下离开。',
+    ],
+    checklist: [
+      '拍下 VIN，并确认 dashboard、driver door、title、registration、insurance card 或 seller 文件里的 VIN 一致。',
+      '看 title 原件：owner name、seller name、lienholder、brand、odometer、damage disclosure、签名位置、涂改、刮擦、空白转让或跳 title 痕迹。',
+      '如果 title 上有 lien，要求官方 lien release 或按州 DMV 指示处理；不要只接受卖家的短信或口头说明。',
+      '用 NMVTIS / vehiclehistory.gov 或州 DMV title-check 入口查 title、brand、latest odometer、salvage / total loss / theft history 线索。',
+      '对比里程：title disclosure、车内 odometer、inspection record、maintenance record、oil-change sticker 和 seller 叙述是否一致。',
+      '查 salvage / rebuilt / flood / junk / not actual mileage 等 brand 后，再确认本州能否 title、register、insure，以及是否要 salvage inspection、stolen-parts inspection 或额外文件。',
+      '约独立 mechanic 做 pre-purchase inspection；不要只相信 seller inspection、dealer certified 或网上照片。',
+      '付款和签约前，先确认你所在州/购买州的 title transfer deadline、sales tax / use tax、insurance、temporary permit、plate handling 和 DMV / county office 要求。',
+    ],
+    steps: [
+      '第一步：先用 VIN 做官方路径检查。打开 NMVTIS / vehiclehistory.gov、州 DMV title check 或 buying a vehicle 页面，不要先付款或交 deposit。',
+      '第二步：现场核对 title。卖家姓名必须能和 title owner 或授权文件对上；有 lien、lost title、only bill of sale、open title、cross-out、white-out 或 signature mismatch 时先停下来。',
+      '第三步：看 brand 和 damage disclosure。出现 salvage、rebuilt、flood、junk、not actual mileage、total loss 或 out-of-state title 时，先查本州是否能登记、是否要检查、保险是否接受。',
+      '第四步：核对 odometer。把 title disclosure、车上里程、维修记录、inspection record 和 NMVTIS / history report 里程线串起来，发现倒退或不合理跳跃就不要急着成交。',
+      '第五步：请独立 mechanic 检查车辆，尤其是 salvage / rebuilt / flood、低价车、跨州车、无完整维修记录或网上远程交易。',
+      '第六步：成交当天按州要求完成 title、bill of sale、odometer disclosure、damage disclosure、tax / price statement、temporary permit 和保险；付款凭证、卖家 ID 信息和所有文件拍照留存。',
+      '第七步：在本州规定期限内完成 title transfer / registration。不要等临时牌照快过期才发现 title、lien、VIN 或 seller signature 有问题。',
+    ],
+    faqs: [
+      {
+        question: '卖家说 no title、bill of sale only，可以买吗？',
+        answer:
+          '高风险。Bill of sale 通常只是交易证明，不等于 ownership title。部分州有特殊无 title、bonded title、court order 或 replacement title 路径，但流程慢、费用高，且不保证成功。普通买家最好先查本州 DMV 对 no-title vehicle 的规则，再决定是否继续。',
+      },
+      {
+        question: 'clean title 就一定没有事故或水泡吗？',
+        answer:
+          '不能这么理解。Clean title 只说明当前 title 没显示特定 brand，不等于没有事故、维修、洪水或历史问题。NMVTIS 说明 brand washing 可能发生；California DMV 也提醒外州车的 salvage disclosure 难 enforcement。要同时查 NMVTIS、维修记录、mechanic inspection 和 title 文件。',
+      },
+      {
+        question: 'seller name 不在 title 上，是不是 title jumping？',
+        answer:
+          '可能是。California DMV 明确说卖家如果不是 owner 或授权代理，就无权出售，买方也不能把车转到自己名下。某些场景可能有 dealer reassignment、power of attorney、estate 或 lien documents，但普通私人交易不要接受解释不清的 open title。',
+      },
+      {
+        question: 'odometer 显示低里程，但 title 或报告里不一致怎么办？',
+        answer:
+          '先停。NHTSA 说明 odometer fraud 是犯罪，Texas DMV 建议把 title 里程、车上 odometer、maintenance / inspection records 和贴纸里程互相对照。看到 not actual mileage、exceeds mechanical limits、mileage discrepancy 或涂改，应按州 DMV / NHTSA 路径继续核查。',
+      },
+      {
+        question: 'dealer 车是不是比私人车安全？',
+        answer:
+          '不一定，但 dealer 有不同规则。FTC Used Car Rule 要求多数 used-car dealers 张贴 Buyers Guide，说明 as-is 或 warranty 等信息；private sale 通常没有同等保护。无论 dealer 还是私人卖家，都要查 title、VIN、lien、brand、odometer 和机械状态。',
+      },
+    ],
+    editorNotes: [
+      '这页专门讲 buyer-side 风险，避免和 vehicle-title-registration-insurance-after-move 的办理顺序重复；两个页面应互相导流。',
+      '不要推荐某个商业 vehicle history report。可以引用 NMVTIS / vehiclehistory.gov 和 approved providers，但必须提醒报告不能替代 title 原件、DMV 要求和 mechanic inspection。',
+      '私人交易、dealer sale、online sale、cross-state sale 是四个不同风险层级。中文解释要把 Buyers Guide、private seller、open title、lien release 和 title brand 分开。',
+      'Federal odometer rule、state title transfer rule、state salvage inspection rule 和 consumer complaint route 不能混写成一个全国统一步骤。',
+      '这页不提供法律、税务、贷款或保险建议；如果已经付款且过户失败，用户可能需要 DMV special title unit、state attorney general、dealer complaint unit 或法律咨询。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 vehicle title、registration、online services、office、dealer complaint 和车辆业务入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Registering a Vehicle Purchased from a Private Party',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/new-registration/registering-a-vehicle-purchased-from-a-private-party/',
+      },
+      {
+        label: 'California DMV Branded Titles',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/titles/branded-titles/',
+      },
+      {
+        label: 'California DMV Replacement Titles',
+        url: 'https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/transfers/duplicate-titles/',
+      },
+      {
+        label: 'NY DMV Let the Buyer Be Aware',
+        url: 'https://dmv.ny.gov/brochure/let-the-buyer-be-aware',
+      },
+      {
+        label: 'NY DMV Driver Manual: Owning a Vehicle',
+        url: 'https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-3-owning-a-vehicle',
+      },
+      {
+        label: 'NY DMV Buy, Sell, or Transfer Vehicle Ownership',
+        url: 'https://dmv.ny.gov/titles/buy-sell-or-transfer-vehicle-ownership',
+      },
+      {
+        label: 'Texas DMV Title Check - Look Before You Buy',
+        url: 'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/title-check-look-before-you-buy',
+      },
+      {
+        label: 'Texas DMV Buying or Selling a Vehicle',
+        url: 'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle',
+      },
+      {
+        label: 'Texas DMV Salvage Vehicles',
+        url: 'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/title-check-look-before-you-buy/salvage-brands',
+      },
+      {
+        label: 'Texas DMV Odometer Brands',
+        url: 'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/title-check-look-before-you-buy/odometer-brands',
+      },
+      {
+        label: 'Washington DOL Buy and Register a Vehicle',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/buying-and-selling-vehicle/buy-and-register-vehicle',
+      },
+      {
+        label: 'Washington DOL Title Fraud',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/vehicle-registration/vehicle-title/title-fraud',
+      },
+      {
+        label: 'NJ MVC Transferring Vehicle Ownership',
+        url: 'https://www.nj.gov/mvc/vehicles/transowner.htm',
+      },
+      {
+        label: 'NJ MVC Salvage/Rebuilt Vehicles',
+        url: 'https://www.nj.gov/mvc/vehicles/salvage.htm',
+      },
+      {
+        label: 'FLHSMV Consumer Education: Buying a Vehicle',
+        url: 'https://www.flhsmv.gov/safety-center/consumer-education/',
+      },
+      {
+        label: 'FLHSMV Protecting Yourself from Odometer Fraud PDF',
+        url: 'https://www.flhsmv.gov/pdf/mv/mv_fraud.pdf',
+      },
+      {
+        label: 'FLHSMV Application for Certificate of Motor Vehicle Title',
+        url: 'https://www.flhsmv.gov/pdf/forms/82040.pdf',
+      },
+      {
+        label: 'PennDOT Buying or Selling a Vehicle',
+        url: 'https://www.pa.gov/agencies/dmv/vehicle-services/title-and-registration/buying-or-selling-a-vehicle',
+      },
+      {
+        label: 'Virginia DMV NMVTIS Consumer Information',
+        url: 'https://www.dmv.virginia.gov/vehicles/nmvtis',
+      },
+      {
+        label: 'Virginia DMV Titling a Vehicle',
+        url: 'https://www.dmv.virginia.gov/vehicles/title',
+      },
+      {
+        label: 'Oregon DMV Titling and Registering Your Vehicle',
+        url: 'https://www.oregon.gov/odot/dmv/pages/vehicle/titlereg.aspx',
+      },
+      {
+        label: 'NCDMV Vehicle Titles',
+        url: 'https://www.ncdot.gov/dmv/title-registration/vehicle/Pages/default.aspx',
+      },
+      {
+        label: 'NMVTIS for Consumers',
+        url: 'https://vehiclehistory.bja.ojp.gov/nmvtis_consumers',
+      },
+      {
+        label: 'NMVTIS Approved Vehicle History Data Providers',
+        url: 'https://vehiclehistory.bja.ojp.gov/nmvtis_vehiclehistory',
+      },
+      {
+        label: 'NHTSA Odometer Fraud',
+        url: 'https://www.nhtsa.gov/vehicle-safety/odometer-fraud',
+      },
+      {
+        label: 'FTC Dealer Guide to the Used Car Rule',
+        url: 'https://www.ftc.gov/business-guidance/resources/dealers-guide-used-car-rule',
+      },
+      {
+        label: 'FTC Consumer Advice: Buying a Used Car Online',
+        url: 'https://consumer.ftc.gov/consumer-alerts/2024/07/what-know-when-buying-used-car-online',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'washington',
+      'new-jersey',
+      'florida',
+      'pennsylvania',
+      'virginia',
+      'oregon',
+      'north-carolina',
+    ],
+  },
+  {
+    slug: 'lost-vehicle-title-replacement-electronic-title-lien-sale',
+    title: '车辆 title 丢了怎么办：补证、电子 title 和 lien',
+    eyebrow: '补车辆 title',
+    reviewedAt: '2026-07-13',
+    description:
+      '纸质 vehicle title、pink slip 或 ownership certificate 丢失、损坏、被盗、一直没收到，或者贷款已还清却发现 title 仍在银行或只保留电子记录时，先确认最后签发州、登记车主、地址和 lien 状态，再决定申请 duplicate / replacement、打印 electronic title、清除 lien，还是走 correction / transfer。',
+    whoNeedsIt: [
+      '车辆已经在自己名下，但纸质 title / pink slip 丢失、被盗、损坏、字迹无法辨认或邮寄后一直没收到的人。',
+      '汽车贷款已经还清，却不知道 lender 是否仍持有 title、DMV 记录里是否还有 lien，或手里只有 lien release 的人。',
+      '州里保存的是 electronic title，准备私人卖车、trade-in、搬到外州或出口车辆，不确定是否必须先取纸质 title 的人。',
+      '准备卖车、赠车或转 title，却发现 title 上姓名、地址、lienholder、共同车主或车辆信息不正确的人。',
+      '买方遇到卖家说 no title、lost title、bill of sale only，想知道能否由买方直接补 title 的人。',
+    ],
+    keyFacts: [
+      'Title 和 registration 不是同一份文件。Registration 说明车辆目前如何登记和上路，title 才是州签发的所有权凭证；补 registration card、plate 或 sticker 不会自动补出 title，也不能代替 ownership transfer。',
+      '先找最后签发或记录 title 的州，不是看车辆现在停在哪里。California 对“Nontransferable/No California Title Issued”明确要求向最后 title 州取证；Texas 也说明不能替另一个州签发 replacement title。',
+      '买方通常不能把卖家丢失的 title 当成自己的 duplicate 来补。Georgia 明确要求：转让完成前、title 仍在前车主名下时，由前车主申请 replacement，再重新完成 reassignment。Illinois 也要求外州买方让 Illinois owner 先申请 duplicate。',
+      'Duplicate / replacement 一经签发，旧 title 通常失效。New York、Florida 和 Virginia 都明确说明此前 title 不再有效；后来找回旧证，也不要再签字、出售或交给买方使用。',
+      '“只补同样信息”和“同时改信息”常是两种交易。Virginia 把 lost / mutilated / illegible 的 replacement 与修改信息的 substitute title 分开；Arizona duplicate 也要求 owner、legal status、lienholder 和车辆信息保持不变。',
+      '寄送地址必须先确认。New York 把 replacement title 寄到 title record 的当前地址，并提醒 USPS 转寄不保证生效；Virginia 要求在线补 title 前至少 24 小时先完成地址更新。',
+      '有 lien 时，不一定把 title 寄给车主。Texas 要求记录中的 lienholder 申请，或提交 original lien release；Washington 要求仍在还贷时由 lienholder 申请；New Jersey 会把带 lien 的 duplicate title 寄给 lienholder。',
+      'Electronic title 不是“DMV 把 title 弄丢了”。Florida 把电子 title 保存在 FLHSMV 数据库；无 lien 时可申请转成纸质。私人出售或转到外州通常需要纸质 title，但交给 Florida dealer trade-in 时不一定要先打印。',
+      '到办公室申请不代表当天拿证。New York 的 title 统一从安全设施打印后邮寄；California、Massachusetts、Virginia 和 Washington 公布的普通办理时间也不同，急着卖车前要先看本州当前时效和加急资格。',
+      'Damaged、lost in transit、deceased owner、business / trust owner、out-of-state resident 和 no proof of ownership 可能有独立材料。不要为了走简单 duplicate 路径，把仍持有的损坏 title 误报成 lost，或用 replacement 规避 lien、brand、共同车主和所有权问题。',
+    ],
+    factChecks: [
+      {
+        claim:
+          'Replacement title 应从最后签发或记录所有权的州开始办理；车辆现在所在州通常不能直接替另一个州补发 title。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
+          'https://www.txdmv.gov/faqs',
+        ],
+      },
+      {
+        claim:
+          'Title 在卖方名下、转让尚未完成时丢失，通常应由记录中的原车主先补证，买方不能把它当作自己的 duplicate 申请。',
+        sourceUrls: [
+          'https://dor.georgia.gov/replace-lost-or-stolen-title',
+          'https://www.ilsos.gov/departments/vehicles/title-and-registration/duplicate-titles.html',
+        ],
+      },
+      {
+        claim:
+          'Duplicate 或 replacement title 签发后，原 title 和此前 duplicate 通常失效；后来找回的旧证不能继续用于转让。',
+        sourceUrls: [
+          'https://dmv.ny.gov/titles/certificate-of-title',
+          'https://www.flhsmv.gov/motor-vehicles-tags-titles/liens-and-titles/paper-liens-and-titles/',
+          'https://www.dmv.virginia.gov/vehicles/title/replacement',
+        ],
+      },
+      {
+        claim:
+          '补发件会按机动车或 title 记录中的地址寄送；地址已变更时，应先按签发州要求更新并等待记录生效。',
+        sourceUrls: [
+          'https://dmv.ny.gov/titles/replace-a-title-certificate',
+          'https://www.dmv.virginia.gov/online-services/replace-title',
+        ],
+      },
+      {
+        claim:
+          '记录中仍有 lien 时，申请人、lien release 形式和收件人会改变；部分州要求 lienholder 申请或把 replacement 寄给 lienholder。',
+        sourceUrls: [
+          'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/get-a-copy-of-your-title',
+          'https://dol.wa.gov/vehicles-and-boats/vehicles/vehicle-registration/vehicle-title/replace-lost-title-or-registration',
+          'https://www.nj.gov/mvc/vehicles/duptitle.htm',
+          'https://www.mass.gov/how-to/replace-your-vehicles-certificate-of-title',
+        ],
+      },
+      {
+        claim:
+          'Florida electronic title 是州数据库中的有效所有权记录；无 lien 时可转成纸质，私人出售与交给 Florida dealer trade-in 的纸质要求不同。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/motor-vehicles-tags-titles/liens-and-titles/paper-liens-and-titles/',
+        ],
+      },
+      {
+        claim:
+          '只补一张相同信息的 title 与修改姓名、owner、lienholder 或车辆信息不是同一事务，后者可能要走 corrected、substitute 或 transfer。',
+        sourceUrls: [
+          'https://www.dmv.virginia.gov/vehicles/title/replacement',
+          'https://www.dmv.virginia.gov/online-services/replace-title',
+          'https://azdot.gov/faq/how-do-i-apply-duplicate-title-and-what-fee',
+        ],
+      },
+      {
+        claim:
+          'Title 补发不一定现场交付：New York 明确现场不发证，California、Massachusetts 和 Virginia 也分别公布邮寄或处理时效。',
+        sourceUrls: [
+          'https://dmv.ny.gov/titles/replace-a-title-certificate',
+          'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
+          'https://www.mass.gov/how-to/replace-your-vehicles-certificate-of-title',
+          'https://www.dmv.virginia.gov/online-services/replace-title',
+        ],
+      },
+    ],
+    checklist: [
+      '记录 VIN、当前 plate number、registration expiration、title number（如 registration 上可查）、车辆 year / make，以及最后一次 title 的州。',
+      '先把情形勾清：paper title lost、stolen、damaged / illegible、never received / lost in transit、electronic title、lienholder holds title、out-of-state title，还是从未在自己名下。',
+      '确认 title record 上的 owner name、共同车主、公司 / trust / estate 身份和地址；不要只按现在 driver license 或保险上的信息填写。',
+      '准备 owner 的 government-issued photo ID、current / expired registration、insurance proof 或州要求的其他 ownership record。',
+      '若有共同车主，确认是否所有 owner 都要签字、是否需要 notarization。Texas 要求所有 recorded owners 签 VTR-34；Washington lost title affidavit 也要求所有 registered owners 在公证人或 licensing agent 面前签。',
+      '如果曾有车贷，先查 lien 是否仍在州记录中；准备州接受的 original lien release、lender letterhead statement 或让 lienholder 直接申请。',
+      '如果损坏 title 仍在手里，带上或随申请交回；不要丢弃，也不要把 damaged 情况写成 lost。',
+      '确认这次是否只补证。如果同时改姓名、地址以外的信息、owner、lien、odometer、VIN 或品牌，先进入 correction / substitute / transfer 页面。',
+      '准备出售或搬州时，先把办理和邮寄时间倒排；在 replacement 真正到手前，不要向买方承诺“title in hand”。',
+      '保存申请副本、付款收据、tracking / case number、lien release 和寄送证明；新证签发后若找回旧 title，按州指示销毁或交回。',
+    ],
+    steps: [
+      '第一步：确认最后 title 州。查看 registration、贷款文件、旧 title 照片、保险文件或州 vehicle record；从该州 DMV / MVC / DOL / DOR 官方入口开始。',
+      '第二步：确认你是不是 record owner。卖方仍是 title owner、车辆刚买但 transfer 未完成、owner 已去世、公司 / trust 名下或只有 bill of sale 时，不要直接套普通 duplicate。',
+      '第三步：核对地址。补发通常寄到 title 或 vehicle record 地址；按本州顺序先 change address，并确认需要等待多久后才能申请。',
+      '第四步：解决 lien 分流。仍在还贷就联系 lienholder；已经还清但记录未解除时，取得州认可的 original release 或 lender statement，不要只交账户余额截图。',
+      '第五步：选对交易和表格。常见例子是 California REG 227、New York MV-902、Texas VTR-34、Florida HSMV 82101、Washington Affidavit of Loss、New Jersey OS/SS-UTA、Virginia VSA 67 和 Illinois VSD 190。',
+      '第六步：选择 online、mail、office、county tax / tag office 或 quick title。在线资格通常只适合 owner、地址和 title 信息不变且没有特殊 lien / estate / POA 情况的人。',
+      '第七步：提交 ID、ownership proof、签名 / notarization、损坏原件、lien 文件和费用。寄出前逐项复印或扫描，并从官方页面再次核对收件地址和付款方式。',
+      '第八步：收到后核对 owner、VIN、lien、brand 和地址。若用于出售或搬州，再进入 title transfer / new-resident registration；若旧 title 后来出现，立即停用并按州规则处理。',
+    ],
+    faqs: [
+      {
+        question: 'Title 丢了，还能只拿 bill of sale 卖车吗？',
+        answer:
+          '不要默认可以。普通私人交易通常需要能转让的 original 或 replacement title；bill of sale 只是交易证明，不能自动替代 ownership document。Georgia 明确要求前车主先补 title 再重新 reassignment。少数老车、无 title 州、bonded title 或 court-order 路径是特殊规则，应先看买卖双方州的官方要求。',
+      },
+      {
+        question: '我是买方，可以替卖家申请 duplicate title 吗？',
+        answer:
+          '普通 duplicate 通常由 DMV 记录中的 owner、lienholder 或获授权代理申请。卖家说 title 丢了时，最稳妥的顺序是让卖家先从原 title 州补证，再在有效 title 上完成转让。不要先付款后指望凭 bill of sale 自动补成自己名下。',
+      },
+      {
+        question: '贷款还清了，为什么 replacement title 还会寄给银行？',
+        answer:
+          '因为“贷款余额为零”和“州 title record 已解除 lien”不是一回事。若 lien 仍在记录中，Texas、Washington、New Jersey、Virginia 等州可能要求 lienholder 参与、提交原始 release，或把 title 寄给 lienholder。先拿到州认可的 lien satisfaction 文件并确认记录如何更新。',
+      },
+      {
+        question: 'Electronic title 是不是等于我没有 title？',
+        answer:
+          '不是。Electronic title 是州系统保存的所有权记录。是否需要纸质证取决于接下来的业务。Florida 允许无 lien 的 electronic title 转成纸质，私人卖车或转外州通常需要纸质，但交给 Florida dealership trade-in 时不一定要先打印。其他州要看本州 ELT 规则。',
+      },
+      {
+        question: '补 title 时可以顺便改名字、删除共同车主或清 lien 吗？',
+        answer:
+          '不一定。很多州把“原信息不变的 replacement”与 correction、substitute、lien release、owner change 和 transfer 分开。Virginia 在线 replacement 明确要求不改变 title 信息；Arizona duplicate 也限制 owner、legal status、lienholder 和车辆信息不变。先选正确业务，避免申请被退回。',
+      },
+      {
+        question: '刚搬家，可以直接申请 replacement title 吗？',
+        answer:
+          '先查 title record 的地址更新顺序。New York 把新 title 寄到 title record 地址，并提醒 USPS 不保证转寄 DMV 文件；Virginia 要求至少提前 24 小时在线改地址。不同州的 vehicle registration address 和 title address 是否同步也可能不同。',
+      },
+      {
+        question: '新 title 到了以后又找到旧 title，两个都能用吗？',
+        answer:
+          '不能。New York、Florida、Virginia 等官方规则都说明 replacement 签发后旧 title 失效。不要在旧证上签字，也不要把它交给买方；按州要求销毁、交回或保存作废证明。',
+      },
+      {
+        question: '去 DMV 现场能不能当天拿到 title？',
+        answer:
+          '不能按“现场办理”推断“现场取证”。New York 明确说明 office 不会当场发 title；California、Massachusetts 和 Virginia 的普通路径均有不同邮寄时间。Washington 提供 Quick Title，但有额外费用和不适用情形。以申请当天官方时效为准。',
+      },
+    ],
+    editorNotes: [
+      '本页聚焦 title record 已存在但纸证 / 电子证 / lien 状态造成的 replacement 问题，不重复二手车购买前的 VIN、brand、odometer 风险检查。',
+      '不要把 duplicate title、corrected title、substitute title、bonded title、court-ordered title、salvage title 和 title transfer 混写成同一条路径。',
+      'Fees、mailing time、quick title 和 notarization 属于州级且易变信息，正文只保留有决策价值的实例，具体金额交给官方入口。',
+      'Buyer-side 场景必须强调 recorded owner 先处理，避免内容被理解为可绕过 seller、lienholder 或 ownership evidence。',
+      'Electronic title 不能泛化为全国统一系统；Florida 只作为官方可核对的代表案例，其他州回到原 title 州确认。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 vehicle title、registration、online services、forms、office、county tax / tag office 和 title service 官方入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Title Transfers and Changes',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
+      },
+      {
+        label: 'California DMV REG 227 Replacement Title Procedure',
+        url: 'https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/duplicates-and-substitutes/application-for-duplicate-or-transfer-of-title-reg-227/',
+      },
+      {
+        label: 'New York DMV Replace a Title Certificate',
+        url: 'https://dmv.ny.gov/titles/replace-a-title-certificate',
+      },
+      {
+        label: 'New York DMV Certificate of Title',
+        url: 'https://dmv.ny.gov/titles/certificate-of-title',
+      },
+      {
+        label: 'TxDMV Get a Copy of Your Vehicle Title',
+        url: 'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/get-a-copy-of-your-title',
+      },
+      {
+        label: 'TxDMV Application for a Certified Copy of Title VTR-34 PDF',
+        url: 'https://www.txdmv.gov/sites/default/files/form_files/Form_VTR-34.pdf',
+      },
+      {
+        label: 'TxDMV Motorist FAQs',
+        url: 'https://www.txdmv.gov/faqs',
+      },
+      {
+        label: 'FLHSMV Paper Liens and Titles',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/liens-and-titles/paper-liens-and-titles/',
+      },
+      {
+        label: 'Washington DOL Replace a Lost Title or Registration',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/vehicle-registration/vehicle-title/replace-lost-title-or-registration',
+      },
+      {
+        label: 'Washington DOL Affidavit of Loss / Release of Interest',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/renew-or-replace-vehicle-tabs/affidavit-lossrelease-interest',
+      },
+      {
+        label: 'New Jersey MVC Duplicate Title',
+        url: 'https://www.nj.gov/mvc/vehicles/duptitle.htm',
+      },
+      {
+        label: 'Mass.gov Replace a Vehicle Certificate of Title',
+        url: 'https://www.mass.gov/how-to/replace-your-vehicles-certificate-of-title',
+      },
+      {
+        label: 'Virginia DMV Replacement Titles',
+        url: 'https://www.dmv.virginia.gov/vehicles/title/replacement',
+      },
+      {
+        label: 'Virginia DMV Online Title Replacement',
+        url: 'https://www.dmv.virginia.gov/online-services/replace-title',
+      },
+      {
+        label: 'Virginia DMV Liens on a Title',
+        url: 'https://www.dmv.virginia.gov/vehicles/title/liens',
+      },
+      {
+        label: 'Georgia DOR Replace Lost or Stolen Title',
+        url: 'https://dor.georgia.gov/replace-lost-or-stolen-title',
+      },
+      {
+        label: 'Georgia DOR Titles for Motor Vehicles',
+        url: 'https://dor.georgia.gov/motor-vehicles/titles-motor-vehicles',
+      },
+      {
+        label: 'Illinois Secretary of State Duplicate Titles',
+        url: 'https://www.ilsos.gov/departments/vehicles/title-and-registration/duplicate-titles.html',
+      },
+      {
+        label: 'Arizona MVD Duplicate Title FAQ',
+        url: 'https://azdot.gov/faq/how-do-i-apply-duplicate-title-and-what-fee',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'florida',
+      'washington',
+      'new-jersey',
+      'massachusetts',
+      'virginia',
+      'georgia',
+      'illinois',
+      'arizona',
+    ],
+  },
+  {
+    slug: 'gift-inherited-vehicle-title-transfer',
+    title: '亲属赠车、继承车辆和车主去世后，title 怎么转',
+    eyebrow: '赠车继承',
+    reviewedAt: '2026-07-10',
+    description:
+      '家里人赠车、车主去世、继承车辆、TOD beneficiary、surviving spouse、estate/probate、title 丢失或仍有 lien 时，车辆 title transfer 不是普通二手车交易。Gift、inheritance、estate、survivorship、tax exemption、registration 和 plate 必须分开判断。',
+    whoNeedsIt: [
+      '父母、配偶、子女、亲属之间赠车，不确定 title、tax、registration 和保险怎么处理的人。',
+      '家人去世后要处理车辆 title、registration、plate、保险、parking/toll 或贷款 lien 的人。',
+      '看到州页面写 surviving spouse、heir、executor、administrator、estate、TOD beneficiary、probate，但分不清该走哪条路径的人。',
+      '继承车还没转到自己名下，却想马上卖掉、捐掉、换保险或跨州转入的人。',
+      'title 丢失、车上有 lien、共同车主中有人去世、车牌能不能继续用、gift 是否免 sales/use tax 都不确定的人。',
+    ],
+    keyFacts: [
+      'Gift、family transfer 和 inheritance 是不同路径。California DMV 把 family、estate、inheritance、gift 和 deceased owner 拆开；PennDOT 也把 gift affidavit 与 death-owner transfer 分开处理。',
+      '赠车不等于自动免税。Washington DOL 说明收到 gift vehicle 时可能仍要看 use tax；Florida 税务程序说明没有付款且没有承接 lien 的 gift 才通常是 nontaxable；Pennsylvania 也提醒假 gift 但承接贷款余额时可能被视为有对价。',
+      '车主去世后，要先判断 title 上是谁。共同车主、right of survivorship、tenants in common、spouse、minor children、heirs、executor、administrator、TOD beneficiary 和 estate 的文件完全不同。',
+      '继承人不一定能直接卖车。Georgia DOR 明确提醒，使用 inheritance affidavit 且没有 Letters of Testamentary 时，继承人可能要先把车 title 到自己名下，再出售或转让。',
+      'TOD / beneficiary 不是生前共同车主。California、Texas、Virginia、New Jersey 都有车辆 beneficiary 或 transfer-on-death 相关规则，但通常在车主去世后才生效，并且受 lien、申请期限或表格限制。',
+      'Registration、plate、title 和 insurance 不要混在一起。Virginia DMV 把 deceased owner 的 vehicle ownership transfer 和 registration transfer 分成不同页面；PennDOT 也把 title fee、registration plate transfer 和 insurance information 拆开。',
+      'Title 丢失会改变流程。California REG 227、Florida duplicate title 表格、Georgia replacement title 页面都提醒，丢失 title 时不能简单手写 bill of sale 代替，通常要先走 replacement / duplicate 或特定 transfer-with-duplicate 路径。',
+      'Odometer disclosure 和 lien release 仍可能需要。赠与或继承不自动跳过里程表、贷款清偿、lienholder release、税费、保险和登记条件；Florida、Texas、Washington 和 Georgia 官方材料都把这些列为转 title 时的常见条件。',
+      '这类页面不是法律或遗产建议。DMV 只处理车辆 title / registration；遗嘱、probate、继承权、税务、贷款责任和家庭争议，可能需要法院、税务部门、贷款机构或律师处理。',
+    ],
+    checklist: [
+      '先确认场景：普通 gift、family transfer、spouse transfer、inherited vehicle、estate sale、TOD beneficiary、joint owner survivorship，还是 title 丢失后转让。',
+      '确认 title 当前状态：所有人姓名、and/or、right of survivorship、TOD/beneficiary、lienholder、paper title 或 electronic title、是否已签过、是否有涂改。',
+      '准备身份和关系文件：photo ID、death certificate、marriage certificate、will、Letters Testamentary / Letters of Administration、court order、heirship affidavit、surviving spouse affidavit、family relationship affidavit 或州指定表格。',
+      '准备车辆文件：certificate of title、duplicate title application、title application、odometer disclosure、bill of sale / notice of sale、lien release、current registration、plates 和保险信息。',
+      '赠车时单独查 tax exemption / use tax / gift affidavit，不要只在 sale price 写 0 或 gift。',
+      '继承车想出售前，确认州是否要求继承人或 estate 先取得 title，还是允许 executor / administrator 直接 assign title。',
+      '如果车还要上路，另查 registration、insurance、inspection、temporary permit 或 plate transfer；title 转移完成不等于可以合法开车。',
+      '保留提交副本、notary、county / DMV receipt、tax form、plate surrender 或 registration cancellation confirmation。',
+    ],
+    steps: [
+      '第一步：不要从普通 private sale 页面直接套用。先找本州 vehicle title transfer、gift transfer、deceased owner、heirship、surviving spouse 或 TOD beneficiary 页面。',
+      '第二步：读 title 正面。共同车主之间是 and、or、right of survivorship、tenants in common，还是只有去世者一个名字，会决定是否需要 estate / probate 文件。',
+      '第三步：判断承办机构。Texas 多数 title transfer 在 county tax office；Georgia 是 County Tag Office；Florida 是 tax collector / license plate agency；Washington 是 vehicle licensing office；New Jersey 可能要求 Vehicle Center。',
+      '第四步：如果是 gift，先查税务表格。确认是否真的没有付款、没有以货物服务交换、没有承接贷款或 lien，并按州表格填写 gift / family exemption。',
+      '第五步：如果是死亡后转移，先整理 authority 文件。surviving spouse、minor child、executor、administrator、heir、TOD beneficiary、estate sale 需要的签名和证明不同。',
+      '第六步：处理 lien、duplicate title 和 odometer。title 丢失、有贷款、电子 title 或车辆年份需要 odometer disclosure 时，先按州表格补齐，不要只靠 bill of sale。',
+      '第七步：title 转完后再处理 registration、plate、保险和后续出售。很多州允许或限制 plate transfer；保险和 registration 也可能需要新 owner 名字。',
+    ],
+    faqs: [
+      {
+        question: '亲属把车送给我，只要在 title 价格写 gift 就行吗？',
+        answer:
+          '通常不够。很多州要求专门的 gift affidavit、tax exemption form、family relationship form 或 use tax 证明。Washington、Florida、Pennsylvania 和 New Jersey 都把 gift 与 sales/use tax 条件分开说明；有 lien、承接贷款或交换其他价值时，可能不算纯 gift。',
+      },
+      {
+        question: '家人去世后，我能不能先把车卖掉再去 DMV？',
+        answer:
+          '不要默认可以。Georgia 明确提醒某些继承场景下继承人必须先把车 title 到自己名下再转让；New York、Pennsylvania、Virginia、New Jersey 也按 surviving spouse、heir、executor、administrator 或 estate 分不同签名规则。先确认谁有权签 title。',
+      },
+      {
+        question: 'title 上有两个名字，其中一个人去世了，流程会简单吗？',
+        answer:
+          '要看 title 写法。right of survivorship、or survivor、tenants by the entireties、and/or、tenants in common 的结果不同。PennDOT、Virginia DMV、Georgia DOR 和 California DMV 都把共同车主和 survivorship 情况单独说明。',
+      },
+      {
+        question: '车上还有贷款或 lien，可以赠与或继承过户吗？',
+        answer:
+          '可能会被卡住。多数州要求 lien satisfied / lien release，或让 lien 继续记录在新 title 上。New Jersey TOD 页面提醒 lien 要先处理或转到 sole owner；Texas、Florida、Georgia 等材料也把 lien release 作为 title transfer 的关键文件。',
+      },
+      {
+        question: '车主去世后，registration 和 plate 可以继续用吗？',
+        answer:
+          '不要只看 title。Virginia 和 PennDOT 都把 ownership/title 与 registration / plate 分开说明。有些州允许 surviving owner 或特定亲属转 plate，有些场景需要新的 registration、保险或取消旧登记。车还要上路时，要同时查 registration 和 insurance。',
+      },
+    ],
+    editorNotes: [
+      '这页只解释 DMV / motor vehicle agency 的 title、registration、plate 和税费入口，不提供遗产、税务、贷款或家庭纠纷法律建议。',
+      '核心分叉是 gift、family transfer、deceased owner、estate/probate、TOD beneficiary、survivorship、lien、duplicate title。不要把它们写成一个通用 transfer checklist。',
+      'Gift tax/use-tax 规则很容易被误解。页面要反复提醒：写 gift 不等于免税，承接 lien 或换取其他价值可能改变税务处理。',
+      '死亡后转移必须强调 authority to sign。谁能签 title 是页面的主要价值点，比列费用更重要。',
+      '更新时优先复查表格 PDF、death certificate 要求、notary、申请期限、title fee、tax exemption 和 plate transfer，因为这些最容易迁移或改版。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 vehicle title、registration、forms、county/tag office、tax office 和线上服务入口。',
+    },
+    sources: [
+      {
+        label: 'USA.gov State Motor Vehicle Services',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+      },
+      {
+        label: 'California DMV Title Transfers and Changes',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
+      },
+      {
+        label: 'California DMV Handling a Deceased Person DMV Matters',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/new-registration/special-circumstances/handling-a-deceased-persons-dmv-matters/',
+      },
+      {
+        label: 'California DMV Transfer on Death Beneficiary',
+        url: 'https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/transfers/transfer-on-death-tod-beneficiary/',
+      },
+      {
+        label: 'California DMV Statement of Facts REG 256',
+        url: 'https://dmv.ca.gov/portal/file/statement-of-facts-reg-256-pdf/',
+      },
+      {
+        label: 'California DMV Replacement or Transfer of Title REG 227',
+        url: 'https://dmv.ca.gov/portal/form/application-for-duplicate-or-transfer-of-title-reg-227',
+      },
+      {
+        label: 'NY DMV Buy, Sell, or Transfer Vehicle Ownership',
+        url: 'https://dmv.ny.gov/titles/buy-sell-or-transfer-vehicle-ownership',
+      },
+      {
+        label: 'NY DMV If a Family Member Has Passed Away',
+        url: 'https://dmv.ny.gov/more-info/if-a-family-member-has-passed-away',
+      },
+      {
+        label: 'NY DMV Transfer of Ownership When Vehicle Owner is Deceased MV-843',
+        url: 'https://dmv.ny.gov/forms/mv843.pdf',
+      },
+      {
+        label: 'NY DMV Transfer of Vehicle Registered in Name of Deceased Person MV-349',
+        url: 'https://dmv.ny.gov/forms/mv349.pdf',
+      },
+      {
+        label: 'NY DMV Affidavit for Transfer of Motor Vehicle MV-349.1',
+        url: 'https://dmv.ny.gov/forms/mv3491.pdf',
+      },
+      {
+        label: 'Texas DMV Probate and Title Transfer FAQ',
+        url: 'https://www.txdmv.gov/faqs?field_faq_category_target_id=All&find=probate',
+      },
+      {
+        label: 'Texas DMV Affidavit of Heirship for a Motor Vehicle VTR-262',
+        url: 'https://www.txdmv.gov/sites/default/files/form_files/VTR-262.pdf',
+      },
+      {
+        label: 'Texas DMV Affidavit of Motor Vehicle Gift Transfer 14-317',
+        url: 'https://www.txdmv.gov/sites/default/files/form_files/14-317.pdf',
+      },
+      {
+        label: 'Texas DMV Beneficiary Designation for a Motor Vehicle VTR-121',
+        url: 'https://www.txdmv.gov/sites/default/files/form_files/VTR-121.pdf',
+      },
+      {
+        label: 'Texas DMV County Tax Offices',
+        url: 'https://www.txdmv.gov/tax-assessor-collectors/county-tax-offices',
+      },
+      {
+        label: 'Washington DOL Buy and Register a Vehicle',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/buying-and-selling-vehicle/buy-and-register-vehicle',
+      },
+      {
+        label: 'Washington DOL Use Tax',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/taxes-and-fees/use-tax',
+      },
+      {
+        label: 'Washington DOL Affidavit of Loss or Release of Interest',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/renew-or-replace-vehicle-tabs/affidavit-lossrelease-interest',
+      },
+      {
+        label: 'Washington DOL Affidavit of Inheritance or Litigation',
+        url: 'https://dol.wa.gov/forms/view/420041/download?inline=',
+      },
+      {
+        label: 'Washington DOL Vehicle Title Application',
+        url: 'https://dol.wa.gov/forms/view/420001/download?inline=',
+      },
+      {
+        label: 'FLHSMV Liens and Titles',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/liens-and-titles/',
+      },
+      {
+        label: 'FLHSMV Liens and Titles FAQ',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/liens-and-titles/faqs/',
+      },
+      {
+        label: 'FLHSMV Application for Certificate of Motor Vehicle Title HSMV 82040',
+        url: 'https://www.flhsmv.gov/pdf/forms/82040.pdf',
+      },
+      {
+        label: 'FLHSMV Surviving Spouse Transfer of Title HSMV 82152',
+        url: 'https://www.flhsmv.gov/pdf/forms/82152.pdf',
+      },
+      {
+        label: 'FLHSMV Sales and Use Tax Transfer Procedure TL-08',
+        url: 'https://www.flhsmv.gov/pdf/proc/tl/tl-08.pdf',
+      },
+      {
+        label: 'FLHSMV Notice of Sale and Bill of Sale HSMV 82050',
+        url: 'https://www.flhsmv.gov/pdf/forms/82050.pdf',
+      },
+      {
+        label: 'PennDOT Buying or Selling a Vehicle',
+        url: 'https://www.pa.gov/agencies/dmv/vehicle-services/title-and-registration/buying-or-selling-a-vehicle',
+      },
+      {
+        label: 'PennDOT Vehicle Transfer after Death of Owner Fact Sheet',
+        url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-fact-sheets/fs-vehtrans.pdf',
+      },
+      {
+        label: 'PennDOT MV-39 Notification of Assignment or Correction upon Death',
+        url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-forms/mv-39.pdf',
+      },
+      {
+        label: 'PennDOT MV-13ST Affidavit of Gift',
+        url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-forms/mv-13st.pdf',
+      },
+      {
+        label: 'Pennsylvania Revenue Motor Vehicle Understated Value Program',
+        url: 'https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/use-tax/motor-vehicle-understated-value-program',
+      },
+      {
+        label: 'Virginia DMV Transfer Vehicle Ownership after Death',
+        url: 'https://www.dmv.virginia.gov/records/family-deceased/transfer-ownership',
+      },
+      {
+        label: 'Virginia DMV Transfer Vehicle Registration after Death',
+        url: 'https://www.dmv.virginia.gov/records/family-deceased/transfer-registration',
+      },
+      {
+        label: 'Virginia DMV Designate a Beneficiary on a Vehicle Title',
+        url: 'https://www.dmv.virginia.gov/vehicles/title/designative-beneficiary',
+      },
+      {
+        label: 'Virginia DMV Guide for Family Members and Friends of the Recently Deceased',
+        url: 'https://www.dmv.virginia.gov/sites/default/files/forms/dmv105.pdf',
+      },
+      {
+        label: 'Virginia DMV Certification of Authority to Transfer Virginia Title VSA 24',
+        url: 'https://www.dmv.virginia.gov/sites/default/files/forms/vsa24.pdf',
+      },
+      {
+        label: 'NJ MVC Transferring Vehicle Ownership',
+        url: 'https://www.nj.gov/mvc/vehicles/transowner.htm',
+      },
+      {
+        label: 'NJ MVC Vehicles Exempt from Sales Tax',
+        url: 'https://www.nj.gov/mvc/vehicletopics/taxexempt.htm',
+      },
+      {
+        label: 'NJ MVC Transfer on Death Beneficiary Form',
+        url: 'https://www.nj.gov/mvc/pdf/vehicles/beneficiary_transfer_form.pdf',
+      },
+      {
+        label: 'NJ MVC Frequently Asked Questions',
+        url: 'https://nj.gov/mvc/about/faq.htm',
+      },
+      {
+        label: 'Mass.gov Surviving Spouse Heirship Inheritance',
+        url: 'https://www.mass.gov/info-details/surviving-spouseheirshipinheritance',
+      },
+      {
+        label: 'Mass.gov Family Gift Transfers',
+        url: 'https://www.mass.gov/info-details/familygift-transfers',
+      },
+      {
+        label: 'Mass.gov Affidavit of Surviving Spouse',
+        url: 'https://www.mass.gov/doc/affidavit-of-surviving-spouse/download',
+      },
+      {
+        label: 'Massachusetts DOR Form MVU-26 Family Transfer Exemption',
+        url: 'https://www.mass.gov/doc/form-mvu-26-affidavit-in-support-of-a-claim-for-exemption-from-sales-or-use-tax-for-a-motor-vehicle-transferred-within-a-family/download',
+      },
+      {
+        label: 'Georgia DOR Transfer Ownership of a Vehicle',
+        url: 'https://dor.georgia.gov/how-do-i-transfer-ownership-vehicle',
+      },
+      {
+        label: 'Georgia DOR Vehicle Inherited or Purchased from an Estate',
+        url: 'https://dor.georgia.gov/vehicle-inherited-or-purchased-estate',
+      },
+      {
+        label: 'Georgia DOR Transfer Vehicle Titled in Georgia',
+        url: 'https://dor.georgia.gov/transfer-vehicle-titled-georgia',
+      },
+      {
+        label: 'Georgia DOR Affidavit of Inheritance T-20',
+        url: 'https://dor.georgia.gov/document/form/form-t-20-affidavit-inheritance/download',
+      },
+      {
+        label: 'Georgia DOR Joint Ownership or Joint Tenants',
+        url: 'https://dor.georgia.gov/title-application-disclosing-joint-ownership-or-joint-tenants',
+      },
+      {
+        label: 'Georgia DOR Motor Vehicle Title Tag Application MV-1',
+        url: 'https://dor.georgia.gov/mv-1-dor-motor-vehicle-titletag-application',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'washington',
+      'florida',
+      'pennsylvania',
+      'virginia',
+      'new-jersey',
+      'massachusetts',
+      'georgia',
+    ],
+  },
+  {
+    slug: 'disabled-parking-placard-plates',
+    title: '残疾人停车 placard、disabled plates 和临时停车证怎么申请',
+    eyebrow: '残疾停车牌',
+    reviewedAt: '2026-07-10',
+    description:
+      '在美国申请残疾人停车 placard、disabled parking permit、disabled plates 或临时停车证时，先分清 permanent、temporary、license plate、local permit、disabled veteran plate 和跨州使用规则，再按州官方要求准备材料。',
+    whoNeedsIt: [
+      '本人、家人或 dependent 因行动能力、视力、临时伤病或长期医疗状况，需要申请 disabled parking placard / permit 的人。',
+      '有车但不确定应该申请可移动 placard、disabled license plate、parking tab，还是只办 temporary permit 的人。',
+      '准备帮父母、孩子、照护对象或机构车辆申请停车证，不确定谁签名、谁认证、车主是谁的人。',
+      '已经有外州 placard、disabled veteran plate 或临时停车证，准备搬州、旅行、换车、续期或补证的人。',
+      '收到罚单、被怀疑 misuse，或不清楚 metered parking、access aisle、红黄白 curb、校园/机场/市区规则的人。',
+    ],
+    keyFacts: [
+      'Placard / permit 通常跟随符合资格的人，不是随便借给某辆车。California DMV、Washington DOL 和 PennDOT 都强调，停车特权只能在符合资格的人本人或 dependent 被运送时使用。',
+      'Disabled plate / tab 通常和车辆登记绑定。California 要求 DP plates 所在车辆登记在申请人名下或同时办理登记；New York 也说明 disability plates 只发给登记在残疾人名下的车辆；Washington plates/tabs 要求申请人是登记车主。',
+      'Permanent 和 temporary 不是同一张证。California permanent placard 两年一轮，temporary 最长按医疗证明期限；Florida permanent permit / plate 为四年，temporary 最多六个月；Washington temporary placard 可按医生注明最长一年。',
+      '医疗证明规则州别化。多数州要求 physician、nurse practitioner、optometrist 或其他合格 medical provider 完成认证；有些州允许特定情况免重新认证，或允许处方/letterhead 替代固定表格。',
+      'New York 是典型分工例子：parking permit 通常由 city / town / village clerk 这类 local government 发，DMV 不发停车 permit；但 disability license plates 由 DMV 办。',
+      '跨州能否使用一般比本地免费停车规则更复杂。New York 说 plates / permit 可在纽约和多数其他州使用，PennDOT 说宾州 placard / plate 在 50 州通用；但 meter 免费、时间限制、resident permit、NYC curbside、市区、机场、校园和私人停车场规则仍要看所在地标志和地方机构。',
+      '不要把 disabled veteran plate 自动当作 disabled parking privilege。Texas DMV 明确说明，没有 International Symbol of Access 的 DV plate 不能停 disabled parking space；想使用 disabled space，需要符合 disabled placard 或带 ISA 的 plate 要求。',
+      'Access aisle 不是停车位。California 明确禁止停在带斜线的 access aisle；ADA.gov 也把 accessible parking space 和 access aisle 作为不同设计要素说明。',
+      '申请入口可能是 DMV、county tax office、vehicle licensing office、local clerk 或 online portal。Texas placard / plate 走 county tax assessor-collector；Washington 走 vehicle licensing office 或邮寄；Pennsylvania 可在线续期/换证；Florida 多由 tax collector / license plate agency 办。',
+    ],
+    checklist: [
+      '确认申请对象：本人、dependent / minor child、照护对象、组织车辆，还是 disabled veteran plate / ISA plate。',
+      '确认产品类型：permanent placard、temporary placard、travel placard、disabled plate、parking tab、wheelchair plate、local city permit 或 replacement。',
+      '准备身份证明、现有 driver license / ID、车辆 registration、current plates、车主姓名、mailing address 和联系方式。',
+      '下载本州官方表格，并确认是否需要 medical provider certification、prescription、letterhead statement、police officer verification 或 disabled veteran eligibility 文件。',
+      '如果申请 license plate / tab，先确认车辆是否登记在符合资格的人名下，是否要 surrender current plates，是否要付普通 registration / plate 费用。',
+      '如果是 temporary permit，确认医生写的期限、续办次数、费用，以及过期后是否要交回 placard。',
+      '如果是搬州或旅行，先查目的州是否承认外州 placard，以及当地 meter、curb、airport、campus、private lot 和 residential permit 规则。',
+      '申请后保存表格副本、收据、mailing proof、online confirmation、placard number、ID card 或 enforcement card；丢失、被盗或损坏时用这些信息补证。',
+    ],
+    steps: [
+      '第一步：先分清你要的是可挂在不同车上的 placard，还是固定在自己车辆上的 disabled plate / tab。照护者经常更适合 placard；本人长期驾驶同一辆车才更可能考虑 plate。',
+      '第二步：打开本州官方 disabled parking 页面，确认承办机构。不要默认都是 DMV；New York permit 通常找 local clerk，Texas 找 county tax office，Washington 找 vehicle licensing office。',
+      '第三步：下载官方表格，让合格 medical provider 按州要求填写。不要只拿诊断截图、医院账单或中文病历替代表格，除非州页面明确接受 provider statement 或 prescription。',
+      '第四步：按产品类型补齐车辆材料。申请 plate / tab 时核对车辆登记姓名、现有车牌、普通 registration fee、plate fee 和 surrender plate 要求；只申请 placard 时通常不需要把某辆车固定绑定。',
+      '第五步：提交申请并记录处理方式：online、mail、office、tax collector、county office 或 local clerk。邮寄时保留副本；线上提交时保存 confirmation。',
+      '第六步：拿到 placard / plate 后，单独读本州“where to park / privileges / limitations”页面。不要把蓝色 wheelchair sign 当作万能通行证，红 curb、access aisle、fire lane、no parking、private lot 和 local meter 规则仍然可能限制停车。',
+      '第七步：续期、补证、地址变更或换车时回到原州官方入口。搬州后不要只依赖旧州 placard；看新州是否要求重新申请、重新医疗认证或更换 plate / tab。',
+    ],
+    faqs: [
+      {
+        question: 'placard 和 disabled license plate 怎么选？',
+        answer:
+          'Placard 通常可以跟着符合资格的人在不同车辆之间使用，适合照护者、家人接送或不固定坐同一辆车的情况。Disabled plate / tab 通常固定在某辆登记车辆上，适合符合资格的人长期使用自己的车。申请 plate 前一定要看本州是否要求车辆登记在本人名下。',
+      },
+      {
+        question: '外州 placard 到另一个州能用吗？',
+        answer:
+          '很多州承认外州 disabled parking placard 或 plate，但本地 parking privileges 不一定完全一样。比如 meter 是否免费、能否停 resident / merchant permit 区、NYC 街边规则、机场和校园规则，都可能由当地政府或停车场另行规定。旅行前查目的州 DMV 和当地停车规则最稳妥。',
+      },
+      {
+        question: '家人可以拿我的 placard 自己去停车吗？',
+        answer:
+          '不可以。官方页面普遍把 misuse 写得很重：只有符合资格的人本人或 dependent 在车上、正在被接送时，placard / plate 才能提供 disabled parking privilege。把 placard 借给别人、使用别人的 placard、伪造医生签名或提交虚假信息，可能导致罚款、吊销或执法处理。',
+      },
+      {
+        question: '临时伤病、手术恢复或怀孕相关行动不便可以办 temporary permit 吗？',
+        answer:
+          '可能可以，但要看州定义和 medical provider 认证。Temporary permit 通常针对短期 mobility impairment，并有明确有效期和续办限制。不要按症状自己判断资格；让本州认可的 provider 按官方表格或处方说明期限。',
+      },
+      {
+        question: 'disabled veteran plate 可以直接停残疾人车位吗？',
+        answer:
+          '不要默认可以。Texas DMV 明确区分普通 DV plate 和带 International Symbol of Access 的 disabled parking privilege。各州退伍军人车牌、免 registration fee 和 disabled parking space 权限可能是不同事项；看本州 DV plate 页面和 ISA 标志要求。',
+      },
+    ],
+    editorNotes: [
+      '这页不判断个人是否符合残疾资格，只解释 DMV / 州机构流程。资格、医疗认证和执法解释必须回到州官方表格和当地规则。',
+      '把 placard、permit、plate、tab、wheelchair plate、DV plate 和 NYC / local permit 分开写，避免中文用户把所有“残疾停车牌”混成一个东西。',
+      '跨州使用要谨慎：承认外州 placard 不等于所有 meter、time limit、resident permit、campus、airport 或 private lot 都免费或无限时。',
+      '不要把 ADA parking-space design 误写成个人申请资格。ADA.gov 适合说明 access aisle、van-accessible space 和设施义务；个人 placard 申请仍看州 DMV / motor vehicle agency。',
+      '更新这页时优先复查表格 PDF、费用、有效期、renewal 入口和 misuse wording，因为这些最容易迁移或改版。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 DMV、vehicle registration、license plates、forms、office 和 online services 官方入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Disabled Person Parking Placards & Plates',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/disabled-person-parking-placards-plates/',
+      },
+      {
+        label: 'California DMV Disabled Person Parking Placard Form Application',
+        url: 'https://www.dmv.ca.gov/portal/dmv-virtual-office/dpp-application/',
+      },
+      {
+        label: 'California DMV Disabled Person Parking Placard Renewal',
+        url: 'https://www.dmv.ca.gov/portal/dmv-virtual-office/dpp-renewal/',
+      },
+      {
+        label: 'California DMV Disabled Person Parking Placard Replacement',
+        url: 'https://www.dmv.ca.gov/portal/dmv-virtual-office/dpp-replacement/',
+      },
+      {
+        label: 'California DMV REG 195 Disabled Person Placard or Plates PDF',
+        url: 'https://www.dmv.ca.gov/portal/uploads/2020/12/reg195.pdf',
+      },
+      {
+        label: 'NY DMV Parking for People with Disabilities',
+        url: 'https://dmv.ny.gov/more-info/parking-for-people-with-disabilities',
+      },
+      {
+        label: 'NY DMV Parking for People with Disabilities: The Law',
+        url: 'https://dmv.ny.gov/parking-for-people-with-disabilities-the-law',
+      },
+      {
+        label: 'NY DMV MV-664.1 Parking Permit or License Plates PDF',
+        url: 'https://dmv.ny.gov/forms/mv6641.pdf',
+      },
+      {
+        label: 'Texas DMV Disabled Parking Placards & Plates',
+        url: 'https://www.txdmv.gov/motorists/disabled-parking-placards-plates',
+      },
+      {
+        label: 'Texas DMV VTR-214 Persons with Disabilities Parking Placard and License Plate PDF',
+        url: 'https://www.txdmv.gov/sites/default/files/form_files/VTR-214.pdf',
+      },
+      {
+        label: 'Texas DMV Disabled Persons Placard Brochure PDF',
+        url: 'https://www.txdmv.gov/sites/default/files/body-files/Disabled-Persons-Placard-Brochure.pdf',
+      },
+      {
+        label: 'Texas DMV VTR-615 Disabled Veteran License Plates and Parking Placards PDF',
+        url: 'https://www.txdmv.gov/sites/default/files/form_files/VTR-615.pdf',
+      },
+      {
+        label: 'FLHSMV Disabled Person Parking Permits',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/disabled-person-parking-permits/',
+      },
+      {
+        label: 'FLHSMV Permanent Disabled Person Parking Permits',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/disabled-person-parking-permits/permanent-disabled-person-parking-permits/',
+      },
+      {
+        label: 'FLHSMV Temporary Disabled Person Parking Permits',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/disabled-person-parking-permits/temporary-disabled-person-parking-permits/',
+      },
+      {
+        label: 'FLHSMV Disabled Person Parking Permits for Florida Visitors',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/disabled-person-parking-permits/disabled-person-parking-permits-for-florida-visitors/',
+      },
+      {
+        label: 'FLHSMV Wheelchair License Plate',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/disabled-person-parking-permits/wheelchair-license-plate/',
+      },
+      {
+        label: 'FLHSMV Disabled Person Parking Permit FAQs',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/disabled-person-parking-permits/frequently-asked-questions/',
+      },
+      {
+        label: 'FLHSMV HSMV 83039 Disabled Person Parking Permit PDF',
+        url: 'https://www.flhsmv.gov/pdf/forms/83039.pdf',
+      },
+      {
+        label: 'PennDOT Apply for or Renew a Persons with Disability Parking Placard',
+        url: 'https://www.pa.gov/services/dmv/apply-for-or-renew-a-persons-with-disability-parking-placard',
+      },
+      {
+        label: 'PennDOT Persons with Disabilities Placards and Plates',
+        url: 'https://www.pa.gov/agencies/dmv/resources/persons-with-disabilities-placards-plates',
+      },
+      {
+        label: 'PennDOT Placard FAQs',
+        url: 'https://www.pa.gov/agencies/dmv/faqs/motor-vehicle-faqs/placard-faqs',
+      },
+      {
+        label: 'PennDOT MV-145A Persons with Disability Parking Placard Application PDF',
+        url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-forms/mv-145a.pdf',
+      },
+      {
+        label: 'Mass.gov Apply for a Disability Placard or License Plate',
+        url: 'https://www.mass.gov/how-to/apply-for-a-disability-placard-or-license-plate',
+      },
+      {
+        label: 'Mass.gov Disability Plates and Placards',
+        url: 'https://www.mass.gov/disability-plates-and-placards',
+      },
+      {
+        label: 'Mass.gov Eligibility for Disability Plates and Placards',
+        url: 'https://www.mass.gov/info-details/eligibility-for-disability-plates-and-placards',
+      },
+      {
+        label: 'Mass.gov Renew Your Temporary Disability Placard',
+        url: 'https://www.mass.gov/how-to/renew-your-temporary-disability-placard',
+      },
+      {
+        label: 'Mass.gov Replace Your Disability Placard',
+        url: 'https://www.mass.gov/how-to/replace-your-disability-placard',
+      },
+      {
+        label: 'Mass.gov Report Disability Parking Abuse',
+        url: 'https://www.mass.gov/how-to/report-disability-parking-abuse',
+      },
+      {
+        label: 'Mass.gov Application for Disabled Parking PDF',
+        url: 'https://www.mass.gov/doc/application-for-disabled-parking/download',
+      },
+      {
+        label: 'Washington DOL Get or Renew Disabled Parking Permits',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/get-or-renew-disabled-parking-permits',
+      },
+      {
+        label: 'Washington DOL Disabled Parking Eligibility',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/get-or-renew-disabled-parking-permits/disabled-parking-eligibility',
+      },
+      {
+        label: 'Washington DOL Using Disabled Parking',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/get-or-renew-disabled-parking-permits/using-disabled-parking',
+      },
+      {
+        label: 'Washington DOL Disabled Parking Application for Individuals PDF',
+        url: 'https://dol.wa.gov/forms/view/420073/download?inline=',
+      },
+      {
+        label: 'Washington DOL Disabled Parking Replacement PDF',
+        url: 'https://dol.wa.gov/forms/view/420076/download?inline=',
+      },
+      {
+        label: 'Virginia DMV Disability Programs',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/disability',
+      },
+      {
+        label: 'Virginia DMV Apply for a Disabled Parking Placard or License Plate',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/disability/apply-assist',
+      },
+      {
+        label: 'Virginia DMV Disabled Parking Plates Assistance',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/disability/plates-assist',
+      },
+      {
+        label: 'Virginia DMV Renew or Replace a Disabled Parking Placard or License Plate',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/disability/renewal',
+      },
+      {
+        label: 'Virginia DMV Disabled Parking Placards and Plates Privileges',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/disability/rights',
+      },
+      {
+        label: 'Virginia DMV Description of Parking Placards and Plates',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/disability/descrip',
+      },
+      {
+        label: 'Virginia DMV MED 10 Disabled Parking Placard or License Plates Application PDF',
+        url: 'https://www.dmv.virginia.gov/sites/default/files/forms/med10.pdf',
+      },
+      {
+        label: 'ADA.gov Restriping Parking Spaces',
+        url: 'https://www.ada.gov/resources/restriping-parking-spaces/',
+      },
+      {
+        label: 'USA.gov State Motor Vehicle Services',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'florida',
+      'pennsylvania',
+      'massachusetts',
+      'washington',
+      'virginia',
+    ],
+  },
+  {
+    slug: 'vehicle-title-registration-insurance-after-move',
+    title: '买车或搬州后，车辆 title、registration、保险和车牌先办哪个',
+    eyebrow: '车辆登记',
+    reviewedAt: '2026-07-10',
+    description:
+      'DMV 不只管驾照。买车、搬州或从外州带车时，title、registration、insurance、inspection / emissions、license plates 和 driver license 可能互相卡住，办理顺序需要按州和交易类型确认。',
+    whoNeedsIt: [
+      '刚搬到新州并把外州车辆一起带来的人。',
+      '在美国第一次买车，分不清 title、registration、plate 和 insurance 的人。',
+      '从私人卖家买二手车、从 dealer 买车，或准备把车转到自己名下的人。',
+      '已经换了驾照地址，但车牌、登记、保险或旧州退牌还没处理的人。',
+    ],
+    keyFacts: [
+      'Driver license、vehicle title、vehicle registration 和 license plate 是不同事项，可能由同一 DMV 管，也可能由税务官、县办公室或车辆 licensing office 承办。',
+      'Title 主要证明车辆所有权；registration 和 plate 让车辆可以在路上合法行驶；insurance / inspection / emissions 往往是登记前置条件。',
+      '搬州后，驾照转换期限和车辆 title / registration 期限可能不同。Florida 例子里新居民驾照和车辆 title / registration 就是不同天数。',
+      'Dealer 买车和私人交易流程不同。Dealer 可能代办 title / registration，私人交易通常要买卖双方签 title，并由买方在规定时间内去 DMV / county 完成转移。',
+      '旧州车牌、旧州保险、旧州 registration 不能随便丢。部分州要求退牌、取消登记或先确认新州保险生效，避免罚款或保险断档。',
+      '路考车辆、搬州车辆和刚买车辆都要看合法上路状态；有效 registration、insurance、inspection 和设备检查可能影响考试或上路。',
+    ],
+    checklist: [
+      '确认场景：刚搬州、dealer 买车、私人买车、继承/赠与、外州 title 转入，还是只是地址变化。',
+      '找出承办机构：DMV、MVC、RMV、county tax office、tag office、vehicle licensing office 或 license plate agency。',
+      '准备所有权文件：signed title、bill of sale、lien release、dealer documents、out-of-state title 或 registration。',
+      '准备保险文件，并确认新州是否要求先买本州保险才能登记车辆。',
+      '查 inspection / emissions / VIN verification 要求，确认是登记前、登记后还是续期前完成。',
+      '确认车牌处理：新牌照、临时牌照、转移旧牌照、退旧州牌照、保留个性牌照或取消旧登记。',
+      '核对期限、税费和付款方式；title fee、registration fee、sales tax / use tax、plate fee 和 county fee 可能分开收。',
+    ],
+    steps: [
+      '第一步：先看新州或购买州的 vehicle title / registration 页面，不要只看 driver license 页面。',
+      '第二步：如果是搬州，先按 new resident 页面确认驾照、车辆登记、保险、车检和旧州车牌的顺序。',
+      '第三步：如果是 dealer 买车，确认 dealer 是否代办 title / registration、临时牌照多久有效、实体牌照或 registration 何时到。',
+      '第四步：如果是私人交易，现场核对 title 是否可签、VIN 是否一致、是否有 lien、卖家签名和里程表信息是否完整。',
+      '第五步：在去 DMV / county 前买好符合新州要求的保险，并查是否需要 inspection、emissions、VIN check 或 safety check。',
+      '第六步：拿到新州 registration / plate 后，再处理旧州 plate return、registration cancellation 和保险更新，保存收据或确认号。',
+    ],
+    faqs: [
+      {
+        question: '搬到新州后，是先换驾照还是先注册车？',
+        answer:
+          '没有全国统一顺序。很多州的新居民页面会同时列出驾照和车辆事项，但期限、保险、车检和 title 文件不同。最稳妥是先看新州 new resident 页面，再按保险和车辆文件倒排。',
+      },
+      {
+        question: 'title 和 registration 有什么区别？',
+        answer:
+          'title 更接近“谁拥有这辆车”的所有权文件；registration 是“这辆车当前获准在路上行驶”的登记。买车后通常要处理 title transfer，同时办理或更新 registration / plates。',
+      },
+      {
+        question: 'dealer 说他们会代办，我还需要查 DMV 吗？',
+        answer:
+          '需要。Dealer 代办不代表你不用确认临时牌照有效期、保险生效日期、registration 邮寄时间、费用和旧州车牌处理。跨州买车尤其要看买车州和居住州规则。',
+      },
+      {
+        question: '私人买车只签 bill of sale 可以吗？',
+        answer:
+          '通常不够。很多州要求 signed title、里程表信息、lien release、保险、税费和登记申请。Bill of sale 可能是补充文件，不一定能替代 title。',
+      },
+      {
+        question: '旧州车牌可以直接扔掉吗？',
+        answer:
+          '不要这么做。有些州要求退牌或取消登记，保险公司也可能要求先处理 plate / registration，避免罚款、税费或保险责任问题。按旧州 DMV 规则保存退牌或取消确认。',
+      },
+    ],
+    editorNotes: [
+      '这页把车辆 title / registration 与 driver license 分开，避免用户以为换了驾照地址就完成车辆登记。',
+      '跨州车辆问题必须承认州别差异：Florida、NJ、NY、TX、WA、PA、NC、MA、VA 等页面的承办机构、期限和检查顺序都不完全相同。',
+      'Dealer 与 private party 是两个核心分叉。中文页不要把 dealer 代办流程套到私人交易。',
+      '保险、inspection / emissions、VIN verification 和 plate return 是车辆登记页的高风险细节，应比“去 DMV 注册车”写得更具体。',
+      '这页不是车辆买卖法律建议，也不替代税务、贷款、lien 或保险合同判断。',
+    ],
+    relatedDirectory: {
+      label: '查看搬到新州后 DMV 办事入口表',
+      href: '/directories/new-residents/',
+      description: '按州查新居民、外州驾照转入、地址更新和车辆登记顺序入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Vehicle Registration',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/',
+      },
+      {
+        label: 'California DMV Title Transfers and Changes',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
+      },
+      {
+        label: 'NY DMV Register and Title a Vehicle',
+        url: 'https://dmv.ny.gov/registration/register-and-title-a-vehicle',
+      },
+      {
+        label: 'NY DMV Buy, Sell, or Transfer Vehicle Ownership',
+        url: 'https://dmv.ny.gov/titles/buy-sell-or-transfer-vehicle-ownership',
+      },
+      {
+        label: 'FLHSMV New Resident',
+        url: 'https://www.flhsmv.gov/new-resident/',
+      },
+      {
+        label: 'NJ MVC Moving To New Jersey',
+        url: 'https://www.nj.gov/mvc/drivertopics/movetonj.htm',
+      },
+      {
+        label: 'NJ MVC Vehicle Registration',
+        url: 'https://www.nj.gov/mvc/vehicles/reginitial.htm',
+      },
+      {
+        label: 'Texas DMV Buying or Selling a Vehicle',
+        url: 'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle',
+      },
+      {
+        label: 'Texas DMV Vehicle Registration',
+        url: 'https://www.txdmv.gov/motorists/register-your-vehicle',
+      },
+      {
+        label: 'Washington DOL Moving to Washington: Vehicles',
+        url: 'https://dol.wa.gov/moving-washington/vehicle-registration-and-plates',
+      },
+      {
+        label: 'PennDOT Buying or Selling a Vehicle',
+        url: 'https://www.pa.gov/agencies/dmv/vehicle-services/title-and-registration/buying-or-selling-a-vehicle',
+      },
+      {
+        label: 'NCDMV Title and Registration',
+        url: 'https://www.ncdot.gov/dmv/title-registration/Pages/default.aspx',
+      },
+      {
+        label: 'Massachusetts RMV Transfer your registration and title',
+        url: 'https://www.mass.gov/how-to/transfer-your-registration-and-title-from-out-of-state',
+      },
+      {
+        label: 'Virginia DMV Titling a Vehicle',
+        url: 'https://www.dmv.virginia.gov/vehicles/title',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'florida',
+      'new-jersey',
+      'texas',
+      'washington',
+      'pennsylvania',
+      'north-carolina',
+      'massachusetts',
+      'virginia',
+    ],
+  },
+  {
+    slug: 'vehicle-registration-renewal-expired-tags-non-operation',
+    title: '车辆 registration 续期：过期、车检和停驶',
+    eyebrow: '车辆登记续期',
+    reviewedAt: '2026-07-13',
+    description:
+      '车牌 sticker / decal / tab 快过期、registration 已过期、没收到 renewal notice、线上续不了，或车辆准备长期停驶时，先确认登记州和准确截止日，再处理地址、保险、inspection / emissions、税费或 hold，最后选择 renewal、重新登记、补 sticker，还是本州认可的 non-operation / plate deactivation 路径。',
+    whoNeedsIt: [
+      '车辆 registration、plate sticker、decal 或 tabs 快到期或已经 expired，不确定还能不能线上续的人。',
+      '没有收到 renewal notice、刚搬家、旧地址仍在 DMV 记录里，担心错过续期的人。',
+      '线上系统提示 insurance、smog / emissions、inspection、tax、toll、parking、suspension 或 registration stop，无法完成 renewal 的人。',
+      '已经付款但没收到新的 registration card / sticker，或只拿到 receipt / temporary registration，不确定现在能不能合法上路的人。',
+      '车辆长期不开、存放维修、人在外州或准备取消保险，想知道能否只让 registration 自然过期的人。',
+    ],
+    keyFacts: [
+      'Vehicle registration renewal 和 driver license renewal 是两件事。Title 证明所有权，registration / plate 关联车辆上路资格；驾照没过期，不代表车辆 registration 仍有效。',
+      '美国没有统一的 registration 周期或全国宽限期。California 明确没有 grace period；North Carolina 有 15 天 “valid through” 规则但过期日后付款仍收 late fee；Texas 和 New York 又使用不同的过期续期窗口。',
+      '没收到 renewal notice 通常不会暂停截止日。Georgia 明确提醒即使没收到 notice，错过 renewal period 仍可能有 penalty；New York、Texas 和 North Carolina 都提供不用 notice 也能查找或续期的材料路径。',
+      '先核对 registration card 上的准确到期日，不要只看 plate 上的月份。California 提醒 registration 在具体日期到期；Washington License Express 也会显示 month、day 和 year。',
+      '搬家后要先处理 vehicle record 地址。California 要求 online renewal 前至少提前 3 天改地址；Georgia 要先更新 Georgia license / ID 再改 registration；Washington 和 Virginia 也要求保持 mailing / vehicle address 正确。',
+      '保险是常见前置条件。California online renewal 依赖 insurer electronic report；Florida 无法验证 valid insurance 就不发 registration；Massachusetts、Virginia 和 North Carolina 也要求有效或持续的 liability coverage。',
+      'Inspection / emissions 不是全国统一，但可能直接挡住 renewal。New York 要求近 12 个月 inspection 记录；Texas 部分县仍要 emissions；Georgia 按县；North Carolina 通常要求在续期前 90 天内完成 safety 或 emissions inspection。',
+      '付了钱不一定代表 renewal 已完成。California 明确说明，即使已交 renewal fees，缺 smog 或仍有 parking citation，registration 也不会完成；用于避免 late penalty 的付款 receipt 也不一定授权上路。',
+      'Online renewal 被拒，不代表只能重新注册。先读 reason：insurance / inspection 记录未同步、需要纸质文件、地址、vehicle class、tax、toll、parking 或 suspension 都可能要求 mail、office、county tax office 或发起机构先处理。',
+      '续期后的即时凭证按州不同。New York online renewal 可打印 temporary registration；Florida app 提供 digital document；Pennsylvania online renewal 可打印 permanent registration credential；Georgia kiosk 可当场打印文件。普通付款截图不能自动替代这些官方凭证。',
+      'Registration 过期太久后，业务可能从 renewal 变成重新登记。New York 对过期超过 1 年的 registration 要重新 register；Texas online 过期续期受 12 个月和是否收到 citation 限制；Washington 对过期不足 12 个月的 military 场景另有新周期规则。',
+      '车辆不开时，不要直接取消保险然后放着。California 的 PNO 禁止整年在 public road 上驾驶、拖行、存放或停车；Virginia 可 deactivate plates；Pennsylvania 和 North Carolina 强调取消保险前处理或交回 plate。各州没有统一的“停驶状态”。',
+    ],
+    factChecks: [
+      {
+        claim:
+          'Registration 过期没有全国统一宽限期：California 明确无 grace period，而 North Carolina 的 15 天 valid-through 规则仍伴随过期日后的 late fee。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/registration-fees/penalties/',
+          'https://www.ncdot.gov/dmv/title-registration/registration/Pages/default.aspx',
+        ],
+      },
+      {
+        claim:
+          '没有收到 renewal notice 通常不会免除按时续期责任；多个州允许用 plate、VIN、title number、旧 registration 或申请表继续办理。',
+        sourceUrls: [
+          'https://dor.georgia.gov/motor-vehicles/vehicle-registration-license-plates/renew-vehicle-registration',
+          'https://dmv.ny.gov/registration/renew-a-registration',
+          'https://www.txdmv.gov/motorists/register-your-vehicle',
+          'https://www.ncdot.gov/dmv/title-registration/registration/Pages/default.aspx',
+        ],
+      },
+      {
+        claim:
+          '车辆或邮寄地址不正确时应先按登记州顺序更新；部分 online renewal 要求地址变更先处理并等待记录生效。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/vehicle-registration-renewal/',
+          'https://dol.wa.gov/vehicles-and-boats/vehicles/renew-or-replace-vehicle-tabs',
+          'https://dor.georgia.gov/motor-vehicles/vehicle-registration-license-plates/renew-vehicle-registration',
+          'https://www.dmv.virginia.gov/vehicles/registration',
+        ],
+      },
+      {
+        claim:
+          '有效保险或 DMV 可核验的保险记录是多州 registration renewal 前置条件；验证失败可能阻止线上或全部续期。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/vehicle-registration-renewal/',
+          'https://www.flhsmv.gov/motor-vehicles-tags-titles/license-plates-registration/renew-replace-registration/',
+          'https://www.mass.gov/how-to/renew-your-vehicle-or-trailer-registration',
+          'https://www.dmv.virginia.gov/vehicles/insurance-requirements',
+          'https://www.ncdot.gov/dmv/title-registration/registration/Pages/default.aspx',
+        ],
+      },
+      {
+        claim:
+          'Inspection 或 emissions 是否挡住 renewal 取决于州、县和车辆；New York、Texas、Georgia 与 North Carolina 的触发条件并不相同。',
+        sourceUrls: [
+          'https://dmv.ny.gov/inspections/registration-based-enforcement-of-inspections',
+          'https://www.txdmv.gov/motorists/register-your-vehicle',
+          'https://dor.georgia.gov/motor-vehicles/vehicle-registration-license-plates/renew-vehicle-registration',
+          'https://www.ncdot.gov/dmv/title-registration/emissions-safety/Pages/default.aspx',
+        ],
+      },
+      {
+        claim:
+          '缴纳 renewal fees 不一定完成 registration；California 对缺 smog、保险或未清 parking 的申请明确区分“避免罚金”和“获准上路”。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/vehicle-registration-renewal/',
+          'https://www.dmv.ca.gov/portal/important-vehicle-information/',
+          'https://www.dmv.ca.gov/portal/vehicle-registration/vehicle-registration-renewal/file-for-planned-non-operation/',
+        ],
+      },
+      {
+        claim:
+          '过期后仍能否按 renewal 办理取决于州和时长：New York、Texas 与 Washington 公布了不同的一年或 12 个月边界及条件。',
+        sourceUrls: [
+          'https://dmv.ny.gov/registration/renew-a-registration',
+          'https://www.txdmv.gov/motorists/register-your-vehicle',
+          'https://dol.wa.gov/vehicles-and-boats/vehicles/renew-or-replace-vehicle-tabs',
+        ],
+      },
+      {
+        claim:
+          'Online renewal 后可立即使用的凭证也有州别差异：New York 提供 temporary registration，Florida 提供 digital document，Pennsylvania 可打印 permanent credential。',
+        sourceUrls: [
+          'https://dmv.ny.gov/registration/renew-a-registration',
+          'https://www.flhsmv.gov/motor-vehicles-tags-titles/license-plates-registration/renew-replace-registration/',
+          'https://www.pa.gov/agencies/dmv/vehicle-services/title-and-registration/renew-registration',
+        ],
+      },
+      {
+        claim:
+          '长期停驶不是简单让 registration 过期：California PNO、Virginia plate deactivation、Pennsylvania 与 North Carolina 的 plate / insurance 顺序各不相同。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/vehicle-registration-renewal/file-for-planned-non-operation/',
+          'https://www.dmv.virginia.gov/licenses-ids/license/outside-va',
+          'https://www.pa.gov/agencies/dmv/vehicle-services/insurance-overview',
+          'https://www.ncdot.gov/dmv/title-registration/license-plates/Pages/default.aspx',
+        ],
+      },
+    ],
+    checklist: [
+      '确认车辆目前登记在哪个州；不要按 driver license 州、保险公司地址或车辆停放地猜 renewal 入口。',
+      '查看 registration card、plate、DMV account 的准确 expiration date，记录 plate number、VIN 和 title / registration number。',
+      '检查 registered owner、residence / garaging address、mailing address 和 email 是否正确，先按州要求完成地址更新。',
+      '找到 renewal notice；没有也准备旧 registration、plate、VIN、title number、owner ID 或本州替代表格。',
+      '确认 liability insurance 当前有效，owner、VIN、effective date 与 DMV 记录一致，并准备 insurance card / policy information。',
+      '查车辆是否需要 safety inspection、emissions / smog、STAR station、county test 或 out-of-state exemption，并确认结果已回传。',
+      '查看 DMV account / notice 是否有 toll、parking、tax、insurance lapse、emissions、suspension、recall notice 或其他 stop；记录发起机构。',
+      '确定车辆接下来是否上路、停在 private property、长期维修、在外州、已出售、totaled 或不再保留保险。',
+      '比较 online、mail、kiosk、office、county tax / tag office 的资格、交付时间和凭证形式，不要只选看起来最快的入口。',
+      '保存确认号、payment receipt、temporary / permanent credential、inspection report、insurance proof 和 mailing tracking；收到新 sticker 后再处理旧凭证。',
+    ],
+    steps: [
+      '第一步：从原 registration 州的官方 vehicle registration renewal 页面开始，先核对 expiration date 和车辆状态，不要进入 driver license renewal。',
+      '第二步：更新地址和 owner record。若刚搬州，还要先判断应该续旧州 registration，还是已经必须 title / register 到新州。',
+      '第三步：核对保险。系统查不到 coverage 时，确认保险公司是否已电子报送、owner / VIN 是否一致，以及本州是否接受上传、邮寄或现场证明。',
+      '第四步：完成本州、县和车型要求的 inspection / emissions / smog。保留 Vehicle Inspection Report 或 receipt，以便电子记录未同步时人工核验。',
+      '第五步：清理 renewal stop。Parking / toll / local tax / court / insurance suspension 往往要先找发起机构；付款后还要等 clearance 回传。',
+      '第六步：选择办理渠道。信息完全匹配且无特殊文件时优先官方 online / kiosk；需要 insurance stamp、tax certificate、special plate、vehicle class 或人工 proof 时改走 mail / office / county。',
+      '第七步：确认交易结果。只有官方状态显示 renewed / complete，并提供州认可的 temporary 或 permanent credential，才按该州说明使用；若仍是 pending、fees paid 或 requirements due，不要默认 registration 已有效。',
+      '第八步：若车辆长期不用，先查本州 PNO、non-use、plate deactivation、registration cancellation 或 plate surrender 规则，再决定保险；不要把“不开车”当作可以忽略 registration / insurance record。',
+    ],
+    faqs: [
+      {
+        question: '没收到 renewal notice，还需要按时续 registration 吗？',
+        answer:
+          '通常需要。Georgia 明确提醒即使没收到 notice，错过 renewal period 仍可能有 penalties。New York 可用 MV-82，Texas 可用 plate / VIN / prior receipt，North Carolina 可用 plate 和 title number。先查官方账户和到期日，不要等纸质 notice。',
+      },
+      {
+        question: 'Registration 过期后有统一 grace period 吗？',
+        answer:
+          '没有。California 明确没有 grace period；North Carolina 有 15 天 valid-through 规则，但过期日后 renewal 仍有 late fee；Texas 的 online late renewal 又受 12 个月和是否收到 citation 限制。只按本州 registration card 和官方页面判断。',
+      },
+      {
+        question: '已经交了 renewal fee，为什么系统仍显示 expired 或 incomplete？',
+        answer:
+          '付款可能只是申请的一部分。California 明确说明缺 smog 或仍有 parking citation 时，即使费用已付也不会完成 renewal；保险、inspection、tax 或 clearance 记录未同步也可能让状态 pending。查看 receipt 上的 requirements due，并继续查 status。',
+      },
+      {
+        question: '线上续期失败，是不是一定要重新注册车辆？',
+        answer:
+          '不一定。常见原因是保险未电子核验、inspection 未回传、地址、特殊 vehicle class、需要原件、tax / toll / parking stop 或 registration 已 suspended。只有像 New York 过期超过 1 年等明确情形，才可能需要重新 register。先读错误原因。',
+      },
+      {
+        question: '续期后打印的 receipt 可以当 registration 开车吗？',
+        answer:
+          '只有官方明确把它称为 temporary 或 permanent registration credential 时才按该州说明使用。New York 提供 temporary registration，Florida app 提供 digital document，Pennsylvania 可打印 permanent credential。普通付款截图、pending receipt 或 California incomplete receipt 不等同于上路许可。',
+      },
+      {
+        question: '车检通过了，为什么 renewal 还看不到记录？',
+        answer:
+          '电子回传可能有延迟或匹配问题。Texas 允许在系统无法验证时向 county 出示 VIR；New York 也提供 inspection receipt / report 的补充路径。先核对 VIN、inspection date 和登记县，再按官方页面提交证明，不要重复付 renewal fee。',
+      },
+      {
+        question: '车长期不开，可以直接取消保险、让 registration 过期吗？',
+        answer:
+          '风险很高。California 要按 PNO 条件处理；Virginia 取消保险时可 deactivate 或 surrender plates；Pennsylvania 和 North Carolina 强调先交回 plate 或按州流程处理。顺序错了可能触发 insurance lapse、registration suspension 或罚金。',
+      },
+      {
+        question: '刚搬到外州，应该续旧州 registration 还是办新州 registration？',
+        answer:
+          '先查新州 resident / vehicle registration deadline 和旧州 plate / insurance 退出规则。不要为了赶一个 renewal notice 自动续旧州，也不要在新州登记完成前贸然取消旧保险。可结合“搬州后车辆 title、registration、保险和车牌顺序”专题处理。',
+      },
+    ],
+    editorNotes: [
+      '本页只负责 registration renewal 主流程；inspection、registration hold、临时牌照和 replacement sticker 的细节分别交给现有专题并做相关链接。',
+      '不要把 North Carolina 的 15-day valid-through、Texas 12-month online window 或 California PNO 泛化为全国规则。',
+      '正文不建立费用对比表，因为 plate type、vehicle weight、county tax、late period、service fee 和 multi-year choice 会快速变化。',
+      '“已付款”和“已续期”必须持续区分；California incomplete application 是最强官方示例，但不能说所有州付款都不生效。',
+      '停驶段落只做 DMV / insurance record 分流，不提供保险取消或法律意见。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 vehicle registration renewal、online services、county / tag office、insurance、inspection 和 plate handling 官方入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Vehicle Registration Renewal',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/vehicle-registration-renewal/',
+      },
+      {
+        label: 'California DMV Planned Nonoperation Filing',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/vehicle-registration-renewal/file-for-planned-non-operation/',
+      },
+      {
+        label: 'California DMV Registration Penalties',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/registration-fees/penalties/',
+      },
+      {
+        label: 'California DMV Important Vehicle Information',
+        url: 'https://www.dmv.ca.gov/portal/important-vehicle-information/',
+      },
+      {
+        label: 'New York DMV Renew a Registration',
+        url: 'https://dmv.ny.gov/registration/renew-a-registration',
+      },
+      {
+        label: 'New York DMV Registration-Based Enforcement of Inspections',
+        url: 'https://dmv.ny.gov/inspections/registration-based-enforcement-of-inspections',
+      },
+      {
+        label: 'New York DMV Check Registration Status',
+        url: 'https://dmv.ny.gov/registration/check-registration-status',
+      },
+      {
+        label: 'TxDMV Register Your Vehicle and Renew Registration',
+        url: 'https://www.txdmv.gov/motorists/register-your-vehicle',
+      },
+      {
+        label: 'FLHSMV Renew or Replace Your Registration',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/license-plates-registration/renew-replace-registration/',
+      },
+      {
+        label: 'Washington DOL Renew or Replace Vehicle Tabs',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/renew-or-replace-vehicle-tabs',
+      },
+      {
+        label: 'Washington DOL Tabs Renewal Requirements',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/renew-or-replace-vehicle-tabs/tabs-renewal-requirements',
+      },
+      {
+        label: 'Washington DOL Renewal Notices',
+        url: 'https://dol.wa.gov/renewal-notices',
+      },
+      {
+        label: 'Mass.gov Renew Vehicle or Trailer Registration',
+        url: 'https://www.mass.gov/how-to/renew-your-vehicle-or-trailer-registration',
+      },
+      {
+        label: 'Mass.gov Vehicle Registration',
+        url: 'https://www.mass.gov/vehicle-registration',
+      },
+      {
+        label: 'PennDOT Renew Registration',
+        url: 'https://www.pa.gov/agencies/dmv/vehicle-services/title-and-registration/renew-registration',
+      },
+      {
+        label: 'PennDOT Insurance Overview',
+        url: 'https://www.pa.gov/agencies/dmv/vehicle-services/insurance-overview',
+      },
+      {
+        label: 'Virginia DMV Vehicle Registration and Renewal',
+        url: 'https://www.dmv.virginia.gov/vehicles/registration',
+      },
+      {
+        label: 'Virginia DMV Insurance Requirements',
+        url: 'https://www.dmv.virginia.gov/vehicles/insurance-requirements',
+      },
+      {
+        label: 'Virginia DMV Temporarily Outside Virginia',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/outside-va',
+      },
+      {
+        label: 'Georgia DOR Renew Vehicle Registration',
+        url: 'https://dor.georgia.gov/motor-vehicles/vehicle-registration-license-plates/renew-vehicle-registration',
+      },
+      {
+        label: 'NCDMV Vehicle Registration Renewals',
+        url: 'https://www.ncdot.gov/dmv/title-registration/registration/Pages/default.aspx',
+      },
+      {
+        label: 'NCDMV Emissions and Safety Inspections',
+        url: 'https://www.ncdot.gov/dmv/title-registration/emissions-safety/Pages/default.aspx',
+      },
+      {
+        label: 'NCDMV License Plates and Plate Return',
+        url: 'https://www.ncdot.gov/dmv/title-registration/license-plates/Pages/default.aspx',
+      },
+      {
+        label: 'NCDMV Vehicle Property Taxes and Tag & Tax Together',
+        url: 'https://www.ncdot.gov/dmv/title-registration/Pages/vehicle-property-tax.aspx',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'florida',
+      'washington',
+      'massachusetts',
+      'pennsylvania',
+      'virginia',
+      'georgia',
+      'north-carolina',
+    ],
+  },
+  {
+    slug: 'lost-stolen-license-plates-registration-card-sticker',
+    title: '车牌、registration card 或 sticker 丢失/被盗后怎么补办',
+    eyebrow: '车牌补办',
+    reviewedAt: '2026-07-10',
+    description:
+      '车辆凭证丢失时，先别只问“能不能补一个 sticker”。License plate、registration card、registration sticker / decal / tab、inspection sticker 和 title 是不同事项；被盗、没收到邮件、车牌损坏、地址错误、toll / parking / insurance hold 的处理路径也不同。',
+    whoNeedsIt: [
+      '车牌、前牌/后牌、registration card、windshield sticker、plate decal、tab 或 registration ID card 丢失、被偷、损坏、褪色或没收到的人。',
+      '收到 toll、parking ticket、red-light camera、保险或警察通知，怀疑车牌被盗用的人。',
+      '刚搬家、刚续 registration、刚买车、刚卖车，发现 sticker、registration card 或 plates 没寄到正确地址的人。',
+      '有 personalized / specialty plate、disabled plate、commercial plate、trailer plate 或只剩一块牌，想知道能否保留原号码的人。',
+      '车辆登记被 toll、parking citation、insurance lapse、local tax 或 registration stop 卡住，补牌/补贴纸也办不了的人。',
+    ],
+    keyFacts: [
+      'Plate、registration card 和 sticker / decal / tab 是三类东西。California、Texas、North Carolina 等页面都把 replacement plate、registration card、registration sticker 分成不同选项；North Carolina 明确说 duplicate registration card 不会发 renewal sticker。',
+      '被盗和普通丢失不是同一条路。California 替换被盗 plates 要 police report；New York 免 stolen plate replacement fee 要 police report 或 MV-78B；New Jersey、PennDOT、Georgia、Florida 等也把 stolen plate / decal 与 police report 或 law enforcement report 关联起来。',
+      '丢失车牌通常会换新号码。California 说 lost or stolen plates 需要 substitute plates with a new configuration；Washington 说 reported stolen 后不能用同一号码；PennDOT personalized plate 丢失或被盗时要选择新 configuration。',
+      '旧牌、剩余牌或损坏牌不要随便留着。California 要 surrender remaining plates；New Jersey 要交回 damaged plates；Texas VTR-60 要声明若找回旧 plate / sticker 不再使用；New York 也提醒销毁旧牌以防他人使用。',
+      '没收到邮件和已经丢失的处理可能不同。California 说若原件已寄出但未收到，可提交 REG 156 申请 replacement；Washington 对 15-90 天未收到 tabs 有免费 replacement 条件；Florida 邮寄丢失在 180 天内可能免 replacement fee；Georgia 邮寄丢失在 90 天内可能免 fee。',
+      '登记不是 current / valid 时，可能不能只补 sticker。California FAQ 说未 current registered 的车辆不能补 replacement plates / stickers；Florida registration stop、Washington unpaid tickets / tolling fees、Virginia registration withholding 都可能阻止 renewal 或 reissue。',
+      'Sticker 名称按州不同。California / Illinois 常写 sticker，Florida / Virginia 写 decal，Washington 写 tabs，New York 的 registration 通常包含 windshield sticker 和 paper registration certificate；查官方入口时要同时对照这些英文名称。',
+      'Inspection sticker 是另一件事。New York inspection sticker missing 要走 inspection sticker replacement 或重新 inspection；不要把 registration sticker、plate decal 和 safety / emissions inspection sticker 混在一起。',
+      '卖车、搬州或取消保险时，plate surrender / deactivation 比补牌更关键。North Carolina、New York、Virginia 等都把退牌、取消保险和 suspension / fine 风险连在一起。',
+      '保存证据很重要。被盗车牌可能带来 toll、parking、camera ticket、police stop 或 collection notice；保留 police report、replacement receipt、plate surrender receipt、mailing confirmation、photos 和 DMV case number。',
+    ],
+    checklist: [
+      '先确认丢的是哪一项：front plate、rear plate、both plates、registration card、registration sticker / decal / tab、windshield sticker、inspection sticker、title、parking permit 或 disabled placard。',
+      '记录发现日期、车辆 VIN、plate number、registration expiration、title number、mailing address、是否刚续期、是否刚搬家、是否收到 toll / ticket / insurance notice。',
+      '如果车牌或 sticker 可能被偷，先查本州是否要求 police report、MV-78B、incident number 或 law enforcement statement；保存报告副本。',
+      '确认车辆 registration 是否 current、保险是否有效、是否有 toll / parking / local tax / insurance lapse hold，是否已经 sold / totaled / moved out of state。',
+      '准备身份证明、现有 registration、insurance card、VIN、title number、剩余 plate、损坏 plate / sticker、付款方式和官方表格。',
+      '地址不对时先查 vehicle registration address change；replacement 通常寄到 DMV 记录地址，错地址会继续造成没收到。',
+      '如果是 personalized / specialty / disabled / commercial / trailer plate，单独看对应 plate 类型是否能保留原号码或必须换新号码。',
+      '补办后把旧 plate / sticker / registration card 按州规则 surrender、destroy、deface 或停用；不要让找回的旧凭证继续在路上使用。',
+    ],
+    steps: [
+      '第一步：从原登记州的 DMV / MVC / DOL / DOR / Secretary of State / county tax office 进入，不要用第三方“快速补牌”广告。',
+      '第二步：把事项分成 plate、registration card、sticker / decal / tab、inspection sticker、title。每一项可能有不同表格、费用和办理地点。',
+      '第三步：如果涉及被盗，先处理 police report。California、New York、New Jersey、PennDOT、Georgia、Florida、North Carolina 等来源都显示 stolen plate / decal 通常需要执法记录或会影响费用/号码。',
+      '第四步：检查车辆记录是否能补。registration expired、toll violation、parking citation、insurance lapse、local tax、registration stop 或地址错误，可能要先清掉。',
+      '第五步：选择线上、邮寄或现场。California 和 New York 支持部分 registration card / sticker online replacement；Texas、Georgia、North Carolina 等常要 county / license plate agency；Virginia 允许在线打印 replacement registration card。',
+      '第六步：提交表格和材料。常见表格包括 California REG 156、New York MV-82、Texas VTR-60、Florida HSMV 83146、Washington Affidavit of Loss、PennDOT MV-44、Virginia VSA 14、Georgia MV-7、North Carolina MVR-18。',
+      '第七步：收到新凭证后立即安装正确 sticker / decal / tab，保存 receipt，并确认旧 plate number、old sticker 或 lost/stolen status 已按州规则处理。',
+      '第八步：如果之后收到旧 plate 造成的 toll、parking 或 camera ticket，拿 police report、replacement receipt、surrender / status verification、bill of sale 或 registration record 去对应机构申诉。',
+    ],
+    faqs: [
+      {
+        question: '车牌被偷，一定要报警吗？',
+        answer:
+          '很多州在 stolen plate 场景要求或强烈依赖 police report。比如 California 替换被盗 plates 要 police report；New York 免 stolen plate replacement fee 要 police report 或 MV-78B；New Jersey 要向当地 police 报告并带报告；PennDOT MV-44 也写明 lost/stolen plate 要报告 State Police 或 local law enforcement。',
+      },
+      {
+        question: '只丢了 registration sticker，可以只补 sticker 吗？',
+        answer:
+          '通常可以，但要看州和车辆状态。California 可线上补 sticker 或 registration card，且 replacement sticker order 会包含新 registration card；Texas VTR-60 可勾选 plate sticker 或 windshield sticker；North Carolina 则要求 replacement sticker 去 license plate agency 或邮寄申请，duplicate registration card online 不会发 sticker。',
+      },
+      {
+        question: '被盗车牌能不能保留原来的号码？',
+        answer:
+          '不要默认可以。California lost/stolen plates 通常要 substitute plates with a new configuration；Washington 说 reported stolen 后不能用同一号码；PennDOT personalized plate 丢失或被盗时要选择新 configuration。特殊 plate / personalized plate 是否可保留，要看本州对应规则。',
+      },
+      {
+        question: '刚续期但 sticker 没收到，要重新付钱吗？',
+        answer:
+          '可能不用，也可能要看期限和原因。California 有“mailed but not received”的 replacement 路径；Washington 对 15-90 天未收到 tabs 有免费 replacement 条件；Florida 规定 mail lost in transit 在 180 天内可能免费；Georgia 邮寄丢失在 90 天内可能免 replacement fee。先看本州“not received / lost in mail”规则。',
+      },
+      {
+        question: '补了新 plate 或 sticker 后，旧的找回来可以继续用吗？',
+        answer:
+          '不应继续用。Texas VTR-60 要声明找回旧 plate / sticker 后不会再使用；California 要 surrender remaining plates；New York 也提醒旧 plate 不处理可能带来 ticket / fine 责任。按州规则 surrender、destroy、deface 或停用旧凭证。',
+      },
+    ],
+    editorNotes: [
+      '这页和“买车/搬州后 registration 顺序”不同：本页聚焦已经登记后的 plate/card/sticker replacement 和 stolen plate 风险。',
+      '要持续区分 registration sticker、inspection sticker、disabled placard、title、temporary permit 和 toll transponder；中文用户很容易把这些都叫“车贴”。',
+      '不要承诺 stolen plate 一定免费或一定保留原号码。官方来源显示费用、号码和 police report 规则州别差异很大。',
+      '将 toll / parking / insurance hold 写成“可能阻止 renewal/reissue/replacement”，避免过度泛化。',
+      '对 Mass.gov、Illinois SOS、Michigan SOS 等自动审计常返回 403 的政府站点，保留官方 URL 并在外链审计中按 watch 管理。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 DMV、vehicle registration、license plates、forms、online services、county tax office 和 office locator 官方入口。',
+    },
+    sources: [
+      {
+        label: 'USA.gov State Motor Vehicle Services',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+      },
+      {
+        label: 'California DMV Replacement License Plates and Stickers',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/replacement-license-plates-and-stickers/',
+      },
+      {
+        label: 'California DMV Online Replacement Sticker or Registration Card',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/online-replacement-sticker-or-registration-card/',
+      },
+      {
+        label: 'California DMV Registration Card Replacement',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/replace-your-registration-card/',
+      },
+      {
+        label: 'California DMV REG 156 Replacement Procedure',
+        url: 'https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/duplicates-and-substitutes/application-for-replacement-plates-stickers-documents-reg-156-form/',
+      },
+      {
+        label: 'NY DMV Lost, Stolen or Destroyed Plates',
+        url: 'https://dmv.ny.gov/plates/lost-stolen-or-destroyed-plates',
+      },
+      {
+        label: 'NY DMV Replace a Registration',
+        url: 'https://dmv.ny.gov/registration/replace-registration',
+      },
+      {
+        label: 'NY DMV Registrations',
+        url: 'https://dmv.ny.gov/registrations',
+      },
+      {
+        label: 'NY DMV Peeling and Damaged License Plates',
+        url: 'https://dmv.ny.gov/plates/peeling-and-damaged-license-plates',
+      },
+      {
+        label: 'NY DMV Where Is My Registration',
+        url: 'https://dmv.ny.gov/registration/where-is-my-registration',
+      },
+      {
+        label: 'NY DMV Surrender Plates and Registration',
+        url: 'https://dmv.ny.gov/registration/surrender-return-or-turn-in-your-vehicle-plates-and-registration',
+      },
+      {
+        label: 'TxDMV License Plates',
+        url: 'https://www.txdmv.gov/motorists/license-plates',
+      },
+      {
+        label: 'TxDMV Form VTR-60 Replacement Plates or Sticker PDF',
+        url: 'https://www.txdmv.gov/sites/default/files/form_files/VTR-60.pdf',
+      },
+      {
+        label: 'Texas.gov Vehicle Registration',
+        url: 'https://www.texas.gov/driver-services/texas-vehicle-registration/',
+      },
+      {
+        label: 'FLHSMV Renew or Replace Your Registration',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/license-plates-registration/renew-replace-registration/',
+      },
+      {
+        label: 'FLHSMV License Plates and Registration',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/license-plates-registration/',
+      },
+      {
+        label: 'FLHSMV Form HSMV 83146 Replacement Plates Decals or Parking Permits PDF',
+        url: 'https://www.flhsmv.gov/pdf/forms/83146.pdf',
+      },
+      {
+        label: 'FLHSMV Toll-by-Plate Information',
+        url: 'https://www.flhsmv.gov/toll-by-plate-information/',
+      },
+      {
+        label: 'Washington DOL License Plates',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/license-plates',
+      },
+      {
+        label: 'Washington DOL Renew or Replace Vehicle Tabs',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/renew-or-replace-vehicle-tabs',
+      },
+      {
+        label: 'Washington DOL Replace Lost Title or Registration',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/vehicle-registration/vehicle-title/replace-lost-title-or-registration',
+      },
+      {
+        label: 'Washington DOL Vehicle Licensing Offices',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicle-licensing-offices',
+      },
+      {
+        label: 'NJ MVC Plates',
+        url: 'https://www.nj.gov/mvc/vehicles/aboutplates.htm',
+      },
+      {
+        label: 'NJ MVC Replacing a Lost Vehicle Registration',
+        url: 'https://www.nj.gov/mvc/vehicles/regreplace.htm',
+      },
+      {
+        label: 'NJ MVC Online Services',
+        url: 'https://www.nj.gov/mvc/online-services.html',
+      },
+      {
+        label: 'PennDOT Form MV-44 Duplicate Registration Card or Replacement Plate PDF',
+        url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-forms/mv-44.pdf',
+      },
+      {
+        label: 'Virginia DMV Replace Vehicle Registration Card',
+        url: 'https://www.dmv.virginia.gov/online-services/replace-reg',
+      },
+      {
+        label: 'Virginia DMV Registration-Only Mail Applications and Replacement Plates',
+        url: 'https://www.dmv.virginia.gov/vehicles/registration/title-mail-reg-only',
+      },
+      {
+        label: 'Virginia DMV Vehicle Registration Application VSA 14 PDF',
+        url: 'https://www.dmv.virginia.gov/sites/default/files/forms/vsa14.pdf',
+      },
+      {
+        label: 'Virginia DMV Register Your Vehicle',
+        url: 'https://www.dmv.virginia.gov/vehicles/registration',
+      },
+      {
+        label: 'Virginia DMV What to Do with Your License Plates',
+        url: 'https://www.dmv.virginia.gov/vehicles/license-plates/surrender',
+      },
+      {
+        label: 'Georgia DOR Replace License Plate',
+        url: 'https://dor.georgia.gov/replace-license-plate',
+      },
+      {
+        label: 'Georgia DOR Form MV-7 Replacement License Plate or Decal PDF',
+        url: 'https://dor.georgia.gov/document/form/mv-7-application-replacement-license-plate-tag-and-or-decal/download',
+      },
+      {
+        label: 'Mass.gov Replace Vehicle Registration or Plate Decal',
+        url: 'https://www.mass.gov/how-to/replace-your-vehicle-registration-or-plate-decal',
+      },
+      {
+        label: 'Mass.gov Order Replacement Vehicle License Plates',
+        url: 'https://www.mass.gov/how-to/order-replacement-vehicle-license-plates',
+      },
+      {
+        label: 'Mass.gov Vehicle Registration',
+        url: 'https://www.mass.gov/vehicle-registration',
+      },
+      {
+        label: 'Illinois SOS License Plates and Sticker Replacement',
+        url: 'https://apps.ilsos.gov/platereplacement/',
+      },
+      {
+        label: 'Illinois SOS Vehicle Fees',
+        url: 'https://www.ilsos.gov/departments/vehicles/basicfees.html',
+      },
+      {
+        label: 'Illinois SOS Vehicle Title and Registration FAQ',
+        url: 'https://www.ilsos.gov/departments/vehicles/title-and-registration/faq.html',
+      },
+      {
+        label: 'Illinois SOS Registration Renewal and ID Cards',
+        url: 'https://www.ilsos.gov/departments/vehicles/title-and-registration/regid.html',
+      },
+      {
+        label: 'NCDMV Order Duplicate Registration Cards',
+        url: 'https://www.ncdot.gov/dmv/offices-services/online/Pages/my-ncdmv-duplicate-registration.aspx',
+      },
+      {
+        label: 'NCDMV License Plates',
+        url: 'https://www.ncdot.gov/dmv/title-registration/license-plates/Pages/default.aspx',
+      },
+      {
+        label: 'NCDMV Form MVR-18 Replacement Plate or Sticker PDF',
+        url: 'https://www.ncdot.gov/dmv/downloads/Documents/MVR-18.pdf',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'florida',
+      'washington',
+      'new-jersey',
+      'pennsylvania',
+      'virginia',
+      'georgia',
+      'massachusetts',
+      'illinois',
+      'north-carolina',
+    ],
+  },
+  {
+    slug: 'temporary-tag-trip-permit-dealer-plate',
+    title: '临时牌照、temporary tag 和 trip permit：买车、搬州或没牌上路怎么办',
+    eyebrow: '临时牌照',
+    reviewedAt: '2026-07-11',
+    description:
+      '买车当天、跨州开回家、正式 plates / sticker 没到、车辆还没完成 smog / inspection / registration 时，常见词有 temporary tag、temporary operating permit、trip permit、transit permit、one-trip permit 和 dealer temp tag。它们不是全国通用通行证，也不能替代 title、insurance 或正式 registration。',
+    whoNeedsIt: [
+      '从 dealer 或私人卖家买车，正式车牌、registration card 或 sticker 还没办好的人。',
+      '跨州把车开回家、搬州、把车送去 inspection / smog / VIN verification / repair shop / DMV 的人。',
+      'dealer temporary tag 快过期、没收到正式牌照或登记文件、担心还能不能继续开的买车人。',
+      '想分清 temporary tag、trip permit、transit permit、temporary operating permit、one-trip permit 和 dealer plate 的人。',
+      '车辆涉及 out-of-state sale、private sale、salvage / nonrepairable title、commercial vehicle、trailer、RV 或 weight limit 的人。',
+    ],
+    keyFacts: [
+      'Temporary tag、trip permit、transit permit、TOP 和 temporary registration 不是同一种东西。名称、期限、费用、办理地点、能否跨州、能否用于私人交易，都由签发州决定。',
+      '临时许可通常只解决“短期合法移动或等待登记”的问题，不会自动完成 title transfer、tax、insurance、smog / inspection、VIN verification 或 permanent registration。',
+      '加州的 Temporary Operating Permit 更像特定登记场景下的例外许可。California DMV 把 one-time 30-day TOP、60-day TOP、90-day TOP、one-day vehicle moving permit 和 one-trip permit 分开说明，并把 smog、VIN、CHP、specialty plates 等场景列为不同触发条件。',
+      '德州有多种 temporary permit：72-hour / 144-hour、One-Trip Permit、30-Day Permit 和 Vehicle Transit Permit。TxDMV 明确提醒，去外州前要确认目的州是否承认该 permit；Vehicle Transit Permit 通常用于卖家保留 Texas plates 后把车开回家或去 county tax office。',
+      '德州 2025 年 7 月 1 日以后又有单独变化：licensed dealers 不再像过去那样签发若干纸质 temporary tags，dealer sales 逐步转为 metal plates / limited-use plates；但 Vehicle Transit Permit、72/144-hour permit 等仍要按 TxDMV 页面区分。',
+      '纽约把 in-transit vehicle permit / temporary registration 用于把车辆从纽约开到外州，或在纽约州内转移去登记；NY DMV 页面列出 MV-82ITP、ownership proof、identity、insurance 和 fee 等材料。',
+      '佛州 temporary license plate 按用途可能是 10、30 或 90 天。FLHSMV 把 dealer use、casual / private sale、VIN verification / inspection、out-of-state resident 和 personalized / special plate manufacturing 等场景分开。',
+      '华盛顿 trip permit 用于 unlicensed vehicle，并不是长期注册。Washington DOL 说明每张 permit 有 3 consecutive days、同一车辆 30 天内最多 3 张、特定车辆不符合资格等限制；买私人车且没有 plate 时，DOL 还提醒要先买 trip permit 才能合法开走。',
+      '俄勒冈 trip permit 可以用于 Oregon roads 上的 unregistered vehicle 或与现有登记用途不同的使用方式，但不同车种期限不同；light vehicle trip permit 是 21 consecutive days，RV / heavy vehicle / trailer 又是不同规则。',
+      'Virginia 的 trip permit 明确只在 Virginia 有效；如果路线经过外州，要联系其他州。Georgia 的 dealer TOP 是新购车辆登记前的短期许可，过期后 dealer 不能自己延长或再发一个。',
+      'Colorado、Massachusetts 等州提醒了另一个现实：dealer temp tag 快过期、Title Complete notice 没到、或 registration transfer grace period 场景，可能需要找 county / RMV 路径，而不是搜索一个全国通用的“临牌”。',
+      '过期、涂改、路线不符、车种不符、没有 insurance、salvage / nonrepairable、commercial weight、loaded trailer 或跨州不被承认，都可能让临时许可失效。能不能开，最后看签发州和行驶州的官方规则。',
+    ],
+    checklist: [
+      '先写下自己的真实场景：dealer 买车、private sale、外州买车开回本州、搬州、去 inspection / smog、去 repair shop、没收到正式牌、还是正式 registration 被卡住。',
+      '确认三个州别：车辆现在所在州、购买或签发 permit 的州、最终要登记的州；如果中途跨州，逐一确认路线州是否承认该临时许可。',
+      '准备 ownership proof：title、manufacturer certificate / statement、bill of sale、dealer invoice、lease / lien 文件、原 registration 或 transfer paperwork。',
+      '准备车辆信息：VIN、year / make / model、plate number、vehicle weight、trailer / RV / commercial / bus / motorcycle / salvage / nonrepairable 状态。',
+      '准备个人和保险材料：driver license / state ID、当前地址、insurance card / policy number、临时 insurance ID、付款方式和官方表格。',
+      '确认 permit 限制：valid dates、start date、origin、destination、intermediate points、single trip / round trip、display 方式、receipt 是否必须随车。',
+      '确认下一步 deadline：title application、registration application、tax / fee、inspection / smog / VIN verification、sticker / permanent plate 到达时间。',
+      '如果 dealer 处理 title / registration，保留 buyer receipt、temporary tag、purchase agreement、dealer contact、case number，并在过期前联系 dealer、county office 或 DMV。',
+    ],
+    steps: [
+      '第一步：不要先问“能不能没牌开”。先打开车辆所在州或购车州的官方 DMV / DOR / county motor vehicle 页面，查 temporary tag、trip permit、temporary operating permit、temporary registration 或 transit permit。',
+      '第二步：判断是谁能签发。Dealer temporary tag 通常由 dealer 或 dealer system 发；private sale / trip permit 往往要本人去 DMV、county tax office、vehicle licensing office 或官方线上系统申请。',
+      '第三步：把许可类型和用途配对。买车开回家、外州销售、去 VIN verification、去 smog、等待 specialty plate、正式登记未完成、commercial weight movement，可能对应完全不同的 permit。',
+      '第四步：核对 eligibility。重点看 insurance、ownership proof、valid driver license、VIN、vehicle weight、salvage / nonrepairable、commercial / trailer、是否载货、是否只在本州有效。',
+      '第五步：申请并保存证据。打印或保存 permit、receipt、buyer receipt、bill of sale、insurance proof、inspection/smog appointment、dealer title paperwork；很多州要求 permit 或 receipt 随车携带或按规定展示。',
+      '第六步：只按 permit 授权的时间和路线开。不要把 3-day trip permit、one-day moving permit、one-trip permit 或 dealer tag 当成临时通勤证；过期、涂改或换车使用通常会出问题。',
+      '第七步：在过期前完成正式 title / registration / inspection / smog / sticker。临时许可的价值是争取办理窗口，不是无限续命。',
+      '第八步：如果 permit 快过期但正式牌没到，先联系 dealer、county / DMV 和签发机构；不要默认 dealer 可以再给一张，也不要用旧 permit 继续开。',
+    ],
+    faqs: [
+      {
+        question: '买车后没有正式牌照，可以直接开回家吗？',
+        answer:
+          '不要默认可以。Dealer 购买、私人交易、外州购买、卖家保留旧牌、需要 VIN verification / smog 的情况都不同。比如 Texas 有 Vehicle Transit Permit；Washington 说私人买车且没有 plate 时要先买 trip permit；New York 对从纽约开到外州有 in-transit permit。先看签发州官方页面。',
+      },
+      {
+        question: 'temporary tag、trip permit 和 temporary operating permit 是一回事吗？',
+        answer:
+          '不是。Temporary tag 常和 dealer sale 或临时车牌有关；trip permit 常是短期移动 unregistered / unlicensed vehicle；California TOP 又是 registration application、smog、VIN、specialty plate 等场景下的特定许可。中文可以都叫“临牌”，但办事时必须按官方英文名称选。',
+      },
+      {
+        question: '临时牌照可以跨州开吗？',
+        answer:
+          '看签发州和行驶州。California one-trip permit 可以覆盖特定进出加州的连续路线；Virginia trip permit 明确只在 Virginia 有效；TxDMV 提醒去外州前要确认目的州是否接受 Texas permit。跨州时不要只看卖家或 dealer 的口头说法。',
+      },
+      {
+        question: 'dealer 给了临时牌照，我还要管 title / registration 吗？',
+        answer:
+          '要。Dealer tag 只是短期上路凭证，不等于 title 已转到你名下、registration 已完成、税费已处理或 permanent plate / sticker 已寄出。Georgia 还特别说明 dealer 不能给过期 TOP 续发或再发一个；Colorado 也提醒 temporary tag 快过期但 Title Complete notice 没到时要联系 county。',
+      },
+      {
+        question: '临时牌照或 trip permit 过期了还能继续开吗？',
+        answer:
+          '通常不要继续开。许多 permit 都按连续天数、指定日期或单次路线有效；过期、涂改、车辆不匹配或路线不符可能让 permit 失效。更稳妥的做法是停开并联系签发机构，确认是否有新的 permit、extension、registration completion 或 towing / transport 方案。',
+      },
+    ],
+    editorNotes: [
+      '这页故意不写成“全美临牌规则”，因为各州 temporary tag / trip permit 差异很大，尤其 dealer sale 和 private sale 差异明显。',
+      'Texas 2025 HB 718 是高价值更新点，但不要把它误写成所有 Texas permits 都取消；TxDMV 页面仍保留 Vehicle Transit Permit、72/144-hour permit 等类别。',
+      'Massachusetts 内容只作为 registration transfer / non-resident short-term registration 例子，不泛化成普通居民都能申请临时牌。',
+      '这页和“车牌/sticker 丢失补办”不同：本页聚焦正式登记完成前或车辆短途移动时的临时许可。',
+      '后续扩展可拆成州级表：CA TOP、TX permits/HB718、NY in-transit、FL temp plates、WA trip permits、OR trip permits、VA trip permit、GA TOP、CO dealer temp tags、MA non-resident short-term registration。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 DMV、vehicle registration、title、license plates、temporary permits、county office、dealer services 和 online services 官方入口。',
+    },
+    sources: [
+      {
+        label: 'USA.gov State Motor Vehicle Services',
+        url: 'https://www.usa.gov/state-motor-vehicle-services',
+      },
+      {
+        label: 'California DMV Temporary Operating Permits',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/temporary-operating-permits/',
+      },
+      {
+        label: 'California DMV Registration Fees',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/registration-fees/',
+      },
+      {
+        label: 'California DMV Smog Inspections',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/smog-inspections/',
+      },
+      {
+        label: 'TxDMV Temporary Permits',
+        url: 'https://www.txdmv.gov/motorists/register-your-vehicle/temporary-permits',
+      },
+      {
+        label: 'TxDMV Application for Timed Temporary Permits VTR-66 PDF',
+        url: 'https://www.txdmv.gov/sites/default/files/form_files/VTR-66.pdf',
+      },
+      {
+        label: 'TxDMV Vehicle Transit Permit',
+        url: 'https://permit.txdmv.gov/Permit/VTPermit',
+      },
+      {
+        label: 'TxDMV Permit Eligibility',
+        url: 'https://permit.txdmv.gov/Permit/Eligibility#nbb',
+      },
+      {
+        label: 'TxDMV House Bill 718 Implementation',
+        url: 'https://www.txdmv.gov/dealers/HB718',
+      },
+      {
+        label: 'TxDMV Buying or Selling a Vehicle',
+        url: 'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle',
+      },
+      {
+        label: 'NY DMV In-Transit Vehicle Permits',
+        url: 'https://dmv.ny.gov/registration/in-transit-vehicle-permits-temporary-registrations',
+      },
+      {
+        label: 'NY DMV In-Transit Permit / Title Application MV-82ITP PDF',
+        url: 'https://dmv.ny.gov/forms/mv82itp.pdf',
+      },
+      {
+        label: 'NY DMV Registrations',
+        url: 'https://dmv.ny.gov/registrations',
+      },
+      {
+        label: 'FLHSMV License Plates and Registration',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/license-plates-registration/',
+      },
+      {
+        label: 'FLHSMV Electronic Temporary Registration System',
+        url: 'https://www.flhsmv.gov/motor-vehicles-tags-titles/dealers-installers-manufacturers-distributors-importers/authorized-service-providers/electronic-temporary-registration-system/',
+      },
+      {
+        label: 'FLHSMV Application for Temporary License Plate HSMV 83091 PDF',
+        url: 'https://www.flhsmv.gov/pdf/forms/83091.pdf',
+      },
+      {
+        label: 'FLHSMV Forms',
+        url: 'https://www.flhsmv.gov/resources/forms/',
+      },
+      {
+        label: 'Washington DOL Trip Permits for Unlicensed Vehicles',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/license-plates/trip-permits-unlicensed-vehicles',
+      },
+      {
+        label: 'Washington DOL Buy and Register a Vehicle',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/buying-and-selling-vehicle/buy-and-register-vehicle',
+      },
+      {
+        label: 'Washington DOL Vehicle Licensing Offices',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicle-licensing-offices',
+      },
+      {
+        label: 'Oregon DMV Vehicle Trip Permits',
+        url: 'https://www.oregon.gov/odot/dmv/pages/vehicle/trippermit.aspx',
+      },
+      {
+        label: 'Oregon DMV Vehicle Title Registration and Permit Fees',
+        url: 'https://www.oregon.gov/odot/dmv/pages/fees/vehicle.aspx',
+      },
+      {
+        label: 'Oregon DMV Online Services and Trip Permit Quick Tips',
+        url: 'https://www.oregon.gov/odot/dmv/pages/online_quick_tips/services.aspx',
+      },
+      {
+        label: 'Virginia DMV Trip Permit',
+        url: 'https://www.dmv.virginia.gov/vehicles/registration/temp-permit',
+      },
+      {
+        label: 'Virginia DMV Register Your Vehicle',
+        url: 'https://www.dmv.virginia.gov/vehicles/registration',
+      },
+      {
+        label: 'Virginia DMV Insurance Requirements',
+        url: 'https://www.dmv.virginia.gov/vehicles/#insurance',
+      },
+      {
+        label: 'Georgia DOR Temporary Operating Permits',
+        url: 'https://dor.georgia.gov/temporary-operating-permits-tops',
+      },
+      {
+        label: 'Georgia DOR Motor Vehicles',
+        url: 'https://dor.georgia.gov/motor-vehicles',
+      },
+      {
+        label: 'Colorado DMV Registration',
+        url: 'https://dmv.colorado.gov/registration',
+      },
+      {
+        label: 'Colorado DMV Dealer Issued Temporary Permits',
+        url: 'https://dmv.colorado.gov/dealer-issued-temporary-permits',
+      },
+      {
+        label: 'Colorado DMV County Motor Vehicle Offices',
+        url: 'https://dmv.colorado.gov/county-motor-vehicle-offices',
+      },
+      {
+        label: 'Mass.gov Transfer Registration from Dealer Purchase',
+        url: 'https://www.mass.gov/how-to/transfer-your-registration-to-a-vehicle-or-trailer-purchased-from-a-dealer',
+      },
+      {
+        label: 'Mass.gov Transfer Registration from Individual Purchase',
+        url: 'https://www.mass.gov/how-to/transfer-your-registration-to-a-vehicle-or-trailer-purchased-from-an-individual',
+      },
+      {
+        label: 'Mass.gov Non-Resident Short-Term Registration',
+        url: 'https://www.mass.gov/how-to/apply-for-a-non-resident-short-term-registration',
+      },
+      {
+        label: 'Mass.gov Registration and Title for Dealer Purchase',
+        url: 'https://www.mass.gov/how-to/apply-for-a-registration-and-title-for-a-vehicle-purchased-from-a-dealer',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'texas',
+      'new-york',
+      'florida',
+      'washington',
+      'oregon',
+      'virginia',
+      'georgia',
+      'colorado',
+      'massachusetts',
+    ],
+  },
+  {
+    slug: 'vehicle-inspection-emissions-smog-vin-check',
+    title: '车辆年检、emissions、smog 和 VIN inspection，registration 卡住怎么办',
+    eyebrow: '车辆检查',
+    reviewedAt: '2026-07-10',
+    description:
+      '美国没有全国统一的车辆年检规则。买车、搬州、续 registration 或从外州带车时，先分清 safety inspection、emissions / smog check、VIN verification 和 registration hold，才能知道该找 DMV、排放项目、检查站还是 county office。',
+    whoNeedsIt: [
+      '刚搬到新州，把外州车辆带来登记的人。',
+      'registration renewal 被提示 inspection、emissions、smog、VIN 或 insurance 卡住的人。',
+      '在美国买二手车，不确定 title transfer 前后要不要验车的人。',
+      '住在加州、纽约、德州、新泽西、宾州、维州、马州、北卡、亚利桑那、科罗拉多或俄勒冈等有检查/排放规则州的人。',
+    ],
+    keyFacts: [
+      'Safety inspection、emissions inspection、California smog check、VIN verification 和 road-test vehicle check 不是同一件事。一个州可能只要求其中一项，也可能按县、车型、燃料、年份或登记场景组合要求。',
+      '加州常见关键词是 smog inspection。California DMV 和 BAR 都把 smog check 与 vehicle registration、renewal、seller responsibility、车型年份和豁免条件放在同一体系里说明。',
+      '纽约 DMV 把 vehicle safety inspection 和 emissions inspection 放在同一 inspection 体系下；车辆通常需要在登记后按期限检查，并在续期时保持 inspection sticker 有效。',
+      '德州 2025 年 1 月 1 日起，多数非商用车辆不再做年度 safety inspection，但 TCEQ / Texas DMV 仍要求部分县、部分车辆完成 emissions inspection 才能登记或续 registration。',
+      '新泽西、宾州、维州、马州、北卡、亚利桑那、科罗拉多和俄勒冈等州的规则差异很大。有的州按县或都会区要求排放，有的州把安全检查和排放检查分开，有的州使用指定检查站。',
+      '佛州这类问题更常见在 out-of-state vehicle 的 VIN / odometer verification 或 title / registration 文件核验，而不是把“年检”当作全国统一前置条件。',
+      '检查失败通常不是驾照问题，也不等于 DMV 能现场解除。大多数场景要先修车、复检、按官方项目申请 waiver / extension，或等检查记录回传后再续 registration。',
+    ],
+    checklist: [
+      '先确认场景：新居民车辆登记、买二手车、registration renewal、title transfer、外州车辆转入、路考用车，还是收到 hold / denial 通知。',
+      '确认车辆所在地和登记地：州、county、ZIP code、车牌州、车辆年份、fuel type、weight class、commercial / non-commercial。',
+      '打开本州 DMV / motor vehicle 页面，查关键词：inspection、emissions、smog、VIN verification、new resident、registration renewal。',
+      '准备车辆文件：title 或 registration、VIN、plate number、insurance proof、renewal notice、inspection notice、dealer paperwork 或 bill of sale。',
+      '如果是排放或 smog，确认是否必须去授权站点、是否需要先修理 check engine light、是否有 grace period、waiver、exemption 或 retest 程序。',
+      '如果是 VIN verification，确认谁可以验：DMV / county office、law enforcement、licensed dealer、notary、inspection station 或州表格指定人员。',
+      '保留 inspection certificate、smog certificate、repair invoice、waiver approval、VIN verification form、online confirmation 和 registration receipt。',
+    ],
+    steps: [
+      '第一步：不要直接搜索“美国车辆年检”。先打开车辆登记州的官方 DMV / motor vehicle inspection 页面，确认本州是否真的有 safety inspection、emissions / smog 或 VIN verification。',
+      '第二步：把问题拆成四类。Safety inspection 看车辆安全设备；emissions / smog 看排放系统；VIN verification 看车辆身份号码和文件一致性；registration hold 看是否有保险、罚单、toll 或系统记录未解除。',
+      '第三步：按 county 和车辆类型确认。德州、北卡、亚利桑那、科罗拉多、俄勒冈等排放规则常按地区或空气质量项目划分，不能只看州名。',
+      '第四步：如果是买车或搬州，先看 title / registration 页面要求的顺序。有些地方要求先拿保险和 VIN verification，有些地方允许先登记再在期限内完成 inspection。',
+      '第五步：如果检查失败，先看官方 failure / retest / waiver 规则。不要只拿失败单去 DMV 排队；多数情况下 DMV 需要合格记录、豁免记录或检查系统更新。',
+      '第六步：完成检查后再回到 registration renewal、title transfer 或 county tax / tag office 流程，确认记录已同步，实体 sticker、registration card 或 plate 是否已经更新。',
+    ],
+    faqs: [
+      {
+        question: '美国车辆年检是全国统一的吗？',
+        answer:
+          '不是。每个州甚至同一州不同 county 都可能不同。加州偏 smog，纽约同时讲 safety 和 emissions，德州 2025 后多数非商用车不做年度 safety inspection 但部分县仍要 emissions，佛州常见卡点反而是 VIN / odometer verification。',
+      },
+      {
+        question: 'smog、emissions 和 safety inspection 有什么区别？',
+        answer:
+          'Smog / emissions 主要看排放系统和污染控制；safety inspection 主要看灯、刹车、轮胎、玻璃、转向等安全项目。名称和项目由州决定，不能用中文“年检”一词全部概括。',
+      },
+      {
+        question: '搬到新州后，外州车一定要先检查才能登记吗？',
+        answer:
+          '不一定。要看新州 new resident、title / registration 和 inspection 页面。有的州把 VIN verification 放在 title / registration 前，有的州给登记后检查期限，有的州只对特定 county 或车型要求排放。',
+      },
+      {
+        question: '检查失败后还能续 registration 吗？',
+        answer:
+          '看州和失败类型。通常要先维修并复检，或按官方项目申请 waiver / extension。DMV 柜台通常不能把失败的 emissions / smog 记录直接改成通过。',
+      },
+      {
+        question: 'VIN inspection 和 emissions inspection 是一回事吗？',
+        answer:
+          '不是。VIN verification 是核对车辆识别号码和文件是否一致，常见于外州车辆、title transfer 或登记核验；emissions / smog 是排放检查，通常和空气质量项目、车型年份、燃料类型或 county 相关。',
+      },
+    ],
+    editorNotes: [
+      '这页避免使用“美国年检”作为单一规则，因为官方来源显示 inspection、emissions、smog 和 VIN verification 的触发条件完全不同。',
+      '德州是必须写清的变化点：2025 年后多数非商用车 annual safety inspection 取消，但 emissions county 规则仍可影响 registration。',
+      '佛州不要硬写成“也要排放年检”。更准确的中文提醒是：外州车 title / registration 场景里先查 VIN / odometer verification。',
+      '车辆检查不是机械维修建议。本站只解释 DMV / registration 路径，不判断车辆故障、维修报价或排放系统是否能通过。',
+      '后续扩展可以把这页拆成 state-by-state inspection directory；当前阶段先用高质量专题承接搜索需求。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 vehicle registration、title、inspection、emissions、VIN verification、线上服务和办公室入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Smog Inspections',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/smog-inspections/',
+      },
+      {
+        label: 'California BAR Smog Check Program',
+        url: 'https://www.bar.ca.gov/consumer/smog-check-program',
+      },
+      {
+        label: 'NY DMV Inspections',
+        url: 'https://dmv.ny.gov/inspections',
+      },
+      {
+        label: 'NY DMV Inspection Requirements',
+        url: 'https://dmv.ny.gov/inspection/inspection-requirements',
+      },
+      {
+        label: 'Texas DPS Vehicle Safety Inspection Program Changes',
+        url: 'https://www.dps.texas.gov/news/dps-reminds-texans-vehicle-safety-inspection-changes',
+      },
+      {
+        label: 'Texas DMV Register Your Vehicle',
+        url: 'https://www.txdmv.gov/motorists/register-your-vehicle',
+      },
+      {
+        label: 'TCEQ Vehicle Inspection and Maintenance Program',
+        url: 'https://www.tceq.texas.gov/airquality/mobilesource/vim/overview.html',
+      },
+      {
+        label: 'NJ MVC Vehicle Inspection',
+        url: 'https://www.nj.gov/mvc/inspection/aboutinsp.htm',
+      },
+      {
+        label: 'NJ MVC How to Get Your Vehicle Inspected',
+        url: 'https://www.nj.gov/mvc/inspection/inspecthow.htm',
+      },
+      {
+        label: 'PennDOT Safety Inspection Program',
+        url: 'https://www.pa.gov/agencies/dmv/vehicle-services/inspection-and-safety-requirements/safety-inspection-program',
+      },
+      {
+        label: 'PennDOT Emission Inspections Program',
+        url: 'https://www.pa.gov/agencies/dmv/vehicle-services/inspection-and-safety-requirements/emission-inspections-program',
+      },
+      {
+        label: 'Virginia DMV Emissions Inspections',
+        url: 'https://www.dmv.virginia.gov/vehicles/registration/emissions',
+      },
+      {
+        label: 'Virginia State Police Vehicle Safety Inspection',
+        url: 'https://vsp.virginia.gov/safety-and-enforcement/vehicle-safety-inspection/',
+      },
+      {
+        label: 'Mass.gov Vehicle Inspections',
+        url: 'https://www.mass.gov/info-details/vehicle-inspections',
+      },
+      {
+        label: 'NCDMV Safety and Emissions Inspections',
+        url: 'https://www.ncdot.gov/dmv/title-registration/emissions-safety/Pages/default.aspx',
+      },
+      {
+        label: 'FLHSMV New Resident',
+        url: 'https://www.flhsmv.gov/new-resident/',
+      },
+      {
+        label: 'FLHSMV VIN and Odometer Verification Form',
+        url: 'https://www.flhsmv.gov/pdf/forms/82042.pdf',
+      },
+      {
+        label: 'Arizona MVD Emissions',
+        url: 'https://azdot.gov/mvd/services/vehicle-services/vehicle-registration/emissions',
+      },
+      {
+        label: 'Arizona Vehicle Emissions Testing',
+        url: 'https://www.myazcar.com/',
+      },
+      {
+        label: 'Colorado DMV Emissions',
+        url: 'https://dmv.colorado.gov/emissions',
+      },
+      {
+        label: 'Oregon DEQ Vehicle Inspection Program',
+        url: 'https://www.oregon.gov/deq/Vehicle-Inspection/Pages/default.aspx',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'florida',
+      'new-jersey',
+      'pennsylvania',
+      'virginia',
+      'massachusetts',
+      'north-carolina',
+      'arizona',
+      'colorado',
+      'oregon',
+    ],
+  },
+  {
+    slug: 'sold-car-release-liability-plates-insurance',
+    title: '卖车、捐车或报废后，DMV 责任解除、车牌和保险怎么收尾',
+    eyebrow: '车辆收尾',
+    reviewedAt: '2026-07-10',
+    description:
+      '卖车不是把钥匙和 title 交出去就结束。很多州还要提交 sold notice / release of liability、移除或退还车牌、确认买方 title transfer，并按正确顺序取消保险。',
+    whoNeedsIt: [
+      '刚把车卖给私人买家、dealer、亲友或捐赠机构的人。',
+      '卖车后仍收到停车罚单、toll、registration renewal 或保险通知的人。',
+      '准备取消保险、退牌、转移车牌或申请 registration refund 的车主。',
+      '车辆被报废、junked、destroyed、保险公司收走或搬出原州的人。',
+    ],
+    keyFacts: [
+      'Seller notice / release of liability、title transfer、plate surrender 和 insurance cancellation 是不同动作；提交卖车通知通常不能替代买方完成 title transfer。',
+      '部分州有明确卖车通知期限：California 要求卖方在出售或转让后 5 个 calendar days 内提交 NRL；Washington 要在 sale date 后 5 天内提交 Report of Sale；Texas 的 Vehicle Transfer Notification 保护期围绕 30 天；Oregon 和 Arizona sold notice 以 10 天为核心提醒。',
+      '车牌规则高度州别化。Florida、New Jersey、Washington 和 Virginia 都强调卖方移除车牌；New York、New Jersey、Virginia、North Carolina、Pennsylvania 等州还会把退牌、登记和保险顺序连在一起。',
+      '保险不能随便先取消。New York、North Carolina、Virginia 和 Pennsylvania 的官方页面都把 plate surrender / inactivation / return 与取消保险或避免 registration suspension、driver license suspension、civil penalty 关联起来。',
+      '卖给 dealer 或 trade-in 不一定自动清掉卖方记录。Texas 提醒车辆可能仍在卖方名下直到 dealer 转售；Washington 也提醒 owner 要确认 dealer 是否提交 Report of Sale。',
+      '保留确认号、plate surrender receipt、bill of sale、title 复印件、dealer trade-in 文件和保险取消确认，是日后处理罚单、toll、保险 lapse 或 registration renewal 的关键证据。',
+    ],
+    checklist: [
+      '确认交易类型：private sale、trade-in、donation、gift、junked/destroyed、insurance total loss、out-of-state sale 或搬出原州。',
+      '在 title 上填写卖方签名、买方姓名地址、sale date、sale price / gift、odometer reading；有 lien 时先看 lien release 或 payoff 规则。',
+      '准备 bill of sale、title 复印件或 dealer/trade-in paperwork，至少保存买方信息、VIN、plate number、成交日期和价格。',
+      '按原登记州提交 sold notice、report of sale、notice of transfer 或 release of liability，并保存 confirmation。',
+      '处理车牌：移除、转移、surrender、inactivate、deface、mail back 或保留，按本州官方页面执行。',
+      '按正确顺序取消保险：先确认 plate / registration 已 surrender、inactivate 或按州要求处理，再让保险公司取消或转移 coverage。',
+      '检查电子 toll pass、parking permit、city/county tax account、online DMV account 或 License Express / MyDMV 里是否还挂着这辆车。',
+    ],
+    steps: [
+      '第一步：先打开原登记州的 selling a vehicle / notice of sale / plate surrender 页面，不要只看买方 title transfer 页面。',
+      '第二步：成交当天完成 title、bill of sale、odometer、sale date、buyer information 和 lien release 文件；不要把空白 title 或原件复印件随意交出去。',
+      '第三步：立即移除车牌和个人文件；如果州允许转移车牌，确认只能转到符合条件的自己名下车辆。',
+      '第四步：在州规定期限内提交 release of liability、report of sale、sold notice 或 vehicle transfer notification，并下载或截图确认。',
+      '第五步：如果不再使用该 registration，按州规则退牌、取消 registration 或 inactivate plates；New York、North Carolina、Virginia 等州尤其要先处理 plate 再取消保险。',
+      '第六步：等 DMV 记录、plate receipt 和保险取消/转移确认都保存后，再处理 toll pass、停车许可、车库、城市税或贷款账户等非 DMV 收尾。',
+    ],
+    faqs: [
+      {
+        question: '我已经把 title 签给买家了，还要通知 DMV 吗？',
+        answer:
+          '很多州仍然建议或要求卖方单独提交 notice / report。California 明确说明 NRL 不等于转移所有权；Washington 的 Report of Sale 也不是 title transfer。它们主要保护卖方免受后续罚单、toll 或责任牵连。',
+      },
+      {
+        question: '卖给 dealer 或 trade-in，还需要自己提交 sold notice 吗？',
+        answer:
+          '要看州。Texas 提醒卖给 licensed dealer 后车辆可能还留在卖方名下，直到 dealer 卖给个人；Washington 也说 dealer 可能代交 Report of Sale，但 owner 仍要确认。保险和车牌也要按原州规则收尾。',
+      },
+      {
+        question: '卖车后可以先取消保险吗？',
+        answer:
+          '不要直接取消。New York、North Carolina、Virginia 和 Pennsylvania 都把保险取消与退牌、登记或 suspension 风险联系在一起。安全顺序通常是先处理 plate / registration，再取消或转移 insurance。',
+      },
+      {
+        question: '车牌可以留给买家吗？',
+        answer:
+          '不能跨州套用。Florida、New Jersey、Washington、Virginia 都强调卖方移除车牌；Texas 允许卖方选择移除、转移、保留或按规则毁坏不用的牌照。按原登记州页面执行。',
+      },
+      {
+        question: '卖车后还收到 renewal、罚单或 toll 怎么办？',
+        answer:
+          '先找 confirmation、plate surrender receipt、bill of sale、title 复印件或 dealer/trade-in 文件，再按原州 DMV 页面补交 sold notice、NRL 或证明文件。California、Texas、Pennsylvania 等官方页面都提醒卖方记录不完整会带来后续责任或通知。',
+      },
+    ],
+    editorNotes: [
+      '这页必须和“买车或搬州后登记顺序”分开：前者是买方/新居民登记路径，本页是卖方从 DMV、车牌和保险记录里退出。',
+      '避免写成全国统一期限。正文只把 CA 5 calendar days、WA 5 days、TX 30 days、OR/AZ 10 days 作为官方例子，并提醒回到原登记州确认。',
+      '退牌与保险顺序是高风险点。NY、NC、VA、PA 的规则都支持“不要先取消保险再想起车牌”的中文提醒。',
+      'NRL / Report of Sale / Vehicle Transfer Notification 保护卖方，但不自动完成 buyer title transfer；FAQ 需要反复拆开这两个概念。',
+      '这页不是二手车交易法律建议，不判断贷款 payoff、sale tax、dealer 合同或保险理赔争议。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 DMV、车辆服务、登记、title、plate、线上服务和办公室入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Notice of Transfer and Release of Liability',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/notice-of-transfer-and-release-of-liability-nrl/',
+      },
+      {
+        label: 'California DMV Title Transfers and Changes',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
+      },
+      {
+        label: 'NY DMV Surrender Vehicle Plates and Registration',
+        url: 'https://dmv.ny.gov/registration/surrender-return-or-turn-in-your-vehicle-plates-and-registration',
+      },
+      {
+        label: 'NY DMV Change, Reinstate or Cancel Insurance Coverage',
+        url: 'https://dmv.ny.gov/insurance/change-reinstate-or-cancel-insurance-coverage',
+      },
+      {
+        label: 'FLHSMV Selling a Vehicle',
+        url: 'https://www.flhsmv.gov/safety-center/consumer-education/selling-vehicle-florida/',
+      },
+      {
+        label: 'NJ MVC Transferring Vehicle Ownership',
+        url: 'https://www.nj.gov/mvc/vehicles/transowner.htm',
+      },
+      {
+        label: 'NJ MVC Surrendering Registration',
+        url: 'https://www.nj.gov/mvc/vehicles/surrenderreg.htm',
+      },
+      {
+        label: 'Texas DMV Buying or Selling a Vehicle',
+        url: 'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle',
+      },
+      {
+        label: 'Washington DOL Sell a Vehicle',
+        url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/buying-and-selling-vehicle/sell-vehicle',
+      },
+      {
+        label: 'PennDOT Types of Insurance Letters',
+        url: 'https://www.pa.gov/agencies/dmv/vehicle-services/insurance-overview/types-of-insurance-letters-from-penndot',
+      },
+      {
+        label: 'NCDMV Vehicle Insurance Requirements',
+        url: 'https://www.ncdot.gov/dmv/title-registration/insurance-requirements/Pages/default.aspx',
+      },
+      {
+        label: 'NCDMV Vehicle Titles',
+        url: 'https://www.ncdot.gov/dmv/title-registration/vehicle/Pages/default.aspx',
+      },
+      {
+        label: 'Virginia DMV Buying/Selling a Vehicle',
+        url: 'https://www.dmv.virginia.gov/vehicles/buy-sell',
+      },
+      {
+        label: 'Virginia DMV What to Do with Your License Plates',
+        url: 'https://www.dmv.virginia.gov/vehicles/license-plates/surrender',
+      },
+      {
+        label: 'Oregon DMV Vehicle Information',
+        url: 'https://www.oregon.gov/odot/dmv/pages/online_quick_tips/vehicle_information.aspx',
+      },
+      {
+        label: 'Arizona MVD Selling Your Vehicle',
+        url: 'https://azdot.gov/mvd/services/registration-plates-title/selling-vehicle',
+      },
+      {
+        label: 'Massachusetts RMV Cancel Your Vehicle Registration',
+        url: 'https://www.mass.gov/how-to/cancel-your-vehicle-registration-license-plates',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'florida',
+      'new-jersey',
+      'texas',
+      'washington',
+      'pennsylvania',
+      'north-carolina',
+      'virginia',
+      'oregon',
+      'arizona',
+      'massachusetts',
+    ],
+  },
+  {
+    slug: 'tickets-tolls-insurance-lapse-registration-hold',
+    title: '罚单、toll、保险 lapse 或 registration hold，先查 DMV 还是法院',
+    eyebrow: '问题排查',
+    reviewedAt: '2026-07-10',
+    description:
+      'DMV 系统显示 hold、suspension、denial 或不能续 registration，不一定是 DMV 自己能解除。罚单、toll、保险 lapse、parking ticket、court suspension 和地方税费常常要先找发起机构处理。',
+    whoNeedsIt: [
+      '续 registration、换驾照或办线上服务时被系统提示 hold、suspended、denied、blocked 的人。',
+      '收到 DMV、法院、toll agency、保险 lapse 或 parking ticket 通知的人。',
+      '卖车后仍收到 toll、parking ticket 或 renewal notice，需要判断是不是 DMV 记录没清的人。',
+      '不知道应该先联系 DMV、法院 clerk、city parking、toll authority、insurance company 还是 county tax office 的人。',
+    ],
+    keyFacts: [
+      '同一个“卡住”可能影响不同对象：driver license、vehicle registration、license plate、title transfer、online renewal 或 registration renewal。先看通知写的是哪一个。',
+      'Unpaid parking / toll / owner-responsibility citation 常常不是 DMV 直接判定。California、Virginia、Pennsylvania、Massachusetts 等官方页面都显示，地方机构、parking authority、toll agency 或 municipality 可能把记录发给 DMV/RMV，解除也通常要先回到发起机构。',
+      'Insurance lapse 是另一条线。New York、Florida、New Jersey、Pennsylvania、Virginia 等页面都把保险中断与 registration / plate / driver license suspension 或 reinstatement fee 联系起来。',
+      'Traffic ticket / court suspension 经常要找法院。Florida 明确失败缴纳罚款、未出庭或未完成 court-ordered school 时，应联系 citation 所在 county 的 traffic court。',
+      'Toll hold 和普通 parking ticket 不一定同一机构。NY DMV、FLHSMV、PennDOT、Virginia DMV 都把 toll authority / tolling agency 作为解决入口之一。',
+      '“已付款”不等于 DMV 立刻恢复。Texas DPS FAQ、Virginia local-fee pages、PennDOT toll/parking pages都提醒，需要 reporting agency、locality、toll entity 或 court 把 clearance / compliance 回传，DMV 记录才会更新。',
+    ],
+    checklist: [
+      '把所有通知拍照保存：DMV letter、court notice、toll invoice、parking ticket、insurance lapse letter、renewal denial、order number、case number、plate/VIN。',
+      '先判断对象：是 driver license suspended，还是 vehicle registration suspended / denied / non-renewal，还是 plate / insurance / toll hold。',
+      '看发起机构：DMV、court clerk、city parking authority、toll agency、insurance company、county tax assessor、municipality、child support agency 或 state revenue/tax agency。',
+      '确认是否需要 payment、proof of insurance、plate surrender、court compliance、traffic school、restoration fee、reinstatement fee 或 clearance letter。',
+      '如果已经卖车或搬州，准备 sold notice、release of liability、bill of sale、plate surrender receipt、insurance cancellation confirmation 和 toll account 关闭证明。',
+      '完成处理后保存 receipt / confirmation，并等官方系统更新；如果 DMV 仍显示 hold，再拿确认号找原发起机构或 DMV compliance / restoration 页面。',
+    ],
+    steps: [
+      '第一步：不要只看“DMV 卡住”四个字，先读通知的 reason code、order number、case number、plate、VIN 和发起机构。',
+      '第二步：如果是 parking ticket、toll 或地方税费，先联系发出记录的 city / locality / toll authority / parking authority；DMV 多半只能看到 hold，不能解释每笔费用。',
+      '第三步：如果是 insurance lapse，先确认车当时是否仍 registered、是否有 coverage、是否已退牌或 deactivate plate；必要时让保险公司电子提交 proof。',
+      '第四步：如果是 traffic citation、failure to appear、failure to pay 或 court-ordered school，先联系 citation 所在法院或 clerk，满足 court requirements。',
+      '第五步：按州规则支付 restoration / reinstatement / civil penalty；但不要把付款当成唯一动作，很多州还要求 proof、plate surrender 或 clearance 回传。',
+      '第六步：记录恢复后再续 registration、办 license、卖车转移、取消保险或处理 toll pass，避免同一个问题反复挂回 DMV 记录。',
+    ],
+    faqs: [
+      {
+        question: 'DMV 显示 registration renewal 被 hold，是不是直接去 DMV 付款就好？',
+        answer:
+          '不一定。California 的 parking / toll 记录、Virginia 的 local tax / parking / toll denial、Pennsylvania 的 parking / toll suspension、Massachusetts 的 non-renewal 都说明，很多 hold 要先由发起机构处理或回传 clearance。',
+      },
+      {
+        question: '保险 lapse 为什么会影响 registration 或驾照？',
+        answer:
+          '很多州要求车辆在登记期间保持 liability insurance。New York 说 lapse 可能导致 registration 和 driver license suspension；Florida、Pennsylvania、Virginia 也把保险中断、plate surrender / deactivation、reinstatement fee 或 SR-22 类要求连在一起。',
+      },
+      {
+        question: '我已经交了罚单或 toll，为什么 DMV 还没恢复？',
+        answer:
+          '付款后系统更新可能需要原机构通知 DMV。Texas DPS 的 FTA/FTP FAQ 提醒已付款仍 suspended 时要联系 reporting agency；Virginia 和 PennDOT 页面也强调 locality、toll entity 或 parking authority 的 clearance / compliance。',
+      },
+      {
+        question: '收到短信说 unpaid ticket 会 suspension，可以点链接付款吗？',
+        answer:
+          '不要直接点。Florida 和 Virginia DMV 都发布过类似 scam alert，提醒不要通过短信里的可疑链接付款。应从州 DMV、法院、toll agency 或官方账单上的网址/电话独立进入。',
+      },
+      {
+        question: '卖车后收到 toll 或 parking ticket，是买家的事还是我的事？',
+        answer:
+          '先看违章日期、plate/VIN、title transfer、sold notice 和 plate surrender 是否完整。卖车通知、release of liability、bill of sale、退牌收据和 toll account 关闭记录，是向 DMV、toll agency 或 city parking 解释的核心证据。',
+      },
+    ],
+    editorNotes: [
+      '这页的重点不是“如何逃罚单”，而是帮助用户判断哪个机构有权解除 hold，以及哪些文件能证明自己已经合规。',
+      '避免把 registration hold、driver license suspension、insurance lapse、parking ticket、toll invoice、court fine 写成同一件事。每个州会把发起机构、恢复费用和 clearance 路径拆开。',
+      '高风险提醒必须保守：未缴罚单、法院未出庭、保险中断和无保险驾驶都可能有法律后果，本站只做官方入口导航，不提供法律辩护或责任判断。',
+      '诈骗提醒很重要。Florida 和 Virginia DMV 官方 scam alert 支持提示用户不要从短信链接付款，要从官方入口独立核验。',
+      '卖车后 toll/parking 问题应链接到上一轮卖车/退牌主题的逻辑：sold notice、bill of sale、plate surrender 和 toll account closeout 是证据链。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 DMV、线上服务、恢复/续期、登记、保险和车辆业务官方入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Parking/Toll Violations on Record',
+        url: 'https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/renewals/parking-toll-violations-on-record/',
+      },
+      {
+        label: 'California DMV Owner Responsibility Citations on Record',
+        url: 'https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/renewals/owner-responsibility-citations-on-record/',
+      },
+      {
+        label: 'NY DMV Registration Suspensions for Failure to Pay Tolls',
+        url: 'https://dmv.ny.gov/registration/registration-suspensions-for-failure-to-pay-tolls',
+      },
+      {
+        label: 'NY DMV Insurance Lapses',
+        url: 'https://dmv.ny.gov/insurance/insurance-lapses',
+      },
+      {
+        label: 'NY DMV Traffic Ticket Payment Plans',
+        url: 'https://dmv.ny.gov/tickets/payment-plans',
+      },
+      {
+        label: 'FLHSMV Traffic Citations or Court Suspensions',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-suspensions-revocations/traffic-citations-court-suspensions/',
+      },
+      {
+        label: 'FLHSMV Florida Insurance Requirements',
+        url: 'https://www.flhsmv.gov/insurance/',
+      },
+      {
+        label: 'FLHSMV Toll-by-Plate Information',
+        url: 'https://www.flhsmv.gov/toll-by-plate-information/',
+      },
+      {
+        label: 'NJ MVC Suspensions and Restorations',
+        url: 'https://www.nj.gov/mvc/license/suspension.htm',
+      },
+      {
+        label: 'NJ MVC Insurance Requirements',
+        url: 'https://www.nj.gov/mvc/vehicles/insurancerequirements.htm',
+      },
+      {
+        label: 'Texas DPS Failure to Appear and Failure to Pay FAQ',
+        url: 'https://www.dps.texas.gov/section/driver-license/faq/section-8-failure-appear-and-failure-pay-ftaftp',
+      },
+      {
+        label: 'Texas DMV Motor Vehicle Registration Manual',
+        url: 'https://www.txdmv.gov/sites/default/files/body-files/Motor_Vehicle_Registration_Manual_Book_298.pdf',
+      },
+      {
+        label: 'PennDOT Suspensions Due to Unpaid Tolls',
+        url: 'https://www.pa.gov/agencies/dmv/vehicle-services/registration-suspensions/suspensions-due-to-unpaid-tolls',
+      },
+      {
+        label: 'PennDOT Suspensions Due to Unpaid Parking Tickets',
+        url: 'https://www.pa.gov/agencies/dmv/vehicle-services/registration-suspensions/suspensions-due-to-unpaid-parking-tickets',
+      },
+      {
+        label: 'PennDOT Financial Responsibility FAQs',
+        url: 'https://www.pa.gov/agencies/dmv/faqs/motor-vehicle-faqs/financial-responsibility-faqs',
+      },
+      {
+        label: 'Virginia DMV Denial of Registrations or Renewal',
+        url: 'https://www.dmv.virginia.gov/vehicles/registration/denials',
+      },
+      {
+        label: 'Virginia DMV Insurance Requirements',
+        url: 'https://www.dmv.virginia.gov/vehicles/insurance-requirements',
+      },
+      {
+        label: 'Mass.gov RMV Non-Renewal Program',
+        url: 'https://www.mass.gov/info-details/non-renewal-program',
+      },
+      {
+        label: 'Mass.gov Non-motor Vehicle Suspensions',
+        url: 'https://www.mass.gov/info-details/non-motor-vehicle-suspensions',
+      },
+      {
+        label: 'Virginia DMV Toll Charge Text Scam Warning',
+        url: 'https://www.dmv.virginia.gov/news/virginia-dmv-warns-customers-toll-charge-text-scam',
+      },
+      {
+        label: 'FLHSMV Scam Alert',
+        url: 'https://www.flhsmv.gov/safety-center/consumer-education/scam-alert/',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'florida',
+      'new-jersey',
+      'texas',
+      'pennsylvania',
+      'virginia',
+      'massachusetts',
+      'north-carolina',
+      'washington',
+    ],
+  },
+  {
+    slug: 'driving-record-points-traffic-school',
+    title: '驾照记录、points 和 traffic school：怎么查、怎么影响保险和停牌',
+    eyebrow: '驾照记录',
+    reviewedAt: '2026-07-10',
+    description:
+      '收到交通罚单、想查 driving record / MVR、担心 points、想上 traffic school / defensive driving / driver improvement，或雇主/保险要看驾驶记录时，不要只问“能不能消分”。不同州把驾驶记录、扣分、课程、保险折扣、停牌和商业驾照规则分得很细。',
+    whoNeedsIt: [
+      '收到 speeding、red light、careless driving、failure to appear 或 moving violation citation，不确定是否会进 driving record 或产生 points 的人。',
+      '保险公司、雇主、法院、志愿组织、TNC 平台或自己想要 driving record、MVR、abstract、certified record 的人。',
+      '想用 traffic school、defensive driving、driver improvement、PIRP、BDI 或 safe driving course 降低 points、避免停牌、满足法院要求或争取保险折扣的人。',
+      '持有 CDL、开 commercial vehicle，或担心 commercial driver 记录保存更久、课程规则不同的人。',
+      '看到网上说“上课就能消分”“德州 points 还在”“保险一定不涨”，想回到官方规则核对的人。',
+    ],
+    keyFacts: [
+      'Driving record、MVR、abstract 和 license status 不是同一份东西。记录可能显示 violation、conviction、collision、departmental action、restriction、suspension、course completion 或 insurance/employment version；license status 只回答当前驾驶资格是否有效。',
+      'Points 没有全国统一算法。California 成人常见 negligent operator 阈值是 12 个月 4 分、24 个月 6 分、36 个月 8 分；Florida 是 12 points / 12 months、18 points / 18 months、24 points / 36 months；Georgia 是 24 个月 15 分；Virginia 同时有 demerit points 和 safe driving points；Pennsylvania 到 6 分会触发纠正措施；New York 6 分以上可能有 Driver Responsibility Assessment，Texas 的 Driver Responsibility Program 已废止。',
+      'Traffic school 不等于罚单从世界上消失。California 的 traffic violator school 可让合格 citation 不报给保险，但记录仍按规则存在；New York PIRP 最多只在停牌计算中减 4 分，ticket/points 不会从记录上物理删除；Florida BDI election 要按期限完成；Georgia、Virginia、Pennsylvania、Washington 的课程用途也各不相同。',
+      '课程必须看“谁要求、谁批准、谁接收完成记录”。同样叫 defensive driving，在法院、DMV、保险公司、雇主或 CDL 场景下意义可能不同；Florida 课程完成由 provider 电子报告，California 要按法院给的 deadline 走，Virginia court-required clinic 是否给 safe driving points 由法院决定。',
+      '雇主和保险看的 record type 可能不同。Washington 把 Full、Insurance、Employment、Alcohol/Drug Treatment record 分开；Virginia 有 personal use、employment、insurance、TNC 等类型；Texas defensive driving 通常要买 Type 3A certified complete driving history，买错版本可能白花钱。',
+      'Out-of-state ticket 可能影响本州驾照。Florida 明确说明外州 citation 可传回佛州并按佛州规则给分，但不能用佛州学校去移除外州 citation 的 points；其他州也可能通过法院、DMV 或 interstate reporting 影响记录。',
+      'CDL 和 commercial driver 规则更严格。California 记录保留期里 commercial driver / hazardous-materials / out-of-service 等场景会明显更长；Florida BDI election 排除 CDL；Virginia 对 CDL 或 commercial motor vehicle 要求 commercial driver improvement clinic。',
+      'DMV points 和 insurance-company points 不是同一套。New York PIRP 页面特别提醒，课程对 DMV point calculation 和保险折扣的作用，不等于清除保险公司自己的评分或承保判断。',
+      '时间线很关键：California traffic school 通常受 18-month 规则影响，New York PIRP 的保险折扣周期、Florida BDI 的 30 天 election、Virginia DMV-required clinic 的 90 天期限、New York sponsor report 的处理时间，都可能决定课程是否有效。',
+      '这类页面只能做官方入口和规则解释，不能替你决定是否认罪、是否 contest ticket、是否影响具体保费；有争议的 citation、事故责任、商业驾驶或移民/刑事后果，应问法院、律师、保险公司或雇主。',
+    ],
+    checklist: [
+      '先确定两件事：你的 license state 是哪里，citation / court / agency 是哪个州或县。',
+      '决定你要买哪种记录：status check、driving record、MVR、abstract、certified complete history、employment record、insurance record，还是 court-specific 版本。',
+      '看 citation 当前状态：pending、paid、convicted、dismissed、adjudication withheld、failure to appear、failure to pay、court-ordered course，或已经传给 DMV。',
+      '查本州 points 页面，不要只看罚单金额；确认 violation 是否有 points、points 保留多久、多少 points 会导致 warning、probation、suspension 或 driver improvement requirement。',
+      '如果考虑课程，确认 eligibility、deadline、provider approval、是否 CDL、是否 commercial vehicle、法院是否同意、保险公司是否认可。',
+      '保存课程完成证明、court receipt、provider confirmation、DMV receipt、record order PDF 和保险/雇主要求的 record type。',
+      '课程或付款后再查一次 status / driving record；如果 record 错误，按官方 record correction、court abstract 或 DMV contact 流程更正。',
+      '商业驾驶、雇主审查、TNC、校车/巴士/危险品或保险争议场景，不要用普通 noncommercial driver 的经验套用。',
+    ],
+    steps: [
+      '第一步：打开本州 DMV / DPS / RMV / MVC / DOL 的 driving record 页面，先确认 record 类型、费用、是否需要 certified copy、是否可在线打印。',
+      '第二步：如果是为 court 或 defensive driving 准备 record，先看法院或州页面指定的 record type；Texas 这类州会区分 Type 2、Type 2A、Type 3、Type 3A。',
+      '第三步：打开本州 points / penalties 页面，把 ticket 的 violation date、conviction date、disposition date 和 points 阈值分开看。',
+      '第四步：若 ticket 还没结案，先查 court traffic school / defensive driving eligibility；不要在没看清后果前直接付款或报名。',
+      '第五步：只选官方批准或法院接受的 provider，记录 deadline、完成报告方式、是否要自己提交 certificate，以及是否适用于 insurance discount。',
+      '第六步：完成课程或缴费后，等待 provider / court / DMV 更新，再查 license status 和 driving record；如果仍有 suspension、FTA/FTP 或错误 conviction，回到发起机构处理。',
+      '第七步：把给保险、雇主、法院的 record 和 receipt 分开存档；同一份 PDF 不一定满足所有用途。',
+    ],
+    faqs: [
+      {
+        question: 'Traffic school 能把罚单从 driving record 上删除吗？',
+        answer:
+          '通常不要这样理解。California 的合格 traffic school 更接近“不把某个 point 报给保险”，但 citation 仍按规则存在；New York PIRP 只是最多减 4 分用于 suspension calculation，points/tickets 不会从记录上物理删除。每州规则不同，先看法院和 DMV 页面。',
+      },
+      {
+        question: '我该买哪种 driving record / MVR？',
+        answer:
+          '看用途。自己核对 status 可能只要普通 record；法院、defensive driving、雇主、保险、TNC 或官方证明可能要 certified、employment、insurance 或 complete history。Texas 明确把 Type 3A 标为 defensive driving 可用；Washington 和 Virginia 也把 employment / insurance 类型分开。',
+      },
+      {
+        question: 'Points 和保险涨价是一回事吗？',
+        answer:
+          '不是。DMV points 用于州的 warning、course、probation、suspension 或 reinstatement 判断；保险公司可能看 driving record、事故、claims、SDIP 或自己的 rating plan。New York 明确提醒 PIRP 对 DMV points 和 insurance-company points 不是同一个概念。',
+      },
+      {
+        question: '外州罚单会不会影响本州驾照？',
+        answer:
+          '可能会。Florida 明确说明外州 citation 可传回并按佛州规则评估 points，但佛州学校不能移除外州 citation 的 points。稳妥做法是同时看 ticket 所在法院/州规则，以及自己 license state 的 DMV 记录和 points 页面。',
+      },
+      {
+        question: 'CDL 可以上 traffic school / defensive driving 消分吗？',
+        answer:
+          '不要套普通驾照规则。California、Florida、Virginia 等官方页面都把 CDL 或 commercial vehicle 场景单独处理；有些普通课程福利不适用于 CDL，或要上 commercial driver improvement clinic。商业驾驶最好直接核对 CDL-specific 页面、法院要求和雇主政策。',
+      },
+    ],
+    editorNotes: [
+      '这页不要承诺“消分”“不涨保险”或“上课就没事”。官方材料支持的说法是：课程可能影响 DMV 计算、保险折扣、法院合规或记录显示方式，但机制按州和用途不同。',
+      '必须把 DMV、court、insurance company、employer、traffic school provider 分开写。用户真正需要的是知道哪个机构有权决定哪件事。',
+      'Texas Driver Responsibility Program 已废止，不能写旧式“Texas points surcharge”逻辑；应提醒旧 DRP surcharge / points 信息可能过时。',
+      '商业驾驶和 CDL 是高风险例外：不要把 noncommercial traffic school 规则推给 CDL 用户。',
+      '不提供法律建议、事故责任判断或保险报价建议；争议罚单、吊销风险、商业驾驶和雇佣审查应让用户回到法院、律师、保险公司或雇主。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 DMV、driver record、license status、points、suspension、课程和车辆业务官方入口。',
+    },
+    sources: [
+      {
+        label: "California DMV Driver's Record Request",
+        url: 'https://www.dmv.ca.gov/portal/customer-service/records-request/online-driver-record-request/',
+      },
+      {
+        label: 'California Driver Handbook Laws and Rules of the Road',
+        url: 'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/laws-and-rules-of-the-road-cont2/',
+      },
+      {
+        label: 'California DMV Traffic School List',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-industry-services/occupational-licensing/occupational-license-lookup/traffic-school-list/',
+      },
+      {
+        label: 'California Courts Traffic School',
+        url: 'https://selfhelp.courts.ca.gov/traffic/traffic-school',
+      },
+      {
+        label: 'California DMV Negligent Operator Actions',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/dmv-safety-guidelines-actions/negligence/negligent-operator-actions/',
+      },
+      {
+        label: 'California DMV NOTS Hearings',
+        url: 'https://www.dmv.ca.gov/portal/driver-education-and-safety/dmv-safety-guidelines-actions/negligence/negligent-operator-treatment-system-nots-hearings/',
+      },
+      {
+        label: 'NY DMV Get My Own Driving Record Abstract',
+        url: 'https://dmv.ny.gov/records/get-my-own-driving-record-abstract',
+      },
+      {
+        label: 'NY DMV Driver License Points and Penalties',
+        url: 'https://dmv.ny.gov/driver-license-points-and-penalties',
+      },
+      {
+        label: 'NY DMV Point and Insurance Reduction Program',
+        url: 'https://dmv.ny.gov/points-and-penalties/point-and-insurance-reduction-program',
+      },
+      {
+        label: 'NY DMV PIRP and IPIRP',
+        url: 'https://dmv.ny.gov/points-and-penalties/pirp-and-ipirp',
+      },
+      {
+        label: 'NY DMV Online and Alternative Delivery Method Courses',
+        url: 'https://dmv.ny.gov/points-and-penalties/online-and-alternative-delivery-method-courses',
+      },
+      {
+        label: 'Texas DPS How to Order a Driver Record',
+        url: 'https://www.dps.texas.gov/section/driver-license/how-order-driver-record',
+      },
+      {
+        label: 'Texas DPS Online Driver Record Request',
+        url: 'https://txapps.texas.gov/tolapp/txldrcdr/TXDPSLicenseeManager',
+      },
+      {
+        label: 'Texas Online Driver Record FAQ',
+        url: 'https://txapps.texas.gov/apps/dps/txldr/html/faq.html',
+      },
+      {
+        label: 'Texas Driver Record Types',
+        url: 'https://txapps.texas.gov/apps/dps/txldr/html/recordTypes.html',
+      },
+      {
+        label: 'Texas DPS Driver Responsibility Program',
+        url: 'https://www.dps.texas.gov/section/driver-license/driver-responsibility-program',
+      },
+      {
+        label: 'Texas DPS Driver Responsibility Program Repealed',
+        url: 'https://www.dps.texas.gov/news/driver-responsibility-program-repealed',
+      },
+      {
+        label: 'Texas DPS Driver Responsibility Program Surcharge Repeal FAQs',
+        url: 'https://www.dps.texas.gov/section/driver-license/faq/driver-responsibility-program-surcharge-repeal-faqs',
+      },
+      {
+        label: 'FLHSMV Questions About Driving Records',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/general-information/questions-about-driving-records/',
+      },
+      {
+        label: 'FLHSMV Driving Record History',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/driving-record-history/',
+      },
+      {
+        label: 'FLHSMV Points and Point Suspensions',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-suspensions-revocations/points-point-suspensions/',
+      },
+      {
+        label: 'FLHSMV Driver Improvement Schools',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/education-courses/driver-improvement-schools/',
+      },
+      {
+        label: 'FLHSMV Education Courses',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/education-courses/',
+      },
+      {
+        label: 'FLHSMV Traffic School Completion Check',
+        url: 'https://services.flhsmv.gov/trafficschoolcompletioncheck/studentsearchpage.aspx',
+      },
+      {
+        label: 'Washington DOL Driving Records',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driving-records',
+      },
+      {
+        label: 'Washington DOL Guide to Driving Records',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driving-records/guide-driving-records',
+      },
+      {
+        label: 'Washington DOL Get Your Driving Record',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driving-records/get-your-driving-record',
+      },
+      {
+        label: 'Washington DOL Approved Safe Driving Course Providers',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-safety/approved-safe-driving-course-providers',
+      },
+      {
+        label: 'Washington DOL Accumulation of Moving Violations',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/suspended-driver-license/types-driver-license-suspensions/accumulation-traffic-tickets-moving-violations-traffic-infractions',
+      },
+      {
+        label: 'NJ MVC Driver History Abstract',
+        url: 'https://www.nj.gov/mvc/license/driverhist.htm',
+      },
+      {
+        label: 'NJ MVC Driver History Abstract Application PDF',
+        url: 'https://www.nj.gov/mvc/pdf/license/DO-21.pdf',
+      },
+      {
+        label: 'NJ MVC Driver Programs',
+        url: 'https://www.nj.gov/mvc/license/driverprograms.htm',
+      },
+      {
+        label: 'NJ MVC Points Schedule',
+        url: 'https://www.nj.gov/mvc/license/points-schedule.htm',
+      },
+      {
+        label: 'NJ MVC Suspensions and Restorations',
+        url: 'https://www.nj.gov/mvc/license/suspension.htm',
+      },
+      {
+        label: 'NJ MVC Online Services',
+        url: 'https://www.nj.gov/mvc/online-services.html',
+      },
+      {
+        label: 'PennDOT Driving Record Information',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/chapter-4-driving-record-information',
+      },
+      {
+        label: "PennDOT Pennsylvania's Point System",
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/pennsylvanias-point-system',
+      },
+      {
+        label: 'PennDOT Pennsylvania Point System Fact Sheet PDF',
+        url: 'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bdl/bdl-fact-sheets/fs-ps.pdf',
+      },
+      {
+        label: 'PennDOT Individual Driver Records',
+        url: 'https://appsca.pwp.pa.gov/idr',
+      },
+      {
+        label: 'Virginia DMV Request Driver or Vehicle Record',
+        url: 'https://www.dmv.virginia.gov/records/request-driver-vehicle-record',
+      },
+      {
+        label: 'Virginia DMV Driver Improvement',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/improvement',
+      },
+      {
+        label: 'Virginia DMV Points and Driver Improvement Program',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/improvement/points',
+      },
+      {
+        label: 'Virginia DMV Points System',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/improvement/points/system',
+      },
+      {
+        label: 'Virginia DMV Driver Improvement Clinics',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/improvement/clinics',
+      },
+      {
+        label: 'Georgia DDS MVR Driving History',
+        url: 'https://dds.georgia.gov/dds-forms-and-manuals/how-do-i-mvr-driving-history',
+      },
+      {
+        label: 'Georgia DDS Violations, Suspensions, and Revocations',
+        url: 'https://dds.georgia.gov/georgia-licenseid/violations-suspensions-revocations',
+      },
+      {
+        label: 'Georgia DDS Points and Points Reduction',
+        url: 'https://dds.georgia.gov/georgia-licenseid/violations-suspensions-revocations/points-and-points-reduction',
+      },
+      {
+        label: 'Georgia DDS Driver Improvement Program',
+        url: 'https://dds.georgia.gov/regulated-programs/driver-improvement-program',
+      },
+      {
+        label: 'Georgia DDS Defensive Driving Program FAQs',
+        url: 'https://dds.georgia.gov/defensive-driving-program-faqs',
+      },
+      {
+        label: 'Georgia DDS Section 10 Continued',
+        url: 'https://dds.georgia.gov/section-10-continued',
+      },
+      {
+        label: 'Mass.gov Request a Driving Record',
+        url: 'https://www.mass.gov/how-to/request-a-driving-record',
+      },
+      {
+        label: 'Mass.gov RMV Records Requests',
+        url: 'https://www.mass.gov/rmv-records-requests',
+      },
+      {
+        label: 'Mass.gov Safe Driver Insurance Plan',
+        url: 'https://www.mass.gov/info-details/safe-driver-insurance-plan-sdip',
+      },
+      {
+        label: 'Mass.gov Suspensions from Multiple Offenses',
+        url: 'https://www.mass.gov/info-details/suspensions-from-multiple-offenses',
+      },
+      {
+        label: 'Mass.gov Required Classes and Programs to Reinstate',
+        url: 'https://www.mass.gov/info-details/required-classes-and-programs-to-reinstate-your-drivers-license',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'texas',
+      'florida',
+      'washington',
+      'new-jersey',
+      'pennsylvania',
+      'virginia',
+      'georgia',
+      'massachusetts',
+    ],
+  },
+  {
+    slug: 'driver-license-suspension-reinstatement-sr22',
+    title: '驾照被 suspend 或 revoke 后，恢复驾驶资格先做什么',
+    eyebrow: '恢复驾照',
+    reviewedAt: '2026-07-10',
+    description:
+      '收到 suspension、revocation、cancellation、denial、reinstatement 或 SR-22 / FR-44 通知时，先不要只问“交多少钱”。恢复驾驶资格通常要同时看 DMV status、法院或发起机构 clearance、保险/financial responsibility、课程、测试、等待期和恢复费用。',
+    whoNeedsIt: [
+      '收到 DMV / DPS / RMV / MVC / DOL suspension、revocation、cancellation、denial 或 reinstatement 通知的人。',
+      '因为 failure to appear、failure to pay、罚单、保险中断、points、DUI / OUI、medical review、child support 或无保险事故导致驾驶资格被限制的人。',
+      '系统提示需要 SR-22、FR-44、proof of financial responsibility、reinstatement fee、restoration fee、termination fee 或 court clearance 的人。',
+      '想知道能不能办 restricted / hardship / conditional license，或恢复后是否要重考的人。',
+    ],
+    keyFacts: [
+      'Suspension、revocation、cancellation 和 denial 不是同一件事。纽约 DMV 明确区分 suspended 和 revoked：revoked 往往意味着 license 被取消，期满后还可能要先请求 DMV approval、重新申请、缴费或重考。',
+      '恢复通常不会自动发生。即使 suspension period 结束，仍可能要满足 court requirements、提交 proof of insurance / financial responsibility、完成课程、缴 reinstatement / restoration / termination fee，或等待 DMV 收到 clearance。',
+      '先查 status 和 official order。纽约、德州、佐州、华盛顿等官方入口都把 license status、eligibility 或 reinstatement steps 放在恢复流程前面。',
+      'Court suspension 和 DMV suspension 要分开。Failure to appear / failure to pay、court-ordered school、traffic citation 或 criminal case 常常要先找 court clerk / reporting agency，DMV 才能更新记录。',
+      'SR-22 / FR-44 通常属于 financial responsibility certification / proof。加州、佛州、维州等官方来源都把这类证明与无保险、事故、DUI / reckless driving 或保险监控场景联系起来；是否需要、维持多久和如何提交按州规则执行。',
+      'Restricted / hardship / conditional license 不是所有人都有。部分州会要求 court order、program enrollment、IID、保险证明、等待期或 DMV hearing；不能把一个州的 restricted license 规则套到另一个州。',
+      '恢复前不要开车。只拿到付款收据、课程报名、保险报价或法院付款确认，并不等于 driving privilege 已恢复。',
+    ],
+    checklist: [
+      '保存所有通知：DMV suspension order、court notice、citation、insurance letter、SR-22 / FR-44 notice、reinstatement requirement letter、case number、ticket number、driver license number。',
+      '先查当前 status：valid、suspended、revoked、cancelled、denied、eligible to reinstate、restricted、conditional，或 only ID card / limited permit。',
+      '找出 suspension reason：FTA/FTP、points、DUI / OUI、insurance lapse、uninsured crash、medical review、child support、toll / parking、out-of-state offense、registration issue。',
+      '列出需要谁清除：DMV / DPS / RMV / MVC、court clerk、insurance company、toll agency、child support agency、medical review unit、school/program provider。',
+      '确认是否需要 proof of insurance、SR-22、FR-44、SR-26 / FR-46 lapse repair、driver improvement school、ADI / risk reduction course、IID、knowledge / road test、hearing 或 court order。',
+      '确认费用：reinstatement fee、restoration fee、suspension termination fee、license reapplication fee、civil penalty、service fee 或 court fine，并保存 receipt。',
+      '恢复后再确认 status 已变成 valid / eligible / reinstated；不要只看“付款成功”。',
+    ],
+    steps: [
+      '第一步：打开本州 DMV / DPS / RMV / MVC 的 suspension / reinstatement 页面，先查 driver license 或 driving privilege status，不要先找保险报价或第三方文章。',
+      '第二步：按 order 上的 reason code 或 case number 把问题分流：DMV 自己、法院、保险、课程、医疗、child support、toll / parking 或外州记录。',
+      '第三步：如果涉及法院，先完成 court requirements 并确认 court / reporting agency 会向 DMV 回传 clearance；付款和回传之间可能有延迟。',
+      '第四步：如果涉及保险或 financial responsibility，确认是普通 proof of insurance、SR-22、FR-44，还是 registration/plate 相关证明；让保险公司按州要求电子提交或出具证明。',
+      '第五步：如果涉及课程、IID、hearing、medical review 或测试，按官方 letter 列出的项目逐项完成，不要只缴 reinstatement fee。',
+      '第六步：所有要求完成后再缴 DMV/RMV/DPS/MVC restoration / reinstatement / termination fee，并重新查 status。只有官方 status 恢复后，才把自己当作可以驾驶。',
+    ],
+    faqs: [
+      {
+        question: 'suspended 和 revoked 有什么区别？',
+        answer:
+          '按州表述不同，但通常 suspended 是驾驶资格暂时被拿走；revoked 更严重，可能表示 license 被取消，期满后还要重新申请或请求 DMV approval。纽约 DMV 就明确说 revoked 后很多情况下要先 request approval，可能还要重考和缴 re-application fee。',
+      },
+      {
+        question: '我交了 reinstatement fee，为什么状态还没恢复？',
+        answer:
+          '费用只是其中一项。还可能缺 court clearance、proof of insurance、SR-22 / FR-44、课程完成记录、medical clearance、hearing 结果、等待期或外州记录解除。先按官方 status / requirement letter 逐项核对。',
+      },
+      {
+        question: 'SR-22 或 FR-44 是一种保险吗？',
+        answer:
+          '更准确地说，它是州要求的 financial responsibility certification / proof，通常由保险公司向 DMV 提交。你仍然需要符合州要求的保险或证明；是否要 SR-22、FR-44、维持多久、若 lapse 会怎样，都按州和 suspension reason 看。',
+      },
+      {
+        question: '能不能申请 restricted、hardship 或 conditional license？',
+        answer:
+          '不一定。部分州有 restricted / hardship / conditional 路径，但可能要求 court order、program enrollment、IID、保险证明、等待期、hearing 或特定 suspension 类型。先看本州官方 reinstatement 或 restricted-license 页面。',
+      },
+      {
+        question: '我人在外州，原州驾照被 suspend，还能在别州申请新驾照吗？',
+        answer:
+          '不要假设可以绕过。很多州会检查 out-of-state suspension、driving privilege 或 national record。先按原州要求恢复或解决记录，再看新州 out-of-state transfer 页面。',
+      },
+    ],
+    editorNotes: [
+      '这页和“罚单 / toll / hold”页分工不同：上一页找发起机构，本页讲 driver license / driving privilege 的恢复路径。',
+      '不能写具体法律结论或承诺恢复时间。Suspension / revocation 可能涉及法院、刑事、行政听证、保险合同、医疗审核和外州记录。',
+      'SR-22 / FR-44 只做官方路径解释，不推荐保险公司，不估价，不判断用户是否一定需要。',
+      '恢复前不能驾驶是高风险提醒；付款成功、课程报名或保险报价都不是 official reinstatement status。',
+      '这页不是法律建议，也不替代律师、法院、保险公司或 DMV 的个案判断。',
+    ],
+    relatedDirectory: {
+      label: '查看 50 州 DMV 常用业务入口表',
+      href: '/directories/dmv-services/',
+      description: '按州查 DMV、线上服务、suspension、reinstatement、driver record、保险和车辆业务官方入口。',
+    },
+    sources: [
+      {
+        label: 'California DMV Suspensions',
+        url: 'https://www.dmv.ca.gov/portal/suspensions/',
+      },
+      {
+        label: 'California DMV Reissue Fees',
+        url: 'https://www.dmv.ca.gov/portal/dmv-virtual-office/reissue-fees/',
+      },
+      {
+        label: 'California DMV Insurance Requirements',
+        url: 'https://www.dmv.ca.gov/portal/vehicle-registration/insurance-requirements/',
+      },
+      {
+        label: 'California Driver Handbook Financial Responsibility',
+        url: 'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/financial-responsibility-insurance-requirements-and-collisions/',
+      },
+      {
+        label: 'NY DMV Suspensions and Revocations',
+        url: 'https://dmv.ny.gov/points-and-penalties/suspensions-and-revocations',
+      },
+      {
+        label: 'NY DMV Check License or Driving Privilege Status',
+        url: 'https://dmv.ny.gov/driver-license/check-license-or-driving-privilege-status',
+      },
+      {
+        label: 'NY DMV Pay a Suspension Termination Fee',
+        url: 'https://dmv.ny.gov/points-and-penalties/pay-a-suspension-termination-fee',
+      },
+      {
+        label: 'NY DMV Request Restoration After a Driver License Revocation',
+        url: 'https://dmv.ny.gov/points-and-penalties/request-restoration-after-a-driver-license-revocation',
+      },
+      {
+        label: 'FLHSMV Driver License Suspensions and Revocations',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-suspensions-revocations/',
+      },
+      {
+        label: 'FLHSMV Other Suspensions and Revocations',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-suspensions-revocations/other-suspensions-revocations/',
+      },
+      {
+        label: 'FLHSMV Insurance Letter Guidance',
+        url: 'https://www.flhsmv.gov/insurance/received-a-letter/',
+      },
+      {
+        label: 'FLHSMV Financial Responsibility Manual PDF',
+        url: 'https://www.flhsmv.gov/pdf/frmanual/ftp-procedure-manual.pdf',
+      },
+      {
+        label: 'Texas DPS Reinstating Your Driver License or Driving Privilege',
+        url: 'https://www.dps.texas.gov/section/driver-license/reinstating-your-driver-license-or-driving-privilege',
+      },
+      {
+        label: 'Texas DPS Suspensions and Reinstatements',
+        url: 'https://www.dps.texas.gov/section/driver-license/suspensions-reinstatements',
+      },
+      {
+        label: 'Texas License Eligibility System',
+        url: 'https://texas.gov/licenseeligibility',
+      },
+      {
+        label: 'Texas DPS Reinstatement Fees and Special Licenses FAQ',
+        url: 'https://www.dps.texas.gov/section/driver-license/faq/section-7-reinstatement-fees-and-special-licenses',
+      },
+      {
+        label: 'NJ MVC Suspensions and Restorations',
+        url: 'https://www.nj.gov/mvc/license/suspension.htm',
+      },
+      {
+        label: 'Mass.gov Reinstate Your Driver License',
+        url: 'https://www.mass.gov/how-to/reinstate-your-drivers-license',
+      },
+      {
+        label: 'Mass.gov Required Classes and Programs',
+        url: 'https://www.mass.gov/info-details/required-classes-and-programs-to-reinstate-your-drivers-license',
+      },
+      {
+        label: 'Mass.gov Suspension Hearings Information',
+        url: 'https://www.mass.gov/guides/suspension-hearings-information',
+      },
+      {
+        label: 'Washington DOL Suspended Driver License',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/suspended-driver-license',
+      },
+      {
+        label: 'Georgia DDS Violations, Suspensions, and Revocations',
+        url: 'https://dds.georgia.gov/georgia-licenseid/violations-suspensions-revocations',
+      },
+      {
+        label: 'Georgia DDS Reinstatement Fees and Payment',
+        url: 'https://dds.georgia.gov/georgia-licenseid/violations-suspensions-revocations/reinstatement-fees-and-payment',
+      },
+      {
+        label: 'PennDOT License and Vehicle Restoration Services',
+        url: 'https://www.pa.gov/agencies/dmv/online-services-dvs/license-and-vehicle-restoration-services',
+      },
+      {
+        label: 'PennDOT Driver License Restoration Requirements Letter',
+        url: 'https://www.pa.gov/services/dmv/request-a-driver-license-restoration-requirements-letter',
+      },
+      {
+        label: 'Virginia DMV Reinstate Driver License',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/license/reinstate',
+      },
+      {
+        label: 'Virginia DMV SR-22/SR-26 and FR-44 Certifications',
+        url: 'https://www.dmv.virginia.gov/businesses/insurance/certifications',
+      },
+      {
+        label: 'Virginia DMV Payment Plan Program',
+        url: 'https://www.dmv.virginia.gov/licenses-ids/payment-plan-program',
+      },
+    ],
+    relatedStateIds: [
+      'california',
+      'new-york',
+      'florida',
+      'texas',
+      'new-jersey',
+      'massachusetts',
+      'washington',
+      'georgia',
+      'pennsylvania',
+      'virginia',
+    ],
+  },
+  {
+    slug: 'renewal-replacement-address',
+    title: '续期、补证、地址变更先后顺序',
+    eyebrow: '线上服务',
+    reviewedAt: '2026-07-13',
+    description:
+      '最常见的坑是顺序错了：搬家后直接补证，结果新卡寄到旧地址；想线上续期，系统又因为 REAL ID、身份状态或过期时间把你挡住。',
+    whoNeedsIt: [
+      '搬家后准备换新驾照的人。',
+      '驾照快过期、丢失或损坏的人。',
+      '想在线办理而不想去 DMV 办公室的人。',
+    ],
+    keyFacts: [
+      '很多州提供线上续期、补证或地址变更，但不是所有人都符合资格。',
+      '地址变化时，先更新 DMV 地址通常更稳妥。',
+      'REAL ID 首次办理或材料核验常常需要现场。',
+    ],
+    factChecks: [
+      {
+        claim: 'California 搬家后通常要在 10 天内通知 DMV；在线续期前应先确认地址正确，并给地址变更留出处理时间。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/changing-replacing-and-renewing-your-drivers-license/',
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/dl-renewal/',
+        ],
+      },
+      {
+        claim: 'New York 搬家后通常要在 10 天内更新 license、permit、non-driver ID 和 vehicle records 的地址。',
+        sourceUrls: ['https://dmv.ny.gov/change-address'],
+      },
+      {
+        claim: 'Florida 的 driver license / ID 和 title / registration 地址变化通常要在 30 天内更新，并按证件与车辆记录分别处理。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/name-and-address-changes/',
+          'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
+        ],
+      },
+      {
+        claim: 'Massachusetts 要求在地址变化后 30 天内通知 RMV。',
+        sourceUrls: ['https://www.mass.gov/how-to/change-your-address-with-the-rmv'],
+      },
+      {
+        claim: '线上入口是否可用仍要由州系统判断；Texas 和 New Jersey 都提供资格或 online-services 分流。',
+        sourceUrls: [
+          'https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/',
+          'https://www.nj.gov/mvc/online-services.html',
+        ],
+      },
+    ],
+    checklist: [
+      '先确认 DMV 记录里的地址是不是当前地址。',
+      '看证件状态：是否过期、过期多久、是否 CDL、learner permit 或特殊身份证件。',
+      '看是否涉及 REAL ID 首次核验、姓名变更或非公民身份文件。',
+      '确认付款方式、邮寄地址、临时证明和确认号保存方式。',
+    ],
+    steps: [
+      '第一步：先改地址，或确认 DMV 记录中的地址已经正确。',
+      '第二步：再检查续期、补证或 replacement 的线上资格。',
+      '第三步：如果系统提示不符合线上资格，再预约现场服务，不要反复重试同一个入口。',
+      '第四步：保存确认号、临时证明、收据和邮寄追踪信息。',
+    ],
+    faqs: [
+      {
+        question: '丢了驾照又搬家了，先补证还是先改地址？',
+        answer:
+          '很多州建议先改地址，再申请 replacement，这样新证件寄到正确地址。具体看州 DMV 说明。',
+      },
+      {
+        question: 'REAL ID 可以线上续期吗？',
+        answer:
+          '已有 REAL ID 后的后续续期可能可以线上；首次 REAL ID 或未核验材料的人通常需要现场或预验证。',
+      },
+    ],
+    editorNotes: [
+      '地址变更和续期顺序是实际办事高风险点：加州建议先改地址再办其他 DMV 产品，佛州和马州有 30 天地址更新要求，纽约有 10 天地址更新要求。',
+      '线上入口能打开不等于本人符合资格；Texas.gov、FLHSMV、PennDOT 等页面都会把资格判断交给系统或预验证状态。',
+      '首次 REAL ID、姓名变更、非公民身份核验、CDL 或过期太久的证件，通常不能按普通线上续期理解。',
+    ],
+    sources: [
+      {
+        label: 'California DMV Changing, Replacing, and Renewing a Driver License',
+        url: 'https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/changing-replacing-and-renewing-your-drivers-license/',
+      },
+      {
+        label: 'California DMV Online Renewal',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/dl-renewal/',
+      },
+      {
+        label: 'NY DMV Renew a Driver License',
+        url: 'https://dmv.ny.gov/driver-license/renew-a-driver-license',
+      },
+      {
+        label: 'NY DMV Change Your Address',
+        url: 'https://dmv.ny.gov/change-address',
+      },
+      {
+        label: 'Texas Online Eligibility',
+        url: 'https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/',
+      },
+      {
+        label: 'FLHSMV Name and Address Changes',
+        url: 'https://www.flhsmv.gov/name-and-address-changes/',
+      },
+      {
+        label: 'FLHSMV Renew or Replace',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/',
+      },
+      {
+        label: 'NJ MVC Online Services',
+        url: 'https://www.nj.gov/mvc/online-services.html',
+      },
+      {
+        label: 'Massachusetts Change your address with the RMV',
+        url: 'https://www.mass.gov/how-to/change-your-address-with-the-rmv',
+      },
+    ],
+    relatedStateIds: ['california', 'new-york', 'texas', 'new-jersey'],
+  },
+];
+
+export function getStateById(id: string) {
+  return states.find((state) => state.id === id);
+}
+
+export function getTopicBySlug(slug: string) {
+  return topics.find((topic) => topic.slug === slug);
+}
+
+export function uniqueSources(sources: Source[]) {
+  const seen = new Set<string>();
+  return sources.filter((source) => {
+    if (seen.has(source.url)) return false;
+    seen.add(source.url);
+    return true;
+  });
+}

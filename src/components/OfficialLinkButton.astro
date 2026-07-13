@@ -1,0 +1,16 @@
+---
+import { ExternalLink } from '@lucide/astro/icons';
+
+type Props = {
+  href: string;
+  label: string;
+  variant?: 'primary' | 'secondary';
+};
+
+const { href, label, variant = 'secondary' } = Astro.props as Props;
+---
+
+<a class:list={['button-link', variant]} href={href} target="_blank" rel="noreferrer">
+  {label}
+  <ExternalLink size={16} aria-hidden="true" />
+</a>

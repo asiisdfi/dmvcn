@@ -1,0 +1,330 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+
+type StateGuide = (typeof states)[number];
+
+const foreignLicensePattern =
+  /foreign|out[- ]of[- ]country|out[- ]of[- ]state|international driving permit|\bidp\b|international license|another country|another state|country|countries|canada|canadian|reciprocity|reciprocal|surrender|hole[- ]punched|driving record|translation|translated|certified translation|外国|境外|国际驾照|国际驾驶许可|外州|加拿大|互惠|交旧证|打孔|翻译/i;
+
+function hasForeignCue(text: string) {
+  const compact = text.replace(/\s+/g, ' ').trim();
+  if (/transfer fee|title transfer|registration transfer|vehicle transfer/i.test(compact) && !/driver|license|id|foreign|out[- ]of[- ]state|out[- ]of[- ]country|驾照|证件|外州|外国|境外/i.test(compact)) {
+    return false;
+  }
+  if (foreignLicensePattern.test(compact)) return true;
+  return /transfer|exchange|转入|换证/i.test(compact) && /driver|license|permit|id|驾照|证件/i.test(compact);
+}
+
+function classifyForeignCue(text: string) {
+  if (/international driving permit|\bidp\b|international license|国际驾照|国际驾驶许可/i.test(text)) return 'IDP / 国际驾照';
+  if (/foreign|out[- ]of[- ]country|another country|country|countries|外国|境外/i.test(text) && /driver|license|permit|id|驾照|证件/i.test(text)) return '外国 / 境外驾照';
+  if (/out[- ]of[- ]state|another state|u\.s\. state|territory|canada|canadian|外州|加拿大/i.test(text)) return '外州 / 加拿大转入';
+  if (/reciprocity|reciprocal|waived|exempt|no tests|required to take and pass|免|互惠|豁免/i.test(text)) return '互惠 / 免考';
+  if (/knowledge|written|road|driving test|drive test|skills|vision|test|考试|笔试|路考|视力/i.test(text)) return '测试判断';
+  if (/translation|translated|certified translation|english translation|翻译|译文/i.test(text)) return '翻译要求';
+  if (/surrender|hole[- ]punched|returned|retain|retained|交旧证|打孔|退还|保留/i.test(text)) return '交旧证 / 退还';
+  if (/resident|new resident|moving|visitor|visiting|30 days|60 days|10 days|one year|1 year|一年|新居民|搬入|访客/i.test(text)) return '期限 / 居民身份';
+  if (/identity|lawful|legal presence|residency|ssn|documents?|材料|身份|合法|地址/i.test(text)) return '材料 / 身份';
+  if (/cdl|commercial|hazmat|限制/i.test(text)) return 'CDL / 限制';
+  return '转入提醒';
+}
+
+function foreignNoteScore(text: string, category: string) {
+  let score = 0;
+  if (/foreign|out[- ]of[- ]country|international|country|countries|外国|境外|国际/i.test(text)) score += 28;
+  if (/out[- ]of[- ]state|another state|canada|canadian|外州|加拿大/i.test(text)) score += 22;
+  if (/reciprocity|reciprocal|waived|exempt|免|互惠|豁免/i.test(text)) score += 22;
+  if (/surrender|hole[- ]punched|returned|retain|交旧证|打孔|退还/i.test(text)) score += 18;
+  if (/knowledge|written|road|driving test|drive test|vision|test|考试|笔试|路考|视力/i.test(text)) score += 18;
+  if (/translation|translated|certified translation|english translation|翻译|译文/i.test(text)) score += 16;
+  if (/30 days|60 days|10 days|one year|1 year|resident|visitor|新居民|访客/i.test(text)) score += 14;
+  if (/identity|lawful|legal presence|residency|ssn|documents?|材料|身份|合法|地址/i.test(text)) score += 8;
+  if (category === '转入提醒') score -= 8;
+  return score;
+}
+
+function foreignNotesFor(state: StateGuide) {
+  const candidates = [
+    ...getPublicEditorialNotes(state.editorNotes).map((text) => ({ text, sourceScore: 17 })),
+    ...state.actionLinks.map((link) => ({ text: `${link.label}：${link.description}`, sourceScore: 11 })),
+    ...state.documentHighlights.map((text) => ({ text, sourceScore: 8 })),
+    { text: state.licenseSummary, sourceScore: 7 },
+    ...state.recommendedSteps.map((text) => ({ text, sourceScore: 4 })),
+  ];
+  const seen = new Set<string>();
+  const notes: { category: string; text: string; score: number; index: number }[] = [];
+
+  for (const [index, candidate] of candidates.entries()) {
+    const compact = candidate.text.replace(/\s+/g, ' ').trim();
+    if (!compact || seen.has(compact) || !hasForeignCue(compact)) continue;
+    seen.add(compact);
+    const category = classifyForeignCue(compact);
+    notes.push({ category, text: compact, score: foreignNoteScore(compact, category) + candidate.sourceScore, index });
+  }
+
+  const priority = ['外国 / 境外驾照', '外州 / 加拿大转入', 'IDP / 国际驾照', '互惠 / 免考', '测试判断', '翻译要求', '交旧证 / 退还', '期限 / 居民身份', '材料 / 身份', 'CDL / 限制', '转入提醒'];
+  const ranked = notes.sort((a, b) => b.score - a.score || priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index);
+  const selected: typeof notes = [];
+  const anchor = ranked.find((note) => /foreign|out[- ]of[- ]country|international|reciprocity|out[- ]of[- ]state|外国|境外|国际|互惠|外州/i.test(note.text));
+
+  if (anchor) selected.push(anchor);
+
+  for (const note of ranked) {
+    if (!selected.some((item) => item.category === note.category)) selected.push(note);
+    if (selected.length >= 4) break;
+  }
+
+  for (const note of ranked) {
+    if (selected.includes(note)) continue;
+    selected.push(note);
+    if (selected.length >= 4) break;
+  }
+
+  return selected
+    .slice(0, 4)
+    .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
+    .map(({ category, text }) => ({ category, text }));
+}
+
+function foreignBadges(notes: { category: string; text: string }[]) {
+  return [...new Set(notes.map((note) => note.category))].slice(0, 4);
+}
+
+function pickForeignLinks(state: StateGuide) {
+  const links = state.actionLinks.filter((link) =>
+    /foreign|international|out[- ]of[- ]state|out[- ]of[- ]country|new resident|moving|transfer|exchange|reciprocity|reciprocal|country|canada|canadian|surrender|hole|translated|translation|visitor|visiting|外国|境外|国际|外州|转入|新居民|搬|互惠|翻译|访客/i.test(
+      `${link.label} ${link.description} ${link.url}`,
+    ),
+  );
+  return (links.length ? links : state.actionLinks).slice(0, 5);
+}
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const notes = foreignNotesFor(state);
+  const badges = foreignBadges(notes);
+  const links = pickForeignLinks(state);
+  return {
+    state,
+    status,
+    notes,
+    badges,
+    links,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      ...badges,
+      ...notes.flatMap((note) => [note.category, note.text]),
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+
+const foreignRows = rows.filter((row) => /foreign|out-of-country|international|country|countries|外国|境外|国际/.test(row.searchText));
+const transferRows = rows.filter((row) => /out-of-state|another state|transfer|exchange|外州|转入|换证/.test(row.searchText));
+const reciprocityRows = rows.filter((row) => /reciprocity|reciprocal|waived|exempt|免|互惠|豁免/.test(row.searchText));
+const translationRows = rows.filter((row) => /translation|translated|certified translation|english translation|翻译|译文/.test(row.searchText));
+const surrenderRows = rows.filter((row) => /surrender|hole-punched|returned|retain|交旧证|打孔|退还|保留/.test(row.searchText));
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const quickFilters = [
+  { label: '外国驾照', value: 'foreign', note: 'out-of-country' },
+  { label: '外州转入', value: 'out-of-state', note: 'transfer' },
+  { label: '互惠 / 免考', value: 'reciprocity', note: 'waiver' },
+  { label: 'IDP', value: 'International Driving Permit', note: '国际驾驶许可' },
+  { label: '翻译要求', value: 'translation', note: 'certified' },
+  { label: '交旧证', value: 'surrender', note: 'hole punch' },
+  { label: '路考/笔试', value: 'road test', note: 'tests' },
+].map((filter) => ({
+  ...filter,
+  count: rows.filter((row) => row.searchText.includes(filter.value.toLowerCase())).length,
+}));
+
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'DMV 外国/外州驾照转入和 IDP 入口表',
+  description: '按州整理 foreign driver license、out-of-state transfer、International Driving Permit、reciprocity、测试豁免、翻译/交旧证和新居民换证期限。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} DMV 外国/外州驾照转入入口`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="DMV 外国/外州驾照转入和 IDP 入口表" description="按州查找 foreign driver license、out-of-state transfer、International Driving Permit、reciprocity、测试豁免、翻译/交旧证和新居民换证期限。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>外国/外州驾照</span>
+      </nav>
+      <p class="eyebrow">Foreign License / Transfer / IDP</p>
+      <h1>DMV 外国/外州驾照转入和 IDP 入口表</h1>
+      <p class="lead">刚到美国或刚搬州时，最容易误会的是“能开车”和“能直接换证”不是一回事。先看外国驾照、外州转入、互惠免考、翻译和交旧证规则，再预约。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="外国和外州驾照转入入口表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{foreignRows.length} 州</strong>
+          <span>含外国驾照线索</span>
+        </div>
+        <div>
+          <strong>{transferRows.length} 州</strong>
+          <span>含外州转入线索</span>
+        </div>
+        <div>
+          <strong>{reciprocityRows.length} 州</strong>
+          <span>含互惠/免考</span>
+        </div>
+        <div>
+          <strong>{translationRows.length} 州</strong>
+          <span>含翻译/IDP</span>
+        </div>
+        <div>
+          <strong>{surrenderRows.length} 州</strong>
+          <span>含交旧证提醒</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需点验入口</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice compact-notice">
+      <div>
+        <strong>先看这一句</strong>
+        <p>International Driving Permit 通常是翻译或辅助文件，不是替代州驾照的万能证件。成为州居民后，多数州会要求在规定期限内换成本州 license；外国驾照是否免考要看互惠国家、证件类别和身份文件。</p>
+      </div>
+    </div>
+
+    <div class="quick-filter-board" aria-label="外国和外州驾照转入快速筛选">
+      {quickFilters.map((filter) => (
+        <button type="button" class="quick-filter-button" data-quick-foreign={filter.value}>
+          <span>{filter.label}</span>
+          <small>{filter.note} · {filter.count} 州</small>
+        </button>
+      ))}
+    </div>
+
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="foreign-license-search">搜索州、外国驾照或转入事项</label>
+        <input id="foreign-license-search" type="search" placeholder="例如 foreign、IDP、reciprocity、out-of-state、Taiwan、Michigan" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="foreign-license-status">入口状态</label>
+        <select id="foreign-license-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table foreign-license-table" role="list">
+      <div class="directory-row foreign-license-row directory-head" role="presentation">
+        <span>州</span>
+        <span>转入和 IDP 判断</span>
+        <span>官方入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row foreign-license-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="foreign-notes">
+            <div class="path-badges" aria-label={`${row.state.nameZh} 外国和外州驾照转入类型`}>
+              {row.badges.length ? row.badges.map((badge) => <span>{badge}</span>) : <span>需核对</span>}
+            </div>
+            {row.notes.length ? (
+              row.notes.map((note) => (
+                <p>
+                  <span>{note.category}</span>
+                  {note.text}
+                </p>
+              ))
+            ) : (
+              <p>
+                <span>需核对</span>
+                当前州级资料未列出单独的 foreign license、out-of-state transfer 或 IDP 说明；请从官方 new resident、driver license 或 transfer 入口开始确认。
+              </p>
+            )}
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 外国/外州驾照转入官方入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/`}>州总览 <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、外国驾照或转入事项。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+    const quickButtons = Array.from(document.querySelectorAll('[data-quick-foreign]'));
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    quickButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLElement) || !(search instanceof HTMLInputElement)) return;
+        search.value = String(button.dataset.quickForeign || '');
+        search.focus();
+        applyFilter();
+      });
+    });
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>

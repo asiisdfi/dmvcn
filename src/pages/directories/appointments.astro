@@ -1,0 +1,313 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+
+type StateGuide = (typeof states)[number];
+
+const appointmentPattern =
+  /appointment|reservation|scheduler|schedule|office|locations?|driver license office|driver licensing office|license office|service center|licensing center|customer service center|branch|center|same.?day|walk.?in|e-ticket|mobile unit|county|tax collector|kiosk|online services|service advisor|wait times?|closings|预约|办公室|办事处|地点|服务中心|现场|到场|当天|当日|排队|县|税务官|承办点/i;
+
+function hasAppointmentCue(text: string) {
+  return appointmentPattern.test(text);
+}
+
+function classifyAppointmentCue(text: string) {
+  if (/online services|service advisor|online|线上|portal|先线上/i.test(text)) return '先线上查';
+  if (/same.?day|REAL ID Center|当天|当日/i.test(text)) return '当天 REAL ID';
+  if (/appointment|reservation|scheduler|schedule|预约|e-ticket/i.test(text)) return '预约';
+  if (/walk.?in|不需要预约|not required|无需预约/i.test(text)) return 'walk-in';
+  if (/driver license office|driver licensing office|license office|licensing center|service center|customer service center|branch|office|办公室|办事处|服务中心/i.test(text)) return '办公室类型';
+  if (/county|tax collector|license plate agency|vehicle licensing office|县|税务官|承办点|牌照/i.test(text)) return '地点分工';
+  if (/mail|mailed|15 business days|邮寄|寄达/i.test(text)) return '当天 / 邮寄';
+  if (/location|locations|map|地点|查询/i.test(text)) return '地点查询';
+  return '现场提醒';
+}
+
+function appointmentNoteScore(text: string, category: string) {
+  let score = 0;
+  if (/appointment|reservation|scheduler|schedule|预约|e-ticket/i.test(text)) score += 24;
+  if (/driver license office|driver licensing office|license office|licensing center|service center|customer service center|branch|office|办公室|办事处|服务中心/i.test(text)) score += 22;
+  if (/same.?day|REAL ID Center|当天|当日|15 business days/i.test(text)) score += 20;
+  if (/walk.?in|not required|preferred|strongly encouraged|recommended|无需预约|建议预约/i.test(text)) score += 18;
+  if (/county|tax collector|license plate agency|vehicle licensing office|县|税务官|承办点|牌照/i.test(text)) score += 16;
+  if (/online services|service advisor|online|线上|portal|MyDMV|myMVA/i.test(text)) score += 13;
+  if (/location|locations|map|地点|查询/i.test(text)) score += 10;
+  if (/must|必须|only|不能|不要|not|first|首次|REAL ID|upgrade/i.test(text)) score += 8;
+  if (category === '现场提醒') score -= 6;
+  return score;
+}
+
+function appointmentNotesFor(state: StateGuide) {
+  const candidates = [
+    { text: state.appointmentNote, sourceScore: 18 },
+    ...getPublicEditorialNotes(state.editorNotes).map((text) => ({ text, sourceScore: 14 })),
+    ...state.recommendedSteps.map((text) => ({ text, sourceScore: 11 })),
+    { text: state.realIdSummary, sourceScore: 4 },
+    { text: state.licenseSummary, sourceScore: 4 },
+  ];
+  const seen = new Set<string>();
+  const notes: { category: string; text: string; score: number; index: number }[] = [];
+
+  for (const [index, candidate] of candidates.entries()) {
+    const compact = candidate.text.replace(/\s+/g, ' ').trim();
+    if (!compact || seen.has(compact) || !hasAppointmentCue(compact)) continue;
+    seen.add(compact);
+    const category = classifyAppointmentCue(compact);
+    notes.push({ category, text: compact, score: appointmentNoteScore(compact, category) + candidate.sourceScore, index });
+  }
+
+  const priority = ['先线上查', '预约', '当天 REAL ID', 'walk-in', '办公室类型', '地点分工', '地点查询', '当天 / 邮寄', '现场提醒'];
+  const ranked = notes.sort((a, b) => b.score - a.score || priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index);
+  const selected: typeof notes = [];
+  const anchor = ranked.find((note) => /appointment|reservation|scheduler|REAL ID Center|driver license office|service center|customer service center|locations|预约|办公室|服务中心/i.test(note.text));
+
+  if (anchor) selected.push(anchor);
+
+  for (const note of ranked) {
+    if (!selected.some((item) => item.category === note.category)) selected.push(note);
+    if (selected.length >= 4) break;
+  }
+
+  for (const note of ranked) {
+    if (selected.includes(note)) continue;
+    selected.push(note);
+    if (selected.length >= 4) break;
+  }
+
+  return selected
+    .slice(0, 4)
+    .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
+    .map(({ category, text }) => ({ category, text }));
+}
+
+function appointmentBadges(notes: { category: string; text: string }[]) {
+  return [...new Set(notes.map((note) => note.category))].slice(0, 4);
+}
+
+function pickAppointmentLinks(state: StateGuide) {
+  const links = state.actionLinks.filter((link) =>
+    /appointment|reservation|schedule|location|office|center|branch|services|service center|driver license office|REAL ID Center|online services|预约|地点|办公室|服务中心|办事处|线上|REAL ID/i.test(
+      `${link.label} ${link.description} ${link.url}`,
+    ),
+  );
+  return (links.length ? links : state.actionLinks).slice(0, 5);
+}
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const notes = appointmentNotesFor(state);
+  const badges = appointmentBadges(notes);
+  const links = pickAppointmentLinks(state);
+  return {
+    state,
+    status,
+    notes,
+    badges,
+    links,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      ...badges,
+      ...notes.flatMap((note) => [note.category, note.text]),
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+
+const rowsWithAppointments = rows.filter((row) => /appointment|reservation|scheduler|预约/i.test(row.searchText));
+const rowsWithOfficeTypes = rows.filter((row) => /driver license office|service center|licensing center|customer service center|license office|办公室|服务中心/i.test(row.searchText));
+const rowsWithSameDay = rows.filter((row) => /same.?day|REAL ID Center|当天|当日/i.test(row.searchText));
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const quickFilters = [
+  { label: '预约', value: '预约', note: 'appointment' },
+  { label: 'REAL ID Center', value: 'REAL ID Center', note: 'same-day' },
+  { label: 'walk-in', value: 'walk-in', note: '不一定预约' },
+  { label: 'driver office', value: 'driver license office', note: '驾照办公室' },
+  { label: '县 / 承办点', value: 'county', note: '地点分工' },
+  { label: '先线上查', value: '线上', note: '资格入口' },
+  { label: '当天/邮寄', value: 'same-day', note: '拿卡方式' },
+].map((filter) => ({
+  ...filter,
+  count: rows.filter((row) => row.searchText.includes(filter.value.toLowerCase())).length,
+}));
+
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'DMV 预约和办公室入口表',
+  description: '按州整理 DMV / REAL ID 预约、办公室类型、地点查询、walk-in、Same-Day REAL ID Center 和现场办理提醒。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} DMV 预约和办公室入口`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="DMV 预约和办公室入口表" description="按州查找 DMV / REAL ID 预约、办公室类型、地点查询、walk-in、Same-Day REAL ID Center 和现场办理提醒。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>预约和办公室</span>
+      </nav>
+      <p class="eyebrow">预约 / 办公室</p>
+      <h1>DMV 预约和办公室入口表</h1>
+      <p class="lead">同一个州也可能有 DMV office、driver license office、REAL ID Center、县税务官办公室、service center 或移动办事点。先选对地点类型，再预约或排队。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="预约和办公室入口表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{rowsWithAppointments.length} 州</strong>
+          <span>含预约线索</span>
+        </div>
+        <div>
+          <strong>{rowsWithOfficeTypes.length} 州</strong>
+          <span>含办公室类型</span>
+        </div>
+        <div>
+          <strong>{rowsWithSameDay.length} 州</strong>
+          <span>含当天 REAL ID</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需点验入口</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice compact-notice">
+      <div>
+        <strong>先看这一句</strong>
+        <p>预约链接能打开，不代表该地点能办你的业务。REAL ID、首次办证、外州转入、姓名变化、路考和车辆业务常常分属不同办公室；到场前先核对服务类型、材料和是否接受 walk-in。</p>
+      </div>
+    </div>
+
+    <div class="quick-filter-board" aria-label="预约和办公室快速筛选">
+      {quickFilters.map((filter) => (
+        <button type="button" class="quick-filter-button" data-quick-appointment={filter.value}>
+          <span>{filter.label}</span>
+          <small>{filter.note} · {filter.count} 州</small>
+        </button>
+      ))}
+    </div>
+
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="appointment-search">搜索州、预约或办公室类型</label>
+        <input id="appointment-search" type="search" placeholder="例如 appointment、REAL ID Center、walk-in、driver license office、Florida" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="appointment-status">入口状态</label>
+        <select id="appointment-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table appointment-table" role="list">
+      <div class="directory-row appointment-row directory-head" role="presentation">
+        <span>州</span>
+        <span>预约 / 办公室判断</span>
+        <span>官方入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row appointment-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="appointment-notes">
+            <div class="path-badges" aria-label={`${row.state.nameZh} 预约和办公室类型`}>
+              {row.badges.length ? row.badges.map((badge) => <span>{badge}</span>) : <span>需核对</span>}
+            </div>
+            {row.notes.length ? (
+              row.notes.map((note) => (
+                <p>
+                  <span>{note.category}</span>
+                  {note.text}
+                </p>
+              ))
+            ) : (
+              <p>
+                <span>需核对</span>
+                当前表格未列出明确预约或办公室分工；请从州官方地点或预约入口确认。
+              </p>
+            )}
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 预约和办公室官方入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/`}>州总览 <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、预约或办公室类型。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+    const quickButtons = Array.from(document.querySelectorAll('[data-quick-appointment]'));
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    quickButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLElement) || !(search instanceof HTMLInputElement)) return;
+        search.value = String(button.dataset.quickAppointment || '');
+        search.focus();
+        applyFilter();
+      });
+    });
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>

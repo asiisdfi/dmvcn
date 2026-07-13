@@ -1,0 +1,323 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+
+type StateGuide = (typeof states)[number];
+
+const testPattern =
+  /learner'?s? permit|learner permit|instruction permits?|temporary instruction permit|\btip\b|permit test|knowledge test|written knowledge|written test|driver'?s? license knowledge test|road test|driving skills test|skills test|drive test|behind-the-wheel|class e knowledge|new drivers?|first-time driver|first-time license|first driver license|first license|graduated driver|graduated licensing|\bgdl\b|driver education|practice test|sample .*test|handbook|manual|traffic signs?|vision test|testing business|testing location|笔试|路考|知识考试|考试|学习许可|驾照考试|首次驾照|首次办证|未成年|练习题|手册|考点|路标/i;
+
+function hasTestCue(text: string) {
+  const compact = text.replace(/\s+/g, ' ').trim();
+  if (/permit replacement|license\s*\/?\s*id\s*\/?\s*permit replacement|补证/i.test(compact) && !/learner|instruction|knowledge|road|driving|skills|test|\btip\b|考试/i.test(compact)) {
+    return false;
+  }
+  if (/handbook|manual/i.test(compact) && !/knowledge|written|road|skills|test|practice|sample|study|new drivers?|first-time driver|driver education|考试|练习|笔试|路考/i.test(compact)) {
+    return false;
+  }
+  return testPattern.test(compact);
+}
+
+function classifyTestCue(text: string) {
+  if (/learner'?s? permit|learner permit|instruction permits?|temporary instruction permit|\btip\b|permit test|学习许可/i.test(text)) return 'learner permit';
+  if (/knowledge test|written knowledge|written test|driver'?s? license knowledge test|class e knowledge|笔试|知识考试/i.test(text)) return '笔试 / knowledge';
+  if (/road test|driving skills test|skills test|drive test|behind-the-wheel|路考/i.test(text)) return '路考 / skills';
+  if (/new drivers?|first-time driver|first-time license|first driver license|first license|graduated driver|graduated licensing|\bgdl\b|driver education|首次驾照|首次办证|未成年/i.test(text)) return '首次 / GDL';
+  if (/practice test|sample .*test|handbook|manual|练习题|手册/i.test(text)) return '练习 / 手册';
+  if (/testing business|testing location|third-party|approved driver testing|考点/i.test(text)) return '考点 / 第三方';
+  if (/vision test|traffic signs?|road sign|路标/i.test(text)) return 'vision / signs';
+  if (/appointment|schedule|office|材料|documents?|预约|办公室/i.test(text)) return '材料 / 预约';
+  return '考试提醒';
+}
+
+function testNoteScore(text: string, category: string) {
+  let score = 0;
+  if (/learner'?s? permit|instruction permits?|temporary instruction permit|\btip\b|permit test|学习许可/i.test(text)) score += 26;
+  if (/knowledge test|written knowledge|written test|class e knowledge|笔试|知识考试/i.test(text)) score += 24;
+  if (/road test|driving skills test|skills test|drive test|behind-the-wheel|路考/i.test(text)) score += 24;
+  if (/new drivers?|first-time driver|first license|gdl|graduated|driver education|首次驾照|未成年/i.test(text)) score += 18;
+  if (/practice test|sample|handbook|manual|练习题|手册/i.test(text)) score += 14;
+  if (/testing business|testing location|third-party|approved driver testing|考点/i.test(text)) score += 14;
+  if (/vision|traffic signs?|road sign|路标/i.test(text)) score += 10;
+  if (/appointment|schedule|office|documents?|材料|预约|办公室/i.test(text)) score += 7;
+  if (/must|required|wait|valid|score|pass|通过|必须|需要|有效|等待/i.test(text)) score += 6;
+  if (category === '考试提醒') score -= 8;
+  return score;
+}
+
+function testNotesFor(state: StateGuide) {
+  const candidates = [
+    ...getPublicEditorialNotes(state.editorNotes).map((text) => ({ text, sourceScore: 15 })),
+    ...state.recommendedSteps.map((text) => ({ text, sourceScore: 10 })),
+    ...state.actionLinks.map((link) => ({ text: `${link.label}：${link.description}`, sourceScore: 9 })),
+    { text: state.licenseSummary, sourceScore: 7 },
+    { text: state.appointmentNote, sourceScore: 6 },
+    ...state.documentHighlights.map((text) => ({ text, sourceScore: 5 })),
+    { text: state.realIdSummary, sourceScore: 2 },
+  ];
+  const seen = new Set<string>();
+  const notes: { category: string; text: string; score: number; index: number }[] = [];
+
+  for (const [index, candidate] of candidates.entries()) {
+    const compact = candidate.text.replace(/\s+/g, ' ').trim();
+    if (!compact || seen.has(compact) || !hasTestCue(compact)) continue;
+    seen.add(compact);
+    const category = classifyTestCue(compact);
+    notes.push({ category, text: compact, score: testNoteScore(compact, category) + candidate.sourceScore, index });
+  }
+
+  const priority = ['learner permit', '笔试 / knowledge', '路考 / skills', '首次 / GDL', '练习 / 手册', '考点 / 第三方', 'vision / signs', '材料 / 预约', '考试提醒'];
+  const ranked = notes.sort((a, b) => b.score - a.score || priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index);
+  const selected: typeof notes = [];
+  const anchor = ranked.find((note) => /learner|instruction permit|knowledge test|written test|road test|skills test|\btip\b|笔试|路考|学习许可/i.test(note.text));
+
+  if (anchor) selected.push(anchor);
+
+  for (const note of ranked) {
+    if (!selected.some((item) => item.category === note.category)) selected.push(note);
+    if (selected.length >= 4) break;
+  }
+
+  for (const note of ranked) {
+    if (selected.includes(note)) continue;
+    selected.push(note);
+    if (selected.length >= 4) break;
+  }
+
+  return selected
+    .slice(0, 4)
+    .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
+    .map(({ category, text }) => ({ category, text }));
+}
+
+function testBadges(notes: { category: string; text: string }[]) {
+  return [...new Set(notes.map((note) => note.category))].slice(0, 4);
+}
+
+function pickTestLinks(state: StateGuide) {
+  const links = state.actionLinks.filter((link) =>
+    /learner|permit test|instruction|knowledge|written|road test|skills test|driving test|driver testing|first-time|first driver|new driver|gdl|graduated|driver education|practice|sample|handbook|manual|testing business|testing location|class e|learner permit|笔试|路考|考试|学习许可|首次|练习|手册|考点/i.test(
+      `${link.label} ${link.description} ${link.url}`,
+    ),
+  );
+  return (links.length ? links : state.actionLinks).slice(0, 5);
+}
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const notes = testNotesFor(state);
+  const badges = testBadges(notes);
+  const links = pickTestLinks(state);
+  return {
+    state,
+    status,
+    notes,
+    badges,
+    links,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      ...badges,
+      ...notes.flatMap((note) => [note.category, note.text]),
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+
+const rowsWithPermit = rows.filter((row) => /learner permit|instruction permit|temporary instruction permit|\btip\b|学习许可/.test(row.searchText));
+const rowsWithRoadTest = rows.filter((row) => /road test|driving skills|skills test|drive test|behind-the-wheel|路考/.test(row.searchText));
+const rowsWithPractice = rows.filter((row) => /practice|sample|handbook|manual|testing business|testing location|third-party|练习题|手册|考点/.test(row.searchText));
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const quickFilters = [
+  { label: 'learner permit', value: 'learner permit', note: '学习许可' },
+  { label: '笔试 / knowledge', value: 'knowledge test', note: 'written' },
+  { label: '路考 / road test', value: 'road test', note: 'skills' },
+  { label: '首次驾照', value: 'first', note: 'new driver' },
+  { label: 'GDL / teen', value: 'gdl', note: '未成年' },
+  { label: 'practice test', value: 'practice', note: '练习题' },
+  { label: 'third-party', value: 'testing business', note: '考点' },
+].map((filter) => ({
+  ...filter,
+  count: rows.filter((row) => row.searchText.includes(filter.value.toLowerCase())).length,
+}));
+
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'DMV 笔试、路考和 learner permit 入口表',
+  description: '按州整理 learner permit、knowledge / written test、road / skills test、first license、GDL、practice test 和第三方考试入口。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} DMV 笔试、路考和 learner permit 入口`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="DMV 笔试、路考和 learner permit 入口表" description="按州查找 learner permit、knowledge / written test、road / skills test、first license、GDL、practice test 和第三方考试入口。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>考试和 permit</span>
+      </nav>
+      <p class="eyebrow">笔试 / 路考 / Permit</p>
+      <h1>DMV 笔试、路考和 learner permit 入口表</h1>
+      <p class="lead">第一次考美国驾照时，permit、笔试、路考、预约和第三方考点往往不是同一个入口。先看州官方路径，再准备材料和考试。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="笔试路考和 learner permit 入口表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{rowsWithPermit.length} 州</strong>
+          <span>含 permit 线索</span>
+        </div>
+        <div>
+          <strong>{rowsWithRoadTest.length} 州</strong>
+          <span>含路考线索</span>
+        </div>
+        <div>
+          <strong>{rowsWithPractice.length} 州</strong>
+          <span>含练习/考点入口</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需点验入口</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice compact-notice">
+      <div>
+        <strong>先看这一句</strong>
+        <p>这张表不提供考试题答案，只整理官方入口和流程判断。考试语言、通过分数、等待期、第三方考点、预约规则和未成年 GDL 要求会变，办理前回官方页面确认。</p>
+      </div>
+    </div>
+
+    <div class="quick-filter-board" aria-label="笔试路考和 permit 快速筛选">
+      {quickFilters.map((filter) => (
+        <button type="button" class="quick-filter-button" data-quick-test={filter.value}>
+          <span>{filter.label}</span>
+          <small>{filter.note} · {filter.count} 州</small>
+        </button>
+      ))}
+    </div>
+
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="test-search">搜索州、考试或 permit</label>
+        <input id="test-search" type="search" placeholder="例如 learner permit、knowledge test、road test、GDL、Michigan" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="test-status">入口状态</label>
+        <select id="test-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table test-permit-table" role="list">
+      <div class="directory-row test-permit-row directory-head" role="presentation">
+        <span>州</span>
+        <span>考试和 permit 判断</span>
+        <span>官方入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row test-permit-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="test-permit-notes">
+            <div class="path-badges" aria-label={`${row.state.nameZh} 笔试路考和 permit 类型`}>
+              {row.badges.length ? row.badges.map((badge) => <span>{badge}</span>) : <span>需核对</span>}
+            </div>
+            {row.notes.length ? (
+              row.notes.map((note) => (
+                <p>
+                  <span>{note.category}</span>
+                  {note.text}
+                </p>
+              ))
+            ) : (
+              <p>
+                <span>需核对</span>
+                当前表格未列出明确考试或 learner permit 说明；请从州官方驾照、new driver 或 driver manual 入口开始确认。
+              </p>
+            )}
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 笔试路考和 permit 官方入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/`}>州总览 <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、考试或 permit。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+    const quickButtons = Array.from(document.querySelectorAll('[data-quick-test]'));
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    quickButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLElement) || !(search instanceof HTMLInputElement)) return;
+        search.value = String(button.dataset.quickTest || '');
+        search.focus();
+        applyFilter();
+      });
+    });
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>

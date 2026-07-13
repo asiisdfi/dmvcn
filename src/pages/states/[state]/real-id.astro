@@ -1,0 +1,325 @@
+---
+import { ArrowRight, ShieldAlert } from '@lucide/astro/icons';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OfficialLinkButton from '../../../components/OfficialLinkButton.astro';
+import ReviewBadge from '../../../components/ReviewBadge.astro';
+import SourceList from '../../../components/SourceList.astro';
+import {
+  REVIEW_DATE,
+  SITE,
+  federalSources,
+  getStatePublicStatus,
+  states,
+  topics,
+  uniqueSources,
+  type StateGuide,
+} from '../../../data/content';
+
+export function getStaticPaths() {
+  return states.map((state) => ({
+    params: { state: state.id },
+    props: { state },
+  }));
+}
+
+const { state } = Astro.props as { state: StateGuide };
+const relatedTopics = topics.filter((topic) => state.relatedTopicSlugs.includes(topic.slug));
+const realIdSource = state.actionLinks[0];
+const accessStatus = state.accessStatus ? getStatePublicStatus(state) : undefined;
+const title = `${state.nameZh} REAL ID 中文材料清单`;
+const description = `${state.nameZh} REAL ID 中文清单：材料类别、办理顺序、常见错误和官方来源。`;
+const reviewedAt = state.reviewedAt ?? REVIEW_DATE;
+const officialSources = uniqueSources([...state.sources, ...federalSources]);
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const realIdDecisions = [
+  {
+    number: '01',
+    title: '先判断是否需要',
+    text: '如果你有有效护照或其他 TSA 接受证件，国内航班不一定必须急着升级州证件。',
+    href: '/topics/airport-travel-after-real-id/',
+    action: '看机场证件',
+    external: false,
+  },
+  {
+    number: '02',
+    title: '再核对材料',
+    text: `把 ${state.nameZh} 的身份、SSN、地址和姓名文件放到同一个材料夹里，按官方清单逐项确认。`,
+    href: '#materials',
+    action: '跳到材料',
+    external: false,
+  },
+  {
+    number: '03',
+    title: '最后打开官方入口',
+    text: accessStatus
+      ? '如果州 DMV 深层页被安全系统拦截，先从 USA.gov 州机动车目录进入对应州官方入口。'
+      : `从 ${realIdSource.label} 开始，确认预约、费用、原件和是否接受线上预审。`,
+    href: accessStatus?.fallbackUrl ?? realIdSource.url,
+    action: accessStatus ? '打开备用目录' : '打开官方入口',
+    external: true,
+  },
+];
+const credentialComparisonRows = [
+  {
+    label: 'REAL ID 州驾照 / ID',
+    use: '适合想用州证件处理国内航班安检或部分联邦设施身份用途的人。',
+    material: `按 ${state.agency} 官方清单准备身份、SSN、地址、姓名变更和 lawful presence 等材料。`,
+  },
+  {
+    label: '标准驾照 / ID',
+    use: '通常仍可用于驾驶或普通州内身份用途，但不能当作 REAL ID 联邦用途证件。',
+    material: '看本州普通驾照 / ID、续期、补证或地址变更入口；不要把标准证件当作 REAL ID 使用。',
+  },
+  {
+    label: '护照或 TSA 接受证件',
+    use: '适合已经有有效护照，且只是为了国内航班身份核验的人。',
+    material: '先查 TSA 接受证件列表；旅行证件规则以 TSA 官方页面为准。',
+  },
+];
+const realIdFaqs = [
+  {
+    question: `有护照还需要办 ${state.nameZh} REAL ID 吗？`,
+    answer:
+      '不一定。有效护照等 TSA 接受证件也可用于国内航班身份核验；是否升级州证件，取决于你是否想用驾照或州 ID 处理这些用途。',
+  },
+  {
+    question: 'REAL ID 材料可以只带复印件或手机照片吗？',
+    answer: `不要这样假设。很多州要求原件或 certified copy，是否接受电子文件、预审或上传，以 ${state.agency} 官方页面为准。`,
+  },
+  {
+    question: '中文清单和官方页面不一致怎么办？',
+    answer: `以 ${state.agency} 官方页面和现场要求为准。本站用于中文理解和路径整理，不替代官方要求。`,
+  },
+];
+const schema = [
+  {
+    '@type': 'Article',
+    headline: title,
+    description,
+    mainEntityOfPage: pageUrl,
+    dateModified: reviewedAt,
+    datePublished: reviewedAt,
+    inLanguage: 'zh-Hans',
+    isAccessibleForFree: true,
+    author: {
+      '@type': 'Organization',
+      name: SITE.name,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+    },
+    about: [`${state.nameEn} REAL ID`, `${state.nameEn} DMV`, 'REAL ID documents'],
+    citation: officialSources.map((source) => source.url),
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: realIdFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: '首页',
+        item: new URL('/', Astro.site).toString(),
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: '州指南',
+        item: new URL('/states/', Astro.site).toString(),
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: state.nameZh,
+        item: new URL(`/states/${state.id}/`, Astro.site).toString(),
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: 'REAL ID',
+        item: pageUrl,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} updatedAt={reviewedAt} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/states/">州指南</a><span>/</span><a href={`/states/${state.id}/`}>{state.nameZh}</a><span>/</span><span>REAL ID</span>
+      </nav>
+      <p class="eyebrow">{state.abbr} REAL ID</p>
+      <h1>{state.nameZh} REAL ID 中文材料清单</h1>
+      <p class="lead">{state.realIdSummary}</p>
+      <ReviewBadge date={state.reviewedAt} />
+      <div class="page-ledger" aria-label="页面状态">
+        <div>
+          <strong>{reviewedAt}</strong>
+          <span>内容核对</span>
+        </div>
+        <div>
+          <strong>{officialSources.length}</strong>
+          <span>官方来源</span>
+        </div>
+        <div>
+          <strong>官方为准</strong>
+          <span>最终材料</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-layout">
+    <article class="article-stack">
+      <section class="decision-board" aria-labelledby="decision-board-title">
+        <div class="route-board-head">
+          <div>
+            <p class="eyebrow">三步判断</p>
+            <h2 id="decision-board-title">先做这三步</h2>
+          </div>
+          <p>REAL ID 页面最容易越看越乱。先用这三步把方向定下来。</p>
+        </div>
+        <div class="route-card-grid">
+          {realIdDecisions.map((item) => (
+            <article class="route-card compact">
+              <span>{item.number}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <a class="route-action" href={item.href} target={item.external ? '_blank' : undefined} rel={item.external ? 'noreferrer' : undefined}>
+                {item.action} <ArrowRight size={15} aria-hidden="true" />
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>适合先看这页的人</h2>
+        <ul class="check-list">
+          <li>你的驾照或 ID 没有 REAL ID 合规标记，且你想用州证件坐国内航班。</li>
+          <li>你没有护照，或不想每次国内旅行都带护照。</li>
+          <li>你准备续期、补证或搬州换证，想顺便判断是否升级 REAL ID。</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>REAL ID、标准证件和护照怎么选</h2>
+        <div class="comparison-table" role="table" aria-label={`${state.nameZh} REAL ID 证件选择对比`}>
+          <div class="comparison-row comparison-head" role="row">
+            <span role="columnheader">证件路径</span>
+            <span role="columnheader">适合情况</span>
+            <span role="columnheader">材料判断</span>
+          </div>
+          {credentialComparisonRows.map((row) => (
+            <div class="comparison-row" role="row">
+              <strong role="cell">{row.label}</strong>
+              <p role="cell">{row.use}</p>
+              <p role="cell">{row.material}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {accessStatus && (
+        <section class:list={['panel', 'access-panel', accessStatus.tone]}>
+          <div class="access-panel-heading">
+            <h2>官方入口状态</h2>
+            <span class={`status-chip ${accessStatus.tone}`}>{accessStatus.label}</span>
+          </div>
+          <p>{accessStatus.note}</p>
+          {accessStatus.fallbackUrl && (
+            <div class="access-panel-actions">
+              <OfficialLinkButton href={accessStatus.fallbackUrl} label={accessStatus.fallbackLabel || '备用官方入口'} />
+            </div>
+          )}
+        </section>
+      )}
+
+      <section class="panel" id="materials">
+        <h2>材料类别</h2>
+        <ul class="check-list">
+          {state.documentHighlights.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>办理顺序</h2>
+        <ol class="step-list">
+          <li>先判断 REAL ID 是否必要：有效护照等 TSA 接受证件也可用于国内航班身份核验。</li>
+          {state.recommendedSteps.map((step) => <li>{step}</li>)}
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>常见失败原因</h2>
+        <ul class="plain-list">
+          {state.commonMistakes.map((mistake) => <li>{mistake}</li>)}
+        </ul>
+      </section>
+
+      <section class="panel" id="official-entry">
+        <h2>官方办理入口</h2>
+        <div class="action-row">
+          <div>
+            <strong>{realIdSource.label}</strong>
+            <p>{realIdSource.description}</p>
+          </div>
+          <OfficialLinkButton href={realIdSource.url} label="打开官方 REAL ID" variant="primary" />
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>常见问题</h2>
+        <div class="faq-list">
+          {realIdFaqs.map((faq) => (
+            <div class="faq-item">
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="notice">
+        <ShieldAlert size={22} aria-hidden="true" />
+        <div>
+          <strong>不要只按中文页准备材料</strong>
+          <p>中文说明用于理解流程和找到入口。最终文件类型、费用、预约、是否接受电子文件，都必须按 {state.agency} 官方页面确认。</p>
+        </div>
+      </section>
+
+      <SourceList sources={officialSources} />
+    </article>
+
+    <aside class="sidebar" aria-label="侧边栏">
+      <div class="panel">
+        <h2>{state.nameZh} 相关页</h2>
+        <div class="quick-actions">
+          <a class="button-link secondary" href={`/states/${state.id}/`}>返回 DMV 总览</a>
+          <OfficialLinkButton href={state.agencyUrl} label={state.agency} />
+        </div>
+      </div>
+      <div class="panel">
+        <h2>延伸阅读</h2>
+        <ul class="plain-list">
+          {relatedTopics.map((topic) => (
+            <li><a class="text-link" href={`/topics/${topic.slug}/`}>{topic.title} <ArrowRight size={15} aria-hidden="true" /></a></li>
+          ))}
+        </ul>
+      </div>
+    </aside>
+  </div>
+</BaseLayout>

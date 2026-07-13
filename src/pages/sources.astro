@@ -1,0 +1,104 @@
+---
+import { ExternalLink } from '@lucide/astro/icons';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { REVIEW_DATE, federalSources, states, topics, uniqueSources } from '../data/content';
+
+type SourceEntry = {
+  label: string;
+  url: string;
+  note?: string;
+  group: string;
+  owner: string;
+};
+
+const federalEntries: SourceEntry[] = federalSources.map((source) => ({
+  ...source,
+  group: '联邦',
+  owner: 'DHS / TSA / USA.gov',
+}));
+const stateEntries: SourceEntry[] = states.flatMap((state) => [
+  {
+    label: `${state.nameZh} 官方机构首页`,
+    url: state.agencyUrl,
+    note: state.agency,
+    group: '州机构',
+    owner: state.abbr,
+  },
+  ...state.sources.map((source) => ({
+    ...source,
+    group: '州来源',
+    owner: state.abbr,
+  })),
+  ...state.actionLinks.map((link) => ({
+    label: link.label,
+    url: link.url,
+    note: link.description,
+    group: '办理入口',
+    owner: state.abbr,
+  })),
+]);
+const topicEntries: SourceEntry[] = topics.flatMap((topic) =>
+  topic.sources.map((source) => ({
+    ...source,
+    group: '专题来源',
+    owner: topic.eyebrow,
+  })),
+);
+const allSources = uniqueSources([...federalEntries, ...stateEntries, ...topicEntries]) as SourceEntry[];
+const sourceGroups = [
+  {
+    label: '联邦来源',
+    count: uniqueSources(federalEntries).length,
+  },
+  {
+    label: '州与办理入口',
+    count: uniqueSources(stateEntries).length,
+  },
+  {
+    label: '专题补充来源',
+    count: uniqueSources(topicEntries).length,
+  },
+];
+---
+
+<BaseLayout title="官方来源库" description="DMV中文办事库引用的 DMV、REAL ID、TSA、USA.gov、州政府来源和官方办理入口。" updatedAt={REVIEW_DATE}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>Sources</span></nav>
+      <p class="eyebrow">来源库</p>
+      <h1>官方来源库</h1>
+      <p class="lead">这里汇总本站引用的官方来源，方便统一复核和更新。部分政府网站可能要求验证码或需要从机构首页重新进入，实际办理前仍以你能打开的官方页面为准。</p>
+      <div class="page-ledger" aria-label="来源库概况">
+        {sourceGroups.map((group) => (
+          <div>
+            <strong>{group.count}</strong>
+            <span>{group.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel source-directory">
+      <div class="source-directory-head">
+        <div>
+          <h2>全部官方 URL</h2>
+          <p>同一个 URL 只保留一次；州页、REAL ID 页和专题页会在各自页面显示本页直接使用的来源。</p>
+        </div>
+        <span class="status-chip ready">{allSources.length} 条</span>
+      </div>
+      <ul class="source-list compact">
+        {allSources.map((source) => (
+          <li>
+            <a href={source.url} target="_blank" rel="noreferrer">
+              <span>{source.label}</span>
+              <ExternalLink size={16} aria-hidden="true" />
+            </a>
+            <p><strong>{source.group} · {source.owner}</strong>{source.note ? ` · ${source.note}` : ''}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

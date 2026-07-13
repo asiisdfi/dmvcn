@@ -1,0 +1,158 @@
+---
+import { ArrowRight, CalendarDays, ClipboardList, CreditCard, FileCheck2, Globe2, Languages, MapPinned, Route } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, states, topics } from '../../data/content';
+
+const serviceLinkCount = states.reduce((count, state) => count + state.actionLinks.length, 0);
+const directoryCards = [
+  {
+    number: '01',
+    title: '50 州 REAL ID 官方入口',
+    text: '按州查看 REAL ID、Star Card、Travel ID 或材料要求入口，并回到中文清单页。',
+    href: '/directories/real-id/',
+    icon: FileCheck2,
+  },
+  {
+    number: '02',
+    title: 'DMV 常用业务入口',
+    text: '把州机构首页、REAL ID、续期、地址、预约和线上服务放在同一张表里。',
+    href: '/directories/dmv-services/',
+    icon: ClipboardList,
+  },
+  {
+    number: '03',
+    title: '线上/现场分流表',
+    text: '按州判断续期、补证、地址变更、REAL ID 和预约应先线上查还是到场核验。',
+    href: '/directories/service-paths/',
+    icon: Route,
+  },
+  {
+    number: '04',
+    title: 'DMV 预约和办公室入口表',
+    text: '按州查预约入口、办公室类型、REAL ID Center、walk-in 和地点分工。',
+    href: '/directories/appointments/',
+    icon: CalendarDays,
+  },
+  {
+    number: '05',
+    title: '笔试、路考和 learner permit',
+    text: '按州查 first license、knowledge test、road test、GDL、练习题和第三方考点入口。',
+    href: '/directories/tests-permits/',
+    icon: ClipboardList,
+  },
+  {
+    number: '06',
+    title: '考试语言、翻译和口译',
+    text: '按州查中文/多语言笔试、文件翻译、口译请求、手册和 English-only 限制。',
+    href: '/directories/language-access/',
+    icon: Languages,
+  },
+  {
+    number: '07',
+    title: '费用和拿证时间表',
+    text: '按州查付款方式、服务费、临时凭证、卡片邮寄和处理时间提醒。',
+    href: '/directories/costs-timing/',
+    icon: CreditCard,
+  },
+  {
+    number: '08',
+    title: 'SSN / 身份类别分流表',
+    text: '按州查 SSN、无 SSN、ITIN、lawful presence、非公民和临时访客入口。',
+    href: '/directories/identity-ssn/',
+    icon: FileCheck2,
+  },
+  {
+    number: '09',
+    title: '搬到新州后先办什么',
+    text: '按州查新居民、外州驾照转入、地址更新和车辆登记顺序入口。',
+    href: '/directories/new-residents/',
+    icon: Route,
+  },
+  {
+    number: '10',
+    title: '外国/外州驾照转入和 IDP',
+    text: '按州查外国驾照、外州转入、International Driving Permit、互惠免考和翻译/交旧证规则。',
+    href: '/directories/foreign-license/',
+    icon: Globe2,
+  },
+  {
+    number: '11',
+    title: 'DMV 材料规则表',
+    text: '按州查地址证明、SSN、姓名链条、原件/认证副本、P.O. Box 和文件日期。',
+    href: '/directories/document-rules/',
+    icon: FileCheck2,
+  },
+  {
+    number: '12',
+    title: 'DMV 期限提醒表',
+    text: '汇总地址变更、搬州、续期、材料时效和处理时间里的关键天数。',
+    href: '/directories/deadlines/',
+    icon: CalendarDays,
+  },
+  {
+    number: '13',
+    title: '州指南总表',
+    text: '需要先读中文说明时，从州指南进入材料提醒、流程和官方来源。',
+    href: '/states/',
+    icon: MapPinned,
+  },
+];
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'DMV 办事入口表',
+  description: '按州整理 REAL ID、DMV 常用业务、州指南和官方入口的中文目录。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: directoryCards.map((card) => ({
+    '@type': 'SiteNavigationElement',
+    name: card.title,
+    url: new URL(card.href, Astro.site).toString(),
+  })),
+};
+---
+
+<BaseLayout title="DMV 办事入口表" description="按州查找 REAL ID、DMV 常用业务、州指南和官方入口的中文目录。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>入口表</span></nav>
+      <p class="eyebrow">入口表</p>
+      <h1>DMV 办事入口表</h1>
+      <p class="lead">不想先读长文时，从这里按州直接找官方入口。中文页负责帮你判断路径，实际办理仍回到州官方系统。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="入口表概况">
+        <div>
+          <strong>{states.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{serviceLinkCount}</strong>
+          <span>办理入口</span>
+        </div>
+        <div>
+          <strong>{directoryCards.length}</strong>
+          <span>入口类型</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="directory-card-grid">
+      {directoryCards.map((card) => {
+        const Icon = card.icon;
+        return (
+          <a class="directory-card" href={card.href}>
+            <div class="directory-card-top">
+              <span>{card.number}</span>
+              <Icon size={22} aria-hidden="true" />
+            </div>
+            <h2>{card.title}</h2>
+            <p>{card.text}</p>
+            <strong>打开 <ArrowRight size={16} aria-hidden="true" /></strong>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+</BaseLayout>

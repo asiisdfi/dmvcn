@@ -1,0 +1,309 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+
+type StateGuide = (typeof states)[number];
+
+const pathPattern =
+  /online|线上|portal|mydmv|myrmv|mybmv|DMV2U|office|branch|service center|licensing center|counter|appointment|预约|reservation|in person|现场|kiosk|mail|邮寄|renew|续期|replace|replacement|补证|address|地址|first|首次|REAL ID|upgrade|转换|pre-screen|pre-apply|eligibility|资格/i;
+
+function hasPathCue(text: string) {
+  return pathPattern.test(text);
+}
+
+function classifyPath(text: string) {
+  if (/appointment|预约|reservation/i.test(text)) return '预约';
+  if (/address|地址|change your address|地址变更/i.test(text)) return '先改地址';
+  if (/renew|续期|replace|replacement|补证/i.test(text)) return '续期 / 补证';
+  if (/REAL ID|upgrade|转换|首次|first/i.test(text)) return 'REAL ID / 首次';
+  if (/mail|邮寄|mailed|寄达|temporary|临时/i.test(text)) return '邮寄 / 卡片';
+  if (/office|branch|service center|licensing center|counter|in person|现场|到场|办公室/i.test(text)) return '现场核验';
+  if (/online|线上|portal|mydmv|myrmv|mybmv|DMV2U|eligibility|资格/i.test(text)) return '先线上查';
+  return '路径提醒';
+}
+
+function noteScore(text: string, category: string) {
+  let score = 0;
+  if (/online service center|appointmentwizard|document guide|eligibility|资格|pre-screen|pre-apply/i.test(text)) score += 28;
+  if (/REAL ID|Enhanced|upgrade|转换|首次|first/i.test(text)) score += 18;
+  if (/renew|续期|replace|replacement|补证/i.test(text)) score += 16;
+  if (/appointment|预约|reservation/i.test(text)) score += 14;
+  if (/address|地址|change your address|地址变更/i.test(text)) score += 12;
+  if (/office|branch|service center|licensing center|counter|in person|现场|到场|办公室/i.test(text)) score += 10;
+  if (/online|线上|portal|mydmv|myrmv|mybmv|DMV2U/i.test(text)) score += 8;
+  if (/must|必须|需要|不要|不能|不会|仍要|not|only|eligib/i.test(text)) score += 6;
+  if (category === '路径提醒') score -= 8;
+  return score;
+}
+
+function pathNotesFor(state: StateGuide) {
+  const candidates = [
+    { text: state.appointmentNote, sourceScore: 12 },
+    ...state.recommendedSteps.map((text) => ({ text, sourceScore: 10 })),
+    ...getPublicEditorialNotes(state.editorNotes).map((text) => ({ text, sourceScore: 9 })),
+    { text: state.licenseSummary, sourceScore: 6 },
+    { text: state.realIdSummary, sourceScore: 6 },
+  ];
+  const seen = new Set<string>();
+  const notes: { category: string; text: string; score: number; index: number }[] = [];
+
+  for (const [index, candidate] of candidates.entries()) {
+    const text = candidate.text;
+    const compact = text.replace(/\s+/g, ' ').trim();
+    if (!compact || seen.has(compact) || !hasPathCue(compact)) continue;
+    seen.add(compact);
+    const category = classifyPath(compact);
+    notes.push({ category, text: compact, score: noteScore(compact, category) + candidate.sourceScore, index });
+  }
+
+  const priority = ['先线上查', '现场核验', '预约', '先改地址', 'REAL ID / 首次', '续期 / 补证', '邮寄 / 卡片', '路径提醒'];
+  const ranked = notes.sort((a, b) => b.score - a.score || priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index);
+  const selected: typeof notes = [];
+  const anchor = ranked.find((note) => /online service center|online eligibility|most dmv business|counter service|document guide|appointmentwizard/i.test(note.text));
+
+  if (anchor) selected.push(anchor);
+
+  for (const note of ranked) {
+    if (!selected.some((item) => item.category === note.category)) selected.push(note);
+    if (selected.length >= 4) break;
+  }
+
+  for (const note of ranked) {
+    if (selected.includes(note)) continue;
+    selected.push(note);
+    if (selected.length >= 4) break;
+  }
+
+  return selected
+    .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
+    .slice(0, 4)
+    .map(({ category, text }) => ({ category, text }));
+}
+
+function modeBadges(notes: { category: string; text: string }[]) {
+  const categories = [...new Set(notes.map((note) => note.category))];
+  return categories.slice(0, 4);
+}
+
+function pickPathLinks(state: StateGuide) {
+  const links = state.actionLinks.filter((link) =>
+    /online|portal|renew|replace|address|appointment|location|office|services|REAL ID|driver|license|ID|预约|线上|续期|补证|地址|地点|办公室|服务/i.test(
+      `${link.label} ${link.description} ${link.url}`,
+    ),
+  );
+  return (links.length ? links : state.actionLinks).slice(0, 5);
+}
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const notes = pathNotesFor(state);
+  const badges = modeBadges(notes);
+  const links = pickPathLinks(state);
+  return {
+    state,
+    status,
+    notes,
+    badges,
+    links,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      ...badges,
+      ...notes.flatMap((note) => [note.category, note.text]),
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+
+const rowsWithOnline = rows.filter((row) => /online|线上|portal|mydmv|myrmv|mybmv|DMV2U|eligibility/i.test(row.searchText));
+const rowsWithOffice = rows.filter((row) => /office|branch|service center|licensing center|in person|现场|预约|appointment|reservation/i.test(row.searchText));
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const quickFilters = [
+  { label: '先线上查', value: '线上', note: '资格/入口' },
+  { label: '必须现场', value: '现场', note: '文件核验' },
+  { label: '预约', value: '预约', note: '办公室' },
+  { label: '地址先改', value: '地址', note: '续期前' },
+  { label: '续期', value: '续期', note: 'renewal' },
+  { label: '补证', value: '补证', note: 'replacement' },
+  { label: 'REAL ID', value: 'REAL ID', note: '升级/首次' },
+].map((filter) => ({
+  ...filter,
+  count: rows.filter((row) => row.searchText.includes(filter.value.toLowerCase())).length,
+}));
+
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'DMV 线上/现场分流表',
+  description: '按州整理 DMV / REAL ID / 驾照续期、补证、地址变更和预约的线上或现场办理路径。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} DMV 线上/现场分流`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="DMV 线上/现场分流表" description="按州查找 DMV / REAL ID / 驾照续期、补证、地址变更和预约的线上或现场办理路径。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>线上/现场</span>
+      </nav>
+      <p class="eyebrow">路径分流</p>
+      <h1>DMV 线上/现场分流表</h1>
+      <p class="lead">先判断这件事能不能线上开始、是否必须到办公室核验、要不要预约、地址是否要先改。减少读完材料才发现走错入口的情况。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="线上现场分流表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{rowsWithOnline.length} 州</strong>
+          <span>含线上入口</span>
+        </div>
+        <div>
+          <strong>{rowsWithOffice.length} 州</strong>
+          <span>提示现场/预约</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需点验入口</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice compact-notice">
+      <div>
+        <strong>先看这一句</strong>
+        <p>这张表只做路径分流。线上入口能打开，不代表本人一定有资格；需要身份、REAL ID、姓名或首次文件核验时，通常仍要按州官方页面带材料到场。</p>
+      </div>
+    </div>
+
+    <div class="quick-filter-board" aria-label="办理方式快速筛选">
+      {quickFilters.map((filter) => (
+        <button type="button" class="quick-filter-button" data-quick-path={filter.value}>
+          <span>{filter.label}</span>
+          <small>{filter.note} · {filter.count} 州</small>
+        </button>
+      ))}
+    </div>
+
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="path-search">搜索州、路径或业务</label>
+        <input id="path-search" type="search" placeholder="例如 线上、现场、预约、地址、renew、California" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="path-status">入口状态</label>
+        <select id="path-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table service-path-table" role="list">
+      <div class="directory-row service-path-row directory-head" role="presentation">
+        <span>州</span>
+        <span>先判断</span>
+        <span>官方入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row service-path-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="path-notes">
+            <div class="path-badges" aria-label={`${row.state.nameZh} 办理方式`}>
+              {row.badges.length ? row.badges.map((badge) => <span>{badge}</span>) : <span>需核对</span>}
+            </div>
+            {row.notes.length ? (
+              row.notes.map((note) => (
+                <p>
+                  <span>{note.category}</span>
+                  {note.text}
+                </p>
+              ))
+            ) : (
+              <p>
+                <span>需核对</span>
+                当前表格未列出明确线上/现场分流；请从州官方 DMV 服务入口确认。
+              </p>
+            )}
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 路径相关官方入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/`}>州总览 <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、路径或业务。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+    const quickButtons = Array.from(document.querySelectorAll('[data-quick-path]'));
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    quickButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLElement) || !(search instanceof HTMLInputElement)) return;
+        search.value = String(button.dataset.quickPath || '');
+        search.focus();
+        applyFilter();
+      });
+    });
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>

@@ -1,0 +1,341 @@
+---
+import { ArrowRight, ShieldAlert } from '@lucide/astro/icons';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OfficialLinkButton from '../../../components/OfficialLinkButton.astro';
+import ReviewBadge from '../../../components/ReviewBadge.astro';
+import SourceList from '../../../components/SourceList.astro';
+import {
+  REVIEW_DATE,
+  SITE,
+  getPublicEditorialNotes,
+  getStatePublicStatus,
+  states,
+  topics,
+  uniqueSources,
+  type StateGuide,
+} from '../../../data/content';
+
+export function getStaticPaths() {
+  return states.map((state) => ({
+    params: { state: state.id },
+    props: { state },
+  }));
+}
+
+const { state } = Astro.props as { state: StateGuide };
+const relatedTopics = topics.filter((topic) => state.relatedTopicSlugs.includes(topic.slug));
+const accessStatus = state.accessStatus ? getStatePublicStatus(state) : undefined;
+const publicNotes = getPublicEditorialNotes(state.editorNotes);
+const title = `${state.nameZh} DMV / 驾照 / REAL ID 办事总览`;
+const description = `${state.nameZh} DMV 中文办事总览：官方入口、REAL ID、驾照、地址变更、预约和常见材料提醒。`;
+const reviewedAt = state.reviewedAt ?? REVIEW_DATE;
+const officialSources = uniqueSources(state.sources);
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const linkLabel = (link: StateGuide['actionLinks'][number]) => link.label.toLowerCase();
+const findActionLink = (patterns: RegExp[]) =>
+  patterns.map((pattern) => state.actionLinks.find((link) => pattern.test(linkLabel(link)))).find(Boolean);
+const newResidentLink = findActionLink([
+  /新居民|new .*resident|new to|moving to|搬家/,
+  /外州|out[- ]of[- ]state|another state/,
+  /license transfers?/,
+]);
+const serviceLink =
+  findActionLink([
+    /续期|renew(?:al)?/,
+    /补证|replace(?:ment)?|duplicate/,
+    /地址|address/,
+    /线上.*服务|online.*services?|portal/,
+    /预约|appointment/,
+  ]) ??
+  {
+    label: `${state.agency} 服务首页`,
+    url: state.agencyUrl,
+    description: '从州机构首页选择续期、补证、地址变更或预约服务。',
+  };
+const routeCards = [
+  {
+    number: '01',
+    title: '我要办 REAL ID',
+    text: '先判断是否真的需要，再按本州材料清单备原件或认证副本。',
+    href: `/states/${state.id}/real-id/`,
+    action: '看中文清单',
+    external: false,
+  },
+  {
+    number: '02',
+    title: '我刚搬到这个州',
+    text: newResidentLink
+      ? `从 ${newResidentLink.label} 开始，先确认外州证件、地址证明和是否要预约。`
+      : '先看搬州专题，再回到本州 DMV 页面确认 new resident 要求。',
+    href: newResidentLink?.url ?? '/topics/moving-to-new-state/',
+    action: newResidentLink ? '打开官方入口' : '看搬州专题',
+    external: Boolean(newResidentLink),
+  },
+  {
+    number: '03',
+    title: '我要续期、补证或改地址',
+    text: serviceLink
+      ? `先处理地址和线上资格，再从 ${serviceLink.label} 进入对应业务。`
+      : '先确认地址、证件状态和线上资格，再决定是否需要预约。',
+    href: serviceLink?.url ?? '/topics/renewal-replacement-address/',
+    action: serviceLink ? '打开办理入口' : '看顺序说明',
+    external: Boolean(serviceLink),
+  },
+];
+const serviceComparisonRows = [
+  {
+    label: '普通驾照 / 州 ID',
+    use: state.licenseSummary,
+    next: `${state.agency} 的驾照、ID 或线上服务入口。`,
+  },
+  {
+    label: 'REAL ID',
+    use: state.realIdSummary,
+    next: `${state.nameZh} REAL ID 中文清单和州官方 REAL ID / 材料入口。`,
+  },
+  {
+    label: '续期 / 补证 / 地址 / 预约',
+    use: state.appointmentNote,
+    next: serviceLink ? `${serviceLink.label}：${serviceLink.description}` : '先确认地址、证件状态和线上资格，再看州官方服务入口。',
+  },
+];
+const overviewFaqs = [
+  {
+    question: '能在这里提交申请、预约或付款吗？',
+    answer: `不能。申请、预约、付款、上传文件或更新记录，都要在 ${state.agency} 官方系统完成。`,
+  },
+  {
+    question: `我应该先看 REAL ID 还是普通驾照服务？`,
+    answer: `如果你的目标是国内航班安检或部分联邦身份用途，先看 ${state.nameZh} REAL ID 清单；如果只是驾驶、续期、补证或地址变化，先看普通驾照 / ID 和对应服务入口。`,
+  },
+  {
+    question: '官方入口打不开怎么办？',
+    answer: accessStatus?.fallbackUrl
+      ? `先从备用官方入口进入，再选择 ${state.nameZh} 或 ${state.agency}。部分政府网站会要求验证码，或需要从机构首页重新进入。`
+      : `先回到 ${state.agency} 首页，再按 driver license、ID、REAL ID、renewal 或 appointment 等栏目进入。`,
+  },
+];
+const schema = [
+  {
+    '@type': 'Article',
+    headline: title,
+    description,
+    mainEntityOfPage: pageUrl,
+    dateModified: reviewedAt,
+    datePublished: reviewedAt,
+    inLanguage: 'zh-Hans',
+    isAccessibleForFree: true,
+    author: {
+      '@type': 'Organization',
+      name: SITE.name,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+    },
+    about: [`${state.nameEn} DMV`, `${state.nameEn} driver license`, `${state.nameEn} REAL ID`],
+    citation: officialSources.map((source) => source.url),
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: overviewFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: '首页',
+        item: new URL('/', Astro.site).toString(),
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: '州指南',
+        item: new URL('/states/', Astro.site).toString(),
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: state.nameZh,
+        item: pageUrl,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} updatedAt={reviewedAt} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/states/">州指南</a><span>/</span><span>{state.nameZh}</span>
+      </nav>
+      <p class="eyebrow">{state.abbr} / {state.agency}</p>
+      <h1>{state.nameZh} DMV 办事总览</h1>
+      <p class="lead">{state.summary}</p>
+      <ReviewBadge date={state.reviewedAt} />
+      <div class="page-ledger" aria-label="页面状态">
+        <div>
+          <strong>{reviewedAt}</strong>
+          <span>内容核对</span>
+        </div>
+        <div>
+          <strong>{officialSources.length}</strong>
+          <span>官方来源</span>
+        </div>
+        <div>
+          <strong>{state.actionLinks.length}</strong>
+          <span>办理入口</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-layout">
+    <article class="article-stack">
+      <section class="route-board" aria-labelledby="route-board-title">
+        <div class="route-board-head">
+          <div>
+            <p class="eyebrow">路线板</p>
+            <h2 id="route-board-title">先走哪条线</h2>
+          </div>
+          <p>不用先读完整页。先把自己的情况放进一条路线，再看对应材料和官方入口。</p>
+        </div>
+        <div class="route-card-grid">
+          {routeCards.map((route) => (
+            <article class="route-card">
+              <span>{route.number}</span>
+              <h3>{route.title}</h3>
+              <p>{route.text}</p>
+              <a class="route-action" href={route.href} target={route.external ? '_blank' : undefined} rel={route.external ? 'noreferrer' : undefined}>
+                {route.action} <ArrowRight size={15} aria-hidden="true" />
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>先判断你要办什么</h2>
+        <p>{state.licenseSummary}</p>
+        <p>{state.realIdSummary}</p>
+      </section>
+
+      <section class="panel">
+        <h2>三类入口怎么分</h2>
+        <div class="comparison-table" role="table" aria-label={`${state.nameZh} DMV 办理入口对比`}>
+          <div class="comparison-row comparison-head" role="row">
+            <span role="columnheader">入口类型</span>
+            <span role="columnheader">适合情况</span>
+            <span role="columnheader">下一步</span>
+          </div>
+          {serviceComparisonRows.map((row) => (
+            <div class="comparison-row" role="row">
+              <strong role="cell">{row.label}</strong>
+              <p role="cell">{row.use}</p>
+              <p role="cell">{row.next}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {publicNotes.length > 0 && (
+        <section class="panel editorial-panel">
+          <h2>本州办事细节</h2>
+          <ul class="plain-list">
+            {publicNotes.map((note) => <li>{note}</li>)}
+          </ul>
+        </section>
+      )}
+
+      {accessStatus && (
+        <section class:list={['panel', 'access-panel', accessStatus.tone]}>
+          <div class="access-panel-heading">
+            <h2>官方入口状态</h2>
+            <span class={`status-chip ${accessStatus.tone}`}>{accessStatus.label}</span>
+          </div>
+          <p>{accessStatus.note}</p>
+          {accessStatus.fallbackUrl && (
+            <div class="access-panel-actions">
+              <OfficialLinkButton href={accessStatus.fallbackUrl} label={accessStatus.fallbackLabel || '备用官方入口'} />
+            </div>
+          )}
+        </section>
+      )}
+
+      <section class="panel">
+        <h2>去办理前先准备</h2>
+        <ul class="check-list">
+          <li>先确认业务类型：REAL ID、首次驾照、续期、补证、地址变更、外州转入或车辆业务。</li>
+          <li>准备当前驾照、ID 或车辆文件，并确认 {state.agency} 记录中的姓名和地址是否正确。</li>
+          <li>涉及身份、SSN、居住地址或姓名变化时，进入对应材料页核对原件、认证副本和文件日期。</li>
+          <li>保存预约确认、线上申请编号、付款收据和临时凭证；最终要求以官方系统为准。</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>官方入口</h2>
+        <div class="link-table">
+          {state.actionLinks.map((link, index) => (
+            <div class="action-row">
+              <div>
+                <strong>{link.label}</strong>
+                <p>{link.description}</p>
+              </div>
+              <OfficialLinkButton href={link.url} label={index === 0 ? '打开官方页' : '打开'} variant={index === 0 ? 'primary' : 'secondary'} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>常见问题</h2>
+        <div class="faq-list">
+          {overviewFaqs.map((faq) => (
+            <div class="faq-item">
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="notice">
+        <ShieldAlert size={22} aria-hidden="true" />
+        <div>
+          <strong>办理前再确认一次</strong>
+          <p>{state.appointmentNote} {SITE.disclaimer}</p>
+        </div>
+      </section>
+
+      <SourceList sources={officialSources} />
+    </article>
+
+    <aside class="sidebar" aria-label="侧边栏">
+      <div class="panel">
+        <h2>{state.nameZh} 快速入口</h2>
+        <div class="quick-actions">
+          <a class="button-link primary" href={`/states/${state.id}/real-id/`}>REAL ID 清单 <ArrowRight size={16} aria-hidden="true" /></a>
+          <OfficialLinkButton href={state.agencyUrl} label={state.agency} />
+        </div>
+      </div>
+      <div class="panel">
+        <h2>相关专题</h2>
+        <ul class="plain-list">
+          {relatedTopics.map((topic) => (
+            <li><a class="text-link" href={`/topics/${topic.slug}/`}>{topic.title} <ArrowRight size={15} aria-hidden="true" /></a></li>
+          ))}
+        </ul>
+      </div>
+    </aside>
+  </div>
+</BaseLayout>

@@ -1,0 +1,287 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+
+type StateGuide = (typeof states)[number];
+
+const costPattern =
+  /\$|\bfee\b|\bfees\b|\bcost\b|\bpayment\b|\bpay\b|credit|debit|cash|check|money order|service fee|processing fee|refund|receipt|temporary|mail|mailed|mailing|weeks?|business days?|credential|card status|费用|付款|支付|邮寄|寄到|寄达|卡片|临时|凭证|收据|处理|工作日|状态/i;
+
+function hasCostCue(text: string) {
+  return costPattern.test(text);
+}
+
+function classifyCostCue(text: string) {
+  if (/\$|\bfee\b|\bfees\b|\bcost\b|service fee|processing fee|refund|费用/i.test(text)) return '费用';
+  if (/\bpayment\b|\bpay\b|credit|debit|cash|check|money order|付款|支付/i.test(text)) return '付款';
+  if (/temporary|临时|permit|receipt|收据|凭证/i.test(text)) return '临时凭证';
+  if (/mail|mailed|mailing|credential|card status|邮寄|寄到|寄达|卡片|状态/i.test(text)) return '邮寄 / 卡片';
+  if (/processing|weeks?|business days?|days?|处理|工作日/i.test(text)) return '处理时间';
+  return '费用/时间';
+}
+
+function costNoteScore(text: string, category: string) {
+  let score = 0;
+  if (/\$|service fee|processing fee|credit|debit|cash|money order/i.test(text)) score += 22;
+  if (/mail|mailed|mailing|credential|card status|邮寄|寄到|卡片|状态/i.test(text)) score += 20;
+  if (/temporary|临时|receipt|收据|凭证/i.test(text)) score += 16;
+  if (/weeks?|business days?|days?|处理|工作日/i.test(text)) score += 14;
+  if (/fee table|fees page|费用表|官方表/i.test(text)) score += 12;
+  if (/online|线上|portal|service center|office|agency|现场/i.test(text)) score += 8;
+  if (category === '费用/时间') score -= 6;
+  return score;
+}
+
+function costNotesFor(state: StateGuide) {
+  const candidates = [
+    ...getPublicEditorialNotes(state.editorNotes).map((text) => ({ text, sourceScore: 12 })),
+    ...state.recommendedSteps.map((text) => ({ text, sourceScore: 8 })),
+    { text: state.appointmentNote, sourceScore: 6 },
+    { text: state.licenseSummary, sourceScore: 5 },
+    { text: state.realIdSummary, sourceScore: 4 },
+    ...state.documentHighlights.map((text) => ({ text, sourceScore: 3 })),
+  ];
+  const seen = new Set<string>();
+  const notes: { category: string; text: string; score: number; index: number }[] = [];
+
+  for (const [index, candidate] of candidates.entries()) {
+    const compact = candidate.text.replace(/\s+/g, ' ').trim();
+    if (!compact || seen.has(compact) || !hasCostCue(compact)) continue;
+    seen.add(compact);
+    const category = classifyCostCue(compact);
+    notes.push({ category, text: compact, score: costNoteScore(compact, category) + candidate.sourceScore, index });
+  }
+
+  const priority = ['费用', '付款', '临时凭证', '邮寄 / 卡片', '处理时间', '费用/时间'];
+  return notes
+    .sort((a, b) => b.score - a.score || priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
+    .slice(0, 4)
+    .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
+    .map(({ category, text }) => ({ category, text }));
+}
+
+function costBadges(notes: { category: string; text: string }[]) {
+  return [...new Set(notes.map((note) => note.category))].slice(0, 4);
+}
+
+function pickCostLinks(state: StateGuide) {
+  const links = state.actionLinks.filter((link) =>
+    /fee|fees|payment|pay|renew|replace|replacement|status|mail|temporary|online|portal|license|id|费用|付款|支付|续期|补证|邮寄|临时|状态|驾照/i.test(
+      `${link.label} ${link.description} ${link.url}`,
+    ),
+  );
+  return (links.length ? links : state.actionLinks).slice(0, 5);
+}
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const notes = costNotesFor(state);
+  const badges = costBadges(notes);
+  const links = pickCostLinks(state);
+  return {
+    state,
+    status,
+    notes,
+    badges,
+    links,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      ...badges,
+      ...notes.flatMap((note) => [note.category, note.text]),
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+
+const rowsWithCostCues = rows.filter((row) => row.notes.length > 0);
+const rowsWithMailCues = rows.filter((row) => /mail|mailed|邮寄|寄到|卡片/i.test(row.searchText));
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const quickFilters = [
+  { label: '费用', value: '费用', note: 'fee' },
+  { label: '付款', value: '付款', note: 'card/cash' },
+  { label: '邮寄', value: '邮寄', note: 'card mail' },
+  { label: '临时凭证', value: '临时', note: 'temporary' },
+  { label: '处理时间', value: '处理', note: 'timing' },
+  { label: '收据', value: '收据', note: 'receipt' },
+  { label: '状态查询', value: 'status', note: 'tracking' },
+].map((filter) => ({
+  ...filter,
+  count: rows.filter((row) => row.searchText.includes(filter.value.toLowerCase())).length,
+}));
+
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'DMV 费用和拿证时间表',
+  description: '按州整理 DMV / REAL ID / 驾照续期、补证、付款方式、临时凭证、卡片邮寄和处理时间提醒。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} DMV 费用和拿证时间`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="DMV 费用和拿证时间表" description="按州查找 DMV / REAL ID / 驾照续期、补证、付款方式、临时凭证、卡片邮寄和处理时间提醒。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>费用和时间</span>
+      </nav>
+      <p class="eyebrow">费用 / 拿证时间</p>
+      <h1>DMV 费用和拿证时间表</h1>
+      <p class="lead">先看要不要带付款方式、是否有线上服务费、有没有临时凭证、新卡大约多久寄到。金额会变，最终仍点官方费用页确认。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="费用和拿证时间表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{rowsWithCostCues.length} 州</strong>
+          <span>已整理州级线索</span>
+        </div>
+        <div>
+          <strong>{rowsWithMailCues.length} 州</strong>
+          <span>含邮寄/卡片提醒</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需点验入口</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice compact-notice">
+      <div>
+        <strong>先看这一句</strong>
+        <p>这张表不是价格承诺。费用、服务费、邮寄时间和临时凭证常常跟线上资格、证件类型、年龄、地址和现场核验有关，办理前必须回到官方费用页或系统确认。</p>
+      </div>
+    </div>
+
+    <div class="quick-filter-board" aria-label="费用和时间快速筛选">
+      {quickFilters.map((filter) => (
+        <button type="button" class="quick-filter-button" data-quick-cost={filter.value}>
+          <span>{filter.label}</span>
+          <small>{filter.note} · {filter.count} 州</small>
+        </button>
+      ))}
+    </div>
+
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="cost-search">搜索州、费用或时间</label>
+        <input id="cost-search" type="search" placeholder="例如 $24、邮寄、temporary、credit、California" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="cost-status">入口状态</label>
+        <select id="cost-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table cost-timing-table" role="list">
+      <div class="directory-row cost-timing-row directory-head" role="presentation">
+        <span>州</span>
+        <span>费用 / 时间提醒</span>
+        <span>官方入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row cost-timing-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="cost-notes">
+            <div class="path-badges" aria-label={`${row.state.nameZh} 费用和拿证时间`}>
+              {row.badges.length ? row.badges.map((badge) => <span>{badge}</span>) : <span>需核对</span>}
+            </div>
+            {row.notes.length ? (
+              row.notes.map((note) => (
+                <p>
+                  <span>{note.category}</span>
+                  {note.text}
+                </p>
+              ))
+            ) : (
+              <p>
+                <span>需核对</span>
+                当前表格未列出明确费用、付款或邮寄时间；请从州官方费用页或线上系统确认。
+              </p>
+            )}
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 费用和时间相关官方入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/`}>州总览 <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、费用或时间。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+    const quickButtons = Array.from(document.querySelectorAll('[data-quick-cost]'));
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+    quickButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLButtonElement) || !(search instanceof HTMLInputElement)) return;
+        search.value = button.dataset.quickCost || '';
+        applyFilter();
+        search.focus();
+      });
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,223 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+
+const deadlinePattern = /\d+\s*(?:天|日|days?|business days?|个工作日|个月|months?|years?|年)|\d+\s*[-–]\s*\d+\s*(?:天|日|days?|business days?|个月|months?|years?|年)|\d+\s*to\s*\d+\s*(?:days?|business days?|months?|years?)/gi;
+const dateNoisePattern = /2010\s*年|2011\s*年|2012\s*年|2003\s*年|2020\s*年|2026-\d{2}-\d{2}/;
+
+function hasDeadline(text: string) {
+  const matched = deadlinePattern.test(text) && !dateNoisePattern.test(text);
+  deadlinePattern.lastIndex = 0;
+  return matched;
+}
+
+function classifyDeadline(text: string) {
+  if (/地址|搬家|搬入|搬来|新居民|resident|move|moving|transfer/i.test(text)) return '搬家 / 地址';
+  if (/续期|renew|到期|expire|expiration/i.test(text)) return '续期 / 到期';
+  if (/邮寄|寄送|处理|processing|mail|receive|card/i.test(text)) return '处理 / 邮寄';
+  if (/residency|居住|proof|document|材料|地址证明/i.test(text)) return '材料时效';
+  return '期限提醒';
+}
+
+function deadlineNotesFor(state: (typeof states)[number]) {
+  const candidates = [
+    ...state.documentHighlights,
+    ...state.recommendedSteps,
+    ...getPublicEditorialNotes(state.editorNotes),
+    state.licenseSummary,
+    state.appointmentNote,
+  ];
+  const seen = new Set<string>();
+  const notes: { category: string; text: string }[] = [];
+
+  for (const text of candidates) {
+    if (!hasDeadline(text)) continue;
+    const compact = text.replace(/\s+/g, ' ').trim();
+    if (seen.has(compact)) continue;
+    seen.add(compact);
+    notes.push({ category: classifyDeadline(compact), text: compact });
+    if (notes.length >= 3) break;
+  }
+
+  return notes;
+}
+
+function pickDeadlineLinks(state: (typeof states)[number]) {
+  const links = state.actionLinks.filter((link) =>
+    /address|change|renew|replace|resident|moving|transfer|license|driver|地址|续期|补证|新居民|转入|驾照/i.test(
+      `${link.label} ${link.description} ${link.url}`,
+    ),
+  );
+  return (links.length ? links : state.actionLinks).slice(0, 4);
+}
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const notes = deadlineNotesFor(state);
+  const links = pickDeadlineLinks(state);
+  return {
+    state,
+    status,
+    notes,
+    links,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      ...notes.flatMap((note) => [note.category, note.text]),
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+
+const rowsWithDeadlines = rows.filter((row) => row.notes.length > 0);
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'DMV 期限提醒表',
+  description: '按州整理 DMV 地址变更、搬州、续期、材料时效和处理时间等期限提醒。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} DMV 期限提醒`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="DMV 期限提醒表" description="按州查找 DMV 地址变更、搬州、续期、材料时效和处理时间等官方期限提醒。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>期限</span>
+      </nav>
+      <p class="eyebrow">期限表</p>
+      <h1>DMV 期限提醒表</h1>
+      <p class="lead">汇总州资料里最容易错过的天数、月份和处理窗口。先看提醒，再回到州官方页面核对费用、预约和个人资格。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="期限提醒表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{rowsWithDeadlines.length} 州</strong>
+          <span>已整理期限</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需浏览器点验</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice compact-notice">
+      <div>
+        <strong>先看这一句</strong>
+        <p>这不是法律期限总表，而是本站从官方来源整理出的办事提醒。没有抽到固定天数的州，仍要从州官方页面核对最新地址、换证和续期要求。</p>
+      </div>
+    </div>
+
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="deadline-search">搜索州、期限或事项</label>
+        <input id="deadline-search" type="search" placeholder="例如 10 天、30 天、地址、renew、California" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="deadline-status">入口状态</label>
+        <select id="deadline-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table deadline-table" role="list">
+      <div class="directory-row deadline-row directory-head" role="presentation">
+        <span>州</span>
+        <span>期限提醒</span>
+        <span>官方入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row deadline-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="deadline-notes">
+            {row.notes.length ? (
+              row.notes.map((note) => (
+                <p>
+                  <span>{note.category}</span>
+                  {note.text}
+                </p>
+              ))
+            ) : (
+              <p>
+                <span>需核对</span>
+                当前表格未列出该州的固定天数；请从州官方入口确认最新地址、换证和续期要求。
+              </p>
+            )}
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 期限相关官方入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/`}>州总览 <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、期限或事项。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>

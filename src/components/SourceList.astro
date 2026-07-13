@@ -1,0 +1,49 @@
+---
+import { ExternalLink } from '@lucide/astro/icons';
+import type { Source } from '../data/content';
+
+type Props = {
+  sources: Source[];
+  title?: string;
+};
+
+const { sources, title = '官方来源' } = Astro.props as Props;
+const primarySources = sources.slice(0, 12);
+const additionalSources = sources.slice(12);
+---
+
+<section class="source-panel" aria-labelledby="source-heading">
+  <div>
+    <p class="eyebrow">Source</p>
+    <h2 id="source-heading">{title}</h2>
+  </div>
+  <ul class="source-list">
+    {primarySources.map((source, index) => (
+      <li>
+        <a href={source.url} target="_blank" rel="noreferrer">
+          <span class="source-index">{index + 1}</span>
+          <span>{source.label}</span>
+          <ExternalLink size={16} aria-hidden="true" />
+        </a>
+        {source.note && <p>{source.note}</p>}
+      </li>
+    ))}
+  </ul>
+  {additionalSources.length > 0 && (
+    <details class="source-more">
+      <summary>查看其余 {additionalSources.length} 个官方来源</summary>
+      <ul class="source-list">
+        {additionalSources.map((source, index) => (
+          <li>
+            <a href={source.url} target="_blank" rel="noreferrer">
+              <span class="source-index">{primarySources.length + index + 1}</span>
+              <span>{source.label}</span>
+              <ExternalLink size={16} aria-hidden="true" />
+            </a>
+            {source.note && <p>{source.note}</p>}
+          </li>
+        ))}
+      </ul>
+    </details>
+  )}
+</section>

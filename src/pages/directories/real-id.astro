@@ -1,0 +1,144 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const realIdLink = state.actionLinks[0];
+  return {
+    state,
+    status,
+    realIdLink,
+    searchText: `${state.nameZh} ${state.nameEn} ${state.abbr} ${state.agency} ${realIdLink.label}`.toLowerCase(),
+  };
+});
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const schema = {
+  '@type': 'CollectionPage',
+  name: '50 州 REAL ID 官方入口表',
+  description: '按州整理美国 50 州 REAL ID、Star Card、Travel ID 或州身份证明材料官方入口。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} REAL ID 官方入口`,
+      url: new URL(`/states/${row.state.id}/real-id/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="50 州 REAL ID 官方入口表" description="按州查找 REAL ID、Star Card、Travel ID 或州身份证明材料官方入口，并进入中文材料清单。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>REAL ID</span>
+      </nav>
+      <p class="eyebrow">REAL ID 入口</p>
+      <h1>50 州 REAL ID 官方入口表</h1>
+      <p class="lead">一张表查州官方 REAL ID / Star Card / Travel ID / 材料要求入口。先看中文清单，再回官方页面确认预约、费用和文件要求。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="REAL ID 入口表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>入口覆盖</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需浏览器点验</span>
+        </div>
+        <div>
+          <strong>{REVIEW_DATE}</strong>
+          <span>表格核对</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="real-id-search">搜索州或机构</label>
+        <input id="real-id-search" type="search" placeholder="例如 California、加州、CA、RMV" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="real-id-status">入口状态</label>
+        <select id="real-id-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table" role="list" data-directory-table>
+      <div class="directory-row directory-head" role="presentation">
+        <span>州</span>
+        <span>官方 REAL ID / 材料入口</span>
+        <span>更新时间</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/real-id/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.agency}</small>
+            </span>
+          </a>
+          <div class="directory-main-link">
+            <a href={row.realIdLink.url} target="_blank" rel="noreferrer">
+              {row.realIdLink.label} <ExternalLink size={15} aria-hidden="true" />
+            </a>
+            <p>{row.realIdLink.description}</p>
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="directory-date">
+            <strong>{row.state.reviewedAt ?? REVIEW_DATE}</strong>
+            <small>{row.state.sources.length} 个来源</small>
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/real-id/`}>材料清单 <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州或机构。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+import { CalendarCheck2 } from '@lucide/astro/icons';
+import { REVIEW_DATE } from '../data/content';
+
+type Props = {
+  date?: string;
+};
+
+const { date = REVIEW_DATE } = Astro.props as Props;
+---
+
+<p class="review-badge">
+  <CalendarCheck2 size={16} aria-hidden="true" />
+  最后核对：<time datetime={date}>{date}</time>
+</p>

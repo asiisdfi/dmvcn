@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReviewBadge from '../components/ReviewBadge.astro';
+import { SITE } from '../data/content';
+---
+
+<BaseLayout title="关于" description="关于 DMV中文办事库：非政府中文信息整理站，帮助用户查找官方 DMV 和 REAL ID 信息。">
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>关于</span></nav>
+      <p class="eyebrow">关于</p>
+      <h1>关于 {SITE.name}</h1>
+      <p class="lead">本站把美国 DMV、REAL ID、驾照和地址变更信息整理成中文清单，帮助用户更快找到官方入口。</p>
+      <ReviewBadge />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="article-stack">
+      <section class="panel">
+        <h2>我们做什么</h2>
+        <p>本站整理官方公开信息，提供中文解释、材料类别、办事顺序、常见错误和官方链接。我们不代办 DMV 业务，也不保存用户身份文件。</p>
+      </section>
+      <section class="panel">
+        <h2>我们不做什么</h2>
+        <p>{SITE.disclaimer}</p>
+      </section>
+      <section class="panel">
+        <h2>内容方法</h2>
+        <p>每个内容页都需要官方来源、核对日期和结构化中文说明。费用、期限、身份材料、考试规则等易变事实必须能够回到对应官方页面核对。</p>
+      </section>
+      <section class="panel">
+        <h2>工具使用边界</h2>
+        <p>本站会使用自动化工具辅助整理链接、检查页面结构和发现重复内容，但工具输出本身不作为事实来源。页面中的办事要求应由列出的政府机构或官方服务页面支持。</p>
+      </section>
+    </div>
+  </section>
+</BaseLayout>

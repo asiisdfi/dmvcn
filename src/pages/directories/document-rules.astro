@@ -1,0 +1,261 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+
+type StateGuide = (typeof states)[number];
+
+const materialPattern =
+  /REAL ID|document|checklist|proof|材料|清单|证明|identity|身份|SSN|Social Security|residenc|居住|address|地址|original|原始|certified|认证|birth certificate|passport|name|姓名|translation|翻译|P\.?O\.?\s*Box|photocop|copy|复印|non.?citizen|immigration|lawful|visa|I-94|green card|SSA|两份|two/i;
+const nonMaterialPattern =
+  /预约|appointment|office|location|kiosk|mail|邮寄|处理|processing|wait time|线上资格|online eligibility|费用|fee|driver licensing office|vehicle licensing office/i;
+
+function hasMaterialRule(text: string) {
+  if (!materialPattern.test(text)) return false;
+  if (/搬家后|地址变化后|address change|change your address/i.test(text) && !/proof|证明|residenc|居住|P\.?O\.?\s*Box/i.test(text)) return false;
+  return !nonMaterialPattern.test(text) || /proof|证明|document|材料|checklist|清单|residenc|居住|P\.?O\.?\s*Box/i.test(text);
+}
+
+function classifyRule(text: string) {
+  if (/P\.?O\.?\s*Box|residenc|居住|address|地址|utility|bank statement|账单|60 天|45 days?|45 天/i.test(text)) return '地址证明';
+  if (/SSN|Social Security|SSA|完整 9 位|full 9/i.test(text)) return 'SSN';
+  if (/name|姓名|marriage|divorce|court order|translation|翻译|婚姻|离婚|法院|certified translation/i.test(text)) return '姓名链条';
+  if (/original|原始|certified|认证|birth certificate|passport|photocop|copy|复印/i.test(text)) return '原件 / 认证';
+  if (/non.?citizen|immigration|lawful|visa|I-94|green card|USCIS|非美国公民/i.test(text)) return '非公民材料';
+  if (/checklist|清单|selector|Document Selector|REAL ID/i.test(text)) return '清单入口';
+  return '材料规则';
+}
+
+function materialRulesFor(state: StateGuide) {
+  const candidates = [
+    ...state.documentHighlights,
+    ...getPublicEditorialNotes(state.editorNotes),
+    ...state.recommendedSteps,
+    state.realIdSummary,
+    state.licenseSummary,
+  ];
+  const seen = new Set<string>();
+  const rules: { category: string; text: string }[] = [];
+
+  for (const text of candidates) {
+    const compact = text.replace(/\s+/g, ' ').trim();
+    if (!compact || seen.has(compact) || !hasMaterialRule(compact)) continue;
+    seen.add(compact);
+    rules.push({ category: classifyRule(compact), text: compact });
+  }
+
+  const priority = ['地址证明', 'SSN', '姓名链条', '原件 / 认证', '非公民材料', '清单入口', '材料规则'];
+  return rules
+    .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category))
+    .slice(0, 4);
+}
+
+function pickMaterialLinks(state: StateGuide) {
+  const links = state.actionLinks.filter((link) =>
+    /REAL ID|document|checklist|selector|bring|proof|identity|residenc|address|name|SSN|citizen|immigrant|materials|requirements|材料|清单|证明|身份|居住|地址|姓名/i.test(
+      `${link.label} ${link.description} ${link.url}`,
+    ),
+  );
+  return (links.length ? links : state.actionLinks).slice(0, 4);
+}
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const rules = materialRulesFor(state);
+  const links = pickMaterialLinks(state);
+  return {
+    state,
+    status,
+    rules,
+    links,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      ...rules.flatMap((rule) => [rule.category, rule.text]),
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+
+const rowsWithRules = rows.filter((row) => row.rules.length > 0);
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const quickFilters = [
+  { label: 'P.O. Box', value: 'P.O. Box', note: '地址证明' },
+  { label: 'SSN', value: 'SSN', note: '号码证明' },
+  { label: '两份地址', value: '两份', note: '居住证明' },
+  { label: 'certified', value: 'certified', note: '认证文件' },
+  { label: '姓名链条', value: '姓名', note: '改名文件' },
+  { label: '60 天', value: '60 天', note: '日期限制' },
+  { label: '非公民', value: '非美国公民', note: '身份类别' },
+].map((filter) => ({
+  ...filter,
+  count: rows.filter((row) => row.searchText.includes(filter.value.toLowerCase())).length,
+}));
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'DMV 材料规则表',
+  description: '按州整理 DMV / REAL ID 地址证明、SSN、姓名链条、原件/认证副本、P.O. Box 和非公民材料提醒。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} DMV 材料规则`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="DMV 材料规则表" description="按州查找 DMV / REAL ID 地址证明、SSN、姓名链条、原件或认证副本、P.O. Box 和非公民材料提醒。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>材料规则</span>
+      </nav>
+      <p class="eyebrow">材料规则表</p>
+      <h1>DMV 材料规则表</h1>
+      <p class="lead">汇总各州容易遗漏的材料细节：地址证明、SSN、姓名链条、原件或认证副本、P.O. Box、文件日期和身份类别。先用中文确认重点，再回官方清单逐项核对。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="材料规则表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{rowsWithRules.length} 州</strong>
+          <span>已整理规则</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需点验入口</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice compact-notice">
+      <div>
+        <strong>先看这一句</strong>
+        <p>这张表不是替代官方 document checklist，而是把官方来源里最容易漏看的材料规则提前摊开。到场前仍要打开对应州的官方入口核对你的身份、交易类型和文件版本。</p>
+      </div>
+    </div>
+
+    <div class="quick-filter-board" aria-label="材料规则快速筛选">
+      {quickFilters.map((filter) => (
+        <button type="button" class="quick-filter-button" data-quick-rule={filter.value}>
+          <span>{filter.label}</span>
+          <small>{filter.note} · {filter.count} 州</small>
+        </button>
+      ))}
+    </div>
+
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="rule-search">搜索州、材料或规则</label>
+        <input id="rule-search" type="search" placeholder="例如 P.O. Box、SSN、certified、60 天、Texas" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="rule-status">入口状态</label>
+        <select id="rule-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table document-rule-table" role="list">
+      <div class="directory-row document-rule-row directory-head" role="presentation">
+        <span>州</span>
+        <span>材料规则</span>
+        <span>官方入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row document-rule-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="rule-notes">
+            {row.rules.length ? (
+              row.rules.map((rule) => (
+                <p>
+                  <span>{rule.category}</span>
+                  {rule.text}
+                </p>
+              ))
+            ) : (
+              <p>
+                <span>需核对</span>
+                当前表格未列出该州的明确材料规则；请优先打开州官方 document checklist 或 REAL ID requirements 页面。
+              </p>
+            )}
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 材料相关官方入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/real-id/`}>REAL ID <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、材料或规则。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+    const quickButtons = Array.from(document.querySelectorAll('[data-quick-rule]'));
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    quickButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLElement) || !(search instanceof HTMLInputElement)) return;
+        search.value = String(button.dataset.quickRule || '');
+        search.focus();
+        applyFilter();
+      });
+    });
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>

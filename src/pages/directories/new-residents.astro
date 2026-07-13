@@ -1,0 +1,191 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
+
+const movingPattern = /new|moving|resident|transfer|out[- ]of[- ]state|address|change|license|driver|搬|新居民|外州|转入|地址|首次/i;
+
+function pickMovingLinks(state: (typeof states)[number]) {
+  const links = state.actionLinks.filter((link) =>
+    movingPattern.test(`${link.label} ${link.description} ${link.url}`),
+  );
+  return links.length ? links.slice(0, 4) : state.actionLinks.slice(0, 3);
+}
+
+function pickMovingCue(state: (typeof states)[number]) {
+  const step = state.recommendedSteps.find((item) => movingPattern.test(item));
+  return step ?? state.licenseSummary;
+}
+
+function pickFirstStep(state: (typeof states)[number]) {
+  const note =
+    state.documentHighlights.find((item) => movingPattern.test(item)) ??
+    state.recommendedSteps[0];
+  return note;
+}
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const links = pickMovingLinks(state);
+  const cue = pickMovingCue(state);
+  const firstStep = pickFirstStep(state);
+  return {
+    state,
+    status,
+    links,
+    cue,
+    firstStep,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      state.licenseSummary,
+      state.appointmentNote,
+      cue,
+      firstStep,
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const directTransferRows = rows.filter((row) => /new|moving|resident|transfer|out[- ]of[- ]state|新居民|外州|转入|搬/i.test(row.links.map((link) => link.label).join(' ')));
+const schema = {
+  '@type': 'CollectionPage',
+  name: '搬到新州后 DMV 办事入口表',
+  description: '按州整理搬到新州后换驾照、外州驾照转入、地址更新和车辆登记相关官方入口。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} 新居民 DMV 办事入口`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="搬到新州后 DMV 办事入口表" description="按州查找搬到新州后的驾照转入、地址更新、车辆登记顺序和 DMV 官方入口。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>新居民</span>
+      </nav>
+      <p class="eyebrow">新居民入口</p>
+      <h1>搬到新州后 DMV 办事入口表</h1>
+      <p class="lead">刚搬州时，先别急着预约。先确认新州驾照期限、外州驾照转入、地址更新、车辆登记和保险顺序，再回到官方系统办理。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="新居民入口表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{directTransferRows.length} 州</strong>
+          <span>含转入/新居民入口</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需浏览器点验</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice compact-notice">
+      <div>
+        <strong>这张表怎么用</strong>
+        <p>每州规则不同。表格只帮你找到第一步：新居民页、外州转入、地址更新、驾照/ID 或官方首页。具体期限、费用、车辆登记和保险要求以州官方页面为准。</p>
+      </div>
+    </div>
+
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="new-resident-search">搜索州、机构或事项</label>
+        <input id="new-resident-search" type="search" placeholder="例如 new resident、搬州、地址、Texas、transfer" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="new-resident-status">入口状态</label>
+        <select id="new-resident-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table new-resident-table" role="list">
+      <div class="directory-row new-resident-row directory-head" role="presentation">
+        <span>州</span>
+        <span>搬州判断</span>
+        <span>先做哪件事</span>
+        <span>官方入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row new-resident-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="directory-main-link">
+            <strong>{row.state.agency}</strong>
+            <p>{row.cue}</p>
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <p class="resident-cue">{row.firstStep}</p>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 新居民相关官方入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/`}>州总览 <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、机构或事项。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>

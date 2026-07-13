@@ -1,0 +1,256 @@
+---
+import { ArrowRight, ExternalLink, ShieldAlert } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import SourceList from '../../components/SourceList.astro';
+import { REVIEW_DATE, SITE, states, topics, uniqueSources, type TopicGuide } from '../../data/content';
+
+export function getStaticPaths() {
+  return topics.map((topic) => ({
+    params: { topic: topic.slug },
+    props: { topic },
+  }));
+}
+
+const { topic } = Astro.props as { topic: TopicGuide };
+const relatedStates = states.filter((state) => topic.relatedStateIds.includes(state.id));
+const topicSnapshot = topic.steps.slice(0, 3);
+const moreTopics = topics
+  .filter((item) => item.slug !== topic.slug)
+  .map((item, index) => ({
+    item,
+    index,
+    score:
+      item.relatedStateIds.filter((stateId) => topic.relatedStateIds.includes(stateId)).length +
+      (item.relatedDirectory?.href && item.relatedDirectory.href === topic.relatedDirectory?.href ? 4 : 0),
+  }))
+  .sort((a, b) => b.score - a.score || a.index - b.index)
+  .slice(0, 5)
+  .map(({ item }) => item);
+const reviewedAt = topic.reviewedAt ?? REVIEW_DATE;
+const officialSources = uniqueSources(topic.sources);
+const sourceByUrl = new Map(officialSources.map((source, index) => [source.url, { ...source, index: index + 1 }]));
+const factChecks = (topic.factChecks ?? []).map((item) => ({
+  claim: item.claim,
+  sources: item.sourceUrls.map((url) => sourceByUrl.get(url)).filter((source) => source !== undefined),
+}));
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const schema = [
+  {
+    '@type': 'Article',
+    headline: topic.title,
+    description: topic.description,
+    mainEntityOfPage: pageUrl,
+    dateModified: reviewedAt,
+    datePublished: reviewedAt,
+    inLanguage: 'zh-Hans',
+    isAccessibleForFree: true,
+    author: {
+      '@type': 'Organization',
+      name: SITE.name,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+    },
+    about: topic.keyFacts.slice(0, 3),
+    citation: officialSources.map((source) => source.url),
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: topic.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: '首页',
+        item: new URL('/', Astro.site).toString(),
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: '专题',
+        item: new URL('/topics/', Astro.site).toString(),
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: topic.title,
+        item: pageUrl,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title={topic.title} description={topic.description} updatedAt={reviewedAt} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/topics/">专题</a><span>/</span><span>{topic.title}</span>
+      </nav>
+      <p class="eyebrow">{topic.eyebrow}</p>
+      <h1>{topic.title}</h1>
+      <p class="lead">{topic.description}</p>
+      <ReviewBadge date={topic.reviewedAt} />
+      <div class="page-ledger" aria-label="页面状态">
+        <div>
+          <strong>{reviewedAt}</strong>
+          <span>专题核对</span>
+        </div>
+        <div>
+          <strong>{officialSources.length}</strong>
+          <span>官方来源</span>
+        </div>
+        <div>
+          <strong>{relatedStates.length}</strong>
+          <span>关联州</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-layout">
+    <article class="article-stack">
+      <section class="topic-snapshot" aria-labelledby="topic-snapshot-title">
+        <div class="route-board-head">
+          <div>
+            <p class="eyebrow">快速判断</p>
+            <h2 id="topic-snapshot-title">先做这三件事</h2>
+          </div>
+          <p>把方向先定下来，再决定要不要读完整清单和 FAQ。</p>
+        </div>
+        <div class="route-card-grid">
+          {topicSnapshot.map((step, index) => (
+            <article class="route-card compact">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>第 {index + 1} 步</h3>
+              <p>{step}</p>
+              <a class="route-action" href="#steps">
+                看完整步骤 <ArrowRight size={15} aria-hidden="true" />
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>谁应该看</h2>
+        <ul class="check-list">
+          {topic.whoNeedsIt.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>关键事实</h2>
+        <ul class="plain-list">
+          {topic.keyFacts.map((fact) => <li>{fact}</li>)}
+        </ul>
+      </section>
+
+      {factChecks.length > 0 && (
+        <section class="panel fact-check-panel" aria-labelledby="fact-check-heading">
+          <h2 id="fact-check-heading">重点事实与官方依据</h2>
+          <ol class="fact-check-list">
+            {factChecks.map((item) => (
+              <li>
+                <p>{item.claim}</p>
+                <div class="fact-source-links" aria-label="对应官方来源">
+                  {item.sources.map((source) => (
+                    <a href={source.url} target="_blank" rel="noreferrer">
+                      <span class="source-index">{source.index}</span>
+                      <span>{source.label}</span>
+                      <ExternalLink size={15} aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      <section class="panel">
+        <h2>准备清单</h2>
+        <ul class="check-list">
+          {topic.checklist.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+
+      <section class="panel" id="steps">
+        <h2>建议步骤</h2>
+        <ol class="step-list">
+          {topic.steps.map((step) => <li>{step}</li>)}
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>常见问题</h2>
+        <div class="faq-list">
+          {topic.faqs.map((faq) => (
+            <div class="faq-item">
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="notice">
+        <ShieldAlert size={22} aria-hidden="true" />
+        <div>
+          <strong>跨州信息只做方向判断</strong>
+          <p>{SITE.disclaimer} 涉及身份、居住证明、SSN 或非公民材料时，请回到具体州 DMV 页面确认。</p>
+        </div>
+      </section>
+
+      <SourceList sources={officialSources} />
+    </article>
+
+    <aside class="sidebar" aria-label="侧边栏">
+      {topic.relatedDirectory && (
+        <div class="panel">
+          <h2>相关入口表</h2>
+          <p>{topic.relatedDirectory.description}</p>
+          <a class="text-link" href={topic.relatedDirectory.href}>
+            {topic.relatedDirectory.label} <ArrowRight size={15} aria-hidden="true" />
+          </a>
+        </div>
+      )}
+      <div class="panel">
+        <h2>相关州</h2>
+        <ul class="plain-list">
+          {relatedStates.map((state) => (
+            <li>
+              <a class="text-link" href={`/states/${state.id}/`}>
+                {state.nameZh} DMV <ArrowRight size={15} aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>更多专题</h2>
+        <ul class="plain-list">
+          {moreTopics.map((item) => (
+            <li>
+              <a class="text-link" href={`/topics/${item.slug}/`}>
+                {item.title} <ArrowRight size={15} aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </aside>
+  </div>
+</BaseLayout>

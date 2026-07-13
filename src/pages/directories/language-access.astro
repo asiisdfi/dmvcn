@@ -1,0 +1,325 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+
+type StateGuide = (typeof states)[number];
+
+const languagePattern =
+  /language|languages|translation|translate|translated|interpreter|interpretation|oral tests?|audio|foreign languages?|limited english|english only|english-only|chinese|mandarin|traditional chinese|simplified chinese|spanish|google translate|browser translation|certified translation|文件翻译|翻译|译文|中文|普通话|简体|繁体|口译|口试|语音|音频|考试语言|多语言|英语|英文/i;
+
+function hasLanguageCue(text: string) {
+  const compact = text.replace(/\s+/g, ' ').trim();
+  if (/google translate|browser translation|certified translation|translation|translated|interpreter|oral tests?|foreign languages?|chinese|mandarin|traditional chinese|simplified chinese|limited english|english only|english-only|文件翻译|翻译|译文|中文|普通话|简体|繁体|口译|口试|多语言/i.test(compact)) {
+    return true;
+  }
+  if (/english|英语|英文/i.test(compact) && !/language|test|exam|knowledge|written|cdl|hazmat|manual|handbook|guide|audio|oral|prohibited|only|语言|考试|笔试|手册|音频|口试|限制/i.test(compact)) {
+    return false;
+  }
+  return languagePattern.test(compact);
+}
+
+function classifyLanguageCue(text: string) {
+  if (/english only|english-only|hazmat|cdl|prohibited|英语.*only|英文.*only|仅.*英文|只能.*english/i.test(text)) return 'English-only / 限制';
+  if (/chinese|mandarin|traditional chinese|simplified chinese|中文|普通话|简体|繁体/i.test(text) && /knowledge|written|permit test|exam|test|笔试|考试/i.test(text)) return '中文 / 多语言笔试';
+  if (/knowledge|written|permit test|exam|test|driver license exams?|笔试|考试/i.test(text) && /language|languages|foreign|spanish|多语言|语言/i.test(text)) return '考试语言';
+  if (/interpreter|interpretation|oral tests?|audio|口译|口试|语音|音频/i.test(text)) return '口译 / 口试';
+  if (/certified translation|translation|translated|translate|文件翻译|翻译|译文/i.test(text)) return '文件翻译';
+  if (/manual|handbook|guide|elearning|driver guide|手册|学习资料/i.test(text)) return '手册 / 学习资料';
+  if (/google translate|browser translation|网页翻译/i.test(text)) return '网页翻译';
+  return '语言服务';
+}
+
+function languageNoteScore(text: string, category: string) {
+  let score = 0;
+  if (/chinese|mandarin|traditional chinese|simplified chinese|中文|普通话|简体|繁体/i.test(text)) score += 30;
+  if (/knowledge|written|permit test|exam|test|笔试|考试/i.test(text)) score += 22;
+  if (/interpreter|interpretation|oral tests?|audio|口译|口试|语音|音频/i.test(text)) score += 22;
+  if (/certified translation|translation|translated|translate|文件翻译|翻译|译文/i.test(text)) score += 18;
+  if (/english only|english-only|prohibited|hazmat|cdl|限制/i.test(text)) score += 18;
+  if (/manual|handbook|guide|elearning|driver guide|手册|学习资料/i.test(text)) score += 12;
+  if (/official|dmv|dps|rmv|mvc|dds|dol|sos|ncdmv|penndot|flhsmv/i.test(text)) score += 5;
+  if (category === '语言服务') score -= 8;
+  return score;
+}
+
+function languageNotesFor(state: StateGuide) {
+  const candidates = [
+    ...getPublicEditorialNotes(state.editorNotes).map((text) => ({ text, sourceScore: 16 })),
+    ...state.actionLinks.map((link) => ({ text: `${link.label}：${link.description}`, sourceScore: 11 })),
+    ...state.documentHighlights.map((text) => ({ text, sourceScore: 9 })),
+    { text: state.licenseSummary, sourceScore: 6 },
+    { text: state.realIdSummary, sourceScore: 5 },
+    { text: state.appointmentNote, sourceScore: 5 },
+    ...state.recommendedSteps.map((text) => ({ text, sourceScore: 3 })),
+  ];
+  const seen = new Set<string>();
+  const notes: { category: string; text: string; score: number; index: number }[] = [];
+
+  for (const [index, candidate] of candidates.entries()) {
+    const compact = candidate.text.replace(/\s+/g, ' ').trim();
+    if (!compact || seen.has(compact) || !hasLanguageCue(compact)) continue;
+    seen.add(compact);
+    const category = classifyLanguageCue(compact);
+    notes.push({ category, text: compact, score: languageNoteScore(compact, category) + candidate.sourceScore, index });
+  }
+
+  const priority = ['中文 / 多语言笔试', '考试语言', '口译 / 口试', '文件翻译', '手册 / 学习资料', 'English-only / 限制', '网页翻译', '语言服务'];
+  const ranked = notes.sort((a, b) => b.score - a.score || priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index);
+  const selected: typeof notes = [];
+  const anchor = ranked.find((note) => /chinese|mandarin|中文|普通话|简体|繁体|interpreter|oral|translation|english-only|english only/i.test(note.text));
+
+  if (anchor) selected.push(anchor);
+
+  for (const note of ranked) {
+    if (!selected.some((item) => item.category === note.category)) selected.push(note);
+    if (selected.length >= 4) break;
+  }
+
+  for (const note of ranked) {
+    if (selected.includes(note)) continue;
+    selected.push(note);
+    if (selected.length >= 4) break;
+  }
+
+  return selected
+    .slice(0, 4)
+    .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
+    .map(({ category, text }) => ({ category, text }));
+}
+
+function languageBadges(notes: { category: string; text: string }[]) {
+  return [...new Set(notes.map((note) => note.category))].slice(0, 4);
+}
+
+function pickLanguageLinks(state: StateGuide) {
+  const links = state.actionLinks.filter((link) =>
+    /language|translation|translated|interpreter|knowledge|written|test|exam|permit|manual|handbook|guide|learn|foreign|chinese|mandarin|english-only|english only|oral|audio|语言|翻译|口译|手册|考试|中文|普通话|英文|英语/i.test(
+      `${link.label} ${link.description} ${link.url}`,
+    ),
+  );
+  return (links.length ? links : state.actionLinks).slice(0, 5);
+}
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const notes = languageNotesFor(state);
+  const badges = languageBadges(notes);
+  const links = pickLanguageLinks(state);
+  return {
+    state,
+    status,
+    notes,
+    badges,
+    links,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      ...badges,
+      ...notes.flatMap((note) => [note.category, note.text]),
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+
+const rowsWithChinese = rows.filter((row) => /chinese|mandarin|中文|普通话|简体|繁体/.test(row.searchText));
+const rowsWithInterpreter = rows.filter((row) => /interpreter|interpretation|oral|audio|口译|口试|音频/.test(row.searchText));
+const rowsWithTranslation = rows.filter((row) => /translation|translated|certified translation|english translation|翻译|译文/.test(row.searchText));
+const rowsWithEnglishOnly = rows.filter((row) => /english only|english-only|hazmat|cdl|prohibited|限制/.test(row.searchText));
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const quickFilters = [
+  { label: '中文考试', value: 'Chinese', note: 'Chinese / Mandarin' },
+  { label: '多语言笔试', value: 'languages', note: 'knowledge test' },
+  { label: '文件翻译', value: 'translation', note: 'certified' },
+  { label: '口译 / 口试', value: 'interpreter', note: 'oral / audio' },
+  { label: '手册 / 资料', value: 'manual', note: 'driver guide' },
+  { label: 'English-only', value: 'English-only', note: '限制' },
+  { label: 'CDL 限制', value: 'CDL', note: 'commercial' },
+].map((filter) => ({
+  ...filter,
+  count: rows.filter((row) => row.searchText.includes(filter.value.toLowerCase())).length,
+}));
+
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'DMV 考试语言、翻译和口译入口表',
+  description: '按州整理 DMV 笔试语言、中文/多语言考试、文件翻译、口译请求、driver manual 和 English-only / CDL 限制。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} DMV 考试语言、翻译和口译入口`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="DMV 考试语言、翻译和口译入口表" description="按州查找 DMV 笔试语言、中文/多语言考试、文件翻译、口译请求、driver manual 和 English-only / CDL 限制。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>语言和翻译</span>
+      </nav>
+      <p class="eyebrow">考试语言 / 翻译 / 口译</p>
+      <h1>DMV 考试语言、翻译和口译入口表</h1>
+      <p class="lead">中文用户最容易误判的是：网页能翻译，不代表笔试有中文；有中文手册，也不代表路考或 CDL 可用中文。先看官方语言入口，再决定怎么预约和准备。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="语言、翻译和口译入口表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{rowsWithChinese.length} 州</strong>
+          <span>含中文线索</span>
+        </div>
+        <div>
+          <strong>{rowsWithInterpreter.length} 州</strong>
+          <span>含口译/口试</span>
+        </div>
+        <div>
+          <strong>{rowsWithTranslation.length} 州</strong>
+          <span>含文件翻译</span>
+        </div>
+        <div>
+          <strong>{rowsWithEnglishOnly.length} 州</strong>
+          <span>含限制提醒</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需点验入口</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="notice compact-notice">
+      <div>
+        <strong>先看这一句</strong>
+        <p>这张表只整理语言和翻译线索。考试语言、口译预约、文件翻译标准和 CDL / Hazmat 限制可能随州、考点和政策更新变化；办理前回官方页面确认。</p>
+      </div>
+    </div>
+
+    <div class="quick-filter-board" aria-label="语言和翻译快速筛选">
+      {quickFilters.map((filter) => (
+        <button type="button" class="quick-filter-button" data-quick-language={filter.value}>
+          <span>{filter.label}</span>
+          <small>{filter.note} · {filter.count} 州</small>
+        </button>
+      ))}
+    </div>
+
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="language-search">搜索州、考试语言或翻译</label>
+        <input id="language-search" type="search" placeholder="例如 Chinese、Mandarin、translation、interpreter、CDL、Georgia" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="language-status">入口状态</label>
+        <select id="language-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table language-access-table" role="list">
+      <div class="directory-row language-access-row directory-head" role="presentation">
+        <span>州</span>
+        <span>语言和翻译判断</span>
+        <span>官方入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row language-access-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="language-notes">
+            <div class="path-badges" aria-label={`${row.state.nameZh} 语言和翻译类型`}>
+              {row.badges.length ? row.badges.map((badge) => <span>{badge}</span>) : <span>需核对</span>}
+            </div>
+            {row.notes.length ? (
+              row.notes.map((note) => (
+                <p>
+                  <span>{note.category}</span>
+                  {note.text}
+                </p>
+              ))
+            ) : (
+              <p>
+                <span>需核对</span>
+                当前表格未列出明确语言、翻译或口译说明；请从州官方 driver license、knowledge test、manual 或语言协助入口开始确认。
+              </p>
+            )}
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 语言、翻译和口译官方入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/`}>州总览 <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、考试语言或翻译入口。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+    const quickButtons = Array.from(document.querySelectorAll('[data-quick-language]'));
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    quickButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLElement) || !(search instanceof HTMLInputElement)) return;
+        search.value = String(button.dataset.quickLanguage || '');
+        search.focus();
+        applyFilter();
+      });
+    });
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>

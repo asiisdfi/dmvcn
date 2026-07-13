@@ -1,0 +1,154 @@
+---
+import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
+
+const rows = states.map((state) => {
+  const status = getStatePublicStatus(state);
+  const links = state.actionLinks;
+  return {
+    state,
+    status,
+    links,
+    searchText: [
+      state.nameZh,
+      state.nameEn,
+      state.abbr,
+      state.agency,
+      ...links.flatMap((link) => [link.label, link.description]),
+    ].join(' ').toLowerCase(),
+  };
+});
+const serviceLinkCount = rows.reduce((count, row) => count + row.links.length, 0);
+const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
+const schema = {
+  '@type': 'CollectionPage',
+  name: '50 州 DMV 常用业务入口表',
+  description: '按州整理 DMV、DPS、RMV、MVC、DDS 等官方机构和常用办理入口。',
+  dateModified: REVIEW_DATE,
+  inLanguage: 'zh-Hans',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: rows.length,
+    itemListElement: rows.map((row, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${row.state.nameZh} DMV 常用业务入口`,
+      url: new URL(`/states/${row.state.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<BaseLayout title="50 州 DMV 常用业务入口表" description="按州查找 DMV、DPS、RMV、MVC、DDS 官方机构、REAL ID、续期、补证、地址变更、预约和线上服务入口。" updatedAt={REVIEW_DATE} schema={schema}>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>DMV 服务</span>
+      </nav>
+      <p class="eyebrow">DMV 服务入口</p>
+      <h1>50 州 DMV 常用业务入口表</h1>
+      <p class="lead">按州汇总官方机构首页、REAL ID、驾照/身份证、地址变更、续期、补证、预约和线上服务入口。复杂材料先看中文州指南。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="DMV 服务入口表概况">
+        <div>
+          <strong>{rows.length} 州</strong>
+          <span>州覆盖</span>
+        </div>
+        <div>
+          <strong>{serviceLinkCount}</strong>
+          <span>官方入口</span>
+        </div>
+        <div>
+          <strong>{manualCheckRows.length} 州</strong>
+          <span>需浏览器点验</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <form class="directory-filter" data-directory-filter>
+      <div class="field">
+        <label for="service-search">搜索州、机构或业务</label>
+        <input id="service-search" type="search" placeholder="例如 renew、地址、appointment、Texas" data-directory-search />
+      </div>
+      <div class="field">
+        <label for="service-status">入口状态</label>
+        <select id="service-status" data-directory-status>
+          <option value="">全部状态</option>
+          <option value="ready">内容已核对</option>
+          <option value="watch">已提供备用入口</option>
+          <option value="risk">建议从备用入口进入</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="directory-table service-directory-table" role="list">
+      <div class="directory-row directory-head" role="presentation">
+        <span>州</span>
+        <span>官方机构</span>
+        <span>常用办理入口</span>
+        <span>中文页</span>
+      </div>
+      {rows.map((row) => (
+        <article class="directory-row service-directory-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+          <a class="directory-state" href={`/states/${row.state.id}/`}>
+            <span class="state-badge">{row.state.abbr}</span>
+            <span>
+              <strong>{row.state.nameZh}</strong>
+              <small>{row.state.nameEn}</small>
+            </span>
+          </a>
+          <div class="directory-main-link">
+            <a href={row.state.agencyUrl} target="_blank" rel="noreferrer">
+              {row.state.agency} <ExternalLink size={15} aria-hidden="true" />
+            </a>
+            <p>{row.state.appointmentNote}</p>
+            <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
+          </div>
+          <div class="service-link-grid" aria-label={`${row.state.nameZh} 常用办理入口`}>
+            {row.links.map((link) => (
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <div class="directory-actions">
+            <a href={`/states/${row.state.id}/`}>州总览 <ArrowRight size={14} aria-hidden="true" /></a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="directory-empty" data-directory-empty hidden><Search size={17} aria-hidden="true" />没有匹配的州、机构或业务。</p>
+  </section>
+
+  <script>
+    const filter = document.querySelector('[data-directory-filter]');
+    const rows = Array.from(document.querySelectorAll('[data-directory-row]'));
+    const empty = document.querySelector('[data-directory-empty]');
+    const search = document.querySelector('[data-directory-search]');
+    const status = document.querySelector('[data-directory-status]');
+
+    const applyFilter = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const tone = status instanceof HTMLSelectElement ? status.value : '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matchesQuery = !query || String(row.dataset.search || '').includes(query);
+        const matchesStatus = !tone || row.dataset.status === tone;
+        const show = matchesQuery && matchesStatus;
+        row.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    };
+
+    filter?.addEventListener('input', applyFilter);
+    filter?.addEventListener('change', applyFilter);
+  </script>
+</BaseLayout>
