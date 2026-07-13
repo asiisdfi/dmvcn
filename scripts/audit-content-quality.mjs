@@ -56,6 +56,16 @@ const deepReviewTopicSlugs = new Set([
   'lost-stolen-license-id-replacement-identity-theft',
   'driver-license-suspension-reinstatement-sr22',
   'renewal-replacement-address',
+  'used-car-title-lien-salvage-odometer-check',
+  'gift-inherited-vehicle-title-transfer',
+  'disabled-parking-placard-plates',
+  'vehicle-title-registration-insurance-after-move',
+  'lost-stolen-license-plates-registration-card-sticker',
+  'temporary-tag-trip-permit-dealer-plate',
+  'vehicle-inspection-emissions-smog-vin-check',
+  'sold-car-release-liability-plates-insurance',
+  'tickets-tolls-insurance-lapse-registration-hold',
+  'driving-record-points-traffic-school',
 ]);
 
 assertUnique([...stateIds], 'state id');

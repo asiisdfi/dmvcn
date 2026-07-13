@@ -10513,7 +10513,7 @@ export const topics: TopicGuide[] = [
     slug: 'used-car-title-lien-salvage-odometer-check',
     title: '买二手车前，title、lien、salvage 和 odometer 怎么查',
     eyebrow: '买二手车',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '私人买二手车或网上买 used car 时，不要只看价格和 Carfax 截图。先用 VIN、title、lien release、salvage / flood brand、odometer disclosure、seller name 和 DMV transfer 要求，判断这辆车能不能顺利过户和登记。',
     whoNeedsIt: [
@@ -10576,6 +10576,76 @@ export const topics: TopicGuide[] = [
         question: 'dealer 车是不是比私人车安全？',
         answer:
           '不一定，但 dealer 有不同规则。FTC Used Car Rule 要求多数 used-car dealers 张贴 Buyers Guide，说明 as-is 或 warranty 等信息；private sale 通常没有同等保护。无论 dealer 还是私人卖家，都要查 title、VIN、lien、brand、odometer 和机械状态。',
+      },
+    ],
+    factChecks: [
+      {
+        claim:
+          'California 私人交易指引要求卖方是 title 上的登记车主或有权代理；卖方身份与 title 对不上时，买方不应直接完成交易。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/new-registration/registering-a-vehicle-purchased-from-a-private-party/',
+        ],
+      },
+      {
+        claim:
+          'New York 指引提醒，title 显示 lienholder 时应取得贷款已清偿的正式 lien release，否则 lien 仍可能影响所有权和车辆处置。',
+        sourceUrls: [
+          'https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-3-owning-a-vehicle',
+        ],
+      },
+      {
+        claim:
+          'NMVTIS 消费者报告可用于核对当前 title、brand、最近里程以及 junk、salvage 或 insurance total-loss 等记录线索。',
+        sourceUrls: [
+          'https://vehiclehistory.bja.ojp.gov/nmvtis_consumers',
+          'https://vehiclehistory.bja.ojp.gov/nmvtis_vehiclehistory',
+        ],
+      },
+      {
+        claim:
+          '联邦规则要求车辆所有权转移时提供书面 odometer disclosure；2011 model year 及以后车辆通常要持续披露到车龄达到 20 年。',
+        sourceUrls: ['https://www.nhtsa.gov/vehicle-safety/odometer-fraud'],
+      },
+      {
+        claim:
+          'FTC Used Car Rule 要求多数二手车 dealer 展示 Buyers Guide，并在成交时把反映最终 warranty 条款的版本交给买方。',
+        sourceUrls: ['https://www.ftc.gov/business-guidance/resources/dealers-guide-used-car-rule'],
+      },
+      {
+        claim:
+          'FTC 建议即使车辆被 dealer 标为 certified 或已经检查过，买方仍应取得 vehicle history report 并安排独立 mechanic 检查。',
+        sourceUrls: [
+          'https://consumer.ftc.gov/consumer-alerts/2024/07/what-know-when-buying-used-car-online',
+        ],
+      },
+      {
+        claim:
+          'Texas Title Check 指引要求买方在付款前核对 VIN、title 和 brand，并警惕 salvage、rebuilt、flood 及 odometer brand。',
+        sourceUrls: [
+          'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/title-check-look-before-you-buy',
+          'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/title-check-look-before-you-buy/salvage-brands',
+          'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/title-check-look-before-you-buy/odometer-brands',
+        ],
+      },
+      {
+        claim:
+          'California 的 branded title 会显示车辆发生过重大损坏、高里程或其他重要历史；clean title 不能替代事故历史和机械状态调查。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/titles/branded-titles/',
+        ],
+      },
+      {
+        claim:
+          'Washington DOL 建议买方在签字前核对 title、VIN、卖方身份和车辆历史，并把 title fraud 当作独立风险处理。',
+        sourceUrls: [
+          'https://dol.wa.gov/vehicles-and-boats/vehicles/buying-and-selling-vehicle/buy-and-register-vehicle',
+          'https://dol.wa.gov/vehicles-and-boats/vehicles/vehicle-registration/vehicle-title/title-fraud',
+        ],
+      },
+      {
+        claim:
+          'New Jersey 对 salvage 或 rebuilt vehicle 设有专门 title 和检查路径，不能把普通 clean-title transfer 流程直接套用。',
+        sourceUrls: ['https://www.nj.gov/mvc/vehicles/salvage.htm'],
       },
     ],
     editorNotes: [
@@ -10982,7 +11052,7 @@ export const topics: TopicGuide[] = [
     slug: 'gift-inherited-vehicle-title-transfer',
     title: '亲属赠车、继承车辆和车主去世后，title 怎么转',
     eyebrow: '赠车继承',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '家里人赠车、车主去世、继承车辆、TOD beneficiary、surviving spouse、estate/probate、title 丢失或仍有 lien 时，车辆 title transfer 不是普通二手车交易。Gift、inheritance、estate、survivorship、tax exemption、registration 和 plate 必须分开判断。',
     whoNeedsIt: [
@@ -11049,6 +11119,80 @@ export const topics: TopicGuide[] = [
           '不要只看 title。Virginia 和 PennDOT 都把 ownership/title 与 registration / plate 分开说明。有些州允许 surviving owner 或特定亲属转 plate，有些场景需要新的 registration、保险或取消旧登记。车还要上路时，要同时查 registration 和 insurance。',
       },
     ],
+    factChecks: [
+      {
+        claim:
+          'California 将普通 title transfer、gift、family transfer、inheritance 和 deceased-owner transfer 分成不同材料路径，不能只用一张 bill of sale 处理所有情况。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
+          'https://www.dmv.ca.gov/portal/vehicle-registration/new-registration/special-circumstances/handling-a-deceased-persons-dmv-matters/',
+        ],
+      },
+      {
+        claim:
+          'California 赠车受让人通常要用 REG 256 声明 gift 或适用的 family transfer 事实，赠与人仍应完成卖方责任解除步骤。',
+        sourceUrls: [
+          'https://dmv.ca.gov/portal/file/statement-of-facts-reg-256-pdf/',
+          'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
+        ],
+      },
+      {
+        claim:
+          'Texas 机动车赠与 title application 必须配套 Form 14-317；只在 title 的价格栏写 gift 不能替代该州赠与申报。',
+        sourceUrls: [
+          'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle',
+          'https://www.txdmv.gov/sites/default/files/form_files/14-317.pdf',
+        ],
+      },
+      {
+        claim:
+          'Texas 在适用的无遗嘱继承场景提供 VTR-262 Affidavit of Heirship，但表格资格、签名和证明要求必须逐项满足。',
+        sourceUrls: ['https://www.txdmv.gov/sites/default/files/form_files/VTR-262.pdf'],
+      },
+      {
+        claim:
+          'Washington 对 gift vehicle 仍要求单独判断 use tax；车辆被称为礼物并不自动证明整笔转移免税。',
+        sourceUrls: ['https://dol.wa.gov/vehicles-and-boats/vehicles/taxes-and-fees/use-tax'],
+      },
+      {
+        claim:
+          'Florida 为 surviving spouse 或适用继承人设置 HSMV 82152 等专用文件，死亡后转 title 不能直接套用普通私人出售表格。',
+        sourceUrls: ['https://www.flhsmv.gov/pdf/forms/82152.pdf'],
+      },
+      {
+        claim:
+          'Pennsylvania 把 MV-13ST gift affidavit 与 deceased-owner transfer 文件分开；赠与、共同车主和死亡后转移应分别核对。',
+        sourceUrls: [
+          'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-forms/mv-13st.pdf',
+          'https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-fact-sheets/fs-vehtrans.pdf',
+        ],
+      },
+      {
+        claim:
+          'Virginia 将 deceased owner 的 ownership transfer 和 registration transfer 分成不同业务；完成 title 变更不自动完成 plate、registration 或保险处理。',
+        sourceUrls: [
+          'https://www.dmv.virginia.gov/records/family-deceased/transfer-ownership',
+          'https://www.dmv.virginia.gov/records/family-deceased/transfer-registration',
+        ],
+      },
+      {
+        claim:
+          'Georgia 的 estate/inheritance 路径会根据 executor、administrator、heirship affidavit 和是否已有法院文件决定谁能签字及是否应先取得新 title。',
+        sourceUrls: [
+          'https://dor.georgia.gov/vehicle-inherited-or-purchased-estate',
+          'https://dor.georgia.gov/document/form/form-t-20-affidavit-inheritance/download',
+        ],
+      },
+      {
+        claim:
+          'New Jersey 的 vehicle gift、sales-tax exemption 和 transfer-on-death beneficiary 是不同规则，申请人应分别核对 title、税务和 beneficiary 文件。',
+        sourceUrls: [
+          'https://www.nj.gov/mvc/vehicles/transowner.htm',
+          'https://www.nj.gov/mvc/vehicletopics/taxexempt.htm',
+          'https://www.nj.gov/mvc/pdf/vehicles/beneficiary_transfer_form.pdf',
+        ],
+      },
+    ],
     editorNotes: [
       '这页只解释 DMV / motor vehicle agency 的 title、registration、plate 和税费入口，不提供遗产、税务、贷款或家庭纠纷法律建议。',
       '核心分叉是 gift、family transfer、deceased owner、estate/probate、TOD beneficiary、survivorship、lien、duplicate title。不要把它们写成一个通用 transfer checklist。',
@@ -11105,6 +11249,10 @@ export const topics: TopicGuide[] = [
       {
         label: 'NY DMV Affidavit for Transfer of Motor Vehicle MV-349.1',
         url: 'https://dmv.ny.gov/forms/mv3491.pdf',
+      },
+      {
+        label: 'Texas DMV Buying or Selling a Vehicle',
+        url: 'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle',
       },
       {
         label: 'Texas DMV Probate and Title Transfer FAQ',
@@ -11284,7 +11432,7 @@ export const topics: TopicGuide[] = [
     slug: 'disabled-parking-placard-plates',
     title: '残疾人停车 placard、disabled plates 和临时停车证怎么申请',
     eyebrow: '残疾停车牌',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '在美国申请残疾人停车 placard、disabled parking permit、disabled plates 或临时停车证时，先分清 permanent、temporary、license plate、local permit、disabled veteran plate 和跨州使用规则，再按州官方要求准备材料。',
     whoNeedsIt: [
@@ -11349,6 +11497,90 @@ export const topics: TopicGuide[] = [
         question: 'disabled veteran plate 可以直接停残疾人车位吗？',
         answer:
           '不要默认可以。Texas DMV 明确区分普通 DV plate 和带 International Symbol of Access 的 disabled parking privilege。各州退伍军人车牌、免 registration fee 和 disabled parking space 权限可能是不同事项；看本州 DV plate 页面和 ISA 标志要求。',
+      },
+    ],
+    factChecks: [
+      {
+        claim:
+          'Disabled placard 或带 ISA 的 plate 只能在符合资格的人本人使用或正在被接送时提供停车特权，不能借给家人单独使用。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/disabled-person-parking-placards-plates/',
+          'https://www.txdmv.gov/motorists/disabled-parking-placards-plates',
+          'https://dol.wa.gov/driver-licenses-and-permits/get-or-renew-disabled-parking-permits/using-disabled-parking',
+        ],
+      },
+      {
+        claim:
+          'Disabled license plate 通常绑定符合资格者名下的登记车辆；New York 和 California 都把 plate 申请与车辆 owner/registration 条件联系起来。',
+        sourceUrls: [
+          'https://dmv.ny.gov/parking-for-people-with-disabilities-the-law',
+          'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/disabled-person-parking-placards-plates/',
+        ],
+      },
+      {
+        claim:
+          'Texas 普通 Disabled Veteran plate 若没有 International Symbol of Access，不授权停 disabled space；需要 placard 或带 ISA 的合格 plate。',
+        sourceUrls: [
+          'https://www.txdmv.gov/motorists/disabled-parking-placards-plates',
+          'https://www.txdmv.gov/sites/default/files/form_files/VTR-615.pdf',
+        ],
+      },
+      {
+        claim:
+          'New York parking permit 通常由 city、town 或 village 的 local issuing agent 签发，DMV 签发的是 disability license plates，不直接发 local permit。',
+        sourceUrls: [
+          'https://dmv.ny.gov/more-info/parking-for-people-with-disabilities',
+          'https://dmv.ny.gov/forms/mv6641.pdf',
+        ],
+      },
+      {
+        claim:
+          'Texas temporary placard 为红色且最长 6 个月，permanent placard 为蓝色并按 4 年周期续办。',
+        sourceUrls: [
+          'https://www.txdmv.gov/motorists/disabled-parking-placards-plates',
+          'https://www.txdmv.gov/sites/default/files/body-files/Disabled-Persons-Placard-Brochure.pdf',
+        ],
+      },
+      {
+        claim:
+          'Florida permanent disabled parking permit 与 temporary permit 是不同产品；temporary permit 的有效期按医疗证明且最长 6 个月。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/motor-vehicles-tags-titles/disabled-person-parking-permits/permanent-disabled-person-parking-permits/',
+          'https://www.flhsmv.gov/motor-vehicles-tags-titles/disabled-person-parking-permits/temporary-disabled-person-parking-permits/',
+        ],
+      },
+      {
+        claim:
+          '申请资格通常需要州认可的 medical provider 在官方表格、处方或合格 letterhead statement 上认证，医院账单本身不能替代。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/uploads/2020/12/reg195.pdf',
+          'https://dmv.ny.gov/forms/mv6641.pdf',
+          'https://www.txdmv.gov/sites/default/files/form_files/VTR-214.pdf',
+        ],
+      },
+      {
+        claim:
+          '外州 placard 常可获得 reciprocal recognition，但 meter、time limit、airport、campus 和 local permit 特权仍由目的地规则决定。',
+        sourceUrls: [
+          'https://dmv.ny.gov/parking-for-people-with-disabilities-the-law',
+          'https://www.pa.gov/agencies/dmv/faqs/motor-vehicle-faqs/placard-faqs',
+        ],
+      },
+      {
+        claim:
+          'Access aisle 或斜线区域不是额外停车位；它用于轮椅和无障碍设备进出，即使持有 placard 也不能占用。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/disabled-person-parking-placards-plates/',
+          'https://www.ada.gov/resources/restriping-parking-spaces/',
+        ],
+      },
+      {
+        claim:
+          'Washington temporary disabled parking placard 的期限由医疗人员注明，最长可到 12 个月，并与 permanent permit 使用不同申请规则。',
+        sourceUrls: [
+          'https://dol.wa.gov/driver-licenses-and-permits/get-or-renew-disabled-parking-permits',
+          'https://dol.wa.gov/forms/view/420073/download?inline=',
+        ],
       },
     ],
     editorNotes: [
@@ -11556,7 +11788,7 @@ export const topics: TopicGuide[] = [
     slug: 'vehicle-title-registration-insurance-after-move',
     title: '买车或搬州后，车辆 title、registration、保险和车牌先办哪个',
     eyebrow: '车辆登记',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       'DMV 不只管驾照。买车、搬州或从外州带车时，title、registration、insurance、inspection / emissions、license plates 和 driver license 可能互相卡住，办理顺序需要按州和交易类型确认。',
     whoNeedsIt: [
@@ -11615,6 +11847,73 @@ export const topics: TopicGuide[] = [
         question: '旧州车牌可以直接扔掉吗？',
         answer:
           '不要这么做。有些州要求退牌或取消登记，保险公司也可能要求先处理 plate / registration，避免罚款、税费或保险责任问题。按旧州 DMV 规则保存退牌或取消确认。',
+      },
+    ],
+    factChecks: [
+      {
+        claim:
+          'Vehicle title 记录所有权，registration 和 plate 记录车辆当前上路登记；California 把 title transfer 与 vehicle registration 作为不同业务入口。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/',
+          'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
+        ],
+      },
+      {
+        claim:
+          'Florida 新居民应先取得由 Florida licensed agent 提供的州内保险，并在建立 residency 后 10 天内 title/register 车辆；驾照期限为 30 天。',
+        sourceUrls: ['https://www.flhsmv.gov/new-resident/'],
+      },
+      {
+        claim:
+          'New Jersey 新居民必须在搬入后 60 天内，或在原 license/registration 更早到期前，完成驾照及车辆 title/registration 转入。',
+        sourceUrls: ['https://www.nj.gov/mvc/drivertopics/movetonj.htm'],
+      },
+      {
+        claim:
+          'Washington 新居民有 30 天办理州驾照和车辆登记，并且通常要先取得 Washington driver license 才能注册车辆。',
+        sourceUrls: [
+          'https://dol.wa.gov/moving-washington/vehicle-registration-and-plates',
+        ],
+      },
+      {
+        claim:
+          'Massachusetts 对成为居民后的外州车辆转入不提供 grace period，并要求由 Massachusetts insurer 在 Registration and Title Application 上完成保险确认。',
+        sourceUrls: [
+          'https://www.mass.gov/how-to/transfer-your-registration-and-title-from-out-of-state',
+        ],
+      },
+      {
+        claim:
+          'New Jersey dealer 通常代办本州购车的 title/registration；private sale 或外州转入则由车主准备 title、保险和 BA-49 等材料到 MVC 办理。',
+        sourceUrls: ['https://www.nj.gov/mvc/vehicles/reginitial.htm'],
+      },
+      {
+        claim:
+          'New York 的 register-and-title 路径会同时核对 ownership、identity、insurance、tax 和 registration 文件，bill of sale 本身通常不足以完成业务。',
+        sourceUrls: [
+          'https://dmv.ny.gov/registration/register-and-title-a-vehicle',
+          'https://dmv.ny.gov/titles/buy-sell-or-transfer-vehicle-ownership',
+        ],
+      },
+      {
+        claim:
+          'Texas 私人交易要求正确签署 title、核对 lien 和 odometer，并由买方按 county tax office 流程申请 title 和 registration。',
+        sourceUrls: [
+          'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle',
+          'https://www.txdmv.gov/motorists/register-your-vehicle',
+        ],
+      },
+      {
+        claim:
+          'New Jersey 搬州车辆若 title 由 lienholder 或 leasing company 持有，需要先提交 release/title request，收到通知后才能完成转入。',
+        sourceUrls: ['https://www.nj.gov/mvc/drivertopics/movetonj.htm'],
+      },
+      {
+        claim:
+          'Pennsylvania 私人车辆转让由 authorized PennDOT agent 处理 title 和 registration，并会分别核对所有权签字、保险、税费及 plate 事项。',
+        sourceUrls: [
+          'https://www.pa.gov/agencies/dmv/vehicle-services/title-and-registration/buying-or-selling-a-vehicle',
+        ],
       },
     ],
     editorNotes: [
@@ -12007,7 +12306,7 @@ export const topics: TopicGuide[] = [
     slug: 'lost-stolen-license-plates-registration-card-sticker',
     title: '车牌、registration card 或 sticker 丢失/被盗后怎么补办',
     eyebrow: '车牌补办',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '车辆凭证丢失时，先别只问“能不能补一个 sticker”。License plate、registration card、registration sticker / decal / tab、inspection sticker 和 title 是不同事项；被盗、没收到邮件、车牌损坏、地址错误、toll / parking / insurance hold 的处理路径也不同。',
     whoNeedsIt: [
@@ -12074,6 +12373,75 @@ export const topics: TopicGuide[] = [
         question: '补了新 plate 或 sticker 后，旧的找回来可以继续用吗？',
         answer:
           '不应继续用。Texas VTR-60 要声明找回旧 plate / sticker 后不会再使用；California 要 surrender remaining plates；New York 也提醒旧 plate 不处理可能带来 ticket / fine 责任。按州规则 surrender、destroy、deface 或停用旧凭证。',
+      },
+    ],
+    factChecks: [
+      {
+        claim:
+          'License plate、registration card 和 registration sticker/decal/tab 是不同凭证，California 的 replacement 页面为它们提供不同选项和材料。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/replacement-license-plates-and-stickers/',
+          'https://www.dmv.ca.gov/portal/vehicle-registration/replace-your-registration-card/',
+        ],
+      },
+      {
+        claim:
+          'California 被盗车牌补办需要 police report，并通常改发 new configuration；车主还应交回仍持有的另一块牌。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/replacement-license-plates-and-stickers/',
+        ],
+      },
+      {
+        claim:
+          'New York 在两块牌均丢失、被盗或毁坏时要求 police report；证明属于 theft/crime 时可免 replacement plate fee。',
+        sourceUrls: ['https://dmv.ny.gov/plates/lost-stolen-or-destroyed-plates'],
+      },
+      {
+        claim:
+          'Washington 明确规定，车牌被报告为 stolen 后，为保护公众不会重新使用相同的 number/letter combination。',
+        sourceUrls: ['https://dol.wa.gov/vehicles-and-boats/vehicles/license-plates'],
+      },
+      {
+        claim:
+          'Texas VTR-60 将 replacement plate、windshield sticker 和 plate sticker 分开申请，并要求申请人承诺找回旧凭证后不再使用。',
+        sourceUrls: ['https://www.txdmv.gov/sites/default/files/form_files/VTR-60.pdf'],
+      },
+      {
+        claim:
+          'Florida HSMV 83146 分别处理 replacement plate、decal 和 parking permit，并按 lost、stolen、damaged 等原因要求相应证明。',
+        sourceUrls: ['https://www.flhsmv.gov/pdf/forms/83146.pdf'],
+      },
+      {
+        claim:
+          'North Carolina 的 online duplicate registration card 不会同时签发 renewal sticker；需要 sticker 时应走 plate agency 或指定申请路径。',
+        sourceUrls: [
+          'https://www.ncdot.gov/dmv/offices-services/online/Pages/my-ncdmv-duplicate-registration.aspx',
+          'https://www.ncdot.gov/dmv/downloads/Documents/MVR-18.pdf',
+        ],
+      },
+      {
+        claim:
+          'Virginia 允许符合条件的车主在线取得 replacement registration card；replacement plate 则可能需要 registration application 和附加材料。',
+        sourceUrls: [
+          'https://www.dmv.virginia.gov/online-services/replace-reg',
+          'https://www.dmv.virginia.gov/sites/default/files/forms/vsa14.pdf',
+        ],
+      },
+      {
+        claim:
+          'Georgia 的 MV-7 用于申请 replacement license plate、tag 或 decal，被盗情形和邮寄未收到情形应按表格分别说明。',
+        sourceUrls: [
+          'https://dor.georgia.gov/replace-license-plate',
+          'https://dor.georgia.gov/document/form/mv-7-application-replacement-license-plate-tag-and-or-decal/download',
+        ],
+      },
+      {
+        claim:
+          '续期后尚未收到邮件与已经持有后丢失是不同问题；New York 提供 registration status/where-is-my-registration 查询后再决定 replacement。',
+        sourceUrls: [
+          'https://dmv.ny.gov/registration/where-is-my-registration',
+          'https://dmv.ny.gov/registration/replace-registration',
+        ],
       },
     ],
     editorNotes: [
@@ -12281,7 +12649,7 @@ export const topics: TopicGuide[] = [
     slug: 'temporary-tag-trip-permit-dealer-plate',
     title: '临时牌照、temporary tag 和 trip permit：买车、搬州或没牌上路怎么办',
     eyebrow: '临时牌照',
-    reviewedAt: '2026-07-11',
+    reviewedAt: '2026-07-13',
     description:
       '买车当天、跨州开回家、正式 plates / sticker 没到、车辆还没完成 smog / inspection / registration 时，常见词有 temporary tag、temporary operating permit、trip permit、transit permit、one-trip permit 和 dealer temp tag。它们不是全国通用通行证，也不能替代 title、insurance 或正式 registration。',
     whoNeedsIt: [
@@ -12350,6 +12718,75 @@ export const topics: TopicGuide[] = [
         question: '临时牌照或 trip permit 过期了还能继续开吗？',
         answer:
           '通常不要继续开。许多 permit 都按连续天数、指定日期或单次路线有效；过期、涂改、车辆不匹配或路线不符可能让 permit 失效。更稳妥的做法是停开并联系签发机构，确认是否有新的 permit、extension、registration completion 或 towing / transport 方案。',
+      },
+    ],
+    factChecks: [
+      {
+        claim:
+          'Temporary tag、trip permit、transit permit 和 Temporary Operating Permit 对应不同用途、期限与签发机构，不能把其中一种当作全国通用临牌。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/temporary-operating-permits/',
+          'https://www.txdmv.gov/motorists/register-your-vehicle/temporary-permits',
+          'https://dmv.ny.gov/registration/in-transit-vehicle-permits-temporary-registrations',
+        ],
+      },
+      {
+        claim:
+          'Texas HB 718 自 2025 年 7 月 1 日生效后，licensed dealer 在多数成交场景改为交付 metal plate，不再打印旧式 paper buyer temporary tag。',
+        sourceUrls: ['https://www.txdmv.gov/dealers/HB718'],
+      },
+      {
+        claim:
+          'Texas 的 30-Day 和 One-Trip Permit 仍存在，但 HB 718 后由 county tax office 或 TxDMV regional service center 签发 Temporary Registration metal plate。',
+        sourceUrls: [
+          'https://www.txdmv.gov/dealers/HB718',
+          'https://www.txdmv.gov/motorists/register-your-vehicle/temporary-permits',
+        ],
+      },
+      {
+        claim:
+          'California 把 30、60、90-day TOP、one-day vehicle moving permit 和 one-trip permit 分开，并按 smog、VIN、CHP 或登记缺项决定资格。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/temporary-operating-permits/',
+        ],
+      },
+      {
+        claim:
+          'Washington 的 unlicensed-vehicle trip permit 每张覆盖 3 个连续日，同一车辆在任意 30 天内最多使用 3 张。',
+        sourceUrls: [
+          'https://dol.wa.gov/vehicles-and-boats/vehicles/license-plates/trip-permits-unlicensed-vehicles',
+        ],
+      },
+      {
+        claim:
+          'Oregon 的 light vehicle trip permit 通常为 21 个连续日，RV、heavy vehicle 和 trailer 另有不同 permit 与期限。',
+        sourceUrls: ['https://www.oregon.gov/odot/dmv/pages/vehicle/trippermit.aspx'],
+      },
+      {
+        claim:
+          'Virginia 的 trip permit 只授权在 Virginia 境内行驶；路线经过其他州时，申请人必须另行确认其他州许可。',
+        sourceUrls: ['https://www.dmv.virginia.gov/vehicles/registration/temp-permit'],
+      },
+      {
+        claim:
+          'New York in-transit permit 申请要求对应的 ownership、identity、insurance、申请表和费用，不能只凭 bill of sale 上路。',
+        sourceUrls: [
+          'https://dmv.ny.gov/registration/in-transit-vehicle-permits-temporary-registrations',
+          'https://dmv.ny.gov/forms/mv82itp.pdf',
+        ],
+      },
+      {
+        claim:
+          'Florida temporary plate 会按 dealer sale、private sale、inspection/VIN、out-of-state buyer 或特制车牌等待等用途采用不同期限和资格。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/motor-vehicles-tags-titles/license-plates-registration/',
+          'https://www.flhsmv.gov/pdf/forms/83091.pdf',
+        ],
+      },
+      {
+        claim:
+          'Georgia dealer TOP 是完成正式 title 和 registration 前的短期凭证；原 TOP 过期时，dealer 不能把重复签发当作无限延期办法。',
+        sourceUrls: ['https://dor.georgia.gov/temporary-operating-permits-tops'],
       },
     ],
     editorNotes: [
@@ -12523,7 +12960,7 @@ export const topics: TopicGuide[] = [
     slug: 'vehicle-inspection-emissions-smog-vin-check',
     title: '车辆年检、emissions、smog 和 VIN inspection，registration 卡住怎么办',
     eyebrow: '车辆检查',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '美国没有全国统一的车辆年检规则。买车、搬州、续 registration 或从外州带车时，先分清 safety inspection、emissions / smog check、VIN verification 和 registration hold，才能知道该找 DMV、排放项目、检查站还是 county office。',
     whoNeedsIt: [
@@ -12536,7 +12973,7 @@ export const topics: TopicGuide[] = [
       'Safety inspection、emissions inspection、California smog check、VIN verification 和 road-test vehicle check 不是同一件事。一个州可能只要求其中一项，也可能按县、车型、燃料、年份或登记场景组合要求。',
       '加州常见关键词是 smog inspection。California DMV 和 BAR 都把 smog check 与 vehicle registration、renewal、seller responsibility、车型年份和豁免条件放在同一体系里说明。',
       '纽约 DMV 把 vehicle safety inspection 和 emissions inspection 放在同一 inspection 体系下；车辆通常需要在登记后按期限检查，并在续期时保持 inspection sticker 有效。',
-      '德州 2025 年 1 月 1 日起，多数非商用车辆不再做年度 safety inspection，但 TCEQ / Texas DMV 仍要求部分县、部分车辆完成 emissions inspection 才能登记或续 registration。',
+      '德州 2025 年 1 月 1 日起，多数非商用车辆不再做年度 safety inspection，但 TCEQ / Texas DMV 仍要求指定县的适用车辆完成 emissions inspection 才能登记或续 registration；Bexar County 将从 2026 年 11 月 1 日加入。',
       '新泽西、宾州、维州、马州、北卡、亚利桑那、科罗拉多和俄勒冈等州的规则差异很大。有的州按县或都会区要求排放，有的州把安全检查和排放检查分开，有的州使用指定检查站。',
       '佛州这类问题更常见在 out-of-state vehicle 的 VIN / odometer verification 或 title / registration 文件核验，而不是把“年检”当作全国统一前置条件。',
       '检查失败通常不是驾照问题，也不等于 DMV 能现场解除。大多数场景要先修车、复检、按官方项目申请 waiver / extension，或等检查记录回传后再续 registration。',
@@ -12583,6 +13020,87 @@ export const topics: TopicGuide[] = [
         question: 'VIN inspection 和 emissions inspection 是一回事吗？',
         answer:
           '不是。VIN verification 是核对车辆识别号码和文件是否一致，常见于外州车辆、title transfer 或登记核验；emissions / smog 是排放检查，通常和空气质量项目、车型年份、燃料类型或 county 相关。',
+      },
+    ],
+    factChecks: [
+      {
+        claim:
+          'Safety inspection、emissions/smog 和 VIN verification 对应不同检查目标；申请人必须按登记州、county、车型和业务场景分别判断。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/smog-inspections/',
+          'https://dmv.ny.gov/inspection/inspection-requirements',
+          'https://www.flhsmv.gov/pdf/forms/82042.pdf',
+        ],
+      },
+      {
+        claim:
+          'California Smog Check 与 registration renewal、title transfer、seller responsibility 和车型豁免相关，不能用普通 safety inspection 代替。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/smog-inspections/',
+          'https://www.bar.ca.gov/consumer/smog-check-program',
+        ],
+      },
+      {
+        claim:
+          'New York 将 safety 与 emissions 纳入州 inspection 体系，并要求车辆按登记和 sticker 期限保持有效检查状态。',
+        sourceUrls: [
+          'https://dmv.ny.gov/inspections',
+          'https://dmv.ny.gov/inspection/inspection-requirements',
+        ],
+      },
+      {
+        claim:
+          'Texas 自 2025 年 1 月 1 日起取消多数非商用车辆的年度 safety inspection，但 commercial vehicle 和 emissions program 仍有独立要求。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/news/dps-reminds-texans-vehicle-safety-inspection-changes',
+          'https://www.txdmv.gov/motorists/register-your-vehicle',
+        ],
+      },
+      {
+        claim:
+          'Texas 目前有 17 个 county 执行 annual emissions inspection；Bexar County 将从 2026 年 11 月 1 日开始执行，未合规会阻止 registration renewal。',
+        sourceUrls: [
+          'https://www.tceq.texas.gov/airquality/mobilesource/vim/overview.html',
+        ],
+      },
+      {
+        claim:
+          'New Jersey 的 inspection 资格、到期时间和指定检查方式按车辆类型与登记状态决定，不能假设所有车辆都走同一检查周期。',
+        sourceUrls: [
+          'https://www.nj.gov/mvc/inspection/aboutinsp.htm',
+          'https://www.nj.gov/mvc/inspection/inspecthow.htm',
+        ],
+      },
+      {
+        claim:
+          'Pennsylvania 的 safety inspection 与 emissions inspection 是两个官方项目，后者还会按 county 和车辆条件判断。',
+        sourceUrls: [
+          'https://www.pa.gov/agencies/dmv/vehicle-services/inspection-and-safety-requirements/safety-inspection-program',
+          'https://www.pa.gov/agencies/dmv/vehicle-services/inspection-and-safety-requirements/emission-inspections-program',
+        ],
+      },
+      {
+        claim:
+          'Virginia 的 annual safety inspection 由 State Police 体系管理，emissions 则由 DMV 按适用地区和 registration 条件处理。',
+        sourceUrls: [
+          'https://vsp.virginia.gov/safety-and-enforcement/vehicle-safety-inspection/',
+          'https://www.dmv.virginia.gov/vehicles/registration/emissions',
+        ],
+      },
+      {
+        claim:
+          'Florida 新居民车辆 title/registration 常见的是 VIN 与 odometer verification；该表格不能被概括成全州年度 emissions inspection。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/new-resident/',
+          'https://www.flhsmv.gov/pdf/forms/82042.pdf',
+        ],
+      },
+      {
+        claim:
+          'Oregon Vehicle Inspection Program 只覆盖指定地区和适用车辆，检查要求应按车辆登记地址与 DEQ 边界查询。',
+        sourceUrls: [
+          'https://www.oregon.gov/deq/Vehicle-Inspection/Pages/default.aspx',
+        ],
       },
     ],
     editorNotes: [
@@ -12702,7 +13220,7 @@ export const topics: TopicGuide[] = [
     slug: 'sold-car-release-liability-plates-insurance',
     title: '卖车、捐车或报废后，DMV 责任解除、车牌和保险怎么收尾',
     eyebrow: '车辆收尾',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '卖车不是把钥匙和 title 交出去就结束。很多州还要提交 sold notice / release of liability、移除或退还车牌、确认买方 title transfer，并按正确顺序取消保险。',
     whoNeedsIt: [
@@ -12713,7 +13231,7 @@ export const topics: TopicGuide[] = [
     ],
     keyFacts: [
       'Seller notice / release of liability、title transfer、plate surrender 和 insurance cancellation 是不同动作；提交卖车通知通常不能替代买方完成 title transfer。',
-      '部分州有明确卖车通知期限：California 要求卖方在出售或转让后 5 个 calendar days 内提交 NRL；Washington 要在 sale date 后 5 天内提交 Report of Sale；Texas 的 Vehicle Transfer Notification 保护期围绕 30 天；Oregon 和 Arizona sold notice 以 10 天为核心提醒。',
+      '部分州有明确卖车通知期限：California 要求卖方在出售或转让后 5 个 calendar days 内提交 NRL；Washington 要在 sale date 后 5 个 business days 内提交 Report of Sale；Texas 的 Vehicle Transfer Notification 保护期围绕 30 天；Oregon 和 Arizona sold notice 以 10 天为核心提醒。',
       '车牌规则高度州别化。Florida、New Jersey、Washington 和 Virginia 都强调卖方移除车牌；New York、New Jersey、Virginia、North Carolina、Pennsylvania 等州还会把退牌、登记和保险顺序连在一起。',
       '保险不能随便先取消。New York、North Carolina、Virginia 和 Pennsylvania 的官方页面都把 plate surrender / inactivation / return 与取消保险或避免 registration suspension、driver license suspension、civil penalty 关联起来。',
       '卖给 dealer 或 trade-in 不一定自动清掉卖方记录。Texas 提醒车辆可能仍在卖方名下直到 dealer 转售；Washington 也提醒 owner 要确认 dealer 是否提交 Report of Sale。',
@@ -12761,6 +13279,77 @@ export const topics: TopicGuide[] = [
         question: '卖车后还收到 renewal、罚单或 toll 怎么办？',
         answer:
           '先找 confirmation、plate surrender receipt、bill of sale、title 复印件或 dealer/trade-in 文件，再按原州 DMV 页面补交 sold notice、NRL 或证明文件。California、Texas、Pennsylvania 等官方页面都提醒卖方记录不完整会带来后续责任或通知。',
+      },
+    ],
+    factChecks: [
+      {
+        claim:
+          'California 卖方必须在出售或转让后 5 个 calendar days 内提交 Notice of Transfer and Release of Liability，并保存确认。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/notice-of-transfer-and-release-of-liability-nrl/',
+          'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
+        ],
+      },
+      {
+        claim:
+          'California 明确说明 NRL 只更新卖方责任记录，不构成 ownership transfer；买方仍需完成 title transfer 和费用。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/notice-of-transfer-and-release-of-liability-nrl/',
+        ],
+      },
+      {
+        claim:
+          'Washington 卖方应在成交后 5 个 business days 内提交 Vehicle Report of Sale，买方 title/registration 是另一项手续。',
+        sourceUrls: [
+          'https://dol.wa.gov/vehicles-and-boats/vehicles/buying-and-selling-vehicle/sell-vehicle',
+        ],
+      },
+      {
+        claim:
+          'Texas 建议卖方在转让后 30 天内提交 Vehicle Transfer Notification；卖给 dealer 或 trade-in 也应确认该记录是否已提交。',
+        sourceUrls: ['https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle'],
+      },
+      {
+        claim:
+          'Oregon 卖方应在出售、赠与或转让车辆后 10 天内通知 DMV，并保存 transaction information。',
+        sourceUrls: [
+          'https://www.oregon.gov/odot/dmv/pages/online_quick_tips/vehicle_information.aspx',
+        ],
+      },
+      {
+        claim:
+          'Arizona 的 sold notice 应在车辆出售、trade-in、赠与或其他转让后 10 天内提交，以更新卖方记录。',
+        sourceUrls: ['https://azdot.gov/mvd/services/registration-plates-title/selling-vehicle'],
+      },
+      {
+        claim:
+          'New York 要求在 liability insurance 结束前先 surrender registration 和 plates；车辆只是停放或卖出也不能跳过该顺序。',
+        sourceUrls: [
+          'https://dmv.ny.gov/insurance/change-reinstate-or-cancel-insurance-coverage',
+          'https://dmv.ny.gov/registration/surrender-return-or-turn-in-your-vehicle-plates-and-registration',
+        ],
+      },
+      {
+        claim:
+          'Florida 卖车时 seller 应从车辆上移除 license plate，并完成 title、odometer 和 notice of sale 等收尾。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/safety-center/consumer-education/selling-vehicle-florida/',
+        ],
+      },
+      {
+        claim:
+          'New Jersey seller 应移除车牌；不转移到另一辆本人车辆时，应按 MVC 路径 surrender plates/registration 并保留 receipt。',
+        sourceUrls: [
+          'https://www.nj.gov/mvc/vehicles/transowner.htm',
+          'https://www.nj.gov/mvc/vehicles/surrenderreg.htm',
+        ],
+      },
+      {
+        claim:
+          'North Carolina 要求登记车辆持续保持 liability insurance；出售或停用车辆时，应先按 DMV plate/registration 规则处理再取消保险。',
+        sourceUrls: [
+          'https://www.ncdot.gov/dmv/title-registration/insurance-requirements/Pages/default.aspx',
+        ],
       },
     ],
     editorNotes: [
@@ -12864,7 +13453,7 @@ export const topics: TopicGuide[] = [
     slug: 'tickets-tolls-insurance-lapse-registration-hold',
     title: '罚单、toll、保险 lapse 或 registration hold，先查 DMV 还是法院',
     eyebrow: '问题排查',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       'DMV 系统显示 hold、suspension、denial 或不能续 registration，不一定是 DMV 自己能解除。罚单、toll、保险 lapse、parking ticket、court suspension 和地方税费常常要先找发起机构处理。',
     whoNeedsIt: [
@@ -12922,6 +13511,74 @@ export const topics: TopicGuide[] = [
         question: '卖车后收到 toll 或 parking ticket，是买家的事还是我的事？',
         answer:
           '先看违章日期、plate/VIN、title transfer、sold notice 和 plate surrender 是否完整。卖车通知、release of liability、bill of sale、退牌收据和 toll account 关闭记录，是向 DMV、toll agency 或 city parking 解释的核心证据。',
+      },
+    ],
+    factChecks: [
+      {
+        claim:
+          'California registration record 上的 parking、toll 或 owner-responsibility citation 来自对应 issuing agency；争议和 clearance 通常应先找发起机构。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/renewals/parking-toll-violations-on-record/',
+          'https://www.dmv.ca.gov/portal/handbook/vehicle-industry-registration-procedures-manual-2/renewals/owner-responsibility-citations-on-record/',
+        ],
+      },
+      {
+        claim:
+          'New York 可因 5 年内 3 次以上 toll violation，或同一期间未付 toll、fee 和 charge 达到 200 美元，暂停相关 vehicle registration。',
+        sourceUrls: [
+          'https://dmv.ny.gov/registration/registration-suspensions-for-failure-to-pay-tolls',
+        ],
+      },
+      {
+        claim:
+          'Pennsylvania registration 可能因 4 张以上 unpaid toll invoice、欠款与费用达到 250 美元，或 toll payment plan default 而被暂停。',
+        sourceUrls: [
+          'https://www.pa.gov/agencies/dmv/vehicle-services/registration-suspensions/suspensions-due-to-unpaid-tolls',
+        ],
+      },
+      {
+        claim:
+          'Virginia 收到两笔以上 unpaid toll invoice 后，toll operator 可限制相关车辆 registration 的 reissue 或 renewal；车主应联系报告该记录的机构。',
+        sourceUrls: ['https://www.dmv.virginia.gov/vehicles/registration/denials'],
+      },
+      {
+        claim:
+          'Florida 因 failure to pay、failure to appear 或未完成 court-ordered school 被暂停时，应先满足 citation 所在 county court 的要求，再等待电子 clearance 并处理 reinstatement fee。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-suspensions-revocations/traffic-citations-court-suspensions/',
+        ],
+      },
+      {
+        claim:
+          'New York 车辆在 registration 有效期间出现 liability insurance lapse，可能同时导致 registration 和 driver license suspension。',
+        sourceUrls: ['https://dmv.ny.gov/insurance/insurance-lapses'],
+      },
+      {
+        claim:
+          'Pennsylvania 登记车辆必须持续保持 financial responsibility；保险中断可触发 registration suspension、proof 和 restoration 要求。',
+        sourceUrls: [
+          'https://www.pa.gov/agencies/dmv/faqs/motor-vehicle-faqs/financial-responsibility-faqs',
+        ],
+      },
+      {
+        claim:
+          'Massachusetts Non-Renewal Program 由参与的 municipality 或 authority 报送 unpaid obligation，RMV 不能替发起机构裁定或清除原始欠款。',
+        sourceUrls: ['https://www.mass.gov/info-details/non-renewal-program'],
+      },
+      {
+        claim:
+          'Texas FTA/FTP 记录即使已经付款，也需要 reporting agency 或 court 正确回传 compliance；driver license status 不会只凭付款截图自动恢复。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/section/driver-license/faq/section-8-failure-appear-and-failure-pay-ftaftp',
+        ],
+      },
+      {
+        claim:
+          '政府机构已警告存在以 unpaid toll、ticket 或 suspension 为由的诈骗短信；用户应从 DMV、court 或 toll agency 官方入口独立核验，不点击短信付款链接。',
+        sourceUrls: [
+          'https://www.dmv.virginia.gov/news/virginia-dmv-warns-customers-toll-charge-text-scam',
+          'https://www.flhsmv.gov/safety-center/consumer-education/scam-alert/',
+        ],
       },
     ],
     editorNotes: [
@@ -13039,7 +13696,7 @@ export const topics: TopicGuide[] = [
     slug: 'driving-record-points-traffic-school',
     title: '驾照记录、points 和 traffic school：怎么查、怎么影响保险和停牌',
     eyebrow: '驾照记录',
-    reviewedAt: '2026-07-10',
+    reviewedAt: '2026-07-13',
     description:
       '收到交通罚单、想查 driving record / MVR、担心 points、想上 traffic school / defensive driving / driver improvement，或雇主/保险要看驾驶记录时，不要只问“能不能消分”。不同州把驾驶记录、扣分、课程、保险折扣、停牌和商业驾照规则分得很细。',
     whoNeedsIt: [
@@ -13105,6 +13762,83 @@ export const topics: TopicGuide[] = [
         question: 'CDL 可以上 traffic school / defensive driving 消分吗？',
         answer:
           '不要套普通驾照规则。California、Florida、Virginia 等官方页面都把 CDL 或 commercial vehicle 场景单独处理；有些普通课程福利不适用于 CDL，或要上 commercial driver improvement clinic。商业驾驶最好直接核对 CDL-specific 页面、法院要求和雇主政策。',
+      },
+    ],
+    factChecks: [
+      {
+        claim:
+          'License status 与完整 driving record 不是同一产品；Texas Type 1 主要显示身份和当前 status，Type 3/3A 才列出完整事故与违规记录。',
+        sourceUrls: [
+          'https://txapps.texas.gov/apps/dps/txldr/html/recordTypes.html',
+          'https://txapps.texas.gov/apps/dps/txldr/html/faq.html',
+        ],
+      },
+      {
+        claim:
+          'Texas Type 3A 是 defensive driving course 可接受的 certified complete history；Type 2A 和 Type AR 官方说明为不适用于该用途。',
+        sourceUrls: [
+          'https://txapps.texas.gov/apps/dps/txldr/html/recordTypes.html',
+          'https://txapps.texas.gov/apps/dps/txldr/html/faq.html',
+        ],
+      },
+      {
+        claim:
+          'California 普通 Class C/M negligent-operator 常见阈值是 12 个月 4 分、24 个月 6 分和 36 个月 8 分，达到阈值可触发 DMV action。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-education-and-safety/dmv-safety-guidelines-actions/negligence/negligent-operator-actions/',
+        ],
+      },
+      {
+        claim:
+          'Florida point suspension 阈值是 12 个月 12 分停 30 天、18 个月 18 分停 3 个月、36 个月 24 分停 1 年。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-suspensions-revocations/points-point-suspensions/',
+        ],
+      },
+      {
+        claim:
+          'New York PIRP 不会从 driving record 删除 violation、conviction 或 points；它最多把 suspension calculation 使用的 active points 减少 4 分。',
+        sourceUrls: [
+          'https://dmv.ny.gov/points-and-penalties/point-and-insurance-reduction-program',
+        ],
+      },
+      {
+        claim:
+          'California 合格 noncommercial citation 通常在过去 18 个月未使用 traffic school 时才可能符合资格，并必须按法院期限完成 approved school。',
+        sourceUrls: [
+          'https://selfhelp.courts.ca.gov/traffic/traffic-school',
+          'https://www.dmv.ca.gov/portal/vehicle-industry-services/occupational-licensing/occupational-license-lookup/traffic-school-list/',
+        ],
+      },
+      {
+        claim:
+          'Washington 提供 Full、Insurance、Employment 和 Alcohol/Drug Treatment 等不同 driving record，使用人和可见字段并不相同。',
+        sourceUrls: [
+          'https://dol.wa.gov/driver-licenses-and-permits/driving-records/guide-driving-records',
+        ],
+      },
+      {
+        claim:
+          'Texas Driver Responsibility Program 已被废止，旧文章所说的 DRP surcharge 不能当作当前 Texas points 或恢复规则。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/news/driver-responsibility-program-repealed',
+          'https://www.dps.texas.gov/section/driver-license/faq/driver-responsibility-program-surcharge-repeal-faqs',
+        ],
+      },
+      {
+        claim:
+          'Georgia 驾驶人在任意连续 24 个月累积 15 分可被 suspension，points reduction 和 defensive driving 另有资格与时间限制。',
+        sourceUrls: [
+          'https://dds.georgia.gov/georgia-licenseid/violations-suspensions-revocations/points-and-points-reduction',
+        ],
+      },
+      {
+        claim:
+          'DMV points 与保险公司 rating 不是同一套判断；New York PIRP 同时规定 DMV point calculation 和保险折扣，但不会清除原始违规记录。',
+        sourceUrls: [
+          'https://dmv.ny.gov/points-and-penalties/point-and-insurance-reduction-program',
+          'https://dmv.ny.gov/points-and-penalties/pirp-and-ipirp',
+        ],
       },
     ],
     editorNotes: [
