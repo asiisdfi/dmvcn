@@ -106,7 +106,14 @@ if (!dataSource.includes('PUBLIC_CONTACT_EMAIL')) {
 if (!(await exists(distDir))) {
   errors.push('dist directory is missing; run npm run build before launch checks.');
 } else {
-  for (const path of ['index.html', 'contact/index.html', 'privacy/index.html', 'robots.txt', 'sitemap-index.xml']) {
+  for (const path of [
+    'index.html',
+    'contact/index.html',
+    'privacy/index.html',
+    'robots.txt',
+    'llms.txt',
+    'sitemap-index.xml',
+  ]) {
     if (!(await exists(new URL(path, distDir)))) errors.push(`dist/${path} is missing.`);
   }
 
@@ -135,6 +142,32 @@ if (!(await exists(distDir))) {
     if (!robots.includes('Sitemap:')) errors.push('robots.txt does not include a Sitemap line.');
     if (siteUrl && !robots.includes(`Sitemap: ${siteUrl}sitemap-index.xml`)) {
       errors.push('Built robots.txt does not point to the production sitemap index.');
+    }
+  }
+
+  if (await exists(new URL('llms.txt', distDir))) {
+    const llmsText = await readFile(new URL('llms.txt', distDir), 'utf8');
+    const llmsLinks = [...llmsText.matchAll(/\[[^\]]+\]\((https?:\/\/[^)]+)\)/g)].map(
+      (match) => match[1],
+    );
+
+    if (!llmsText.startsWith('# DMV中文办事库\n\n> ')) {
+      errors.push('Built llms.txt must start with the site H1 followed by a blockquote summary.');
+    }
+    if (Buffer.byteLength(llmsText, 'utf8') > 20 * 1024) {
+      errors.push('Built llms.txt exceeds the 20 KB concise-index budget.');
+    }
+    if (llmsLinks.length < 20) {
+      errors.push(`Built llms.txt has only ${llmsLinks.length} absolute links; expected at least 20.`);
+    }
+    if (siteUrl && llmsLinks.some((url) => !url.startsWith(siteUrl))) {
+      errors.push('Built llms.txt contains a link outside PUBLIC_SITE_URL.');
+    }
+    if (siteUrl && !llmsText.includes(`[首页](${siteUrl})`)) {
+      errors.push('Built llms.txt does not link to the production homepage.');
+    }
+    if (llmsText.includes('dmv-cn-guide.example.com')) {
+      errors.push('Built llms.txt still contains the placeholder domain.');
     }
   }
 
