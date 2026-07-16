@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成宾夕法尼亚州两页官方正文语义核对',
+    summary:
+      '逐条比对 PennDOT 的 REAL ID、预验证、非公民与 CDL 分支、材料、费用、续期补证、姓名地址、新居民、permit、考试语言、外国驾照和台湾等互惠正文；补齐 camera card、15/60/20 天期限与中文笔试，并公开标注非公民 REAL ID 页和统一费用页的 duplicate 金额差异。',
+    scope: ['宾夕法尼亚州办事总览', '宾夕法尼亚州 REAL ID', '费用冲突与预验证', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成伊利诺伊州两页官方正文语义核对',
     summary:
       '逐条比对 Illinois Secretary of State 的 REAL ID、A/B/C/D 文件组、VISA/NONVISA 与原 TVDL、续期补证、地址、新居民、permit、成人教育、费用、预约、2026 Rules of the Road 和老年驾驶新规；重写 Standard 与 REAL ID 判断路径，并保守说明无 SSN declaration 不能自动推定为 REAL ID 豁免。',

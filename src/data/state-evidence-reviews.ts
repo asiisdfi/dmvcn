@@ -245,6 +245,48 @@ const IL_FACILITY =
 const IL_OLDER_DRIVER_UPDATE =
   'https://www.ilsos.gov/news/2026/june-17-2026-giannoulias-ends-mandatory-road-tests-for-drivers-ages-79-86.html';
 
+const PA_REAL_ID = 'https://www.pa.gov/agencies/dmv/driver-services/real-id';
+const PA_APPLY_REAL_ID = 'https://www.pa.gov/services/dmv/apply-for-real-id';
+const PA_REAL_ID_DOCUMENTS =
+  'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check';
+const PA_PREVERIFICATION =
+  'https://www.pa.gov/services/dmv/apply-for-real-id-pre-verification';
+const PA_NONCITIZEN_REAL_ID =
+  'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-info-for-non-us-citizens';
+const PA_CDL_REAL_ID =
+  'https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-info-for-cdl-holders';
+const PA_REAL_ID_FAQ =
+  'https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/real-id-faqs';
+const PA_NO_SSN_CARD =
+  'https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card';
+const PA_ONLINE_SERVICES =
+  'https://www.pa.gov/agencies/dmv/online-services-dvs';
+const PA_RENEW = 'https://www.pa.gov/services/dmv/renew-a-drivers-license';
+const PA_REPLACE = 'https://www.pa.gov/services/dmv/replace-a-drivers-license';
+const PA_NAME_ADDRESS =
+  'https://www.pa.gov/services/dmv/change-a-driver-license-name-or-address';
+const PA_MOVING_WITHIN =
+  'https://www.pa.gov/agencies/dmv/resources/relocation/moving-within-pa';
+const PA_TRANSFER_LICENSE =
+  'https://www.pa.gov/services/dmv/transfer-a-drivers-license-from-another-state';
+const PA_TRANSFER_VEHICLE =
+  'https://www.pa.gov/services/dmv/transfer-vehicle-registration-from-another-state';
+const PA_PERMIT = 'https://www.pa.gov/services/dmv/get-a-learners-permit';
+const PA_APPLYING_FOR_PERMIT =
+  'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/applying-for-a-learners-permit';
+const PA_TESTING =
+  'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/testing';
+const PA_SCHEDULE_TEST =
+  'https://www.pa.gov/services/dmv/schedule-drivers-test';
+const PA_FOREIGN_LICENSE =
+  'https://www.pa.gov/agencies/dmv/driver-services/driving-in-pennsylvania-with-a-foreign-driver-s-license';
+const PA_FOREIGN_FAQ =
+  'https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/driver-and-licensing-miscellaneous-faqs';
+const PA_REAL_ID_CENTERS =
+  'https://www.pa.gov/agencies/dmv/find-a-location/real-id-center-locations';
+const PA_LOCATIONS = 'https://www.pa.gov/agencies/dmv/find-a-location';
+const PA_FEES = 'https://www.pa.gov/agencies/dmv/resources/payments-and-fees';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -2014,6 +2056,357 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '从外国搬入时误以为有效外国驾照可像有效外州驾照一样免 written 和 road exams': [
         IL_NEW_RESIDENT,
+      ],
+    },
+  },
+  pennsylvania: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      PA_REAL_ID,
+      PA_APPLY_REAL_ID,
+      PA_REAL_ID_DOCUMENTS,
+      PA_PREVERIFICATION,
+      PA_NONCITIZEN_REAL_ID,
+      PA_CDL_REAL_ID,
+      PA_REAL_ID_FAQ,
+      PA_NO_SSN_CARD,
+      PA_ONLINE_SERVICES,
+      PA_RENEW,
+      PA_REPLACE,
+      PA_NAME_ADDRESS,
+      PA_MOVING_WITHIN,
+      PA_TRANSFER_LICENSE,
+      PA_TRANSFER_VEHICLE,
+      PA_PERMIT,
+      PA_APPLYING_FOR_PERMIT,
+      PA_TESTING,
+      PA_SCHEDULE_TEST,
+      PA_FOREIGN_LICENSE,
+      PA_FOREIGN_FAQ,
+      PA_REAL_ID_CENTERS,
+      PA_LOCATIONS,
+      PA_FEES,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 PennDOT 的 REAL ID、预验证、非公民与 CDL 分支、材料、费用、续期补证、姓名地址、新居民、permit、考试语言、外国驾照和台湾等互惠正文。',
+    notes:
+      '重写 Pennsylvania 总览与 REAL ID 页面，补充不上传证件的预验证边界、camera card、15/60/20 天期限、中文笔试、外国驾照与台湾互惠，并公开指出非公民 REAL ID 页与统一费用页的 duplicate 金额冲突；所有声明已改为显式来源，仍待真实人工签字。',
+    claims: {
+      '宾州先回答三个问题：是否需要用州证件完成联邦身份用途、PennDOT 是否已确认材料在档、是否需要当天拿卡': [
+        PA_REAL_ID,
+        PA_PREVERIFICATION,
+        PA_REAL_ID_CENTERS,
+      ],
+      'Standard license 仍可驾驶': [PA_REAL_ID, PA_REAL_ID_FAQ],
+      '已有 passport 等联邦接受证件的人不必只为国内航班升级': [
+        PA_REAL_ID_FAQ,
+        TSA_IDENTIFICATION,
+      ],
+      '只有收到 PennDOT 预验证通过确认的人才能线上订购 REAL ID': [
+        PA_PREVERIFICATION,
+        PA_REAL_ID_FAQ,
+      ],
+      '外州非商业驾照新居民要在建立 Pennsylvania residency 后 60 天内现场换证，交回仍有效或过期不超过 6 个月的外州驾照，完成 DL-180R、vision test 和身份材料': [
+        PA_TRANSFER_LICENSE,
+      ],
+      '持有效外国驾照的合格访客可从入境美国起最多驾驶一年或到外国驾照到期，以较早者为准': [
+        PA_APPLYING_FOR_PERMIT,
+        PA_FOREIGN_FAQ,
+      ],
+      'IDP 只是翻译，不能单独驾驶': [PA_FOREIGN_LICENSE],
+      '多数首次 Pennsylvania REAL ID 申请人要带一份 identity / lawful status、一份符合本人类别的 SSN 证明、两份 physical Pennsylvania residency 文件，以及适用的完整姓名变更链': [
+        PA_REAL_ID_DOCUMENTS,
+        PA_NONCITIZEN_REAL_ID,
+      ],
+      '预验证是在 PennDOT 旧记录里人工查档，不是上传证件': [
+        PA_PREVERIFICATION,
+        PA_APPLY_REAL_ID,
+      ],
+      '未获确认、非美国公民和 REAL ID CDL 申请人要按对应页面现场办理': [
+        PA_PREVERIFICATION,
+        PA_NONCITIZEN_REAL_ID,
+        PA_CDL_REAL_ID,
+      ],
+      'Same-Day REAL ID Centers 当前周二至周六 8:30–16:15 开放，实时核验并当天签发': [
+        PA_REAL_ID_CENTERS,
+      ],
+      '普通 Driver License Center 也能核验材料，但卡片在 15 个工作日内邮寄': [
+        PA_REAL_ID,
+        PA_REAL_ID_CENTERS,
+      ],
+      'Road test 要从官方 scheduling service 预约': [PA_SCHEDULE_TEST],
+      '其他业务先用 location finder 核对地点、营业日和服务': [
+        PA_LOCATIONS,
+      ],
+      '首次 REAL ID 收一次性 $30 REAL ID fee，再加适用的普通 renewal fee': [
+        PA_REAL_ID,
+        PA_REAL_ID_FAQ,
+      ],
+      '当前四年 non-commercial renewal 为 $39.50，因此官方示例合计 $69.50': [
+        PA_REAL_ID_FAQ,
+        PA_FEES,
+      ],
+      '首次 REAL ID 通常把当前证件剩余期限再加四年': [
+        PA_REAL_ID,
+        PA_REAL_ID_FAQ,
+      ],
+      '以后续期默认继续签发 REAL ID，除非选择 opt out，并且不再收额外 REAL ID fee': [
+        PA_REAL_ID_FAQ,
+      ],
+      '当前统一费用页列出 initial permit + four-year license $45.50、四年续期 $39.50、65 岁以上可选两年续期 $27.50、duplicate / replacement license $42.50': [
+        PA_FEES,
+      ],
+      'PennDOT 非公民 REAL ID 页面的 temporary-status 段落仍显示 $30.50 duplicate fee，而 Payments and Fees 页面列出 duplicate / replacement license $42.50，两份官方页面金额不一致': [
+        PA_NONCITIZEN_REAL_ID,
+        PA_FEES,
+      ],
+      '本站不把 $30.50 当作当前报价，并要求付款前同时查看实时费用页和交易金额': [
+        PA_NONCITIZEN_REAL_ID,
+        PA_FEES,
+      ],
+      '2003 年 9 月后首次取得 PA license、permit 或 photo ID 只代表可能有材料在档': [
+        PA_PREVERIFICATION,
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '预验证由 PennDOT 人工检查，最多可用 15 个工作日，收到通过确认后才可线上订购': [
+        PA_PREVERIFICATION,
+      ],
+      'PennDOT 明确不接受在家上传 REAL ID 文件，并提示声称可上传证件的网站属于欺诈风险': [
+        PA_APPLY_REAL_ID,
+      ],
+      '不符合预验证的人要携带原件或认证副本现场核验': [
+        PA_PREVERIFICATION,
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      'Same-Day REAL ID Centers 当前周二至周六 8:30–16:15 营业': [
+        PA_REAL_ID_CENTERS,
+      ],
+      '普通 Driver License Center 核验后，REAL ID 在 15 个工作日内邮寄': [
+        PA_REAL_ID,
+        PA_REAL_ID_CENTERS,
+      ],
+      '普通线上续期完成后 camera card 通常在 14 天内寄到，申请人还要拿 camera card 到 Photo License Center 拍照取新证': [
+        PA_RENEW,
+      ],
+      '邮寄或现场续期的 camera card 通常在申请处理后 7 至 10 个工作日到达': [
+        PA_RENEW,
+      ],
+      '有照片与签名在档时可在线申请 duplicate': [PA_REPLACE],
+      '现场申请会先给 15 天有效的 interim license，当前 duplicate / replacement license 费用为 $42.50': [
+        PA_REPLACE,
+        PA_FEES,
+      ],
+      '搬家后 15 天内要通知 PennDOT，driver license / ID 与 vehicle registration 都要更新': [
+        PA_MOVING_WITHIN,
+        PA_NAME_ADDRESS,
+      ],
+      '非商业驾驶人线上改址免费，约 10 天收到必须随证携带的 update card': [
+        PA_MOVING_WITHIN,
+        PA_NAME_ADDRESS,
+        PA_FEES,
+      ],
+      '新居民有 60 天换 PA non-commercial license，但车辆 title / registration 是 20 天期限，且车辆业务通常先要有效 Pennsylvania identification': [
+        PA_TRANSFER_LICENSE,
+        PA_TRANSFER_VEHICLE,
+      ],
+      '符合条件的外国驾照持有人可驾驶到入境美国满一年或外国驾照到期，以较早者为准': [
+        PA_APPLYING_FOR_PERMIT,
+        PA_FOREIGN_FAQ,
+      ],
+      'IDP 非必需但官方强烈建议，并且必须与原驾照一起使用': [
+        PA_FOREIGN_LICENSE,
+        PA_FOREIGN_FAQ,
+      ],
+      'France、Germany、Korea 和 Taiwan 的有效 non-commercial license 有互惠转入路径，可免 knowledge 和 road tests，但仍要做 vision test': [
+        PA_APPLYING_FOR_PERMIT,
+      ],
+      '普通 knowledge test 有 18 道选择题，答对 15 题通过': [PA_TESTING],
+      '所有 Driver License Centers 可按要求提供 written 或 audio test，并包含 Mandarin': [
+        PA_TESTING,
+      ],
+      '未满 18 岁申请人取得 permit 后要至少等待 6 个月，并完成 65 小时练车，其中至少 10 小时夜间、5 小时恶劣天气': [
+        PA_APPLYING_FOR_PERMIT,
+      ],
+      '每张 permit 有 3 次 road test 机会': [
+        PA_APPLYING_FOR_PERMIT,
+        PA_TESTING,
+      ],
+      'PennDOT Driver License Centers 接受 payment card、check 或 money order，但不收现金': [
+        PA_FEES,
+      ],
+      'Riverfront Office Center Customer Counter 是单列的现金例外': [
+        PA_FEES,
+      ],
+      '即使已经持有 PA driver’s license 或 ID，首次 REAL ID 仍要覆盖全部文件组': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '身份与 lawful-status 文件必须是 original 或 certified copy，普通 photocopy 不接受': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '美国公民常用 identity 文件包括政府签发并带 raised seal 的出生证、有效美国 passport / passport card、citizenship 或 naturalization certificate': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '通用 REAL ID 清单的 SSN 栏接受 Social Security card、W-2、SSA-1099、non-SSA-1099 或显示完整号码的 pay stub': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '文件要用 current legal name 并显示完整 9 位 SSN': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '没有 SSN 时，通用清单要求 original SSA ineligibility letter': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      'lawfully present non-U.S. citizen 还要按专页核对原始 Social Security card 或 ineligibility letter 及移民文件，不能只套用美国公民示例': [
+        PA_NONCITIZEN_REAL_ID,
+      ],
+      '两份 residency 要是显示 Pennsylvania address 的 physical documents，而不是电子展示': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '例子包括 PA credential、vehicle registration、auto insurance、utility bill、W-2 / pay stub、tax record、lease、mortgage 或经过 USPS 投递的邮件': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      'passport 已显示 current legal name 时，PennDOT 不要求额外姓名变更文件': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '否则要用 certified marriage certificate、court order 或 amended birth certificate 串起全部变化，多次婚姻通常要逐段连接': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '2003 年 9 月后首次取得 PA credential、个人资料未变且与 PennDOT 记录一致的人，可以申请 pre-verification': [
+        PA_PREVERIFICATION,
+      ],
+      '它只检查既有档案，不接受扫描或上传新文件': [
+        PA_PREVERIFICATION,
+        PA_APPLY_REAL_ID,
+      ],
+      'Standard non-REAL ID 的“没有 Social Security card”替代材料有单独页面，明确不适用于 REAL ID，不能把两个清单混用': [
+        PA_NO_SSN_CARD,
+      ],
+      '外州驾照转入要带 identity、Pennsylvania residency、Social Security card 和 DL-180R': [
+        PA_TRANSFER_LICENSE,
+      ],
+      '现有外州驾照要交回，并且必须仍有效或过期不超过 6 个月': [
+        PA_TRANSFER_LICENSE,
+      ],
+      '非美国公民的移民文件必须反映 current name': [
+        PA_NONCITIZEN_REAL_ID,
+      ],
+      'temporary immigration status 的首张 REAL ID 有效期会跟随移民文件到期日': [
+        PA_NONCITIZEN_REAL_ID,
+      ],
+      '先决定是否需要 REAL ID：有有效 passport、military ID 或其他 TSA 接受证件的人，可继续用 Standard license 驾驶': [
+        PA_REAL_ID_FAQ,
+        TSA_IDENTIFICATION,
+      ],
+      '符合 2003 年 9 月后首次取得 PA credential、资料未变等条件时，先提交 pre-verification，并预留最多 15 个工作日等 PennDOT 确认': [
+        PA_PREVERIFICATION,
+      ],
+      '没有通过确认或不符合资格时，按 identity / lawful status、SSN、two physical residency 和 name-change chain 四栏准备 original / certified documents': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '非美国公民先打开专用 REAL ID 页面，按 current immigration status 核对 identity、Social Security status、两份 residency 和证件有效期': [
+        PA_NONCITIZEN_REAL_ID,
+      ],
+      '按时效选地点：需要当天拿卡去指定 Same-Day REAL ID Center': [
+        PA_REAL_ID_CENTERS,
+      ],
+      '可等邮寄则到普通 Driver License Center，预留 15 个工作日': [
+        PA_REAL_ID,
+        PA_REAL_ID_CENTERS,
+      ],
+      '付款前同时核对 $30 one-time REAL ID fee 与当前 renewal / duplicate fee': [
+        PA_REAL_ID_FAQ,
+        PA_FEES,
+      ],
+      '遇到官方页面金额冲突，以实时费用页和交易报价重新确认': [
+        PA_NONCITIZEN_REAL_ID,
+        PA_FEES,
+      ],
+      '普通续期先判断线上资格并预留 camera card + Photo License Center 步骤': [
+        PA_RENEW,
+      ],
+      '补证先确认 PennDOT 是否已有 photo 和 signature': [PA_REPLACE],
+      '搬家后 15 天内分别更新 driver credential 和 vehicle registration': [
+        PA_MOVING_WITHIN,
+        PA_NAME_ADDRESS,
+      ],
+      '收到免费 update card 后与原证一起携带': [
+        PA_MOVING_WITHIN,
+        PA_NAME_ADDRESS,
+      ],
+      '外州新居民在 60 天内到 Driver License Center 交回有效或过期不超过 6 个月的外州证，完成 DL-180R、vision 和材料核验': [
+        PA_TRANSFER_LICENSE,
+      ],
+      '有车的人同时盯住 20 天 title / registration 期限': [
+        PA_TRANSFER_VEHICLE,
+      ],
+      '首次驾照申请人先让 health care provider 完成 DL-180': [
+        PA_PERMIT,
+        PA_APPLYING_FOR_PERMIT,
+      ],
+      '未满 18 岁补 DL-180TD、6 个月等待与 65 小时练车，再预约 road test': [
+        PA_PERMIT,
+        PA_APPLYING_FOR_PERMIT,
+        PA_SCHEDULE_TEST,
+      ],
+      '持外国驾照的人先区分访客驾驶与居民换证': [
+        PA_FOREIGN_LICENSE,
+        PA_APPLYING_FOR_PERMIT,
+      ],
+      'France、Germany、Korea 或 Taiwan 驾照申请互惠转入时，仍要按 PennDOT 现场确认资格并完成 vision test': [
+        PA_APPLYING_FOR_PERMIT,
+      ],
+      '把“2003 年 9 月后首次拿 PA credential”理解成已经 pre-verified，没有等 PennDOT 的通过确认': [
+        PA_PREVERIFICATION,
+      ],
+      '向声称能上传 REAL ID 证件的网站提交出生证、SSN 或移民文件': [
+        PA_APPLY_REAL_ID,
+      ],
+      '已有普通 PA license 就以为首次 REAL ID 可以免带身份、SSN 和两份地址文件': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '拿手机里的电子账单代替 PennDOT 要求的 two physical residency documents': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      'SSN 文件只显示后四位，或姓名仍是改名前版本': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      '非美国公民只看通用清单，没有核对 non-U.S. citizen 页面要求的 Social Security card / SSA letter 和移民文件': [
+        PA_NONCITIZEN_REAL_ID,
+      ],
+      '多次改名只带最近一张 marriage certificate，无法连接出生证姓名到 current legal name': [
+        PA_REAL_ID_DOCUMENTS,
+      ],
+      'non-U.S. citizen 或 REAL ID CDL holder 尝试走普通 online pre-verification 路径': [
+        PA_PREVERIFICATION,
+        PA_NONCITIZEN_REAL_ID,
+        PA_CDL_REAL_ID,
+      ],
+      '到普通 Driver License Center 后误以为当天一定拿到 REAL ID': [
+        PA_REAL_ID,
+        PA_REAL_ID_CENTERS,
+      ],
+      'same-day issuance 只在指定 REAL ID Centers': [PA_REAL_ID_CENTERS],
+      '把“当前 license 剩余期限 + 4 年”读成首张 REAL ID 只从申请日算固定四年': [
+        PA_REAL_ID,
+        PA_REAL_ID_FAQ,
+      ],
+      '完成普通 online renewal 后不等 camera card，也没有去 Photo License Center 完成照片步骤': [
+        PA_RENEW,
+      ],
+      '搬家只更新 license / ID，却漏掉 vehicle registration，或没有随身携带免费 address update card': [
+        PA_MOVING_WITHIN,
+        PA_NAME_ADDRESS,
+      ],
+      '把 IDP 当成独立驾照，或在入境满一年、外国驾照过期后继续依赖外国驾照驾驶': [
+        PA_FOREIGN_LICENSE,
+        PA_APPLYING_FOR_PERMIT,
+        PA_FOREIGN_FAQ,
+      ],
+      '用过期超过 6 个月的外州驾照直接换证，忽略此时要重新走 Pennsylvania learner permit 和考试路径': [
+        PA_TRANSFER_LICENSE,
+        PA_PERMIT,
       ],
     },
   },

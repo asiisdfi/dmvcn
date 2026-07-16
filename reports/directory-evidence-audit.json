@@ -1,17 +1,17 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:20:17.807Z",
+    "generatedAt": "2026-07-16T23:29:34.573Z",
     "pages": 5,
-    "claims": 398,
+    "claims": 407,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 41,
-        "states": 16
+        "claims": 45,
+        "states": 17
       },
       "deadlines": {
-        "claims": 33,
+        "claims": 35,
         "states": 15
       },
       "document-rules": {
@@ -23,7 +23,7 @@
         "states": 23
       },
       "identity-ssn": {
-        "claims": 106,
+        "claims": 109,
         "states": 35
       }
     }
@@ -405,6 +405,58 @@
       "sourceLabel": "对应官方来源：Illinois Driver License Fees",
       "themes": [
         "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "pennsylvania",
+      "category": "费用",
+      "claim": "现场申请会先给 15 天有效的 interim license，当前 duplicate / replacement license 费用为 $42.50",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/payments-and-fees",
+      "sourceLabel": "对应官方来源：PennDOT Payments and Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "pennsylvania",
+      "category": "付款",
+      "claim": "PennDOT Driver License Centers 接受 payment card、check 或 money order，但不收现金",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/payments-and-fees",
+      "sourceLabel": "对应官方来源：PennDOT Payments and Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "pennsylvania",
+      "category": "邮寄 / 卡片",
+      "claim": "普通 Driver License Center 核验后，REAL ID 在 15 个工作日内邮寄",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
+      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "pennsylvania",
+      "category": "邮寄 / 卡片",
+      "claim": "可等邮寄则到普通 Driver License Center，预留 15 个工作日",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
+      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "themes": [
+        "processing-or-mail"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -832,13 +884,38 @@
     {
       "page": "deadlines",
       "stateId": "pennsylvania",
-      "category": "搬家 / 地址",
-      "claim": "外州或加拿大 license 新居民通常 60 天内换 PA license 并 surrender out-of-state license",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-to-pennsylvania",
-      "sourceLabel": "对应官方来源：PennDOT Moving to Pennsylvania",
+      "category": "期限提醒",
+      "claim": "现有外州驾照要交回，并且必须仍有效或过期不超过 6 个月",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-within-pa",
+      "sourceLabel": "对应官方来源：PennDOT Moving Within Pennsylvania",
       "themes": [
-        "new-resident",
         "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "pennsylvania",
+      "category": "搬家 / 地址",
+      "claim": "搬家后 15 天内分别更新 driver credential 和 vehicle registration",
+      "sourceUrl": "https://www.pa.gov/services/dmv/change-a-driver-license-name-or-address",
+      "sourceLabel": "对应官方来源：Pennsylvania Name or Address Change",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "pennsylvania",
+      "category": "材料时效",
+      "claim": "外州新居民在 60 天内到 Driver License Center 交回有效或过期不超过 6 个月的外州证，完成 DL-180R、vision 和材料核验",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-within-pa",
+      "sourceLabel": "对应官方来源：PennDOT Moving Within Pennsylvania",
+      "themes": [
+        "new-resident"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -1435,9 +1512,9 @@
       "page": "document-rules",
       "stateId": "pennsylvania",
       "category": "地址证明",
-      "claim": "两份宾州居住地址证明，PennDOT 写明需要 physical documents，不是电子文件",
-      "sourceUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bdl/bdl-manuals/pa-drivers-manual-non-commercial/english/pub%2095.pdf",
-      "sourceLabel": "对应官方来源：PennDOT Driver Manual PDF",
+      "claim": "两份 residency 要是显示 Pennsylvania address 的 physical documents，而不是电子展示",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
+      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
       "themes": [
         "residency-documents"
       ],
@@ -1448,23 +1525,11 @@
       "page": "document-rules",
       "stateId": "pennsylvania",
       "category": "地址证明",
-      "claim": "居住证明要求 two physical, not electronic documents",
-      "sourceUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bdl/bdl-manuals/pa-drivers-manual-non-commercial/english/pub%2095.pdf",
-      "sourceLabel": "对应官方来源：PennDOT Driver Manual PDF",
+      "claim": "没有通过确认或不符合资格时，按 identity / lawful status、SSN、two physical residency 和 name-change chain 四栏准备 original / certified documents",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
+      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
       "themes": [
-        "residency-documents"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "document-rules",
-      "stateId": "pennsylvania",
-      "category": "SSN",
-      "claim": "一份 SSN 证明，需显示当前 legal name 和完整 9 位 SSN",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
-      "sourceLabel": "对应官方来源：REAL ID Document Requirements",
-      "themes": [
+        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
@@ -1473,11 +1538,26 @@
     {
       "page": "document-rules",
       "stateId": "pennsylvania",
-      "category": "SSN",
-      "claim": "没有 SSN 时要看 SSA ineligibility letter 要求",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
-      "sourceLabel": "对应官方来源：REAL ID Document Requirements",
+      "category": "地址证明",
+      "claim": "非美国公民先打开专用 REAL ID 页面，按 current immigration status 核对 identity、Social Security status、两份 residency 和证件有效期",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-info-for-non-us-citizens",
+      "sourceLabel": "对应官方来源：REAL ID for Non-U.S. Citizens",
       "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "pennsylvania",
+      "category": "地址证明",
+      "claim": "多数首次 Pennsylvania REAL ID 申请人要带一份 identity / lawful status、一份符合本人类别的 SSN 证明、两份 physical Pennsylvania residency 文件，以及适用的完整姓名变更链",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
+      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "themes": [
+        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
@@ -3459,25 +3539,11 @@
       "page": "foreign-license",
       "stateId": "pennsylvania",
       "category": "外国 / 境外驾照",
-      "claim": "PennDOT Driver Licensing FAQ 和 driver manual 说明持有效 foreign driver license 的人可在入境美国后最多一年内在宾州驾驶，或直到 foreign license 过期，以较早者为准",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/driver-and-licensing-miscellaneous-faqs",
-      "sourceLabel": "对应官方来源：PennDOT Driver and Licensing Miscellaneous FAQs",
+      "claim": "符合条件的外国驾照持有人可驾驶到入境美国满一年或外国驾照到期，以较早者为准",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/driving-in-pennsylvania-with-a-foreign-driver-s-license",
+      "sourceLabel": "对应官方来源：Driving with a Foreign Driver License",
       "themes": [
         "foreign-license"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "pennsylvania",
-      "category": "外州 / 加拿大转入",
-      "claim": "外州或加拿大 license 新居民通常 60 天内换 PA license 并 surrender out-of-state license",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-to-pennsylvania",
-      "sourceLabel": "对应官方来源：PennDOT Moving to Pennsylvania",
-      "themes": [
-        "new-resident",
-        "out-of-state"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -3485,13 +3551,13 @@
     {
       "page": "foreign-license",
       "stateId": "pennsylvania",
-      "category": "外州 / 加拿大转入",
-      "claim": "Moving to Pennsylvania：搬到 Pennsylvania 后 out-of-state license surrender、vision screening 和 60 天换证说明",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-to-pennsylvania",
-      "sourceLabel": "对应官方来源：PennDOT Moving to Pennsylvania",
+      "category": "外国 / 境外驾照",
+      "claim": "Permit 与外国驾照互惠：未成年人练车、外国驾照一年窗口及四地互惠说明",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/applying-for-a-learners-permit",
+      "sourceLabel": "对应官方来源：Pennsylvania Permit and Foreign Reciprocity Rules",
       "themes": [
-        "new-resident",
-        "out-of-state"
+        "foreign-license",
+        "reciprocity"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -3499,15 +3565,28 @@
     {
       "page": "foreign-license",
       "stateId": "pennsylvania",
-      "category": "IDP / 国际驾照",
-      "claim": "Foreign License FAQ：PennDOT 关于 foreign driver license、one-year driving window 和 IDP 建议的 FAQ",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/driver-and-licensing-miscellaneous-faqs",
-      "sourceLabel": "对应官方来源：PennDOT Driver and Licensing Miscellaneous FAQs",
+      "category": "外国 / 境外驾照",
+      "claim": "持有效外国驾照的合格访客可从入境美国起最多驾驶一年或到外国驾照到期，以较早者为准",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/driving-in-pennsylvania-with-a-foreign-driver-s-license",
+      "sourceLabel": "对应官方来源：Driving with a Foreign Driver License",
       "themes": [
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "pennsylvania",
+      "category": "外国 / 境外驾照",
+      "claim": "持外国驾照的人先区分访客驾驶与居民换证",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/driving-in-pennsylvania-with-a-foreign-driver-s-license",
+      "sourceLabel": "对应官方来源：Driving with a Foreign Driver License",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
     },
     {
       "page": "foreign-license",
@@ -4319,8 +4398,48 @@
     {
       "page": "identity-ssn",
       "stateId": "pennsylvania",
+      "category": "无 SSN / SSA",
+      "claim": "通用 REAL ID 清单的 SSN 栏接受 Social Security card、W-2、SSA-1099、non-SSA-1099 或显示完整号码的 pay stub",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
+      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "pennsylvania",
+      "category": "无 SSN / SSA",
+      "claim": "lawfully present non-U.S. citizen 还要按专页核对原始 Social Security card 或 ineligibility letter 及移民文件，不能只套用美国公民示例",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
+      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "themes": [
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "pennsylvania",
+      "category": "无 SSN / SSA",
+      "claim": "没有 SSN 时，通用清单要求 original SSA ineligibility letter",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
+      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "pennsylvania",
       "category": "SSN",
-      "claim": "一份 SSN 证明，需显示当前 legal name 和完整 9 位 SSN",
+      "claim": "文件要用 current legal name 并显示完整 9 位 SSN",
       "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
       "sourceLabel": "对应官方来源：REAL ID Document Requirements",
       "themes": [

@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:20:18.997Z",
+    "generatedAt": "2026-07-16T23:29:35.882Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 27,
+    "passed": 29,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 84,
-    "aiAssistedReviews": 33,
+    "sourceMappedReviews": 82,
+    "aiAssistedReviews": 35,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 137,
+    "blockedPages": 135,
     "averageScore": 96
   },
   "pages": [
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 231,
+        "sourceCount": 233,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 41,
-        "directoryEvidenceLinks": 41,
+        "directoryEvidenceItems": 45,
+        "directoryEvidenceLinks": 45,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 193,
+        "sourceCount": 194,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 33,
-        "directoryEvidenceLinks": 33,
+        "directoryEvidenceItems": 35,
+        "directoryEvidenceLinks": 35,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 390,
+        "sourceCount": 400,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 167,
+        "sourceCount": 169,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 127,
+        "sourceCount": 129,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 140,
+        "sourceCount": 141,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 106,
-        "directoryEvidenceLinks": 106,
+        "directoryEvidenceItems": 109,
+        "directoryEvidenceLinks": 109,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -622,7 +622,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 196,
+        "sourceCount": 197,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -782,7 +782,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 196,
+        "sourceCount": 197,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1036,
+        "sourceCount": 1045,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -4453,16 +4453,16 @@
       "risk": "medium",
       "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 PennDOT 的 REAL ID、预验证、非公民与 CDL 分支、材料、费用、续期补证、姓名地址、新居民、permit、考试语言、外国驾照和台湾等互惠正文。",
+        "notes": "重写 Pennsylvania 总览与 REAL ID 页面，补充不上传证件的预验证边界、camera card、15/60/20 天期限、中文笔试、外国驾照与台湾互惠，并公开指出非公民 REAL ID 页与统一费用页的 duplicate 金额冲突；所有声明已改为显式来源，仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4475,14 +4475,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 11,
-        "factCheckCount": 22,
+        "sourceCount": 26,
+        "factCheckCount": 43,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 22,
-        "stateEvidenceLinks": 24,
+        "stateEvidenceItems": 43,
+        "stateEvidenceLinks": 70,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4490,9 +4490,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/pennsylvania/real-id/",
@@ -4500,16 +4498,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 PennDOT 的 REAL ID、预验证、非公民与 CDL 分支、材料、费用、续期补证、姓名地址、新居民、permit、考试语言、外国驾照和台湾等互惠正文。",
+        "notes": "重写 Pennsylvania 总览与 REAL ID 页面，补充不上传证件的预验证边界、camera card、15/60/20 天期限、中文笔试、外国驾照与台湾互惠，并公开指出非公民 REAL ID 页与统一费用页的 duplicate 金额冲突；所有声明已改为显式来源，仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4522,14 +4520,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 11,
-        "factCheckCount": 17,
+        "sourceCount": 26,
+        "factCheckCount": 54,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 17,
-        "stateEvidenceLinks": 18,
+        "stateEvidenceItems": 54,
+        "stateEvidenceLinks": 77,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4537,9 +4535,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/rhode-island/",
