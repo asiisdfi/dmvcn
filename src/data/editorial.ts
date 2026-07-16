@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成佐治亚州两页官方正文语义核对',
+    summary:
+      '逐条比对 Georgia DDS 的 Secure ID、身份与住址材料、外州转入、非公民、外国驾照、韩国与台湾互惠、续期补证、地址、费用、考试语言、Class C 和 road test 正文；补齐 30/60/150 天分界，并公开标注永久卡 30/45 天、第二次改址费用和 Chinese Road Signs 三组官方页面差异。',
+    scope: ['佐治亚州办事总览', '佐治亚州 REAL ID', '官方页面差异', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成宾夕法尼亚州两页官方正文语义核对',
     summary:
       '逐条比对 PennDOT 的 REAL ID、预验证、非公民与 CDL 分支、材料、费用、续期补证、姓名地址、新居民、permit、考试语言、外国驾照和台湾等互惠正文；补齐 camera card、15/60/20 天期限与中文笔试，并公开标注非公民 REAL ID 页和统一费用页的 duplicate 金额差异。',

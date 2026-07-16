@@ -287,6 +287,40 @@ const PA_REAL_ID_CENTERS =
 const PA_LOCATIONS = 'https://www.pa.gov/agencies/dmv/find-a-location';
 const PA_FEES = 'https://www.pa.gov/agencies/dmv/resources/payments-and-fees';
 
+const GA_REAL_ID = 'https://dds.georgia.gov/georgia-licenseid/real-id';
+const GA_REAL_ID_FAQ =
+  'https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/real-id-faqs';
+const GA_TRANSFER_OUT_OF_STATE =
+  'https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid';
+const GA_NONCITIZEN =
+  'https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens';
+const GA_FOREIGN =
+  'https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations';
+const GA_TRANSFER_FOREIGN =
+  'https://dds.georgia.gov/transfer-unexpired-foreign-drivers-license';
+const GA_RENEW =
+  'https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id';
+const GA_RENEW_FAQ = 'https://dds.georgia.gov/renewals-faqs';
+const GA_MAIL_RENEW = 'https://dds.georgia.gov/mail-renewals';
+const GA_REPLACE =
+  'https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-replace-license';
+const GA_REPLACE_FAQ =
+  'https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/replacements-faqs';
+const GA_UPDATE =
+  'https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-update-license';
+const GA_ADDRESS_FAQ =
+  'https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/address-change-faqs';
+const GA_FEES = 'https://dds.georgia.gov/fees-and-terms';
+const GA_LOCATIONS = 'https://dds.georgia.gov/locations/customer-service-center';
+const GA_TESTS =
+  'https://dds.georgia.gov/testing-and-training/test-and-exams-information';
+const GA_ROAD_TEST =
+  'https://dds.georgia.gov/how-do-i-make-road-test-appointment';
+const GA_DRIVER_MANUAL_TESTS =
+  'https://dds.georgia.gov/section-3-testing-information';
+const GA_CLASS_C =
+  'https://dds.georgia.gov/section-2-continued-class-c-license';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -2407,6 +2441,259 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '用过期超过 6 个月的外州驾照直接换证，忽略此时要重新走 Pennsylvania learner permit 和考试路径': [
         PA_TRANSFER_LICENSE,
         PA_PERMIT,
+      ],
+    },
+  },
+  georgia: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      GA_REAL_ID,
+      GA_REAL_ID_FAQ,
+      GA_TRANSFER_OUT_OF_STATE,
+      GA_NONCITIZEN,
+      GA_FOREIGN,
+      GA_TRANSFER_FOREIGN,
+      GA_RENEW,
+      GA_RENEW_FAQ,
+      GA_MAIL_RENEW,
+      GA_REPLACE,
+      GA_REPLACE_FAQ,
+      GA_UPDATE,
+      GA_ADDRESS_FAQ,
+      GA_FEES,
+      GA_LOCATIONS,
+      GA_TESTS,
+      GA_ROAD_TEST,
+      GA_DRIVER_MANUAL_TESTS,
+      GA_CLASS_C,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Georgia DDS 的 Secure ID、身份与住址材料、外州转入、非公民、外国驾照、韩国与台湾互惠、续期补证、地址、费用、考试语言、Class C 和 road test 正文。',
+    notes:
+      '重写 Georgia 总览与 REAL ID 页面，补齐 30/60/150 天分界、当前费用、考试与外国驾照路径，并公开标注永久卡 30/45 天、第二次改址费用和 Chinese Road Signs 三组官方页面差异；所有声明已改为显式来源，仍待真实人工签字。',
+    claims: {
+      'Georgia DDS 把 REAL ID 项目称为 Secure ID': [GA_REAL_ID],
+      'DDS 说明 2012 年后签发的 Georgia license/ID 是 REAL ID-compliant，但办事前仍应直接检查卡片右上角是否有 gold 或 black star': [
+        GA_REAL_ID,
+      ],
+      '临时纸质 license/ID 不能用于 TSA 登机': [
+        GA_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '成为 Georgia resident 后 30 天内要换领 Georgia driver’s license': [
+        GA_TRANSFER_OUT_OF_STATE,
+        GA_NONCITIZEN,
+      ],
+      '有效或过期不超过 2 年的外州非商业驾照通常要交回原证并通过视力检查，可免 knowledge 和 road tests': [
+        GA_TRANSFER_OUT_OF_STATE,
+      ],
+      '过期超过 2 年则要通过 knowledge、road 和 vision exams，并提交 certified driving record': [
+        GA_TRANSFER_OUT_OF_STATE,
+      ],
+      '普通 Class C 驾照有效 8 年，当前费用 $32，符合资格的线上交易可能减 $5': [
+        GA_FEES,
+      ],
+      '没有星标、持外州或外国证件，或要首次取得 Georgia REAL ID 时，需要到 Customer Service Center 出示原件或认证文件，包括一份身份或 lawful-status 文件、完整 SSN 核验、两份 Georgia 居住证明，以及适用的姓名变更文件': [
+        GA_REAL_ID,
+        GA_TRANSFER_OUT_OF_STATE,
+      ],
+      '已经持有带星 Georgia credential 的美国公民通常不用重交全套材料，但改名、更新 gender marker 或其他身份核验业务除外': [
+        GA_REAL_ID,
+      ],
+      '只有 automobile、motorcycle 和 CDL behind-the-wheel road tests 需要预约，续期、改址等现场业务目前不要求预约': [
+        GA_ROAD_TEST,
+      ],
+      'Knowledge exam 可直接到场，但非商业考试要在中心关门至少 30 分钟前开始': [
+        GA_TESTS,
+        GA_DRIVER_MANUAL_TESTS,
+      ],
+      '现场办理前都要先提交 Online License/ID/Permit Form，并按地点核对具体服务': [
+        GA_TRANSFER_OUT_OF_STATE,
+        GA_LOCATIONS,
+      ],
+      'Secure ID 是 Georgia 对 REAL ID 合规项目的称呼，不是另一种额外证件': [
+        GA_REAL_ID,
+      ],
+      '金色星标和黑色星标都可表示 Georgia REAL ID，颜色差异来自卡片设计': [
+        GA_REAL_ID,
+        GA_REAL_ID_FAQ,
+      ],
+      '同一人只能有一张带 REAL ID 星标的实体 Georgia driver’s license 或 ID，但可以另有合规 digital license/ID': [
+        GA_REAL_ID,
+      ],
+      'Georgia 非商业 knowledge exam 分为 Road Rules 和 Road Signs，两部分都要答对至少 15/20': [
+        GA_TESTS,
+      ],
+      '当前 Test and Exams Information 把 Road Rules 和 Road Signs 都列为可用 26 种语言，包括 Chinese': [
+        GA_TESTS,
+      ],
+      'DDS 的在线 Driver Manual 章节仍写 Road Signs 和实际路考只用英语，与当前考试专页不一致，依赖中文 Road Signs 考试前应向考点确认': [
+        GA_TESTS,
+        GA_DRIVER_MANUAL_TESTS,
+      ],
+      'Road Skills Test 只用英语，必须预约，并需要有效 permit、合规车辆、纸质 registration 和有效 insurance card': [
+        GA_TESTS,
+        GA_ROAD_TEST,
+      ],
+      '18 岁及以上首次 road test 申请人还要确认完成 40 小时 supervised driving，其中 6 小时在夜间，并由 21 岁以上持证驾驶人陪同': [
+        GA_ROAD_TEST,
+        GA_CLASS_C,
+      ],
+      '普通 Class C learner permit 当前为 2 年 $10，考试任一部分失败不退费，再次考试要重新付 permit fee': [
+        GA_FEES,
+      ],
+      '续期最多可提前 150 天，当前专页说明 renewed license 最长有效 8 年，线上续期要求 Georgia resident、18 岁以上、美国公民并持带星 Georgia credential': [
+        GA_RENEW,
+      ],
+      '非美国公民每次办理会签发 license、permit 或 ID 的业务，都要亲自出示原始移民文件，不能使用普通线上续期、补证或改址路径': [
+        GA_NONCITIZEN,
+        GA_RENEW,
+        GA_UPDATE,
+      ],
+      '现场续期会先发 interim license，DDS 的 REAL ID 和 replacement 办理说明写永久卡可能在 30 天内寄到，但 renewal 与 replacement FAQ 使用 45 天窗口，安排行程时应按较长时间预留': [
+        GA_REAL_ID,
+        GA_RENEW,
+        GA_RENEW_FAQ,
+        GA_REPLACE,
+        GA_REPLACE_FAQ,
+      ],
+      '补证在原证剩余至少 150 天时当前费用 $10，少于 150 天则按续期处理并支付 renewal fee': [
+        GA_REPLACE,
+        GA_FEES,
+      ],
+      '现有 Georgia credential 持有人搬家后有 60 天改地址，新居民转入则是 30 天期限': [
+        GA_UPDATE,
+        GA_ADDRESS_FAQ,
+      ],
+      '第一次 name/address change 在当前证件周期内免费，但 DDS 主说明写第二次起 $10，FAQ 则写第二次要续期并付 renewal fee，提交前要看在线交易报价或向 DDS 确认': [
+        GA_UPDATE,
+        GA_ADDRESS_FAQ,
+        GA_FEES,
+      ],
+      'South Korea 驾照连同韩国领馆 License Certification Letter 可免 Georgia knowledge 和 road tests，但仍要通过 vision exam': [
+        GA_FOREIGN,
+      ],
+      'DDS 只明确写 Georgia 与 Taiwan 有 reciprocity，没有在同一页公布 Taiwan 的具体免考文件与条件，不能直接套用韩国路径': [
+        GA_FOREIGN,
+      ],
+      '没有互惠协议的外国驾照转入通常要通过 knowledge、road 和 vision exams': [
+        GA_FOREIGN,
+        GA_TRANSFER_FOREIGN,
+      ],
+      '非居民持有效外国驾照可在 Georgia 驾驶，但执法人员可能要求 passport 或 visa 核验驾照有效性，成为 resident 后则进入 30 天换证规则': [
+        GA_FOREIGN,
+        GA_NONCITIZEN,
+      ],
+      '大多数非美国公民可保留外国非商业驾照，但美国公民持外国辖区证件或申请 commercial license/permit 时有交回证件的例外': [
+        GA_FOREIGN,
+        GA_NONCITIZEN,
+      ],
+      '美国公民带一份身份文件原件或认证副本，常见选择包括带 raised seal 的政府出生证明、未过期美国 passport/passport card、Naturalization 或 Citizenship certificate': [
+        GA_REAL_ID,
+      ],
+      '先在 Online License/ID/Permit Form 填完整 SSN，系统核验失败时再带显示姓名与完整号码的 Social Security card、SSA printout、W-2、1099 或 pay stub 等官方清单文件': [
+        GA_REAL_ID,
+        GA_TRANSFER_OUT_OF_STATE,
+      ],
+      '两份 Georgia residency 文件必须来自不同来源或不同账户，并显示姓名和当前 residential address，P.O. Box 不能单独证明 residency': [
+        GA_REAL_ID,
+        GA_TRANSFER_OUT_OF_STATE,
+      ],
+      '常见 residency 文件有近 6 个月的 utility/phone bill、USPS 实体投递邮件、lease/rent receipt，或当前或上一 calendar year 的政府、住房、就业、银行、学校或医疗记录': [
+        GA_REAL_ID,
+        GA_TRANSFER_OUT_OF_STATE,
+      ],
+      '身份文件姓名与 current legal name 不同时要带完整 name-change history，已经持有有效 Georgia license/ID 的客户通常带支持最近一次变更的原件或认证文件': [
+        GA_REAL_ID,
+        GA_REAL_ID_FAQ,
+      ],
+      '非美国公民要按当前身份类别带 identity 和 lawful-status 原始移民文件，DDS 只会按移民文件上的精确姓名签发证件': [
+        GA_REAL_ID,
+        GA_NONCITIZEN,
+      ],
+      '没有资格取得 SSN 的申请人要在 Customer Service Center 填 DDS-351 Certification of Social Security Denial Status，具有 DHS work authorization 的非公民则必须申请 SSN': [
+        GA_NONCITIZEN,
+        GA_FOREIGN,
+      ],
+      'DDS 同时写明所有文件必须为 English，并且不接受 translated documents，原始文件不是英语时不要自行假定普通认证翻译可用，应先联系 DDS 确认可接受的原始英文文件': [
+        GA_REAL_ID,
+        GA_TRANSFER_FOREIGN,
+      ],
+      '先检查现有 Georgia credential 的 gold/black star，并判断是否会在永久卡寄到前乘机': [
+        GA_REAL_ID,
+      ],
+      '没有星标或要从外州/外国转入时，按 identity/lawful status、SSN、two residency 和 name-change 四栏准备原件或认证文件': [
+        GA_REAL_ID,
+        GA_TRANSFER_OUT_OF_STATE,
+      ],
+      '需要现场时先提交 Online License/ID/Permit Form，再从 Customer Service Center finder 核对地点和服务': [
+        GA_TRANSFER_OUT_OF_STATE,
+        GA_LOCATIONS,
+      ],
+      '外州新居民先按 30 天期限分流，原证有效或过期不超过 2 年走 surrender + vision 路径，超过 2 年则准备 certified MVR 和三项考试': [
+        GA_TRANSFER_OUT_OF_STATE,
+      ],
+      '普通续期先查线上资格并最多提前 150 天办理，补证则先看原证是否还剩至少 150 天': [
+        GA_RENEW,
+        GA_REPLACE,
+      ],
+      '首次 Class C 申请人先完成 $10 permit 和两部分 knowledge exam，再满足 40 小时练车要求并预约 English-only road test': [
+        GA_FEES,
+        GA_TESTS,
+        GA_ROAD_TEST,
+        GA_CLASS_C,
+      ],
+      '持 South Korea 或 Taiwan 驾照的人先打开 Drivers From Other Nations，韩国申请人准备领馆 License Certification Letter，台湾申请人向 DDS 确认未公开的互惠细节': [
+        GA_FOREIGN,
+      ],
+      '遇到邮寄时限、第二次改址费用或中文 Road Signs 三组官方差异时，按更保守的时间和材料准备，并在提交付款或考试前向 DDS 确认': [
+        GA_RENEW_FAQ,
+        GA_REPLACE_FAQ,
+        GA_UPDATE,
+        GA_ADDRESS_FAQ,
+        GA_TESTS,
+        GA_DRIVER_MANUAL_TESTS,
+      ],
+      '看到黑色星标就以为不是 REAL ID，或认为实体 driver’s license 和实体 ID 可以同时带星': [
+        GA_REAL_ID,
+      ],
+      '临近航班才改证，拿到 interim paper license 后误以为 TSA 会接受': [
+        GA_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '只带一份地址文件、两份来自同一账户，或用 P.O. Box 代替 residential address': [
+        GA_REAL_ID,
+      ],
+      'SSN 文件只显示后四位，或文件姓名与当前申请姓名不一致': [
+        GA_REAL_ID,
+      ],
+      '非美国公民带翻译件代替 DDS 要求的原始移民文件，或忽略移民文件姓名必须精确匹配': [
+        GA_REAL_ID,
+        GA_NONCITIZEN,
+      ],
+      '把 Taiwan reciprocity 直接理解成与 South Korea 完全相同的领馆信和免考条件': [
+        GA_FOREIGN,
+      ],
+      '只看 26-language 考试专页就默认 Road Signs 一定能选 Chinese，没有注意 DDS Driver Manual 仍写该部分只用英语': [
+        GA_TESTS,
+        GA_DRIVER_MANUAL_TESTS,
+      ],
+      '新居民超过 30 天才处理 Georgia license 转入': [
+        GA_TRANSFER_OUT_OF_STATE,
+      ],
+      '外州驾照过期超过 2 年仍按免 knowledge/road tests 的普通换证路径准备': [
+        GA_TRANSFER_OUT_OF_STATE,
+      ],
+      '补证时没有检查剩余 150 天，到了交易环节才发现必须按续期付费': [
+        GA_REPLACE,
+        GA_FEES,
+      ],
+      '第二次改地址直接按固定 $10 预算，没有注意 DDS FAQ 与主说明对费用处理不一致': [
+        GA_UPDATE,
+        GA_ADDRESS_FAQ,
       ],
     },
   },

@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:29:35.155Z",
+    "generatedAt": "2026-07-16T23:41:19.723Z",
     "pages": 100,
     "states": 50,
-    "claims": 1819,
-    "links": 2224,
-    "aiAssistedClaims": 616,
-    "aiAssistedPages": 18,
+    "claims": 1835,
+    "links": 2281,
+    "aiAssistedClaims": 677,
+    "aiAssistedPages": 20,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 777,
-        "links": 973,
+        "claims": 785,
+        "links": 1001,
         "states": 50
       },
       "real-id": {
-        "claims": 1042,
-        "links": 1251,
+        "claims": 1050,
+        "links": 1280,
         "states": 50
       }
     }
@@ -12756,14 +12756,14 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "佐治亚州 DDS 把 REAL ID 称为 Secure ID initiative",
+      "claim": "Georgia DDS 把 REAL ID 项目称为 Secure ID",
       "sourceUrls": [
         "https://dds.georgia.gov/georgia-licenseid/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -12775,14 +12775,14 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "2012 年后签发的 Georgia license/ID 通常是 REAL ID-compliant，卡面右上角有 gold 或 black star",
+      "claim": "DDS 说明 2012 年后签发的 Georgia license/ID 是 REAL ID-compliant，但办事前仍应直接检查卡片右上角是否有 gold 或 black star",
       "sourceUrls": [
         "https://dds.georgia.gov/georgia-licenseid/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -12794,14 +12794,16 @@
       "surface": "overview",
       "field": "summary",
       "context": "overview",
-      "claim": "但临时纸质证件不能用于 TSA 登机",
+      "claim": "临时纸质 license/ID 不能用于 TSA 登机",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -12811,16 +12813,35 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "document",
-      "claim": "佐州新居民必须在成为 Georgia resident 后 30 天内申请 Georgia driver’s license",
+      "claim": "成为 Georgia resident 后 30 天内要换领 Georgia driver’s license",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers"
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens"
       ],
       "sourceLabels": [
-        "对应官方来源：New Georgia Residents and Out-of-State License Transfers"
+        "对应官方来源：Georgia Out-of-State License Transfer",
+        "对应官方来源：Georgia DDS Information for Non-US Citizens"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "有效或过期不超过 2 年的外州非商业驾照通常要交回原证并通过视力检查，可免 knowledge 和 road tests",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia Out-of-State License Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "transfer"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -12830,20 +12851,36 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "license",
-      "claim": "续期可线上、现场或邮寄办理，DDS 说明一般最多可提前 150 天续，永久证件邮寄可能需要较长时间",
+      "claim": "过期超过 2 年则要通过 knowledge、road 和 vision exams，并提交 certified driving record",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id",
-        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id"
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID",
-        "对应官方来源：Georgia DDS Renew License or ID"
+        "对应官方来源：Georgia Out-of-State License Transfer"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "普通 Class C 驾照有效 8 年，当前费用 $32，符合资格的线上交易可能减 $5",
+      "sourceUrls": [
+        "https://dds.georgia.gov/fees-and-terms"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Fees and Terms"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "online-service",
-        "processing-or-mail"
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -12853,17 +12890,21 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "如果你已经持有带星 Georgia REAL ID 且是美国公民，通常不需要重新提交文件，除非改名、更新 gender marker 或办理其他身份核验服务",
+      "claim": "没有星标、持外州或外国证件，或要首次取得 Georgia REAL ID 时，需要到 Customer Service Center 出示原件或认证文件，包括一份身份或 lawful-status 文件、完整 SSN 核验、两份 Georgia 居住证明，以及适用的姓名变更文件",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia Out-of-State License Transfer"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
+        "residency-proof",
+        "ssn",
         "name-change"
       ],
       "uncoveredThemes": [],
@@ -12873,22 +12914,18 @@
       "stateId": "georgia",
       "surface": "overview",
       "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "没有 REAL ID、外州/外国驾照转入、或非公民身份，则要按 DDS 清单准备原件或认证文件",
+      "context": "document",
+      "claim": "已经持有带星 Georgia credential 的美国公民通常不用重交全套材料，但改名、更新 gender marker 或其他身份核验业务除外",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id",
-        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers"
+        "https://dds.georgia.gov/georgia-licenseid/real-id"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID",
-        "对应官方来源：New Georgia Residents and Out-of-State License Transfers"
+        "对应官方来源：Georgia DDS REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "document",
-        "lawful-presence",
-        "foreign-license"
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -12897,15 +12934,40 @@
       "stateId": "georgia",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "license",
-      "claim": "DDS Customer Service Center 页面按地点列出 First Issuance、Renewals、Out of State Transfers、Road Test、CDL 等服务",
+      "context": "appointment",
+      "claim": "只有 automobile、motorcycle 和 CDL behind-the-wheel road tests 需要预约，续期、改址等现场业务目前不要求预约",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers"
+        "https://dds.georgia.gov/how-do-i-make-road-test-appointment"
       ],
       "sourceLabels": [
-        "对应官方来源：New Georgia Residents and Out-of-State License Transfers"
+        "对应官方来源：Georgia DDS Road Test Appointment"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "renewal"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "Knowledge exam 可直接到场，但非商业考试要在中心关门至少 30 分钟前开始",
+      "sourceUrls": [
+        "https://dds.georgia.gov/testing-and-training/test-and-exams-information",
+        "https://dds.georgia.gov/section-3-testing-information"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Test and Exams Information",
+        "对应官方来源：Georgia DDS Driver Manual Testing Section"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test"
       ],
@@ -12917,31 +12979,16 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "不是每个地点都适合所有业务",
+      "claim": "现场办理前都要先提交 Online License/ID/Permit Form，并按地点核对具体服务",
       "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid",
         "https://dds.georgia.gov/locations/customer-service-center"
       ],
       "sourceLabels": [
+        "对应官方来源：Georgia Out-of-State License Transfer",
         "对应官方来源：DDS Customer Service Centers"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "到场前要按地点核对服务项目，并优先看 Online Services",
-      "sourceUrls": [
-        "https://dds.georgia.gov/locations/customer-service-center"
-      ],
-      "sourceLabels": [
-        "对应官方来源：DDS Customer Service Centers"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "online-service"
       ],
@@ -12953,14 +13000,54 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "佐州要解释 Secure ID 和 REAL ID 是同一套联邦合规语境，不要另造一个“Secure ID 特殊证件”",
+      "claim": "Secure ID 是 Georgia 对 REAL ID 合规项目的称呼，不是另一种额外证件",
       "sourceUrls": [
         "https://dds.georgia.gov/georgia-licenseid/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "金色星标和黑色星标都可表示 Georgia REAL ID，颜色差异来自卡片设计",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/real-id-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia DDS REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "同一人只能有一张带 REAL ID 星标的实体 Georgia driver’s license 或 ID，但可以另有合规 digital license/ID",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -12972,50 +13059,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "DDS 页面明确提醒 TSA 不接受 temporary/interim licenses or IDs",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "document",
-      "claim": "如果读者临近出行换证，这一点比材料清单更要紧",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "detail",
-      "claim": "Georgia DDS Test and Exams 页面说明 knowledge exam 分 Road Rules 和 Road Signs，两部分通常都要 15/20 通过",
+      "claim": "Georgia 非商业 knowledge exam 分为 Road Rules 和 Road Signs，两部分都要答对至少 15/20",
       "sourceUrls": [
         "https://dds.georgia.gov/testing-and-training/test-and-exams-information"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS Test and Exams Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test"
       ],
@@ -13026,35 +13077,15 @@
       "stateId": "georgia",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "appointment",
-      "claim": "road test 需要预约，permit / knowledge test 通常不需要预约",
-      "sourceUrls": [
-        "https://dds.georgia.gov/testing-and-training/road-test"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS Road Test"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "appointment",
-        "test"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "overview",
-      "field": "editorNotes",
       "context": "detail",
-      "claim": "Georgia DDS List of Languages 页面说明 Non-Commercial knowledge exams 的 Road Rules 和 Road Signs 部分提供 26 种语言，包括 Chinese",
+      "claim": "当前 Test and Exams Information 把 Road Rules 和 Road Signs 都列为可用 26 种语言，包括 Chinese",
       "sourceUrls": [
         "https://dds.georgia.gov/testing-and-training/test-and-exams-information"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS Test and Exams Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test",
         "language"
@@ -13067,16 +13098,40 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "Georgia DDS View Manuals in Other Languages 页面用 Google Translate website 模式引导用户查看手册译文",
+      "claim": "DDS 的在线 Driver Manual 章节仍写 Road Signs 和实际路考只用英语，与当前考试专页不一致，依赖中文 Road Signs 考试前应向考点确认",
       "sourceUrls": [
-        "https://dds.georgia.gov/how-do-i-view-manuals-other-languages"
+        "https://dds.georgia.gov/testing-and-training/test-and-exams-information",
+        "https://dds.georgia.gov/section-3-testing-information"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS Manuals in Other Languages"
+        "对应官方来源：Georgia DDS Test and Exams Information",
+        "对应官方来源：Georgia DDS Driver Manual Testing Section"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "language"
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "Road Skills Test 只用英语，必须预约，并需要有效 permit、合规车辆、纸质 registration 和有效 insurance card",
+      "sourceUrls": [
+        "https://dds.georgia.gov/testing-and-training/test-and-exams-information",
+        "https://dds.georgia.gov/how-do-i-make-road-test-appointment"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Test and Exams Information",
+        "对应官方来源：Georgia DDS Road Test Appointment"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -13086,69 +13141,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "译文适合辅助学习，不应替代官方英语规则判断",
+      "claim": "18 岁及以上首次 road test 申请人还要确认完成 40 小时 supervised driving，其中 6 小时在夜间，并由 21 岁以上持证驾驶人陪同",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
+        "https://dds.georgia.gov/how-do-i-make-road-test-appointment",
+        "https://dds.georgia.gov/section-2-continued-class-c-license"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
+        "对应官方来源：Georgia DDS Road Test Appointment",
+        "对应官方来源：Georgia DDS Class C License"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "document",
-      "claim": "Georgia DDS Drivers From Other Nations 页面说明持外国驾照者成为 Georgia resident 前不必申请 Georgia license",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS Drivers From Other Nations"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "foreign-license"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "document",
-      "claim": "成为 resident 后要满足 identity、citizenship 和 residency 要求",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers"
-      ],
-      "sourceLabels": [
-        "对应官方来源：New Georgia Residents and Out-of-State License Transfers"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "detail",
-      "claim": "Georgia DDS Drivers From Other Nations 页面说明 South Korea 符合领馆证明条件时可免 knowledge 和 road tests、但仍需 vision exam",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS Drivers From Other Nations"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test"
       ],
@@ -13160,16 +13162,17 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "没有互惠协议的国家通常要通过 written、road 和 vision tests",
+      "claim": "普通 Class C learner permit 当前为 2 年 $10，考试任一部分失败不退费，再次考试要重新付 permit fee",
       "sourceUrls": [
-        "https://dds.georgia.gov/testing-and-training/test-and-exams-information"
+        "https://dds.georgia.gov/fees-and-terms"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS Test and Exams Information"
+        "对应官方来源：Georgia DDS Fees and Terms"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "test"
+        "test",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -13178,137 +13181,17 @@
       "stateId": "georgia",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "Georgia also has reciprocity with Taiwan",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS Drivers From Other Nations"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "detail",
-      "claim": "Georgia DDS Drivers From Other Nations 页面说明多数 Foreign/International Licenses 会退还，但申请 Commercial License / Permit 或美国公民持外国辖区证件等情况有例外",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS Drivers From Other Nations"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "如果你已经持有带星 Georgia REAL ID 且是美国公民，通常不需要重新提交文件，除非改名、更新 gender marker 或办理其他身份核验服务",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "没有 REAL ID、外州/外国驾照转入、或非公民身份，则要按 DDS 清单准备原件或认证文件",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id",
-        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID",
-        "对应官方来源：New Georgia Residents and Out-of-State License Transfers"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "lawful-presence",
-        "foreign-license"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "需要 REAL ID 或外州/外国证件转入时，到 Customer Service Center 带身份文件",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "real-id",
-      "field": "documentHighlights",
       "context": "document",
-      "claim": "美国公民常见例子包括认证出生证、有效美国护照、入籍/公民纸",
+      "claim": "续期最多可提前 150 天，当前专页说明 renewed license 最长有效 8 年，线上续期要求 Georgia resident、18 岁以上、美国公民并持带星 Georgia credential",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "SSN 通常先在 online License/ID/Permit Form 填完整号码",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id",
         "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID",
         "对应官方来源：Georgia DDS Renew License or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "ssn",
+        "renewal",
         "online-service"
       ],
       "uncoveredThemes": [],
@@ -13316,19 +13199,279 @@
     },
     {
       "stateId": "georgia",
-      "surface": "real-id",
-      "field": "documentHighlights",
+      "surface": "overview",
+      "field": "editorNotes",
       "context": "document",
-      "claim": "如果系统无法验证，再按 DDS 清单带 SSN 证明",
+      "claim": "非美国公民每次办理会签发 license、permit 或 ID 的业务，都要亲自出示原始移民文件，不能使用普通线上续期、补证或改址路径",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens",
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id",
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-update-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Information for Non-US Citizens",
+        "对应官方来源：Georgia DDS Renew License or ID",
+        "对应官方来源：Georgia DDS Update License Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "renewal",
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "现场续期会先发 interim license，DDS 的 REAL ID 和 replacement 办理说明写永久卡可能在 30 天内寄到，但 renewal 与 replacement FAQ 使用 45 天窗口，安排行程时应按较长时间预留",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id",
+        "https://dds.georgia.gov/renewals-faqs",
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-replace-license",
+        "https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/replacements-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia DDS Renew License or ID",
+        "对应官方来源：Georgia DDS Renewals FAQs",
+        "对应官方来源：Georgia DDS Replace License",
+        "对应官方来源：Georgia DDS Replacements FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "补证在原证剩余至少 150 天时当前费用 $10，少于 150 天则按续期处理并支付 renewal fee",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-replace-license",
+        "https://dds.georgia.gov/fees-and-terms"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Replace License",
+        "对应官方来源：Georgia DDS Fees and Terms"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "现有 Georgia credential 持有人搬家后有 60 天改地址，新居民转入则是 30 天期限",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-update-license",
+        "https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/address-change-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Update License Information",
+        "对应官方来源：Georgia DDS Address Change FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "第一次 name/address change 在当前证件周期内免费，但 DDS 主说明写第二次起 $10，FAQ 则写第二次要续期并付 renewal fee，提交前要看在线交易报价或向 DDS 确认",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-update-license",
+        "https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/address-change-faqs",
+        "https://dds.georgia.gov/fees-and-terms"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Update License Information",
+        "对应官方来源：Georgia DDS Address Change FAQs",
+        "对应官方来源：Georgia DDS Fees and Terms"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "South Korea 驾照连同韩国领馆 License Certification Letter 可免 Georgia knowledge 和 road tests，但仍要通过 vision exam",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Drivers From Other Nations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "DDS 只明确写 Georgia 与 Taiwan 有 reciprocity，没有在同一页公布 Taiwan 的具体免考文件与条件，不能直接套用韩国路径",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Drivers From Other Nations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "没有互惠协议的外国驾照转入通常要通过 knowledge、road 和 vision exams",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations",
+        "https://dds.georgia.gov/transfer-unexpired-foreign-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Drivers From Other Nations",
+        "对应官方来源：Georgia DDS Transfer Unexpired Foreign Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "非居民持有效外国驾照可在 Georgia 驾驶，但执法人员可能要求 passport 或 visa 核验驾照有效性，成为 resident 后则进入 30 天换证规则",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Drivers From Other Nations",
+        "对应官方来源：Georgia DDS Information for Non-US Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "大多数非美国公民可保留外国非商业驾照，但美国公民持外国辖区证件或申请 commercial license/permit 时有交回证件的例外",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Drivers From Other Nations",
+        "对应官方来源：Georgia DDS Information for Non-US Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "没有星标、持外州或外国证件，或要首次取得 Georgia REAL ID 时，需要到 Customer Service Center 出示原件或认证文件，包括一份身份或 lawful-status 文件、完整 SSN 核验、两份 Georgia 居住证明，以及适用的姓名变更文件",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia Out-of-State License Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "已经持有带星 Georgia credential 的美国公民通常不用重交全套材料，但改名、更新 gender marker 或其他身份核验业务除外",
       "sourceUrls": [
         "https://dds.georgia.gov/georgia-licenseid/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "ssn"
+        "document",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -13338,14 +13481,60 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 Georgia residency 文件要来自不同来源或不同账户，显示姓名和当前居住地址，P.O. Box 不能证明 residency",
+      "claim": "美国公民带一份身份文件原件或认证副本，常见选择包括带 raised seal 的政府出生证明、未过期美国 passport/passport card、Naturalization 或 Citizenship certificate",
       "sourceUrls": [
         "https://dds.georgia.gov/georgia-licenseid/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "先在 Online License/ID/Permit Form 填完整 SSN，系统核验失败时再带显示姓名与完整号码的 Social Security card、SSA printout、W-2、1099 或 pay stub 等官方清单文件",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia Out-of-State License Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "online-service"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两份 Georgia residency 文件必须来自不同来源或不同账户，并显示姓名和当前 residential address，P.O. Box 不能单独证明 residency",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia Out-of-State License Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "residency-proof"
@@ -13358,36 +13547,19 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名不同要带 name change history",
+      "claim": "常见 residency 文件有近 6 个月的 utility/phone bill、USPS 实体投递邮件、lease/rent receipt，或当前或上一 calendar year 的政府、住房、就业、银行、学校或医疗记录",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia Out-of-State License Transfer"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "持有有效 GA license/ID 的客户通常提交最近一次姓名变更的原件或认证文件",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "name-change"
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -13397,14 +13569,37 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "非美国公民需要原始移民文件",
+      "claim": "身份文件姓名与 current legal name 不同时要带完整 name-change history，已经持有有效 Georgia license/ID 的客户通常带支持最近一次变更的原件或认证文件",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/real-id-faqs"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia DDS REAL ID FAQs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "非美国公民要按当前身份类别带 identity 和 lawful-status 原始移民文件，DDS 只会按移民文件上的精确姓名签发证件",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia DDS Information for Non-US Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "lawful-presence"
@@ -13417,14 +13612,38 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "DDS 页面还说明其不接受 translated documents，外文文件场景要先查官方或联系 DDS",
+      "claim": "没有资格取得 SSN 的申请人要在 Customer Service Center 填 DDS-351 Certification of Social Security Denial Status，具有 DHS work authorization 的非公民则必须申请 SSN",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
+        "对应官方来源：Georgia DDS Information for Non-US Citizens",
+        "对应官方来源：Georgia DDS Drivers From Other Nations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "DDS 同时写明所有文件必须为 English，并且不接受 translated documents，原始文件不是英语时不要自行假定普通认证翻译可用，应先联系 DDS 确认可接受的原始英文文件",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/transfer-unexpired-foreign-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia DDS Transfer Unexpired Foreign Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "language"
@@ -13437,35 +13656,16 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "先看现有 Georgia license/ID 右上角是否有 gold 或 black star，并确认是否临近出行",
+      "claim": "先检查现有 Georgia credential 的 gold/black star，并判断是否会在永久卡寄到前乘机",
       "sourceUrls": [
         "https://dds.georgia.gov/georgia-licenseid/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS REAL ID"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "georgia",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "如果没有 REAL ID、要从外州/外国转入，或需要改名/更新身份信息，进入 DDS REAL ID 页面按身份类别准备材料",
-      "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document",
-        "name-change"
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -13475,15 +13675,22 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "新居民先看 New Georgia Residents and Out-of-State License Transfers，确认 30 天规则和是否需要 surrender 外州证件",
+      "claim": "没有星标或要从外州/外国转入时，按 identity/lawful status、SSN、two residency 和 name-change 四栏准备原件或认证文件",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers"
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
       ],
       "sourceLabels": [
-        "对应官方来源：New Georgia Residents and Out-of-State License Transfers"
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia Out-of-State License Transfer"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -13491,21 +13698,18 @@
       "stateId": "georgia",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "appointment",
-      "claim": "能线上完成的续期、补证、预约或缴费先走 DDS Online Services",
+      "context": "detail",
+      "claim": "需要现场时先提交 Online License/ID/Permit Form，再从 Customer Service Center finder 核对地点和服务",
       "sourceUrls": [
-        "https://dds.georgia.gov/locations/customer-service-center",
-        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id"
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid",
+        "https://dds.georgia.gov/locations/customer-service-center"
       ],
       "sourceLabels": [
-        "对应官方来源：DDS Customer Service Centers",
-        "对应官方来源：Georgia DDS Renew License or ID"
+        "对应官方来源：Georgia Out-of-State License Transfer",
+        "对应官方来源：DDS Customer Service Centers"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "replacement",
-        "appointment",
         "online-service"
       ],
       "uncoveredThemes": [],
@@ -13516,15 +13720,117 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "需要现场时再按 Customer Service Center 服务项目选择地点",
+      "claim": "外州新居民先按 30 天期限分流，原证有效或过期不超过 2 年走 surrender + vision 路径，超过 2 年则准备 certified MVR 和三项考试",
       "sourceUrls": [
-        "https://dds.georgia.gov/locations/customer-service-center"
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
       ],
       "sourceLabels": [
-        "对应官方来源：DDS Customer Service Centers"
+        "对应官方来源：Georgia Out-of-State License Transfer"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "普通续期先查线上资格并最多提前 150 天办理，补证则先看原证是否还剩至少 150 天",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id",
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-replace-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Renew License or ID",
+        "对应官方来源：Georgia DDS Replace License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "首次 Class C 申请人先完成 $10 permit 和两部分 knowledge exam，再满足 40 小时练车要求并预约 English-only road test",
+      "sourceUrls": [
+        "https://dds.georgia.gov/fees-and-terms",
+        "https://dds.georgia.gov/testing-and-training/test-and-exams-information",
+        "https://dds.georgia.gov/how-do-i-make-road-test-appointment",
+        "https://dds.georgia.gov/section-2-continued-class-c-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Fees and Terms",
+        "对应官方来源：Georgia DDS Test and Exams Information",
+        "对应官方来源：Georgia DDS Road Test Appointment",
+        "对应官方来源：Georgia DDS Class C License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "持 South Korea 或 Taiwan 驾照的人先打开 Drivers From Other Nations，韩国申请人准备领馆 License Certification Letter，台湾申请人向 DDS 确认未公开的互惠细节",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Drivers From Other Nations"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "遇到邮寄时限、第二次改址费用或中文 Road Signs 三组官方差异时，按更保守的时间和材料准备，并在提交付款或考试前向 DDS 确认",
+      "sourceUrls": [
+        "https://dds.georgia.gov/renewals-faqs",
+        "https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/replacements-faqs",
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-update-license",
+        "https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/address-change-faqs",
+        "https://dds.georgia.gov/testing-and-training/test-and-exams-information",
+        "https://dds.georgia.gov/section-3-testing-information"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Renewals FAQs",
+        "对应官方来源：Georgia DDS Replacements FAQs",
+        "对应官方来源：Georgia DDS Update License Information",
+        "对应官方来源：Georgia DDS Address Change FAQs",
+        "对应官方来源：Georgia DDS Test and Exams Information",
+        "对应官方来源：Georgia DDS Driver Manual Testing Section"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "test",
+        "fee",
+        "processing-or-mail"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -13533,14 +13839,14 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "看到黑色星标以为不是 REAL ID，或者以为一张驾照和一张 ID 都可以同时有物理 REAL ID 星标",
+      "claim": "看到黑色星标就以为不是 REAL ID，或认为实体 driver’s license 和实体 ID 可以同时带星",
       "sourceUrls": [
         "https://dds.georgia.gov/georgia-licenseid/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -13552,16 +13858,36 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "detail",
-      "claim": "临近航班才换证，拿到 interim paper license 后以为 TSA 会接受",
+      "claim": "临近航班才改证，拿到 interim paper license 后误以为 TSA 会接受",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只带一份地址文件、两份来自同一账户，或用 P.O. Box 代替 residential address",
       "sourceUrls": [
         "https://dds.georgia.gov/georgia-licenseid/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "transfer"
+        "document",
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -13571,14 +13897,36 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "非公民把翻译件当作 DDS 可接受文件，或忽略移民文件姓名必须精确匹配",
+      "claim": "SSN 文件只显示后四位，或文件姓名与当前申请姓名不一致",
       "sourceUrls": [
         "https://dds.georgia.gov/georgia-licenseid/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Georgia DDS REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "非美国公民带翻译件代替 DDS 要求的原始移民文件，或忽略移民文件姓名必须精确匹配",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/real-id",
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS REAL ID",
+        "对应官方来源：Georgia DDS Information for Non-US Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "lawful-presence",
@@ -13592,14 +13940,53 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "detail",
-      "claim": "新居民超过 30 天才处理 Georgia license 转入",
+      "claim": "把 Taiwan reciprocity 直接理解成与 South Korea 完全相同的领馆信和免考条件",
       "sourceUrls": [
-        "https://dds.georgia.gov/georgia-licenseid/real-id"
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations"
       ],
       "sourceLabels": [
-        "对应官方来源：Georgia DDS REAL ID"
+        "对应官方来源：Georgia DDS Drivers From Other Nations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "只看 26-language 考试专页就默认 Road Signs 一定能选 Chinese，没有注意 DDS Driver Manual 仍写该部分只用英语",
+      "sourceUrls": [
+        "https://dds.georgia.gov/testing-and-training/test-and-exams-information",
+        "https://dds.georgia.gov/section-3-testing-information"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Test and Exams Information",
+        "对应官方来源：Georgia DDS Driver Manual Testing Section"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "新居民超过 30 天才处理 Georgia license 转入",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia Out-of-State License Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "transfer"
       ],
@@ -13610,16 +13997,61 @@
       "stateId": "georgia",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "detail",
-      "claim": "没有确认 Customer Service Center 是否提供需要的测试、转入或 CDL 服务",
+      "context": "license",
+      "claim": "外州驾照过期超过 2 年仍按免 knowledge/road tests 的普通换证路径准备",
       "sourceUrls": [
-        "https://dds.georgia.gov/locations/customer-service-center"
+        "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid"
       ],
       "sourceLabels": [
-        "对应官方来源：DDS Customer Service Centers"
+        "对应官方来源：Georgia Out-of-State License Transfer"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "补证时没有检查剩余 150 天，到了交易环节才发现必须按续期付费",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-replace-license",
+        "https://dds.georgia.gov/fees-and-terms"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Replace License",
+        "对应官方来源：Georgia DDS Fees and Terms"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "georgia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "第二次改地址直接按固定 $10 预算，没有注意 DDS FAQ 与主说明对费用处理不一致",
+      "sourceUrls": [
+        "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-update-license",
+        "https://dds.georgia.gov/georgia-licenseid/licensesid-faqs/address-change-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Georgia DDS Update License Information",
+        "对应官方来源：Georgia DDS Address Change FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },

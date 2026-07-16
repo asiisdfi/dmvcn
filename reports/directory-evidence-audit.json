@@ -1,21 +1,21 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:29:34.573Z",
+    "generatedAt": "2026-07-16T23:41:19.143Z",
     "pages": 5,
-    "claims": 407,
+    "claims": 412,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 45,
-        "states": 17
+        "claims": 49,
+        "states": 18
       },
       "deadlines": {
-        "claims": 35,
-        "states": 15
+        "claims": 38,
+        "states": 16
       },
       "document-rules": {
-        "claims": 160,
+        "claims": 158,
         "states": 47
       },
       "foreign-license": {
@@ -455,6 +455,58 @@
       "claim": "可等邮寄则到普通 Driver License Center，预留 15 个工作日",
       "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
       "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "georgia",
+      "category": "费用",
+      "claim": "普通 Class C learner permit 当前为 2 年 $10，考试任一部分失败不退费，再次考试要重新付 permit fee",
+      "sourceUrl": "https://dds.georgia.gov/fees-and-terms",
+      "sourceLabel": "对应官方来源：Georgia DDS Fees and Terms",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "georgia",
+      "category": "费用",
+      "claim": "普通 Class C 驾照有效 8 年，当前费用 $32，符合资格的线上交易可能减 $5",
+      "sourceUrl": "https://dds.georgia.gov/fees-and-terms",
+      "sourceLabel": "对应官方来源：Georgia DDS Fees and Terms",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "georgia",
+      "category": "临时凭证",
+      "claim": "常见 residency 文件有近 6 个月的 utility/phone bill、USPS 实体投递邮件、lease/rent receipt，或当前或上一 calendar year 的政府、住房、就业、银行、学校或医疗记录",
+      "sourceUrl": "https://dds.georgia.gov/renewals-faqs",
+      "sourceLabel": "对应官方来源：Georgia DDS Renewals FAQs",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "georgia",
+      "category": "邮寄 / 卡片",
+      "claim": "先检查现有 Georgia credential 的 gold/black star，并判断是否会在永久卡寄到前乘机",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens",
+      "sourceLabel": "对应官方来源：Georgia DDS Information for Non-US Citizens",
       "themes": [
         "processing-or-mail"
       ],
@@ -916,6 +968,45 @@
       "sourceLabel": "对应官方来源：PennDOT Moving Within Pennsylvania",
       "themes": [
         "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "georgia",
+      "category": "材料时效",
+      "claim": "常见 residency 文件有近 6 个月的 utility/phone bill、USPS 实体投递邮件、lease/rent receipt，或当前或上一 calendar year 的政府、住房、就业、银行、学校或医疗记录",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/real-id",
+      "sourceLabel": "对应官方来源：Georgia DDS REAL ID",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "georgia",
+      "category": "续期 / 到期",
+      "claim": "普通续期先查线上资格并最多提前 150 天办理，补证则先看原证是否还剩至少 150 天",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id",
+      "sourceLabel": "对应官方来源：Georgia DDS Renew License or ID",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "georgia",
+      "category": "搬家 / 地址",
+      "claim": "续期最多可提前 150 天，当前专页说明 renewed license 最长有效 8 年，线上续期要求 Georgia resident、18 岁以上、美国公民并持带星 Georgia credential",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/existing-licenseid/how-do-i-renew-license-or-id",
+      "sourceLabel": "对应官方来源：Georgia DDS Renew License or ID",
+      "themes": [
+        "renewal"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -1566,38 +1657,12 @@
     {
       "page": "document-rules",
       "stateId": "georgia",
-      "category": "地址证明",
-      "claim": "两份 Georgia residency 文件要来自不同来源或不同账户，显示姓名和当前居住地址，P.O. Box 不能证明 residency",
-      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers",
-      "sourceLabel": "对应官方来源：New Georgia Residents and Out-of-State License Transfers",
+      "category": "SSN",
+      "claim": "先在 Online License/ID/Permit Form 填完整 SSN，系统核验失败时再带显示姓名与完整号码的 Social Security card、SSA printout、W-2、1099 或 pay stub 等官方清单文件",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens",
+      "sourceLabel": "对应官方来源：Georgia DDS Information for Non-US Citizens",
       "themes": [
-        "residency-documents"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "document-rules",
-      "stateId": "georgia",
-      "category": "地址证明",
-      "claim": "成为 resident 后要满足 identity、citizenship 和 residency 要求",
-      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers",
-      "sourceLabel": "对应官方来源：New Georgia Residents and Out-of-State License Transfers",
-      "themes": [
-        "residency-documents"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "document-rules",
-      "stateId": "georgia",
-      "category": "清单入口",
-      "claim": "如果读者临近出行换证，这一点比材料清单更要紧",
-      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/real-id",
-      "sourceLabel": "对应官方来源：Georgia DDS REAL ID",
-      "themes": [
-        "document-checklist"
+        "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -3592,20 +3657,7 @@
       "page": "foreign-license",
       "stateId": "georgia",
       "category": "外国 / 境外驾照",
-      "claim": "Georgia DDS Drivers From Other Nations 页面说明持外国驾照者成为 Georgia resident 前不必申请 Georgia license",
-      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations",
-      "sourceLabel": "对应官方来源：Georgia DDS Drivers From Other Nations",
-      "themes": [
-        "foreign-license"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "georgia",
-      "category": "外国 / 境外驾照",
-      "claim": "Transfer Foreign License：Georgia DDS 转入未过期 foreign / international driver license 所需身份、住址和 lawful status 文件",
+      "claim": "非居民持有效外国驾照可在 Georgia 驾驶，但执法人员可能要求 passport 或 visa 核验驾照有效性，成为 resident 后则进入 30 天换证规则",
       "sourceUrl": "https://dds.georgia.gov/transfer-unexpired-foreign-drivers-license",
       "sourceLabel": "对应官方来源：Georgia DDS Transfer Unexpired Foreign Driver License",
       "themes": [
@@ -3617,13 +3669,28 @@
     {
       "page": "foreign-license",
       "stateId": "georgia",
-      "category": "IDP / 国际驾照",
-      "claim": "Georgia DDS Drivers From Other Nations 页面说明多数 Foreign/International Licenses 会退还，但申请 Commercial License / Permit 或美国公民持外国辖区证件等情况有例外",
-      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations",
-      "sourceLabel": "对应官方来源：Georgia DDS Drivers From Other Nations",
-      "themes": [],
+      "category": "外国 / 境外驾照",
+      "claim": "Transfer Foreign License：未过期外国驾照转入的考试、文件、语言和现场要求",
+      "sourceUrl": "https://dds.georgia.gov/transfer-unexpired-foreign-drivers-license",
+      "sourceLabel": "对应官方来源：Georgia DDS Transfer Unexpired Foreign Driver License",
+      "themes": [
+        "foreign-license"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "georgia",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州驾照转入：30 天期限、2 年分界、交回原证、MVR 和考试要求",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid",
+      "sourceLabel": "对应官方来源：Georgia Out-of-State License Transfer",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
     },
     {
       "page": "foreign-license",
