@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:01:00.751Z",
+    "generatedAt": "2026-07-16T23:11:18.574Z",
     "pages": 100,
     "states": 50,
-    "claims": 1667,
-    "links": 1959,
-    "aiAssistedClaims": 363,
-    "aiAssistedPages": 12,
+    "claims": 1707,
+    "links": 2032,
+    "aiAssistedClaims": 443,
+    "aiAssistedPages": 14,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 711,
-        "links": 856,
+        "claims": 729,
+        "links": 887,
         "states": 50
       },
       "real-id": {
-        "claims": 956,
-        "links": 1103,
+        "claims": 978,
+        "links": 1145,
         "states": 50
       }
     }
@@ -7474,15 +7474,38 @@
       "stateId": "massachusetts",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "马萨诸塞 RMV 把 REAL ID、REAL Mass ID、Standard license、Standard Mass ID、permit 和 CDL 分开列材料",
+      "context": "license",
+      "claim": "马萨诸塞州先分两条路：Standard Class D/M 驾照不作联邦身份证明，WFMA 允许无法提供 lawful presence 的州居民申请",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8",
+        "https://www.mass.gov/doc/english-drivers-manual/download?sync=true"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Mass. General Laws c.90 § 8",
+        "对应官方来源：Massachusetts Driver’s Manual"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "summary",
+      "context": "real-id",
+      "claim": "带星标的 REAL ID 可用于国内航班和部分联邦设施，但要走另一套身份材料和现场核验",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/info-details/real-id-in-massachusetts"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID in Massachusetts"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -7493,63 +7516,93 @@
     {
       "stateId": "massachusetts",
       "surface": "overview",
-      "field": "summary",
-      "context": "overview",
-      "claim": "先选证件类型，再进入 MyRMV 或服务中心路径",
-      "sourceUrls": [
-        "https://atlas-myrmv.massdot.state.ma.us/myrmv/_/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：MyRMV"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "massachusetts",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "license",
-      "claim": "RMV 提供线上续期、地址变更和多项在线服务",
-      "sourceUrls": [
-        "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country",
-        "https://www.mass.gov/how-to/renew-your-drivers-license",
-        "https://www.mass.gov/lists/rmv-translated-documents"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Mass.gov Transfer Foreign Driver License",
-        "对应官方来源：Renew your driver’s license",
-        "对应官方来源：Mass.gov RMV Translated Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change",
-        "renewal",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "massachusetts",
-      "surface": "overview",
       "field": "licenseSummary",
       "context": "real-id",
-      "claim": "但是否能线上完成取决于证件类型、到期状态、REAL ID 升级需求和个人账户访问方式",
+      "claim": "WFMA 只改变 Standard Class D/M 驾照或 learner’s permit 的身份要求，不覆盖 REAL ID、Standard Mass ID、CDL 或 Liquor ID",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
-        "https://www.mass.gov/info-details/real-id-in-massachusetts"
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8",
+        "https://www.mass.gov/doc/english-drivers-manual/download?sync=true"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements",
-        "对应官方来源：REAL ID in Massachusetts"
+        "对应官方来源：Mass. General Laws c.90 § 8",
+        "对应官方来源：Massachusetts Driver’s Manual"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "document",
+      "claim": "无法提供 lawful presence 的申请人仍要证明身份、出生日期和 Massachusetts residency",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass. General Laws c.90 § 8"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "document",
+      "claim": "非英文身份材料须附 certified English translation，并完成视力、permit exam 和 road test 等适用步骤",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8",
+        "https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit",
+        "https://www.mass.gov/how-to/schedule-your-road-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass. General Laws c.90 § 8",
+        "对应官方来源：Mass.gov Class D Learner Permit",
+        "对应官方来源：Mass.gov Schedule Your Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "18 岁以上旅客可用 REAL ID 或其他 TSA 接受证件完成国内航班安检，因此已有有效护照的人不一定要升级",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/real-id-in-massachusetts",
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+      ],
+      "sourceLabels": [
+        "对应官方来源：REAL ID in Massachusetts",
+        "对应官方来源：Massachusetts Identification Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "online-service"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -7559,17 +7612,21 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "马州 REAL ID 或 REAL Mass ID 的材料要求与 Standard 证件不同",
+      "claim": "申请马州 REAL ID 通常要准备 1 份 lawful presence、1 份完整 9 位 SSN 证明或合格的 SSA Denial Notice 路径、2 份 Massachusetts residency 证明",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID Documents Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document"
+        "residency-proof",
+        "ssn",
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -7579,18 +7636,40 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "官方材料页会按证件类型列出需要提交的身份、SSN、居住地址和姓名变更相关文件",
+      "claim": "姓名与 lawful presence 文件不一致时，还要补完整的合法更名文件链",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/info-details/real-id-in-massachusetts"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID in Massachusetts"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "ssn",
-        "name-change"
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "real-id",
+      "claim": "REAL ID 可先在 myRMV 开始申请，但仍须预约 RMV Service Center 或会员 AAA branch 核验原件",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/real-id-in-massachusetts"
+      ],
+      "sourceLabels": [
+        "对应官方来源：REAL ID in Massachusetts"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "appointment"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -7600,15 +7679,17 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "RMV 官方通知显示，部分 MyRMV 个人在线服务已经改为需要 MyMassGov 访问",
+      "claim": "外州驾照转入也只能先在线填表，最后必须预约到 RMV",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/real-id-in-massachusetts"
+        "https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-drivers-or-motorcycle-license-to-massachusetts"
       ],
       "sourceLabels": [
-        "对应官方来源：REAL ID in Massachusetts"
+        "对应官方来源：Mass.gov Out-of-State License Transfer"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -7616,20 +7697,37 @@
       "stateId": "massachusetts",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "document",
-      "claim": "开始办理前，先确认当前线上入口和是否需要到服务中心核验材料",
+      "context": "appointment",
+      "claim": "多数个人 myRMV 服务现要求 MyMassGov Personal account，首次登录还可能要完成一次身份验证",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
-        "https://www.mass.gov/info-details/real-id-in-massachusetts"
+        "https://www.mass.gov/info-details/mymassgov-for-myrmv-services"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements",
-        "对应官方来源：REAL ID in Massachusetts"
+        "对应官方来源：MyMassGov for myRMV Services"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "WFMA 自 2023-07-01 起允许无法提供 lawful presence 的马州居民申请 Standard Class D/M 驾照，但仍须满足身份、出生日期、居住和考试要求",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8",
+        "https://www.mass.gov/doc/english-drivers-manual/download?sync=true"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass. General Laws c.90 § 8",
+        "对应官方来源：Massachusetts Driver’s Manual"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "online-service"
+        "lawful-presence",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -7639,17 +7737,101 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "Mass.gov 的材料页不是一张通用清单，而是按 REAL ID、Standard、permit、CDL 等证件类型分开列要求",
+      "claim": "WFMA 不适用于 REAL ID、Standard Mass ID、CDL 或 Liquor ID",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/doc/english-drivers-manual/download?sync=true"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Massachusetts Driver’s Manual"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "这些证件仍按各自清单核对 lawful presence",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/doc/english-drivers-manual/download?sync=true"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：Massachusetts Driver’s Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Standard Class D/M 驾照和 REAL ID Class D/M 当前均为 $50，Standard / REAL Mass ID 为 $25",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Massachusetts RMV Fees"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document"
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "learner permit 为 $30、road test 为 $35、replacement 为 $25",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Massachusetts RMV Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Class D/M 驾照可在到期前 1 年内续期，也可在过期后 2 年内续",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/renew-your-real-or-standard-passenger-class-d-or-motorcycle-class-m-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Renew your REAL or standard Class D/M license"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -7659,14 +7841,78 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "RMV 地址变更页明确提到地址变化后 30 天内通知 RMV",
+      "claim": "超过 2 年要重新参加 learner’s permit exam 和 road test",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/how-to/renew-your-real-or-standard-passenger-class-d-or-motorcycle-class-m-drivers-license"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Renew your REAL or standard Class D/M license"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "大多数 Standard 或 REAL ID 驾照可在线续期并在 10 至 14 个工作日寄到",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/renew-your-real-or-standard-passenger-class-d-or-motorcycle-class-m-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Renew your REAL or standard Class D/M license"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "limited-term 驾照续期和没有 SSN 的续期申请须现场办理",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/renew-your-real-or-standard-passenger-class-d-or-motorcycle-class-m-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Renew your REAL or standard Class D/M license"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "renewal"
+      ],
+      "uncoveredThemes": [
+        "ssn"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "地址变化须在 30 天内通知 RMV",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/change-your-address-with-the-rmv"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Change your address with the RMV"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "address-change"
       ],
@@ -7677,15 +7923,38 @@
       "stateId": "massachusetts",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "Mass.gov 当前有 MyRMV/MyMassGov 访问方式变化提醒",
+      "context": "license",
+      "claim": "只改记录不必换卡，需要新地址实体卡时 replacement 费用为 $25",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/how-to/change-your-address-with-the-rmv",
+        "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Change your address with the RMV",
+        "对应官方来源：Massachusetts RMV Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "遗失驾照最快可在线补办，也可电话申请",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/replace-your-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Replace your driver’s license"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -7694,100 +7963,18 @@
       "stateId": "massachusetts",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "线上办理前要确认账户入口",
+      "context": "appointment",
+      "claim": "RMV Service Center 当前不办理普通 replacement，AAA 会员可按页面预约，实体卡通常 10 至 14 天寄到",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/real-id-in-massachusetts"
+        "https://www.mass.gov/how-to/replace-your-drivers-license"
       ],
       "sourceLabels": [
-        "对应官方来源：REAL ID in Massachusetts"
+        "对应官方来源：Replace your driver’s license"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "massachusetts",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "real-id",
-      "claim": "Mass.gov REAL ID 页面说明可用 Online Service Center renew or replace REAL ID，但首次/升级材料仍要按 RMV 指示准备文件和服务中心路径",
-      "sourceUrls": [
-        "https://www.mass.gov/info-details/real-id-in-massachusetts"
-      ],
-      "sourceLabels": [
-        "对应官方来源：REAL ID in Massachusetts"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "renewal",
-        "replacement",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "massachusetts",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "detail",
-      "claim": "Mass.gov RMV fees 页面列出 passenger Class D license $50、duplicate license $25、amended license $25，完整费用仍以官方表为准",
-      "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Massachusetts RMV Fees"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "replacement",
-        "fee"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "massachusetts",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "real-id",
-      "claim": "Mass.gov REAL ID 和 replacement 页面说明部分 REAL ID / Mass ID 续期或补证可走 Online Service Center",
-      "sourceUrls": [
-        "https://www.mass.gov/info-details/real-id-in-massachusetts"
-      ],
-      "sourceLabels": [
-        "对应官方来源：REAL ID in Massachusetts"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "renewal",
-        "replacement",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "massachusetts",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "detail",
-      "claim": "证件会按官方页面说明邮寄，常见页面提示约 7-10 days 或需按具体业务确认",
-      "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
+        "appointment",
         "processing-or-mail"
       ],
       "uncoveredThemes": [],
@@ -7798,16 +7985,36 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "Mass.gov first-time driver 和 learner permit 页面说明 Class D permit exam 通常 25 题、答对 18 题通过",
+      "claim": "Class D learner’s permit 最低申请年龄为 16 岁，未满 18 岁须有合格成年人书面同意",
       "sourceUrls": [
-        "https://www.mass.gov/guides/first-time-driver-start-here"
+        "https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit"
       ],
       "sourceLabels": [
-        "对应官方来源：Mass.gov First Time Driver"
+        "对应官方来源：Mass.gov Class D Learner Permit"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "考试 25 分钟 25 题，答对 18 题通过，permit fee 为 $30",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit",
+        "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Class D Learner Permit",
+        "对应官方来源：Massachusetts RMV Fees"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "test"
+        "test",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -7817,33 +8024,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "拿到 Class D permit 后还要通过 Class D road test 才能取得 license",
+      "claim": "Class D/M permit exam 提供 37 种语言，包括简体和繁体 Mandarin",
       "sourceUrls": [
+        "https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit",
         "https://www.mass.gov/guides/first-time-driver-start-here"
       ],
       "sourceLabels": [
+        "对应官方来源：Mass.gov Class D Learner Permit",
         "对应官方来源：Mass.gov First Time Driver"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "test"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "massachusetts",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "detail",
-      "claim": "Mass.gov first-time driver / learner permit 页面说明 Class D learner permit exams 有 37 种语言",
-      "sourceUrls": [
-        "https://www.mass.gov/guides/first-time-driver-start-here"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Mass.gov First Time Driver"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test",
         "language"
@@ -7856,17 +8046,179 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "外语 oral exam 需联系 RMV Interpreter Services",
+      "claim": "外语 oral exam 要事先联系 RMV Interpreter Services",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit",
+        "https://www.mass.gov/lists/rmv-translated-documents"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Mass.gov Class D Learner Permit",
+        "对应官方来源：Mass.gov RMV Translated Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test",
         "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Road test 可提前最多 60 天排期，费用为 $35",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/schedule-your-road-test",
+        "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Schedule Your Road Test",
+        "对应官方来源：Massachusetts RMV Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "通过后如未预付费用，要在 60 个日历日内付款并完成领证，否则须自费重考",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/schedule-your-road-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Schedule Your Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "有效或过期不足 1 年的外州驾照转入通常免 written 和 road test",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-drivers-or-motorcycle-license-to-massachusetts"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Out-of-State License Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "过期超过 1 年要做 written、road 和 vision test，Class D 转入费为 $115",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-drivers-or-motorcycle-license-to-massachusetts"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Out-of-State License Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "外国访客须年满 16 岁并随身携带有效原驾照",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/driving-in-massachusetts-on-a-foreign-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Driving on a Foreign License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "证件不是英文且没有英文翻译时，还要携带 IDP 或 RMV 接受的英文翻译，IDP 本身不授予驾驶资格",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/driving-in-massachusetts-on-a-foreign-drivers-license",
+        "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Driving on a Foreign License",
+        "对应官方来源：Mass.gov Transfer Foreign Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "外国驾照只有 Canada、Mexico、U.S. Territories、South Korea、Germany、France 和 Taiwan 等 RMV 列出的协议地区可走 conversion",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country",
+        "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Transfer Foreign Driver License",
+        "对应官方来源：Mass.gov Foreign License Conversion"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "其他来源地的马州居民要按首次申请路径参加 permit exam 和 road test",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Transfer Foreign Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -7876,19 +8228,20 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "document",
-      "claim": "Mass.gov RMV Translated Documents 页面提供多语言材料清单和说明，其中包括中文译文和 learner permit 相关说明",
+      "claim": "转换材料必须按来源地核对，不能统一写成 30 天：Germany 和 France 等页面要求部分记录 30 天内，South Korea 和 Taiwan 的指定记录可为 60 天内",
       "sourceUrls": [
-        "https://www.mass.gov/lists/rmv-translated-documents"
+        "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses"
       ],
       "sourceLabels": [
-        "对应官方来源：Mass.gov RMV Translated Documents"
+        "对应官方来源：Mass.gov Foreign License Conversion"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "language"
+        "document"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document"
+      ],
       "valid": true
     },
     {
@@ -7896,17 +8249,57 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "Mass.gov Transfer your driver license from a foreign country 页面说明不能把 International Driving Permit 转成 Massachusetts permit",
+      "claim": "Taiwan conversion 适用于年满 18 岁、持有效且未暂停或撤销的台湾驾照并居住马州的人",
       "sourceUrls": [
-        "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country"
+        "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses"
       ],
       "sourceLabels": [
-        "对应官方来源：Mass.gov Transfer Foreign Driver License"
+        "对应官方来源：Mass.gov Foreign License Conversion"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "要带身份与 SSN / Denial Notice 路径、台湾驾照及翻译、60 天内 certified driving record 及翻译、申请表和费用，并交回台湾驾照",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Foreign License Conversion"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "transfer"
+        "ssn",
+        "language",
+        "fee"
       ],
+      "uncoveredThemes": [
+        "ssn",
+        "language",
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "以 visa 证明身份的 Taiwan 或 South Korea conversion 申请人，官方页要求 authorized stay 至少 12 个月",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Foreign License Conversion"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -7915,17 +8308,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "部分国家/地区 foreign license 可能走 conversion 信息页，其他情况通常按 permit、written / road test 路径处理",
+      "claim": "多数个人 myRMV 线上服务现用 MyMassGov Personal account",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses"
+        "https://www.mass.gov/info-details/mymassgov-for-myrmv-services"
       ],
       "sourceLabels": [
-        "对应官方来源：Mass.gov Foreign License Conversion"
+        "对应官方来源：MyMassGov for myRMV Services"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "foreign-license",
-        "test"
+        "online-service"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -7934,20 +8326,23 @@
       "stateId": "massachusetts",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "license",
-      "claim": "Mass.gov foreign license conversion 信息页说明符合条件的外国驾照转换要提供 30 天内 certified driving record，并按来源国家/地区决定是否仍要 written 和 road test",
+      "context": "document",
+      "claim": "首次关联时要输入生日、姓氏、马州证件号以及 SSN 后四位、foreign passport number 或 Consular ID 之一，并可能需要 Letter ID",
       "sourceUrls": [
-        "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country"
+        "https://www.mass.gov/info-details/mymassgov-for-myrmv-services"
       ],
       "sourceLabels": [
-        "对应官方来源：Mass.gov Transfer Foreign Driver License"
+        "对应官方来源：MyMassGov for myRMV Services"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "foreign-license",
-        "test"
+        "document",
+        "ssn"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document",
+        "ssn"
+      ],
       "valid": true
     },
     {
@@ -7955,14 +8350,16 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "马州 REAL ID 或 REAL Mass ID 的材料要求与 Standard 证件不同",
+      "claim": "18 岁以上旅客可用 REAL ID 或其他 TSA 接受证件完成国内航班安检，因此已有有效护照的人不一定要升级",
       "sourceUrls": [
+        "https://www.mass.gov/info-details/real-id-in-massachusetts",
         "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
       ],
       "sourceLabels": [
+        "对应官方来源：REAL ID in Massachusetts",
         "对应官方来源：Massachusetts Identification Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -7974,55 +8371,17 @@
       "stateId": "massachusetts",
       "surface": "real-id",
       "field": "realIdSummary",
-      "context": "document",
-      "claim": "官方材料页会按证件类型列出需要提交的身份、SSN、居住地址和姓名变更相关文件",
-      "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "ssn",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "massachusetts",
-      "surface": "real-id",
-      "field": "documentHighlights",
       "context": "real-id",
-      "claim": "在 Massachusetts Identification Requirements 页面先选择 REAL ID driver’s license 或 REAL Mass ID",
+      "claim": "申请马州 REAL ID 通常要准备 1 份 lawful presence、1 份完整 9 位 SSN 证明或合格的 SSA Denial Notice 路径、2 份 Massachusetts residency 证明",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID Documents Checklist"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "massachusetts",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "REAL ID 通常要证明 lawful presence、完整 SSN 和两份 Massachusetts residency",
-      "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "residency-proof",
@@ -8035,16 +8394,18 @@
     {
       "stateId": "massachusetts",
       "surface": "real-id",
-      "field": "documentHighlights",
+      "field": "realIdSummary",
       "context": "document",
-      "claim": "当前姓名还要和 lawful presence 文件匹配",
+      "claim": "姓名与 lawful presence 文件不一致时，还要补完整的合法更名文件链",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/info-details/real-id-in-massachusetts"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID in Massachusetts"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "lawful-presence"
@@ -8057,14 +8418,116 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "real-id",
-      "claim": "不要把 Standard license、Standard Mass ID 或 permit 的材料清单直接套用到 REAL ID",
+      "claim": "马州 REAL ID 右上角有星标",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/info-details/real-id-in-massachusetts"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID in Massachusetts"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Standard license / Mass ID 标注不用于联邦身份用途",
       "sourceUrls": [
         "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
       ],
       "sourceLabels": [
         "对应官方来源：Massachusetts Identification Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "首次或升级 REAL ID 通常带 1 份 lawful presence、1 份显示完整 9 位 SSN 的证明、2 份显示姓名和当前 Massachusetts residential address 的住址证明",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID Documents Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "住址证明不能只写 P.O. box，必须显示申请人的当前 residential address",
+      "sourceUrls": [
+        "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：REAL ID Documents Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "没有 SSN 且符合官方路径时，可使用 60 天内 SSA Denial Notice，并同时提交 non-U.S. passport、visa 和 I-94",
+      "sourceUrls": [
+        "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：REAL ID Documents Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 身份文件必须是原件且不可覆膜",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/info-details/real-id-in-massachusetts"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID in Massachusetts"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -8077,18 +8540,19 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "按官方页面核对身份、SSN、马州居住地址和姓名变更文件类别",
+      "claim": "当前姓名须与 lawful presence 文件一致，不一致要带 marriage certificate、court document 等合法更名证明",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/info-details/real-id-in-massachusetts"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID in Massachusetts"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "ssn",
-        "name-change"
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -8098,16 +8562,83 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "如果只是地址变更，官方页面要求地址变化后 30 天内通知 RMV",
+      "claim": "无法提供 lawful presence 而申请 Standard Class D/M 时，第一份身份文件须是有效外国护照或有效 consular identification",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：Mass. General Laws c.90 § 8"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change"
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "第二份从州法列明的出生证、外国身份证、外国驾照等类别中选",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass. General Laws c.90 § 8"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "这两份 WFMA 身份文件合计须包含一张照片和一个出生日期",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass. General Laws c.90 § 8"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "非英文文件须附 certified English translation",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8",
+        "https://www.mass.gov/lists/rmv-translated-documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass. General Laws c.90 § 8",
+        "对应官方来源：Mass.gov RMV Translated Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -8115,17 +8646,64 @@
     {
       "stateId": "massachusetts",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "先在 Massachusetts Identification Requirements 页面选择你要办的证件类型",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "Standard Mass ID 不是 WFMA Standard driver license，不能照搬后者的 lawful presence 例外",
       "sourceUrls": [
+        "https://www.mass.gov/doc/english-drivers-manual/download?sync=true",
         "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
       ],
       "sourceLabels": [
+        "对应官方来源：Massachusetts Driver’s Manual",
         "对应官方来源：Massachusetts Identification Requirements"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 和 Standard Class D/M driver license 当前同为 $50，选择 REAL ID 本身没有额外卡费",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Massachusetts RMV Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "先决定用途：有 TSA 接受的护照等证件且只需驾驶，可继续选择 Standard",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/real-id-in-massachusetts",
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+      ],
+      "sourceLabels": [
+        "对应官方来源：REAL ID in Massachusetts",
+        "对应官方来源：Massachusetts Identification Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -8134,38 +8712,16 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "如果是续期，进入 RMV 续期页面判断是否续 Standard 证件，还是升级 REAL ID",
+      "claim": "需要州证件用于国内航班或部分联邦设施，再走 REAL ID",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
         "https://www.mass.gov/info-details/real-id-in-massachusetts"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements",
         "对应官方来源：REAL ID in Massachusetts"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "massachusetts",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "如果只是搬家，先按地址变更页在 30 天内更新 RMV 记录",
-      "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change"
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -8175,18 +8731,65 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "需要现场核验时，再预约或前往 RMV Service Center，并带齐官方清单要求的文件",
+      "claim": "申请 Standard Class D/M 且无法提供 lawful presence 时，打开 WFMA / Standard checklist，按两份身份与出生日期文件、马州 residency 和翻译要求备件",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8",
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass. General Laws c.90 § 8",
+        "对应官方来源：Massachusetts Identification Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "lawful-presence",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "申请 REAL ID 时先在 myRMV 填表，再用 checklist 选定 lawful presence、SSN / Denial Notice、两份 residency 和姓名变更文件",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/real-id-in-massachusetts",
+        "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：REAL ID in Massachusetts",
+        "对应官方来源：REAL ID Documents Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn",
+        "name-change",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "预约 RMV Service Center",
+      "sourceUrls": [
         "https://www.mass.gov/info-details/real-id-in-massachusetts"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements",
         "对应官方来源：REAL ID in Massachusetts"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
         "appointment"
       ],
       "uncoveredThemes": [],
@@ -8195,19 +8798,174 @@
     {
       "stateId": "massachusetts",
       "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "没有区分 REAL ID、REAL Mass ID、Standard license 和 Standard Mass ID 的材料要求",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "AAA 会员可核对 AAA branch 资格，现场只带原件和符合要求的认证材料",
       "sourceUrls": [
-        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
+        "https://www.mass.gov/info-details/real-id-in-massachusetts"
       ],
       "sourceLabels": [
-        "对应官方来源：Massachusetts Identification Requirements"
+        "对应官方来源：REAL ID in Massachusetts"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "续期先看窗口与资格：到期前 1 年可办，limited-term、无 SSN 或升级 REAL ID 等路径要按页面转现场",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/renew-your-real-or-standard-passenger-class-d-or-motorcycle-class-m-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Renew your REAL or standard Class D/M license"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document"
+        "ssn",
+        "renewal"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "ssn"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "搬家后 30 天内先更新 residential 和 mailing address，再决定是否花 $25 订购显示新地址的卡",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/change-your-address-with-the-rmv",
+        "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Change your address with the RMV",
+        "对应官方来源：Massachusetts RMV Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "fee",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "首次驾照先办 $30 learner permit，选择简体或繁体 Mandarin 等考试语言",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit",
+        "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Class D Learner Permit",
+        "对应官方来源：Massachusetts RMV Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "通过 permit 后再安排 $35 road test",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/schedule-your-road-test",
+        "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Schedule Your Road Test",
+        "对应官方来源：Massachusetts RMV Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "外国驾照先区分 visitor、协议 conversion 与无协议首次申请三条路，并按国家页面核对 30 天或 60 天 driving record、翻译和交回原证件要求",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/driving-in-massachusetts-on-a-foreign-drivers-license",
+        "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country",
+        "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Driving on a Foreign License",
+        "对应官方来源：Mass.gov Transfer Foreign Driver License",
+        "对应官方来源：Mass.gov Foreign License Conversion"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "外州驾照转入先在线完成申请并预约 Service Center",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-drivers-or-motorcycle-license-to-massachusetts"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Out-of-State License Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "原证有效或过期不足 1 年通常免 written / road test",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-drivers-or-motorcycle-license-to-massachusetts"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Out-of-State License Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -8217,19 +8975,18 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "license",
-      "claim": "续期前没有先处理地址变更",
+      "claim": "把 Standard Class D/M 驾照与 Standard Mass ID 当成同一套 lawful presence 规则",
       "sourceUrls": [
-        "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country",
-        "https://www.mass.gov/lists/rmv-translated-documents"
+        "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8",
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements"
       ],
       "sourceLabels": [
-        "对应官方来源：Mass.gov Transfer Foreign Driver License",
-        "对应官方来源：Mass.gov RMV Translated Documents"
+        "对应官方来源：Mass. General Laws c.90 § 8",
+        "对应官方来源：Massachusetts Identification Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "renewal"
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -8239,19 +8996,17 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "看到“renew online”就以为可以同时完成首次 REAL ID 材料核验",
+      "claim": "已有有效护照仍以为国内航班必须再办 REAL ID",
       "sourceUrls": [
         "https://www.mass.gov/info-details/real-id-in-massachusetts"
       ],
       "sourceLabels": [
         "对应官方来源：REAL ID in Massachusetts"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
-        "renewal",
-        "online-service"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -8260,17 +9015,145 @@
       "stateId": "massachusetts",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "detail",
-      "claim": "忽略 MyMassGov/MyRMV 访问方式变化，临到办理时才发现无法进入线上服务",
+      "context": "document",
+      "claim": "只带一份 Massachusetts residency，或住址文件只显示 P.O. box",
+      "sourceUrls": [
+        "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：REAL ID Documents Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "拿手机照片、普通复印件或覆膜证件代替 REAL ID 原件",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/info-details/real-id-in-massachusetts"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID in Massachusetts"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "lawful presence、SSN 与现有 RMV 记录姓名不一致，却没有带完整的更名证明链",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+        "https://www.mass.gov/info-details/real-id-in-massachusetts"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Massachusetts Identification Requirements",
+        "对应官方来源：REAL ID in Massachusetts"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "在线开始 REAL ID 后，以为可以跳过 Service Center 或 AAA 的现场核验",
       "sourceUrls": [
         "https://www.mass.gov/info-details/real-id-in-massachusetts"
       ],
       "sourceLabels": [
         "对应官方来源：REAL ID in Massachusetts"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "online-service"
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "地址已经变化，却在续期或补证前没有先更新 RMV 记录",
+      "sourceUrls": [
+        "https://www.mass.gov/how-to/change-your-address-with-the-rmv",
+        "https://www.mass.gov/how-to/renew-your-real-or-standard-passenger-class-d-or-motorcycle-class-m-drivers-license",
+        "https://www.mass.gov/how-to/replace-your-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Change your address with the RMV",
+        "对应官方来源：Renew your REAL or standard Class D/M license",
+        "对应官方来源：Replace your driver’s license"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把 IDP 当成可转换的驾照，或当成脱离原外国驾照也能单独驾驶的证件",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/driving-in-massachusetts-on-a-foreign-drivers-license",
+        "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Driving on a Foreign License",
+        "对应官方来源：Mass.gov Transfer Foreign Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "massachusetts",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "按统一的 30 天记录期限准备外国驾照 conversion，忽略 Taiwan 和 South Korea 等路径的 60 天规则",
+      "sourceUrls": [
+        "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mass.gov Foreign License Conversion"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
       ],
       "uncoveredThemes": [],
       "valid": true

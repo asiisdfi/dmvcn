@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成马萨诸塞州两页官方正文语义核对',
+    summary:
+      '逐条比对 Mass.gov 的 REAL ID、身份清单、WFMA 现行法、续期补证、地址、permit、road test、外州转入、外国驾照、Taiwan conversion、费用和 MyMassGov 正文；明确 Standard Class D/M 的适用边界，并修正不同国家 driving record 期限。',
+    scope: ['马萨诸塞州办事总览', '马萨诸塞州 REAL ID', 'WFMA 与外国驾照', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成新泽西两页官方正文语义核对',
     summary:
       '逐条比对 NJMVC 的 REAL ID、2 + 1 + 6 selector、姓名匹配、Standard 6 Points、续期补证、地址、预约、GDL、考试语言、路考、新居民和外国驾照互惠正文；重写材料判断与预约路径，并补充当前练车时数、邮寄、费用及台湾/韩国互惠边界。',

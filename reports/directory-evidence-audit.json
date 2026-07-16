@@ -1,21 +1,21 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:01:00.239Z",
+    "generatedAt": "2026-07-16T23:11:18.062Z",
     "pages": 5,
-    "claims": 378,
+    "claims": 386,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 36,
+        "claims": 39,
         "states": 15
       },
       "deadlines": {
-        "claims": 29,
+        "claims": 30,
         "states": 14
       },
       "document-rules": {
-        "claims": 159,
+        "claims": 160,
         "states": 47
       },
       "foreign-license": {
@@ -23,7 +23,7 @@
         "states": 22
       },
       "identity-ssn": {
-        "claims": 99,
+        "claims": 102,
         "states": 34
       }
     }
@@ -335,14 +335,53 @@
       "page": "costs-timing",
       "stateId": "massachusetts",
       "category": "费用",
-      "claim": "Mass.gov RMV fees 页面列出 passenger Class D license $50、duplicate license $25、amended license $25，完整费用仍以官方表为准",
+      "claim": "Standard Class D/M 驾照和 REAL ID Class D/M 当前均为 $50，Standard / REAL Mass ID 为 $25",
       "sourceUrl": "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees",
       "sourceLabel": "对应官方来源：Massachusetts RMV Fees",
       "themes": [
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "massachusetts",
+      "category": "费用",
+      "claim": "learner permit 为 $30、road test 为 $35、replacement 为 $25",
+      "sourceUrl": "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees",
+      "sourceLabel": "对应官方来源：Massachusetts RMV Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "massachusetts",
+      "category": "费用",
+      "claim": "只改记录不必换卡，需要新地址实体卡时 replacement 费用为 $25",
+      "sourceUrl": "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees",
+      "sourceLabel": "对应官方来源：Massachusetts RMV Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "massachusetts",
+      "category": "费用",
+      "claim": "考试 25 分钟 25 题，答对 18 题通过，permit fee 为 $30",
+      "sourceUrl": "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees",
+      "sourceLabel": "对应官方来源：Massachusetts RMV Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
     },
     {
       "page": "costs-timing",
@@ -688,12 +727,25 @@
     {
       "page": "deadlines",
       "stateId": "massachusetts",
-      "category": "搬家 / 地址",
-      "claim": "如果只是搬家，先按地址变更页在 30 天内更新 RMV 记录",
-      "sourceUrl": "https://www.mass.gov/how-to/change-your-address-with-the-rmv",
-      "sourceLabel": "对应官方来源：Change your address with the RMV",
+      "category": "期限提醒",
+      "claim": "没有 SSN 且符合官方路径时，可使用 60 天内 SSA Denial Notice，并同时提交 non-U.S. passport、visa 和 I-94",
+      "sourceUrl": "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf",
+      "sourceLabel": "对应官方来源：REAL ID Documents Checklist",
       "themes": [
-        "address-change"
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "massachusetts",
+      "category": "续期 / 到期",
+      "claim": "Class D/M 驾照可在到期前 1 年内续期，也可在过期后 2 年内续",
+      "sourceUrl": "https://www.mass.gov/how-to/renew-your-real-or-standard-passenger-class-d-or-motorcycle-class-m-drivers-license",
+      "sourceLabel": "对应官方来源：Renew your REAL or standard Class D/M license",
+      "themes": [
+        "renewal"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -702,7 +754,7 @@
       "page": "deadlines",
       "stateId": "massachusetts",
       "category": "搬家 / 地址",
-      "claim": "RMV 地址变更页明确提到地址变化后 30 天内通知 RMV",
+      "claim": "地址变化须在 30 天内通知 RMV",
       "sourceUrl": "https://www.mass.gov/how-to/change-your-address-with-the-rmv",
       "sourceLabel": "对应官方来源：Change your address with the RMV",
       "themes": [
@@ -1209,11 +1261,13 @@
       "page": "document-rules",
       "stateId": "massachusetts",
       "category": "地址证明",
-      "claim": "如果只是搬家，先按地址变更页在 30 天内更新 RMV 记录",
-      "sourceUrl": "https://www.mass.gov/how-to/change-your-address-with-the-rmv",
-      "sourceLabel": "对应官方来源：Change your address with the RMV",
+      "claim": "首次或升级 REAL ID 通常带 1 份 lawful presence、1 份显示完整 9 位 SSN 的证明、2 份显示姓名和当前 Massachusetts residential address 的住址证明",
+      "sourceUrl": "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf",
+      "sourceLabel": "对应官方来源：REAL ID Documents Checklist",
       "themes": [
-        "address-change"
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -1222,9 +1276,22 @@
       "page": "document-rules",
       "stateId": "massachusetts",
       "category": "地址证明",
-      "claim": "官方材料页会按证件类型列出需要提交的身份、SSN、居住地址和姓名变更相关文件",
-      "sourceUrl": "https://www.mass.gov/lists/rmv-translated-documents",
-      "sourceLabel": "对应官方来源：Mass.gov RMV Translated Documents",
+      "claim": "住址证明不能只写 P.O. box，必须显示申请人的当前 residential address",
+      "sourceUrl": "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf",
+      "sourceLabel": "对应官方来源：REAL ID Documents Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "massachusetts",
+      "category": "地址证明",
+      "claim": "没有 SSN 且符合官方路径时，可使用 60 天内 SSA Denial Notice，并同时提交 non-U.S. passport、visa 和 I-94",
+      "sourceUrl": "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf",
+      "sourceLabel": "对应官方来源：REAL ID Documents Checklist",
       "themes": [
         "ssn"
       ],
@@ -1234,12 +1301,12 @@
     {
       "page": "document-rules",
       "stateId": "massachusetts",
-      "category": "清单入口",
-      "claim": "不要把 Standard license、Standard Mass ID 或 permit 的材料清单直接套用到 REAL ID",
-      "sourceUrl": "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
-      "sourceLabel": "对应官方来源：Massachusetts Identification Requirements",
+      "category": "地址证明",
+      "claim": "WFMA 自 2023-07-01 起允许无法提供 lawful presence 的马州居民申请 Standard Class D/M 驾照，但仍须满足身份、出生日期、居住和考试要求",
+      "sourceUrl": "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8",
+      "sourceLabel": "对应官方来源：Mass. General Laws c.90 § 8",
       "themes": [
-        "document-checklist"
+        "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -3223,7 +3290,7 @@
       "page": "foreign-license",
       "stateId": "massachusetts",
       "category": "外国 / 境外驾照",
-      "claim": "部分国家/地区 foreign license 可能走 conversion 信息页，其他情况通常按 permit、written / road test 路径处理",
+      "claim": "外国驾照只有 Canada、Mexico、U.S. Territories、South Korea、Germany、France 和 Taiwan 等 RMV 列出的协议地区可走 conversion",
       "sourceUrl": "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses",
       "sourceLabel": "对应官方来源：Mass.gov Foreign License Conversion",
       "themes": [
@@ -3236,11 +3303,12 @@
       "page": "foreign-license",
       "stateId": "massachusetts",
       "category": "外国 / 境外驾照",
-      "claim": "Mass.gov foreign license conversion 信息页说明符合条件的外国驾照转换要提供 30 天内 certified driving record，并按来源国家/地区决定是否仍要 written 和 road test",
+      "claim": "Foreign License Conversion：Taiwan、South Korea 等来源地的记录期限、翻译和交回原证件要求",
       "sourceUrl": "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses",
       "sourceLabel": "对应官方来源：Mass.gov Foreign License Conversion",
       "themes": [
-        "foreign-license"
+        "foreign-license",
+        "translation"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -3249,24 +3317,24 @@
       "page": "foreign-license",
       "stateId": "massachusetts",
       "category": "外国 / 境外驾照",
-      "claim": "Foreign License Conversion：Massachusetts 对部分外国驾照转换、certified driving record、written / road test 的说明",
-      "sourceUrl": "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses",
-      "sourceLabel": "对应官方来源：Mass.gov Foreign License Conversion",
-      "themes": [
-        "foreign-license"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "massachusetts",
-      "category": "IDP / 国际驾照",
-      "claim": "Transfer Foreign License：Massachusetts 从外国驾照转入、International Driving Permit 限制和测试路径说明",
+      "claim": "第二份从州法列明的出生证、外国身份证、外国驾照等类别中选",
       "sourceUrl": "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country",
       "sourceLabel": "对应官方来源：Mass.gov Transfer Foreign Driver License",
       "themes": [
         "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "massachusetts",
+      "category": "外州 / 加拿大转入",
+      "claim": "有效或过期不足 1 年的外州驾照转入通常免 written 和 road test",
+      "sourceUrl": "https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-drivers-or-motorcycle-license-to-massachusetts",
+      "sourceLabel": "对应官方来源：Mass.gov Out-of-State License Transfer",
+      "themes": [
+        "out-of-state"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -4027,12 +4095,53 @@
     {
       "page": "identity-ssn",
       "stateId": "massachusetts",
-      "category": "SSN",
-      "claim": "官方材料页会按证件类型列出需要提交的身份、SSN、居住地址和姓名变更相关文件",
-      "sourceUrl": "https://www.mass.gov/lists/rmv-translated-documents",
-      "sourceLabel": "对应官方来源：Mass.gov RMV Translated Documents",
+      "category": "无 SSN / SSA",
+      "claim": "没有 SSN 且符合官方路径时，可使用 60 天内 SSA Denial Notice，并同时提交 non-U.S. passport、visa 和 I-94",
+      "sourceUrl": "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf",
+      "sourceLabel": "对应官方来源：REAL ID Documents Checklist",
       "themes": [
         "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "massachusetts",
+      "category": "SSN",
+      "claim": "首次关联时要输入生日、姓氏、马州证件号以及 SSN 后四位、foreign passport number 或 Consular ID 之一，并可能需要 Letter ID",
+      "sourceUrl": "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf",
+      "sourceLabel": "对应官方来源：REAL ID Documents Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "massachusetts",
+      "category": "SSN",
+      "claim": "首次或升级 REAL ID 通常带 1 份 lawful presence、1 份显示完整 9 位 SSN 的证明、2 份显示姓名和当前 Massachusetts residential address 的住址证明",
+      "sourceUrl": "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf",
+      "sourceLabel": "对应官方来源：REAL ID Documents Checklist",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "massachusetts",
+      "category": "lawful presence",
+      "claim": "WFMA 自 2023-07-01 起允许无法提供 lawful presence 的马州居民申请 Standard Class D/M 驾照，但仍须满足身份、出生日期、居住和考试要求",
+      "sourceUrl": "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8",
+      "sourceLabel": "对应官方来源：Mass. General Laws c.90 § 8",
+      "themes": [
+        "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false

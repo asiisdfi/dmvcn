@@ -176,6 +176,42 @@ const NJ_KNOWLEDGE = 'https://www.nj.gov/mvc/license/knowledgetest.htm';
 const NJ_MANUALS = 'https://www.nj.gov/mvc/about/manuals.htm';
 const NJ_ROAD_TEST = 'https://www.nj.gov/mvc/license/roadtest.htm';
 
+const MA_ID_REQUIREMENTS =
+  'https://www.mass.gov/info-details/massachusetts-identification-id-requirements';
+const MA_REAL_ID =
+  'https://www.mass.gov/info-details/real-id-in-massachusetts';
+const MA_REAL_ID_CHECKLIST =
+  'https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf';
+const MA_WFMA_LAW =
+  'https://www.mass.gov/info-details/mass-general-laws-c90-ss-8';
+const MA_DRIVER_MANUAL =
+  'https://www.mass.gov/doc/english-drivers-manual/download?sync=true';
+const MA_RENEW =
+  'https://www.mass.gov/how-to/renew-your-real-or-standard-passenger-class-d-or-motorcycle-class-m-drivers-license';
+const MA_REPLACE =
+  'https://www.mass.gov/how-to/replace-your-drivers-license';
+const MA_ADDRESS =
+  'https://www.mass.gov/how-to/change-your-address-with-the-rmv';
+const MA_PERMIT =
+  'https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit';
+const MA_FIRST_DRIVER =
+  'https://www.mass.gov/guides/first-time-driver-start-here';
+const MA_ROAD_TEST = 'https://www.mass.gov/how-to/schedule-your-road-test';
+const MA_OUT_OF_STATE =
+  'https://www.mass.gov/how-to/transfer-your-real-or-standard-out-of-state-drivers-or-motorcycle-license-to-massachusetts';
+const MA_FOREIGN_TRANSFER =
+  'https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country';
+const MA_FOREIGN_CONVERSION =
+  'https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses';
+const MA_FOREIGN_DRIVING =
+  'https://www.mass.gov/info-details/driving-in-massachusetts-on-a-foreign-drivers-license';
+const MA_TRANSLATED =
+  'https://www.mass.gov/lists/rmv-translated-documents';
+const MA_FEES =
+  'https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees';
+const MA_MYMASSGOV =
+  'https://www.mass.gov/info-details/mymassgov-for-myrmv-services';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -1374,6 +1410,296 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '外州搬入超过 60 天或等到现有证件先到期，仍未预约 Transfer From Out of State': [
         NJ_MOVING,
         NJ_APPOINTMENT,
+      ],
+    },
+  },
+  massachusetts: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      MA_ID_REQUIREMENTS,
+      MA_REAL_ID,
+      MA_REAL_ID_CHECKLIST,
+      MA_WFMA_LAW,
+      MA_DRIVER_MANUAL,
+      MA_RENEW,
+      MA_REPLACE,
+      MA_ADDRESS,
+      MA_PERMIT,
+      MA_FIRST_DRIVER,
+      MA_ROAD_TEST,
+      MA_OUT_OF_STATE,
+      MA_FOREIGN_TRANSFER,
+      MA_FOREIGN_CONVERSION,
+      MA_FOREIGN_DRIVING,
+      MA_TRANSLATED,
+      MA_FEES,
+      MA_MYMASSGOV,
+    ],
+    scope:
+      '逐条比对 Mass.gov 的 REAL ID、身份清单、WFMA 现行法、续期补证、地址、permit、road test、外州转入、外国驾照、Taiwan conversion、费用和 MyMassGov 正文。',
+    notes:
+      '重写 Massachusetts 总览与 REAL ID 页面，明确 Standard Class D/M 的 WFMA 边界，修正外国驾照记录期限，补充当前线上账户、邮寄、考试语言和台湾转换细节，并将所有声明改为显式来源；仍待真实人工签字。',
+    claims: {
+      '马萨诸塞州先分两条路：Standard Class D/M 驾照不作联邦身份证明，WFMA 允许无法提供 lawful presence 的州居民申请': [
+        MA_WFMA_LAW,
+        MA_DRIVER_MANUAL,
+      ],
+      '带星标的 REAL ID 可用于国内航班和部分联邦设施，但要走另一套身份材料和现场核验': [
+        MA_ID_REQUIREMENTS,
+        MA_REAL_ID,
+      ],
+      'WFMA 只改变 Standard Class D/M 驾照或 learner’s permit 的身份要求，不覆盖 REAL ID、Standard Mass ID、CDL 或 Liquor ID': [
+        MA_WFMA_LAW,
+        MA_DRIVER_MANUAL,
+      ],
+      '无法提供 lawful presence 的申请人仍要证明身份、出生日期和 Massachusetts residency': [
+        MA_WFMA_LAW,
+      ],
+      '非英文身份材料须附 certified English translation，并完成视力、permit exam 和 road test 等适用步骤': [
+        MA_WFMA_LAW,
+        MA_PERMIT,
+        MA_ROAD_TEST,
+      ],
+      '18 岁以上旅客可用 REAL ID 或其他 TSA 接受证件完成国内航班安检，因此已有有效护照的人不一定要升级': [
+        MA_REAL_ID,
+        MA_ID_REQUIREMENTS,
+      ],
+      '申请马州 REAL ID 通常要准备 1 份 lawful presence、1 份完整 9 位 SSN 证明或合格的 SSA Denial Notice 路径、2 份 Massachusetts residency 证明': [
+        MA_ID_REQUIREMENTS,
+        MA_REAL_ID_CHECKLIST,
+      ],
+      '姓名与 lawful presence 文件不一致时，还要补完整的合法更名文件链': [
+        MA_ID_REQUIREMENTS,
+        MA_REAL_ID,
+      ],
+      'REAL ID 可先在 myRMV 开始申请，但仍须预约 RMV Service Center 或会员 AAA branch 核验原件': [
+        MA_REAL_ID,
+      ],
+      '外州驾照转入也只能先在线填表，最后必须预约到 RMV': [
+        MA_OUT_OF_STATE,
+      ],
+      '多数个人 myRMV 服务现要求 MyMassGov Personal account，首次登录还可能要完成一次身份验证': [
+        MA_MYMASSGOV,
+      ],
+      'WFMA 自 2023-07-01 起允许无法提供 lawful presence 的马州居民申请 Standard Class D/M 驾照，但仍须满足身份、出生日期、居住和考试要求': [
+        MA_WFMA_LAW,
+        MA_DRIVER_MANUAL,
+      ],
+      'WFMA 不适用于 REAL ID、Standard Mass ID、CDL 或 Liquor ID': [
+        MA_DRIVER_MANUAL,
+      ],
+      '这些证件仍按各自清单核对 lawful presence': [
+        MA_ID_REQUIREMENTS,
+        MA_DRIVER_MANUAL,
+      ],
+      'Standard Class D/M 驾照和 REAL ID Class D/M 当前均为 $50，Standard / REAL Mass ID 为 $25': [
+        MA_FEES,
+      ],
+      'learner permit 为 $30、road test 为 $35、replacement 为 $25': [
+        MA_FEES,
+      ],
+      'Class D/M 驾照可在到期前 1 年内续期，也可在过期后 2 年内续': [
+        MA_RENEW,
+      ],
+      '超过 2 年要重新参加 learner’s permit exam 和 road test': [
+        MA_RENEW,
+      ],
+      '大多数 Standard 或 REAL ID 驾照可在线续期并在 10 至 14 个工作日寄到': [
+        MA_RENEW,
+      ],
+      'limited-term 驾照续期和没有 SSN 的续期申请须现场办理': [
+        MA_RENEW,
+      ],
+      '地址变化须在 30 天内通知 RMV': [MA_ADDRESS],
+      '只改记录不必换卡，需要新地址实体卡时 replacement 费用为 $25': [
+        MA_ADDRESS,
+        MA_FEES,
+      ],
+      '遗失驾照最快可在线补办，也可电话申请': [MA_REPLACE],
+      'RMV Service Center 当前不办理普通 replacement，AAA 会员可按页面预约，实体卡通常 10 至 14 天寄到': [
+        MA_REPLACE,
+      ],
+      'Class D learner’s permit 最低申请年龄为 16 岁，未满 18 岁须有合格成年人书面同意': [
+        MA_PERMIT,
+      ],
+      '考试 25 分钟 25 题，答对 18 题通过，permit fee 为 $30': [
+        MA_PERMIT,
+        MA_FEES,
+      ],
+      'Class D/M permit exam 提供 37 种语言，包括简体和繁体 Mandarin': [
+        MA_PERMIT,
+        MA_FIRST_DRIVER,
+      ],
+      '外语 oral exam 要事先联系 RMV Interpreter Services': [
+        MA_PERMIT,
+        MA_TRANSLATED,
+      ],
+      'Road test 可提前最多 60 天排期，费用为 $35': [
+        MA_ROAD_TEST,
+        MA_FEES,
+      ],
+      '通过后如未预付费用，要在 60 个日历日内付款并完成领证，否则须自费重考': [
+        MA_ROAD_TEST,
+      ],
+      '有效或过期不足 1 年的外州驾照转入通常免 written 和 road test': [
+        MA_OUT_OF_STATE,
+      ],
+      '过期超过 1 年要做 written、road 和 vision test，Class D 转入费为 $115': [
+        MA_OUT_OF_STATE,
+      ],
+      '外国访客须年满 16 岁并随身携带有效原驾照': [
+        MA_FOREIGN_DRIVING,
+      ],
+      '证件不是英文且没有英文翻译时，还要携带 IDP 或 RMV 接受的英文翻译，IDP 本身不授予驾驶资格': [
+        MA_FOREIGN_DRIVING,
+        MA_FOREIGN_TRANSFER,
+      ],
+      '外国驾照只有 Canada、Mexico、U.S. Territories、South Korea、Germany、France 和 Taiwan 等 RMV 列出的协议地区可走 conversion': [
+        MA_FOREIGN_TRANSFER,
+        MA_FOREIGN_CONVERSION,
+      ],
+      '其他来源地的马州居民要按首次申请路径参加 permit exam 和 road test': [
+        MA_FOREIGN_TRANSFER,
+      ],
+      '转换材料必须按来源地核对，不能统一写成 30 天：Germany 和 France 等页面要求部分记录 30 天内，South Korea 和 Taiwan 的指定记录可为 60 天内': [
+        MA_FOREIGN_CONVERSION,
+      ],
+      'Taiwan conversion 适用于年满 18 岁、持有效且未暂停或撤销的台湾驾照并居住马州的人': [
+        MA_FOREIGN_CONVERSION,
+      ],
+      '要带身份与 SSN / Denial Notice 路径、台湾驾照及翻译、60 天内 certified driving record 及翻译、申请表和费用，并交回台湾驾照': [
+        MA_FOREIGN_CONVERSION,
+      ],
+      '以 visa 证明身份的 Taiwan 或 South Korea conversion 申请人，官方页要求 authorized stay 至少 12 个月': [
+        MA_FOREIGN_CONVERSION,
+      ],
+      '多数个人 myRMV 线上服务现用 MyMassGov Personal account': [
+        MA_MYMASSGOV,
+      ],
+      '首次关联时要输入生日、姓氏、马州证件号以及 SSN 后四位、foreign passport number 或 Consular ID 之一，并可能需要 Letter ID': [
+        MA_MYMASSGOV,
+      ],
+      '马州 REAL ID 右上角有星标': [
+        MA_ID_REQUIREMENTS,
+        MA_REAL_ID,
+      ],
+      'Standard license / Mass ID 标注不用于联邦身份用途': [
+        MA_ID_REQUIREMENTS,
+      ],
+      '首次或升级 REAL ID 通常带 1 份 lawful presence、1 份显示完整 9 位 SSN 的证明、2 份显示姓名和当前 Massachusetts residential address 的住址证明': [
+        MA_ID_REQUIREMENTS,
+        MA_REAL_ID_CHECKLIST,
+      ],
+      '住址证明不能只写 P.O. box，必须显示申请人的当前 residential address': [
+        MA_REAL_ID_CHECKLIST,
+      ],
+      '没有 SSN 且符合官方路径时，可使用 60 天内 SSA Denial Notice，并同时提交 non-U.S. passport、visa 和 I-94': [
+        MA_REAL_ID_CHECKLIST,
+      ],
+      'REAL ID 身份文件必须是原件且不可覆膜': [
+        MA_ID_REQUIREMENTS,
+        MA_REAL_ID,
+      ],
+      '当前姓名须与 lawful presence 文件一致，不一致要带 marriage certificate、court document 等合法更名证明': [
+        MA_ID_REQUIREMENTS,
+        MA_REAL_ID,
+      ],
+      '无法提供 lawful presence 而申请 Standard Class D/M 时，第一份身份文件须是有效外国护照或有效 consular identification': [
+        MA_WFMA_LAW,
+      ],
+      '第二份从州法列明的出生证、外国身份证、外国驾照等类别中选': [
+        MA_WFMA_LAW,
+      ],
+      '这两份 WFMA 身份文件合计须包含一张照片和一个出生日期': [
+        MA_WFMA_LAW,
+      ],
+      '非英文文件须附 certified English translation': [
+        MA_WFMA_LAW,
+        MA_TRANSLATED,
+      ],
+      'Standard Mass ID 不是 WFMA Standard driver license，不能照搬后者的 lawful presence 例外': [
+        MA_DRIVER_MANUAL,
+        MA_ID_REQUIREMENTS,
+      ],
+      'REAL ID 和 Standard Class D/M driver license 当前同为 $50，选择 REAL ID 本身没有额外卡费': [
+        MA_FEES,
+      ],
+      '先决定用途：有 TSA 接受的护照等证件且只需驾驶，可继续选择 Standard': [
+        MA_REAL_ID,
+        MA_ID_REQUIREMENTS,
+      ],
+      '需要州证件用于国内航班或部分联邦设施，再走 REAL ID': [
+        MA_REAL_ID,
+      ],
+      '申请 Standard Class D/M 且无法提供 lawful presence 时，打开 WFMA / Standard checklist，按两份身份与出生日期文件、马州 residency 和翻译要求备件': [
+        MA_WFMA_LAW,
+        MA_ID_REQUIREMENTS,
+      ],
+      '申请 REAL ID 时先在 myRMV 填表，再用 checklist 选定 lawful presence、SSN / Denial Notice、两份 residency 和姓名变更文件': [
+        MA_REAL_ID,
+        MA_REAL_ID_CHECKLIST,
+      ],
+      '预约 RMV Service Center': [MA_REAL_ID],
+      'AAA 会员可核对 AAA branch 资格，现场只带原件和符合要求的认证材料': [
+        MA_REAL_ID,
+      ],
+      '续期先看窗口与资格：到期前 1 年可办，limited-term、无 SSN 或升级 REAL ID 等路径要按页面转现场': [
+        MA_RENEW,
+      ],
+      '搬家后 30 天内先更新 residential 和 mailing address，再决定是否花 $25 订购显示新地址的卡': [
+        MA_ADDRESS,
+        MA_FEES,
+      ],
+      '首次驾照先办 $30 learner permit，选择简体或繁体 Mandarin 等考试语言': [
+        MA_PERMIT,
+        MA_FEES,
+      ],
+      '通过 permit 后再安排 $35 road test': [MA_ROAD_TEST, MA_FEES],
+      '外国驾照先区分 visitor、协议 conversion 与无协议首次申请三条路，并按国家页面核对 30 天或 60 天 driving record、翻译和交回原证件要求': [
+        MA_FOREIGN_DRIVING,
+        MA_FOREIGN_TRANSFER,
+        MA_FOREIGN_CONVERSION,
+      ],
+      '外州驾照转入先在线完成申请并预约 Service Center': [
+        MA_OUT_OF_STATE,
+      ],
+      '原证有效或过期不足 1 年通常免 written / road test': [
+        MA_OUT_OF_STATE,
+      ],
+      '把 Standard Class D/M 驾照与 Standard Mass ID 当成同一套 lawful presence 规则': [
+        MA_WFMA_LAW,
+        MA_ID_REQUIREMENTS,
+      ],
+      '已有有效护照仍以为国内航班必须再办 REAL ID': [
+        MA_REAL_ID,
+      ],
+      '只带一份 Massachusetts residency，或住址文件只显示 P.O. box': [
+        MA_REAL_ID_CHECKLIST,
+      ],
+      '拿手机照片、普通复印件或覆膜证件代替 REAL ID 原件': [
+        MA_ID_REQUIREMENTS,
+        MA_REAL_ID,
+      ],
+      'lawful presence、SSN 与现有 RMV 记录姓名不一致，却没有带完整的更名证明链': [
+        MA_ID_REQUIREMENTS,
+        MA_REAL_ID,
+      ],
+      '在线开始 REAL ID 后，以为可以跳过 Service Center 或 AAA 的现场核验': [
+        MA_REAL_ID,
+      ],
+      '地址已经变化，却在续期或补证前没有先更新 RMV 记录': [
+        MA_ADDRESS,
+        MA_RENEW,
+        MA_REPLACE,
+      ],
+      '把 IDP 当成可转换的驾照，或当成脱离原外国驾照也能单独驾驶的证件': [
+        MA_FOREIGN_DRIVING,
+        MA_FOREIGN_TRANSFER,
+      ],
+      '按统一的 30 天记录期限准备外国驾照 conversion，忽略 Taiwan 和 South Korea 等路径的 60 天规则': [
+        MA_FOREIGN_CONVERSION,
       ],
     },
   },

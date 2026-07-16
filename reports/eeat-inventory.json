@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:01:01.387Z",
+    "generatedAt": "2026-07-16T23:11:19.228Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 23,
+    "passed": 25,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 88,
-    "aiAssistedReviews": 29,
+    "sourceMappedReviews": 86,
+    "aiAssistedReviews": 31,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 141,
+    "blockedPages": 139,
     "averageScore": 96
   },
   "pages": [
@@ -307,7 +307,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 169,
+        "sourceCount": 170,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 36,
-        "directoryEvidenceLinks": 36,
+        "directoryEvidenceItems": 39,
+        "directoryEvidenceLinks": 39,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 29,
-        "directoryEvidenceLinks": 29,
+        "directoryEvidenceItems": 30,
+        "directoryEvidenceLinks": 30,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 374,
+        "sourceCount": 378,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 164,
+        "sourceCount": 165,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -497,8 +497,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 159,
-        "directoryEvidenceLinks": 159,
+        "directoryEvidenceItems": 160,
+        "directoryEvidenceLinks": 160,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 128,
+        "sourceCount": 130,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 134,
+        "sourceCount": 137,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 99,
-        "directoryEvidenceLinks": 99,
+        "directoryEvidenceItems": 102,
+        "directoryEvidenceLinks": 102,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1020,
+        "sourceCount": 1024,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -2871,16 +2871,16 @@
       "risk": "medium",
       "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Mass.gov 的 REAL ID、身份清单、WFMA 现行法、续期补证、地址、permit、road test、外州转入、外国驾照、Taiwan conversion、费用和 MyMassGov 正文。",
+        "notes": "重写 Massachusetts 总览与 REAL ID 页面，明确 Standard Class D/M 的 WFMA 边界，修正外国驾照记录期限，补充当前线上账户、邮寄、考试语言和台湾转换细节，并将所有声明改为显式来源；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2893,14 +2893,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 13,
-        "factCheckCount": 24,
+        "sourceCount": 19,
+        "factCheckCount": 42,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 24,
-        "stateEvidenceLinks": 28,
+        "stateEvidenceItems": 42,
+        "stateEvidenceLinks": 59,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2908,9 +2908,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/massachusetts/real-id/",
@@ -2918,16 +2916,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Mass.gov 的 REAL ID、身份清单、WFMA 现行法、续期补证、地址、permit、road test、外州转入、外国驾照、Taiwan conversion、费用和 MyMassGov 正文。",
+        "notes": "重写 Massachusetts 总览与 REAL ID 页面，明确 Standard Class D/M 的 WFMA 边界，修正外国驾照记录期限，补充当前线上账户、邮寄、考试语言和台湾转换细节，并将所有声明改为显式来源；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2940,14 +2938,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 13,
-        "factCheckCount": 16,
+        "sourceCount": 19,
+        "factCheckCount": 38,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 16,
-        "stateEvidenceLinks": 19,
+        "stateEvidenceItems": 38,
+        "stateEvidenceLinks": 61,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2955,9 +2953,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/michigan/",
