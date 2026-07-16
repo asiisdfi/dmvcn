@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成纽约州两页官方正文语义核对',
+    summary:
+      '逐条打开 New York DMV 的证件类型、ID-44、Social Security、预约、续期、地址、费用、补证、考试、语言和换证页面，按实际办事路径重写纽约州总览与 REAL ID 清单，并纠正线上 permit test 的年龄范围。',
+    scope: ['纽约州办事总览', '纽约州 REAL ID', 'AI 辅助证据核对', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成加州两页官方正文语义核对',
     summary:
       '逐条打开 California DMV 的 REAL ID、材料、预约、地址、费用、处理时间、AB 60、考试和外国驾照页面，重写加州总览与 REAL ID 清单，并把每条声明改为显式来源映射。',

@@ -1,8 +1,8 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:16:04.385Z",
+    "generatedAt": "2026-07-16T22:28:31.085Z",
     "pages": 5,
-    "claims": 372,
+    "claims": 373,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
@@ -11,7 +11,7 @@
         "states": 15
       },
       "deadlines": {
-        "claims": 29,
+        "claims": 30,
         "states": 14
       },
       "document-rules": {
@@ -87,33 +87,21 @@
       "page": "costs-timing",
       "stateId": "new-york",
       "category": "费用",
-      "claim": "NY DMV fees/refunds 页面列出 replacement driver license 或 learner permit 为 $17.50，amend 信息变更为 $12.50，Enhanced Driver License / Permit 另加 $30",
+      "claim": "常见 Class D 续期费为 $64.50，MCTD 地区为 $80.50",
       "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
       "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
       "themes": [
-        "fee"
+        "fee",
+        "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "costs-timing",
       "stateId": "new-york",
       "category": "费用",
-      "claim": "NY DMV fees/refunds 页面说明办公室可用多数信用卡、借记卡、现金、支票或 money order",
-      "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
-      "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
-      "themes": [
-        "fee"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
-    },
-    {
-      "page": "costs-timing",
-      "stateId": "new-york",
-      "category": "费用",
-      "claim": "纽约 REAL ID 没有额外 REAL ID 费用，但正常交易费用仍适用",
+      "claim": "REAL ID 不额外收费，Enhanced 另加 $30",
       "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
       "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
       "themes": [
@@ -126,7 +114,20 @@
       "page": "costs-timing",
       "stateId": "new-york",
       "category": "费用",
-      "claim": "Enhanced 证件有额外费用，并且面向符合条件的美国公民和纽约居民",
+      "claim": "replacement driver license 或 permit 为 $17.50，amend 信息变更为 $12.50",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
+      "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-york",
+      "category": "费用",
+      "claim": "首次 license 或 permit 费用按年龄和居住地区计算",
       "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
       "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
       "themes": [
@@ -433,7 +434,7 @@
       "page": "deadlines",
       "stateId": "new-york",
       "category": "期限提醒",
-      "claim": "REAL ID 如果不能取得 SSN，要按 NY DMV 要求带 SSA 30 天内出具的不符合资格证明和相应 DHS 文件",
+      "claim": "用于 REAL ID 的 Social Security ineligibility letter 必须由 SSA 在办公室访问前 30 天内签发，并同时带向 SSA 出示过的 DHS 文件",
       "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
       "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
       "themes": [
@@ -446,11 +447,24 @@
       "page": "deadlines",
       "stateId": "new-york",
       "category": "搬家 / 地址",
-      "claim": "NY DMV 地址变更页明确写明搬家后 10 天内更新 DMV 地址",
+      "claim": "搬家后必须在 10 天内更新 license、permit、non-driver ID 和 vehicle records",
       "sourceUrl": "https://dmv.ny.gov/records/change-your-address",
       "sourceLabel": "对应官方来源：NY DMV Change Your Address",
       "themes": [
         "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-york",
+      "category": "续期 / 到期",
+      "claim": "驾照可在到期前 1 年至到期后 2 年续期",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/renew-a-driver-license",
+      "sourceLabel": "对应官方来源：NY DMV Renew a Driver License",
+      "themes": [
+        "renewal"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -859,7 +873,21 @@
       "page": "document-rules",
       "stateId": "new-york",
       "category": "地址证明",
-      "claim": "Residence proof 要显示当前 New York State 地址，P.O. Box 不接受",
+      "claim": "REAL ID 需要 Social Security 证明、citizenship 或 lawful status、两份纽约州居住证明，以及累计 6 points 的姓名证明",
+      "sourceUrl": "https://dmv.ny.gov/more-info/dmv-document-guide",
+      "sourceLabel": "对应官方来源：NY DMV Document Guide",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-york",
+      "category": "地址证明",
+      "claim": "两份居住证明都必须显示当前纽约州地址，P.O. Box 不接受",
       "sourceUrl": "https://dmv.ny.gov/more-info/dmv-document-guide",
       "sourceLabel": "对应官方来源：NY DMV Document Guide",
       "themes": [
@@ -872,28 +900,11 @@
       "page": "document-rules",
       "stateId": "new-york",
       "category": "地址证明",
-      "claim": "NY DMV ID-44 PDF 对 REAL ID / Enhanced 居住证明、P.O. Box、SSN ineligibility、certified translation 和姓名链条有细则，应作为材料页主来源之一",
-      "sourceUrl": "https://dmv.ny.gov/forms/id44.pdf",
-      "sourceLabel": "对应官方来源：NY DMV ID-44",
+      "claim": "USPS 地址变更不会更新 DMV 记录",
+      "sourceUrl": "https://dmv.ny.gov/records/change-your-address",
+      "sourceLabel": "对应官方来源：NY DMV Change Your Address",
       "themes": [
-        "id-44",
-        "residency-documents",
-        "translation",
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
-    },
-    {
-      "page": "document-rules",
-      "stateId": "new-york",
-      "category": "地址证明",
-      "claim": "如果要换成 REAL ID 或 Enhanced，提前准备 full legal name、两份 New York State residency、SSN / SSA ineligibility 和 lawful status 相关证明",
-      "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
-      "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
-      "themes": [
-        "residency-documents",
-        "ssn"
+        "address-change"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -901,12 +912,12 @@
     {
       "page": "document-rules",
       "stateId": "new-york",
-      "category": "SSN",
-      "claim": "REAL ID 如果不能取得 SSN，要按 NY DMV 要求带 SSA 30 天内出具的不符合资格证明和相应 DHS 文件",
-      "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
-      "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
+      "category": "地址证明",
+      "claim": "逐份检查姓名链、当前地址、签发日期、原件或认证副本以及英文翻译",
+      "sourceUrl": "https://dmv.ny.gov/more-info/dmv-document-guide",
+      "sourceLabel": "对应官方来源：NY DMV Document Guide",
       "themes": [
-        "ssn"
+        "translation"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -2924,7 +2935,7 @@
       "page": "foreign-license",
       "stateId": "new-york",
       "category": "外国 / 境外驾照",
-      "claim": "申请 NY license 时必须通过 written test、5-hour pre-licensing course 和 road test，并在 road test 通过时交出 foreign driver license",
+      "claim": "申请纽约驾照需通过 written test、5-hour course 和 road test，路考通过时会交出 foreign license",
       "sourceUrl": "https://dmv.ny.gov/driver-license/drivers-from-other-countries",
       "sourceLabel": "对应官方来源：NY DMV Drivers from Other Countries",
       "themes": [
@@ -2937,14 +2948,14 @@
       "page": "foreign-license",
       "stateId": "new-york",
       "category": "外国 / 境外驾照",
-      "claim": "NY DMV Drivers from Other Countries 页面说明持有效外国驾照可在纽约州驾驶",
+      "claim": "持有效外国驾照可在成为纽约州居民前驾驶",
       "sourceUrl": "https://dmv.ny.gov/driver-license/drivers-from-other-countries",
       "sourceLabel": "对应官方来源：NY DMV Drivers from Other Countries",
       "themes": [
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "foreign-license",
@@ -2963,7 +2974,7 @@
       "page": "foreign-license",
       "stateId": "new-york",
       "category": "IDP / 国际驾照",
-      "claim": "NY DMV Drivers from Other Countries 页面说明若外国驾照不是英文，参加 road test 时必须带 International Driving Permit 或 certified translation",
+      "claim": "外国驾照不是英文时，参加 road test 要带 International Driving Permit 或由领事馆、美国国务院或其他政府机构认证的翻译",
       "sourceUrl": "https://dmv.ny.gov/driver-license/drivers-from-other-countries",
       "sourceLabel": "对应官方来源：NY DMV Drivers from Other Countries",
       "themes": [
@@ -2971,7 +2982,7 @@
         "translation"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "foreign-license",
@@ -3743,7 +3754,7 @@
       "page": "identity-ssn",
       "stateId": "new-york",
       "category": "无 SSN / SSA",
-      "claim": "REAL ID 如果不能取得 SSN，要按 NY DMV 要求带 SSA 30 天内出具的不符合资格证明和相应 DHS 文件",
+      "claim": "用于 REAL ID 的 Social Security ineligibility letter 必须由 SSA 在办公室访问前 30 天内签发，并同时带向 SSA 出示过的 DHS 文件",
       "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
       "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
       "themes": [
@@ -3755,8 +3766,8 @@
     {
       "page": "identity-ssn",
       "stateId": "new-york",
-      "category": "无 SSN / SSA",
-      "claim": "如果要换成 REAL ID 或 Enhanced，提前准备 full legal name、两份 New York State residency、SSN / SSA ineligibility 和 lawful status 相关证明",
+      "category": "SSN",
+      "claim": "REAL ID 需要 Social Security 证明、citizenship 或 lawful status、两份纽约州居住证明，以及累计 6 points 的姓名证明",
       "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
       "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
       "themes": [
@@ -3770,7 +3781,7 @@
       "page": "identity-ssn",
       "stateId": "new-york",
       "category": "公民身份",
-      "claim": "Enhanced 证件有额外费用，并且面向符合条件的美国公民和纽约居民",
+      "claim": "Enhanced 仅面向美国公民和纽约州居民，并在普通交易费之外加收 $30",
       "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
       "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
       "themes": [

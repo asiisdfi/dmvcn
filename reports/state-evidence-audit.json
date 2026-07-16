@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:16:06.239Z",
+    "generatedAt": "2026-07-16T22:28:31.627Z",
     "pages": 100,
     "states": 50,
-    "claims": 1580,
-    "links": 1768,
-    "aiAssistedClaims": 37,
-    "aiAssistedPages": 2,
+    "claims": 1582,
+    "links": 1778,
+    "aiAssistedClaims": 92,
+    "aiAssistedPages": 4,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 687,
+        "claims": 686,
         "links": 801,
         "states": 50
       },
       "real-id": {
-        "claims": 893,
-        "links": 967,
+        "claims": 896,
+        "links": 977,
         "states": 50
       }
     }
@@ -780,14 +780,14 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "纽约 DMV 把 Standard、REAL ID 和 Enhanced 三类证件分开说明",
+      "claim": "纽约州有 Standard、REAL ID 和 Enhanced 三类照片证件",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "enhanced-id"
@@ -799,242 +799,19 @@
       "stateId": "new-york",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "REAL ID 解决联邦身份用途",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "summary",
-      "context": "real-id",
-      "claim": "Enhanced 另有陆路/海路从部分地区返美用途",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "enhanced-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "纽约 Standard 驾照仍可用于驾驶和普通照片 ID 用途，但不能用于 REAL ID 联邦用途",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "没有星标或旗帜标记的证件不属于 REAL ID/Enhanced 合规证件",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "enhanced-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "纽约 REAL ID 没有额外 REAL ID 费用，但正常交易费用仍适用",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "fee"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "Enhanced 证件有额外费用，并且面向符合条件的美国公民和纽约居民",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "enhanced-id",
-        "fee"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "纽约 DMV 办公室页面提示可按城市或 ZIP 查办公室，点 View Details 查看服务并预约",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Permit Test"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "预约并非所有办公室都可用，但长等待时可能只允许预约用户进入",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Permit Test"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "real-id",
-      "claim": "NY DMV 页面明确区分 Standard、REAL ID、Enhanced",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "enhanced-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "real-id",
-      "claim": "Enhanced 可用于陆/海从加拿大、墨西哥和部分加勒比国家返美，但不是这些国家间空中旅行证件",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "enhanced-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "real-id",
-      "claim": "NY DMV ID-44 PDF 对 REAL ID / Enhanced 居住证明、P.O. Box、SSN ineligibility、certified translation 和姓名链条有细则，应作为材料页主来源之一",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "enhanced-id",
-        "document",
-        "residency-proof",
-        "ssn",
-        "name-change",
-        "language"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "real-id",
-      "claim": "NY DMV renewal 页面说明已有 Enhanced/REAL ID 或保持 Standard 时可线上续期，document type 不变",
+      "context": "document",
+      "claim": "先按用途选证件，再用官方 pre-screening 生成材料清单",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id",
-        "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
+        "https://dmv.ny.gov/more-info/dmv-document-guide"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Enhanced or REAL ID",
-        "对应官方来源：NY DMV Permit Test"
+        "对应官方来源：NY DMV Document Guide"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "enhanced-id",
-        "document",
-        "renewal",
-        "online-service"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1042,20 +819,137 @@
     {
       "stateId": "new-york",
       "surface": "overview",
-      "field": "editorNotes",
+      "field": "summary",
       "context": "real-id",
-      "claim": "升级 REAL ID / Enhanced 则走材料清单和办公室路径",
+      "claim": "从 Standard 升级为 REAL ID 或 Enhanced 必须到 DMV office",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id",
+        "https://dmv.ny.gov/driver-license/renew-a-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Enhanced or REAL ID",
+        "对应官方来源：NY DMV Renew a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "enhanced-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "real-id",
+      "claim": "Standard 驾照仍可用于驾驶和普通照片 ID，但不能用于登美国国内航班或进入要求 REAL ID 的联邦场所",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "real-id",
+      "claim": "有效护照可替代 REAL ID",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Enhanced or REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "enhanced-id",
         "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "REAL ID 没有额外证件费，但正常交易费仍适用",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Enhanced or REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Enhanced 仅面向美国公民和纽约州居民，并在普通交易费之外加收 $30",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Enhanced or REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "enhanced-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "按城市或 ZIP 搜索办公室后，点 View Details 查看现场服务和预约入口",
+      "sourceUrls": [
+        "https://dmv.ny.gov/contact-us/office-locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：办公室与预约"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "并非所有办公室提供预约，且长等待时可能只允许有 reservation 的人进入",
+      "sourceUrls": [
+        "https://dmv.ny.gov/contact-us/office-locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：办公室与预约"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1065,14 +959,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "NY DMV 地址变更页明确写明搬家后 10 天内更新 DMV 地址",
+      "claim": "搬家后必须在 10 天内更新 license、permit、non-driver ID 和 vehicle records",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+        "https://dmv.ny.gov/records/change-your-address"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
+        "对应官方来源：NY DMV Change Your Address"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "address-change"
       ],
@@ -1083,17 +977,17 @@
       "stateId": "new-york",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "appointment",
-      "claim": "NY DMV 办公室页提示并非所有 office 都可预约",
+      "context": "detail",
+      "claim": "USPS 地址变更不会更新 DMV 记录",
       "sourceUrls": [
-        "https://dmv.ny.gov/contact-us/office-locations"
+        "https://dmv.ny.gov/records/change-your-address"
       ],
       "sourceLabels": [
-        "对应官方来源：办公室与预约"
+        "对应官方来源：NY DMV Change Your Address"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "appointment"
+        "address-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1102,16 +996,18 @@
       "stateId": "new-york",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "长等待时可能只允许有 reservation 的用户进入",
+      "context": "license",
+      "claim": "驾照可在到期前 1 年至到期后 2 年续期",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+        "https://dmv.ny.gov/driver-license/renew-a-driver-license"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
+        "对应官方来源：NY DMV Renew a Driver License"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -1120,16 +1016,83 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "NY DMV fees/refunds 页面列出 replacement driver license 或 learner permit 为 $17.50，amend 信息变更为 $12.50，Enhanced Driver License / Permit 另加 $30",
+      "claim": "已有 REAL ID 或 Enhanced，或保持 Standard 时可线上或邮寄续期，证件类型不变，Standard 升级要到办公室",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/renew-a-driver-license",
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Renew a Driver License",
+        "对应官方来源：NY DMV Enhanced or REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "enhanced-id",
+        "renewal",
+        "online-service",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "常见 Class D 续期费为 $64.50，MCTD 地区为 $80.50",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/renew-a-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Renew a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 不额外收费，Enhanced 另加 $30",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id",
+        "https://dmv.ny.gov/driver-license/renew-a-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Enhanced or REAL ID",
+        "对应官方来源：NY DMV Renew a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "enhanced-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "replacement driver license 或 permit 为 $17.50，amend 信息变更为 $12.50",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/fees-refunds"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Driver License Fees and Refunds"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "enhanced-id",
         "replacement",
         "fee"
       ],
@@ -1141,14 +1104,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "NY DMV fees/refunds 页面说明办公室可用多数信用卡、借记卡、现金、支票或 money order",
+      "claim": "首次 license 或 permit 费用按年龄和居住地区计算",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/fees-refunds"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Driver License Fees and Refunds"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "fee"
       ],
@@ -1159,41 +1122,18 @@
       "stateId": "new-york",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "线上支付需要信用卡/借记卡，邮寄不要寄现金",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id",
-        "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID",
-        "对应官方来源：NY DMV Permit Test"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "online-service",
-        "fee",
-        "processing-or-mail"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "editorNotes",
       "context": "license",
-      "claim": "NY DMV replace 页面提醒补证会寄到 DMV 记录地址",
+      "claim": "线上补证只能保留原证件类型，且寄往下单时 DMV 记录地址",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/replace-a-license-or-permit"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Replace a License or Permit"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "replacement",
-        "processing-or-mail"
+        "online-service"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1203,16 +1143,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "搬家后应先改地址再 order replacement，线上补证不能使用临时邮寄地址",
+      "claim": "搬家应先改地址，线上补证不能使用临时邮寄地址",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id",
-        "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
+        "https://dmv.ny.gov/driver-license/replace-a-license-or-permit",
+        "https://dmv.ny.gov/records/change-your-address"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID",
-        "对应官方来源：NY DMV Permit Test"
+        "对应官方来源：NY DMV Replace a License or Permit",
+        "对应官方来源：NY DMV Change Your Address"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "replacement",
         "online-service",
@@ -1226,16 +1166,17 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "NY DMV learner permit 页面把流程拆成 permit test、pre-licensing requirements 和 road test",
+      "claim": "Class D permit test 提供 20 种语言，包括 Chinese",
       "sourceUrls": [
-        "https://dmv.ny.gov/forms/id44.pdf"
+        "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV ID-44"
+        "对应官方来源：NY DMV Permit Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "test"
+        "test",
+        "language"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1244,19 +1185,16 @@
       "stateId": "new-york",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "document",
-      "claim": "线上 permit test 通过后，DMV 需要 3 个工作日审核考试结果和身份文件",
+      "context": "detail",
+      "claim": "线上 permit test 选项目前仅面向未满 18 岁申请人，在线通过后应至少留出 3 个工作日供 DMV 审核",
       "sourceUrls": [
-        "https://dmv.ny.gov/forms/id44.pdf",
         "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV ID-44",
         "对应官方来源：NY DMV Permit Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
         "online-service",
         "test"
       ],
@@ -1268,14 +1206,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "appointment",
-      "claim": "NY DMV road test 页面说明未满 18 岁通常要从拿到 learner permit 日期起等至少 6 个月才能预约 road test",
+      "claim": "未满 18 岁的申请人从取得 learner permit 起至少等 6 个月才能预约 road test",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
+        "https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Permit Test"
+        "对应官方来源：NY DMV Schedule and Take a Road Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment",
         "test"
@@ -1288,36 +1226,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "NY DMV permit test 页面说明 Class D permit tests 提供 20 种语言，包括 Chinese",
+      "claim": "路考前还需完成 5-hour pre-licensing course 或符合条件的 driver education course",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
+        "https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Permit Test"
+        "对应官方来源：NY DMV Schedule and Take a Road Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "test",
-        "language"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "detail",
-      "claim": "同时 NY DMV language assistance 页面说明可为英语能力有限用户提供语言协助",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "language"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1327,14 +1245,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "NY DMV Drivers from Other Countries 页面说明持有效外国驾照可在纽约州驾驶",
+      "claim": "持有效外国驾照可在成为纽约州居民前驾驶",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/drivers-from-other-countries"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Drivers from Other Countries"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "foreign-license"
       ],
@@ -1345,32 +1263,15 @@
       "stateId": "new-york",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "成为纽约州居民后才需要申请 NY license",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "editorNotes",
       "context": "license",
-      "claim": "申请 NY license 时必须通过 written test、5-hour pre-licensing course 和 road test，并在 road test 通过时交出 foreign driver license",
+      "claim": "申请纽约驾照需通过 written test、5-hour course 和 road test，路考通过时会交出 foreign license",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test"
+        "https://dmv.ny.gov/driver-license/drivers-from-other-countries"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Schedule and Take a Road Test"
+        "对应官方来源：NY DMV Drivers from Other Countries"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "foreign-license",
         "test"
@@ -1383,14 +1284,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "NY DMV Drivers from Other Countries 页面说明若外国驾照不是英文，参加 road test 时必须带 International Driving Permit 或 certified translation",
+      "claim": "外国驾照不是英文时，参加 road test 要带 International Driving Permit 或由领事馆、美国国务院或其他政府机构认证的翻译",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/drivers-from-other-countries"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Drivers from Other Countries"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "foreign-license",
         "test",
@@ -1401,20 +1302,94 @@
     },
     {
       "stateId": "new-york",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "NY DMV 提供免费语言协助，中文属于重要表格和文件覆盖的 12 种主要语言之一",
+      "sourceUrls": [
+        "https://dmv.ny.gov/more-info/language-assistance"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Language Assistance"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "官方电话为 1-518-486-9786",
+      "sourceUrls": [
+        "https://dmv.ny.gov/more-info/language-assistance"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Language Assistance"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "成为纽约居民后，应在 30 天内把美国其他州或领地、联邦特区或加拿大省份的合格驾照换成纽约驾照",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/exchange-out-of-state-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Exchange Out-of-State Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "换证仅可到办公室办理",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/exchange-out-of-state-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Exchange Out-of-State Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "纽约 REAL ID 没有额外 REAL ID 费用，但正常交易费用仍适用",
+      "claim": "REAL ID 没有额外证件费，但正常交易费仍适用",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "fee"
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1424,14 +1399,14 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Enhanced 证件有额外费用，并且面向符合条件的美国公民和纽约居民",
+      "claim": "Enhanced 仅面向美国公民和纽约州居民，并在普通交易费之外加收 $30",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "enhanced-id",
         "fee"
@@ -1444,14 +1419,16 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "使用纽约 DMV Document Guide 生成个人化材料清单",
+      "claim": "先用 NY DMV pre-screening 生成个人清单，再以当前 ID-44（2/26）复核接受的文件和分值",
       "sourceUrls": [
-        "https://dmv.ny.gov/more-info/dmv-document-guide"
+        "https://dmv.ny.gov/more-info/dmv-document-guide",
+        "https://dmv.ny.gov/forms/id44.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Document Guide"
+        "对应官方来源：NY DMV Document Guide",
+        "对应官方来源：NY DMV ID-44"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -1463,17 +1440,38 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "real-id",
-      "claim": "REAL ID 和 Enhanced 申请前可使用官方 pre-screening tool 预审文件",
+      "claim": "REAL ID 需要 Social Security 证明、citizenship 或 lawful status、两份纽约州居住证明，以及累计 6 points 的姓名证明",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+        "https://dmv.ny.gov/forms/id44.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
+        "对应官方来源：NY DMV ID-44"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "enhanced-id",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "材料须为原件或签发机构认证副本",
+      "sourceUrls": [
+        "https://dmv.ny.gov/forms/id44.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV ID-44"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document"
       ],
       "uncoveredThemes": [],
@@ -1483,19 +1481,37 @@
       "stateId": "new-york",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "ID-44 材料表说明 REAL ID / Enhanced 通常要 2 份 New York State residency",
+      "context": "document",
+      "claim": "除官方特别说明外，过期文件不接受",
       "sourceUrls": [
+        "https://dmv.ny.gov/forms/id44.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV ID-44"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两份居住证明都必须显示当前纽约州地址，P.O. Box 不接受",
+      "sourceUrls": [
+        "https://dmv.ny.gov/forms/id44.pdf",
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
+        "对应官方来源：NY DMV ID-44",
         "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "enhanced-id",
-        "document",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -1506,14 +1522,14 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Standard 通常要 1 份",
+      "claim": "电子 statement 或 e-bill 要打印，且同一来源或同一类型只能使用一份",
       "sourceUrls": [
-        "https://dmv.ny.gov/more-info/dmv-document-guide"
+        "https://dmv.ny.gov/forms/id44.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Document Guide"
+        "对应官方来源：NY DMV ID-44"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -1522,72 +1538,17 @@
       "stateId": "new-york",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "document",
-      "claim": "Residence proof 要显示当前 New York State 地址，P.O. Box 不接受",
-      "sourceUrls": [
-        "https://dmv.ny.gov/more-info/dmv-document-guide"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Document Guide"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "同一来源或同一类型文件不要重复凑数",
-      "sourceUrls": [
-        "https://dmv.ny.gov/more-info/dmv-document-guide"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Document Guide"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "real-id",
-      "field": "documentHighlights",
       "context": "real-id",
-      "claim": "Enhanced License/ID 另有美国公民和纽约居民相关要求",
+      "claim": "用于 REAL ID 的 Social Security ineligibility letter 必须由 SSA 在办公室访问前 30 天内签发，并同时带向 SSA 出示过的 DHS 文件",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+        "https://dmv.ny.gov/forms/id44.pdf",
+        "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
+        "对应官方来源：NY DMV ID-44",
+        "对应官方来源：NY DMV Applying Without SSN or Ineligibility"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "enhanced-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "REAL ID 如果不能取得 SSN，要按 NY DMV 要求带 SSA 30 天内出具的不符合资格证明和相应 DHS 文件",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
@@ -1601,16 +1562,60 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "地址变化后，纽约 DMV 页面要求 10 天内更新 license、permit、non-driver ID 和车辆记录地址",
+      "claim": "身份证明姓名与当前法定姓名不同时，需用原件或认证副本串起每一次姓名变化",
       "sourceUrls": [
-        "https://dmv.ny.gov/more-info/dmv-document-guide"
+        "https://dmv.ny.gov/forms/id44.pdf",
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Document Guide"
+        "对应官方来源：NY DMV ID-44",
+        "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change"
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "非英文文件必须附 certified English translation",
+      "sourceUrls": [
+        "https://dmv.ny.gov/forms/id44.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV ID-44"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "先按用途判断：Standard 可用于驾驶和普通照片 ID，但不满足 REAL ID 联邦用途",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Enhanced or REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1620,16 +1625,34 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "先决定 Standard、REAL ID、Enhanced 哪一种适合你",
+      "claim": "REAL ID 解决联邦身份用途",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "Enhanced 另含限定的陆路或海路边境返美用途",
+      "sourceUrls": [
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV Enhanced or REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "enhanced-id"
       ],
       "uncoveredThemes": [],
@@ -1640,14 +1663,16 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "用纽约 DMV 的 pre-screening tool 或 Document Guide 核对材料",
+      "claim": "打开 NY DMV pre-screening，选择申请、升级或换证场景并生成个人材料清单",
       "sourceUrls": [
-        "https://dmv.ny.gov/more-info/dmv-document-guide"
+        "https://dmv.ny.gov/more-info/dmv-document-guide",
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Document Guide"
+        "对应官方来源：NY DMV Document Guide",
+        "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -1658,18 +1683,16 @@
       "stateId": "new-york",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "如果要换成 REAL ID 或 Enhanced，提前准备 full legal name、两份 New York State residency、SSN / SSA ineligibility 和 lawful status 相关证明",
+      "context": "document",
+      "claim": "按当前 ID-44 逐项核对 Social Security、citizenship 或 lawful status、两份 residency 和 6-point name proof",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+        "https://dmv.ny.gov/forms/id44.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
+        "对应官方来源：NY DMV ID-44"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "enhanced-id",
         "residency-proof",
         "ssn"
       ],
@@ -1680,19 +1703,57 @@
       "stateId": "new-york",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "license",
-      "claim": "地址变化时先在 10 天内完成地址更新，再做续期或补证",
+      "context": "document",
+      "claim": "逐份检查姓名链、当前地址、签发日期、原件或认证副本以及英文翻译",
+      "sourceUrls": [
+        "https://dmv.ny.gov/forms/id44.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV ID-44"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "按城市或 ZIP 查办公室，打开 View Details 确认该地点的服务和 reservation 规则",
+      "sourceUrls": [
+        "https://dmv.ny.gov/contact-us/office-locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：办公室与预约"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "到办公室提交文件并领取 temporary document",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "renewal",
-        "replacement"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1701,17 +1762,19 @@
       "stateId": "new-york",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "appointment",
-      "claim": "需要现场办理时，在办公室页面按 ZIP/城市查 View Details 和预约说明",
+      "context": "real-id",
+      "claim": "官方提示新 REAL ID 或 Enhanced 通常约 2 周寄到",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Permit Test"
+        "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "appointment"
+        "real-id",
+        "enhanced-id",
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1721,14 +1784,14 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "把 Enhanced ID 和 REAL ID 混为一谈",
+      "claim": "把 Enhanced 与 REAL ID 当作同一证件，或误以为 Enhanced 可替代加拿大、墨西哥和部分加勒比地区之间的航空旅行证件",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
         "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "enhanced-id"
@@ -1740,55 +1803,18 @@
       "stateId": "new-york",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "把 Enhanced 当作国际航空旅行护照替代品",
+      "context": "document",
+      "claim": "只带一份居住证明，或用 P.O. Box、同一金融机构的 bank statement 与 credit card statement 凑两份",
       "sourceUrls": [
+        "https://dmv.ny.gov/forms/id44.pdf",
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
+        "对应官方来源：NY DMV ID-44",
         "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "enhanced-id",
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "detail",
-      "claim": "官方页面说明它不适用于这些国家之间的空中旅行",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "用 P.O. Box 或两份同一来源账单当作 REAL ID / Enhanced 居住证明",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NY DMV Enhanced or REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "enhanced-id",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -1798,19 +1824,20 @@
       "stateId": "new-york",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "license",
-      "claim": "搬家后先续期或补证，却没有在 10 天内更新 DMV 地址",
+      "context": "document",
+      "claim": "姓名改过多次却只带最后一次改名文件",
       "sourceUrls": [
+        "https://dmv.ny.gov/forms/id44.pdf",
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
+        "对应官方来源：NY DMV ID-44",
         "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "renewal",
-        "replacement"
+        "document",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1819,19 +1846,44 @@
       "stateId": "new-york",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "appointment",
-      "claim": "去办公室前没有查看 View Details 或预约规则",
+      "context": "document",
+      "claim": "认为网上 pre-screening 或上传审核完成后就不用到办公室提交文件",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/prepare-for-and-take-your-permit-test"
+        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
       ],
       "sourceLabels": [
-        "对应官方来源：NY DMV Permit Test"
+        "对应官方来源：NY DMV Enhanced or REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "appointment"
+        "document",
+        "online-service"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "online-service"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "到办公室才发现非英文材料没有 certified English translation，或原件已经过期",
+      "sourceUrls": [
+        "https://dmv.ny.gov/forms/id44.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NY DMV ID-44"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
       "valid": true
     },
     {
