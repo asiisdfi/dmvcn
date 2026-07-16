@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:56:32.647Z",
+    "generatedAt": "2026-07-16T23:01:00.751Z",
     "pages": 100,
     "states": 50,
-    "claims": 1646,
-    "links": 1915,
-    "aiAssistedClaims": 293,
-    "aiAssistedPages": 10,
+    "claims": 1667,
+    "links": 1959,
+    "aiAssistedClaims": 363,
+    "aiAssistedPages": 12,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 703,
-        "links": 841,
+        "claims": 711,
+        "links": 856,
         "states": 50
       },
       "real-id": {
-        "claims": 943,
-        "links": 1074,
+        "claims": 956,
+        "links": 1103,
         "states": 50
       }
     }
@@ -5993,14 +5993,16 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "新泽西 MVC 的 REAL ID 页面先帮你判断是否真的需要升级",
+      "claim": "新泽西同时签发 Standard driver license / non-driver ID 和带右上角星标的 REAL ID",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
+        "https://www.nj.gov/mvc/realid/",
+        "https://www.nj.gov/mvc/realid/faq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
+        "对应官方来源：NJ MVC REAL ID",
+        "对应官方来源：NJ MVC REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -6011,53 +6013,17 @@
       "stateId": "new-jersey",
       "surface": "overview",
       "field": "summary",
-      "context": "document",
-      "claim": "材料准备则看 Document Selector 的 2 + 1 + 6 逻辑",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/selector.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID Document Selector"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "overview",
-      "field": "summary",
-      "context": "real-id",
-      "claim": "Standard 驾照可继续用于驾驶，但不满足国内航班等 REAL ID 联邦用途",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "overview",
-      "field": "licenseSummary",
       "context": "license",
-      "claim": "Standard New Jersey driver license 仍可用于驾驶",
+      "claim": "Standard driver license 仍可驾驶，Standard license / ID 也可作一般身份证明",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm"
+        "https://www.nj.gov/mvc/realid/",
+        "https://www.nj.gov/mvc/realid/faq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID"
+        "对应官方来源：NJ MVC REAL ID",
+        "对应官方来源：NJ MVC REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -6065,54 +6031,18 @@
     {
       "stateId": "new-jersey",
       "surface": "overview",
-      "field": "licenseSummary",
-      "context": "license",
-      "claim": "外州搬入通常要在 60 天内转入 license 和车辆 title/registration",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "transfer"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "license",
-      "claim": "州内搬家后地址变更一般按 7 天要求处理",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "overview",
-      "field": "realIdSummary",
+      "field": "summary",
       "context": "real-id",
-      "claim": "新泽西 REAL ID 不是人人必须办",
+      "claim": "国内航班安检和部分联邦设施则要使用 REAL ID 或其他联邦接受证件",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
+        "https://www.nj.gov/mvc/realid/",
+        "https://www.nj.gov/mvc/realid/faq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
+        "对应官方来源：NJ MVC REAL ID",
+        "对应官方来源：NJ MVC REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -6122,82 +6052,19 @@
     {
       "stateId": "new-jersey",
       "surface": "overview",
-      "field": "realIdSummary",
-      "context": "license",
-      "claim": "MVC 明确说明，如果你通常用驾照或 non-driver ID 乘坐美国国内航班，而没有护照或其他联邦接受证件，就应该考虑升级",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "REAL ID 在 Licensing Centers 预约办理",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/",
-        "https://www.nj.gov/mvc/license/6pointid.htm"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID",
-        "对应官方来源：NJ MVC 6 Points of ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "Appointment Wizard 里 REAL ID 类别注明：如果你未来 3 个月内符合续期资格，应选 Renewal Appointment，而不是普通 REAL ID appointment",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/",
-        "https://www.nj.gov/mvc/license/licrenew.htm"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID",
-        "对应官方来源：NJ MVC License Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "renewal",
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "overview",
-      "field": "editorNotes",
+      "field": "licenseSummary",
       "context": "document",
-      "claim": "材料清单用 MVC 自己的 2 proofs of address + 1 full SSN proof + 6 Points of ID 结构，比泛泛写身份证明更可靠",
+      "claim": "Standard license / ID 通常要 6 Points of ID、一份 New Jersey residential address 证明，以及 SSN、ITIN 或无资格号码 affidavit",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm"
+        "https://www.nj.gov/mvc/license/6pointid.htm",
+        "https://www.nj.gov/mvc/pdf/license/affidavit.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID"
+        "对应官方来源：NJ MVC 6 Points of ID",
+        "对应官方来源：NJ MVC Affidavit of No SSN or ITIN"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -6206,41 +6073,64 @@
     {
       "stateId": "new-jersey",
       "surface": "overview",
-      "field": "editorNotes",
-      "context": "detail",
-      "claim": "地址变更不是“可线上”，而是 MVC 页面写明必须在线完成",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/",
-        "https://www.nj.gov/mvc/license/licrenew.htm"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID",
-        "对应官方来源：NJ MVC License Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "license",
-      "claim": "NJ MVC 官方邮件页提示搬家后 7 天内改地址，需要新地址实体卡时再处理 replacement",
+      "field": "licenseSummary",
+      "context": "document",
+      "claim": "非英文文件要附 certified translation",
       "sourceUrls": [
         "https://www.nj.gov/mvc/license/6pointid.htm"
       ],
       "sourceLabels": [
         "对应官方来源：NJ MVC 6 Points of ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "replacement",
-        "processing-or-mail"
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "搬入新泽西后要在 60 天内或现有 license / registration 到期前完成转入，以较早者为准",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/drivertopics/movetonj.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC Moving To New Jersey"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "transfer"
+      ],
+      "uncoveredThemes": [
+        "renewal"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "新泽西 REAL ID 不是强制办理",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/",
+        "https://www.nj.gov/mvc/realid/faq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID",
+        "对应官方来源：NJ MVC REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -6248,23 +6138,137 @@
     {
       "stateId": "new-jersey",
       "surface": "overview",
-      "field": "editorNotes",
-      "context": "license",
-      "claim": "NJ MVC license renewal 页面说明多数人可 online renewal，甚至 renewal form 要求到 agency 的情况也多半仍可线上续",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "已有有效护照或其他联邦检查点接受证件的人可以继续使用 Standard 证件",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm",
-        "https://www.nj.gov/mvc/online-services.html"
+        "https://www.nj.gov/mvc/realid/",
+        "https://www.nj.gov/mvc/realid/faq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID",
-        "对应官方来源：NJ MVC Online Services"
+        "对应官方来源：NJ MVC REAL ID",
+        "对应官方来源：NJ MVC REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "online-service"
+        "document"
       ],
       "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "需要用州证件乘坐国内航班的人，再按 2 份地址证明 + 1 个可核验完整 SSN + 6 个 REAL ID identity points 准备",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/faq.html",
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID FAQ",
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "real-id",
+      "claim": "首次 REAL ID 要在 Licensing Center 预约办理",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/",
+        "https://www.nj.gov/mvc/realid/faq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID",
+        "对应官方来源：NJ MVC REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "appointment"
+      ],
+      "uncoveredThemes": [
+        "appointment"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "当前 Appointment Wizard 要求未来 3 个月内符合续期资格的人选择 Renewal: License or Non-Driver ID",
+      "sourceUrls": [
+        "https://telegov.njportal.com/njmvc/AppointmentWizard"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC Appointment Wizard"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "appointment"
+      ],
+      "uncoveredThemes": [
+        "renewal"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "real-id",
+      "claim": "尚未进入续期窗口的人才选择 REAL ID",
+      "sourceUrls": [
+        "https://telegov.njportal.com/njmvc/AppointmentWizard"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC Appointment Wizard"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "renewal"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "license",
+      "claim": "外州或外国驾照转入则选择 Transfer From Out of State",
+      "sourceUrls": [
+        "https://telegov.njportal.com/njmvc/AppointmentWizard",
+        "https://www.nj.gov/mvc/drivertopics/movetonj.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC Appointment Wizard",
+        "对应官方来源：NJ MVC Moving To New Jersey"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
       "valid": true
     },
     {
@@ -6272,16 +6276,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "REAL ID 则在 Licensing Centers by appointment",
+      "claim": "首次 REAL ID 必须现场预约取得",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/",
-        "https://www.nj.gov/mvc/license/6pointid.htm"
+        "https://www.nj.gov/mvc/realid/faq.html",
+        "https://telegov.njportal.com/njmvc/AppointmentWizard"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID",
-        "对应官方来源：NJ MVC 6 Points of ID"
+        "对应官方来源：NJ MVC REAL ID FAQ",
+        "对应官方来源：NJ MVC Appointment Wizard"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "appointment"
@@ -6293,38 +6297,20 @@
       "stateId": "new-jersey",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "license",
-      "claim": "NJ MVC license renewal 页面说明 Same-Day Online Renewal 立即生效，可打印收据随身带着",
+      "context": "real-id",
+      "claim": "已经签发过 REAL ID 后，符合条件时才可在线或邮寄续期",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm",
+        "https://www.nj.gov/mvc/realid/faq.html",
         "https://www.nj.gov/mvc/online-services.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID",
+        "对应官方来源：NJ MVC REAL ID FAQ",
         "对应官方来源：NJ MVC Online Services"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "real-id",
         "renewal",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "detail",
-      "claim": "新证件通常 2-4 weeks 邮寄到达",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
         "processing-or-mail"
       ],
       "uncoveredThemes": [],
@@ -6334,19 +6320,17 @@
       "stateId": "new-jersey",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "license",
-      "claim": "NJ MVC renewal 页面列出 standard license agency 续期 $24，可用 credit/debit card、cash、check 或 money order",
+      "context": "real-id",
+      "claim": "NJMVC 当前列出的 Standard NJ license / ID 费用为 $24，REAL ID 为 $35",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm",
-        "https://www.nj.gov/mvc/license/licrenew.htm"
+        "https://www.nj.gov/mvc/realid/faq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID",
-        "对应官方来源：NJ MVC License Renewal"
+        "对应官方来源：NJ MVC REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
+        "real-id",
         "fee"
       ],
       "uncoveredThemes": [],
@@ -6357,14 +6341,95 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "因 2020 security change，续期或补证在 agency 办也会邮寄",
+      "claim": "Same-Day Online Renewal 会立即续期并提供可打印收据，实体卡通常 2 至 4 周寄到",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm"
+        "https://www.nj.gov/mvc/license/licrenew.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID"
+        "对应官方来源：NJ MVC License Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "即使 renewal form 写着到 agency，多数申请人仍可能符合 online renewal",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/licrenew.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "CDL 或 visa 即将到期者要到 Licensing Center 现场办理",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/licrenew.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "驾照过期超过 3 年不能直接续期，要按 first-time driver 重新开始",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/licrenew.htm",
+        "https://www.nj.gov/mvc/license/firstlic.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC License Renewal",
+        "对应官方来源：NJ MVC First Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "无论续期或补证是否在 agency 办理，NJMVC 都不再现场打印 license / ID，证件会邮寄",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/licrenew.htm",
+        "https://www.nj.gov/mvc/license/liclost.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC License Renewal",
+        "对应官方来源：NJ MVC Duplicate License"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "replacement",
@@ -6378,16 +6443,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "NJ MVC duplicate 页面说明 Licenses/IDs no longer printed in person",
+      "claim": "搬家后一周内要向 MVC 报告地址变化",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/liclost.htm"
+        "https://www.nj.gov/mvc/about/addchange.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC Duplicate License"
+        "对应官方来源：NJ MVC Address Change Details"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "replacement"
+        "address-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -6396,19 +6461,22 @@
       "stateId": "new-jersey",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "license",
-      "claim": "补证或续期都要预留邮寄时间",
+      "context": "detail",
+      "claim": "online address change 会生成即时确认，显示新地址的 duplicate license 为 $11，duplicate registration 为 $5",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm"
+        "https://www.nj.gov/mvc/drivertopics/addchange.htm",
+        "https://www.nj.gov/mvc/about/addchange.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID"
+        "对应官方来源：NJ MVC Change of Address",
+        "对应官方来源：NJ MVC Address Change Details"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
+        "address-change",
         "replacement",
-        "processing-or-mail"
+        "online-service",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -6417,15 +6485,35 @@
       "stateId": "new-jersey",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "license",
-      "claim": "NJ MVC First Driver License 和 Testing and Preparation 页面说明首次驾照要走 GDL 路径",
+      "context": "appointment",
+      "claim": "首次驾照先预约购买 initial permit，并要在 permit 签发后 2 年内完成 knowledge、vision、practice、road test 和 probationary license 步骤",
       "sourceUrls": [
         "https://www.nj.gov/mvc/license/firstlic.htm"
       ],
       "sourceLabels": [
         "对应官方来源：NJ MVC First Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Knowledge test 未通过可在 7 天后重考",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/firstlic.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC First Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test"
       ],
@@ -6437,15 +6525,71 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "road test 通常在 knowledge 和 vision test 通过后进行",
+      "claim": "通过后 permit 才会验证并进入练车阶段",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/knowledgetest.htm"
+        "https://www.nj.gov/mvc/license/firstlic.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC Knowledge Test"
+        "对应官方来源：NJ MVC First Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "21 岁以下通常要监督驾驶 6 个月并累计至少 50 小时，其中 10 小时在黑暗时段",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/firstlic.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC First Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "21 岁以上通常监督驾驶 3 个月",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/firstlic.htm",
+        "https://www.nj.gov/mvc/license/roadtest.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC First Driver License",
+        "对应官方来源：NJ MVC Basic Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "Road test 要在 knowledge 和 vision test 通过并完成适用练车期后预约",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/firstlic.htm",
+        "https://www.nj.gov/mvc/license/roadtest.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC First Driver License",
+        "对应官方来源：NJ MVC Basic Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "appointment",
         "test"
       ],
       "uncoveredThemes": [],
@@ -6456,14 +6600,31 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "NJ MVC Knowledge Test 页面列出 Chinese (Mandarin) 等书面考试语言",
+      "claim": "未通过至少等待 14 天才能重考",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/roadtest.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC Basic Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "普通 written knowledge test 提供 Chinese (Mandarin) 等 13 种语言",
       "sourceUrls": [
         "https://www.nj.gov/mvc/license/knowledgetest.htm"
       ],
       "sourceLabels": [
         "对应官方来源：NJ MVC Knowledge Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test",
         "language"
@@ -6476,16 +6637,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "appointment",
-      "claim": "如果没有母语版本，可在 permit appointment 请求 MVC 安排州合约 interpreter，通常 4-6 周",
+      "claim": "没有对应母语版本时，可在 permit appointment 请求 MVC 安排州合约 interpreter，通常等待 4 至 6 周",
       "sourceUrls": [
-        "https://telegov.njportal.com/njmvc/AppointmentWizard",
-        "https://www.nj.gov/mvc/license/firstlic.htm"
+        "https://www.nj.gov/mvc/license/knowledgetest.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC Appointment Wizard",
-        "对应官方来源：NJ MVC First Driver License"
+        "对应官方来源：NJ MVC Knowledge Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment",
         "language"
@@ -6497,20 +6656,38 @@
       "stateId": "new-jersey",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "appointment",
-      "claim": "NJ MVC Moving To New Jersey 页面说明外州 transfer 要预约 Licensing Center，符合条件的有效 non-provisional out-of-state license 可免 knowledge / road tests，但 Hazmat written test 例外",
+      "context": "detail",
+      "claim": "搬入新泽西的有效外州 non-provisional license 持有人通常免 knowledge 和 road tests，但 Hazmat endorsement 仍要 written test",
       "sourceUrls": [
-        "https://telegov.njportal.com/njmvc/AppointmentWizard",
-        "https://www.nj.gov/mvc/license/knowledgetest.htm"
+        "https://www.nj.gov/mvc/drivertopics/movetonj.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC Appointment Wizard",
-        "对应官方来源：NJ MVC Knowledge Test"
+        "对应官方来源：NJ MVC Moving To New Jersey"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "appointment",
         "test"
+      ],
+      "uncoveredThemes": [
+        "test"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "完成转入后要交回外州驾照",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/drivertopics/movetonj.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC Moving To New Jersey"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -6520,35 +6697,41 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "完成后需 surrender out-of-state license",
+      "claim": "外州 auto、motorcycle 或 CDL transfer permit 当前为 $10，auto license 加 motorcycle endorsement 另加 $5",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
+        "https://www.nj.gov/mvc/drivertopics/movetonj.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
+        "对应官方来源：NJ MVC Moving To New Jersey"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
       "valid": true
     },
     {
       "stateId": "new-jersey",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "license",
-      "claim": "NJ MVC Moving To New Jersey 页面说明美国访客可持 foreign license 加本国签发的 International Driving Permit 驾驶最多 1 年",
+      "context": "detail",
+      "claim": "美国访客只有在 foreign license 同时配有居住国签发的 International Driving Permit 时，才可按 MVC 页面所述驾驶最多 1 年",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/firstlic.htm"
+        "https://www.nj.gov/mvc/drivertopics/movetonj.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC First Driver License"
+        "对应官方来源：NJ MVC Moving To New Jersey"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "foreign-license"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
       "valid": true
     },
     {
@@ -6556,19 +6739,28 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "document",
-      "claim": "台湾和韩国与 NJ 有互惠，符合文件条件时可免 knowledge 和 road tests",
+      "claim": "台湾和韩国与新泽西有 Class D 互惠路径，适用于 18 岁以上并满足驾照翻译、身份、NJ residency、SSN 和至少 12 个月 lawful presence 等文件条件的人",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/selector.html"
+        "https://www.nj.gov/mvc/drivertopics/movetonj.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID Document Selector"
+        "对应官方来源：NJ MVC Moving To New Jersey"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "test"
+        "residency-proof",
+        "ssn",
+        "lawful-presence",
+        "language"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document",
+        "residency-proof",
+        "ssn",
+        "lawful-presence",
+        "language"
+      ],
       "valid": true
     },
     {
@@ -6576,14 +6768,16 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "新泽西 REAL ID 不是人人必须办",
+      "claim": "新泽西 REAL ID 不是强制办理",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
+        "https://www.nj.gov/mvc/realid/",
+        "https://www.nj.gov/mvc/realid/faq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
+        "对应官方来源：NJ MVC REAL ID",
+        "对应官方来源：NJ MVC REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -6594,15 +6788,102 @@
       "stateId": "new-jersey",
       "surface": "real-id",
       "field": "realIdSummary",
-      "context": "license",
-      "claim": "MVC 明确说明，如果你通常用驾照或 non-driver ID 乘坐美国国内航班，而没有护照或其他联邦接受证件，就应该考虑升级",
+      "context": "real-id",
+      "claim": "已有有效护照或其他联邦检查点接受证件的人可以继续使用 Standard 证件",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm"
+        "https://www.nj.gov/mvc/realid/",
+        "https://www.nj.gov/mvc/realid/faq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID"
+        "对应官方来源：NJ MVC REAL ID",
+        "对应官方来源：NJ MVC REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "需要用州证件乘坐国内航班的人，再按 2 份地址证明 + 1 个可核验完整 SSN + 6 个 REAL ID identity points 准备",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/faq.html",
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID FAQ",
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 使用 2 + 1 + 6：两份 NJ residential address 证明、一个可核验的完整 SSN、以及 primary / secondary 合计 6 个 REAL ID identity points",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/faq.html",
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID FAQ",
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "地址证明可用官方清单列出的 electronic 或 paper 版本，但 identity 的 6 Points 要用 paper 或 hard copy",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/6pointid.htm",
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC 6 Points of ID",
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "不同地址文件有 6 个月、1 年或 2 年等时效，必须按 Document Selector 对所选文件逐项核对",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -6613,15 +6894,222 @@
       "stateId": "new-jersey",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "REAL ID 材料核心是 2 份新泽西居住地址证明、1 份完整 SSN 证明、以及 primary/secondary 合计 6 points",
+      "context": "document",
+      "claim": "完整 SSN 可以由 MVC 电子核验",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
+        "https://www.nj.gov/mvc/realid/selector.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
+        "对应官方来源：NJ MVC REAL ID Document Selector"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "如果核验失败，要提交显示 full name 和完整 SSN 的 Social Security card、近期 W-2、pay stub 或 1099 等清单文件",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "Primary 只能选择一份，secondary 中最多使用两份 1-point 文件，且 REAL ID point values 不等同于 Standard ID",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/selector.html",
+        "https://www.nj.gov/mvc/realid/faq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Document Selector",
+        "对应官方来源：NJ MVC REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Identity 文件要是未覆膜原件或带州、市政印章的认证副本并使用英文",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "非英文文件要附 certified translation",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/6pointid.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC 6 Points of ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Primary document 要显示 full legal name，secondary 文件不能与其冲突",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/name-matches.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Name Matches"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "现有 MVC、SSN 和 primary document 姓名不匹配时，可能需要认证婚姻、离婚或法院文件连接姓名",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/name-matches.html",
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Name Matches",
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "Standard license / ID 与 REAL ID 不同：通常只要一份 residency，号码栏可用 SSN、ITIN 或 affidavit，身份 points 也要按 Standard 清单计算",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/6pointid.htm",
+        "https://www.nj.gov/mvc/pdf/license/affidavit.pdf",
+        "https://www.nj.gov/mvc/realid/faq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC 6 Points of ID",
+        "对应官方来源：NJ MVC Affidavit of No SSN or ITIN",
+        "对应官方来源：NJ MVC REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "申请或续办 permit、driver license 或 non-driver ID 还要完成 BA-208 表",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/6pointid.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC 6 Points of ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "先检查现有 NJ license / ID 右上角是否有星标，并判断是否已有有效护照或其他联邦接受证件",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/",
+        "https://www.nj.gov/mvc/realid/faq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID",
+        "对应官方来源：NJ MVC REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "需要 REAL ID 时运行 Document Selector，选齐两份 residency、一个 full SSN 路径和 6 个 REAL ID points，并打印最终清单",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
@@ -6634,117 +7122,21 @@
     {
       "stateId": "new-jersey",
       "surface": "real-id",
-      "field": "documentHighlights",
+      "field": "recommendedSteps",
       "context": "document",
-      "claim": "Document Selector 只允许从 Primary 中选一份，secondary 中 1-point 文件也有限制",
+      "claim": "打开 Name Matches 页面，逐项比较 primary、SSN、secondary 和 MVC 记录中的姓名，补齐适用的认证姓名变更文件",
       "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/name-matches.html",
         "https://www.nj.gov/mvc/realid/selector.html"
       ],
       "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Name Matches",
         "对应官方来源：NJ MVC REAL ID Document Selector"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "所有身份文件通常要是原件或带州/市政印章的认证副本",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/selector.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID Document Selector"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "英文以外文件要配 certified translation",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/selector.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID Document Selector"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "language"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Standard license / ID 材料页允许 SSN、ITIN 或 affidavit 满足对应号码栏",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "REAL ID 则按 REAL ID 材料清单核对 full SSN proof",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "姓名不一致时，可能需要婚姻、离婚、法院命令等文件把姓名变化链条连起来",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/selector.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID Document Selector"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
+        "ssn",
         "name-change"
       ],
       "uncoveredThemes": [],
@@ -6753,76 +7145,18 @@
     {
       "stateId": "new-jersey",
       "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "license",
-      "claim": "外州搬入新泽西时，先看 Moving To New Jersey 的 60 天转入要求",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "transfer"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "先用 MVC REAL ID 页面判断你是否已有星标、护照或其他可替代证件",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "决定升级后，用 Document Selector 选出 2 + 1 + 6 的材料组合并打印或保存清单",
-      "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/selector.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID Document Selector"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-jersey",
-      "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "如果地址变了，按 7 天规则先完成 online address change",
+      "claim": "地址变化时先在一周内完成 online address change并保存确认",
       "sourceUrls": [
         "https://www.nj.gov/mvc/drivertopics/addchange.htm",
-        "https://www.nj.gov/mvc/license/licrenew.htm"
+        "https://www.nj.gov/mvc/about/addchange.htm"
       ],
       "sourceLabels": [
         "对应官方来源：NJ MVC Change of Address",
-        "对应官方来源：NJ MVC License Renewal"
+        "对应官方来源：NJ MVC Address Change Details"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "address-change",
         "online-service"
@@ -6835,16 +7169,19 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "如果刚搬入新泽西，先看 60 天 transfer 要求",
+      "claim": "需要显示新地址的实体卡时再订购 duplicate",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/selector.html"
+        "https://www.nj.gov/mvc/drivertopics/addchange.htm",
+        "https://www.nj.gov/mvc/about/addchange.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID Document Selector"
+        "对应官方来源：NJ MVC Change of Address",
+        "对应官方来源：NJ MVC Address Change Details"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "transfer"
+        "replacement",
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -6854,20 +7191,92 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "预约时按 Appointment Wizard 的服务类型说明选择 Renewal、REAL ID、Non-Driver ID 或 Transfer 等类别",
+      "claim": "按当前状态选择预约：续期窗口内选 Renewal，窗口外升级选 REAL ID，外州或外国驾照转入选 Transfer From Out of State",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/",
-        "https://www.nj.gov/mvc/license/licrenew.htm"
+        "https://telegov.njportal.com/njmvc/AppointmentWizard",
+        "https://www.nj.gov/mvc/drivertopics/movetonj.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID",
-        "对应官方来源：NJ MVC License Renewal"
+        "对应官方来源：NJ MVC Appointment Wizard",
+        "对应官方来源：NJ MVC Moving To New Jersey"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal",
-        "appointment"
+        "appointment",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "renewal",
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "到 Licensing Center 带齐合规 identity hard copies、地址证明、SSN 路径、BA-208 和付款方式，完成拍照及文件核验",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/selector.html",
+        "https://www.nj.gov/mvc/license/6pointid.htm",
+        "https://www.nj.gov/mvc/license/licrenew.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Document Selector",
+        "对应官方来源：NJ MVC 6 Points of ID",
+        "对应官方来源：NJ MVC License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "首次 REAL ID 当前费用为 $35",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/faq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "现场不会打印正式卡，应按邮寄交付安排后续出行",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/license/licrenew.htm",
+        "https://www.nj.gov/mvc/license/liclost.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC License Renewal",
+        "对应官方来源：NJ MVC Duplicate License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -6876,17 +7285,18 @@
       "stateId": "new-jersey",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "只凑够 6 points，却忘了 REAL ID 还要 2 份地址证明和 1 份完整 SSN 证明",
+      "context": "document",
+      "claim": "只凑够 6 points，却漏掉两份地址证明或一个可核验的完整 SSN",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/"
+        "https://www.nj.gov/mvc/realid/faq.html",
+        "https://www.nj.gov/mvc/realid/selector.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID"
+        "对应官方来源：NJ MVC REAL ID FAQ",
+        "对应官方来源：NJ MVC REAL ID Document Selector"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "residency-proof",
         "ssn"
       ],
@@ -6897,15 +7307,36 @@
       "stateId": "new-jersey",
       "surface": "real-id",
       "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "沿用 Standard point values 计算 REAL ID，或选择超过一份 Primary、超过两份 1-point secondary",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/faq.html",
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID FAQ",
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "commonMistakes",
       "context": "document",
-      "claim": "拿普通复印件或不合规的出生/婚姻文件去现场",
+      "claim": "把手机照片、扫描件或普通复印件当成 identity 文件，或者拿覆膜、缺少签发印章的文件",
       "sourceUrls": [
         "https://www.nj.gov/mvc/realid/selector.html"
       ],
       "sourceLabels": [
         "对应官方来源：NJ MVC REAL ID Document Selector"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -6916,23 +7347,83 @@
       "stateId": "new-jersey",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "本来应选 Renewal Appointment，却在预约系统里选了 REAL ID 类别",
+      "context": "document",
+      "claim": "把 NJ driver license 和 NJ vehicle registration 同时当作两份地址证明",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/realid/",
-        "https://www.nj.gov/mvc/license/licrenew.htm"
+        "https://www.nj.gov/mvc/realid/selector.html"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC REAL ID",
-        "对应官方来源：NJ MVC License Renewal"
+        "对应官方来源：NJ MVC REAL ID Document Selector"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "Document Selector 明确不允许两者组合使用",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/selector.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Document Selector"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "primary、SSN 与 MVC 记录姓名冲突，却只带一张无法连接完整姓名变化的 marriage certificate",
+      "sourceUrls": [
+        "https://www.nj.gov/mvc/realid/name-matches.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC REAL ID Name Matches"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-jersey",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "未来 3 个月内已符合续期资格，却选择普通 REAL ID appointment 而不是 Renewal appointment",
+      "sourceUrls": [
+        "https://telegov.njportal.com/njmvc/AppointmentWizard"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NJ MVC Appointment Wizard"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal",
         "appointment"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "real-id",
+        "renewal"
+      ],
       "valid": true
     },
     {
@@ -6940,23 +7431,19 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "license",
-      "claim": "搬家后直接补证或续期，没有先完成 online address change",
+      "claim": "地址已经变化，却在续期前没有先完成 address change",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/license/6pointid.htm",
-        "https://www.nj.gov/mvc/drivertopics/addchange.htm",
-        "https://www.nj.gov/mvc/online-services.html"
+        "https://www.nj.gov/mvc/license/licrenew.htm",
+        "https://www.nj.gov/mvc/drivertopics/addchange.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC 6 Points of ID",
-        "对应官方来源：NJ MVC Change of Address",
-        "对应官方来源：NJ MVC Online Services"
+        "对应官方来源：NJ MVC License Renewal",
+        "对应官方来源：NJ MVC Change of Address"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "address-change",
-        "renewal",
-        "replacement",
-        "online-service"
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -6965,16 +7452,19 @@
       "stateId": "new-jersey",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "detail",
-      "claim": "外州搬入超过 60 天还没处理 New Jersey license 或 vehicle title / registration transfer",
+      "context": "appointment",
+      "claim": "外州搬入超过 60 天或等到现有证件先到期，仍未预约 Transfer From Out of State",
       "sourceUrls": [
-        "https://www.nj.gov/mvc/drivertopics/movetonj.htm"
+        "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
+        "https://telegov.njportal.com/njmvc/AppointmentWizard"
       ],
       "sourceLabels": [
-        "对应官方来源：NJ MVC Moving To New Jersey"
+        "对应官方来源：NJ MVC Moving To New Jersey",
+        "对应官方来源：NJ MVC Appointment Wizard"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "appointment",
         "transfer"
       ],
       "uncoveredThemes": [],

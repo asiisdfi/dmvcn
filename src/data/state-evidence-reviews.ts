@@ -157,6 +157,25 @@ const WA_OFFICES =
 const WA_ADDRESS =
   'https://dol.wa.gov/driver-licenses-and-permits/update-driver-license-information/change-your-name-or-address-your-driver-license';
 
+const NJ_REAL_ID = 'https://www.nj.gov/mvc/realid/';
+const NJ_REAL_ID_FAQ = 'https://www.nj.gov/mvc/realid/faq.html';
+const NJ_SELECTOR = 'https://www.nj.gov/mvc/realid/selector.html';
+const NJ_NAME_MATCHES = 'https://www.nj.gov/mvc/realid/name-matches.html';
+const NJ_SIX_POINTS = 'https://www.nj.gov/mvc/license/6pointid.htm';
+const NJ_AFFIDAVIT = 'https://www.nj.gov/mvc/pdf/license/affidavit.pdf';
+const NJ_ONLINE = 'https://www.nj.gov/mvc/online-services.html';
+const NJ_RENEW = 'https://www.nj.gov/mvc/license/licrenew.htm';
+const NJ_DUPLICATE = 'https://www.nj.gov/mvc/license/liclost.htm';
+const NJ_ADDRESS = 'https://www.nj.gov/mvc/drivertopics/addchange.htm';
+const NJ_ADDRESS_DETAILS = 'https://www.nj.gov/mvc/about/addchange.htm';
+const NJ_MOVING = 'https://www.nj.gov/mvc/drivertopics/movetonj.htm';
+const NJ_APPOINTMENT =
+  'https://telegov.njportal.com/njmvc/AppointmentWizard';
+const NJ_FIRST_LICENSE = 'https://www.nj.gov/mvc/license/firstlic.htm';
+const NJ_KNOWLEDGE = 'https://www.nj.gov/mvc/license/knowledgetest.htm';
+const NJ_MANUALS = 'https://www.nj.gov/mvc/about/manuals.htm';
+const NJ_ROAD_TEST = 'https://www.nj.gov/mvc/license/roadtest.htm';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -1116,6 +1135,245 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '把 temporary EDL 用于边境通行，或把正式 EDL 当作国际航班旅行证件': [
         WA_GET_EDL,
         WA_EDL_GUIDE,
+      ],
+    },
+  },
+  'new-jersey': {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      NJ_REAL_ID,
+      NJ_REAL_ID_FAQ,
+      NJ_SELECTOR,
+      NJ_NAME_MATCHES,
+      NJ_SIX_POINTS,
+      NJ_AFFIDAVIT,
+      NJ_ONLINE,
+      NJ_RENEW,
+      NJ_DUPLICATE,
+      NJ_ADDRESS,
+      NJ_ADDRESS_DETAILS,
+      NJ_MOVING,
+      NJ_APPOINTMENT,
+      NJ_FIRST_LICENSE,
+      NJ_KNOWLEDGE,
+      NJ_MANUALS,
+      NJ_ROAD_TEST,
+    ],
+    scope:
+      '逐条打开并比对 NJMVC 的 REAL ID、2 + 1 + 6 selector、姓名匹配、Standard 6 Points、线上服务、续期补证、地址、预约、首次驾照、考试语言、路考、新居民和外国驾照互惠正文。',
+    notes:
+      '重写 New Jersey 总览与 REAL ID 页面，分开 Standard 与 REAL ID 的 point 和 residency 规则，补充当前 GDL 练车要求、预约类别、邮寄、地址及台湾/韩国互惠边界，并将所有高风险声明改为显式来源；仍待真实人工签字。',
+    claims: {
+      '新泽西同时签发 Standard driver license / non-driver ID 和带右上角星标的 REAL ID': [
+        NJ_REAL_ID,
+        NJ_REAL_ID_FAQ,
+      ],
+      'Standard driver license 仍可驾驶，Standard license / ID 也可作一般身份证明': [
+        NJ_REAL_ID,
+        NJ_REAL_ID_FAQ,
+      ],
+      '国内航班安检和部分联邦设施则要使用 REAL ID 或其他联邦接受证件': [
+        NJ_REAL_ID,
+        NJ_REAL_ID_FAQ,
+      ],
+      'Standard license / ID 通常要 6 Points of ID、一份 New Jersey residential address 证明，以及 SSN、ITIN 或无资格号码 affidavit': [
+        NJ_SIX_POINTS,
+        NJ_AFFIDAVIT,
+      ],
+      '非英文文件要附 certified translation': [NJ_SIX_POINTS],
+      '搬入新泽西后要在 60 天内或现有 license / registration 到期前完成转入，以较早者为准': [
+        NJ_MOVING,
+      ],
+      '新泽西 REAL ID 不是强制办理': [NJ_REAL_ID, NJ_REAL_ID_FAQ],
+      '已有有效护照或其他联邦检查点接受证件的人可以继续使用 Standard 证件': [
+        NJ_REAL_ID,
+        NJ_REAL_ID_FAQ,
+      ],
+      '需要用州证件乘坐国内航班的人，再按 2 份地址证明 + 1 个可核验完整 SSN + 6 个 REAL ID identity points 准备': [
+        NJ_REAL_ID_FAQ,
+        NJ_SELECTOR,
+      ],
+      '首次 REAL ID 要在 Licensing Center 预约办理': [
+        NJ_REAL_ID,
+        NJ_REAL_ID_FAQ,
+      ],
+      '当前 Appointment Wizard 要求未来 3 个月内符合续期资格的人选择 Renewal: License or Non-Driver ID': [
+        NJ_APPOINTMENT,
+      ],
+      '尚未进入续期窗口的人才选择 REAL ID': [NJ_APPOINTMENT],
+      '外州或外国驾照转入则选择 Transfer From Out of State': [
+        NJ_APPOINTMENT,
+        NJ_MOVING,
+      ],
+      '首次 REAL ID 必须现场预约取得': [
+        NJ_REAL_ID_FAQ,
+        NJ_APPOINTMENT,
+      ],
+      '已经签发过 REAL ID 后，符合条件时才可在线或邮寄续期': [
+        NJ_REAL_ID_FAQ,
+        NJ_ONLINE,
+      ],
+      'NJMVC 当前列出的 Standard NJ license / ID 费用为 $24，REAL ID 为 $35': [
+        NJ_REAL_ID_FAQ,
+      ],
+      'Same-Day Online Renewal 会立即续期并提供可打印收据，实体卡通常 2 至 4 周寄到': [
+        NJ_RENEW,
+      ],
+      '即使 renewal form 写着到 agency，多数申请人仍可能符合 online renewal': [
+        NJ_RENEW,
+      ],
+      'CDL 或 visa 即将到期者要到 Licensing Center 现场办理': [
+        NJ_RENEW,
+      ],
+      '驾照过期超过 3 年不能直接续期，要按 first-time driver 重新开始': [
+        NJ_RENEW,
+        NJ_FIRST_LICENSE,
+      ],
+      '无论续期或补证是否在 agency 办理，NJMVC 都不再现场打印 license / ID，证件会邮寄': [
+        NJ_RENEW,
+        NJ_DUPLICATE,
+      ],
+      '搬家后一周内要向 MVC 报告地址变化': [NJ_ADDRESS_DETAILS],
+      'online address change 会生成即时确认，显示新地址的 duplicate license 为 $11，duplicate registration 为 $5': [
+        NJ_ADDRESS,
+        NJ_ADDRESS_DETAILS,
+      ],
+      '首次驾照先预约购买 initial permit，并要在 permit 签发后 2 年内完成 knowledge、vision、practice、road test 和 probationary license 步骤': [
+        NJ_FIRST_LICENSE,
+      ],
+      'Knowledge test 未通过可在 7 天后重考': [NJ_FIRST_LICENSE],
+      '通过后 permit 才会验证并进入练车阶段': [NJ_FIRST_LICENSE],
+      '21 岁以下通常要监督驾驶 6 个月并累计至少 50 小时，其中 10 小时在黑暗时段': [
+        NJ_FIRST_LICENSE,
+      ],
+      '21 岁以上通常监督驾驶 3 个月': [
+        NJ_FIRST_LICENSE,
+        NJ_ROAD_TEST,
+      ],
+      'Road test 要在 knowledge 和 vision test 通过并完成适用练车期后预约': [
+        NJ_FIRST_LICENSE,
+        NJ_ROAD_TEST,
+      ],
+      '未通过至少等待 14 天才能重考': [NJ_ROAD_TEST],
+      '普通 written knowledge test 提供 Chinese (Mandarin) 等 13 种语言': [
+        NJ_KNOWLEDGE,
+      ],
+      '没有对应母语版本时，可在 permit appointment 请求 MVC 安排州合约 interpreter，通常等待 4 至 6 周': [
+        NJ_KNOWLEDGE,
+      ],
+      '搬入新泽西的有效外州 non-provisional license 持有人通常免 knowledge 和 road tests，但 Hazmat endorsement 仍要 written test': [
+        NJ_MOVING,
+      ],
+      '完成转入后要交回外州驾照': [NJ_MOVING],
+      '外州 auto、motorcycle 或 CDL transfer permit 当前为 $10，auto license 加 motorcycle endorsement 另加 $5': [
+        NJ_MOVING,
+      ],
+      '美国访客只有在 foreign license 同时配有居住国签发的 International Driving Permit 时，才可按 MVC 页面所述驾驶最多 1 年': [
+        NJ_MOVING,
+      ],
+      '台湾和韩国与新泽西有 Class D 互惠路径，适用于 18 岁以上并满足驾照翻译、身份、NJ residency、SSN 和至少 12 个月 lawful presence 等文件条件的人': [
+        NJ_MOVING,
+      ],
+      'REAL ID 使用 2 + 1 + 6：两份 NJ residential address 证明、一个可核验的完整 SSN、以及 primary / secondary 合计 6 个 REAL ID identity points': [
+        NJ_REAL_ID_FAQ,
+        NJ_SELECTOR,
+      ],
+      '地址证明可用官方清单列出的 electronic 或 paper 版本，但 identity 的 6 Points 要用 paper 或 hard copy': [
+        NJ_SIX_POINTS,
+        NJ_SELECTOR,
+      ],
+      '不同地址文件有 6 个月、1 年或 2 年等时效，必须按 Document Selector 对所选文件逐项核对': [
+        NJ_SELECTOR,
+      ],
+      '完整 SSN 可以由 MVC 电子核验': [NJ_SELECTOR],
+      '如果核验失败，要提交显示 full name 和完整 SSN 的 Social Security card、近期 W-2、pay stub 或 1099 等清单文件': [
+        NJ_SELECTOR,
+      ],
+      'Primary 只能选择一份，secondary 中最多使用两份 1-point 文件，且 REAL ID point values 不等同于 Standard ID': [
+        NJ_SELECTOR,
+        NJ_REAL_ID_FAQ,
+      ],
+      'Identity 文件要是未覆膜原件或带州、市政印章的认证副本并使用英文': [
+        NJ_SELECTOR,
+      ],
+      'Primary document 要显示 full legal name，secondary 文件不能与其冲突': [
+        NJ_NAME_MATCHES,
+      ],
+      '现有 MVC、SSN 和 primary document 姓名不匹配时，可能需要认证婚姻、离婚或法院文件连接姓名': [
+        NJ_NAME_MATCHES,
+        NJ_SELECTOR,
+      ],
+      'Standard license / ID 与 REAL ID 不同：通常只要一份 residency，号码栏可用 SSN、ITIN 或 affidavit，身份 points 也要按 Standard 清单计算': [
+        NJ_SIX_POINTS,
+        NJ_AFFIDAVIT,
+        NJ_REAL_ID_FAQ,
+      ],
+      '申请或续办 permit、driver license 或 non-driver ID 还要完成 BA-208 表': [
+        NJ_SIX_POINTS,
+      ],
+      '先检查现有 NJ license / ID 右上角是否有星标，并判断是否已有有效护照或其他联邦接受证件': [
+        NJ_REAL_ID,
+        NJ_REAL_ID_FAQ,
+      ],
+      '需要 REAL ID 时运行 Document Selector，选齐两份 residency、一个 full SSN 路径和 6 个 REAL ID points，并打印最终清单': [
+        NJ_SELECTOR,
+      ],
+      '打开 Name Matches 页面，逐项比较 primary、SSN、secondary 和 MVC 记录中的姓名，补齐适用的认证姓名变更文件': [
+        NJ_NAME_MATCHES,
+        NJ_SELECTOR,
+      ],
+      '地址变化时先在一周内完成 online address change并保存确认': [
+        NJ_ADDRESS,
+        NJ_ADDRESS_DETAILS,
+      ],
+      '需要显示新地址的实体卡时再订购 duplicate': [
+        NJ_ADDRESS,
+        NJ_ADDRESS_DETAILS,
+      ],
+      '按当前状态选择预约：续期窗口内选 Renewal，窗口外升级选 REAL ID，外州或外国驾照转入选 Transfer From Out of State': [
+        NJ_APPOINTMENT,
+        NJ_MOVING,
+      ],
+      '到 Licensing Center 带齐合规 identity hard copies、地址证明、SSN 路径、BA-208 和付款方式，完成拍照及文件核验': [
+        NJ_SELECTOR,
+        NJ_SIX_POINTS,
+        NJ_RENEW,
+      ],
+      '首次 REAL ID 当前费用为 $35': [NJ_REAL_ID_FAQ],
+      '现场不会打印正式卡，应按邮寄交付安排后续出行': [
+        NJ_RENEW,
+        NJ_DUPLICATE,
+      ],
+      '只凑够 6 points，却漏掉两份地址证明或一个可核验的完整 SSN': [
+        NJ_REAL_ID_FAQ,
+        NJ_SELECTOR,
+      ],
+      '沿用 Standard point values 计算 REAL ID，或选择超过一份 Primary、超过两份 1-point secondary': [
+        NJ_REAL_ID_FAQ,
+        NJ_SELECTOR,
+      ],
+      '把手机照片、扫描件或普通复印件当成 identity 文件，或者拿覆膜、缺少签发印章的文件': [
+        NJ_SELECTOR,
+      ],
+      '把 NJ driver license 和 NJ vehicle registration 同时当作两份地址证明': [
+        NJ_SELECTOR,
+      ],
+      'Document Selector 明确不允许两者组合使用': [NJ_SELECTOR],
+      'primary、SSN 与 MVC 记录姓名冲突，却只带一张无法连接完整姓名变化的 marriage certificate': [
+        NJ_NAME_MATCHES,
+      ],
+      '未来 3 个月内已符合续期资格，却选择普通 REAL ID appointment 而不是 Renewal appointment': [
+        NJ_APPOINTMENT,
+      ],
+      '地址已经变化，却在续期前没有先完成 address change': [
+        NJ_RENEW,
+        NJ_ADDRESS,
+      ],
+      '外州搬入超过 60 天或等到现有证件先到期，仍未预约 Transfer From Out of State': [
+        NJ_MOVING,
+        NJ_APPOINTMENT,
       ],
     },
   },

@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成新泽西两页官方正文语义核对',
+    summary:
+      '逐条比对 NJMVC 的 REAL ID、2 + 1 + 6 selector、姓名匹配、Standard 6 Points、续期补证、地址、预约、GDL、考试语言、路考、新居民和外国驾照互惠正文；重写材料判断与预约路径，并补充当前练车时数、邮寄、费用及台湾/韩国互惠边界。',
+    scope: ['新泽西办事总览', '新泽西 REAL ID', '2 + 1 + 6 材料', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成华盛顿州两页官方正文语义核对',
     summary:
       '逐条比对 Washington DOL 的 REAL ID、EDL/EID、enhanced 材料清单、standard 身份文件、预申请、办公室、费用、续期、地址、考试语言、互惠驾照和新居民正文；删除过时的访问警告，重写两类证件的判断路径，并明确 EDL 的公民资格、国旗标记、边境和国际航班边界。',

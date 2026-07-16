@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:56:33.304Z",
+    "generatedAt": "2026-07-16T23:01:01.387Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 21,
+    "passed": 23,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 90,
-    "aiAssistedReviews": 27,
+    "sourceMappedReviews": 88,
+    "aiAssistedReviews": 29,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 143,
+    "blockedPages": 141,
     "averageScore": 96
   },
   "pages": [
@@ -307,7 +307,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 168,
+        "sourceCount": 169,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 191,
+        "sourceCount": 189,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 31,
-        "directoryEvidenceLinks": 31,
+        "directoryEvidenceItems": 29,
+        "directoryEvidenceLinks": 29,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 371,
+        "sourceCount": 374,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -544,8 +544,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 57,
-        "directoryEvidenceLinks": 57,
+        "directoryEvidenceItems": 55,
+        "directoryEvidenceLinks": 55,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 133,
+        "sourceCount": 134,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -782,7 +782,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 195,
+        "sourceCount": 196,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1018,
+        "sourceCount": 1020,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -3717,16 +3717,16 @@
       "risk": "medium",
       "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 NJMVC 的 REAL ID、2 + 1 + 6 selector、姓名匹配、Standard 6 Points、线上服务、续期补证、地址、预约、首次驾照、考试语言、路考、新居民和外国驾照互惠正文。",
+        "notes": "重写 New Jersey 总览与 REAL ID 页面，分开 Standard 与 REAL ID 的 point 和 residency 规则，补充当前 GDL 练车要求、预约类别、邮寄、地址及台湾/韩国互惠边界，并将所有高风险声明改为显式来源；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3739,14 +3739,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 16,
-        "factCheckCount": 29,
+        "sourceCount": 18,
+        "factCheckCount": 37,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 29,
-        "stateEvidenceLinks": 38,
+        "stateEvidenceItems": 37,
+        "stateEvidenceLinks": 53,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3754,9 +3754,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/new-jersey/real-id/",
@@ -3764,16 +3762,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 NJMVC 的 REAL ID、2 + 1 + 6 selector、姓名匹配、Standard 6 Points、线上服务、续期补证、地址、预约、首次驾照、考试语言、路考、新居民和外国驾照互惠正文。",
+        "notes": "重写 New Jersey 总览与 REAL ID 页面，分开 Standard 与 REAL ID 的 point 和 residency 规则，补充当前 GDL 练车要求、预约类别、邮寄、地址及台湾/韩国互惠边界，并将所有高风险声明改为显式来源；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3786,14 +3784,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 16,
-        "factCheckCount": 20,
+        "sourceCount": 18,
+        "factCheckCount": 33,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 20,
-        "stateEvidenceLinks": 25,
+        "stateEvidenceItems": 33,
+        "stateEvidenceLinks": 54,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3801,9 +3799,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/new-mexico/",

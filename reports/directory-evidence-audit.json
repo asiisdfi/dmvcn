@@ -1,8 +1,8 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:56:32.131Z",
+    "generatedAt": "2026-07-16T23:01:00.239Z",
     "pages": 5,
-    "claims": 382,
+    "claims": 378,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
@@ -11,7 +11,7 @@
         "states": 15
       },
       "deadlines": {
-        "claims": 31,
+        "claims": 29,
         "states": 14
       },
       "document-rules": {
@@ -19,7 +19,7 @@
         "states": 47
       },
       "foreign-license": {
-        "claims": 57,
+        "claims": 55,
         "states": 22
       },
       "identity-ssn": {
@@ -296,38 +296,37 @@
       "page": "costs-timing",
       "stateId": "new-jersey",
       "category": "费用",
-      "claim": "NJ MVC renewal 页面列出 standard license agency 续期 $24，可用 credit/debit card、cash、check 或 money order",
+      "claim": "NJMVC 当前列出的 Standard NJ license / ID 费用为 $24，REAL ID 为 $35",
       "sourceUrl": "https://www.nj.gov/mvc/license/licrenew.htm",
       "sourceLabel": "对应官方来源：NJ MVC License Renewal",
       "themes": [
-        "fee",
-        "renewal"
+        "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "costs-timing",
       "stateId": "new-jersey",
-      "category": "临时凭证",
-      "claim": "NJ MVC license renewal 页面说明 Same-Day Online Renewal 立即生效，可打印收据随身带着",
+      "category": "费用",
+      "claim": "外州 auto、motorcycle 或 CDL transfer permit 当前为 $10，auto license 加 motorcycle endorsement 另加 $5",
       "sourceUrl": "https://www.nj.gov/mvc/license/licrenew.htm",
       "sourceLabel": "对应官方来源：NJ MVC License Renewal",
       "themes": [
-        "renewal"
+        "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "costs-timing",
       "stateId": "new-jersey",
-      "category": "邮寄 / 卡片",
-      "claim": "新证件通常 2-4 weeks 邮寄到达",
-      "sourceUrl": "https://www.nj.gov/mvc/about/email.htm",
-      "sourceLabel": "对应官方来源：NJ MVC Contact by Email",
+      "category": "费用",
+      "claim": "首次 REAL ID 当前费用为 $35",
+      "sourceUrl": "https://www.nj.gov/mvc/license/licrenew.htm",
+      "sourceLabel": "对应官方来源：NJ MVC License Renewal",
       "themes": [
-        "processing-or-mail"
+        "fee"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -676,38 +675,12 @@
     {
       "page": "deadlines",
       "stateId": "new-jersey",
-      "category": "搬家 / 地址",
-      "claim": "外州搬入新泽西时，先看 Moving To New Jersey 的 60 天转入要求",
-      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
-      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
+      "category": "续期 / 到期",
+      "claim": "驾照过期超过 3 年不能直接续期，要按 first-time driver 重新开始",
+      "sourceUrl": "https://www.nj.gov/mvc/license/licrenew.htm",
+      "sourceLabel": "对应官方来源：NJ MVC License Renewal",
       "themes": [
-        "new-resident"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "deadlines",
-      "stateId": "new-jersey",
-      "category": "搬家 / 地址",
-      "claim": "如果地址变了，按 7 天规则先完成 online address change",
-      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/addchange.htm",
-      "sourceLabel": "对应官方来源：NJ MVC Change of Address",
-      "themes": [
-        "address-change"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "deadlines",
-      "stateId": "new-jersey",
-      "category": "搬家 / 地址",
-      "claim": "如果刚搬入新泽西，先看 60 天 transfer 要求",
-      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
-      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
-      "themes": [
-        "new-resident"
+        "renewal"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -1181,9 +1154,9 @@
       "page": "document-rules",
       "stateId": "new-jersey",
       "category": "地址证明",
-      "claim": "REAL ID 材料核心是 2 份新泽西居住地址证明、1 份完整 SSN 证明、以及 primary/secondary 合计 6 points",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "claim": "REAL ID 使用 2 + 1 + 6：两份 NJ residential address 证明、一个可核验的完整 SSN、以及 primary / secondary 合计 6 个 REAL ID identity points",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
       "themes": [
         "residency-documents",
         "ssn"
@@ -1195,11 +1168,24 @@
       "page": "document-rules",
       "stateId": "new-jersey",
       "category": "地址证明",
-      "claim": "材料清单用 MVC 自己的 2 proofs of address + 1 full SSN proof + 6 Points of ID 结构，比泛泛写身份证明更可靠",
+      "claim": "地址证明可用官方清单列出的 electronic 或 paper 版本，但 identity 的 6 Points 要用 paper 或 hard copy",
       "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
       "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
       "themes": [
-        "document-checklist",
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-jersey",
+      "category": "地址证明",
+      "claim": "Standard license / ID 与 REAL ID 不同：通常只要一份 residency，号码栏可用 SSN、ITIN 或 affidavit，身份 points 也要按 Standard 清单计算",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
+      "themes": [
+        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
@@ -1208,25 +1194,12 @@
     {
       "page": "document-rules",
       "stateId": "new-jersey",
-      "category": "SSN",
-      "claim": "Standard license / ID 材料页允许 SSN、ITIN 或 affidavit 满足对应号码栏",
-      "sourceUrl": "https://www.nj.gov/mvc/license/6pointid.htm",
-      "sourceLabel": "对应官方来源：NJ MVC 6 Points of ID",
+      "category": "地址证明",
+      "claim": "需要 REAL ID 时运行 Document Selector，选齐两份 residency、一个 full SSN 路径和 6 个 REAL ID points，并打印最终清单",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
       "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "document-rules",
-      "stateId": "new-jersey",
-      "category": "SSN",
-      "claim": "REAL ID 则按 REAL ID 材料清单核对 full SSN proof",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
-      "themes": [
-        "document-checklist",
+        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
@@ -3224,35 +3197,7 @@
       "page": "foreign-license",
       "stateId": "new-jersey",
       "category": "外州 / 加拿大转入",
-      "claim": "NJ MVC Moving To New Jersey 页面说明外州 transfer 要预约 Licensing Center，符合条件的有效 non-provisional out-of-state license 可免 knowledge / road tests，但 Hazmat written test 例外",
-      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
-      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
-      "themes": [
-        "appointment",
-        "new-resident",
-        "out-of-state"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "new-jersey",
-      "category": "外州 / 加拿大转入",
-      "claim": "完成后需 surrender out-of-state license",
-      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
-      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
-      "themes": [
-        "out-of-state"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "new-jersey",
-      "category": "外州 / 加拿大转入",
-      "claim": "外州搬入新泽西时，先看 Moving To New Jersey 的 60 天转入要求",
+      "claim": "搬入新泽西的有效外州 non-provisional license 持有人通常免 knowledge 和 road tests，但 Hazmat endorsement 仍要 written test",
       "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
       "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
       "themes": [
@@ -3265,11 +3210,11 @@
       "page": "foreign-license",
       "stateId": "new-jersey",
       "category": "外州 / 加拿大转入",
-      "claim": "外州搬入通常要在 60 天内转入 license 和车辆 title/registration",
+      "claim": "完成转入后要交回外州驾照",
       "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
       "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
       "themes": [
-        "new-resident"
+        "out-of-state"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -4029,37 +3974,10 @@
     {
       "page": "identity-ssn",
       "stateId": "new-jersey",
-      "category": "ITIN / affidavit",
-      "claim": "Standard license / ID 材料页允许 SSN、ITIN 或 affidavit 满足对应号码栏",
-      "sourceUrl": "https://www.nj.gov/mvc/license/6pointid.htm",
-      "sourceLabel": "对应官方来源：NJ MVC 6 Points of ID",
-      "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "new-jersey",
       "category": "SSN",
-      "claim": "材料清单用 MVC 自己的 2 proofs of address + 1 full SSN proof + 6 Points of ID 结构，比泛泛写身份证明更可靠",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
-      "themes": [
-        "document-checklist",
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "new-jersey",
-      "category": "SSN",
-      "claim": "REAL ID 材料核心是 2 份新泽西居住地址证明、1 份完整 SSN 证明、以及 primary/secondary 合计 6 points",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "claim": "REAL ID 使用 2 + 1 + 6：两份 NJ residential address 证明、一个可核验的完整 SSN、以及 primary / secondary 合计 6 个 REAL ID identity points",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
       "themes": [
         "residency-documents",
         "ssn"
@@ -4071,11 +3989,36 @@
       "page": "identity-ssn",
       "stateId": "new-jersey",
       "category": "SSN",
-      "claim": "REAL ID 则按 REAL ID 材料清单核对 full SSN proof",
+      "claim": "如果核验失败，要提交显示 full name 和完整 SSN 的 Social Security card、近期 W-2、pay stub 或 1099 等清单文件",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-jersey",
+      "category": "SSN",
+      "claim": "完整 SSN 可以由 MVC 电子核验",
       "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
       "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
       "themes": [
-        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-jersey",
+      "category": "SSN",
+      "claim": "现有 MVC、SSN 和 primary document 姓名不匹配时，可能需要认证婚姻、离婚或法院文件连接姓名",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "themes": [
         "ssn"
       ],
       "failedThemes": [],
