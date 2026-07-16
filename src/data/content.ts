@@ -2965,18 +2965,22 @@ export const states: StateGuide[] = [
       {
         label: 'Oregon DMV REAL ID Traveler',
         url: 'https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx',
+        note: 'REAL ID 办理、DMV2U 预约及线上续期入口。',
       },
       {
         label: 'Oregon DMV REAL ID',
         url: 'https://www.oregon.gov/odot/dmv/pages/real_id.aspx',
+        note: '首次申请、约 20 天邮寄、费用及用 DMV2U 续期或补证的官方 FAQ。',
       },
       {
         label: 'Oregon DMV Change of Address',
         url: 'https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx',
+        note: '地址更新、停止签发地址贴纸和自愿申请 replacement card。',
       },
       {
         label: 'Oregon DMV2U',
         url: 'https://dmv2u.oregon.gov/',
+        note: '线上续期、补证、地址更新和预约入口。',
       },
     ],
     relatedTopicSlugs: ['airport-travel-after-real-id', 'proof-of-residency', 'renewal-replacement-address'],
@@ -3532,6 +3536,11 @@ export const states: StateGuide[] = [
         url: 'https://dld.utah.gov/regular-renewal/',
         description: 'Utah 驾照续期说明和入口。',
       },
+      {
+        label: 'Driver Licensing Services / Appointment',
+        url: 'https://dld.utah.gov/driver-licensing-services/',
+        description: '按业务选择 Utah DLD 申请路径并进入预约。',
+      },
     ],
     sources: [
       {
@@ -3549,6 +3558,11 @@ export const states: StateGuide[] = [
       {
         label: 'Utah DLD Regular Renewal',
         url: 'https://dld.utah.gov/regular-renewal/',
+      },
+      {
+        label: 'Utah DLD Driver Licensing Services',
+        url: 'https://dld.utah.gov/driver-licensing-services/',
+        note: '按业务选择申请入口和预约。',
       },
     ],
     relatedTopicSlugs: ['document-checklist', 'moving-to-new-state', 'renewal-replacement-address'],
@@ -4309,6 +4323,11 @@ export const states: StateGuide[] = [
         url: 'https://www.alea.gov/dps/driver-license/driver-license-offices',
         description: 'ALEA Driver License office 列表和预约相关入口。',
       },
+      {
+        label: 'ALEA Driver License Online Services',
+        url: 'https://alabamadl.alea.gov/',
+        description: '符合条件时在线续期或申请 duplicate license、permit、ID。',
+      },
     ],
     sources: [
       {
@@ -4330,6 +4349,11 @@ export const states: StateGuide[] = [
       {
         label: 'ALEA Driver License Offices',
         url: 'https://www.alea.gov/dps/driver-license/driver-license-offices',
+      },
+      {
+        label: 'ALEA Official Online Renewal Notice',
+        url: 'https://www.alea.gov/news/alea-alerts-customers-concerning-third-party-website-upcharging-driver-license-renewals',
+        note: 'ALEA 官方线上续期入口、交易费和 duplicate 可办范围提醒。',
       },
     ],
     relatedTopicSlugs: ['real-id-basics', 'document-checklist', 'moving-to-new-state'],
@@ -5006,6 +5030,7 @@ export const states: StateGuide[] = [
       {
         label: 'Honolulu REAL ID',
         url: 'https://www.honolulu.gov/csd/real-id/',
+        note: '首次 REAL ID 不能线上办；符合条件的 Oahu 星标驾照 exact duplicate 可在线申请，并列出预约、费用和邮寄提醒。',
       },
       {
         label: 'Hawaii Acceptable Documents PDF',

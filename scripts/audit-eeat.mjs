@@ -192,6 +192,11 @@ function scorePage(route, document) {
   const govLinks = officialLinkCount(document);
   const hasSourceSection = document.classNames.has('source-panel');
   const hasFactMapping = document.classNames.has('fact-check-panel');
+  const stateEvidenceItems = document.classCounts.get('state-evidence-item') ?? 0;
+  const stateEvidenceLinks = document.classCounts.get('state-evidence-link') ?? 0;
+  const hasInlineStateEvidence =
+    stateEvidenceItems >= (identity.type === 'state-real-id' ? 10 : 4) &&
+    stateEvidenceLinks >= stateEvidenceItems;
   const hasTaskStructure =
     document.classNames.has('route-board') ||
     document.classNames.has('decision-board') ||
@@ -234,7 +239,7 @@ function scorePage(route, document) {
     evidenceMapping: identity.type === 'topic'
       ? Math.min(15, signals.factCheckCount * 1.5)
       : identity.type.startsWith('state-')
-        ? 0
+        ? Math.min(15, stateEvidenceItems * 1.5)
         : identity.type === 'trust' || identity.type === 'collection'
           ? 15
           : hasDirectDirectoryEvidence
@@ -293,6 +298,9 @@ function scorePage(route, document) {
   if (contentPage && !schemaDates) critical.push('Article schema 没有区分 datePublished 与 dateModified');
   if (contentPage && !hasSourceSection) critical.push('内容页缺少官方来源区域');
   if (identity.type === 'topic' && signals.factCheckCount === 0) critical.push('专题页没有事实到来源映射');
+  if (identity.type.startsWith('state-') && !hasInlineStateEvidence) {
+    critical.push('州页面的具体声明没有逐条绑定已登记官方来源');
+  }
   if (
     identity.type === 'directory' &&
     identity.risk === 'high' &&
@@ -301,7 +309,6 @@ function scorePage(route, document) {
     critical.push('高风险目录的具体提示没有逐条绑定官方来源');
   }
 
-  if (identity.type.startsWith('state-')) blockers.push('州页面关键事实尚未逐条映射到对应官方来源');
   if (identity.risk === 'high' && !hasFactMapping && !hasDirectDirectoryEvidence && identity.type !== 'trust') {
     blockers.push('高风险页面缺少正文事实来源映射');
   }
@@ -311,7 +318,11 @@ function scorePage(route, document) {
       ? 'pending'
       : review.status === 'human-approved' && review.method === 'human'
         ? 'human-approved'
-        : 'ai-assisted';
+        : review.status === 'evidence-checked' && review.method === 'ai-assisted'
+          ? 'ai-assisted'
+          : review.status === 'source-mapped' && review.method === 'automated'
+            ? 'source-mapped'
+            : 'invalid';
 
   if (review?.status === 'human-approved' && review.method !== 'human') {
     critical.push('人工通过状态必须由真实人工核查记录支持');
@@ -319,10 +330,18 @@ function scorePage(route, document) {
   if (identity.type !== 'trust' && reviewStatus === 'pending') {
     blockers.push('尚未登记逐页证据核对');
   }
+  if (identity.type !== 'trust' && reviewStatus === 'source-mapped') {
+    blockers.push('已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对');
+  }
+  if (reviewStatus === 'invalid') {
+    critical.push('语义核查状态与核查方法不一致');
+  }
   if (identity.risk === 'high' && reviewStatus !== 'human-approved' && identity.type !== 'trust') {
     blockers.push(
       reviewStatus === 'ai-assisted'
         ? '已完成 AI 辅助证据核对，仍待真实人工语义签字'
+        : reviewStatus === 'source-mapped'
+          ? '已完成自动来源映射，仍待 AI 辅助核对和真实人工语义签字'
         : '高风险页面尚未完成人工语义签字',
     );
   }
@@ -343,11 +362,14 @@ function scorePage(route, document) {
     scores,
     signals: {
       sourceCount: signals.sourceCount || govLinks,
-      factCheckCount: signals.factCheckCount,
+      factCheckCount: identity.type.startsWith('state-') ? stateEvidenceItems : signals.factCheckCount,
       visibleThreeDates,
       authorLink,
       schemaAuthorUrl,
       hasFactMapping,
+      stateEvidenceItems,
+      stateEvidenceLinks,
+      hasInlineStateEvidence,
       directoryEvidenceItems,
       directoryEvidenceLinks,
       hasInlineDirectoryEvidence,
@@ -389,6 +411,7 @@ const summary = {
   passed: pages.filter((page) => page.pass).length,
   belowThreshold: pages.filter((page) => page.score < threshold).length,
   evidenceReviewPending: pages.filter((page) => page.reviewStatus === 'pending').length,
+  sourceMappedReviews: pages.filter((page) => page.reviewStatus === 'source-mapped').length,
   aiAssistedReviews: pages.filter((page) => page.reviewStatus === 'ai-assisted').length,
   humanApprovedReviews: pages.filter((page) => page.reviewStatus === 'human-approved').length,
   highRiskHumanApprovalPending: pages.filter(
@@ -436,6 +459,7 @@ console.log(`Passed: ${summary.passed}`);
 console.log(`Average score: ${summary.averageScore}`);
 console.log(`Below ${threshold}: ${summary.belowThreshold}`);
 console.log(`Evidence review pending: ${summary.evidenceReviewPending}`);
+console.log(`Automated source mappings: ${summary.sourceMappedReviews}`);
 console.log(`AI-assisted evidence checks: ${summary.aiAssistedReviews}`);
 console.log(`Human-approved reviews: ${summary.humanApprovedReviews}`);
 console.log(`High-risk human approval pending: ${summary.highRiskHumanApprovalPending}`);

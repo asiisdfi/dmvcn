@@ -1,6 +1,8 @@
+import { states } from './content.ts';
+
 export type SemanticReview = {
-  status: 'evidence-checked' | 'human-approved';
-  method: 'ai-assisted' | 'human';
+  status: 'source-mapped' | 'evidence-checked' | 'human-approved';
+  method: 'automated' | 'ai-assisted' | 'human';
   reviewedAt: string;
   reviewer: string;
   scope: string;
@@ -8,11 +10,12 @@ export type SemanticReview = {
 };
 
 /**
+ * "source-mapped" records an automated claim-to-source match and does not
+ * imply that a person or AI opened and compared every source body.
  * "evidence-checked" records an AI-assisted, sentence-level comparison against
- * the official sources shown on the page. It is not a human or professional
- * approval. "human-approved" may be used only after a real person completes
- * the same comparison and is accurately identified. Automated audits never
- * create or upgrade entries in this registry.
+ * the official sources shown on the page. Neither status is a human or
+ * professional approval. "human-approved" may be used only after a real person
+ * completes the same comparison and is accurately identified.
  */
 export const semanticReviews: Record<string, SemanticReview> = {
   '/topics/driver-license-suspension-reinstatement-sr22/': {
@@ -152,3 +155,17 @@ export const semanticReviews: Record<string, SemanticReview> = {
     notes: '目录不判断移民身份，仅显示可映射到州政府身份或材料页面的分流提示；仍待人工签字。',
   },
 };
+
+for (const state of states) {
+  const review: SemanticReview = {
+    status: 'source-mapped',
+    method: 'automated',
+    reviewedAt: '2026-07-17',
+    reviewer: '站内声明级来源映射审计',
+    scope: '将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。',
+    notes: '已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。',
+  };
+
+  semanticReviews[`/states/${state.id}/`] = review;
+  semanticReviews[`/states/${state.id}/real-id/`] = review;
+}

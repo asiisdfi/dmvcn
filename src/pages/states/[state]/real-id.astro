@@ -5,6 +5,7 @@ import ContentMeta from '../../../components/ContentMeta.astro';
 import EditorialDisclosure from '../../../components/EditorialDisclosure.astro';
 import OfficialLinkButton from '../../../components/OfficialLinkButton.astro';
 import SourceList from '../../../components/SourceList.astro';
+import StateEvidenceList from '../../../components/StateEvidenceList.astro';
 import {
   SITE,
   federalSources,
@@ -15,6 +16,7 @@ import {
   type StateGuide,
 } from '../../../data/content';
 import { EDITORIAL_AUTHOR } from '../../../data/editorial';
+import { buildStateEvidence, getStatePageModifiedAt } from '../../../data/state-evidence';
 
 export function getStaticPaths() {
   return states.map((state) => ({
@@ -30,6 +32,12 @@ const accessStatus = state.accessStatus ? getStatePublicStatus(state) : undefine
 const title = `${state.nameZh} REAL ID 中文材料清单`;
 const description = `${state.nameZh} REAL ID 中文清单：材料类别、办理顺序、常见错误和官方来源。`;
 const officialSources = uniqueSources([...state.sources, ...federalSources]);
+const stateEvidence = buildStateEvidence(state, 'real-id');
+const modifiedAt = getStatePageModifiedAt(state);
+const realIdEvidence = stateEvidence.filter((item) => item.field === 'realIdSummary');
+const documentEvidence = stateEvidence.filter((item) => item.field === 'documentHighlights');
+const stepEvidence = stateEvidence.filter((item) => item.field === 'recommendedSteps');
+const mistakeEvidence = stateEvidence.filter((item) => item.field === 'commonMistakes');
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const realIdDecisions = [
   {
@@ -97,7 +105,7 @@ const schema = [
     headline: title,
     description,
     mainEntityOfPage: pageUrl,
-    dateModified: state.modifiedAt,
+    dateModified: modifiedAt,
     datePublished: state.publishedAt,
     inLanguage: 'zh-Hans',
     isAccessibleForFree: true,
@@ -162,7 +170,7 @@ const schema = [
   title={title}
   description={description}
   publishedAt={state.publishedAt}
-  modifiedAt={state.modifiedAt}
+  modifiedAt={modifiedAt}
   reviewedAt={state.reviewedAt}
   schema={schema}
 >
@@ -175,7 +183,7 @@ const schema = [
       <h1>{state.nameZh} REAL ID 中文材料清单</h1>
       <p class="lead">{state.realIdSummary}</p>
       <div class="article-meta">
-        <ContentMeta publishedAt={state.publishedAt} modifiedAt={state.modifiedAt} reviewedAt={state.reviewedAt} />
+        <ContentMeta publishedAt={state.publishedAt} modifiedAt={modifiedAt} reviewedAt={state.reviewedAt} />
         <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
     </div>
@@ -214,6 +222,11 @@ const schema = [
         </ul>
       </section>
 
+      <section class="panel fact-check-panel" aria-labelledby="real-id-evidence-heading">
+        <h2 id="real-id-evidence-heading">本州 REAL ID 关键判断</h2>
+        <StateEvidenceList items={realIdEvidence} ordered />
+      </section>
+
       <section class="panel">
         <h2>REAL ID、标准证件和护照怎么选</h2>
         <div class="comparison-table" role="table" aria-label={`${state.nameZh} REAL ID 证件选择对比`}>
@@ -249,24 +262,22 @@ const schema = [
 
       <section class="panel" id="materials">
         <h2>材料类别</h2>
-        <ul class="check-list">
-          {state.documentHighlights.map((item) => <li>{item}</li>)}
-        </ul>
+        <StateEvidenceList items={documentEvidence} className="check-list" />
       </section>
 
       <section class="panel">
         <h2>办理顺序</h2>
-        <ol class="step-list">
-          <li>先判断 REAL ID 是否必要：有效护照等 TSA 接受证件也可用于国内航班身份核验。</li>
-          {state.recommendedSteps.map((step) => <li>{step}</li>)}
-        </ol>
+        <StateEvidenceList
+          items={stepEvidence}
+          ordered
+          className="step-list"
+          leadingItems={['先判断 REAL ID 是否必要：有效护照等 TSA 接受证件也可用于国内航班身份核验。']}
+        />
       </section>
 
       <section class="panel">
         <h2>常见失败原因</h2>
-        <ul class="plain-list">
-          {state.commonMistakes.map((mistake) => <li>{mistake}</li>)}
-        </ul>
+        <StateEvidenceList items={mistakeEvidence} className="plain-list" />
       </section>
 
       <section class="panel" id="official-entry">

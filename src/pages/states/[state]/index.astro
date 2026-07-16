@@ -5,6 +5,7 @@ import ContentMeta from '../../../components/ContentMeta.astro';
 import EditorialDisclosure from '../../../components/EditorialDisclosure.astro';
 import OfficialLinkButton from '../../../components/OfficialLinkButton.astro';
 import SourceList from '../../../components/SourceList.astro';
+import StateEvidenceList from '../../../components/StateEvidenceList.astro';
 import {
   SITE,
   getPublicEditorialNotes,
@@ -15,6 +16,7 @@ import {
   type StateGuide,
 } from '../../../data/content';
 import { EDITORIAL_AUTHOR } from '../../../data/editorial';
+import { buildStateEvidence, getStatePageModifiedAt } from '../../../data/state-evidence';
 
 export function getStaticPaths() {
   return states.map((state) => ({
@@ -27,6 +29,12 @@ const { state } = Astro.props as { state: StateGuide };
 const relatedTopics = topics.filter((topic) => state.relatedTopicSlugs.includes(topic.slug));
 const accessStatus = state.accessStatus ? getStatePublicStatus(state) : undefined;
 const publicNotes = getPublicEditorialNotes(state.editorNotes);
+const stateEvidence = buildStateEvidence(state, 'overview', publicNotes);
+const coreEvidence = stateEvidence.filter((item) => item.field !== 'editorNotes');
+const detailEvidence = stateEvidence.filter((item) => item.field === 'editorNotes');
+const featuredDetailEvidence = detailEvidence.slice(0, 6);
+const additionalDetailEvidence = detailEvidence.slice(6);
+const modifiedAt = getStatePageModifiedAt(state);
 const title = `${state.nameZh} DMV / 驾照 / REAL ID 办事总览`;
 const description = `${state.nameZh} DMV 中文办事总览：官方入口、REAL ID、驾照、地址变更、预约和常见材料提醒。`;
 const officialSources = uniqueSources(state.sources);
@@ -121,7 +129,7 @@ const schema = [
     headline: title,
     description,
     mainEntityOfPage: pageUrl,
-    dateModified: state.modifiedAt,
+    dateModified: modifiedAt,
     datePublished: state.publishedAt,
     inLanguage: 'zh-Hans',
     isAccessibleForFree: true,
@@ -180,7 +188,7 @@ const schema = [
   title={title}
   description={description}
   publishedAt={state.publishedAt}
-  modifiedAt={state.modifiedAt}
+  modifiedAt={modifiedAt}
   reviewedAt={state.reviewedAt}
   schema={schema}
 >
@@ -193,7 +201,7 @@ const schema = [
       <h1>{state.nameZh} DMV 办事总览</h1>
       <p class="lead">{state.summary}</p>
       <div class="article-meta">
-        <ContentMeta publishedAt={state.publishedAt} modifiedAt={state.modifiedAt} reviewedAt={state.reviewedAt} />
+        <ContentMeta publishedAt={state.publishedAt} modifiedAt={modifiedAt} reviewedAt={state.reviewedAt} />
         <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
     </div>
@@ -223,10 +231,10 @@ const schema = [
         </div>
       </section>
 
-      <section class="panel">
-        <h2>先判断你要办什么</h2>
-        <p>{state.licenseSummary}</p>
-        <p>{state.realIdSummary}</p>
+      <section class="panel fact-check-panel" aria-labelledby="state-evidence-heading">
+        <h2 id="state-evidence-heading">本州关键事实与官方依据</h2>
+        <p class="section-intro">这里把页面中的州别要求拆成单条判断，并直接连接到对应政府页面。</p>
+        <StateEvidenceList items={coreEvidence} ordered />
       </section>
 
       <section class="panel">
@@ -247,12 +255,17 @@ const schema = [
         </div>
       </section>
 
-      {publicNotes.length > 0 && (
+      {detailEvidence.length > 0 && (
         <section class="panel editorial-panel">
           <h2>本州办事细节</h2>
-          <ul class="plain-list">
-            {publicNotes.map((note) => <li>{note}</li>)}
-          </ul>
+          <p class="section-intro">这些细节用于处理材料、期限、线上资格和州别例外；每条都保留对应政府入口。</p>
+          <StateEvidenceList items={featuredDetailEvidence} />
+          {additionalDetailEvidence.length > 0 && (
+            <details class="state-evidence-more">
+              <summary>查看其余 {additionalDetailEvidence.length} 条州别细节与来源</summary>
+              <StateEvidenceList items={additionalDetailEvidence} />
+            </details>
+          )}
         </section>
       )}
 

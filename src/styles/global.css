@@ -1550,6 +1550,60 @@ h3 {
   font-weight: 730;
 }
 
+.section-intro {
+  margin: -4px 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.state-evidence-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding-left: 22px;
+}
+
+.state-evidence-list > li {
+  min-width: 0;
+  padding: 12px 4px;
+  border-bottom: 1px solid #e6eae7;
+}
+
+.state-evidence-list > li:last-child {
+  border-bottom: 0;
+}
+
+.state-evidence-list > li::marker {
+  color: var(--green);
+  font-weight: 850;
+}
+
+.state-evidence-item > p {
+  margin: 0 0 8px;
+}
+
+.state-evidence-item .fact-source-links {
+  gap: 6px 12px;
+}
+
+.state-evidence-more {
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.state-evidence-more summary {
+  width: fit-content;
+  cursor: pointer;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 780;
+}
+
+.state-evidence-more[open] summary {
+  margin-bottom: 8px;
+}
+
 /* Shared registries and directories */
 
 .status-chip {

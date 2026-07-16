@@ -2,14 +2,29 @@
 import { FileCheck2 } from '@lucide/astro/icons';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentMeta from '../components/ContentMeta.astro';
-import { REVIEW_DATE, federalSources, getStatePublicStatus, states, topics } from '../data/content';
+import {
+  REVIEW_DATE,
+  federalSources,
+  getPublicEditorialNotes,
+  getStatePublicStatus,
+  states,
+  topics,
+} from '../data/content';
 import { EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
+import { buildStateEvidence } from '../data/state-evidence';
 
 const statePages = states.length * 2;
 const reviewedStates = states.filter((state) => state.reviewedAt).length;
 const reviewedTopics = topics.filter((topic) => topic.reviewedAt).length;
 const factCheckedTopics = topics.filter((topic) => topic.factChecks?.length).length;
 const factChecks = topics.reduce((total, topic) => total + (topic.factChecks?.length ?? 0), 0);
+const stateEvidenceClaims = states.reduce(
+  (total, state) =>
+    total +
+    buildStateEvidence(state, 'overview', getPublicEditorialNotes(state.editorNotes)).length +
+    buildStateEvidence(state, 'real-id').length,
+  0,
+);
 const officialUrls = new Set([
   ...federalSources.map((source) => source.url),
   ...states.flatMap((state) => [
@@ -72,12 +87,19 @@ const qualitySteps = [
         <span>专题有核对日期</span>
       </div>
       <div>
-        <strong>{browserCheckStates.length} 州</strong>
-        <span>提供备用官方入口</span>
+        <strong>{stateEvidenceClaims} 条</strong>
+        <span>100 个州页声明级来源映射（自动）</span>
       </div>
       <div>
         <strong>{factChecks} 条</strong>
         <span>{factCheckedTopics} 个专题重点事实直连来源</span>
+      </div>
+    </div>
+
+    <div class="panel audit-strip">
+      <div>
+        <h2>来源映射不等于人工审核</h2>
+        <p>州页声明已经通过自动拆分、州级来源白名单、主题匹配和最终 HTML 检查，当前状态为 source-mapped。后续逐页打开官方正文的 AI 辅助核对和真实人员签字会继续分开记录。</p>
       </div>
     </div>
 

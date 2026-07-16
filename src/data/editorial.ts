@@ -1,6 +1,7 @@
 export const SITE_LAUNCH_DATE = '2026-07-13';
 export const EDITORIAL_POLICY_DATE = '2026-07-17';
 export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-17';
+export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
 
 export const EDITORIAL_AUTHOR = {
   name: 'DMV中文办事库编辑部',
@@ -30,6 +31,13 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-17',
+    title: '为 100 个州级页面增加声明级官方证据',
+    summary:
+      '将 50 州总览和 50 州 REAL ID 页中的摘要、材料、步骤、失败原因和州别细节拆成可审计声明，并在正文逐条显示对应政府来源；新增成品 HTML 证据门禁。',
+    scope: ['50 州办事总览', '50 州 REAL ID', '声明级来源', '构建审计'],
+  },
   {
     date: '2026-07-17',
     title: '完成高龄驾驶、残疾停车与五个高风险目录的证据核对',

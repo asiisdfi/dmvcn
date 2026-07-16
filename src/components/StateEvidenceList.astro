@@ -1,0 +1,40 @@
+---
+import { ExternalLink } from '@lucide/astro/icons';
+import type { StateEvidenceItem } from '../data/state-evidence';
+
+type Props = {
+  items: StateEvidenceItem[];
+  ordered?: boolean;
+  className?: string;
+  leadingItems?: string[];
+};
+
+const {
+  items,
+  ordered = false,
+  className = '',
+  leadingItems = [],
+} = Astro.props as Props;
+const Tag = ordered ? 'ol' : 'ul';
+---
+
+<Tag class:list={['state-evidence-list', className]}>
+  {leadingItems.map((item) => <li>{item}</li>)}
+  {items.map((item) => (
+    <li
+      class="state-evidence-item"
+      data-evidence-context={item.context}
+      data-evidence-field={item.field}
+    >
+      <p>{item.claim}</p>
+      <div class="fact-source-links" aria-label="对应官方来源">
+        {item.sources.map((source) => (
+          <a class="state-evidence-link" href={source.url} target="_blank" rel="noreferrer">
+            <span>对应官方来源：{source.label}</span>
+            <ExternalLink size={15} aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+    </li>
+  ))}
+</Tag>
