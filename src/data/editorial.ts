@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成佛州两页官方正文语义核对',
+    summary:
+      '逐条比对 FLHSMV 的 REAL ID、身份分支、居住证明、MyDMV、费用、姓名地址、预约、考试、新居民和换证正文；补充 80 岁以上有效期与地址证明替代路径，并用 2026 年 English-only 公告纠正旧考试页仍显示的历史语言列表。',
+    scope: ['佛州办事总览', '佛州 REAL ID', '考试语言更新', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成德州两页官方正文语义核对',
     summary:
       '逐条比对 Texas.gov、Texas DPS 和 TSA 的 REAL ID、线上资格、居住证明、个人化清单、预约、费用、地址、身份核验、考试、临时证件和换证正文；重写德州总览与 REAL ID 清单，并纠正车辆登记证明适用范围和 2026 年 CDL 考试语言规则。',

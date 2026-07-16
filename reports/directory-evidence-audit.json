@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:39:21.158Z",
+    "generatedAt": "2026-07-16T22:48:13.903Z",
     "pages": 5,
-    "claims": 377,
+    "claims": 379,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 31,
+        "claims": 33,
         "states": 15
       },
       "deadlines": {
@@ -192,13 +192,24 @@
       "page": "costs-timing",
       "stateId": "florida",
       "category": "费用",
-      "claim": "FLHSMV renew/replace 页面说明 MyDMV Portal 办理后 credential 通常 2-3 weeks 邮寄到达，并会在总交易中加收 $2.00 processing fee",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/",
-      "sourceLabel": "对应官方来源：FLHSMV Renew or Replace",
+      "claim": "tax collector office 还可能收 $6.25 service fee",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/fees/",
+      "sourceLabel": "对应官方来源：FLHSMV Driver License and ID Fees",
       "themes": [
-        "fee",
-        "processing-or-mail",
-        "renewal"
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "florida",
+      "category": "费用",
+      "claim": "最终金额以 fee table 和承办地点为准",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/fees/",
+      "sourceLabel": "对应官方来源：FLHSMV Driver License and ID Fees",
+      "themes": [
+        "fee"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": true
@@ -206,13 +217,25 @@
     {
       "page": "costs-timing",
       "stateId": "florida",
+      "category": "付款",
+      "claim": "到场提交原件或认证文件并完成照片、适用测试和付款",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/fees/",
+      "sourceLabel": "对应官方来源：FLHSMV Driver License and ID Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "florida",
       "category": "邮寄 / 卡片",
-      "claim": "身份和 legal status 核验后，证件会在 60 天内邮寄",
+      "claim": "身份和 lawful status 核验通过后，正式证件在 60 天内邮寄",
       "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/",
       "sourceLabel": "对应官方来源：FLHSMV What to Bring - Non-Immigrant",
       "themes": [
-        "processing-or-mail",
-        "lawful-presence"
+        "processing-or-mail"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -536,8 +559,21 @@
     {
       "page": "deadlines",
       "stateId": "florida",
-      "category": "材料时效",
-      "claim": "新佛州居民通常要在建立 residency 后 30 天内取得佛州驾照",
+      "category": "处理 / 邮寄",
+      "claim": "身份和 lawful status 核验通过后，正式证件在 60 天内邮寄",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - Non-Immigrant",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "florida",
+      "category": "搬家 / 地址",
+      "claim": "新居民应在建立 residency 后 30 天内取得 Florida license",
       "sourceUrl": "https://www.flhsmv.gov/new-resident/",
       "sourceLabel": "对应官方来源：FLHSMV New Resident",
       "themes": [
@@ -551,25 +587,11 @@
       "page": "deadlines",
       "stateId": "florida",
       "category": "搬家 / 地址",
-      "claim": "地址变更有 30 天要求",
+      "claim": "姓名或地址变化后 30 天内要同时更新 driver license 或 ID 以及 title 和 registration",
       "sourceUrl": "https://www.flhsmv.gov/name-and-address-changes/",
       "sourceLabel": "对应官方来源：FLHSMV Name and Address Changes",
       "themes": [
         "address-change"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "deadlines",
-      "stateId": "florida",
-      "category": "处理 / 邮寄",
-      "claim": "身份和 legal status 核验后，证件会在 60 天内邮寄",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring - Non-Immigrant",
-      "themes": [
-        "processing-or-mail",
-        "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -1003,10 +1025,11 @@
       "page": "document-rules",
       "stateId": "florida",
       "category": "地址证明",
-      "claim": "首次办公室核发或升级 REAL ID 时，重点是身份、SSN 和佛州居住地址三组原始材料",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+      "claim": "现场 REAL ID 通常要一份可接受的 primary identification、SSN 证明和两份 Florida residential address 文件",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring",
       "themes": [
+        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
@@ -1016,7 +1039,7 @@
       "page": "document-rules",
       "stateId": "florida",
       "category": "地址证明",
-      "claim": "Florida residential address 通常要两份不同文件",
+      "claim": "两份地址文件必须不同并显示 Florida residential address，当前 driver license 或 ID 不能用作地址证明",
       "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
       "sourceLabel": "对应官方来源：FLHSMV What to Bring",
       "themes": [
@@ -1029,12 +1052,11 @@
       "page": "document-rules",
       "stateId": "florida",
       "category": "地址证明",
-      "claim": "新佛州居民通常要在建立 residency 后 30 天内取得佛州驾照",
-      "sourceUrl": "https://www.flhsmv.gov/new-resident/",
-      "sourceLabel": "对应官方来源：FLHSMV New Resident",
+      "claim": "地址文件不在本人名下时，可由同住人提交 Certification of Address 和两份配套地址证明",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring",
       "themes": [
-        "residency-documents",
-        "new-resident"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -1043,11 +1065,12 @@
       "page": "document-rules",
       "stateId": "florida",
       "category": "地址证明",
-      "claim": "地址变更有 30 天要求",
-      "sourceUrl": "https://www.flhsmv.gov/name-and-address-changes/",
-      "sourceLabel": "对应官方来源：FLHSMV Name and Address Changes",
+      "claim": "自有车辆通常还要在建立 residency 后 10 天内取得 Florida insurance 并办理 title 和 registration",
+      "sourceUrl": "https://www.flhsmv.gov/new-resident/",
+      "sourceLabel": "对应官方来源：FLHSMV New Resident",
       "themes": [
-        "address-change"
+        "residency-documents",
+        "new-resident"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -3070,28 +3093,14 @@
       "page": "foreign-license",
       "stateId": "florida",
       "category": "外州 / 加拿大转入",
-      "claim": "What to Bring 会按 U.S. Citizen、Immigrant、Non-Immigrant、Canadian 分材料，非公民身份不能照搬美国公民清单",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring FAQ",
-      "themes": [
-        "what-to-bring",
-        "non-citizen"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "florida",
-      "category": "外州 / 加拿大转入",
-      "claim": "FLHSMV FAQ 说明持有效 out-of-state driver license 申请佛州 license 时通常不需要重考 written 或 driving test，但所有 out-of-state driver 都要做 vision test",
+      "claim": "有效 out-of-state driver license 可免 written 和 driving exams，但不能当作 primary identification，且申请人仍要做 vision test",
       "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
       "sourceLabel": "对应官方来源：FLHSMV What to Bring FAQ",
       "themes": [
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "foreign-license",
@@ -3111,11 +3120,25 @@
       "page": "foreign-license",
       "stateId": "florida",
       "category": "外州 / 加拿大转入",
-      "claim": "非美国公民、加拿大申请人和其他身份类别，要进入 What to Bring 的对应分支",
+      "claim": "先进入 What to Bring，按 U.S. Citizen、Immigrant、Non-Immigrant 或 Canadian 选择身份分支",
       "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
       "sourceLabel": "对应官方来源：FLHSMV What to Bring FAQ",
       "themes": [
-        "what-to-bring"
+        "what-to-bring",
+        "non-citizen"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "florida",
+      "category": "外州 / 加拿大转入",
+      "claim": "primary identification 要用官方列出的原件或认证文件，out-of-state driver license 不能替代这组身份证明",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring FAQ",
+      "themes": [
+        "out-of-state"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -3874,7 +3897,7 @@
       "page": "identity-ssn",
       "stateId": "florida",
       "category": "SSN",
-      "claim": "首次办公室核发或升级 REAL ID 时，重点是身份、SSN 和佛州居住地址三组原始材料",
+      "claim": "改名要先更新 Social Security Administration 记录，并在等待 24 至 48 小时后再到 Florida 办证机构办理",
       "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
       "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
       "themes": [
@@ -3887,7 +3910,21 @@
       "page": "identity-ssn",
       "stateId": "florida",
       "category": "SSN",
-      "claim": "第一次到办公室核发、现有证件没有星标且到期、或姓名变更时，通常需要带原始文件验证身份、SSN 和佛州居住地址",
+      "claim": "现场 REAL ID 通常要一份可接受的 primary identification、SSN 证明和两份 Florida residential address 文件",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "florida",
+      "category": "SSN",
+      "claim": "SSN 记录上的姓名要与 Florida 证件姓名一致",
       "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
       "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
       "themes": [
@@ -3899,27 +3936,14 @@
     {
       "page": "identity-ssn",
       "stateId": "florida",
-      "category": "lawful presence",
-      "claim": "身份和 legal status 核验后，证件会在 60 天内邮寄",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring - Non-Immigrant",
-      "themes": [
-        "processing-or-mail",
-        "lawful-presence"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "florida",
-      "category": "非公民 / 临时访客",
-      "claim": "What to Bring 会按 U.S. Citizen、Immigrant、Non-Immigrant、Canadian 分材料，非公民身份不能照搬美国公民清单",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring - Non-Immigrant",
+      "category": "SSN",
+      "claim": "打开 What to Bring 的正确身份分支，逐项准备 primary identification、SSN、两份地址文件和完整姓名链",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
       "themes": [
         "what-to-bring",
-        "non-citizen"
+        "residency-documents",
+        "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false

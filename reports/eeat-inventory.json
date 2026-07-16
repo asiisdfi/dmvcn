@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:39:22.292Z",
+    "generatedAt": "2026-07-16T22:48:15.064Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 17,
+    "passed": 19,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 94,
-    "aiAssistedReviews": 23,
+    "sourceMappedReviews": 92,
+    "aiAssistedReviews": 25,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 147,
+    "blockedPages": 145,
     "averageScore": 96
   },
   "pages": [
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 227,
+        "sourceCount": 228,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 31,
-        "directoryEvidenceLinks": 31,
+        "directoryEvidenceItems": 33,
+        "directoryEvidenceLinks": 33,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 164,
+        "sourceCount": 163,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1017,
+        "sourceCount": 1018,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -1747,16 +1747,16 @@
       "risk": "medium",
       "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 FLHSMV 的 REAL ID、身份分支、居住证明、续期补证、MyDMV、费用、地址姓名、预约、考试、新居民、外国访客和外州换证正文。",
+        "notes": "重写 Florida 总览与 REAL ID 清单，补充 80 岁以上有效期、地址证明替代路径和外州证件边界，并用 2026 年 English-only 公告纠正旧考试页仍显示的历史语言列表；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1769,14 +1769,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 15,
-        "factCheckCount": 23,
+        "sourceCount": 17,
+        "factCheckCount": 28,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 23,
-        "stateEvidenceLinks": 26,
+        "stateEvidenceItems": 28,
+        "stateEvidenceLinks": 39,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1784,9 +1784,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/florida/real-id/",
@@ -1794,16 +1792,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 FLHSMV 的 REAL ID、身份分支、居住证明、续期补证、MyDMV、费用、地址姓名、预约、考试、新居民、外国访客和外州换证正文。",
+        "notes": "重写 Florida 总览与 REAL ID 清单，补充 80 岁以上有效期、地址证明替代路径和外州证件边界，并用 2026 年 English-only 公告纠正旧考试页仍显示的历史语言列表；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1816,14 +1814,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 15,
-        "factCheckCount": 23,
+        "sourceCount": 17,
+        "factCheckCount": 33,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 23,
-        "stateEvidenceLinks": 25,
+        "stateEvidenceItems": 33,
+        "stateEvidenceLinks": 60,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1831,9 +1829,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/georgia/",

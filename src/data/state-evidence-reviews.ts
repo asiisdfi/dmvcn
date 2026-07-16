@@ -93,6 +93,35 @@ const TX_CDL_TESTING =
 const TSA_IDENTIFICATION =
   'https://www.tsa.gov/travel/security-screening/identification';
 
+const FL_WHAT_TO_BRING =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/';
+const FL_DRIVER_LICENSES =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/';
+const FL_US_CITIZEN =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/';
+const FL_NON_IMMIGRANT =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/';
+const FL_RENEW_REPLACE =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/';
+const FL_CLASS_E =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/class-e-knowledge-exam-driving-skills-test/';
+const FL_DRIVER_EXAMS =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-exams/';
+const FL_ENGLISH_ONLY =
+  'https://www.flhsmv.gov/2026/01/30/flhsmv-announces-driver-license-exams-to-be-administered-in-english-only/';
+const FL_FEES =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/fees/';
+const FL_LOCATIONS = 'https://www.flhsmv.gov/locations/';
+const FL_MYDMV = 'https://services.flhsmv.gov/VirtualOffice/';
+const FL_NEW_RESIDENT = 'https://www.flhsmv.gov/new-resident/';
+const FL_VISITING =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/';
+const FL_WHAT_TO_BRING_FAQ =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/';
+const FL_NAME_ADDRESS = 'https://www.flhsmv.gov/name-and-address-changes/';
+const FL_NEW_CREDENTIAL_FAQ =
+  'https://www.flhsmv.gov/driver-licenses-id-cards/newdl/faq/';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -582,6 +611,233 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '默认普通 knowledge test 有中文版本': [TX_TESTING],
       '非商业驾照知识考试只提供 English 或 Spanish，翻译人员不能在考试过程中协助': [
         TX_TESTING,
+      ],
+    },
+  },
+  florida: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      FL_WHAT_TO_BRING,
+      FL_DRIVER_LICENSES,
+      FL_US_CITIZEN,
+      FL_NON_IMMIGRANT,
+      FL_RENEW_REPLACE,
+      FL_CLASS_E,
+      FL_DRIVER_EXAMS,
+      FL_ENGLISH_ONLY,
+      FL_FEES,
+      FL_LOCATIONS,
+      FL_MYDMV,
+      FL_NEW_RESIDENT,
+      FL_VISITING,
+      FL_WHAT_TO_BRING_FAQ,
+      FL_NAME_ADDRESS,
+      FL_NEW_CREDENTIAL_FAQ,
+    ],
+    scope:
+      '逐条打开并比对 FLHSMV 的 REAL ID、身份分支、居住证明、续期补证、MyDMV、费用、地址姓名、预约、考试、新居民、外国访客和外州换证正文。',
+    notes:
+      '重写 Florida 总览与 REAL ID 清单，补充 80 岁以上有效期、地址证明替代路径和外州证件边界，并用 2026 年 English-only 公告纠正旧考试页仍显示的历史语言列表；仍待真实人工签字。',
+    claims: {
+      '佛州驾照和 ID 由 FLHSMV 与各县 driver license service center 或 tax collector office 办理': [
+        FL_DRIVER_LICENSES,
+        FL_LOCATIONS,
+      ],
+      '首次 Florida 证件要走现场路径': [
+        FL_RENEW_REPLACE,
+        FL_NEW_RESIDENT,
+      ],
+      '续期、补证和改地址可先让 MyDMV Portal 判断线上资格': [
+        FL_RENEW_REPLACE,
+        FL_MYDMV,
+      ],
+      '公民和 immigrant 的 Class E 驾照在 80 岁以下通常有效 8 年，80 岁及以上通常有效 6 年': [
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      '驾照最多提前 18 个月续期，ID 最多提前 12 个月': [FL_RENEW_REPLACE],
+      '非移民证件期限按 USCIS 批准时间处理': [
+        FL_WHAT_TO_BRING_FAQ,
+        FL_NON_IMMIGRANT,
+      ],
+      'Florida 在 2010 年 1 月 1 日后开始签发 REAL ID-compliant 证件，右上角金色星标表示合规': [
+        FL_DRIVER_LICENSES,
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      '证件没有星标时要到 driver license service center 或 tax collector office 完成 REAL ID 文件核验': [
+        FL_RENEW_REPLACE,
+        FL_NEW_CREDENTIAL_FAQ,
+      ],
+      '已经合规的证件通常可等到期或必须变更姓名、地址等信息时再换': [
+        FL_NEW_CREDENTIAL_FAQ,
+        FL_RENEW_REPLACE,
+      ],
+      'Florida 的预约和付款方式按县及地点变化，many offices require appointments': [
+        FL_LOCATIONS,
+      ],
+      '先在 FLHSMV Locations 选择县，再进入该 tax collector 或 office 的网站确认服务、预约和附加费用': [
+        FL_LOCATIONS,
+        FL_FEES,
+      ],
+      'Florida online convenience renewal 通常只能隔一个 renewal period 使用一次，最终资格由 MyDMV Portal 判断': [
+        FL_RENEW_REPLACE,
+      ],
+      'MyDMV Portal 完成交易后，证件通常在 2 至 3 周内邮寄，并在交易总额中加收 $2 processing fee': [
+        FL_RENEW_REPLACE,
+      ],
+      '上次已在线续期、证件不符合 REAL ID、需要换照片或改名、首次办 Florida 证件、持 CDL 或证件印有 TEMPORARY 时，必须到办公室办理': [
+        FL_RENEW_REPLACE,
+      ],
+      'Class E 驾照续期费为 $48，driver license replacement 和普通 ID 原办、续期或 replacement 通常为 $25': [
+        FL_FEES,
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      'tax collector office 还可能收 $6.25 service fee': [FL_FEES],
+      '姓名或地址变化后 30 天内要同时更新 driver license 或 ID 以及 title 和 registration': [
+        FL_NAME_ADDRESS,
+      ],
+      '改名要先更新 Social Security Administration 记录，并在等待 24 至 48 小时后再到 Florida 办证机构办理': [
+        FL_NAME_ADDRESS,
+        FL_US_CITIZEN,
+      ],
+      '自 2026 年 2 月 6 日起，所有 Florida driver license knowledge 和 skills exams 只用 English，考试中不再允许 language translation services': [
+        FL_ENGLISH_ONLY,
+      ],
+      'FLHSMV 的旧 Class E 考试页仍显示历史语言列表': [FL_CLASS_E],
+      '当前考试语言应以 2026 年 English-only 公告为准': [FL_ENGLISH_ONLY],
+      'Class E Knowledge Exam 有 50 道选择题，答对 40 题或达到 80% 才通过': [
+        FL_CLASS_E,
+      ],
+      '外国访客在 Florida 驾驶时，要随身携带居住国签发给本人的有效 driver license': [
+        FL_VISITING,
+      ],
+      '成为 Florida resident 后须在 30 天内取得 Florida driver license': [
+        FL_NEW_RESIDENT,
+        FL_VISITING,
+      ],
+      '自有车辆通常还要在建立 residency 后 10 天内取得 Florida insurance 并办理 title 和 registration': [
+        FL_NEW_RESIDENT,
+      ],
+      '有效 out-of-state driver license 可免 written 和 driving exams，但不能当作 primary identification，且申请人仍要做 vision test': [
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      '新居民材料暂时不全时，如果 out-of-state license 仍有效或过期不超过 60 天，可能获得 60-day temporary permit': [
+        FL_VISITING,
+      ],
+      '新居民的 driver license 或 ID 申请必须到提供 driver license services 的当地办公室现场办理': [
+        FL_NEW_RESIDENT,
+      ],
+      '先进入 What to Bring，按 U.S. Citizen、Immigrant、Non-Immigrant 或 Canadian 选择身份分支': [
+        FL_WHAT_TO_BRING,
+      ],
+      '现场 REAL ID 通常要一份可接受的 primary identification、SSN 证明和两份 Florida residential address 文件': [
+        FL_US_CITIZEN,
+        FL_NON_IMMIGRANT,
+      ],
+      'primary identification 要用官方列出的原件或认证文件，out-of-state driver license 不能替代这组身份证明': [
+        FL_US_CITIZEN,
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      'SSN 记录上的姓名要与 Florida 证件姓名一致': [
+        FL_US_CITIZEN,
+        FL_NON_IMMIGRANT,
+      ],
+      '改名时先更新 SSA，等待 24 至 48 小时，并用原件或认证文件连接出生姓名到当前姓名': [
+        FL_NAME_ADDRESS,
+        FL_US_CITIZEN,
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      '两份地址文件必须不同并显示 Florida residential address，当前 driver license 或 ID 不能用作地址证明': [
+        FL_US_CITIZEN,
+        FL_NON_IMMIGRANT,
+      ],
+      '符合清单的 printout 或 fax 可以提交，utility、bank、insurance、pay stub 和部分政府文件通常要在 60 天内': [
+        FL_US_CITIZEN,
+        FL_NON_IMMIGRANT,
+      ],
+      '地址文件不在本人名下时，可由同住人提交 Certification of Address 和两份配套地址证明': [
+        FL_US_CITIZEN,
+        FL_NON_IMMIGRANT,
+      ],
+      '同住人要到场，或在 notary 面前签署表格': [
+        FL_US_CITIZEN,
+        FL_NON_IMMIGRANT,
+      ],
+      'Non-Immigrant 身份文件通常要在签发日后仍有 30 天以上有效期': [
+        FL_NON_IMMIGRANT,
+      ],
+      '首次申请 driver license 时会先取得无照片的 60-day temporary paper permit': [
+        FL_NON_IMMIGRANT,
+      ],
+      '身份和 lawful status 核验通过后，正式证件在 60 天内邮寄': [
+        FL_NON_IMMIGRANT,
+      ],
+      '先确认本次是首次申请、外州换证、续期、补证、改名还是改地址，并查看现有证件右上角是否有星标': [
+        FL_RENEW_REPLACE,
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      '已有 Florida 证件且只需续期、补证或改地址时，先进入 MyDMV Portal 检查线上资格': [
+        FL_RENEW_REPLACE,
+        FL_MYDMV,
+      ],
+      '打开 What to Bring 的正确身份分支，逐项准备 primary identification、SSN、两份地址文件和完整姓名链': [
+        FL_WHAT_TO_BRING,
+        FL_US_CITIZEN,
+        FL_NON_IMMIGRANT,
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      '需要现场办理时，在 Locations 选择县并打开具体 office 或 tax collector 网站，确认 appointment 和 service fee': [
+        FL_LOCATIONS,
+        FL_FEES,
+      ],
+      '到场提交原件或认证文件并完成照片、适用测试和付款': [
+        FL_WHAT_TO_BRING,
+        FL_DRIVER_EXAMS,
+        FL_FEES,
+      ],
+      '常见 Class E 续期费为 $48，replacement 为 $25': [
+        FL_FEES,
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      '最终金额以 fee table 和承办地点为准': [FL_FEES, FL_LOCATIONS],
+      '新居民应在建立 residency 后 30 天内取得 Florida license': [
+        FL_NEW_RESIDENT,
+      ],
+      '材料暂缺且外州驾照符合条件时，现场询问 60-day temporary permit': [
+        FL_VISITING,
+      ],
+      '把 MyDMV Portal 能打开误解为本人一定有线上资格': [
+        FL_RENEW_REPLACE,
+      ],
+      '上次已经用过 online convenience renewal，这次仍按线上续期准备': [
+        FL_RENEW_REPLACE,
+      ],
+      '把有效 out-of-state license 当作 primary identification': [
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      '它可能帮助免除考试，但不能替代身份原件': [
+        FL_WHAT_TO_BRING_FAQ,
+        FL_US_CITIZEN,
+      ],
+      '只带一份地址证明，或用当前 Florida driver license / ID 充当地址证明': [
+        FL_US_CITIZEN,
+        FL_NON_IMMIGRANT,
+      ],
+      '改名后没有先更新 SSA，或只带最后一次改名文件，无法连接完整法定姓名链': [
+        FL_NAME_ADDRESS,
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      '只带照片、手机扫描件或普通复印件，而不是身份分支要求的原件或认证文件': [
+        FL_US_CITIZEN,
+        FL_WHAT_TO_BRING_FAQ,
+      ],
+      '看到旧 Class E 页面仍列 Chinese 或 Spanish，就认为 2026 年 2 月 6 日后考试仍提供这些语言': [
+        FL_CLASS_E,
+        FL_ENGLISH_ONLY,
+      ],
+      '没有进入所选县或 tax collector office 的网站确认 appointment、服务范围和付款方式': [
+        FL_LOCATIONS,
       ],
     },
   },

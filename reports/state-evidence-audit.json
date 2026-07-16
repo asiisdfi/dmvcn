@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:39:21.669Z",
+    "generatedAt": "2026-07-16T22:48:14.441Z",
     "pages": 100,
     "states": 50,
-    "claims": 1613,
-    "links": 1826,
-    "aiAssistedClaims": 163,
-    "aiAssistedPages": 6,
+    "claims": 1628,
+    "links": 1874,
+    "aiAssistedClaims": 224,
+    "aiAssistedPages": 8,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 694,
-        "links": 814,
+        "claims": 699,
+        "links": 827,
         "states": 50
       },
       "real-id": {
-        "claims": 919,
-        "links": 1012,
+        "claims": 929,
+        "links": 1047,
         "states": 50
       }
     }
@@ -3311,20 +3311,56 @@
       "stateId": "florida",
       "surface": "overview",
       "field": "summary",
-      "context": "document",
-      "claim": "佛州 FLHSMV 的 What to Bring 是材料主入口，续期、补证和地址更新则先从 MyDMV Portal 判断资格",
+      "context": "license",
+      "claim": "佛州驾照和 ID 由 FLHSMV 与各县 driver license service center 或 tax collector office 办理",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
-        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/",
+        "https://www.flhsmv.gov/locations/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring",
-        "对应官方来源：FLHSMV Renew or Replace"
+        "对应官方来源：FLHSMV Driver Licenses and ID Cards",
+        "对应官方来源：FLHSMV Locations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "summary",
+      "context": "overview",
+      "claim": "首次 Florida 证件要走现场路径",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/",
+        "https://www.flhsmv.gov/new-resident/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Renew or Replace",
+        "对应官方来源：FLHSMV New Resident"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "summary",
+      "context": "license",
+      "claim": "续期、补证和改地址可先让 MyDMV Portal 判断线上资格",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/",
+        "https://services.flhsmv.gov/VirtualOffice/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Renew or Replace",
+        "对应官方来源：FLHSMV MyDMV Portal"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "address-change",
         "renewal",
         "replacement",
         "online-service"
@@ -3335,37 +3371,16 @@
     {
       "stateId": "florida",
       "surface": "overview",
-      "field": "summary",
-      "context": "license",
-      "claim": "不要只看一张清单，先确认自己是首次办证、续期、补证、改名，还是只是改地址",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "name-change",
-        "renewal",
-        "replacement"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "overview",
       "field": "licenseSummary",
       "context": "license",
-      "claim": "佛州驾照或 ID 通常每 8 年续一次",
+      "claim": "公民和 immigrant 的 Class E 驾照在 80 岁以下通常有效 8 年，80 岁及以上通常有效 6 年",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV What to Bring FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -3375,36 +3390,37 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "license",
-      "claim": "驾照最多可提前 18 个月续，ID 最多可提前 12 个月续",
+      "claim": "驾照最多提前 18 个月续期，ID 最多提前 12 个月",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "license",
-      "claim": "线上续期不是每次都能用，FLHSMV 说明 online convenience renewal 一般隔一次续期可用一次",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
         "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring",
         "对应官方来源：FLHSMV Renew or Replace"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "online-service"
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "非移民证件期限按 USCIS 批准时间处理",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring FAQ",
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -3414,18 +3430,47 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "佛州从 2010 年 1 月 1 日开始签发 REAL ID-compliant 证件",
+      "claim": "Florida 在 2010 年 1 月 1 日后开始签发 REAL ID-compliant 证件，右上角金色星标表示合规",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV Driver Licenses and ID Cards",
+        "对应官方来源：FLHSMV What to Bring FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "证件没有星标时要到 driver license service center 或 tax collector office 完成 REAL ID 文件核验",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/newdl/faq/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Renew or Replace",
+        "对应官方来源：FLHSMV New Driver License and ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "document"
+      ],
       "valid": true
     },
     {
@@ -3433,56 +3478,81 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "第一次到办公室核发、现有证件没有星标且到期、或姓名变更时，通常需要带原始文件验证身份、SSN 和佛州居住地址",
+      "claim": "已经合规的证件通常可等到期或必须变更姓名、地址等信息时再换",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/newdl/faq/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV New Driver License and ID FAQ",
+        "对应官方来源：FLHSMV Renew or Replace"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "ssn",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "佛州很多服务由县税务官办公室或服务中心承办，预约规则按县和地点变化",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/locations/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV Locations"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "FLHSMV locations 页面明确提醒 many offices require appointments，先查县和办公室，再决定是否现场去",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/locations/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV Locations"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "Florida 的预约和付款方式按县及地点变化，many offices require appointments",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "先在 FLHSMV Locations 选择县，再进入该 tax collector 或 office 的网站确认服务、预约和附加费用",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/locations/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/fees/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Locations",
+        "对应官方来源：FLHSMV Driver License and ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Florida online convenience renewal 通常只能隔一个 renewal period 使用一次，最终资格由 MyDMV Portal 判断",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Renew or Replace"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -3491,76 +3561,15 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "地址变更有 30 天要求",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "license",
-      "claim": "如果要在新地址上拿到实体证件，通常是先处理地址，再按 replacement/renewal 路径走",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "renewal",
-        "replacement"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "document",
-      "claim": "What to Bring 会按 U.S. Citizen、Immigrant、Non-Immigrant、Canadian 分材料，非公民身份不能照搬美国公民清单",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "lawful-presence"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "license",
-      "claim": "FLHSMV renew/replace 页面说明 MyDMV Portal 办理后 credential 通常 2-3 weeks 邮寄到达，并会在总交易中加收 $2.00 processing fee",
+      "claim": "MyDMV Portal 完成交易后，证件通常在 2 至 3 周内邮寄，并在交易总额中加收 $2 processing fee",
       "sourceUrls": [
         "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/"
       ],
       "sourceLabels": [
         "对应官方来源：FLHSMV Renew or Replace"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "replacement",
         "online-service",
         "fee",
         "processing-or-mail"
@@ -3573,41 +3582,44 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "FLHSMV renew/replace 页面说明需要办公室办理的情况包括上次已用 online convenience renewal、非 REAL ID compliant、换照片、改名、首次佛州证件、CDL 或证件上有 TEMPORARY 字样",
+      "claim": "上次已在线续期、证件不符合 REAL ID、需要换照片或改名、首次办 Florida 证件、持 CDL 或证件印有 TEMPORARY 时，必须到办公室办理",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
         "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring",
         "对应官方来源：FLHSMV Renew or Replace"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "name-change",
+        "renewal"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "name-change"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Class E 驾照续期费为 $48，driver license replacement 和普通 ID 原办、续期或 replacement 通常为 $25",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/fees/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Driver License and ID Fees",
+        "对应官方来源：FLHSMV What to Bring FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "renewal",
         "replacement",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "license",
-      "claim": "FLHSMV Non-Immigrant 页面说明非美国公民首次申请 driver license 时可能先拿到 60-day temporary paper permit",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "temporary-credential"
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -3617,17 +3629,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "身份和 legal status 核验后，证件会在 60 天内邮寄",
+      "claim": "tax collector office 还可能收 $6.25 service fee",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/fees/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
+        "对应官方来源：FLHSMV Driver License and ID Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "lawful-presence",
-        "processing-or-mail"
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -3636,17 +3647,39 @@
       "stateId": "florida",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "FLHSMV Class E Knowledge Exam 页面说明 learner license 申请人要通过 50 题 Class E Knowledge Exam",
+      "context": "document",
+      "claim": "姓名或地址变化后 30 天内要同时更新 driver license 或 ID 以及 title 和 registration",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/class-e-knowledge-exam-driving-skills-test/"
+        "https://www.flhsmv.gov/name-and-address-changes/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV Class E Knowledge Exam and Driving Skills Test"
+        "对应官方来源：FLHSMV Name and Address Changes"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "test"
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "改名要先更新 Social Security Administration 记录，并在等待 24 至 48 小时后再到 Florida 办证机构办理",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/name-and-address-changes/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Name and Address Changes",
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -3656,14 +3689,36 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "自 2026 年 2 月 6 日起，Florida driver license knowledge 和 skills exams 仅使用英语，考试期间不再允许语言翻译服务",
+      "claim": "自 2026 年 2 月 6 日起，所有 Florida driver license knowledge 和 skills exams 只用 English，考试中不再允许 language translation services",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/2026/01/30/flhsmv-announces-driver-license-exams-to-be-administered-in-english-only/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV English-only Exams Announcement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "FLHSMV 的旧 Class E 考试页仍显示历史语言列表",
       "sourceUrls": [
         "https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/class-e-knowledge-exam-driving-skills-test/"
       ],
       "sourceLabels": [
         "对应官方来源：FLHSMV Class E Knowledge Exam and Driving Skills Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test",
         "language"
@@ -3676,16 +3731,38 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "旧 General Information 页面仍可能显示历史语言列表，应以 2026 FLHSMV English-only 公告为准",
+      "claim": "当前考试语言应以 2026 年 English-only 公告为准",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/2026/01/30/flhsmv-announces-driver-license-exams-to-be-administered-in-english-only/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV English-only Exams Announcement"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "test",
         "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Class E Knowledge Exam 有 50 道选择题，答对 40 题或达到 80% 才通过",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/class-e-knowledge-exam-driving-skills-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Class E Knowledge Exam and Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -3695,14 +3772,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "FLHSMV Visiting Florida FAQ 说明外国访客在佛州驾驶时要随身持有居住国签发的有效 driver license",
+      "claim": "外国访客在 Florida 驾驶时，要随身携带居住国签发给本人的有效 driver license",
       "sourceUrls": [
         "https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/"
       ],
       "sourceLabels": [
         "对应官方来源：FLHSMV Visiting Florida FAQs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -3712,14 +3789,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "document",
-      "claim": "成为 Florida resident 后必须在 30 天内取得 Florida license",
+      "claim": "成为 Florida resident 后须在 30 天内取得 Florida driver license",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/new-resident/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV New Resident",
+        "对应官方来源：FLHSMV Visiting Florida FAQs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -3728,15 +3807,34 @@
       "stateId": "florida",
       "surface": "overview",
       "field": "editorNotes",
+      "context": "document",
+      "claim": "自有车辆通常还要在建立 residency 后 10 天内取得 Florida insurance 并办理 title 和 registration",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/new-resident/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV New Resident"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "editorNotes",
       "context": "license",
-      "claim": "FLHSMV FAQ 说明持有效 out-of-state driver license 申请佛州 license 时通常不需要重考 written 或 driving test，但所有 out-of-state driver 都要做 vision test",
+      "claim": "有效 out-of-state driver license 可免 written 和 driving exams，但不能当作 primary identification，且申请人仍要做 vision test",
       "sourceUrls": [
         "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
       ],
       "sourceLabels": [
         "对应官方来源：FLHSMV What to Bring FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test"
       ],
@@ -3748,17 +3846,38 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "document",
-      "claim": "材料不足但外州证件有效或过期 60 天内时，可能先发 60-day temporary permit",
+      "claim": "新居民材料暂时不全时，如果 out-of-state license 仍有效或过期不超过 60 天，可能获得 60-day temporary permit",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV Visiting Florida FAQs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "temporary-credential"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "新居民的 driver license 或 ID 申请必须到提供 driver license services 的当地办公室现场办理",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/new-resident/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV New Resident"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -3768,18 +3887,47 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "佛州从 2010 年 1 月 1 日开始签发 REAL ID-compliant 证件",
+      "claim": "Florida 在 2010 年 1 月 1 日后开始签发 REAL ID-compliant 证件，右上角金色星标表示合规",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV Driver Licenses and ID Cards",
+        "对应官方来源：FLHSMV What to Bring FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "证件没有星标时要到 driver license service center 或 tax collector office 完成 REAL ID 文件核验",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/newdl/faq/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Renew or Replace",
+        "对应官方来源：FLHSMV New Driver License and ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "document"
+      ],
       "valid": true
     },
     {
@@ -3787,16 +3935,122 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "第一次到办公室核发、现有证件没有星标且到期、或姓名变更时，通常需要带原始文件验证身份、SSN 和佛州居住地址",
+      "claim": "已经合规的证件通常可等到期或必须变更姓名、地址等信息时再换",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/newdl/faq/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV New Driver License and ID FAQ",
+        "对应官方来源：FLHSMV Renew or Replace"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "先进入 What to Bring，按 U.S. Citizen、Immigrant、Non-Immigrant 或 Canadian 选择身份分支",
       "sourceUrls": [
         "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
       ],
       "sourceLabels": [
         "对应官方来源：FLHSMV What to Bring"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "现场 REAL ID 通常要一份可接受的 primary identification、SSN 证明和两份 Florida residential address 文件",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "primary identification 要用官方列出的原件或认证文件，out-of-state driver license 不能替代这组身份证明",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+        "对应官方来源：FLHSMV What to Bring FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "SSN 记录上的姓名要与 Florida 证件姓名一致",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "改名时先更新 SSA，等待 24 至 48 小时，并用原件或认证文件连接出生姓名到当前姓名",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/name-and-address-changes/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Name and Address Changes",
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+        "对应官方来源：FLHSMV What to Bring FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document",
         "ssn",
         "name-change"
@@ -3808,97 +4062,19 @@
       "stateId": "florida",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "首次办公室核发或升级 REAL ID 时，重点是身份、SSN 和佛州居住地址三组原始材料",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "real-id",
-      "field": "documentHighlights",
       "context": "document",
-      "claim": "Florida residential address 通常要两份不同文件",
+      "claim": "两份地址文件必须不同并显示 Florida residential address，当前 driver license 或 ID 不能用作地址证明",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "部分账单、付款册、雇主文件等要特别看 60 天内日期",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof",
-        "fee"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "如果证件没有右上角星标，或姓名在上次核发后变过，要按 FLHSMV 的触发条件准备现场材料",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "新佛州居民通常要在建立 residency 后 30 天内取得佛州驾照",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -3909,87 +4085,16 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "车辆 title / registration 路径还要核对保险和登记期限",
+      "claim": "符合清单的 printout 或 fax 可以提交，utility、bank、insurance、pay stub 和部分政府文件通常要在 60 天内",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "姓名变更链条要能从出生姓名追到当前姓名",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "多次改名时不要只带最后一张文件",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "非美国公民、加拿大申请人和其他身份类别，要进入 What to Bring 的对应分支",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Non-Immigrant、Immigrant、Canadian 和 U.S. Citizen 的材料分支不同",
-      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
         "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
       ],
       "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
         "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -4001,14 +4106,38 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "不要用美国公民清单替代自己的身份类别",
+      "claim": "地址文件不在本人名下时，可由同住人提交 Certification of Address 和两份配套地址证明",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "同住人要到场，或在 notary 面前签署表格",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -4016,21 +4145,56 @@
     {
       "stateId": "florida",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "license",
-      "claim": "先看现有佛州证件右上角是否有星标，并确认本次是首次、续期、补证、改名还是改地址",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Non-Immigrant 身份文件通常要在签发日后仍有 30 天以上有效期",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "name-change",
-        "renewal",
-        "replacement"
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "首次申请 driver license 时会先取得无照片的 60-day temporary paper permit",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "身份和 lawful status 核验通过后，正式证件在 60 天内邮寄",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -4040,18 +4204,45 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "license",
-      "claim": "只是续期、补证或地址更新时，先进入 MyDMV Portal，让系统判断是否可线上完成",
+      "claim": "先确认本次是首次申请、外州换证、续期、补证、改名还是改地址，并查看现有证件右上角是否有星标",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
-        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring",
-        "对应官方来源：FLHSMV Renew or Replace"
+        "对应官方来源：FLHSMV Renew or Replace",
+        "对应官方来源：FLHSMV What to Bring FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
+        "real-id",
+        "name-change",
+        "renewal",
+        "replacement",
+        "transfer"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "name-change"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "已有 Florida 证件且只需续期、补证或改地址时，先进入 MyDMV Portal 检查线上资格",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/",
+        "https://services.flhsmv.gov/VirtualOffice/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Renew or Replace",
+        "对应官方来源：FLHSMV MyDMV Portal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "renewal",
         "replacement",
         "online-service"
@@ -4063,52 +4254,24 @@
       "stateId": "florida",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "appointment",
-      "claim": "需要现场办理时，用 locations 页面按县查办公室，并确认是否必须预约",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/locations/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV Locations"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "real-id",
-      "field": "recommendedSteps",
       "context": "document",
-      "claim": "刚搬到佛州时先看 New Resident",
+      "claim": "打开 What to Bring 的正确身份分支，逐项准备 primary identification、SSN、两份地址文件和完整姓名链",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV What to Bring",
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant",
+        "对应官方来源：FLHSMV What to Bring FAQ"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "florida",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "地址或姓名变化时按 30 天要求更新 driver license / ID 和 title / registration",
-      "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "document",
+        "ssn",
         "name-change"
       ],
       "uncoveredThemes": [],
@@ -4118,22 +4281,132 @@
       "stateId": "florida",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "document",
-      "claim": "到场前按 What to Bring 的身份类别准备原始文件、姓名变更文件、地址证明和付款方式",
+      "context": "appointment",
+      "claim": "需要现场办理时，在 Locations 选择县并打开具体 office 或 tax collector 网站，确认 appointment 和 service fee",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/locations/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/fees/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV Locations",
+        "对应官方来源：FLHSMV Driver License and ID Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "residency-proof",
-        "name-change",
+        "appointment",
         "fee"
       ],
       "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "到场提交原件或认证文件并完成照片、适用测试和付款",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/driver-license-exams/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/fees/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring",
+        "对应官方来源：FLHSMV Driver License Exams",
+        "对应官方来源：FLHSMV Driver License and ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "常见 Class E 续期费为 $48，replacement 为 $25",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/fees/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Driver License and ID Fees",
+        "对应官方来源：FLHSMV What to Bring FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "最终金额以 fee table 和承办地点为准",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/fees/",
+        "https://www.flhsmv.gov/locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Driver License and ID Fees",
+        "对应官方来源：FLHSMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "新居民应在建立 residency 后 30 天内取得 Florida license",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/new-resident/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV New Resident"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "材料暂缺且外州驾照符合条件时，现场询问 60-day temporary permit",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Visiting Florida FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
       "valid": true
     },
     {
@@ -4143,12 +4416,12 @@
       "context": "detail",
       "claim": "把 MyDMV Portal 能打开误解为本人一定有线上资格",
       "sourceUrls": [
-        "https://services.flhsmv.gov/VirtualOffice/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV MyDMV Portal"
+        "对应官方来源：FLHSMV Renew or Replace"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "online-service"
       ],
@@ -4162,14 +4435,12 @@
       "context": "license",
       "claim": "上次已经用过 online convenience renewal，这次仍按线上续期准备",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
         "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring",
         "对应官方来源：FLHSMV Renew or Replace"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "online-service"
@@ -4181,18 +4452,37 @@
       "stateId": "florida",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "license",
-      "claim": "搬家后超过 30 天才想起更新地址，或者先续期后才发现地址还没改",
+      "context": "detail",
+      "claim": "把有效 out-of-state license 当作 primary identification",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV What to Bring FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "它可能帮助免除考试，但不能替代身份原件",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring FAQ",
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "renewal"
+        "document",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -4202,18 +4492,108 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "只带照片、扫描件或普通复印件，而不是官方要求的原始材料或认证文件",
+      "claim": "只带一份地址证明，或用当前 Florida driver license / ID 充当地址证明",
       "sourceUrls": [
-        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/"
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/"
       ],
       "sourceLabels": [
-        "对应官方来源：FLHSMV What to Bring"
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+        "对应官方来源：FLHSMV What to Bring - Non-Immigrant"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "改名后没有先更新 SSA，或只带最后一次改名文件，无法连接完整法定姓名链",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/name-and-address-changes/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Name and Address Changes",
+        "对应官方来源：FLHSMV What to Bring FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只带照片、手机扫描件或普通复印件，而不是身份分支要求的原件或认证文件",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+        "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+        "对应官方来源：FLHSMV What to Bring FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
       "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "看到旧 Class E 页面仍列 Chinese 或 Spanish，就认为 2026 年 2 月 6 日后考试仍提供这些语言",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/class-e-knowledge-exam-driving-skills-test/",
+        "https://www.flhsmv.gov/2026/01/30/flhsmv-announces-driver-license-exams-to-be-administered-in-english-only/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Class E Knowledge Exam and Driving Skills Test",
+        "对应官方来源：FLHSMV English-only Exams Announcement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "florida",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "没有进入所选县或 tax collector office 的网站确认 appointment、服务范围和付款方式",
+      "sourceUrls": [
+        "https://www.flhsmv.gov/locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：FLHSMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
       "valid": true
     },
     {
