@@ -1,10 +1,11 @@
 ---
-import { SITE_LAUNCH_DATE } from '../../data/editorial';
+import { HIGH_RISK_DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
 import StatusFilter from '../../components/StatusFilter.astro';
-import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { pickDirectoryEvidence, splitDirectoryClaims } from '../../data/directory-evidence';
 
 type StateGuide = (typeof states)[number];
 
@@ -14,6 +15,12 @@ const foreignLicensePattern =
 function hasForeignCue(text: string) {
   const compact = text.replace(/\s+/g, ' ').trim();
   if (/transfer fee|title transfer|registration transfer|vehicle transfer/i.test(compact) && !/driver|license|id|foreign|out[- ]of[- ]state|out[- ]of[- ]country|驾照|证件|外州|外国|境外/i.test(compact)) {
+    return false;
+  }
+  if (/translation|translated|翻译|译文/i.test(compact) && !/foreign|out[- ]of[- ]country|international driving permit|\bidp\b|another country|外国|境外|国际驾驶许可/i.test(compact)) {
+    return false;
+  }
+  if (/enhanced/i.test(compact) && /canada|mexico|caribbean|加拿大|墨西哥|加勒比/i.test(compact) && !/foreign|out[- ]of[- ]state|transfer|exchange|外国|外州|转入|换证/i.test(compact)) {
     return false;
   }
   if (foreignLicensePattern.test(compact)) return true;
@@ -60,11 +67,12 @@ function foreignNotesFor(state: StateGuide) {
   const notes: { category: string; text: string; score: number; index: number }[] = [];
 
   for (const [index, candidate] of candidates.entries()) {
-    const compact = candidate.text.replace(/\s+/g, ' ').trim();
-    if (!compact || seen.has(compact) || !hasForeignCue(compact)) continue;
-    seen.add(compact);
-    const category = classifyForeignCue(compact);
-    notes.push({ category, text: compact, score: foreignNoteScore(compact, category) + candidate.sourceScore, index });
+    for (const compact of splitDirectoryClaims(candidate.text)) {
+      if (!compact || seen.has(compact) || !hasForeignCue(compact)) continue;
+      seen.add(compact);
+      const category = classifyForeignCue(compact);
+      notes.push({ category, text: compact, score: foreignNoteScore(compact, category) + candidate.sourceScore, index });
+    }
   }
 
   const priority = ['外国 / 境外驾照', '外州 / 加拿大转入', 'IDP / 国际驾照', '互惠 / 免考', '测试判断', '翻译要求', '交旧证 / 退还', '期限 / 居民身份', '材料 / 身份', 'CDL / 限制', '转入提醒'];
@@ -76,23 +84,67 @@ function foreignNotesFor(state: StateGuide) {
 
   for (const note of ranked) {
     if (!selected.some((item) => item.category === note.category)) selected.push(note);
-    if (selected.length >= 4) break;
+    if (selected.length >= 12) break;
   }
 
   for (const note of ranked) {
     if (selected.includes(note)) continue;
     selected.push(note);
-    if (selected.length >= 4) break;
+    if (selected.length >= 12) break;
   }
 
   return selected
-    .slice(0, 4)
+    .slice(0, 12)
     .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
     .map(({ category, text }) => ({ category, text }));
 }
 
 function foreignBadges(notes: { category: string; text: string }[]) {
   return [...new Set(notes.map((note) => note.category))].slice(0, 4);
+}
+
+function foreignEvidencePatterns(category: string, text: string) {
+  const patterns: RegExp[] = [];
+
+  if (/moving to texas guide|moving to [a-z]+ guide|new resident guide/i.test(text)) {
+    patterns.push(/moving.*guide|new resident/i);
+  }
+  if (/driver licenses page|driver licenses 页面|driver licenses：/i.test(text)) {
+    patterns.push(/driver licenses(?!.*permit)|fast facts|new to/i);
+  }
+  if (/drivers? from other countries|foreign driver|foreign license|外国驾照|境外驾照/i.test(text)) {
+    patterns.push(/drivers?.*other countr|foreign.*driver|foreign.*license|out.?of.?country/i);
+  }
+  if (/driving privilege reciprocity|reciprocity|互惠/i.test(text)) patterns.push(/reciproc/i);
+  if (/moving to|new resident|新居民|搬入|搬到/i.test(text)) patterns.push(/moving|new resident/i);
+  if (/out[- ]of[- ]state|外州/i.test(text)) patterns.push(/out.?of.?state|exchange|transfer/i);
+  if (/international driving permit|\bidp\b|国际驾驶许可|国际驾照/i.test(text)) patterns.push(/international|foreign|other countr/i);
+  if (/id-44|document guide/i.test(text)) patterns.push(/id-44|document guide/i);
+  if (/translation|translated|翻译|译文/i.test(text)) patterns.push(/translation|language|foreign|document/i);
+  if (/test|exam|笔试|路考|考试/i.test(text)) patterns.push(/test|exam|reciproc|foreign|transfer/i);
+
+  if (category === '外国 / 境外驾照') patterns.push(/foreign|other countr|out.?of.?country|international|visitor/i);
+  else if (category === '外州 / 加拿大转入') patterns.push(/out.?of.?state|exchange|transfer|moving|new resident|canad/i);
+  else if (category === 'IDP / 国际驾照') patterns.push(/international|foreign|other countr|visitor/i);
+  else if (category === '互惠 / 免考') patterns.push(/reciproc|waiv|exchange|foreign/i);
+  else if (category === '测试判断') patterns.push(/test|exam|reciproc|foreign|transfer/i);
+  else if (category === '翻译要求') patterns.push(/language|translation|foreign|document/i);
+  else if (category === '交旧证 / 退还') patterns.push(/exchange|transfer|moving|out.?of.?state/i);
+  else if (category === '期限 / 居民身份') patterns.push(/moving|new resident|out.?of.?state|change.*address|visitor/i);
+  else if (category === '材料 / 身份') patterns.push(/document|identity|requirements|foreign|legal presence/i);
+  else if (category === 'CDL / 限制') patterns.push(/commercial|cdl|hazmat|foreign/i);
+  else patterns.push(/foreign|out.?of.?state|transfer|moving|driver license/i);
+
+  return patterns;
+}
+
+function sourcedForeignNotesFor(state: StateGuide) {
+  return foreignNotesFor(state)
+    .flatMap((note) => {
+      const evidence = pickDirectoryEvidence(state, note.text, foreignEvidencePatterns(note.category, note.text));
+      return evidence ? [{ ...note, evidence }] : [];
+    })
+    .slice(0, 4);
 }
 
 function pickForeignLinks(state: StateGuide) {
@@ -106,7 +158,7 @@ function pickForeignLinks(state: StateGuide) {
 
 const rows = states.map((state) => {
   const status = getStatePublicStatus(state);
-  const notes = foreignNotesFor(state);
+  const notes = sourcedForeignNotesFor(state);
   const badges = foreignBadges(notes);
   const links = pickForeignLinks(state);
   return {
@@ -150,7 +202,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'DMV 外国/外州驾照转入和 IDP 入口表',
   description: '按州整理 foreign driver license、out-of-state transfer、International Driving Permit、reciprocity、测试豁免、翻译/交旧证和新居民换证期限。',
-  dateModified: REVIEW_DATE,
+  dateModified: HIGH_RISK_DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -165,7 +217,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 外国/外州驾照转入和 IDP 入口表" description="按州查找 foreign driver license、out-of-state transfer、International Driving Permit、reciprocity、测试豁免、翻译/交旧证和新居民换证期限。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE} schema={schema}>
+<BaseLayout title="DMV 外国/外州驾照转入和 IDP 入口表" description="按州查找 foreign driver license、out-of-state transfer、International Driving Permit、reciprocity、测试豁免、翻译/交旧证和新居民换证期限。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} schema={schema}>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">
@@ -174,7 +226,7 @@ const schema = {
       <p class="eyebrow">Foreign License / Transfer / IDP</p>
       <h1>DMV 外国/外州驾照转入和 IDP 入口表</h1>
       <p class="lead">刚到美国或刚搬州时，最容易误会的是“能开车”和“能直接换证”不是一回事。先看外国驾照、外州转入、互惠免考、翻译和交旧证规则，再预约。</p>
-      <ReviewBadge />
+      <ReviewBadge date={HIGH_RISK_DIRECTORY_REVIEW_DATE} />
       <div class="page-ledger" aria-label="外国和外州驾照转入入口表概况">
         <div>
           <strong>{rows.length} 州</strong>
@@ -255,10 +307,15 @@ const schema = {
             </div>
             {row.notes.length ? (
               row.notes.map((note) => (
-                <p>
-                  <span>{note.category}</span>
-                  {note.text}
-                </p>
+                <div class="directory-evidence-item">
+                  <p>
+                    <span>{note.category}</span>
+                    {note.text}
+                  </p>
+                  <a class="directory-evidence-link" href={note.evidence.url} target="_blank" rel="noreferrer">
+                    对应官方来源：{note.evidence.label} <ExternalLink size={13} aria-hidden="true" />
+                  </a>
+                </div>
               ))
             ) : (
               <p>

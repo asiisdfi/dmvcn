@@ -1,10 +1,11 @@
 ---
-import { SITE_LAUNCH_DATE } from '../../data/editorial';
+import { HIGH_RISK_DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
 import StatusFilter from '../../components/StatusFilter.astro';
-import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { pickDirectoryEvidence, splitDirectoryClaims } from '../../data/directory-evidence';
 
 type StateGuide = (typeof states)[number];
 
@@ -41,15 +42,55 @@ function materialRulesFor(state: StateGuide) {
   const rules: { category: string; text: string }[] = [];
 
   for (const text of candidates) {
-    const compact = text.replace(/\s+/g, ' ').trim();
-    if (!compact || seen.has(compact) || !hasMaterialRule(compact)) continue;
-    seen.add(compact);
-    rules.push({ category: classifyRule(compact), text: compact });
+    for (const compact of splitDirectoryClaims(text)) {
+      if (!compact || seen.has(compact) || !hasMaterialRule(compact)) continue;
+      seen.add(compact);
+      rules.push({ category: classifyRule(compact), text: compact });
+    }
   }
 
   const priority = ['地址证明', 'SSN', '姓名链条', '原件 / 认证', '非公民材料', '清单入口', '材料规则'];
   return rules
     .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category))
+    .slice(0, 12);
+}
+
+function materialEvidencePatterns(category: string, text: string) {
+  const patterns: RegExp[] = [];
+
+  if (/id-44|document guide/i.test(text)) patterns.push(/id-44|document guide/i);
+  if (/residency requirement|residential address|two documents|两份.*地址|两份.*居住/i.test(text)) {
+    patterns.push(/residency requirement|what to bring|document guide|checklist/i);
+  }
+  if (/ab 60/i.test(text)) patterns.push(/ab 60/i);
+  if (/ssn|social security|ineligibility|\bssa\b/i.test(text)) patterns.push(/ssn|social security|ineligibility/i);
+  if (/non.?immigrant|non.?citizen|temporary visitor|lawful|legal presence|visa|i-94/i.test(text)) {
+    patterns.push(/non.?immigrant|non.?citizen|temporary visitor|legal presence|lawful|ab 60/i);
+  }
+  if (/name|姓名|marriage|divorce|court order/i.test(text)) patterns.push(/name|change.*information|what to bring/i);
+  if (/translation|translated|翻译|译文/i.test(text)) patterns.push(/translation|language|document/i);
+  if (/residen|address|p\.?o\.?\s*box|居住|地址|账单/i.test(text)) {
+    patterns.push(/residen|address|document|checklist|what to bring|proof/i);
+  }
+
+  if (category === '地址证明') patterns.push(/residen|address|document|checklist|what to bring|proof/i);
+  else if (category === 'SSN') patterns.push(/ssn|social security|without.*social|document|checklist/i);
+  else if (category === '姓名链条') patterns.push(/name|change.*information|what to bring|document|checklist/i);
+  else if (category === '原件 / 认证') patterns.push(/document|checklist|what to bring|requirements|identity/i);
+  else if (category === '非公民材料') {
+    patterns.push(/non.?immigrant|non.?citizen|legal presence|temporary visitor|ab 60|without.*lawful|document/i);
+  } else if (category === '清单入口') patterns.push(/document|checklist|what to bring|real.?id|selector/i);
+  else patterns.push(/document|checklist|requirements|identity|real.?id/i);
+
+  return patterns;
+}
+
+function sourcedMaterialRulesFor(state: StateGuide) {
+  return materialRulesFor(state)
+    .flatMap((rule) => {
+      const evidence = pickDirectoryEvidence(state, rule.text, materialEvidencePatterns(rule.category, rule.text));
+      return evidence ? [{ ...rule, evidence }] : [];
+    })
     .slice(0, 4);
 }
 
@@ -64,7 +105,7 @@ function pickMaterialLinks(state: StateGuide) {
 
 const rows = states.map((state) => {
   const status = getStatePublicStatus(state);
-  const rules = materialRulesFor(state);
+  const rules = sourcedMaterialRulesFor(state);
   const links = pickMaterialLinks(state);
   return {
     state,
@@ -100,7 +141,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'DMV 材料规则表',
   description: '按州整理 DMV / REAL ID 地址证明、SSN、姓名链条、原件/认证副本、P.O. Box 和非公民材料提醒。',
-  dateModified: REVIEW_DATE,
+  dateModified: HIGH_RISK_DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -115,7 +156,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 材料规则表" description="按州查找 DMV / REAL ID 地址证明、SSN、姓名链条、原件或认证副本、P.O. Box 和非公民材料提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE} schema={schema}>
+<BaseLayout title="DMV 材料规则表" description="按州查找 DMV / REAL ID 地址证明、SSN、姓名链条、原件或认证副本、P.O. Box 和非公民材料提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} schema={schema}>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">
@@ -124,7 +165,7 @@ const schema = {
       <p class="eyebrow">材料规则表</p>
       <h1>DMV 材料规则表</h1>
       <p class="lead">汇总各州容易遗漏的材料细节：地址证明、SSN、姓名链条、原件或认证副本、P.O. Box、文件日期和身份类别。先用中文确认重点，再回官方清单逐项核对。</p>
-      <ReviewBadge />
+      <ReviewBadge date={HIGH_RISK_DIRECTORY_REVIEW_DATE} />
       <div class="page-ledger" aria-label="材料规则表概况">
         <div>
           <strong>{rows.length} 州</strong>
@@ -186,10 +227,15 @@ const schema = {
           <div class="rule-notes">
             {row.rules.length ? (
               row.rules.map((rule) => (
-                <p>
-                  <span>{rule.category}</span>
-                  {rule.text}
-                </p>
+                <div class="directory-evidence-item">
+                  <p>
+                    <span>{rule.category}</span>
+                    {rule.text}
+                  </p>
+                  <a class="directory-evidence-link" href={rule.evidence.url} target="_blank" rel="noreferrer">
+                    对应官方来源：{rule.evidence.label} <ExternalLink size={13} aria-hidden="true" />
+                  </a>
+                </div>
               ))
             ) : (
               <p>

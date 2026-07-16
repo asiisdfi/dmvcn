@@ -1,15 +1,16 @@
 ---
-import { SITE_LAUNCH_DATE } from '../../data/editorial';
+import { HIGH_RISK_DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
 import StatusFilter from '../../components/StatusFilter.astro';
-import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { pickDirectoryEvidence, splitDirectoryClaims } from '../../data/directory-evidence';
 
 type StateGuide = (typeof states)[number];
 
 const identityPattern =
-  /SSN|Social Security|\bSSA\b|ITIN|affidavit|ineligibility|lawful|legal presence|legal status|authorized presence|non.?citizen|non.?immigrant|immigrant|temporary visitor|Limited Term|visa|I-94|I-20|DS-2019|EAD|green card|USCIS|SAVE|AB 60|citizenship|citizen|身份|合法|非公民|非美国公民|非移民|移民|临时访客|公民|无 SSN|没有 SSN|不可取得|拒信|核验/i;
+  /SSN|Social Security|\bSSA\b|\bITIN\b|affidavit|ineligibility|lawful|legal presence|legal status|authorized presence|non.?citizen|non.?immigrant|immigrant|temporary visitor|Limited Term|visa|I-94|I-20|DS-2019|EAD|green card|USCIS|SAVE|AB 60|citizenship|citizen|身份|合法|非公民|非美国公民|非移民|移民|临时访客|公民|无 SSN|没有 SSN|不可取得|拒信|核验/i;
 const nonIdentityPattern =
   /费用|fee|payment|pay|付款|支付|邮寄|mailed|mailing|处理时间|processing|wait time|office|appointment|预约|location|地址变更|change your address/i;
 
@@ -23,7 +24,7 @@ function hasIdentityCue(text: string) {
 
 function classifyIdentityCue(text: string) {
   if (/AB 60/i.test(text)) return 'AB 60';
-  if (/ITIN|affidavit|宣誓/i.test(text)) return 'ITIN / affidavit';
+  if (/\bITIN\b|affidavit|宣誓/i.test(text)) return 'ITIN / affidavit';
   if (/无 SSN|没有 SSN|ineligibility|not eligible|\bSSA\b|拒信|不可取得/i.test(text)) return '无 SSN / SSA';
   if (/SSN|Social Security|full 9|完整 9 位/i.test(text)) return 'SSN';
   if (/lawful|legal presence|legal status|authorized presence|合法/i.test(text)) return 'lawful presence';
@@ -36,7 +37,7 @@ function classifyIdentityCue(text: string) {
 
 function identityNoteScore(text: string, category: string) {
   let score = 0;
-  if (/AB 60|ITIN|affidavit|ineligibility|\bSSA\b/i.test(text)) score += 24;
+  if (/AB 60|\bITIN\b|affidavit|ineligibility|\bSSA\b/i.test(text)) score += 24;
   if (/lawful|legal presence|legal status|authorized presence|合法/i.test(text)) score += 22;
   if (/non.?citizen|non.?immigrant|immigrant|temporary visitor|Limited Term|非公民|非移民|移民|临时访客/i.test(text)) score += 21;
   if (/SSN|Social Security|full 9|完整 9 位/i.test(text)) score += 18;
@@ -60,11 +61,12 @@ function identityNotesFor(state: StateGuide) {
   const notes: { category: string; text: string; score: number; index: number }[] = [];
 
   for (const [index, candidate] of candidates.entries()) {
-    const compact = candidate.text.replace(/\s+/g, ' ').trim();
-    if (!compact || seen.has(compact) || !hasIdentityCue(compact)) continue;
-    seen.add(compact);
-    const category = classifyIdentityCue(compact);
-    notes.push({ category, text: compact, score: identityNoteScore(compact, category) + candidate.sourceScore, index });
+    for (const compact of splitDirectoryClaims(candidate.text)) {
+      if (!compact || seen.has(compact) || !hasIdentityCue(compact)) continue;
+      seen.add(compact);
+      const category = classifyIdentityCue(compact);
+      notes.push({ category, text: compact, score: identityNoteScore(compact, category) + candidate.sourceScore, index });
+    }
   }
 
   const priority = [
@@ -82,13 +84,54 @@ function identityNotesFor(state: StateGuide) {
 
   return notes
     .sort((a, b) => b.score - a.score || priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
-    .slice(0, 4)
+    .slice(0, 12)
     .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
     .map(({ category, text }) => ({ category, text }));
 }
 
 function identityBadges(notes: { category: string; text: string }[]) {
   return [...new Set(notes.map((note) => note.category))].slice(0, 4);
+}
+
+function identityEvidencePatterns(category: string, text: string) {
+  const patterns: RegExp[] = [];
+
+  if (/ab 60/i.test(text)) patterns.push(/ab 60/i);
+  if (/without.*ssn|无 ssn|没有 ssn|ineligibility|\bssa\b/i.test(text)) {
+    patterns.push(/without.*ssn|ineligibility|\bssa\b|social security/i);
+  }
+  if (/itin|affidavit|宣誓/i.test(text)) patterns.push(/itin|affidavit/i);
+  if (/temporary visitor|limited term|non.?immigrant|non.?citizen|非公民|临时访客/i.test(text)) {
+    patterns.push(/temporary visitor|limited term|non.?immigrant|non.?citizen|legal presence/i);
+  }
+  if (/lawful|legal presence|合法/i.test(text)) patterns.push(/lawful|legal presence|temporary visitor|non.?immigrant/i);
+  if (/i-94|i-20|ds-2019|ead|green card|visa|uscis|save/i.test(text)) {
+    patterns.push(/temporary visitor|non.?immigrant|legal presence|document|identity/i);
+  }
+
+  if (category === 'AB 60') patterns.push(/ab 60/i);
+  else if (category === 'ITIN / affidavit') patterns.push(/itin|affidavit|without.*ssn|without.*social/i);
+  else if (category === '无 SSN / SSA') patterns.push(/without.*ssn|ineligibility|\bssa\b|social security/i);
+  else if (category === 'SSN') patterns.push(/ssn|social security|document|checklist/i);
+  else if (category === 'lawful presence') patterns.push(/legal presence|lawful|temporary visitor|non.?immigrant|document/i);
+  else if (category === '非公民 / 临时访客') {
+    patterns.push(/non.?immigrant|non.?citizen|temporary visitor|limited term|ab 60|legal presence/i);
+  } else if (category === '移民文件') patterns.push(/non.?immigrant|temporary visitor|legal presence|document|identity/i);
+  else if (category === '公民身份') patterns.push(/citizen|citizenship|enhanced|edl|document/i);
+  else if (category === '姓名 / 翻译') patterns.push(/name|translation|document|what to bring/i);
+  else patterns.push(/identity|document|requirements|real.?id|driver license/i);
+
+  return patterns;
+}
+
+function sourcedIdentityNotesFor(state: StateGuide) {
+  return identityNotesFor(state)
+    .flatMap((note) => {
+      if (note.category === '身份核验') return [];
+      const evidence = pickDirectoryEvidence(state, note.text, identityEvidencePatterns(note.category, note.text));
+      return evidence ? [{ ...note, evidence }] : [];
+    })
+    .slice(0, 4);
 }
 
 function pickIdentityLinks(state: StateGuide) {
@@ -102,7 +145,7 @@ function pickIdentityLinks(state: StateGuide) {
 
 const rows = states.map((state) => {
   const status = getStatePublicStatus(state);
-  const notes = identityNotesFor(state);
+  const notes = sourcedIdentityNotesFor(state);
   const badges = identityBadges(notes);
   const links = pickIdentityLinks(state);
   return {
@@ -143,7 +186,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'DMV SSN 和身份类别分流表',
   description: '按州整理 DMV / REAL ID 办理中的 SSN、无 SSN、SSA ineligibility、ITIN、lawful presence、非公民和临时访客材料入口。',
-  dateModified: REVIEW_DATE,
+  dateModified: HIGH_RISK_DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -158,7 +201,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV SSN 和身份类别分流表" description="按州查找 DMV / REAL ID 办理中的 SSN、无 SSN、SSA ineligibility、ITIN、lawful presence、非公民和临时访客材料入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE} schema={schema}>
+<BaseLayout title="DMV SSN 和身份类别分流表" description="按州查找 DMV / REAL ID 办理中的 SSN、无 SSN、SSA ineligibility、ITIN、lawful presence、非公民和临时访客材料入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} schema={schema}>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">
@@ -167,7 +210,7 @@ const schema = {
       <p class="eyebrow">SSN / 身份类别</p>
       <h1>DMV SSN 和身份类别分流表</h1>
       <p class="lead">先判断你走的是 SSN、无 SSN、ITIN、lawful presence、非公民、临时访客还是州内特殊路径。这里不替你判断移民身份，只把官方入口和容易卡住的材料点放在一张表里。</p>
-      <ReviewBadge />
+      <ReviewBadge date={HIGH_RISK_DIRECTORY_REVIEW_DATE} />
       <div class="page-ledger" aria-label="SSN 和身份类别分流表概况">
         <div>
           <strong>{rows.length} 州</strong>
@@ -236,10 +279,15 @@ const schema = {
             </div>
             {row.notes.length ? (
               row.notes.map((note) => (
-                <p>
-                  <span>{note.category}</span>
-                  {note.text}
-                </p>
+                <div class="directory-evidence-item">
+                  <p>
+                    <span>{note.category}</span>
+                    {note.text}
+                  </p>
+                  <a class="directory-evidence-link" href={note.evidence.url} target="_blank" rel="noreferrer">
+                    对应官方来源：{note.evidence.label} <ExternalLink size={13} aria-hidden="true" />
+                  </a>
+                </div>
               ))
             ) : (
               <p>

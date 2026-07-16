@@ -1,0 +1,5000 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-16T21:39:22.670Z",
+    "pages": 5,
+    "claims": 372,
+    "statesCovered": 49,
+    "errors": 0,
+    "coverage": {
+      "costs-timing": {
+        "claims": 29,
+        "states": 15
+      },
+      "deadlines": {
+        "claims": 31,
+        "states": 14
+      },
+      "document-rules": {
+        "claims": 159,
+        "states": 47
+      },
+      "foreign-license": {
+        "claims": 57,
+        "states": 21
+      },
+      "identity-ssn": {
+        "claims": 96,
+        "states": 34
+      }
+    }
+  },
+  "errors": [],
+  "records": [
+    {
+      "page": "costs-timing",
+      "stateId": "california",
+      "category": "费用",
+      "claim": "信用卡、借记卡和移动支付可能有 service fee",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/",
+      "sourceLabel": "对应官方来源：California DMV Licensing Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "california",
+      "category": "费用",
+      "claim": "California DMV licensing fees 页面列出 Class C 原办/续期、replacement、ID card 和付款方式",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/",
+      "sourceLabel": "对应官方来源：California DMV Licensing Fees",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "california",
+      "category": "费用",
+      "claim": "涉及材料、考试和费用时要回英文原文确认",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/",
+      "sourceLabel": "对应官方来源：California DMV Licensing Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "california",
+      "category": "邮寄 / 卡片",
+      "claim": "California DMV processing times 页面把 DL/ID online 处理估为 2 weeks，kiosk hard copy 邮寄约 2 weeks，mail 约 4 weeks",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/about-the-california-department-of-motor-vehicles/renewal-processing-times/",
+      "sourceLabel": "对应官方来源：California DMV Processing Times",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-york",
+      "category": "费用",
+      "claim": "NY DMV fees/refunds 页面列出 replacement driver license 或 learner permit 为 $17.50，amend 信息变更为 $12.50，Enhanced Driver License / Permit 另加 $30",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
+      "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-york",
+      "category": "费用",
+      "claim": "NY DMV fees/refunds 页面说明办公室可用多数信用卡、借记卡、现金、支票或 money order",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
+      "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-york",
+      "category": "费用",
+      "claim": "纽约 REAL ID 没有额外 REAL ID 费用，但正常交易费用仍适用",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
+      "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-york",
+      "category": "费用",
+      "claim": "Enhanced 证件有额外费用，并且面向符合条件的美国公民和纽约居民",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
+      "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "texas",
+      "category": "费用",
+      "claim": "Texas DPS fee table 列出常见 renewal、replacement 和 ID fee",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-license-fees",
+      "sourceLabel": "对应官方来源：Texas DPS Driver License Fees",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "texas",
+      "category": "邮寄 / 卡片",
+      "claim": "DPS FAQ 说明临时 driver license 通常 60 天有效，并可查询卡片邮寄状态",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/faq/section-3-issuing-temporary-permit",
+      "sourceLabel": "对应官方来源：Texas DPS Temporary Permit FAQ",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "florida",
+      "category": "费用",
+      "claim": "FLHSMV renew/replace 页面说明 MyDMV Portal 办理后 credential 通常 2-3 weeks 邮寄到达，并会在总交易中加收 $2.00 processing fee",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/renew-or-replace-your-florida-driver-license-or-id-card/",
+      "sourceLabel": "对应官方来源：FLHSMV Renew or Replace",
+      "themes": [
+        "fee",
+        "processing-or-mail",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "florida",
+      "category": "邮寄 / 卡片",
+      "claim": "身份和 legal status 核验后，证件会在 60 天内邮寄",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - Non-Immigrant",
+      "themes": [
+        "processing-or-mail",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "washington",
+      "category": "费用",
+      "claim": "Washington DOL renew driver license 页面说明 standard license 续期按 $10/year 计算，6 年为 $61、8 年为 $81，费用还会受 EDL、late renewal、endorsement 和期限选择影响",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/renew-driver-license",
+      "sourceLabel": "对应官方来源：WA DOL Renew Driver License",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-jersey",
+      "category": "费用",
+      "claim": "NJ MVC renewal 页面列出 standard license agency 续期 $24，可用 credit/debit card、cash、check 或 money order",
+      "sourceUrl": "https://www.nj.gov/mvc/license/licrenew.htm",
+      "sourceLabel": "对应官方来源：NJ MVC License Renewal",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-jersey",
+      "category": "临时凭证",
+      "claim": "NJ MVC license renewal 页面说明 Same-Day Online Renewal 立即生效，可打印收据随身带着",
+      "sourceUrl": "https://www.nj.gov/mvc/license/licrenew.htm",
+      "sourceLabel": "对应官方来源：NJ MVC License Renewal",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-jersey",
+      "category": "邮寄 / 卡片",
+      "claim": "新证件通常 2-4 weeks 邮寄到达",
+      "sourceUrl": "https://www.nj.gov/mvc/about/email.htm",
+      "sourceLabel": "对应官方来源：NJ MVC Contact by Email",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "massachusetts",
+      "category": "费用",
+      "claim": "Mass.gov RMV fees 页面列出 passenger Class D license $50、duplicate license $25、amended license $25，完整费用仍以官方表为准",
+      "sourceUrl": "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees",
+      "sourceLabel": "对应官方来源：Massachusetts RMV Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "michigan",
+      "category": "费用",
+      "claim": "线上可用 credit/debit card 或 e-check/bank account number，信用/借记卡会有 additional fees",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement",
+      "sourceLabel": "对应官方来源：Michigan SOS License, ID or Permit Replacement",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "michigan",
+      "category": "费用",
+      "claim": "具体资格、语言/音频选项和费用应以 SOS 当前入口为准",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement",
+      "sourceLabel": "对应官方来源：Michigan SOS License, ID or Permit Replacement",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "michigan",
+      "category": "邮寄 / 卡片",
+      "claim": "Michigan SOS license/ID replacement 页面说明补证可 online、out-of-state by mail、self-service station 或 office visit",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement",
+      "sourceLabel": "对应官方来源：Michigan SOS License, ID or Permit Replacement",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "michigan",
+      "category": "邮寄 / 卡片",
+      "claim": "Michigan SOS license/ID FAQ 提供 View Credential Mail Status，可查看 credential processed、mailed 或 USPS undeliverable 状态",
+      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/licenses-and-id",
+      "sourceLabel": "对应官方来源：Michigan SOS Licenses and ID FAQ",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "ohio",
+      "category": "邮寄 / 卡片",
+      "claim": "BMV 页面还提醒，合规卡通常在访问 deputy registrar 后邮寄，并非现场立刻拿到永久卡",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-renewal-current.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Current License Renewal",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "colorado",
+      "category": "付款",
+      "claim": "地址已经变化且需要新卡时，官方 FAQ 指向办公室路径，并要求携带当前证件、两份 Colorado 地址证明和付款方式",
+      "sourceUrl": "https://dmv.colorado.gov/faq-driver-license",
+      "sourceLabel": "对应官方来源：Colorado DMV FAQ Driver License",
+      "themes": [
+        "fee",
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "kentucky",
+      "category": "邮寄 / 卡片",
+      "claim": "想升级 REAL ID 时，官方 renewal 页面说明不能在线或邮寄完成升级，必须到 Regional Office 并带额外材料",
+      "sourceUrl": "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+      "sourceLabel": "对应官方来源：Kentucky License / Permit Renewal",
+      "themes": [
+        "processing-or-mail",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "arkansas",
+      "category": "付款",
+      "claim": "两份 Arkansas residency，例如水电燃气账单、六个月内 pay stub、六个月内银行账单、当前税表或房屋/租客/机动车保险",
+      "sourceUrl": "https://www.dfa.arkansas.gov/online-services/drivers/",
+      "sourceLabel": "对应官方来源：Arkansas DFA Online Driver Services",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "rhode-island",
+      "category": "邮寄 / 卡片",
+      "claim": "续期先看 License Renewal，确认是否能 online / mail / AAA，或是否需要 DMV branch",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
+      "sourceLabel": "对应官方来源：RI DMV License Renewal",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "rhode-island",
+      "category": "邮寄 / 卡片",
+      "claim": "Rhode Island license 可在到期前最多 90 天续期，可 online、DMV branch、AAA branch 或 mail 等路径处理",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
+      "sourceLabel": "对应官方来源：RI DMV License Renewal",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "montana",
+      "category": "邮寄 / 卡片",
+      "claim": "续期先看 Renew License / ID，确认 online、mail 或 in-person 路径",
+      "sourceUrl": "https://mvdmt.gov/renew-license-id/",
+      "sourceLabel": "对应官方来源：Montana Renew License / ID",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "vermont",
+      "category": "邮寄 / 卡片",
+      "claim": "续期先看 renew 页面，确认 online、mail 或 in-person 资格",
+      "sourceUrl": "https://dmv.vermont.gov/licenses/renew",
+      "sourceLabel": "对应官方来源：Vermont DMV Renew License",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "deadlines",
+      "stateId": "california",
+      "category": "搬家 / 地址",
+      "claim": "搬家后需要在 10 天内通知 California DMV",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/",
+      "sourceLabel": "对应官方来源：California DMV Change of Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "california",
+      "category": "搬家 / 地址",
+      "claim": "地址变化时先在 10 天内完成 DMV 地址更新",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/",
+      "sourceLabel": "对应官方来源：California DMV Change of Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "california",
+      "category": "处理 / 邮寄",
+      "claim": "Change of Address 页面提示处理最多可能需要 3 天",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/",
+      "sourceLabel": "对应官方来源：California DMV Change of Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-york",
+      "category": "期限提醒",
+      "claim": "REAL ID 如果不能取得 SSN，要按 NY DMV 要求带 SSA 30 天内出具的不符合资格证明和相应 DHS 文件",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
+      "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-york",
+      "category": "搬家 / 地址",
+      "claim": "NY DMV 地址变更页明确写明搬家后 10 天内更新 DMV 地址",
+      "sourceUrl": "https://dmv.ny.gov/records/change-your-address",
+      "sourceLabel": "对应官方来源：NY DMV Change Your Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "texas",
+      "category": "搬家 / 地址",
+      "claim": "地址变化后，Texas DPS 要求 30 天内更新 driver license 或 ID card 地址",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card",
+      "sourceLabel": "对应官方来源：Texas DPS Change Information",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "texas",
+      "category": "搬家 / 地址",
+      "claim": "搬家后按 30 天规则更新地址",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card",
+      "sourceLabel": "对应官方来源：Texas DPS Change Information",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "texas",
+      "category": "搬家 / 地址",
+      "claim": "Texas DPS change information 页面明确 driver license / ID 地址变化后 30 天内更新",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card",
+      "sourceLabel": "对应官方来源：Texas DPS Change Information",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "deadlines",
+      "stateId": "florida",
+      "category": "材料时效",
+      "claim": "新佛州居民通常要在建立 residency 后 30 天内取得佛州驾照",
+      "sourceUrl": "https://www.flhsmv.gov/new-resident/",
+      "sourceLabel": "对应官方来源：FLHSMV New Resident",
+      "themes": [
+        "residency-documents",
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "florida",
+      "category": "搬家 / 地址",
+      "claim": "地址变更有 30 天要求",
+      "sourceUrl": "https://www.flhsmv.gov/name-and-address-changes/",
+      "sourceLabel": "对应官方来源：FLHSMV Name and Address Changes",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "florida",
+      "category": "处理 / 邮寄",
+      "claim": "身份和 legal status 核验后，证件会在 60 天内邮寄",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - Non-Immigrant",
+      "themes": [
+        "processing-or-mail",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "washington",
+      "category": "搬家 / 地址",
+      "claim": "地址变化时先按 10 天规则更新 driver license / ID 地址",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/update-driver-license-information/change-your-name-or-address-your-driver-license",
+      "sourceLabel": "对应官方来源：WA DOL Change Name or Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "washington",
+      "category": "搬家 / 地址",
+      "claim": "Washington DOL Moving to Washington 页面说明搬入后 30 天内取得 WA driver license，办证时要预约 driver licensing office，带 proof of identity including out-of-state license",
+      "sourceUrl": "https://dol.wa.gov/moving-washington",
+      "sourceLabel": "对应官方来源：WA DOL Moving to Washington",
+      "themes": [
+        "appointment",
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-jersey",
+      "category": "搬家 / 地址",
+      "claim": "外州搬入新泽西时，先看 Moving To New Jersey 的 60 天转入要求",
+      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
+      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-jersey",
+      "category": "搬家 / 地址",
+      "claim": "如果地址变了，按 7 天规则先完成 online address change",
+      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/addchange.htm",
+      "sourceLabel": "对应官方来源：NJ MVC Change of Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-jersey",
+      "category": "搬家 / 地址",
+      "claim": "如果刚搬入新泽西，先看 60 天 transfer 要求",
+      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
+      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "massachusetts",
+      "category": "搬家 / 地址",
+      "claim": "如果只是搬家，先按地址变更页在 30 天内更新 RMV 记录",
+      "sourceUrl": "https://www.mass.gov/how-to/change-your-address-with-the-rmv",
+      "sourceLabel": "对应官方来源：Change your address with the RMV",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "massachusetts",
+      "category": "搬家 / 地址",
+      "claim": "RMV 地址变更页明确提到地址变化后 30 天内通知 RMV",
+      "sourceUrl": "https://www.mass.gov/how-to/change-your-address-with-the-rmv",
+      "sourceLabel": "对应官方来源：Change your address with the RMV",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "pennsylvania",
+      "category": "搬家 / 地址",
+      "claim": "外州或加拿大 license 新居民通常 60 天内换 PA license 并 surrender out-of-state license",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-to-pennsylvania",
+      "sourceLabel": "对应官方来源：PennDOT Moving to Pennsylvania",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "virginia",
+      "category": "搬家 / 地址",
+      "claim": "弗吉尼亚搬家后有 30 天地址更新要求",
+      "sourceUrl": "https://www.dmv.virginia.gov/moving/moves-virginia",
+      "sourceLabel": "对应官方来源：Virginia DMV Moving to Virginia",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "delaware",
+      "category": "搬家 / 地址",
+      "claim": "如果是外州搬入，先看 New Resident Transfer License，确认 60 天要求和旧 license / driving record",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "delaware",
+      "category": "材料时效",
+      "claim": "Residency proofs 要来自 separate sources、显示 physical address，且 mail 通常要在 60 天内",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml",
+      "sourceLabel": "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "delaware",
+      "category": "续期 / 到期",
+      "claim": "续期可在到期前 180 天内进行，可在 DMV facility 或 online 办理",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals",
+      "sourceLabel": "对应官方来源：Delaware License Renewals",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "rhode-island",
+      "category": "续期 / 到期",
+      "claim": "Rhode Island license 可在到期前最多 90 天续期，可 online、DMV branch、AAA branch 或 mail 等路径处理",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
+      "sourceLabel": "对应官方来源：RI DMV License Renewal",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "mississippi",
+      "category": "续期 / 到期",
+      "claim": "续期先看 Renew Driver License / ID，确认是否超过 60 个月",
+      "sourceUrl": "https://www.driverservicebureau.dps.ms.gov/node/298",
+      "sourceLabel": "对应官方来源：Mississippi Renew Driver License / ID",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "mississippi",
+      "category": "材料时效",
+      "claim": "超过 60 个月则要重新带 birth certificate、SSN 和两份 residency，且 driver license 还要重新参加 knowledge exam",
+      "sourceUrl": "https://www.driverservicebureau.dps.ms.gov/node/303",
+      "sourceLabel": "对应官方来源：Mississippi Required Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "nebraska",
+      "category": "搬家 / 地址",
+      "claim": "新居民先看 New Nebraska Resident Driver Licensing，按 30 天规则安排",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+      "sourceLabel": "对应官方来源：Nebraska New Resident Driver Licensing",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "nebraska",
+      "category": "搬家 / 地址",
+      "claim": "Nebraska 新居民持有效外州 license 时，需要在 30 天内取得 Nebraska license",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+      "sourceLabel": "对应官方来源：Nebraska New Resident Driver Licensing",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "wyoming",
+      "category": "材料时效",
+      "claim": "两份 current Wyoming residency，通常 no more than 45 days old",
+      "sourceUrl": "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html",
+      "sourceLabel": "对应官方来源：Wyoming Driver License",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "wyoming",
+      "category": "材料时效",
+      "claim": "准备 identity/immigration、two Wyoming residency within 45 days、name change documents",
+      "sourceUrl": "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html",
+      "sourceLabel": "对应官方来源：Wyoming Lost / Renewal",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "wyoming",
+      "category": "续期 / 到期",
+      "claim": "每 10 年必须本人到场续期一次并拍照、做 vision screening",
+      "sourceUrl": "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html",
+      "sourceLabel": "对应官方来源：Wyoming Lost / Renewal",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "california",
+      "category": "地址证明",
+      "claim": "REAL ID 居住证明通常要两份不同文件，常见例子包括 utility bill、bank statement、vehicle registration 等",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/",
+      "sourceLabel": "对应官方来源：California DMV REAL ID Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "california",
+      "category": "地址证明",
+      "claim": "不能提供美国合法居留证明、但能满足 California DMV 身份和加州居住证明要求的人，应单独查看 AB 60 driver license 路径",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
+      "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
+      "themes": [
+        "ab-60",
+        "residency-documents",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "california",
+      "category": "地址证明",
+      "claim": "地址变化时先在 10 天内完成 DMV 地址更新",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/",
+      "sourceLabel": "对应官方来源：California DMV Change of Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "california",
+      "category": "清单入口",
+      "claim": "先使用 California DMV 的互动 REAL ID document checklist",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/",
+      "sourceLabel": "对应官方来源：California DMV REAL ID Checklist",
+      "themes": [
+        "document-checklist"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-york",
+      "category": "地址证明",
+      "claim": "Residence proof 要显示当前 New York State 地址，P.O. Box 不接受",
+      "sourceUrl": "https://dmv.ny.gov/more-info/dmv-document-guide",
+      "sourceLabel": "对应官方来源：NY DMV Document Guide",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-york",
+      "category": "地址证明",
+      "claim": "NY DMV ID-44 PDF 对 REAL ID / Enhanced 居住证明、P.O. Box、SSN ineligibility、certified translation 和姓名链条有细则，应作为材料页主来源之一",
+      "sourceUrl": "https://dmv.ny.gov/forms/id44.pdf",
+      "sourceLabel": "对应官方来源：NY DMV ID-44",
+      "themes": [
+        "id-44",
+        "residency-documents",
+        "translation",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-york",
+      "category": "地址证明",
+      "claim": "如果要换成 REAL ID 或 Enhanced，提前准备 full legal name、两份 New York State residency、SSN / SSA ineligibility 和 lawful status 相关证明",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
+      "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-york",
+      "category": "SSN",
+      "claim": "REAL ID 如果不能取得 SSN，要按 NY DMV 要求带 SSA 30 天内出具的不符合资格证明和相应 DHS 文件",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
+      "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "texas",
+      "category": "地址证明",
+      "claim": "Texas DPS residency requirement 页面要求两份打印的 Texas residency 文件，且文件要显示姓名和 Texas residential address",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards",
+      "sourceLabel": "对应官方来源：Texas DPS Residency Requirement",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "texas",
+      "category": "非公民材料",
+      "claim": "期限会跟 lawful presence 期限相关",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors",
+      "sourceLabel": "对应官方来源：Texas DPS Temporary Visitors",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "texas",
+      "category": "清单入口",
+      "claim": "Texas.gov REAL ID 页面提供 REAL ID overview、document checklist 和 driver license office 相关入口",
+      "sourceUrl": "https://www.texas.gov/driver-services/texas-real-id/",
+      "sourceLabel": "对应官方来源：Texas.gov REAL ID",
+      "themes": [
+        "document-checklist"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "texas",
+      "category": "清单入口",
+      "claim": "Texas.gov REAL ID 和在线资格检查页面已通过来源检查，适合作为主入口",
+      "sourceUrl": "https://www.texas.gov/driver-services/texas-real-id/",
+      "sourceLabel": "对应官方来源：Texas.gov REAL ID",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "florida",
+      "category": "地址证明",
+      "claim": "首次办公室核发或升级 REAL ID 时，重点是身份、SSN 和佛州居住地址三组原始材料",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "florida",
+      "category": "地址证明",
+      "claim": "Florida residential address 通常要两份不同文件",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "florida",
+      "category": "地址证明",
+      "claim": "新佛州居民通常要在建立 residency 后 30 天内取得佛州驾照",
+      "sourceUrl": "https://www.flhsmv.gov/new-resident/",
+      "sourceLabel": "对应官方来源：FLHSMV New Resident",
+      "themes": [
+        "residency-documents",
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "florida",
+      "category": "地址证明",
+      "claim": "地址变更有 30 天要求",
+      "sourceUrl": "https://www.flhsmv.gov/name-and-address-changes/",
+      "sourceLabel": "对应官方来源：FLHSMV Name and Address Changes",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "washington",
+      "category": "地址证明",
+      "claim": "EDL/EID 申请需要证明美国公民身份、身份、华盛顿州居住地址，并提供 SSN",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity",
+      "sourceLabel": "对应官方来源：WA DOL Documents for Proof of Identity",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "washington",
+      "category": "地址证明",
+      "claim": "地址变化时先按 10 天规则更新 driver license / ID 地址",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/update-driver-license-information/change-your-name-or-address-your-driver-license",
+      "sourceLabel": "对应官方来源：WA DOL Change Name or Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "washington",
+      "category": "地址证明",
+      "claim": "普通华盛顿州驾照仍可用于驾驶，不表示居住或合法身份状态",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity",
+      "sourceLabel": "对应官方来源：WA DOL Documents for Proof of Identity",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "washington",
+      "category": "SSN",
+      "claim": "Washington DOL 说明如果有 SSN，需要提供 SSN",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity",
+      "sourceLabel": "对应官方来源：WA DOL Documents for Proof of Identity",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-jersey",
+      "category": "地址证明",
+      "claim": "REAL ID 材料核心是 2 份新泽西居住地址证明、1 份完整 SSN 证明、以及 primary/secondary 合计 6 points",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-jersey",
+      "category": "地址证明",
+      "claim": "材料清单用 MVC 自己的 2 proofs of address + 1 full SSN proof + 6 Points of ID 结构，比泛泛写身份证明更可靠",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "themes": [
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-jersey",
+      "category": "SSN",
+      "claim": "Standard license / ID 材料页允许 SSN、ITIN 或 affidavit 满足对应号码栏",
+      "sourceUrl": "https://www.nj.gov/mvc/license/6pointid.htm",
+      "sourceLabel": "对应官方来源：NJ MVC 6 Points of ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-jersey",
+      "category": "SSN",
+      "claim": "REAL ID 则按 REAL ID 材料清单核对 full SSN proof",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "themes": [
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "massachusetts",
+      "category": "地址证明",
+      "claim": "如果只是搬家，先按地址变更页在 30 天内更新 RMV 记录",
+      "sourceUrl": "https://www.mass.gov/how-to/change-your-address-with-the-rmv",
+      "sourceLabel": "对应官方来源：Change your address with the RMV",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "massachusetts",
+      "category": "地址证明",
+      "claim": "官方材料页会按证件类型列出需要提交的身份、SSN、居住地址和姓名变更相关文件",
+      "sourceUrl": "https://www.mass.gov/lists/rmv-translated-documents",
+      "sourceLabel": "对应官方来源：Mass.gov RMV Translated Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "massachusetts",
+      "category": "清单入口",
+      "claim": "不要把 Standard license、Standard Mass ID 或 permit 的材料清单直接套用到 REAL ID",
+      "sourceUrl": "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+      "sourceLabel": "对应官方来源：Massachusetts Identification Requirements",
+      "themes": [
+        "document-checklist"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "illinois",
+      "category": "清单入口",
+      "claim": "查看 Illinois REAL ID 官方页面",
+      "sourceUrl": "https://www.ilsos.gov/content/realid/us/en.html",
+      "sourceLabel": "对应官方来源：Illinois REAL ID",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "illinois",
+      "category": "清单入口",
+      "claim": "先打开伊州 REAL ID 页面判断是否需要办理",
+      "sourceUrl": "https://www.ilsos.gov/content/realid/us/en.html",
+      "sourceLabel": "对应官方来源：Illinois REAL ID",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "illinois",
+      "category": "清单入口",
+      "claim": "官方 REAL ID 页面和 PDF 是核对核心",
+      "sourceUrl": "https://www.ilsos.gov/content/realid/us/en.html",
+      "sourceLabel": "对应官方来源：Illinois REAL ID",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "illinois",
+      "category": "材料规则",
+      "claim": "使用官方 document requirements PDF 核对材料类别",
+      "sourceUrl": "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_x173.pdf",
+      "sourceLabel": "对应官方来源：Document Requirements PDF",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "pennsylvania",
+      "category": "地址证明",
+      "claim": "两份宾州居住地址证明，PennDOT 写明需要 physical documents，不是电子文件",
+      "sourceUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bdl/bdl-manuals/pa-drivers-manual-non-commercial/english/pub%2095.pdf",
+      "sourceLabel": "对应官方来源：PennDOT Driver Manual PDF",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "pennsylvania",
+      "category": "地址证明",
+      "claim": "居住证明要求 two physical, not electronic documents",
+      "sourceUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bdl/bdl-manuals/pa-drivers-manual-non-commercial/english/pub%2095.pdf",
+      "sourceLabel": "对应官方来源：PennDOT Driver Manual PDF",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "pennsylvania",
+      "category": "SSN",
+      "claim": "一份 SSN 证明，需显示当前 legal name 和完整 9 位 SSN",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
+      "sourceLabel": "对应官方来源：REAL ID Document Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "pennsylvania",
+      "category": "SSN",
+      "claim": "没有 SSN 时要看 SSA ineligibility letter 要求",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
+      "sourceLabel": "对应官方来源：REAL ID Document Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "georgia",
+      "category": "地址证明",
+      "claim": "两份 Georgia residency 文件要来自不同来源或不同账户，显示姓名和当前居住地址，P.O. Box 不能证明 residency",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers",
+      "sourceLabel": "对应官方来源：New Georgia Residents and Out-of-State License Transfers",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "georgia",
+      "category": "地址证明",
+      "claim": "成为 resident 后要满足 identity、citizenship 和 residency 要求",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/new-georgia-residents-and-out-state-license-transfers",
+      "sourceLabel": "对应官方来源：New Georgia Residents and Out-of-State License Transfers",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "georgia",
+      "category": "清单入口",
+      "claim": "如果读者临近出行换证，这一点比材料清单更要紧",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/real-id",
+      "sourceLabel": "对应官方来源：Georgia DDS REAL ID",
+      "themes": [
+        "document-checklist"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "maryland",
+      "category": "清单入口",
+      "claim": "先在 Maryland MVA Licenses & IDs 页面进入 REAL ID Check 或材料指南",
+      "sourceUrl": "https://mva.maryland.gov/licenses-ids",
+      "sourceLabel": "对应官方来源：Maryland MVA Licenses & IDs",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "maryland",
+      "category": "清单入口",
+      "claim": "Maryland MVA Licenses & IDs 页面强调先用 REAL ID Check 和 document guide 判断个人状态，不要因为全州合规率高就默认自己的证件已经没问题",
+      "sourceUrl": "https://mva.maryland.gov/licenses-ids",
+      "sourceLabel": "对应官方来源：Maryland MVA Licenses & IDs",
+      "themes": [
+        "document-checklist"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "virginia",
+      "category": "清单入口",
+      "claim": "先进入 Virginia REAL ID 页面，确认是否真的需要升级",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/real-id",
+      "sourceLabel": "对应官方来源：Virginia DMV REAL ID",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "north-carolina",
+      "category": "地址证明",
+      "claim": "两份 current physical address 的 North Carolina residency 文件",
+      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
+      "sourceLabel": "对应官方来源：NCDMV Moving to North Carolina",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "north-carolina",
+      "category": "清单入口",
+      "claim": "打开 NCDMV REAL ID 页面，先确认是否是第一次 REAL ID",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+      "sourceLabel": "对应官方来源：NCDMV N.C. REAL ID",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "north-carolina",
+      "category": "清单入口",
+      "claim": "第一次 REAL ID 用 requirements 页面核对材料，并预约 driver license office",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "themes": [
+        "appointment"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "michigan",
+      "category": "地址证明",
+      "claim": "首次 license/ID 还要准备 SSN、identity、Michigan residency 和可能的翻译文件",
+      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
+      "sourceLabel": "对应官方来源：Michigan SOS License and ID Document Requirements",
+      "themes": [
+        "residency-documents",
+        "translation",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "michigan",
+      "category": "地址证明",
+      "claim": "车辆地址更新还会涉及 plate number",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/change-of-address",
+      "sourceLabel": "对应官方来源：Michigan SOS Change of Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "ohio",
+      "category": "地址证明",
+      "claim": "full legal name、date of birth、SSN、legal presence 和 Ohio residency 都要能证明",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-identity-documents.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Acceptable Documents",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "ohio",
+      "category": "地址证明",
+      "claim": "Ohio street address 通常需要两份地址证明",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-identity-documents.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Acceptable Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "ohio",
+      "category": "地址证明",
+      "claim": "新居民应从 New Ohio Residents 页面开始，先收集 legal name、DOB、SSN、citizenship/legal presence 和 Ohio residency 文件",
+      "sourceUrl": "https://www.bmv.ohio.gov/new-to-ohio.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV New Ohio Residents",
+      "themes": [
+        "residency-documents",
+        "new-resident",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "ohio",
+      "category": "地址证明",
+      "claim": "Ohio BMV 文档页写明 Ohio street address 需要两份文件，且常见清单强调来自不同来源更稳妥",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-identity-documents.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Acceptable Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "arizona",
+      "category": "地址证明",
+      "claim": "姓名变化通常不能只靠普通在线地址变更完成",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-license-ID/change-your-address",
+      "sourceLabel": "对应官方来源：ADOT MVD Change Your Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "arizona",
+      "category": "材料规则",
+      "claim": "Travel ID 通常需要一份身份证明或合法身份文件",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-services/arizona-travel-id",
+      "sourceLabel": "对应官方来源：ADOT MVD Arizona Travel ID",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nevada",
+      "category": "地址证明",
+      "claim": "两份 Nevada residential address 证明",
+      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nevada",
+      "category": "地址证明",
+      "claim": "用 Nevada DMV Residency and Proof of Identity 页面整理身份、SSN、地址和姓名文件",
+      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nevada",
+      "category": "地址证明",
+      "claim": "新搬到 Nevada 的用户按 New Resident Guide 准备外州证件和两份 Nevada 地址证明",
+      "sourceUrl": "https://dmv.nv.gov/newresident.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV New Resident Guide",
+      "themes": [
+        "residency-documents",
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nevada",
+      "category": "地址证明",
+      "claim": "Nevada REAL ID 要围绕 identity、Social Security、Nevada residency 和姓名变更文件准备",
+      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "oregon",
+      "category": "地址证明",
+      "claim": "只是搬家时，先用 Change of Address 页面更新记录，再决定是否补办新卡",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Change of Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "connecticut",
+      "category": "清单入口",
+      "claim": "CT REAL ID 页面提到 SAVE 验证可能需要 10+ business days，非公民用户应提前规划",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/get-real-id",
+      "sourceLabel": "对应官方来源：Connecticut DMV Get REAL ID",
+      "themes": [
+        "processing-or-mail",
+        "non-citizen",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "minnesota",
+      "category": "地址证明",
+      "claim": "两份 Minnesota 居住地址证明，优先使用官方清单列出的账单、金融、租约、保险或政府文件类别",
+      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "minnesota",
+      "category": "地址证明",
+      "claim": "地址证明和姓名链条是高风险点",
+      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "minnesota",
+      "category": "地址证明",
+      "claim": "打开 Minnesota DVS document requirements，按身份、SSN、地址和姓名文件整理材料",
+      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "minnesota",
+      "category": "地址证明",
+      "claim": "Minnesota REAL ID 要围绕身份、SSN、居住地址和姓名一致性准备材料",
+      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "indiana",
+      "category": "地址证明",
+      "claim": "两份 Indiana residency 证明，按 BMV 可接受文件清单准备",
+      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
+      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "themes": [
+        "residency-documents",
+        "document-checklist"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "indiana",
+      "category": "地址证明",
+      "claim": "BMV Documentation List 要求 residency 文件显示姓名和 Indiana residential address，P.O. Box 不接受",
+      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
+      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "indiana",
+      "category": "地址证明",
+      "claim": "打开 Indiana BMV REAL ID 页面和 Documentation List，按 identity、lawful status、full SSN、two residency、name change 分组",
+      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
+      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "indiana",
+      "category": "地址证明",
+      "claim": "Indiana REAL ID 通常围绕身份、lawful status、SSN、Indiana residency 和姓名变更文件准备",
+      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
+      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "tennessee",
+      "category": "地址证明",
+      "claim": "两份 Tennessee residency 证明，按 TN.gov 官方清单确认",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Residents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "tennessee",
+      "category": "地址证明",
+      "claim": "外州驾照转入时，准备现有外州驾照和新州地址证明",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Residents",
+      "themes": [
+        "residency-documents",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "tennessee",
+      "category": "清单入口",
+      "claim": "Tennessee 的 Class D first license、new resident transfer 和 REAL ID 是不同流程，先按当前业务选择入口",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Residents",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "wisconsin",
+      "category": "地址证明",
+      "claim": "Wisconsin residency 证明",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/residency.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV Proof of Residency",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "wisconsin",
+      "category": "地址证明",
+      "claim": "WisDOT residency 页面说明 utility bill、paystub 等电子文件 printouts 可接受",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/residency.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV Proof of Residency",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "wisconsin",
+      "category": "地址证明",
+      "claim": "打开 Wisconsin DMV REAL ID 页面，按官方材料清单准备 identity、SSN、residency 和姓名文件",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/residency.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV Proof of Residency",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "wisconsin",
+      "category": "地址证明",
+      "claim": "Wisconsin REAL ID 要准备身份、lawful status、SSN、Wisconsin residency 和姓名变更材料",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV Driver License Documentation",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "utah",
+      "category": "地址证明",
+      "claim": "先打开 Utah DLD required documents 页面，按身份、SSN、地址、姓名四组材料整理",
+      "sourceUrl": "https://dld.utah.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "themes": [
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "utah",
+      "category": "地址证明",
+      "claim": "Utah REAL ID / identification requirements 要围绕身份、lawful status、SSN、Utah residency 和姓名一致性准备",
+      "sourceUrl": "https://dld.utah.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "utah",
+      "category": "SSN",
+      "claim": "Social Security Number 相关证明",
+      "sourceUrl": "https://dld.utah.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "utah",
+      "category": "非公民材料",
+      "claim": "identity / lawful presence 文件",
+      "sourceUrl": "https://dld.utah.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "missouri",
+      "category": "地址证明",
+      "claim": "两份 Missouri residential address 证明",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "missouri",
+      "category": "地址证明",
+      "claim": "REAL ID 和部分 CDL/CLP 情况尤其要注意两份地址文件",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "missouri",
+      "category": "地址证明",
+      "claim": "用 required documents checklist 按 renewal、duplicate、新申请或地址/姓名变化整理文件",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
+      "themes": [
+        "document-checklist",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "missouri",
+      "category": "地址证明",
+      "claim": "Missouri REAL ID 要在 license office 现场申请，材料围绕身份、lawful status、SSN、两份 Missouri residential address 和姓名变更文件",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "iowa",
+      "category": "清单入口",
+      "claim": "先确认你是 new to Iowa、REAL ID upgrade、renewal、duplicate 还是 change information",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kansas",
+      "category": "地址证明",
+      "claim": "两份 Kansas residential address 证明，通常要是近期、当前地址，不能用 junk mail 或 personal letters",
+      "sourceUrl": "https://www.ksrevenue.gov/dovqflowreq.html",
+      "sourceLabel": "对应官方来源：Kansas KDOR Required Documents and Appointment",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kansas",
+      "category": "地址证明",
+      "claim": "用 required documents / appointment 页面核对 lawful presence、SSN、两份地址证明和姓名文件",
+      "sourceUrl": "https://www.ksrevenue.gov/dovqflowreq.html",
+      "sourceLabel": "对应官方来源：Kansas KDOR Required Documents and Appointment",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "appointment",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kansas",
+      "category": "地址证明",
+      "claim": "只是地址变化或 renewal 时，再看 KDOR online services / iKan 是否可办",
+      "sourceUrl": "https://www.ksrevenue.gov/dovdrlic.html",
+      "sourceLabel": "对应官方来源：Kansas KDOR Driver License Information",
+      "themes": [
+        "address-change",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kansas",
+      "category": "地址证明",
+      "claim": "Kansas REAL ID 要准备 lawful presence、SSN、两份当前 Kansas residential address 证明和必要的 legal name change 文件",
+      "sourceUrl": "https://www.ksrevenue.gov/dovqflowreq.html",
+      "sourceLabel": "对应官方来源：Kansas KDOR Required Documents and Appointment",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "south-carolina",
+      "category": "地址证明",
+      "claim": "地址或姓名变化先看 Address or Name Change 页面",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/drivers-license/address-or-name-change",
+      "sourceLabel": "对应官方来源：SCDMV Address or Name Change",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kentucky",
+      "category": "地址证明",
+      "claim": "Kentucky residency 证明，按 What You Need 页面确认数量和类别",
+      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kentucky",
+      "category": "地址证明",
+      "claim": "打开 What You Need，按 identity、SSN、residency、name/gender change 分组准备材料",
+      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kentucky",
+      "category": "地址证明",
+      "claim": "Kentucky REAL ID 要证明 identity、Social Security、residency，以及任何姓名或 gender changes",
+      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kentucky",
+      "category": "SSN",
+      "claim": "Social Security 证明",
+      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "louisiana",
+      "category": "地址证明",
+      "claim": "按 identity / lawful status、SSN、two proofs of residence 三组整理材料，并确认居住证明是独立来源",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
+      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "louisiana",
+      "category": "地址证明",
+      "claim": "Louisiana REAL ID 要证明 identity、lawful status、date of birth、Social Security number 和两份 principal residence",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
+      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "louisiana",
+      "category": "SSN",
+      "claim": "Social Security 信息",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
+      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "louisiana",
+      "category": "SSN",
+      "claim": "可口头提供，但最好带 SSN card、W-2、1099 或 pay stub 作为备用",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
+      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "oklahoma",
+      "category": "地址证明",
+      "claim": "两份 Oklahoma residency，REAL ID 场景通常按两份准备",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "oklahoma",
+      "category": "地址证明",
+      "claim": "Oklahoma REAL ID 需要一份 identity、两份 Oklahoma residency、SSN 信息、所有自出生以来姓名变化文件，以及适用时的 immigration / legal presence 文件",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "oklahoma",
+      "category": "地址证明",
+      "claim": "如果同时办 REAL ID，居住证明数量会按 REAL ID 标准增加到两份",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "oklahoma",
+      "category": "SSN",
+      "claim": "Social Security number",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "alabama",
+      "category": "地址证明",
+      "claim": "两份 Alabama principal residence 文件，例如 utility bill、lease、vehicle registration 或 voter registration",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
+      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "alabama",
+      "category": "地址证明",
+      "claim": "按 STAR ID Document List 凑齐 identity、full SSN、two residence proofs 和姓名变化文件",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
+      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "alabama",
+      "category": "地址证明",
+      "claim": "Alabama STAR ID 需要四类材料：身份/出生日期、完整 SSN、两份 principal residence、以及姓名变化时的 certified legal documents",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
+      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "alabama",
+      "category": "SSN",
+      "claim": "一份显示完整 Social Security number 的文件，例如 Social Security card、W-2 或符合要求的 Medicare/Medicaid ID",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
+      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "arkansas",
+      "category": "清单入口",
+      "claim": "DFA REAL ID 页面写明 must be provided",
+      "sourceUrl": "https://www.dfa.arkansas.gov/real-id/",
+      "sourceLabel": "对应官方来源：Arkansas DFA Real ID",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "arkansas",
+      "category": "清单入口",
+      "claim": "先打开 Arkansas REAL ID 页面或 Real ID Quiz，确认自己需要的材料组合",
+      "sourceUrl": "https://www.dfa.arkansas.gov/real-id/",
+      "sourceLabel": "对应官方来源：Arkansas DFA Real ID",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-mexico",
+      "category": "地址证明",
+      "claim": "REAL ID: New Mexico residency，按官方清单准备两份，并注意账单或文件日期限制",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-mexico",
+      "category": "地址证明",
+      "claim": "Standard license / ID: 一份 identity and age 加两份 New Mexico residency",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-mexico",
+      "category": "地址证明",
+      "claim": "确认居住证明的日期和 physical residential address 要求，避免 PO Box 或过期账单",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-mexico",
+      "category": "地址证明",
+      "claim": "New Mexico REAL ID 要证明 Lawful Identity and Age、Identification Number 和 New Mexico Residency",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "delaware",
+      "category": "地址证明",
+      "claim": "两份 Delaware residency，来自不同来源，显示 physical address",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "delaware",
+      "category": "地址证明",
+      "claim": "P.O. Box 不适合作为主要居住地址",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "delaware",
+      "category": "地址证明",
+      "claim": "Residency proofs 要来自 separate sources、显示 physical address，且 mail 通常要在 60 天内",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "delaware",
+      "category": "地址证明",
+      "claim": "Delaware federally compliant DL/ID 要证明 identity / lawful status、date of birth、Social Security number 和 Delaware residence",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
+      "sourceLabel": "对应官方来源：Delaware General Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "rhode-island",
+      "category": "地址证明",
+      "claim": "两份 Rhode Island residency，P.O. Box 不接受",
+      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
+      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "rhode-island",
+      "category": "地址证明",
+      "claim": "把 identity、SSN、two residency 和姓名变化文件分成四组，日期和 P.O. Box 要特别检查",
+      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
+      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "rhode-island",
+      "category": "地址证明",
+      "claim": "官方 checklist 明确 P.O. Box 不接受作居住地址",
+      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
+      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
+      "themes": [
+        "residency-documents",
+        "document-checklist"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "rhode-island",
+      "category": "SSN",
+      "claim": "Social Security number 写在 LI-1 上，或带 SSA 出具的不符合取得 SSN 的证明",
+      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
+      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-hampshire",
+      "category": "地址证明",
+      "claim": "Proof of New Hampshire residency",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf",
+      "sourceLabel": "对应官方来源：NH DMV REAL ID Required Documents PDF",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-hampshire",
+      "category": "地址证明",
+      "claim": "先看 NH REAL ID 页面和 Required Documents REAL ID compliant PDF，确认 identity、SSN、residency 三组材料",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf",
+      "sourceLabel": "对应官方来源：NH DMV REAL ID Required Documents PDF",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-hampshire",
+      "category": "地址证明",
+      "claim": "New Hampshire REAL ID 要用官方 required documents 清单证明 identity、Social Security number 和 New Hampshire residency",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf",
+      "sourceLabel": "对应官方来源：NH DMV REAL ID Required Documents PDF",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "new-hampshire",
+      "category": "SSN",
+      "claim": "Proof of Social Security number，按 REAL ID required documents 清单准备",
+      "sourceUrl": "https://www.dmv.nh.gov/drivers-licensenon-driver-ids/real-id",
+      "sourceLabel": "对应官方来源：NH DMV REAL ID",
+      "themes": [
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "hawaii",
+      "category": "地址证明",
+      "claim": "初次申请或材料未在档时，要证明 legal presence、legal name、date of birth、Social Security number 和 Hawaii principal residence address",
+      "sourceUrl": "https://hidot.hawaii.gov/highways/files/2023/07/Acceptable-Documents-for-a-REAL-ID-Compliant-Star-DL-SID-Print-Button-2023-07-18-3.pdf",
+      "sourceLabel": "对应官方来源：Hawaii Acceptable Documents PDF",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "hawaii",
+      "category": "SSN",
+      "claim": "Social Security number 类别文件",
+      "sourceUrl": "https://hidot.hawaii.gov/driverslicense/",
+      "sourceLabel": "对应官方来源：HIDOT Driver License",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "hawaii",
+      "category": "SSN",
+      "claim": "Hawaii 官方材料说明 SSN documentation optional since June 18, 2021，但仍应按县办公室要求准备号码或证明",
+      "sourceUrl": "https://hidot.hawaii.gov/driverslicense/",
+      "sourceLabel": "对应官方来源：HIDOT Driver License",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "hawaii",
+      "category": "姓名链条",
+      "claim": "Legal presence、legal name、date of birth 文件，例如 U.S. birth certificate、U.S. passport、Permanent Resident Card 或合格移民文件",
+      "sourceUrl": "https://hidot.hawaii.gov/highways/files/2023/07/Acceptable-Documents-for-a-REAL-ID-Compliant-Star-DL-SID-Print-Button-2023-07-18-3.pdf",
+      "sourceLabel": "对应官方来源：Hawaii Acceptable Documents PDF",
+      "themes": [
+        "lawful-presence",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "alaska",
+      "category": "地址证明",
+      "claim": "Proof of U.S. citizenship、permanent residency 或 lawful status",
+      "sourceUrl": "https://online.dmv.alaska.gov/REALIdChecklist",
+      "sourceLabel": "对应官方来源：Alaska DMV REAL ID Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "alaska",
+      "category": "地址证明",
+      "claim": "两份 Alaska residency 文件",
+      "sourceUrl": "https://online.dmv.alaska.gov/REALIdChecklist",
+      "sourceLabel": "对应官方来源：Alaska DMV REAL ID Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "alaska",
+      "category": "地址证明",
+      "claim": "按 lawful status、SSN、two Alaska residency、name change 四组整理原件或 certified copy",
+      "sourceUrl": "https://online.dmv.alaska.gov/REALIdChecklist",
+      "sourceLabel": "对应官方来源：Alaska DMV REAL ID Checklist",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "alaska",
+      "category": "地址证明",
+      "claim": "姓名、地址、SSN、出生日期或性别等信息变化时看 Changing Identification Details",
+      "sourceUrl": "https://dmv.alaska.gov/credential-services/changing-identification-details/",
+      "sourceLabel": "对应官方来源：Alaska DMV Changing Identification Details",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "idaho",
+      "category": "地址证明",
+      "claim": "两份 Idaho residency，显示 current physical address，P.O. Box 不接受",
+      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "idaho",
+      "category": "地址证明",
+      "claim": "居住证明要在 current legal name 下、通常在一年内、来自不同来源",
+      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "idaho",
+      "category": "地址证明",
+      "claim": "把 residency 文件按来源分开，并确认姓名、地址和日期",
+      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "idaho",
+      "category": "地址证明",
+      "claim": "Idaho Star Card 需要证明 identity、Social Security number 和 Idaho residency",
+      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "mississippi",
+      "category": "地址证明",
+      "claim": "两份 Mississippi residency，显示本人姓名和 Mississippi residence address",
+      "sourceUrl": "https://www.driverservicebureau.dps.ms.gov/node/303",
+      "sourceLabel": "对应官方来源：Mississippi Required Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "mississippi",
+      "category": "地址证明",
+      "claim": "Residency 页面明确 no P.O. boxes、no junk mail、no envelopes、no handwritten letters，是防止白跑的重点",
+      "sourceUrl": "https://www.driverservicebureau.dps.ms.gov/node/303",
+      "sourceLabel": "对应官方来源：Mississippi Required Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "mississippi",
+      "category": "地址证明",
+      "claim": "先看 Required Documents，把 identity、SSN、two residency、name change 分组",
+      "sourceUrl": "https://www.driverservicebureau.dps.ms.gov/node/303",
+      "sourceLabel": "对应官方来源：Mississippi Required Documents",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "mississippi",
+      "category": "地址证明",
+      "claim": "地址证明逐项排除 P.O. Box、junk mail、envelopes 和 handwritten documents",
+      "sourceUrl": "https://www.driverservicebureau.dps.ms.gov/node/303",
+      "sourceLabel": "对应官方来源：Mississippi Required Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "montana",
+      "category": "地址证明",
+      "claim": "两份 Montana residency，显示本人姓名和 physical address",
+      "sourceUrl": "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
+      "sourceLabel": "对应官方来源：Montana REAL ID Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "montana",
+      "category": "地址证明",
+      "claim": "P.O. Box 不接受",
+      "sourceUrl": "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
+      "sourceLabel": "对应官方来源：Montana REAL ID Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "montana",
+      "category": "地址证明",
+      "claim": "地址变化可先更新 MVD electronic record",
+      "sourceUrl": "https://mvdmt.gov/address-change/",
+      "sourceLabel": "对应官方来源：Montana Address Change",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "montana",
+      "category": "地址证明",
+      "claim": "按 authorized presence、two Montana residency、name change 三组准备文件",
+      "sourceUrl": "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
+      "sourceLabel": "对应官方来源：Montana REAL ID Checklist",
+      "themes": [
+        "residency-documents",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nebraska",
+      "category": "地址证明",
+      "claim": "两份 Nebraska principal address / proof of address",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nebraska",
+      "category": "地址证明",
+      "claim": "用 Document Verification Requirements 核对 citizenship/lawful status、address、SSN",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nebraska",
+      "category": "地址证明",
+      "claim": "Nebraska 初次申请或外州文件转入时，需要一次性提供 U.S. citizenship 或 lawful status、identity、两份 Nebraska principal address，以及可由 SSA 核验的 valid Social Security number 或豁免证明",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nebraska",
+      "category": "SSN",
+      "claim": "Valid Social Security number，可由 Social Security Administration 核验",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "north-dakota",
+      "category": "地址证明",
+      "claim": "Category 4: 两份 North Dakota residence address，显示 physical address",
+      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
+      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "north-dakota",
+      "category": "地址证明",
+      "claim": "P.O. Box 不接受",
+      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
+      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "north-dakota",
+      "category": "地址证明",
+      "claim": "North Dakota REAL ID 要从四类文件中准备：proof of identification / legal presence、proof of name change、proof of Social Security Number、proof of North Dakota residence address",
+      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
+      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "north-dakota",
+      "category": "SSN",
+      "claim": "Category 3: full Social Security number proof，例如 SSN card、W-2、SSA-1099、1099 或 pay stub",
+      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
+      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "south-dakota",
+      "category": "地址证明",
+      "claim": "当前 South Dakota REAL ID 持有人续期或补证：通常也要 identity document 和两份 address proofs",
+      "sourceUrl": "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043707",
+      "sourceLabel": "对应官方来源：South Dakota Applications and Forms",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "south-dakota",
+      "category": "地址证明",
+      "claim": "Full-time traveler / PMB 用户还要 overnight stay receipt、PMB address proof 和 Residency Affidavit",
+      "sourceUrl": "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+      "sourceLabel": "对应官方来源：South Dakota Required Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "south-dakota",
+      "category": "地址证明",
+      "claim": "按 identity、SSN、two physical address、name change chain 准备材料",
+      "sourceUrl": "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+      "sourceLabel": "对应官方来源：South Dakota Required Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "south-dakota",
+      "category": "地址证明",
+      "claim": "如果是 full-time traveler 或 PMB 用户，先准备 overnight stay receipt 和 Residency Affidavit",
+      "sourceUrl": "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+      "sourceLabel": "对应官方来源：South Dakota Required Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "west-virginia",
+      "category": "清单入口",
+      "claim": "West Virginia 不能在 online renewal 中升级 REAL ID",
+      "sourceUrl": "https://apps.wv.gov/dmv/selfservice/dl",
+      "sourceLabel": "对应官方来源：WV Online Renewal",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "west-virginia",
+      "category": "清单入口",
+      "claim": "先看 WV REAL ID 页面，判断是否需要 For Federal Use card",
+      "sourceUrl": "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+      "sourceLabel": "对应官方来源：WV DMV REAL ID",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "document-rules",
+      "stateId": "wyoming",
+      "category": "地址证明",
+      "claim": "两份 current Wyoming residency，通常 no more than 45 days old",
+      "sourceUrl": "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html",
+      "sourceLabel": "对应官方来源：Wyoming Lost / Renewal",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "wyoming",
+      "category": "地址证明",
+      "claim": "准备 identity/immigration、two Wyoming residency within 45 days、name change documents",
+      "sourceUrl": "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html",
+      "sourceLabel": "对应官方来源：Wyoming Lost / Renewal",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "wyoming",
+      "category": "地址证明",
+      "claim": "地址变化先看 Add / Change Information 和 Notice of Change of Address form",
+      "sourceUrl": "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Address%20Change%2020190715.pdf",
+      "sourceLabel": "对应官方来源：Wyoming Notice of Change of Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "wyoming",
+      "category": "地址证明",
+      "claim": "续期时如果之前未提供 REAL ID documents，需要带 valid U.S. passport、state-certified birth certificate 或 immigration documents、两份 45 天内 Wyoming residency、以及姓名变化文件",
+      "sourceUrl": "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html",
+      "sourceLabel": "对应官方来源：Wyoming Lost / Renewal",
+      "themes": [
+        "residency-documents",
+        "renewal",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-york",
+      "category": "外国 / 境外驾照",
+      "claim": "申请 NY license 时必须通过 written test、5-hour pre-licensing course 和 road test，并在 road test 通过时交出 foreign driver license",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/drivers-from-other-countries",
+      "sourceLabel": "对应官方来源：NY DMV Drivers from Other Countries",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-york",
+      "category": "外国 / 境外驾照",
+      "claim": "NY DMV Drivers from Other Countries 页面说明持有效外国驾照可在纽约州驾驶",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/drivers-from-other-countries",
+      "sourceLabel": "对应官方来源：NY DMV Drivers from Other Countries",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-york",
+      "category": "外州 / 加拿大转入",
+      "claim": "Exchange Out-of-State License：纽约外州、美国属地、联邦区和加拿大省份驾照换证入口",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/exchange-out-of-state-driver-license",
+      "sourceLabel": "对应官方来源：NY DMV Exchange Out-of-State Driver License",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-york",
+      "category": "IDP / 国际驾照",
+      "claim": "NY DMV Drivers from Other Countries 页面说明若外国驾照不是英文，参加 road test 时必须带 International Driving Permit 或 certified translation",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/drivers-from-other-countries",
+      "sourceLabel": "对应官方来源：NY DMV Drivers from Other Countries",
+      "themes": [
+        "foreign-license",
+        "translation"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "texas",
+      "category": "外国 / 境外驾照",
+      "claim": "符合条件的有效 foreign license 可按 reciprocity 路径处理",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity",
+      "sourceLabel": "对应官方来源：Texas DPS Driving Privilege Reciprocity",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "texas",
+      "category": "外国 / 境外驾照",
+      "claim": "Texas DPS Driving Privilege Reciprocity 页面说明持有效、未过期 foreign license 的人可在 Texas 驾驶最多一年",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity",
+      "sourceLabel": "对应官方来源：Texas DPS Driving Privilege Reciprocity",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "texas",
+      "category": "外国 / 境外驾照",
+      "claim": "这不等于所有外国驾照都能直接换成 Texas license",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity",
+      "sourceLabel": "对应官方来源：Texas DPS Driving Privilege Reciprocity",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "texas",
+      "category": "外国 / 境外驾照",
+      "claim": "Moving to Texas Guide：Texas DPS 新居民、外州/外国驾照、reciprocity 和 Texas driver license / ID 办理说明",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids",
+      "sourceLabel": "对应官方来源：Texas DPS Moving to Texas Guide",
+      "themes": [
+        "new-resident",
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "florida",
+      "category": "外州 / 加拿大转入",
+      "claim": "What to Bring 会按 U.S. Citizen、Immigrant、Non-Immigrant、Canadian 分材料，非公民身份不能照搬美国公民清单",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring FAQ",
+      "themes": [
+        "what-to-bring",
+        "non-citizen"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "florida",
+      "category": "外州 / 加拿大转入",
+      "claim": "FLHSMV FAQ 说明持有效 out-of-state driver license 申请佛州 license 时通常不需要重考 written 或 driving test，但所有 out-of-state driver 都要做 vision test",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring FAQ",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "florida",
+      "category": "外州 / 加拿大转入",
+      "claim": "What to Bring FAQ：佛州关于 out-of-state license 换证、written / driving test 豁免和 vision test 的 FAQ",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring FAQ",
+      "themes": [
+        "what-to-bring",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "florida",
+      "category": "外州 / 加拿大转入",
+      "claim": "非美国公民、加拿大申请人和其他身份类别，要进入 What to Bring 的对应分支",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring FAQ",
+      "themes": [
+        "what-to-bring"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "washington",
+      "category": "外国 / 境外驾照",
+      "claim": "外州/外国驾照路径里，部分国家或地区执照会要求 translated certification",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity",
+      "sourceLabel": "对应官方来源：WA DOL Documents for Proof of Identity",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "washington",
+      "category": "外州 / 加拿大转入",
+      "claim": "Washington DOL Moving to Washington 页面说明搬入后 30 天内取得 WA driver license，办证时要预约 driver licensing office，带 proof of identity including out-of-state license",
+      "sourceUrl": "https://dol.wa.gov/moving-washington",
+      "sourceLabel": "对应官方来源：WA DOL Moving to Washington",
+      "themes": [
+        "appointment",
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "washington",
+      "category": "外州 / 加拿大转入",
+      "claim": "Washington DOL Do I Need a Test 页面说明 18 岁以上持部分 U.S. / Canada / Germany / South Korea 等有效 license 可免测试",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test",
+      "sourceLabel": "对应官方来源：WA DOL Do I Need to Take a Test",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-jersey",
+      "category": "外州 / 加拿大转入",
+      "claim": "NJ MVC Moving To New Jersey 页面说明外州 transfer 要预约 Licensing Center，符合条件的有效 non-provisional out-of-state license 可免 knowledge / road tests，但 Hazmat written test 例外",
+      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
+      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
+      "themes": [
+        "appointment",
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-jersey",
+      "category": "外州 / 加拿大转入",
+      "claim": "完成后需 surrender out-of-state license",
+      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
+      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-jersey",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州搬入新泽西时，先看 Moving To New Jersey 的 60 天转入要求",
+      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
+      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-jersey",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州搬入通常要在 60 天内转入 license 和车辆 title/registration",
+      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
+      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "massachusetts",
+      "category": "外国 / 境外驾照",
+      "claim": "部分国家/地区 foreign license 可能走 conversion 信息页，其他情况通常按 permit、written / road test 路径处理",
+      "sourceUrl": "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses",
+      "sourceLabel": "对应官方来源：Mass.gov Foreign License Conversion",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "massachusetts",
+      "category": "外国 / 境外驾照",
+      "claim": "Mass.gov foreign license conversion 信息页说明符合条件的外国驾照转换要提供 30 天内 certified driving record，并按来源国家/地区决定是否仍要 written 和 road test",
+      "sourceUrl": "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses",
+      "sourceLabel": "对应官方来源：Mass.gov Foreign License Conversion",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "massachusetts",
+      "category": "外国 / 境外驾照",
+      "claim": "Foreign License Conversion：Massachusetts 对部分外国驾照转换、certified driving record、written / road test 的说明",
+      "sourceUrl": "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses",
+      "sourceLabel": "对应官方来源：Mass.gov Foreign License Conversion",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "massachusetts",
+      "category": "IDP / 国际驾照",
+      "claim": "Transfer Foreign License：Massachusetts 从外国驾照转入、International Driving Permit 限制和测试路径说明",
+      "sourceUrl": "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country",
+      "sourceLabel": "对应官方来源：Mass.gov Transfer Foreign Driver License",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "pennsylvania",
+      "category": "外国 / 境外驾照",
+      "claim": "PennDOT Driver Licensing FAQ 和 driver manual 说明持有效 foreign driver license 的人可在入境美国后最多一年内在宾州驾驶，或直到 foreign license 过期，以较早者为准",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/driver-and-licensing-miscellaneous-faqs",
+      "sourceLabel": "对应官方来源：PennDOT Driver and Licensing Miscellaneous FAQs",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "pennsylvania",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州或加拿大 license 新居民通常 60 天内换 PA license 并 surrender out-of-state license",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-to-pennsylvania",
+      "sourceLabel": "对应官方来源：PennDOT Moving to Pennsylvania",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "pennsylvania",
+      "category": "外州 / 加拿大转入",
+      "claim": "Moving to Pennsylvania：搬到 Pennsylvania 后 out-of-state license surrender、vision screening 和 60 天换证说明",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-to-pennsylvania",
+      "sourceLabel": "对应官方来源：PennDOT Moving to Pennsylvania",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "pennsylvania",
+      "category": "IDP / 国际驾照",
+      "claim": "Foreign License FAQ：PennDOT 关于 foreign driver license、one-year driving window 和 IDP 建议的 FAQ",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/driver-and-licensing-miscellaneous-faqs",
+      "sourceLabel": "对应官方来源：PennDOT Driver and Licensing Miscellaneous FAQs",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "georgia",
+      "category": "外国 / 境外驾照",
+      "claim": "Georgia DDS Drivers From Other Nations 页面说明持外国驾照者成为 Georgia resident 前不必申请 Georgia license",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations",
+      "sourceLabel": "对应官方来源：Georgia DDS Drivers From Other Nations",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "georgia",
+      "category": "外国 / 境外驾照",
+      "claim": "Transfer Foreign License：Georgia DDS 转入未过期 foreign / international driver license 所需身份、住址和 lawful status 文件",
+      "sourceUrl": "https://dds.georgia.gov/transfer-unexpired-foreign-drivers-license",
+      "sourceLabel": "对应官方来源：Georgia DDS Transfer Unexpired Foreign Driver License",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "georgia",
+      "category": "IDP / 国际驾照",
+      "claim": "Georgia DDS Drivers From Other Nations 页面说明多数 Foreign/International Licenses 会退还，但申请 Commercial License / Permit 或美国公民持外国辖区证件等情况有例外",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations",
+      "sourceLabel": "对应官方来源：Georgia DDS Drivers From Other Nations",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "north-carolina",
+      "category": "外州 / 加拿大转入",
+      "claim": "NCDMV Moving to North Carolina 页面说明申请 NC driver license 要到 driver license office，带 out-of-state license 或身份/出生日期文件、SSN 文件、NC physical address 文件",
+      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
+      "sourceLabel": "对应官方来源：NCDMV Moving to North Carolina",
+      "themes": [
+        "residency-documents",
+        "new-resident",
+        "out-of-state",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "north-carolina",
+      "category": "外州 / 加拿大转入",
+      "claim": "NCDMV Moving to North Carolina 页面说明 valid out-of-state license 可能免 written 和 road tests",
+      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
+      "sourceLabel": "对应官方来源：NCDMV Moving to North Carolina",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "north-carolina",
+      "category": "IDP / 国际驾照",
+      "claim": "New Residents：NCDMV 搬入北卡后 driver license、out-of-state license、国际驾照不被承认、车辆登记和保险顺序说明",
+      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
+      "sourceLabel": "对应官方来源：NCDMV Moving to North Carolina",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "michigan",
+      "category": "外国 / 境外驾照",
+      "claim": "Michigan SOS New Drivers 18+ 页面说明 knowledge test 有 English 和多种 foreign languages，并有 audio / written format",
+      "sourceUrl": "https://www.michigan.gov/sos/license-id/new-drivers-18-older",
+      "sourceLabel": "对应官方来源：Michigan SOS New Drivers 18 and Older",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "michigan",
+      "category": "IDP / 国际驾照",
+      "claim": "Driver License Requirements PDF：Michigan SOS-428 文件，说明 foreign documents、foreign driver license、IDP / English translation 和证明用途限制",
+      "sourceUrl": "https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa",
+      "sourceLabel": "对应官方来源：Michigan SOS Driver License or ID Requirements PDF",
+      "themes": [
+        "foreign-license",
+        "translation"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "michigan",
+      "category": "IDP / 国际驾照",
+      "claim": "Foreign DL Law Enforcement PDF：Michigan SOS 关于 foreign driver license、International Driving Permit 和英文翻译的执法说明",
+      "sourceUrl": "https://www.michigan.gov/-/media/Project/Websites/sos/10lawensn/Foreign_DL_Law_Enforcement.pdf?rev=9fde1916b25c4e48a9f004d516952945",
+      "sourceLabel": "对应官方来源：Michigan SOS Foreign Driver License Law Enforcement PDF",
+      "themes": [
+        "foreign-license",
+        "translation"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "nevada",
+      "category": "外州 / 加拿大转入",
+      "claim": "新搬到 Nevada 的用户按 New Resident Guide 准备外州证件和两份 Nevada 地址证明",
+      "sourceUrl": "https://dmv.nv.gov/newresident.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV New Resident Guide",
+      "themes": [
+        "residency-documents",
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "nevada",
+      "category": "期限 / 居民身份",
+      "claim": "New Resident Guide：新搬到 Nevada 后换证和登记相关说明",
+      "sourceUrl": "https://dmv.nv.gov/newresident.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV New Resident Guide",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "connecticut",
+      "category": "外州 / 加拿大转入",
+      "claim": "Transfer Out-of-State License：外州驾照转入 Connecticut 的材料和流程",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/transfer-out-of-state-license",
+      "sourceLabel": "对应官方来源：Connecticut DMV Transfer Out-of-State License",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "connecticut",
+      "category": "外州 / 加拿大转入",
+      "claim": "从外州搬入 Connecticut 的用户先看 transfer out-of-state license 页面准备外州证件和 CT 地址证明",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/transfer-out-of-state-license",
+      "sourceLabel": "对应官方来源：Connecticut DMV Transfer Out-of-State License",
+      "themes": [
+        "residency-documents",
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "tennessee",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州驾照转入时，准备现有外州驾照和新州地址证明",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Residents",
+      "themes": [
+        "residency-documents",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "tennessee",
+      "category": "期限 / 居民身份",
+      "claim": "Tennessee 的 Class D first license、new resident transfer 和 REAL ID 是不同流程，先按当前业务选择入口",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Residents",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "utah",
+      "category": "外州 / 加拿大转入",
+      "claim": "Adult Original / Out-of-State：首次 Utah 驾照或外州转入相关路径",
+      "sourceUrl": "https://dld.utah.gov/regular-original/",
+      "sourceLabel": "对应官方来源：Utah DLD Adult Original",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "utah",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州转入或首次办证时，带现有证件、身份文件和 Utah 地址材料",
+      "sourceUrl": "https://dld.utah.gov/regular-original/",
+      "sourceLabel": "对应官方来源：Utah DLD Adult Original",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "south-carolina",
+      "category": "期限 / 居民身份",
+      "claim": "新搬到 South Carolina 时先看 Moving to SC，再处理 REAL ID 或换证",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/moving-to-sc",
+      "sourceLabel": "对应官方来源：SCDMV Moving to SC",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "louisiana",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州转入或非美国公民身份文件，按 License Transfers 页面准备身份和移民状态核验材料",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-transfers/",
+      "sourceLabel": "对应官方来源：Louisiana OMV License Transfers",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "louisiana",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州转入和临时身份文件会进入额外核验，访问者身份不一定符合 Louisiana 驾照或 ID 资格",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-transfers/",
+      "sourceLabel": "对应官方来源：Louisiana OMV License Transfers",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "oklahoma",
+      "category": "外州 / 加拿大转入",
+      "claim": "Transfer a Driver License：外州驾照转入 Oklahoma 的材料和流程",
+      "sourceUrl": "https://oklahoma.gov/service/all-pages/out-of-state-transfers-dl.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma Out-of-State Transfer",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "oklahoma",
+      "category": "外州 / 加拿大转入",
+      "claim": "如果是外州搬入，先看 Out-of-State Transfer 页面，再决定是否同步升级 REAL ID",
+      "sourceUrl": "https://oklahoma.gov/service/all-pages/out-of-state-transfers-dl.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma Out-of-State Transfer",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "delaware",
+      "category": "外州 / 加拿大转入",
+      "claim": "New Resident Transfer License：外州搬入 Delaware 后换证要求",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "delaware",
+      "category": "外州 / 加拿大转入",
+      "claim": "如果是外州搬入，先看 New Resident Transfer License，确认 60 天要求和旧 license / driving record",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "rhode-island",
+      "category": "外国 / 境外驾照",
+      "claim": "Out of State/Country Transfers：外州或境外 license 转入 Rhode Island 的要求",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+      "sourceLabel": "对应官方来源：RI DMV Out of State/Country Transfers",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "rhode-island",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州转入带当前 out-of-state license",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+      "sourceLabel": "对应官方来源：RI DMV Out of State/Country Transfers",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "rhode-island",
+      "category": "材料 / 身份",
+      "claim": "RI Document Checklist PDF：REAL ID / non-REAL ID、续期、地址变化和转入材料表",
+      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
+      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
+      "themes": [
+        "address-change",
+        "document-checklist",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "nebraska",
+      "category": "外州 / 加拿大转入",
+      "claim": "New Nebraska Resident：外州搬入 Nebraska 后换证材料",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+      "sourceLabel": "对应官方来源：Nebraska New Resident Driver Licensing",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "nebraska",
+      "category": "外州 / 加拿大转入",
+      "claim": "Nebraska 新居民持有效外州 license 时，需要在 30 天内取得 Nebraska license",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+      "sourceLabel": "对应官方来源：Nebraska New Resident Driver Licensing",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "north-dakota",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州转入先看 Requirements Transferring License，确认 address 和 SSN 文件",
+      "sourceUrl": "https://www.dot.nd.gov/driver/requirements-transferring-license",
+      "sourceLabel": "对应官方来源：NDDOT Requirements Transferring License",
+      "themes": [
+        "out-of-state",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "california",
+      "category": "AB 60",
+      "claim": "AB 60 申请人不能取得 REAL ID",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
+      "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
+      "themes": [
+        "ab-60"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "california",
+      "category": "AB 60",
+      "claim": "不能提供美国合法居留证明、但能满足 California DMV 身份和加州居住证明要求的人，应单独查看 AB 60 driver license 路径",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
+      "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
+      "themes": [
+        "ab-60",
+        "residency-documents",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "california",
+      "category": "AB 60",
+      "claim": "AB 60 不是 REAL ID",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
+      "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
+      "themes": [
+        "ab-60"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-york",
+      "category": "无 SSN / SSA",
+      "claim": "REAL ID 如果不能取得 SSN，要按 NY DMV 要求带 SSA 30 天内出具的不符合资格证明和相应 DHS 文件",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
+      "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-york",
+      "category": "无 SSN / SSA",
+      "claim": "如果要换成 REAL ID 或 Enhanced，提前准备 full legal name、两份 New York State residency、SSN / SSA ineligibility 和 lawful status 相关证明",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
+      "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-york",
+      "category": "公民身份",
+      "claim": "Enhanced 证件有额外费用，并且面向符合条件的美国公民和纽约居民",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
+      "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "texas",
+      "category": "lawful presence",
+      "claim": "期限会跟 lawful presence 期限相关",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors",
+      "sourceLabel": "对应官方来源：Texas DPS Temporary Visitors",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "texas",
+      "category": "非公民 / 临时访客",
+      "claim": "Texas DPS temporary visitors 页面说明符合要求的临时访客会收到印有 Limited Term 的 driver license 或 ID",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors",
+      "sourceLabel": "对应官方来源：Texas DPS Temporary Visitors",
+      "themes": [
+        "temporary-credential",
+        "non-citizen"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "florida",
+      "category": "SSN",
+      "claim": "首次办公室核发或升级 REAL ID 时，重点是身份、SSN 和佛州居住地址三组原始材料",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "florida",
+      "category": "SSN",
+      "claim": "第一次到办公室核发、现有证件没有星标且到期、或姓名变更时，通常需要带原始文件验证身份、SSN 和佛州居住地址",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "florida",
+      "category": "lawful presence",
+      "claim": "身份和 legal status 核验后，证件会在 60 天内邮寄",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - Non-Immigrant",
+      "themes": [
+        "processing-or-mail",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "florida",
+      "category": "非公民 / 临时访客",
+      "claim": "What to Bring 会按 U.S. Citizen、Immigrant、Non-Immigrant、Canadian 分材料，非公民身份不能照搬美国公民清单",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - Non-Immigrant",
+      "themes": [
+        "what-to-bring",
+        "non-citizen"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "washington",
+      "category": "SSN",
+      "claim": "EDL/EID 申请需要证明美国公民身份、身份、华盛顿州居住地址，并提供 SSN",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity",
+      "sourceLabel": "对应官方来源：WA DOL Documents for Proof of Identity",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "washington",
+      "category": "SSN",
+      "claim": "Washington DOL 说明如果有 SSN，需要提供 SSN",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity",
+      "sourceLabel": "对应官方来源：WA DOL Documents for Proof of Identity",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "washington",
+      "category": "lawful presence",
+      "claim": "普通华盛顿州驾照仍可用于驾驶，不表示居住或合法身份状态",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity",
+      "sourceLabel": "对应官方来源：WA DOL Documents for Proof of Identity",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-jersey",
+      "category": "ITIN / affidavit",
+      "claim": "Standard license / ID 材料页允许 SSN、ITIN 或 affidavit 满足对应号码栏",
+      "sourceUrl": "https://www.nj.gov/mvc/license/6pointid.htm",
+      "sourceLabel": "对应官方来源：NJ MVC 6 Points of ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-jersey",
+      "category": "SSN",
+      "claim": "材料清单用 MVC 自己的 2 proofs of address + 1 full SSN proof + 6 Points of ID 结构，比泛泛写身份证明更可靠",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "themes": [
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-jersey",
+      "category": "SSN",
+      "claim": "REAL ID 材料核心是 2 份新泽西居住地址证明、1 份完整 SSN 证明、以及 primary/secondary 合计 6 points",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-jersey",
+      "category": "SSN",
+      "claim": "REAL ID 则按 REAL ID 材料清单核对 full SSN proof",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "themes": [
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "massachusetts",
+      "category": "SSN",
+      "claim": "官方材料页会按证件类型列出需要提交的身份、SSN、居住地址和姓名变更相关文件",
+      "sourceUrl": "https://www.mass.gov/lists/rmv-translated-documents",
+      "sourceLabel": "对应官方来源：Mass.gov RMV Translated Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "pennsylvania",
+      "category": "SSN",
+      "claim": "一份 SSN 证明，需显示当前 legal name 和完整 9 位 SSN",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
+      "sourceLabel": "对应官方来源：REAL ID Document Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "michigan",
+      "category": "SSN",
+      "claim": "首次 license/ID 还要准备 SSN、identity、Michigan residency 和可能的翻译文件",
+      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
+      "sourceLabel": "对应官方来源：Michigan SOS License and ID Document Requirements",
+      "themes": [
+        "residency-documents",
+        "translation",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "michigan",
+      "category": "lawful presence",
+      "claim": "带 U.S. citizenship 或 legal presence 证明",
+      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
+      "sourceLabel": "对应官方来源：Michigan SOS License and ID Document Requirements",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "ohio",
+      "category": "SSN",
+      "claim": "full legal name、date of birth、SSN、legal presence 和 Ohio residency 都要能证明",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-identity-documents.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Acceptable Documents",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "ohio",
+      "category": "SSN",
+      "claim": "Ohio REAL ID / compliant card 需要证明全名、生日、SSN、俄亥俄居住地址和在美国的 legal presence",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-identity-documents.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Acceptable Documents",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "nevada",
+      "category": "SSN",
+      "claim": "Social Security Number 相关证明",
+      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "nevada",
+      "category": "SSN",
+      "claim": "用 Nevada DMV Residency and Proof of Identity 页面整理身份、SSN、地址和姓名文件",
+      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "nevada",
+      "category": "SSN",
+      "claim": "Nevada REAL ID 要围绕 identity、Social Security、Nevada residency 和姓名变更文件准备",
+      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "minnesota",
+      "category": "SSN",
+      "claim": "Social Security Number 相关证明或官方接受的替代路径",
+      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "minnesota",
+      "category": "SSN",
+      "claim": "打开 Minnesota DVS document requirements，按身份、SSN、地址和姓名文件整理材料",
+      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "minnesota",
+      "category": "SSN",
+      "claim": "Minnesota REAL ID 要围绕身份、SSN、居住地址和姓名一致性准备材料",
+      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "minnesota",
+      "category": "lawful presence",
+      "claim": "身份证明和 lawful presence / identity 类文件",
+      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "indiana",
+      "category": "SSN",
+      "claim": "Social Security Number 相关证明",
+      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
+      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "indiana",
+      "category": "SSN",
+      "claim": "打开 Indiana BMV REAL ID 页面和 Documentation List，按 identity、lawful status、full SSN、two residency、name change 分组",
+      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
+      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "indiana",
+      "category": "SSN",
+      "claim": "Indiana REAL ID 通常围绕身份、lawful status、SSN、Indiana residency 和姓名变更文件准备",
+      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
+      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "wisconsin",
+      "category": "SSN",
+      "claim": "Social Security Number 相关证明",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV Driver License Documentation",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "wisconsin",
+      "category": "SSN",
+      "claim": "Wisconsin REAL ID 要准备身份、lawful status、SSN、Wisconsin residency 和姓名变更材料",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV Driver License Documentation",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "wisconsin",
+      "category": "lawful presence",
+      "claim": "proof of legal presence 或公民/身份文件",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV Driver License Documentation",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "utah",
+      "category": "SSN",
+      "claim": "Social Security Number 相关证明",
+      "sourceUrl": "https://dld.utah.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "utah",
+      "category": "SSN",
+      "claim": "先打开 Utah DLD required documents 页面，按身份、SSN、地址、姓名四组材料整理",
+      "sourceUrl": "https://dld.utah.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "themes": [
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "utah",
+      "category": "SSN",
+      "claim": "Utah REAL ID / identification requirements 要围绕身份、lawful status、SSN、Utah residency 和姓名一致性准备",
+      "sourceUrl": "https://dld.utah.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "utah",
+      "category": "lawful presence",
+      "claim": "identity / lawful presence 文件",
+      "sourceUrl": "https://dld.utah.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "missouri",
+      "category": "SSN",
+      "claim": "Social Security Number 文件，文件上通常要显示完整 SSN",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "missouri",
+      "category": "SSN",
+      "claim": "Missouri REAL ID 要在 license office 现场申请，材料围绕身份、lawful status、SSN、两份 Missouri residential address 和姓名变更文件",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/real-id/documents/RID.pdf",
+      "sourceLabel": "对应官方来源：Missouri DOR REAL ID Acceptable Documents PDF",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "kansas",
+      "category": "SSN",
+      "claim": "Social Security Number 证明",
+      "sourceUrl": "https://www.ksrevenue.gov/dovqflowreq.html",
+      "sourceLabel": "对应官方来源：Kansas KDOR Required Documents and Appointment",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "kansas",
+      "category": "SSN",
+      "claim": "用 required documents / appointment 页面核对 lawful presence、SSN、两份地址证明和姓名文件",
+      "sourceUrl": "https://www.ksrevenue.gov/dovqflowreq.html",
+      "sourceLabel": "对应官方来源：Kansas KDOR Required Documents and Appointment",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "appointment",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "kansas",
+      "category": "SSN",
+      "claim": "Kansas REAL ID 要准备 lawful presence、SSN、两份当前 Kansas residential address 证明和必要的 legal name change 文件",
+      "sourceUrl": "https://www.ksrevenue.gov/dovqflowreq.html",
+      "sourceLabel": "对应官方来源：Kansas KDOR Required Documents and Appointment",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "kansas",
+      "category": "lawful presence",
+      "claim": "lawful presence / identity 文件",
+      "sourceUrl": "https://www.ksrevenue.gov/dovqflowreq.html",
+      "sourceLabel": "对应官方来源：Kansas KDOR Required Documents and Appointment",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "kentucky",
+      "category": "SSN",
+      "claim": "Social Security 证明",
+      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "kentucky",
+      "category": "SSN",
+      "claim": "打开 What You Need，按 identity、SSN、residency、name/gender change 分组准备材料",
+      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "kentucky",
+      "category": "SSN",
+      "claim": "Kentucky REAL ID 要证明 identity、Social Security、residency，以及任何姓名或 gender changes",
+      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "louisiana",
+      "category": "SSN",
+      "claim": "Louisiana 可通过 SSOLV 核验口头提供的 SSN，并非每位申请人都被要求携带实体 Social Security card",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
+      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "louisiana",
+      "category": "SSN",
+      "claim": "Social Security 信息",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
+      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "louisiana",
+      "category": "SSN",
+      "claim": "可口头提供，但最好带 SSN card、W-2、1099 或 pay stub 作为备用",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
+      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "louisiana",
+      "category": "SSN",
+      "claim": "按 identity / lawful status、SSN、two proofs of residence 三组整理材料，并确认居住证明是独立来源",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
+      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "oklahoma",
+      "category": "SSN",
+      "claim": "Social Security number",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "oklahoma",
+      "category": "SSN",
+      "claim": "实体 SSN card 不强制，但号码要能核验",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "oklahoma",
+      "category": "SSN",
+      "claim": "Oklahoma REAL ID 需要一份 identity、两份 Oklahoma residency、SSN 信息、所有自出生以来姓名变化文件，以及适用时的 immigration / legal presence 文件",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "alabama",
+      "category": "SSN",
+      "claim": "一份显示完整 Social Security number 的文件，例如 Social Security card、W-2 或符合要求的 Medicare/Medicaid ID",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
+      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "alabama",
+      "category": "SSN",
+      "claim": "按 STAR ID Document List 凑齐 identity、full SSN、two residence proofs 和姓名变化文件",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
+      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "alabama",
+      "category": "SSN",
+      "claim": "Alabama STAR ID 需要四类材料：身份/出生日期、完整 SSN、两份 principal residence、以及姓名变化时的 certified legal documents",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
+      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-mexico",
+      "category": "SSN",
+      "claim": "REAL ID: Identification Number，例如 SSN card、W-2、1099 或带完整 SSN 的 pay stub",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-mexico",
+      "category": "SSN",
+      "claim": "不需要 SSN，也不需要 fingerprints",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-mexico",
+      "category": "SSN",
+      "claim": "Standard Driver License / ID 只需要一份 identity and age 与两份 New Mexico residency，不需要 fingerprints，也不需要 Social Security number",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-mexico",
+      "category": "lawful presence",
+      "claim": "REAL ID: Lawful Identity and Age，例如 U.S. passport、birth certificate 或符合条件的移民文件",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "themes": [
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "delaware",
+      "category": "SSN",
+      "claim": "Delaware federally compliant DL/ID 要证明 identity / lawful status、date of birth、Social Security number 和 Delaware residence",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
+      "sourceLabel": "对应官方来源：Delaware General Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "delaware",
+      "category": "SSN",
+      "claim": "姓名变化要先更新 Social Security 记录，并按 DMV 说明等待数据库同步后再去办公室",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
+      "sourceLabel": "对应官方来源：Delaware General Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "rhode-island",
+      "category": "SSN",
+      "claim": "把 identity、SSN、two residency 和姓名变化文件分成四组，日期和 P.O. Box 要特别检查",
+      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
+      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-hampshire",
+      "category": "SSN",
+      "claim": "Proof of Social Security number，按 REAL ID required documents 清单准备",
+      "sourceUrl": "https://www.dmv.nh.gov/drivers-licensenon-driver-ids/real-id",
+      "sourceLabel": "对应官方来源：NH DMV REAL ID",
+      "themes": [
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-hampshire",
+      "category": "SSN",
+      "claim": "先看 NH REAL ID 页面和 Required Documents REAL ID compliant PDF，确认 identity、SSN、residency 三组材料",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf",
+      "sourceLabel": "对应官方来源：NH DMV REAL ID Required Documents PDF",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-hampshire",
+      "category": "SSN",
+      "claim": "New Hampshire REAL ID 要用官方 required documents 清单证明 identity、Social Security number 和 New Hampshire residency",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf",
+      "sourceLabel": "对应官方来源：NH DMV REAL ID Required Documents PDF",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "hawaii",
+      "category": "SSN",
+      "claim": "Social Security number 类别文件",
+      "sourceUrl": "https://hidot.hawaii.gov/driverslicense/",
+      "sourceLabel": "对应官方来源：HIDOT Driver License",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "hawaii",
+      "category": "SSN",
+      "claim": "Hawaii 官方材料说明 SSN documentation optional since June 18, 2021，但仍应按县办公室要求准备号码或证明",
+      "sourceUrl": "https://hidot.hawaii.gov/driverslicense/",
+      "sourceLabel": "对应官方来源：HIDOT Driver License",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "hawaii",
+      "category": "SSN",
+      "claim": "初次申请或材料未在档时，要证明 legal presence、legal name、date of birth、Social Security number 和 Hawaii principal residence address",
+      "sourceUrl": "https://hidot.hawaii.gov/highways/files/2023/07/Acceptable-Documents-for-a-REAL-ID-Compliant-Star-DL-SID-Print-Button-2023-07-18-3.pdf",
+      "sourceLabel": "对应官方来源：Hawaii Acceptable Documents PDF",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "hawaii",
+      "category": "lawful presence",
+      "claim": "Legal presence、legal name、date of birth 文件，例如 U.S. birth certificate、U.S. passport、Permanent Resident Card 或合格移民文件",
+      "sourceUrl": "https://hidot.hawaii.gov/highways/files/2023/07/Acceptable-Documents-for-a-REAL-ID-Compliant-Star-DL-SID-Print-Button-2023-07-18-3.pdf",
+      "sourceLabel": "对应官方来源：Hawaii Acceptable Documents PDF",
+      "themes": [
+        "lawful-presence",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "alaska",
+      "category": "SSN",
+      "claim": "Social Security Number",
+      "sourceUrl": "https://online.dmv.alaska.gov/REALIdChecklist",
+      "sourceLabel": "对应官方来源：Alaska DMV REAL ID Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "alaska",
+      "category": "SSN",
+      "claim": "按 lawful status、SSN、two Alaska residency、name change 四组整理原件或 certified copy",
+      "sourceUrl": "https://online.dmv.alaska.gov/REALIdChecklist",
+      "sourceLabel": "对应官方来源：Alaska DMV REAL ID Checklist",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "alaska",
+      "category": "SSN",
+      "claim": "姓名、地址、SSN、出生日期或性别等信息变化时看 Changing Identification Details",
+      "sourceUrl": "https://dmv.alaska.gov/credential-services/changing-identification-details/",
+      "sourceLabel": "对应官方来源：Alaska DMV Changing Identification Details",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "alaska",
+      "category": "SSN",
+      "claim": "Alaska REAL ID 需要 proof of U.S. citizenship / permanent residency / lawful status、适用时的 name change documents、两份 Alaska residency、Social Security Number",
+      "sourceUrl": "https://online.dmv.alaska.gov/REALIdChecklist",
+      "sourceLabel": "对应官方来源：Alaska DMV REAL ID Checklist",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "idaho",
+      "category": "SSN",
+      "claim": "Social Security number 证明，例如 Social Security card、W-2、1099 或含完整 SSN 的 paystub",
+      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "idaho",
+      "category": "SSN",
+      "claim": "Idaho Star Card 需要证明 identity、Social Security number 和 Idaho residency",
+      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "idaho",
+      "category": "SSN",
+      "claim": "它只能作为 photo identity document，还要补 identity、SSN 和 residency 文件",
+      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "mississippi",
+      "category": "SSN",
+      "claim": "SSN 要 SSN card 或官方 correspondence 显示 full 9 digits，不能只写“提供 SSN”",
+      "sourceUrl": "https://www.driverservicebureau.dps.ms.gov/node/303",
+      "sourceLabel": "对应官方来源：Mississippi Required Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "mississippi",
+      "category": "SSN",
+      "claim": "SSN Card 或官方政府 correspondence，显示完整 9 位 SSN",
+      "sourceUrl": "https://www.driverservicebureau.dps.ms.gov/node/303",
+      "sourceLabel": "对应官方来源：Mississippi Required Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "mississippi",
+      "category": "SSN",
+      "claim": "先看 Required Documents，把 identity、SSN、two residency、name change 分组",
+      "sourceUrl": "https://www.driverservicebureau.dps.ms.gov/node/303",
+      "sourceLabel": "对应官方来源：Mississippi Required Documents",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "mississippi",
+      "category": "SSN",
+      "claim": "超过 60 个月则要重新带 birth certificate、SSN 和两份 residency，且 driver license 还要重新参加 knowledge exam",
+      "sourceUrl": "https://www.driverservicebureau.dps.ms.gov/node/303",
+      "sourceLabel": "对应官方来源：Mississippi Required Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "montana",
+      "category": "lawful presence",
+      "claim": "一份证明 name、date of birth 和 authorized presence 的文件，例如 certified birth certificate、valid passport、certificate of citizenship 或 naturalization",
+      "sourceUrl": "https://mvdmt.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Montana Required Documents",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "montana",
+      "category": "lawful presence",
+      "claim": "按 authorized presence、two Montana residency、name change 三组准备文件",
+      "sourceUrl": "https://mvdmt.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Montana Required Documents",
+      "themes": [
+        "residency-documents",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "montana",
+      "category": "lawful presence",
+      "claim": "Montana REAL ID 要证明 name/date of birth/authorized presence、Montana residency 和适用时的 name change",
+      "sourceUrl": "https://mvdmt.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Montana Required Documents",
+      "themes": [
+        "residency-documents",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "nebraska",
+      "category": "无 SSN / SSA",
+      "claim": "Nebraska 初次申请或外州文件转入时，需要一次性提供 U.S. citizenship 或 lawful status、identity、两份 Nebraska principal address，以及可由 SSA 核验的 valid Social Security number 或豁免证明",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "nebraska",
+      "category": "SSN",
+      "claim": "Valid Social Security number，可由 Social Security Administration 核验",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "nebraska",
+      "category": "SSN",
+      "claim": "用 Document Verification Requirements 核对 citizenship/lawful status、address、SSN",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "north-dakota",
+      "category": "SSN",
+      "claim": "North Dakota REAL ID 要从四类文件中准备：proof of identification / legal presence、proof of name change、proof of Social Security Number、proof of North Dakota residence address",
+      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
+      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "north-dakota",
+      "category": "lawful presence",
+      "claim": "Category 1: proof of identification、date of birth 和 legal presence，例如 certified birth certificate、passport、permanent resident card 等",
+      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
+      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "south-dakota",
+      "category": "SSN",
+      "claim": "按 identity、SSN、two physical address、name change chain 准备材料",
+      "sourceUrl": "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+      "sourceLabel": "对应官方来源：South Dakota Required Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "wyoming",
+      "category": "非公民 / 临时访客",
+      "claim": "非美国公民每次 renewal 或服务通常要出示 USCIS / immigration documents",
+      "sourceUrl": "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html",
+      "sourceLabel": "对应官方来源：Wyoming Lost / Renewal",
+      "themes": [
+        "renewal",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    }
+  ]
+}

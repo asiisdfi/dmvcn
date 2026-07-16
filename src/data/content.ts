@@ -9921,8 +9921,8 @@ export const topics: TopicGuide[] = [
     title: '老人/高龄驾驶人续驾照、视力测试和医疗审查怎么处理',
     eyebrow: '高龄驾驶',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       '在美国，older driver / mature driver 相关问题不只是“老人能不能开车”。不同州会把续驾照、视力测试、medical review、driver re-evaluation、家属担心 unsafe driver、医生报告和限制驾照分成不同程序，需要按触发原因找到对应官方入口。',
     whoNeedsIt: [
@@ -9938,12 +9938,12 @@ export const topics: TopicGuide[] = [
       '普通续期、视力测试、medical review 和 driver re-evaluation 是不同程序。续期是 license renewal；vision test 只看视力标准；medical review 可能要求医生表格、病情控制证明或定期 recertification；re-evaluation 可能要求面谈、eye test、written test 或 road skills test。',
       '家属或旁人报告 unsafe driver 不能只写“年纪大了”。Washington DOL 明确要求具体描述驾驶能力、medical / vision conditions，并且信息必须来自个人观察；New York 和 Georgia 也说明 age alone 不能作为行动依据。',
       '报告路径的保密性不同。New York 对非医生报告人的身份有保护口径；Washington 说明 unsafe-driver report 在州法下不保密，司机或律师可能申请副本；Virginia 对亲属或治疗医疗人员的部分来源/理由有保密规则；New Jersey 不接受匿名报告。',
-      '医生/医疗人员报告在部分州不是“可选提醒”。Pennsylvania 要求 health care personnel 报告影响安全驾驶的病人；New Jersey 要求医生报告 recurrent seizure、recurrent unconsciousness 或 motor coordination impairment 等情况。',
+      '医生/医疗人员报告在部分州不是“可选提醒”。Pennsylvania 要求 health care personnel 报告 15 岁以上、被诊断为可能影响安全驾驶状况的人，但预计少于 90 天的状况有例外；New Jersey 要求医生报告 recurrent seizure、recurrent unconsciousness 或 motor coordination impairment 等情况。',
       'DMV 的结果不一定是吊销。官方流程里常见结果包括要求 medical / vision certificate、医生复核、knowledge test、road skills test、驾驶康复评估、车辆辅助设备、限制驾照、白天驾驶、区域驾驶、定期复审，或者在风险较高时 suspend / revoke / cancel driving privilege。',
       '被要求提交 medical review 文件时，截止日期很重要。Georgia DDS 说明收到 medical / vision form 后若 30 天内不配合，可能进入 revocation notice；New Jersey Medical Review Process 也会给出表格返回期限；New York 说明不提供要求的 medical documentation 可能导致 suspension。',
       '认知障碍、意识丧失、癫痫、视力变化、运动功能或判断力问题，比年龄数字本身更关键。California、New York、Virginia、Florida、Georgia 等州都有 medical conditions / medical review 页面，用来判断是否仍能安全驾驶。',
       '如果已经不适合继续开车，把驾照换成 State ID / non-driver ID 往往比“拖着不处理”更稳。Florida older-driver 页面就把 surrender driver license and obtain an ID card 作为安全选择之一；各州 ID 规则仍要按本州身份和地址材料办。',
-      'Illinois 从 2026 年 7 月 1 日起不再要求 79–86 岁驾驶人仅因年龄参加 routine behind-the-wheel test；他们仍要现场续证和视力检查，87 岁及以上仍按年度路考规则办理。',
+      'Illinois 从 2026 年 7 月 1 日起不再要求 79–86 岁驾驶人仅因年龄参加 routine behind-the-wheel test；他们仍要现场续证和视力检查，87 岁及以上仍按年度路考规则办理。但驾照在 2026 年 7 月 1 日前已经过期的 79–86 岁驾驶人，即使之后才续证，仍要路考。',
       'California 70 岁及以上仍要每五年现场续证并做视力检查，但从 2024 年 10 月起，大多数驾驶记录合格的续证人不再仅因年龄参加 written knowledge test。',
     ],
     checklist: [
@@ -9998,8 +9998,10 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://www.nhtsa.gov/road-safety/older-drivers'],
       },
       {
-        claim: 'Illinois 自 2026 年 7 月 1 日起取消 79–86 岁仅因年龄触发的 routine road test，但仍要求现场续证和视力检查；87 岁及以上仍需年度路考。',
+        claim:
+          'Illinois 自 2026 年 7 月 1 日起取消 79–86 岁仅因年龄触发的 routine road test，但仍要求现场续证和视力检查；87 岁及以上仍需年度路考。若驾照在该日期前已过期，79–86 岁申请人之后续证仍要路考。',
         sourceUrls: [
+          'https://www.ilsos.gov/departments/drivers/traffic-safety/understanding-illinois-road-safety-and-fairness-act.html',
           'https://www.ilsos.gov/news/2026/june-17-2026-giannoulias-ends-mandatory-road-tests-for-drivers-ages-79-86.html',
         ],
       },
@@ -10021,6 +10023,19 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://www.dps.texas.gov/section/driver-license/senior-drivers-age-79-or-older'],
       },
       {
+        claim:
+          'Virginia 75 岁及以上驾驶人必须到 DMV customer service center 现场续证，并完成 vision screening 或提交 vision report；续发驾照通常为五年。',
+        sourceUrls: [
+          'https://www.dmv.virginia.gov/licenses-ids/mature',
+          'https://www.dmv.virginia.gov/safety/programs/mature-driver',
+        ],
+      },
+      {
+        claim:
+          'Georgia 64 岁及以上驾驶人每个 renewal period 都要完成 vision screening；可在现场测试，或按线上流程上传由 optometrist / ophthalmologist 完成的视力文件。',
+        sourceUrls: ['https://dds.georgia.gov/georgia-licenseid/drivers-64-and-over'],
+      },
+      {
         claim: 'Washington unsafe-driver report 必须基于本人观察并写具体事实，不接受匿名或二手信息，而且报告在州法下不保密。',
         sourceUrls: ['https://dol.wa.gov/driver-licenses-and-permits/driver-safety/report-unsafe-drivers'],
       },
@@ -10029,8 +10044,22 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://dmv.ny.gov/driver-license/dmv-medical-review-program'],
       },
       {
-        claim: 'Pennsylvania 法律要求 health care personnel 报告可能影响安全驾驶的指定医疗状况，最后由 PennDOT 评估是否限制、recall 或 suspend。',
-        sourceUrls: ['https://www.pa.gov/agencies/dmv/resources/medical-reporting'],
+        claim:
+          'Pennsylvania 要求有诊断或治疗权限的 health care personnel 报告 15 岁以上、被诊断为可能影响安全驾驶状况的人；预计持续少于 90 天的状况有例外，是否限制、recall 或 suspend 由 PennDOT 决定。',
+        sourceUrls: [
+          'https://www.pa.gov/agencies/dmv/resources/medical-reporting/information-for-health-care-personnel',
+          'https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/medical-reporting-faqs',
+        ],
+      },
+      {
+        claim:
+          'New Jersey 法律要求医生报告 recurrent seizure、recurrent periods of unconsciousness，或因病况造成的 motor coordination impairment；普通关切报告不能匿名。',
+        sourceUrls: ['https://www.nj.gov/mvc/drivertopics/reportconcern.htm'],
+      },
+      {
+        claim:
+          'Virginia 对 relative 或正在治疗该驾驶人的 medical professional 所提交报告，禁止 DMV 公开报告来源或理由；其他来源信息在被请求时可能披露。',
+        sourceUrls: ['https://www.dmv.virginia.gov/licenses-ids/license/medical/impaired-hp'],
       },
       {
         claim: 'New Jersey medical review 表格通常要在 45 天内交回，逾期会导致 suspension；审查结果可能包括限制、复考、监测或暂停。',
@@ -10214,6 +10243,10 @@ export const topics: TopicGuide[] = [
         url: 'https://www.pa.gov/agencies/dmv/resources/medical-reporting',
       },
       {
+        label: 'PennDOT Information for Health Care Personnel',
+        url: 'https://www.pa.gov/agencies/dmv/resources/medical-reporting/information-for-health-care-personnel',
+      },
+      {
         label: 'PennDOT Medical Reporting FAQs',
         url: 'https://www.pa.gov/agencies/dmv/faqs/driver-licensing-faqs/medical-reporting-faqs',
       },
@@ -10296,6 +10329,10 @@ export const topics: TopicGuide[] = [
       {
         label: 'Illinois SOS Road Safety and Fairness Act 2026',
         url: 'https://www.ilsos.gov/news/2026/june-17-2026-giannoulias-ends-mandatory-road-tests-for-drivers-ages-79-86.html',
+      },
+      {
+        label: 'Illinois SOS Understanding the Road Safety and Fairness Act',
+        url: 'https://www.ilsos.gov/departments/drivers/traffic-safety/understanding-illinois-road-safety-and-fairness-act.html',
       },
       {
         label: 'California DMV Driver License Renewal for 70+',
@@ -12115,8 +12152,8 @@ export const topics: TopicGuide[] = [
     title: '残疾人停车 placard、disabled plates 和临时停车证怎么申请',
     eyebrow: '残疾停车牌',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       '在美国申请残疾人停车 placard、disabled parking permit、disabled plates 或临时停车证时，先分清 permanent、temporary、license plate、local permit、disabled veteran plate 和跨州使用规则，再按州官方要求准备材料。',
     whoNeedsIt: [
@@ -12133,8 +12170,10 @@ export const topics: TopicGuide[] = [
       '医疗证明规则州别化。多数州要求 physician、nurse practitioner、optometrist 或其他合格 medical provider 完成认证；有些州允许特定情况免重新认证，或允许处方/letterhead 替代固定表格。',
       'New York 是典型分工例子：parking permit 通常由 city / town / village clerk 这类 local government 发，DMV 不发停车 permit；但 disability license plates 由 DMV 办。',
       '跨州能否使用一般比本地免费停车规则更复杂。New York 说 plates / permit 可在纽约和多数其他州使用，PennDOT 说宾州 placard / plate 在 50 州通用；但 meter 免费、时间限制、resident permit、NYC curbside、市区、机场、校园和私人停车场规则仍要看所在地标志和地方机构。',
+      '旅行时承认外州 placard，不等于搬州后可以直接换证。New York 明确要求新搬入者按本州规则重新提交 disability proof，外州 permit 不能直接交换成 New York permit 或 plates。',
       '不要把 disabled veteran plate 自动当作 disabled parking privilege。Texas DMV 明确说明，没有 International Symbol of Access 的 DV plate 不能停 disabled parking space；想使用 disabled space，需要符合 disabled placard 或带 ISA 的 plate 要求。',
       'Access aisle 不是停车位。California 明确禁止停在带斜线的 access aisle；ADA.gov 也把 accessible parking space 和 access aisle 作为不同设计要素说明。',
+      '滥用或虚假申请可能有明确处罚。Texas 对 placard misuse 可处最高 1,250 美元罚款和/或最多 50 小时 community service；New York 对虚假 permit 申请可按 misdemeanor 处理，并列有 250 至 1,000 美元罚款及可能的额外民事处罚。',
       '申请入口可能是 DMV、county tax office、vehicle licensing office、local clerk 或 online portal。Texas placard / plate 走 county tax assessor-collector；Washington 走 vehicle licensing office 或邮寄；Pennsylvania 可在线续期/换证；Florida 多由 tax collector / license plate agency 办。',
     ],
     checklist: [
@@ -12195,10 +12234,11 @@ export const topics: TopicGuide[] = [
       },
       {
         claim:
-          'Disabled license plate 通常绑定符合资格者名下的登记车辆；New York 和 California 都把 plate 申请与车辆 owner/registration 条件联系起来。',
+          'Disabled license plate 或 tab 通常绑定符合资格者名下的登记车辆；New York、California 和 Washington 都把 plate/tab 申请与车辆 owner/registration 条件联系起来。',
         sourceUrls: [
           'https://dmv.ny.gov/parking-for-people-with-disabilities-the-law',
           'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/disabled-person-parking-placards-plates/',
+          'https://dol.wa.gov/driver-licenses-and-permits/get-or-renew-disabled-parking-permits',
         ],
       },
       {
@@ -12252,6 +12292,11 @@ export const topics: TopicGuide[] = [
       },
       {
         claim:
+          '搬到 New York 后不能把外州 permit 直接交换成本州 permit 或 plates；申请人仍要按 New York 规则重新提交 disability proof。',
+        sourceUrls: ['https://dmv.ny.gov/parking-for-people-with-disabilities-the-law'],
+      },
+      {
+        claim:
           'Access aisle 或斜线区域不是额外停车位；它用于轮椅和无障碍设备进出，即使持有 placard 也不能占用。',
         sourceUrls: [
           'https://www.dmv.ca.gov/portal/vehicle-registration/license-plates-decals-and-placards/disabled-person-parking-placards-plates/',
@@ -12260,10 +12305,18 @@ export const topics: TopicGuide[] = [
       },
       {
         claim:
-          'Washington temporary disabled parking placard 的期限由医疗人员注明，最长可到 12 个月，并与 permanent permit 使用不同申请规则。',
+          'Washington temporary disabled parking placard 的期限由医疗人员注明，自注明日期起最长一年；到期后必须交回 vehicle licensing office 或邮寄退回。',
         sourceUrls: [
           'https://dol.wa.gov/driver-licenses-and-permits/get-or-renew-disabled-parking-permits',
           'https://dol.wa.gov/forms/view/420073/download?inline=',
+        ],
+      },
+      {
+        claim:
+          'Texas 对 disabled parking placard misuse 可处最高 1,250 美元罚款和/或最多 50 小时 community service；New York 对虚假 permit 申请列有 misdemeanor、250 至 1,000 美元罚款及可能的额外民事处罚。',
+        sourceUrls: [
+          'https://www.txdmv.gov/motorists/disabled-parking-placards-plates',
+          'https://dmv.ny.gov/parking-for-people-with-disabilities-the-law',
         ],
       },
     ],

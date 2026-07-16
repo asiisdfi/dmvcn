@@ -1,5 +1,6 @@
 export const SITE_LAUNCH_DATE = '2026-07-13';
 export const EDITORIAL_POLICY_DATE = '2026-07-17';
+export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-17';
 
 export const EDITORIAL_AUTHOR = {
   name: 'DMV中文办事库编辑部',
@@ -29,6 +30,13 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-17',
+    title: '完成高龄驾驶、残疾停车与五个高风险目录的证据核对',
+    summary:
+      '补充高龄续证和医疗报告的州别例外、残疾停车迁州与滥用边界，并将费用、期限、材料、外国驾照和身份目录中的具体提示逐条连接到对应政府页面。',
+    scope: ['高龄驾驶', '残疾停车', '费用与时间', '期限', '材料规则', '外国驾照', 'SSN 与身份类别'],
+  },
   {
     date: '2026-07-17',
     title: '完成第二批高风险专题的官方证据核对',

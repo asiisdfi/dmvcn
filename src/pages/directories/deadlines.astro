@@ -1,21 +1,29 @@
 ---
-import { SITE_LAUNCH_DATE } from '../../data/editorial';
+import { HIGH_RISK_DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
 import StatusFilter from '../../components/StatusFilter.astro';
-import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { pickDirectoryEvidence, splitDirectoryClaims } from '../../data/directory-evidence';
 
 const deadlinePattern = /\d+\s*(?:天|日|days?|business days?|个工作日|个月|months?|years?|年)|\d+\s*[-–]\s*\d+\s*(?:天|日|days?|business days?|个月|months?|years?|年)|\d+\s*to\s*\d+\s*(?:days?|business days?|months?|years?)/gi;
 const dateNoisePattern = /2010\s*年|2011\s*年|2012\s*年|2003\s*年|2020\s*年|2026-\d{2}-\d{2}/;
 
 function hasDeadline(text: string) {
+  if (/\$/.test(text)) return false;
   const matched = deadlinePattern.test(text) && !dateNoisePattern.test(text);
   deadlinePattern.lastIndex = 0;
   return matched;
 }
 
 function classifyDeadline(text: string) {
+  if (
+    /residential address|residency|居住证明|proof|document|材料|地址证明|账单/i.test(text) &&
+    /两份|two|60 天|60 days?|45 天|45 days?|90 天|90 days?|within|以内|日期|dated/i.test(text)
+  ) {
+    return '材料时效';
+  }
   if (/地址|搬家|搬入|搬来|新居民|resident|move|moving|transfer/i.test(text)) return '搬家 / 地址';
   if (/续期|renew|到期|expire|expiration/i.test(text)) return '续期 / 到期';
   if (/邮寄|寄送|处理|processing|mail|receive|card/i.test(text)) return '处理 / 邮寄';
@@ -35,15 +43,50 @@ function deadlineNotesFor(state: (typeof states)[number]) {
   const notes: { category: string; text: string }[] = [];
 
   for (const text of candidates) {
-    if (!hasDeadline(text)) continue;
-    const compact = text.replace(/\s+/g, ' ').trim();
-    if (seen.has(compact)) continue;
-    seen.add(compact);
-    notes.push({ category: classifyDeadline(compact), text: compact });
-    if (notes.length >= 3) break;
+    for (const compact of splitDirectoryClaims(text)) {
+      if (!hasDeadline(compact) || seen.has(compact)) continue;
+      seen.add(compact);
+      notes.push({ category: classifyDeadline(compact), text: compact });
+      if (notes.length >= 12) break;
+    }
+    if (notes.length >= 12) break;
   }
 
   return notes;
+}
+
+function deadlineEvidencePatterns(category: string, text: string) {
+  const patterns: RegExp[] = [];
+
+  if (/ssn|social security|ineligibility|\bssa\b/i.test(text)) patterns.push(/ssn|social security|ineligibility/i);
+  if (/change information|change of address|address change|地址变更|地址变化|更新地址/i.test(text)) {
+    patterns.push(/change.*information|change.*address|address/i);
+  }
+  if (/new resident|moving|搬入|搬到|新.{0,8}居民|建立.{0,12}residency/i.test(text)) {
+    patterns.push(/new resident|moving|move/i);
+  }
+  if (/residential address|residency|居住证明|地址证明|两份.*(?:文件|材料|地址)|账单/i.test(text)) {
+    patterns.push(/what to bring|residency requirement|document guide|checklist|proof/i);
+  }
+  if (/renew|renewal|续期|到期/i.test(text)) patterns.push(/renew|renewal|expiration/i);
+  if (/processing|mail|邮寄|处理|寄到|收到/i.test(text)) patterns.push(/processing|mail|status/i);
+
+  if (category === '搬家 / 地址') patterns.push(/change.*address|address|moving|new resident|move/i);
+  else if (category === '续期 / 到期') patterns.push(/renew|renewal|replace|expiration/i);
+  else if (category === '处理 / 邮寄') patterns.push(/processing|mail|status|renew|replace/i);
+  else if (category === '材料时效') patterns.push(/document|checklist|real.?id|what to bring|requirements|proof/i);
+  else patterns.push(/address|renew|processing|document|moving/i);
+
+  return patterns;
+}
+
+function sourcedDeadlineNotesFor(state: (typeof states)[number]) {
+  return deadlineNotesFor(state)
+    .flatMap((note) => {
+      const evidence = pickDirectoryEvidence(state, note.text, deadlineEvidencePatterns(note.category, note.text));
+      return evidence ? [{ ...note, evidence }] : [];
+    })
+    .slice(0, 3);
 }
 
 function pickDeadlineLinks(state: (typeof states)[number]) {
@@ -57,7 +100,7 @@ function pickDeadlineLinks(state: (typeof states)[number]) {
 
 const rows = states.map((state) => {
   const status = getStatePublicStatus(state);
-  const notes = deadlineNotesFor(state);
+  const notes = sourcedDeadlineNotesFor(state);
   const links = pickDeadlineLinks(state);
   return {
     state,
@@ -81,7 +124,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'DMV 期限提醒表',
   description: '按州整理 DMV 地址变更、搬州、续期、材料时效和处理时间等期限提醒。',
-  dateModified: REVIEW_DATE,
+  dateModified: HIGH_RISK_DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -96,7 +139,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 期限提醒表" description="按州查找 DMV 地址变更、搬州、续期、材料时效和处理时间等官方期限提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE} schema={schema}>
+<BaseLayout title="DMV 期限提醒表" description="按州查找 DMV 地址变更、搬州、续期、材料时效和处理时间等官方期限提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} schema={schema}>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">
@@ -105,7 +148,7 @@ const schema = {
       <p class="eyebrow">期限表</p>
       <h1>DMV 期限提醒表</h1>
       <p class="lead">汇总州资料里最容易错过的天数、月份和处理窗口。先看提醒，再回到州官方页面核对费用、预约和个人资格。</p>
-      <ReviewBadge />
+      <ReviewBadge date={HIGH_RISK_DIRECTORY_REVIEW_DATE} />
       <div class="page-ledger" aria-label="期限提醒表概况">
         <div>
           <strong>{rows.length} 州</strong>
@@ -158,10 +201,15 @@ const schema = {
           <div class="deadline-notes">
             {row.notes.length ? (
               row.notes.map((note) => (
-                <p>
-                  <span>{note.category}</span>
-                  {note.text}
-                </p>
+                <div class="directory-evidence-item">
+                  <p>
+                    <span>{note.category}</span>
+                    {note.text}
+                  </p>
+                  <a class="directory-evidence-link" href={note.evidence.url} target="_blank" rel="noreferrer">
+                    对应官方来源：{note.evidence.label} <ExternalLink size={13} aria-hidden="true" />
+                  </a>
+                </div>
               ))
             ) : (
               <p>

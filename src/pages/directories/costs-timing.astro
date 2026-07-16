@@ -1,15 +1,16 @@
 ---
-import { SITE_LAUNCH_DATE } from '../../data/editorial';
+import { HIGH_RISK_DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
 import StatusFilter from '../../components/StatusFilter.astro';
-import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { pickDirectoryEvidence, splitDirectoryClaims } from '../../data/directory-evidence';
 
 type StateGuide = (typeof states)[number];
 
 const costPattern =
-  /\$|\bfee\b|\bfees\b|\bcost\b|\bpayment\b|\bpay\b|credit|debit|cash|check|money order|service fee|processing fee|refund|receipt|temporary|mail|mailed|mailing|weeks?|business days?|credential|card status|费用|付款|支付|邮寄|寄到|寄达|卡片|临时|凭证|收据|处理|工作日|状态/i;
+  /\$|\bfee\b|\bfees\b|\bcost\b|\bpayment\b|\bpay\b|credit|debit|cash|\bcheck\b|money order|service fee|processing fee|refund|receipt|temporary (?:driver )?(?:license|permit|credential|card|document|receipt)|mail|mailed|mailing|weeks?|business days?|card status|费用|付款|支付|邮寄|寄到|寄达|卡片|临时(?:驾照|许可|凭证|证件|纸质)|凭证|收据|处理时间|办理时间|工作日|卡片状态|邮寄状态/i;
 
 function hasCostCue(text: string) {
   return costPattern.test(text);
@@ -18,18 +19,18 @@ function hasCostCue(text: string) {
 function classifyCostCue(text: string) {
   if (/\$|\bfee\b|\bfees\b|\bcost\b|service fee|processing fee|refund|费用/i.test(text)) return '费用';
   if (/\bpayment\b|\bpay\b|credit|debit|cash|check|money order|付款|支付/i.test(text)) return '付款';
-  if (/temporary|临时|permit|receipt|收据|凭证/i.test(text)) return '临时凭证';
-  if (/mail|mailed|mailing|credential|card status|邮寄|寄到|寄达|卡片|状态/i.test(text)) return '邮寄 / 卡片';
-  if (/processing|weeks?|business days?|days?|处理|工作日/i.test(text)) return '处理时间';
+  if (/temporary (?:driver )?(?:license|permit|credential|card|document|receipt)|临时(?:驾照|许可|凭证|证件|纸质)|receipt|收据|凭证/i.test(text)) return '临时凭证';
+  if (/mail|mailed|mailing|card status|邮寄|寄到|寄达|卡片|卡片状态|邮寄状态/i.test(text)) return '邮寄 / 卡片';
+  if (/processing|weeks?|business days?|days?|处理时间|办理时间|工作日/i.test(text)) return '处理时间';
   return '费用/时间';
 }
 
 function costNoteScore(text: string, category: string) {
   let score = 0;
   if (/\$|service fee|processing fee|credit|debit|cash|money order/i.test(text)) score += 22;
-  if (/mail|mailed|mailing|credential|card status|邮寄|寄到|卡片|状态/i.test(text)) score += 20;
-  if (/temporary|临时|receipt|收据|凭证/i.test(text)) score += 16;
-  if (/weeks?|business days?|days?|处理|工作日/i.test(text)) score += 14;
+  if (/mail|mailed|mailing|card status|邮寄|寄到|卡片|卡片状态|邮寄状态/i.test(text)) score += 20;
+  if (/temporary (?:driver )?(?:license|permit|credential|card|document|receipt)|临时(?:驾照|许可|凭证|证件|纸质)|receipt|收据|凭证/i.test(text)) score += 16;
+  if (/weeks?|business days?|days?|处理时间|办理时间|工作日/i.test(text)) score += 14;
   if (/fee table|fees page|费用表|官方表/i.test(text)) score += 12;
   if (/online|线上|portal|service center|office|agency|现场/i.test(text)) score += 8;
   if (category === '费用/时间') score -= 6;
@@ -49,23 +50,65 @@ function costNotesFor(state: StateGuide) {
   const notes: { category: string; text: string; score: number; index: number }[] = [];
 
   for (const [index, candidate] of candidates.entries()) {
-    const compact = candidate.text.replace(/\s+/g, ' ').trim();
-    if (!compact || seen.has(compact) || !hasCostCue(compact)) continue;
-    seen.add(compact);
-    const category = classifyCostCue(compact);
-    notes.push({ category, text: compact, score: costNoteScore(compact, category) + candidate.sourceScore, index });
+    for (const compact of splitDirectoryClaims(candidate.text)) {
+      if (!compact || seen.has(compact) || !hasCostCue(compact)) continue;
+      seen.add(compact);
+      const category = classifyCostCue(compact);
+      notes.push({ category, text: compact, score: costNoteScore(compact, category) + candidate.sourceScore, index });
+    }
   }
 
   const priority = ['费用', '付款', '临时凭证', '邮寄 / 卡片', '处理时间', '费用/时间'];
   return notes
     .sort((a, b) => b.score - a.score || priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
-    .slice(0, 4)
+    .slice(0, 30)
     .sort((a, b) => priority.indexOf(a.category) - priority.indexOf(b.category) || a.index - b.index)
     .map(({ category, text }) => ({ category, text }));
 }
 
 function costBadges(notes: { category: string; text: string }[]) {
   return [...new Set(notes.map((note) => note.category))].slice(0, 4);
+}
+
+function costEvidencePatterns(category: string, text: string) {
+  const patterns: RegExp[] = [];
+
+  if (/\bfaq\b/i.test(text)) patterns.push(/\bfaq\b/i);
+  if (/temporary (?:driver )?(?:license|permit)|临时\s*(?:driver )?(?:license|permit|驾照|许可)/i.test(text)) {
+    patterns.push(/temporary.*(?:license|permit)|permit.*faq/i);
+  }
+  if (category === '费用') patterns.push(/fee|fees|cost|pricing|licensing-fees/i);
+  if (category === '付款') patterns.push(/fee|fees|payment|pay/i);
+  if (/replace page|replace 页面|replacement page|补证页面/i.test(text)) patterns.push(/replace|replacement/i);
+  if (/permit test|learner permit|knowledge test/i.test(text)) {
+    patterns.push(/prepare.*permit|permit test|knowledge test|take.*permit/i);
+  }
+  if (/change of address|address change|地址变更|搬家/i.test(text)) patterns.push(/change.*address|address/i);
+  if (/processing times?|处理时间|card status|where.*card|几周|weeks?|business days?|工作日/i.test(text)) {
+    patterns.push(/processing|status|where.*card|mail/i);
+  }
+  if (/appointment|office|柜台|kiosk|业务伙伴|service center/i.test(text)) {
+    patterns.push(/appointment|location|online service|service center|office/i);
+  }
+  if (/replace|replacement|补证/i.test(text)) patterns.push(/replace|replacement/i);
+  if (/renew|renewal|续期/i.test(text)) patterns.push(/renew|renewal/i);
+
+  if (category === '付款') patterns.push(/online|portal/i);
+  else if (category === '临时凭证') patterns.push(/temporary|interim|permit|replace|renew/i);
+  else if (category === '邮寄 / 卡片') patterns.push(/processing|mail|status|renew|replace|credential/i);
+  else if (category === '处理时间') patterns.push(/processing|wait|status|mail|renew|replace/i);
+  else if (category !== '费用') patterns.push(/fee|fees|processing|renew|replace|online/i);
+
+  return patterns;
+}
+
+function sourcedCostNotesFor(state: StateGuide) {
+  return costNotesFor(state)
+    .flatMap((note) => {
+      const evidence = pickDirectoryEvidence(state, note.text, costEvidencePatterns(note.category, note.text));
+      return evidence ? [{ ...note, evidence }] : [];
+    })
+    .slice(0, 4);
 }
 
 function pickCostLinks(state: StateGuide) {
@@ -79,7 +122,7 @@ function pickCostLinks(state: StateGuide) {
 
 const rows = states.map((state) => {
   const status = getStatePublicStatus(state);
-  const notes = costNotesFor(state);
+  const notes = sourcedCostNotesFor(state);
   const badges = costBadges(notes);
   const links = pickCostLinks(state);
   return {
@@ -120,7 +163,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'DMV 费用和拿证时间表',
   description: '按州整理 DMV / REAL ID / 驾照续期、补证、付款方式、临时凭证、卡片邮寄和处理时间提醒。',
-  dateModified: REVIEW_DATE,
+  dateModified: HIGH_RISK_DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -135,7 +178,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 费用和拿证时间表" description="按州查找 DMV / REAL ID / 驾照续期、补证、付款方式、临时凭证、卡片邮寄和处理时间提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE} schema={schema}>
+<BaseLayout title="DMV 费用和拿证时间表" description="按州查找 DMV / REAL ID / 驾照续期、补证、付款方式、临时凭证、卡片邮寄和处理时间提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} schema={schema}>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">
@@ -144,7 +187,7 @@ const schema = {
       <p class="eyebrow">费用 / 拿证时间</p>
       <h1>DMV 费用和拿证时间表</h1>
       <p class="lead">先看要不要带付款方式、是否有线上服务费、有没有临时凭证、新卡大约多久寄到。金额会变，最终仍点官方费用页确认。</p>
-      <ReviewBadge />
+      <ReviewBadge date={HIGH_RISK_DIRECTORY_REVIEW_DATE} />
       <div class="page-ledger" aria-label="费用和拿证时间表概况">
         <div>
           <strong>{rows.length} 州</strong>
@@ -213,10 +256,15 @@ const schema = {
             </div>
             {row.notes.length ? (
               row.notes.map((note) => (
-                <p>
-                  <span>{note.category}</span>
-                  {note.text}
-                </p>
+                <div class="directory-evidence-item">
+                  <p>
+                    <span>{note.category}</span>
+                    {note.text}
+                  </p>
+                  <a class="directory-evidence-link" href={note.evidence.url} target="_blank" rel="noreferrer">
+                    对应官方来源：{note.evidence.label} <ExternalLink size={13} aria-hidden="true" />
+                  </a>
+                </div>
               ))
             ) : (
               <p>

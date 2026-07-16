@@ -49,6 +49,7 @@ function inspectHtml(html) {
   const tree = parse(html);
   const result = {
     classNames: new Set(),
+    classCounts: new Map(),
     links: [],
     metas: new Map(),
     headings: [],
@@ -62,7 +63,10 @@ function inspectHtml(html) {
     if (node.tagName) {
       const attributes = attrs(node);
       const classes = (attributes.get('class') ?? '').split(/\s+/).filter(Boolean);
-      classes.forEach((className) => result.classNames.add(className));
+      classes.forEach((className) => {
+        result.classNames.add(className);
+        result.classCounts.set(className, (result.classCounts.get(className) ?? 0) + 1);
+      });
 
       if (node.tagName === 'a') {
         result.links.push({
@@ -208,7 +212,15 @@ function scorePage(route, document) {
     document.classNames.has('registry-table');
   const hasDisclaimer = document.classNames.has('notice') || identity.type === 'trust';
   const hasEditorialDisclosure = document.classNames.has('editorial-disclosure');
-  const hasDirectDirectoryEvidence = identity.type === 'directory' && govLinks >= 10 && document.classNames.has('directory-table');
+  const directoryEvidenceItems = document.classCounts.get('directory-evidence-item') ?? 0;
+  const directoryEvidenceLinks = document.classCounts.get('directory-evidence-link') ?? 0;
+  const hasInlineDirectoryEvidence =
+    directoryEvidenceItems > 0 && directoryEvidenceItems === directoryEvidenceLinks;
+  const hasDirectDirectoryEvidence =
+    identity.type === 'directory' &&
+    govLinks >= 10 &&
+    document.classNames.has('directory-table') &&
+    (identity.risk !== 'high' || hasInlineDirectoryEvidence);
   const review = semanticReviews[route];
 
   const scores = {
@@ -281,6 +293,13 @@ function scorePage(route, document) {
   if (contentPage && !schemaDates) critical.push('Article schema 没有区分 datePublished 与 dateModified');
   if (contentPage && !hasSourceSection) critical.push('内容页缺少官方来源区域');
   if (identity.type === 'topic' && signals.factCheckCount === 0) critical.push('专题页没有事实到来源映射');
+  if (
+    identity.type === 'directory' &&
+    identity.risk === 'high' &&
+    (!hasInlineDirectoryEvidence || directoryEvidenceItems !== directoryEvidenceLinks)
+  ) {
+    critical.push('高风险目录的具体提示没有逐条绑定官方来源');
+  }
 
   if (identity.type.startsWith('state-')) blockers.push('州页面关键事实尚未逐条映射到对应官方来源');
   if (identity.risk === 'high' && !hasFactMapping && !hasDirectDirectoryEvidence && identity.type !== 'trust') {
@@ -329,6 +348,9 @@ function scorePage(route, document) {
       authorLink,
       schemaAuthorUrl,
       hasFactMapping,
+      directoryEvidenceItems,
+      directoryEvidenceLinks,
+      hasInlineDirectoryEvidence,
       hasEditorialDisclosure,
     },
     critical,
