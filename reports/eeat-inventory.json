@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:28:32.282Z",
+    "generatedAt": "2026-07-16T22:39:22.292Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 15,
+    "passed": 17,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 96,
-    "aiAssistedReviews": 21,
+    "sourceMappedReviews": 94,
+    "aiAssistedReviews": 23,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 149,
+    "blockedPages": 147,
     "averageScore": 96
   },
   "pages": [
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 29,
-        "directoryEvidenceLinks": 29,
+        "directoryEvidenceItems": 31,
+        "directoryEvidenceLinks": 31,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 364,
+        "sourceCount": 367,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 165,
+        "sourceCount": 164,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 129,
+        "sourceCount": 130,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 128,
+        "sourceCount": 130,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 97,
-        "directoryEvidenceLinks": 97,
+        "directoryEvidenceItems": 99,
+        "directoryEvidenceLinks": 99,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -782,7 +782,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 193,
+        "sourceCount": 194,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1013,
+        "sourceCount": 1017,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -4939,16 +4939,16 @@
       "risk": "medium",
       "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Texas.gov、Texas DPS 和 TSA 的 REAL ID、线上资格、居住证明、个人化清单、首次申请、预约、费用、地址、身份核验、考试、临时证件、外国驾照与新居民正文。",
+        "notes": "重写 Texas 总览与 REAL ID 清单，纠正简版公民材料清单和车辆登记证明的适用范围，更新 2026 年 CDL 语言规则，并为费用、期限、身份和材料声明建立显式来源；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4961,14 +4961,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 15,
-        "factCheckCount": 23,
+        "sourceCount": 21,
+        "factCheckCount": 31,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 23,
-        "stateEvidenceLinks": 26,
+        "stateEvidenceItems": 31,
+        "stateEvidenceLinks": 39,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4976,9 +4976,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/texas/real-id/",
@@ -4986,16 +4984,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Texas.gov、Texas DPS 和 TSA 的 REAL ID、线上资格、居住证明、个人化清单、首次申请、预约、费用、地址、身份核验、考试、临时证件、外国驾照与新居民正文。",
+        "notes": "重写 Texas 总览与 REAL ID 清单，纠正简版公民材料清单和车辆登记证明的适用范围，更新 2026 年 CDL 语言规则，并为费用、期限、身份和材料声明建立显式来源；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5008,14 +5006,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 15,
-        "factCheckCount": 17,
+        "sourceCount": 21,
+        "factCheckCount": 40,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 17,
-        "stateEvidenceLinks": 19,
+        "stateEvidenceItems": 40,
+        "stateEvidenceLinks": 54,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5023,9 +5021,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/utah/",

@@ -58,6 +58,41 @@ const NY_REPLACE =
   'https://dmv.ny.gov/driver-license/replace-a-license-or-permit';
 const NY_OFFICES = 'https://dmv.ny.gov/contact-us/office-locations';
 
+const TX_REAL_ID = 'https://www.texas.gov/driver-services/texas-real-id/';
+const TX_ONLINE_ELIGIBILITY =
+  'https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/';
+const TX_RESIDENCY =
+  'https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards';
+const TX_DOCUMENT_CHECK = 'https://www.dps.texas.gov/apps/DriverLicense/RealID/';
+const TX_APPLY =
+  'https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license';
+const TX_MOVING =
+  'https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids';
+const TX_RECIPROCITY =
+  'https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity';
+const TX_TESTING =
+  'https://www.dps.texas.gov/section/driver-license/testing-other-languages';
+const TX_ADDRESS =
+  'https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card';
+const TX_FEES =
+  'https://www.dps.texas.gov/section/driver-license/driver-license-fees';
+const TX_TEMPORARY_VISITORS =
+  'https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors';
+const TX_TEMPORARY_LICENSE =
+  'https://www.dps.texas.gov/section/driver-license/faq/section-3-issuing-temporary-permit';
+const TX_IDENTIFICATION_CARD =
+  'https://www.dps.texas.gov/section/driver-license/how-apply-texas-identification-card';
+const TX_FAQ =
+  'https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or';
+const TX_LAWFUL_PRESENCE =
+  'https://www.dps.texas.gov/section/driver-license/us-citizenship-or-lawful-presence-requirement';
+const TX_SSN =
+  'https://www.dps.texas.gov/section/driver-license/social-security-number-ssn';
+const TX_CDL_TESTING =
+  'https://www.dps.texas.gov/news/dps-announces-changes-cdl-knowledge-testing';
+const TSA_IDENTIFICATION =
+  'https://www.tsa.gov/travel/security-screening/identification';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -333,6 +368,220 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '到办公室才发现非英文材料没有 certified English translation，或原件已经过期': [
         NY_ID44,
+      ],
+    },
+  },
+  texas: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      TX_REAL_ID,
+      TX_ONLINE_ELIGIBILITY,
+      TX_RESIDENCY,
+      TX_DOCUMENT_CHECK,
+      TX_APPLY,
+      TX_MOVING,
+      TX_RECIPROCITY,
+      TX_TESTING,
+      TX_ADDRESS,
+      TX_FEES,
+      TX_TEMPORARY_VISITORS,
+      TX_TEMPORARY_LICENSE,
+      TX_IDENTIFICATION_CARD,
+      TX_FAQ,
+      TX_LAWFUL_PRESENCE,
+      TX_SSN,
+      TX_CDL_TESTING,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开并比对 Texas.gov、Texas DPS 和 TSA 的 REAL ID、线上资格、居住证明、个人化清单、首次申请、预约、费用、地址、身份核验、考试、临时证件、外国驾照与新居民正文。',
+    notes:
+      '重写 Texas 总览与 REAL ID 清单，纠正简版公民材料清单和车辆登记证明的适用范围，更新 2026 年 CDL 语言规则，并为费用、期限、身份和材料声明建立显式来源；仍待真实人工签字。',
+    claims: {
+      'Texas DPS 管理德州驾照和身份证': [TX_FAQ],
+      '首次申请和外州换证必须到 driver license office': [TX_FAQ],
+      '续期、补证、升级和改地址应先让官方系统判断线上资格': [
+        TX_ONLINE_ELIGIBILITY,
+      ],
+      '首次申请德州驾照前，先用 DPS REAL ID Document Check 生成个人材料清单': [
+        TX_DOCUMENT_CHECK,
+        TX_APPLY,
+      ],
+      '申请人通常还要完成视力、knowledge 和 driving skills 测试，符合外州换证或互惠条件者可能免试': [
+        TX_APPLY,
+        TX_MOVING,
+      ],
+      '德州 REAL ID 合规驾照或 ID 的右上角有星标': [TX_REAL_ID],
+      '当前有效但没有星标的德州证件仍可用于驾驶和非联邦身份用途': [
+        TX_REAL_ID,
+      ],
+      '自 2025 年 5 月 7 日起，乘坐美国国内航班须使用带星标证件、有效护照、美国军人证或其他 TSA 接受证件': [
+        TX_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      'DPS 的现场驾照和 ID 服务以预约为主，部分办公室仅提供数量有限的 walk-in appointment': [
+        TX_FAQ,
+      ],
+      '可在最多提前 180 天预约后前往任一 driver license office': [TX_FAQ],
+      '续期、补证或改地址先检查线上资格': [TX_ONLINE_ELIGIBILITY],
+      '多数 Texas driver license 和 ID 可在到期前两年至到期后两年内续期，但证件类型和个人状态可能改变办理方式': [
+        TX_FAQ,
+        TX_ONLINE_ELIGIBILITY,
+      ],
+      '79 岁及以上驾照持有人须现场续期，learner license 不能在线续期': [
+        TX_ONLINE_ELIGIBILITY,
+      ],
+      '18 至 84 岁 Class A、B 或 C 驾照常见新办和续期费为 $33，replacement 为 $11': [
+        TX_FEES,
+      ],
+      '59 岁及以下普通 ID 新办或续期费为 $16，60 岁及以上为 $6，replacement 为 $11': [
+        TX_FEES,
+      ],
+      '地址变化后 30 天内要更新 driver license 或 ID，改地址和改姓名都按 replacement 办理并支付适用费用': [
+        TX_ADDRESS,
+        TX_FEES,
+      ],
+      'temporary driver license 自业务办理日起有效 60 天，正式驾照通常约 2 至 3 周邮寄到达': [
+        TX_TEMPORARY_LICENSE,
+        TX_APPLY,
+      ],
+      '符合要求的 temporary visitor 会收到标有 Limited Term 的驾照或 ID': [
+        TX_TEMPORARY_VISITORS,
+      ],
+      '证件通常随 lawful presence 期限到期': [TX_TEMPORARY_VISITORS],
+      '若身份期限为 duration of status，证件一年后到期': [
+        TX_TEMPORARY_VISITORS,
+      ],
+      'DPS 会通过 DHS 核验 lawful presence，在核验完成前不能签发驾照或 ID': [
+        TX_LAWFUL_PRESENCE,
+      ],
+      '需要额外核验时，申请人要按 DPS 指示继续处理': [TX_LAWFUL_PRESENCE],
+      '非商业驾照 knowledge test 只提供 English 或 Spanish，翻译人员只能在考试前后协助，不能在考试过程中提供帮助': [
+        TX_TESTING,
+      ],
+      '自 2026 年 6 月 1 日起，Texas CDL 和 CLP knowledge exams 只用 English，考试中禁止 interpreter': [
+        TX_CDL_TESTING,
+        TX_TESTING,
+      ],
+      '新居民持有效、未过期的美国其他州或领地、加拿大省份或符合条件国家驾照，可在搬到 Texas 后最多驾驶 90 天': [
+        TX_MOVING,
+      ],
+      '交出有效的美国其他州、领地或加拿大驾照时，通常免 knowledge 和 skills exams': [
+        TX_MOVING,
+      ],
+      'Texas 与 France、Germany、South Korea、United Arab Emirates 和 Taiwan 有驾照互惠': [
+        TX_MOVING,
+      ],
+      '持有效未过期证件且交出外国驾照者可能免 knowledge 和 skills exams': [
+        TX_MOVING,
+      ],
+      '外国驾照不是 English 或 Spanish 时，去办公室前要由翻译服务机构或领事馆完成翻译': [
+        TX_MOVING,
+      ],
+      '持有效未过期外国驾照的非居民驾驶期限最多为一年或到成为 Texas resident 为止，以较早者为准': [
+        TX_RECIPROCITY,
+      ],
+      '成为新居民后须在 90 天内申请 Texas license': [
+        TX_RECIPROCITY,
+        TX_MOVING,
+      ],
+      '先用 DPS REAL ID Document Check 回答申请类型、身份和现有材料问题，生成个人化清单': [
+        TX_DOCUMENT_CHECK,
+      ],
+      '准备 citizenship 或 lawful presence、identity 和 Social Security number 对应文件': [
+        TX_APPLY,
+        TX_IDENTIFICATION_CARD,
+      ],
+      'DPS 会与联邦系统核验 SSN 和 lawful presence': [
+        TX_SSN,
+        TX_LAWFUL_PRESENCE,
+      ],
+      '准备两份打印的 Texas residency 文件，两份都要显示申请人姓名和 residential address': [
+        TX_RESIDENCY,
+      ],
+      '通常至少一份要证明已在 Texas 居住 30 天': [TX_RESIDENCY],
+      '交出有效未过期外州证件者和 CDL 申请人免除 30 天要求，但仍要交两份居住证明': [
+        TX_RESIDENCY,
+      ],
+      '符合清单的电子 statement 可以打印提交': [TX_RESIDENCY],
+      '同一来源仅在地方政府或提供多项住宅服务的机构分别出具不同服务账单时可算两份': [
+        TX_RESIDENCY,
+      ],
+      '同一服务不同月份不能凑两份': [TX_RESIDENCY],
+      '驾照申请中的 Texas vehicle registration 证明只适用于交出外州驾照的新居民': [
+        TX_APPLY,
+      ],
+      '申请人还要提供本人拥有的每辆车的保险证明，或签署不拥有车辆的声明': [
+        TX_APPLY,
+      ],
+      '身份文件与当前姓名不一致时，准备能够连接每次变更的法定姓名文件': [
+        TX_DOCUMENT_CHECK,
+        TX_ADDRESS,
+      ],
+      '非美国公民要按本人身份提供 lawful presence 文件，DPS 在 DHS 核验完成前不能签发证件': [
+        TX_LAWFUL_PRESENCE,
+      ],
+      '符合 temporary visitor 定义者会收到标有 Limited Term 的证件': [
+        TX_TEMPORARY_VISITORS,
+      ],
+      '先看现有证件右上角是否有星标，再判断是否需要用州证件乘坐国内航班或进入受管制联邦设施': [
+        TX_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '已有 Texas DL 或 ID 的续期、补证、升级或改地址，先运行 online eligibility': [
+        TX_ONLINE_ELIGIBILITY,
+      ],
+      '首次申请和外州换证直接准备现场路径': [TX_FAQ],
+      '运行 REAL ID Document Check，并按结果准备原件、认证副本、打印的 residency 文件和完整姓名链': [
+        TX_DOCUMENT_CHECK,
+        TX_REAL_ID,
+        TX_RESIDENCY,
+        TX_ADDRESS,
+      ],
+      '需要现场办理时，用 Texas Scheduler 选择准确服务和办公室': [TX_FAQ],
+      '首次申请或外州换证必须亲自办理': [TX_FAQ],
+      '现场核对申请、材料、照片、指纹、费用和适用考试': [TX_APPLY],
+      '常见 18 至 84 岁 Class A、B 或 C 新办或续期费为 $33，replacement 为 $11': [
+        TX_FEES,
+      ],
+      '最终以当前 fee table 和个人业务为准': [TX_FEES],
+      '领取 temporary driver license 后当场核对信息': [TX_APPLY],
+      '临时驾照有效 60 天，正式卡通常约 2 至 3 周邮寄到达': [
+        TX_TEMPORARY_LICENSE,
+        TX_APPLY,
+      ],
+      '搬家后 30 天内更新驾照或 ID 地址': [TX_ADDRESS],
+      '地址或姓名变更属于 replacement，并要支付适用费用': [
+        TX_ADDRESS,
+        TX_FEES,
+      ],
+      '把 Texas.gov 的简版公民材料示例当成所有申请人的通用清单，或没有运行 DPS REAL ID Document Check': [
+        TX_REAL_ID,
+        TX_DOCUMENT_CHECK,
+        TX_LAWFUL_PRESENCE,
+      ],
+      '只带一份 residency 文件，或两份文件没有同时显示本人姓名和 Texas residential address': [
+        TX_RESIDENCY,
+      ],
+      '用同一项服务不同月份的账单凑两份居住证明': [TX_RESIDENCY],
+      '误以为所有续期、补证和改地址都能在线办理': [
+        TX_ONLINE_ELIGIBILITY,
+      ],
+      'DPS 会按年龄、证件类型和状态、上次续期方式、SSN、身份核验、欠票或 warrant 等条件决定资格': [
+        TX_ONLINE_ELIGIBILITY,
+        TX_FAQ,
+      ],
+      '79 岁及以上驾照持有人须现场续期': [TX_ONLINE_ELIGIBILITY],
+      '未预约就直接前往办公室，或没有确认所选服务和 appointment': [TX_FAQ],
+      '只带最后一次改名文件，没有把出生姓名到当前法定姓名完整连接起来': [
+        TX_DOCUMENT_CHECK,
+        TX_ADDRESS,
+      ],
+      '默认普通 knowledge test 有中文版本': [TX_TESTING],
+      '非商业驾照知识考试只提供 English 或 Spanish，翻译人员不能在考试过程中协助': [
+        TX_TESTING,
       ],
     },
   },

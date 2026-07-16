@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:28:31.085Z",
+    "generatedAt": "2026-07-16T22:39:21.158Z",
     "pages": 5,
-    "claims": 373,
+    "claims": 377,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 29,
+        "claims": 31,
         "states": 15
       },
       "deadlines": {
@@ -23,7 +23,7 @@
         "states": 22
       },
       "identity-ssn": {
-        "claims": 97,
+        "claims": 99,
         "states": 34
       }
     }
@@ -140,12 +140,11 @@
       "page": "costs-timing",
       "stateId": "texas",
       "category": "费用",
-      "claim": "Texas DPS fee table 列出常见 renewal、replacement 和 ID fee",
+      "claim": "最终以当前 fee table 和个人业务为准",
       "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-license-fees",
       "sourceLabel": "对应官方来源：Texas DPS Driver License Fees",
       "themes": [
-        "fee",
-        "renewal"
+        "fee"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": true
@@ -153,15 +152,41 @@
     {
       "page": "costs-timing",
       "stateId": "texas",
-      "category": "邮寄 / 卡片",
-      "claim": "DPS FAQ 说明临时 driver license 通常 60 天有效，并可查询卡片邮寄状态",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/faq/section-3-issuing-temporary-permit",
-      "sourceLabel": "对应官方来源：Texas DPS Temporary Permit FAQ",
+      "category": "费用",
+      "claim": "现场核对申请、材料、照片、指纹、费用和适用考试",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-license-fees",
+      "sourceLabel": "对应官方来源：Texas DPS Driver License Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "texas",
+      "category": "费用",
+      "claim": "地址或姓名变更属于 replacement，并要支付适用费用",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-license-fees",
+      "sourceLabel": "对应官方来源：Texas DPS Driver License Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "texas",
+      "category": "临时凭证",
+      "claim": "temporary driver license 自业务办理日起有效 60 天，正式驾照通常约 2 至 3 周邮寄到达",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors",
+      "sourceLabel": "对应官方来源：Texas DPS Temporary Visitors",
       "themes": [
         "processing-or-mail"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "costs-timing",
@@ -472,12 +497,12 @@
     {
       "page": "deadlines",
       "stateId": "texas",
-      "category": "搬家 / 地址",
-      "claim": "地址变化后，Texas DPS 要求 30 天内更新 driver license 或 ID card 地址",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card",
-      "sourceLabel": "对应官方来源：Texas DPS Change Information",
+      "category": "材料时效",
+      "claim": "交出有效未过期外州证件者和 CDL 申请人免除 30 天要求，但仍要交两份居住证明",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards",
+      "sourceLabel": "对应官方来源：Texas DPS Residency Requirement",
       "themes": [
-        "address-change"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -486,11 +511,11 @@
       "page": "deadlines",
       "stateId": "texas",
       "category": "搬家 / 地址",
-      "claim": "搬家后按 30 天规则更新地址",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card",
-      "sourceLabel": "对应官方来源：Texas DPS Change Information",
+      "claim": "新居民持有效、未过期的美国其他州或领地、加拿大省份或符合条件国家驾照，可在搬到 Texas 后最多驾驶 90 天",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids",
+      "sourceLabel": "对应官方来源：Texas DPS Moving to Texas Guide",
       "themes": [
-        "address-change"
+        "new-resident"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -499,14 +524,14 @@
       "page": "deadlines",
       "stateId": "texas",
       "category": "搬家 / 地址",
-      "claim": "Texas DPS change information 页面明确 driver license / ID 地址变化后 30 天内更新",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card",
-      "sourceLabel": "对应官方来源：Texas DPS Change Information",
+      "claim": "成为新居民后须在 90 天内申请 Texas license",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids",
+      "sourceLabel": "对应官方来源：Texas DPS Moving to Texas Guide",
       "themes": [
-        "address-change"
+        "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "deadlines",
@@ -926,24 +951,11 @@
       "page": "document-rules",
       "stateId": "texas",
       "category": "地址证明",
-      "claim": "Texas DPS residency requirement 页面要求两份打印的 Texas residency 文件，且文件要显示姓名和 Texas residential address",
+      "claim": "准备两份打印的 Texas residency 文件，两份都要显示申请人姓名和 residential address",
       "sourceUrl": "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards",
       "sourceLabel": "对应官方来源：Texas DPS Residency Requirement",
       "themes": [
         "residency-documents"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
-    },
-    {
-      "page": "document-rules",
-      "stateId": "texas",
-      "category": "非公民材料",
-      "claim": "期限会跟 lawful presence 期限相关",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors",
-      "sourceLabel": "对应官方来源：Texas DPS Temporary Visitors",
-      "themes": [
-        "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -951,26 +963,41 @@
     {
       "page": "document-rules",
       "stateId": "texas",
-      "category": "清单入口",
-      "claim": "Texas.gov REAL ID 页面提供 REAL ID overview、document checklist 和 driver license office 相关入口",
-      "sourceUrl": "https://www.texas.gov/driver-services/texas-real-id/",
-      "sourceLabel": "对应官方来源：Texas.gov REAL ID",
+      "category": "地址证明",
+      "claim": "交出有效未过期外州证件者和 CDL 申请人免除 30 天要求，但仍要交两份居住证明",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards",
+      "sourceLabel": "对应官方来源：Texas DPS Residency Requirement",
       "themes": [
-        "document-checklist"
+        "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "document-rules",
       "stateId": "texas",
-      "category": "清单入口",
-      "claim": "Texas.gov REAL ID 和在线资格检查页面已通过来源检查，适合作为主入口",
-      "sourceUrl": "https://www.texas.gov/driver-services/texas-real-id/",
-      "sourceLabel": "对应官方来源：Texas.gov REAL ID",
-      "themes": [],
+      "category": "地址证明",
+      "claim": "同一来源仅在地方政府或提供多项住宅服务的机构分别出具不同服务账单时可算两份",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards",
+      "sourceLabel": "对应官方来源：Texas DPS Residency Requirement",
+      "themes": [
+        "residency-documents"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "texas",
+      "category": "地址证明",
+      "claim": "运行 REAL ID Document Check，并按结果准备原件、认证副本、打印的 residency 文件和完整姓名链",
+      "sourceUrl": "https://www.dps.texas.gov/apps/DriverLicense/RealID/",
+      "sourceLabel": "对应官方来源：Texas DPS REAL ID Document Check",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
     },
     {
       "page": "document-rules",
@@ -2988,12 +3015,11 @@
       "page": "foreign-license",
       "stateId": "texas",
       "category": "外国 / 境外驾照",
-      "claim": "符合条件的有效 foreign license 可按 reciprocity 路径处理",
+      "claim": "持有效未过期证件且交出外国驾照者可能免 knowledge 和 skills exams",
       "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity",
       "sourceLabel": "对应官方来源：Texas DPS Driving Privilege Reciprocity",
       "themes": [
-        "foreign-license",
-        "reciprocity"
+        "foreign-license"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -3002,21 +3028,21 @@
       "page": "foreign-license",
       "stateId": "texas",
       "category": "外国 / 境外驾照",
-      "claim": "Texas DPS Driving Privilege Reciprocity 页面说明持有效、未过期 foreign license 的人可在 Texas 驾驶最多一年",
+      "claim": "外国驾照不是 English 或 Spanish 时，去办公室前要由翻译服务机构或领事馆完成翻译",
       "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity",
       "sourceLabel": "对应官方来源：Texas DPS Driving Privilege Reciprocity",
       "themes": [
         "foreign-license",
-        "reciprocity"
+        "translation"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "foreign-license",
       "stateId": "texas",
       "category": "外国 / 境外驾照",
-      "claim": "这不等于所有外国驾照都能直接换成 Texas license",
+      "claim": "持有效未过期外国驾照的非居民驾驶期限最多为一年或到成为 Texas resident 为止，以较早者为准",
       "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity",
       "sourceLabel": "对应官方来源：Texas DPS Driving Privilege Reciprocity",
       "themes": [
@@ -3793,8 +3819,36 @@
     {
       "page": "identity-ssn",
       "stateId": "texas",
+      "category": "SSN",
+      "claim": "准备 citizenship 或 lawful presence、identity 和 Social Security number 对应文件",
+      "sourceUrl": "https://www.dps.texas.gov/apps/DriverLicense/RealID/",
+      "sourceLabel": "对应官方来源：Texas DPS REAL ID Document Check",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "texas",
+      "category": "SSN",
+      "claim": "DPS 会与联邦系统核验 SSN 和 lawful presence",
+      "sourceUrl": "https://www.dps.texas.gov/apps/DriverLicense/RealID/",
+      "sourceLabel": "对应官方来源：Texas DPS REAL ID Document Check",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "texas",
       "category": "lawful presence",
-      "claim": "期限会跟 lawful presence 期限相关",
+      "claim": "证件通常随 lawful presence 期限到期",
       "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors",
       "sourceLabel": "对应官方来源：Texas DPS Temporary Visitors",
       "themes": [
@@ -3806,16 +3860,15 @@
     {
       "page": "identity-ssn",
       "stateId": "texas",
-      "category": "非公民 / 临时访客",
-      "claim": "Texas DPS temporary visitors 页面说明符合要求的临时访客会收到印有 Limited Term 的 driver license 或 ID",
+      "category": "lawful presence",
+      "claim": "DPS 会通过 DHS 核验 lawful presence，在核验完成前不能签发驾照或 ID",
       "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors",
       "sourceLabel": "对应官方来源：Texas DPS Temporary Visitors",
       "themes": [
-        "temporary-credential",
-        "non-citizen"
+        "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "identity-ssn",

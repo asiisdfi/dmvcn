@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T22:28:31.627Z",
+    "generatedAt": "2026-07-16T22:39:21.669Z",
     "pages": 100,
     "states": 50,
-    "claims": 1582,
-    "links": 1778,
-    "aiAssistedClaims": 92,
-    "aiAssistedPages": 4,
+    "claims": 1613,
+    "links": 1826,
+    "aiAssistedClaims": 163,
+    "aiAssistedPages": 6,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 686,
-        "links": 801,
+        "claims": 694,
+        "links": 814,
         "states": 50
       },
       "real-id": {
-        "claims": 896,
-        "links": 977,
+        "claims": 919,
+        "links": 1012,
         "states": 50
       }
     }
@@ -1890,20 +1890,52 @@
       "stateId": "texas",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "德州驾照和身份证由 Texas DPS 管理，Texas.gov 也提供 REAL ID、线上续期/补证/地址变更资格检查等入口",
+      "context": "license",
+      "claim": "Texas DPS 管理德州驾照和身份证",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/",
+        "https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "summary",
+      "context": "license",
+      "claim": "首次申请和外州换证必须到 driver license office",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "summary",
+      "context": "license",
+      "claim": "续期、补证、升级和改地址应先让官方系统判断线上资格",
+      "sourceUrls": [
         "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID",
         "对应官方来源：Texas Driver License Online Eligibility"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "address-change",
         "renewal",
         "replacement",
         "online-service"
@@ -1915,32 +1947,17 @@
       "stateId": "texas",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "license",
-      "claim": "当前有效德州驾照仍可用于驾驶",
-      "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "overview",
-      "field": "licenseSummary",
       "context": "real-id",
-      "claim": "若没有星标，联邦用途需要 REAL ID 合规证件、护照或其他 TSA 接受证件",
+      "claim": "首次申请德州驾照前，先用 DPS REAL ID Document Check 生成个人材料清单",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
+        "https://www.dps.texas.gov/apps/DriverLicense/RealID/",
+        "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
+        "对应官方来源：Texas DPS REAL ID Document Check",
+        "对应官方来源：Texas DPS Apply for a Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -1951,16 +1968,37 @@
     {
       "stateId": "texas",
       "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "申请人通常还要完成视力、knowledge 和 driving skills 测试，符合外州换证或互惠条件者可能免试",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license",
+        "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Apply for a Driver License",
+        "对应官方来源：Texas DPS Moving to Texas Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "德州 REAL ID 合规证件右上角有星标",
+      "claim": "德州 REAL ID 合规驾照或 ID 的右上角有星标",
       "sourceUrls": [
         "https://www.texas.gov/driver-services/texas-real-id/"
       ],
       "sourceLabels": [
         "对应官方来源：Texas.gov REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -1971,21 +2009,77 @@
       "stateId": "texas",
       "surface": "overview",
       "field": "realIdSummary",
-      "context": "license",
-      "claim": "Texas.gov 页面说明，没有星标的用户可在下次续期或申请 replacement card 时取得星标",
+      "context": "real-id",
+      "claim": "当前有效但没有星标的德州证件仍可用于驾驶和非联邦身份用途",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/",
         "https://www.texas.gov/driver-services/texas-real-id/"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas Driver License Online Eligibility",
         "对应官方来源：Texas.gov REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "自 2025 年 5 月 7 日起，乘坐美国国内航班须使用带星标证件、有效护照、美国军人证或其他 TSA 接受证件",
+      "sourceUrls": [
+        "https://www.texas.gov/driver-services/texas-real-id/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas.gov REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "renewal",
-        "replacement"
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "DPS 的现场驾照和 ID 服务以预约为主，部分办公室仅提供数量有限的 walk-in appointment",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "可在最多提前 180 天预约后前往任一 driver license office",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -1995,18 +2089,15 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "license",
-      "claim": "续期、补证和地址变更先用 Texas.gov online eligibility 判断线上资格",
+      "claim": "续期、补证或改地址先检查线上资格",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/",
-        "https://www.texas.gov/driver-services/texas-real-id/"
+        "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas Driver License Online Eligibility",
-        "对应官方来源：Texas.gov REAL ID"
+        "对应官方来源：Texas Driver License Online Eligibility"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
         "renewal",
         "replacement",
         "online-service"
@@ -2017,40 +2108,20 @@
     {
       "stateId": "texas",
       "surface": "overview",
-      "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "首次申请、REAL ID 文件核验和驾驶考试再进入 DPS 对应预约或办公室路径",
-      "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "appointment",
-        "test"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "overview",
       "field": "editorNotes",
-      "context": "real-id",
-      "claim": "Texas.gov REAL ID 和在线资格检查页面已通过来源检查，适合作为主入口",
+      "context": "license",
+      "claim": "多数 Texas driver license 和 ID 可在到期前两年至到期后两年内续期，但证件类型和个人状态可能改变办理方式",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
+        "https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or",
+        "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
+        "对应官方来源：Texas DPS Driver License FAQ",
+        "对应官方来源：Texas Driver License Online Eligibility"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -2060,36 +2131,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "Texas DPS change information 页面明确 driver license / ID 地址变化后 30 天内更新",
-      "sourceUrls": [
-        "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas DPS Change Information"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "license",
-      "claim": "Texas.gov renewals/replacements 页面说明 driver license fees 会按 driver type、age、新办或续期等变化，应回到 DPS fee table 核对",
+      "claim": "79 岁及以上驾照持有人须现场续期，learner license 不能在线续期",
       "sourceUrls": [
         "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/"
       ],
       "sourceLabels": [
         "对应官方来源：Texas Driver License Online Eligibility"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "fee"
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -2099,14 +2150,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "Texas DPS fee table 列出常见 renewal、replacement 和 ID fee",
+      "claim": "18 至 84 岁 Class A、B 或 C 驾照常见新办和续期费为 $33，replacement 为 $11",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/"
+        "https://www.dps.texas.gov/section/driver-license/driver-license-fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas Driver License Online Eligibility"
+        "对应官方来源：Texas DPS Driver License Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "replacement",
@@ -2120,16 +2171,18 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "DPS FAQ 说明临时 driver license 通常 60 天有效，并可查询卡片邮寄状态",
+      "claim": "59 岁及以下普通 ID 新办或续期费为 $16，60 岁及以上为 $6，replacement 为 $11",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
+        "https://www.dps.texas.gov/section/driver-license/driver-license-fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
+        "对应官方来源：Texas DPS Driver License Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "processing-or-mail"
+        "renewal",
+        "replacement",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -2138,15 +2191,40 @@
       "stateId": "texas",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "Texas DPS 身份证申请页说明新卡通常 2-3 weeks 邮寄到达，适合作为卡片等待时间提醒",
+      "context": "document",
+      "claim": "地址变化后 30 天内要更新 driver license 或 ID，改地址和改姓名都按 replacement 办理并支付适用费用",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
+        "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card",
+        "https://www.dps.texas.gov/section/driver-license/driver-license-fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
+        "对应官方来源：Texas DPS Change Information",
+        "对应官方来源：Texas DPS Driver License Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "temporary driver license 自业务办理日起有效 60 天，正式驾照通常约 2 至 3 周邮寄到达",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/faq/section-3-issuing-temporary-permit",
+        "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Temporary Permit FAQ",
+        "对应官方来源：Texas DPS Apply for a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "processing-or-mail"
       ],
@@ -2158,14 +2236,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "Texas DPS temporary visitors 页面说明符合要求的临时访客会收到印有 Limited Term 的 driver license 或 ID",
+      "claim": "符合要求的 temporary visitor 会收到标有 Limited Term 的驾照或 ID",
       "sourceUrls": [
         "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors"
       ],
       "sourceLabels": [
         "对应官方来源：Texas DPS Temporary Visitors"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "lawful-presence",
         "temporary-credential"
@@ -2178,14 +2256,14 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "期限会跟 lawful presence 期限相关",
+      "claim": "证件通常随 lawful presence 期限到期",
       "sourceUrls": [
         "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors"
       ],
       "sourceLabels": [
         "对应官方来源：Texas DPS Temporary Visitors"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "lawful-presence"
       ],
@@ -2196,94 +2274,15 @@
       "stateId": "texas",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "license",
-      "claim": "Texas DPS apply for driver license 页面说明申请驾照通常要通过 written knowledge test 和 practical driving skills test",
-      "sourceUrls": [
-        "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas DPS Apply for a Driver License"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "test"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "appointment",
-      "claim": "driving test 要通过 DPS appointment 或授权第三方测试路径安排",
-      "sourceUrls": [
-        "https://www.dps.texas.gov/section/driver-license/schedule-your-driving-test-appointment"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas DPS Schedule Your Driving Test Appointment"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "appointment",
-        "test"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "license",
-      "claim": "Texas DPS Testing in Other Languages 页面说明 driver license knowledge test 只能提供 English 或 Spanish",
-      "sourceUrls": [
-        "https://www.dps.texas.gov/section/driver-license/testing-other-languages"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas DPS Testing in Other Languages"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "test",
-        "language"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "overview",
-      "field": "editorNotes",
       "context": "detail",
-      "claim": "CDL administration 中 interpreter prohibited，中文用户不要默认有中文笔试",
+      "claim": "若身份期限为 duration of status，证件一年后到期",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
+        "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
+        "对应官方来源：Texas DPS Temporary Visitors"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "test",
-        "language"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "license",
-      "claim": "Texas DPS Moving to Texas Guide 说明德州与 France、Germany、South Korea、United Arab Emirates 和 Taiwan 有 license reciprocity",
-      "sourceUrls": [
-        "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas DPS Moving to Texas Guide"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -2292,17 +2291,17 @@
       "stateId": "texas",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "符合条件的有效 foreign license 可按 reciprocity 路径处理",
+      "context": "license",
+      "claim": "DPS 会通过 DHS 核验 lawful presence，在核验完成前不能签发驾照或 ID",
       "sourceUrls": [
-        "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity"
+        "https://www.dps.texas.gov/section/driver-license/us-citizenship-or-lawful-presence-requirement"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas DPS Driving Privilege Reciprocity"
+        "对应官方来源：Texas DPS Citizenship or Lawful Presence"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "foreign-license"
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -2312,16 +2311,56 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "Texas DPS Driving Privilege Reciprocity 页面说明持有效、未过期 foreign license 的人可在 Texas 驾驶最多一年",
+      "claim": "需要额外核验时，申请人要按 DPS 指示继续处理",
       "sourceUrls": [
-        "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity"
+        "https://www.dps.texas.gov/section/driver-license/us-citizenship-or-lawful-presence-requirement"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas DPS Driving Privilege Reciprocity"
+        "对应官方来源：Texas DPS Citizenship or Lawful Presence"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "非商业驾照 knowledge test 只提供 English 或 Spanish，翻译人员只能在考试前后协助，不能在考试过程中提供帮助",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/testing-other-languages"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Testing in Other Languages"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "foreign-license"
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "自 2026 年 6 月 1 日起，Texas CDL 和 CLP knowledge exams 只用 English，考试中禁止 interpreter",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/news/dps-announces-changes-cdl-knowledge-testing",
+        "https://www.dps.texas.gov/section/driver-license/testing-other-languages"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS 2026 CDL Knowledge Testing Update",
+        "对应官方来源：Texas DPS Testing in Other Languages"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -2331,16 +2370,134 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "这不等于所有外国驾照都能直接换成 Texas license",
+      "claim": "新居民持有效、未过期的美国其他州或领地、加拿大省份或符合条件国家驾照，可在搬到 Texas 后最多驾驶 90 天",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/"
+        "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas Driver License Online Eligibility"
+        "对应官方来源：Texas DPS Moving to Texas Guide"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "交出有效的美国其他州、领地或加拿大驾照时，通常免 knowledge 和 skills exams",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Moving to Texas Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Texas 与 France、Germany、South Korea、United Arab Emirates 和 Taiwan 有驾照互惠",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Moving to Texas Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "持有效未过期证件且交出外国驾照者可能免 knowledge 和 skills exams",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Moving to Texas Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "外国驾照不是 English 或 Spanish 时，去办公室前要由翻译服务机构或领事馆完成翻译",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Moving to Texas Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "持有效未过期外国驾照的非居民驾驶期限最多为一年或到成为 Texas resident 为止，以较早者为准",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Driving Privilege Reciprocity"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "成为新居民后须在 90 天内申请 Texas license",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity",
+        "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Driving Privilege Reciprocity",
+        "对应官方来源：Texas DPS Moving to Texas Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -2350,14 +2507,14 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "德州 REAL ID 合规证件右上角有星标",
+      "claim": "德州 REAL ID 合规驾照或 ID 的右上角有星标",
       "sourceUrls": [
         "https://www.texas.gov/driver-services/texas-real-id/"
       ],
       "sourceLabels": [
         "对应官方来源：Texas.gov REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -2368,40 +2525,39 @@
       "stateId": "texas",
       "surface": "real-id",
       "field": "realIdSummary",
-      "context": "license",
-      "claim": "Texas.gov 页面说明，没有星标的用户可在下次续期或申请 replacement card 时取得星标",
+      "context": "real-id",
+      "claim": "当前有效但没有星标的德州证件仍可用于驾驶和非联邦身份用途",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/",
         "https://www.texas.gov/driver-services/texas-real-id/"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas Driver License Online Eligibility",
         "对应官方来源：Texas.gov REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "自 2025 年 5 月 7 日起，乘坐美国国内航班须使用带星标证件、有效护照、美国军人证或其他 TSA 接受证件",
+      "sourceUrls": [
+        "https://www.texas.gov/driver-services/texas-real-id/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas.gov REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "renewal",
-        "replacement"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "先看德州证件右上角是否有星标",
-      "sourceUrls": [
-        "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas DPS Residency Requirement"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -2411,14 +2567,14 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "real-id",
-      "claim": "Texas.gov REAL ID 页面提供 REAL ID overview、document checklist 和 driver license office 相关入口",
+      "claim": "先用 DPS REAL ID Document Check 回答申请类型、身份和现有材料问题，生成个人化清单",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
+        "https://www.dps.texas.gov/apps/DriverLicense/RealID/"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
+        "对应官方来源：Texas DPS REAL ID Document Check"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -2431,14 +2587,63 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Texas DPS residency requirement 页面要求两份打印的 Texas residency 文件，且文件要显示姓名和 Texas residential address",
+      "claim": "准备 citizenship 或 lawful presence、identity 和 Social Security number 对应文件",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license",
+        "https://www.dps.texas.gov/section/driver-license/how-apply-texas-identification-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Apply for a Driver License",
+        "对应官方来源：Texas DPS Identification Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "ssn",
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "DPS 会与联邦系统核验 SSN 和 lawful presence",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/social-security-number-ssn",
+        "https://www.dps.texas.gov/section/driver-license/us-citizenship-or-lawful-presence-requirement"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Social Security Number",
+        "对应官方来源：Texas DPS Citizenship or Lawful Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "准备两份打印的 Texas residency 文件，两份都要显示申请人姓名和 residential address",
       "sourceUrls": [
         "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards"
       ],
       "sourceLabels": [
         "对应官方来源：Texas DPS Residency Requirement"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "residency-proof"
@@ -2450,17 +2655,34 @@
       "stateId": "texas",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "申请新的 REAL ID-compliant Texas driver license 或 ID 时，Texas.gov 页面指向 in-person DPS 路径",
+      "context": "document",
+      "claim": "通常至少一份要证明已在 Texas 居住 30 天",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
+        "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
+        "对应官方来源：Texas DPS Residency Requirement"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "交出有效未过期外州证件者和 CDL 申请人免除 30 天要求，但仍要交两份居住证明",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Residency Requirement"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -2469,74 +2691,167 @@
       "stateId": "texas",
       "surface": "real-id",
       "field": "documentHighlights",
+      "context": "document",
+      "claim": "符合清单的电子 statement 可以打印提交",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Residency Requirement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "同一来源仅在地方政府或提供多项住宅服务的机构分别出具不同服务账单时可算两份",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Residency Requirement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "同一服务不同月份不能凑两份",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Residency Requirement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "documentHighlights",
       "context": "license",
-      "claim": "地址变化后，Texas DPS 要求 30 天内更新 driver license 或 ID card 地址",
-      "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "先查看证件右上角是否有 REAL ID 星标",
-      "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "先进入 Texas.gov REAL ID 页了解州级路径，再按页面提示进入 DPS 文档检查工具",
-      "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "texas",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "appointment",
-      "claim": "如果需要现场办理，优先从 Texas.gov 或 DPS 主站进入预约页面，避免依赖深层旧链接",
+      "claim": "驾照申请中的 Texas vehicle registration 证明只适用于交出外州驾照的新居民",
       "sourceUrls": [
         "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license"
       ],
       "sourceLabels": [
         "对应官方来源：Texas DPS Apply for a Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "申请人还要提供本人拥有的每辆车的保险证明，或签署不拥有车辆的声明",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Apply for a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "身份文件与当前姓名不一致时，准备能够连接每次变更的法定姓名文件",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/apps/DriverLicense/RealID/",
+        "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS REAL ID Document Check",
+        "对应官方来源：Texas DPS Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "appointment"
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "非美国公民要按本人身份提供 lawful presence 文件，DPS 在 DHS 核验完成前不能签发证件",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/us-citizenship-or-lawful-presence-requirement"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Citizenship or Lawful Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "符合 temporary visitor 定义者会收到标有 Limited Term 的证件",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Temporary Visitors"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "先看现有证件右上角是否有星标，再判断是否需要用州证件乘坐国内航班或进入受管制联邦设施",
+      "sourceUrls": [
+        "https://www.texas.gov/driver-services/texas-real-id/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas.gov REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -2546,18 +2861,15 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "license",
-      "claim": "若只是续期、补证或地址变更，先用 Texas.gov 在线资格页面判断是否可线上完成",
+      "claim": "已有 Texas DL 或 ID 的续期、补证、升级或改地址，先运行 online eligibility",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/",
         "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID",
         "对应官方来源：Texas Driver License Online Eligibility"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
         "renewal",
         "replacement",
         "online-service"
@@ -2570,14 +2882,196 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "搬家后按 30 天规则更新地址",
+      "claim": "首次申请和外州换证直接准备现场路径",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
+        "https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
+        "对应官方来源：Texas DPS Driver License FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "运行 REAL ID Document Check，并按结果准备原件、认证副本、打印的 residency 文件和完整姓名链",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/apps/DriverLicense/RealID/",
+        "https://www.texas.gov/driver-services/texas-real-id/",
+        "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards",
+        "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS REAL ID Document Check",
+        "对应官方来源：Texas.gov REAL ID",
+        "对应官方来源：Texas DPS Residency Requirement",
+        "对应官方来源：Texas DPS Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要现场办理时，用 Texas Scheduler 选择准确服务和办公室",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "首次申请或外州换证必须亲自办理",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "现场核对申请、材料、照片、指纹、费用和适用考试",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Apply for a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "常见 18 至 84 岁 Class A、B 或 C 新办或续期费为 $33，replacement 为 $11",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/driver-license-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "最终以当前 fee table 和个人业务为准",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/driver-license-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "领取 temporary driver license 后当场核对信息",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Apply for a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "临时驾照有效 60 天，正式卡通常约 2 至 3 周邮寄到达",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/faq/section-3-issuing-temporary-permit",
+        "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Temporary Permit FAQ",
+        "对应官方来源：Texas DPS Apply for a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "搬家后 30 天内更新驾照或 ID 地址",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "address-change"
       ],
@@ -2587,17 +3081,45 @@
     {
       "stateId": "texas",
       "surface": "real-id",
-      "field": "commonMistakes",
+      "field": "recommendedSteps",
       "context": "document",
-      "claim": "只看 Texas.gov 概览，没有用 DPS Document Check 生成个人化清单",
+      "claim": "地址或姓名变更属于 replacement，并要支付适用费用",
       "sourceUrls": [
-        "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards"
+        "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card",
+        "https://www.dps.texas.gov/section/driver-license/driver-license-fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas DPS Residency Requirement"
+        "对应官方来源：Texas DPS Change Information",
+        "对应官方来源：Texas DPS Driver License Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "name-change",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "把 Texas.gov 的简版公民材料示例当成所有申请人的通用清单，或没有运行 DPS REAL ID Document Check",
+      "sourceUrls": [
+        "https://www.texas.gov/driver-services/texas-real-id/",
+        "https://www.dps.texas.gov/apps/DriverLicense/RealID/",
+        "https://www.dps.texas.gov/section/driver-license/us-citizenship-or-lawful-presence-requirement"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas.gov REAL ID",
+        "对应官方来源：Texas DPS REAL ID Document Check",
+        "对应官方来源：Texas DPS Citizenship or Lawful Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
         "document"
       ],
       "uncoveredThemes": [],
@@ -2607,17 +3129,37 @@
       "stateId": "texas",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "appointment",
-      "claim": "没有预约就前往 DPS 驾照办公室",
+      "context": "document",
+      "claim": "只带一份 residency 文件，或两份文件没有同时显示本人姓名和 Texas residential address",
       "sourceUrls": [
-        "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license"
+        "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas DPS Apply for a Driver License"
+        "对应官方来源：Texas DPS Residency Requirement"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "appointment"
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "用同一项服务不同月份的账单凑两份居住证明",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/texas-residency-requirement-driver-licenses-and-id-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Residency Requirement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -2627,14 +3169,58 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "license",
-      "claim": "以为所有续期都能在线完成",
+      "claim": "误以为所有续期、补证和改地址都能在线办理",
       "sourceUrls": [
         "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/"
       ],
       "sourceLabels": [
         "对应官方来源：Texas Driver License Online Eligibility"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "DPS 会按年龄、证件类型和状态、上次续期方式、SSN、身份核验、欠票或 warrant 等条件决定资格",
+      "sourceUrls": [
+        "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/",
+        "https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas Driver License Online Eligibility",
+        "对应官方来源：Texas DPS Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "renewal"
+      ],
+      "uncoveredThemes": [
+        "ssn"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "79 岁及以上驾照持有人须现场续期",
+      "sourceUrls": [
+        "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas Driver License Online Eligibility"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal"
       ],
@@ -2645,17 +3231,57 @@
       "stateId": "texas",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "detail",
-      "claim": "Texas.gov online eligibility 页面会按年龄、license class、视力/身体状况、欠票或 suspended/revoked 状态等条件判断",
+      "context": "appointment",
+      "claim": "未预约就直接前往办公室，或没有确认所选服务和 appointment",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-driver-license-id-renewals-replacements/online-eligibility/"
+        "https://www.dps.texas.gov/section/driver-license/faq/section-1-applying-or-renewing-driver-license-identification-card-or"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas Driver License Online Eligibility"
+        "对应官方来源：Texas DPS Driver License FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "online-service",
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只带最后一次改名文件，没有把出生姓名到当前法定姓名完整连接起来",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/apps/DriverLicense/RealID/",
+        "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS REAL ID Document Check",
+        "对应官方来源：Texas DPS Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "texas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "默认普通 knowledge test 有中文版本",
+      "sourceUrls": [
+        "https://www.dps.texas.gov/section/driver-license/testing-other-languages"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Texas DPS Testing in Other Languages"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "test"
       ],
       "uncoveredThemes": [],
@@ -2666,16 +3292,17 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "license",
-      "claim": "搬家后超过 30 天还没有更新 Texas driver license / ID 地址",
+      "claim": "非商业驾照知识考试只提供 English 或 Spanish，翻译人员不能在考试过程中协助",
       "sourceUrls": [
-        "https://www.texas.gov/driver-services/texas-real-id/"
+        "https://www.dps.texas.gov/section/driver-license/testing-other-languages"
       ],
       "sourceLabels": [
-        "对应官方来源：Texas.gov REAL ID"
+        "对应官方来源：Texas DPS Testing in Other Languages"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change"
+        "test",
+        "language"
       ],
       "uncoveredThemes": [],
       "valid": true

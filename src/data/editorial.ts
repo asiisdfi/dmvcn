@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成德州两页官方正文语义核对',
+    summary:
+      '逐条比对 Texas.gov、Texas DPS 和 TSA 的 REAL ID、线上资格、居住证明、个人化清单、预约、费用、地址、身份核验、考试、临时证件和换证正文；重写德州总览与 REAL ID 清单，并纠正车辆登记证明适用范围和 2026 年 CDL 考试语言规则。',
+    scope: ['德州办事总览', '德州 REAL ID', 'AI 辅助证据核对', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成纽约州两页官方正文语义核对',
     summary:
       '逐条打开 New York DMV 的证件类型、ID-44、Social Security、预约、续期、地址、费用、补证、考试、语言和换证页面，按实际办事路径重写纽约州总览与 REAL ID 清单，并纠正线上 permit test 的年龄范围。',
