@@ -1,4 +1,5 @@
 ---
+import { SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
@@ -165,7 +166,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 笔试、路考和 learner permit 入口表" description="按州查找 learner permit、knowledge / written test、road / skills test、first license、GDL、practice test 和第三方考试入口。" updatedAt={REVIEW_DATE} schema={schema}>
+<BaseLayout title="DMV 笔试、路考和 learner permit 入口表" description="按州查找 learner permit、knowledge / written test、road / skills test、first license、GDL、practice test 和第三方考试入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE} schema={schema}>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">

@@ -1,12 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../data/content';
+import { EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
 
 const contactEmail = SITE.contactEmail.trim();
 const hasContactEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail);
 ---
 
-<BaseLayout title="联系" description="联系 DMV中文办事库维护者，反馈失效链接、官方来源变化、材料清单错误或页面更新建议。">
+<BaseLayout
+  title="联系"
+  description="联系 DMV中文办事库维护者，反馈失效链接、官方来源变化、材料清单错误或页面更新建议。"
+  publishedAt={SITE_LAUNCH_DATE}
+  modifiedAt={EDITORIAL_POLICY_DATE}
+  reviewedAt={EDITORIAL_POLICY_DATE}
+>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>联系</span></nav>
@@ -25,6 +32,7 @@ const hasContactEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail);
           <li>你认为需要更新的字段或链接。</li>
           <li>对应的官方来源链接。</li>
         </ul>
+        <p>我们会按照<a class="text-link" href={EDITORIAL_LINKS.corrections}>纠错政策</a>核对并记录会影响用户判断的实质修正。</p>
       </section>
       <section class="panel">
         <h2>联系邮箱</h2>

@@ -1,8 +1,9 @@
 ---
 import { FileCheck2 } from '@lucide/astro/icons';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ReviewBadge from '../components/ReviewBadge.astro';
+import ContentMeta from '../components/ContentMeta.astro';
 import { REVIEW_DATE, federalSources, getStatePublicStatus, states, topics } from '../data/content';
+import { EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
 
 const statePages = states.length * 2;
 const reviewedStates = states.filter((state) => state.reviewedAt).length;
@@ -27,14 +28,22 @@ const qualitySteps = [
 ];
 ---
 
-<BaseLayout title="来源与更新" description="DMV中文办事库的来源、核对日期、官方链接、中文整理原则和上线后复核规则。" updatedAt={REVIEW_DATE}>
+<BaseLayout
+  title="来源与更新"
+  description="DMV中文办事库的来源、核对日期、官方链接、中文整理原则和上线后复核规则。"
+  publishedAt={SITE_LAUNCH_DATE}
+  modifiedAt={EDITORIAL_POLICY_DATE}
+  reviewedAt={REVIEW_DATE}
+>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>来源与更新</span></nav>
       <p class="eyebrow">来源规则</p>
       <h1>来源与更新</h1>
       <p class="lead">本站按“官方来源、核对日期、中文整理、风险提醒”的顺序维护页面，重要办事页会定期复核。</p>
-      <ReviewBadge />
+      <div class="article-meta">
+        <ContentMeta publishedAt={SITE_LAUNCH_DATE} modifiedAt={EDITORIAL_POLICY_DATE} reviewedAt={REVIEW_DATE} />
+      </div>
       <div class="page-ledger" aria-label="当前维护台账">
         <div>
           <strong>{states.length} 州</strong>
@@ -116,5 +125,21 @@ const qualitySteps = [
         {qualitySteps.map((step) => <li>{step}</li>)}
       </ol>
     </section>
+
+    <section class="panel">
+      <h2>日期不是同一件事</h2>
+      <dl class="definition-list">
+        <div><dt>首次发布</dt><dd>页面第一次公开提供的日期。</dd></div>
+        <div><dt>内容更新</dt><dd>正文、结论、结构或来源发生实质变化的日期。</dd></div>
+        <div><dt>事实核对</dt><dd>最后一次回到官方来源确认关键要求的日期。</dd></div>
+      </dl>
+    </section>
+
+    <nav class="policy-links" aria-label="质量与编辑政策">
+      <a href={EDITORIAL_LINKS.policy}>编辑政策</a>
+      <a href={EDITORIAL_LINKS.ai}>AI 使用说明</a>
+      <a href={EDITORIAL_LINKS.corrections}>纠错政策</a>
+      <a href={EDITORIAL_LINKS.updates}>更新记录</a>
+    </nav>
   </section>
 </BaseLayout>

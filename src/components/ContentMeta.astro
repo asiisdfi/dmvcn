@@ -1,0 +1,31 @@
+---
+import { CalendarCheck2, CalendarDays, RefreshCw, UserRound } from '@lucide/astro/icons';
+import { EDITORIAL_AUTHOR } from '../data/editorial';
+
+type Props = {
+  publishedAt: string;
+  modifiedAt: string;
+  reviewedAt: string;
+};
+
+const { publishedAt, modifiedAt, reviewedAt } = Astro.props as Props;
+---
+
+<div class="content-meta" aria-label="文章编辑信息">
+  <p class="content-byline">
+    <UserRound size={16} aria-hidden="true" />
+    整理：<a href={EDITORIAL_AUTHOR.path} rel="author">{EDITORIAL_AUTHOR.name}</a>
+  </p>
+  <p>
+    <CalendarDays size={16} aria-hidden="true" />
+    首次发布：<time datetime={publishedAt}>{publishedAt}</time>
+  </p>
+  <p>
+    <RefreshCw size={16} aria-hidden="true" />
+    内容更新：<time datetime={modifiedAt}>{modifiedAt}</time>
+  </p>
+  <p>
+    <CalendarCheck2 size={16} aria-hidden="true" />
+    事实核对：<time datetime={reviewedAt}>{reviewedAt}</time>
+  </p>
+</div>

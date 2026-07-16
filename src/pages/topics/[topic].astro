@@ -1,9 +1,11 @@
 ---
 import { ArrowRight, ExternalLink, ShieldAlert } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ReviewBadge from '../../components/ReviewBadge.astro';
+import ContentMeta from '../../components/ContentMeta.astro';
+import EditorialDisclosure from '../../components/EditorialDisclosure.astro';
 import SourceList from '../../components/SourceList.astro';
-import { REVIEW_DATE, SITE, states, topics, uniqueSources, type TopicGuide } from '../../data/content';
+import { SITE, states, topics, uniqueSources, type TopicGuide } from '../../data/content';
+import { EDITORIAL_AUTHOR } from '../../data/editorial';
 
 export function getStaticPaths() {
   return topics.map((topic) => ({
@@ -27,7 +29,6 @@ const moreTopics = topics
   .sort((a, b) => b.score - a.score || a.index - b.index)
   .slice(0, 5)
   .map(({ item }) => item);
-const reviewedAt = topic.reviewedAt ?? REVIEW_DATE;
 const officialSources = uniqueSources(topic.sources);
 const sourceByUrl = new Map(officialSources.map((source, index) => [source.url, { ...source, index: index + 1 }]));
 const factChecks = (topic.factChecks ?? []).map((item) => ({
@@ -41,17 +42,20 @@ const schema = [
     headline: topic.title,
     description: topic.description,
     mainEntityOfPage: pageUrl,
-    dateModified: reviewedAt,
-    datePublished: reviewedAt,
+    dateModified: topic.modifiedAt,
+    datePublished: topic.publishedAt,
     inLanguage: 'zh-Hans',
     isAccessibleForFree: true,
     author: {
       '@type': 'Organization',
-      name: SITE.name,
+      name: EDITORIAL_AUTHOR.name,
+      url: new URL(EDITORIAL_AUTHOR.path, Astro.site).toString(),
     },
     publisher: {
       '@type': 'Organization',
       name: SITE.name,
+      url: new URL('/', Astro.site).toString(),
+      logo: new URL('/assets/dmvcn-logo.png', Astro.site).toString(),
     },
     about: topic.keyFacts.slice(0, 3),
     citation: officialSources.map((source) => source.url),
@@ -93,7 +97,14 @@ const schema = [
 ];
 ---
 
-<BaseLayout title={topic.title} description={topic.description} updatedAt={reviewedAt} schema={schema}>
+<BaseLayout
+  title={topic.title}
+  description={topic.description}
+  publishedAt={topic.publishedAt}
+  modifiedAt={topic.modifiedAt}
+  reviewedAt={topic.reviewedAt}
+  schema={schema}
+>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">
@@ -103,7 +114,7 @@ const schema = [
       <h1>{topic.title}</h1>
       <p class="lead">{topic.description}</p>
       <div class="article-meta">
-        <ReviewBadge date={topic.reviewedAt} />
+        <ContentMeta publishedAt={topic.publishedAt} modifiedAt={topic.modifiedAt} reviewedAt={topic.reviewedAt} />
         <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
     </div>
@@ -203,6 +214,7 @@ const schema = [
         </div>
       </section>
 
+      <EditorialDisclosure />
       <SourceList sources={officialSources} />
     </article>
 

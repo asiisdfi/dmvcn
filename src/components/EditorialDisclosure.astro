@@ -1,0 +1,18 @@
+---
+import { ArrowRight } from '@lucide/astro/icons';
+import { EDITORIAL_LINKS } from '../data/editorial';
+---
+
+<aside class="editorial-disclosure" aria-labelledby="editorial-disclosure-title">
+  <div>
+    <h2 id="editorial-disclosure-title">这页如何整理</h2>
+    <p>
+      编辑部依据本页列出的政府来源，把办理要求整理为中文判断路径、清单和步骤。AI 和自动化工具可辅助查找变化、比对来源与检查结构，但不作为事实依据，也不会被标记为人工或专业审核。
+    </p>
+  </div>
+  <nav aria-label="编辑透明度">
+    <a href={EDITORIAL_LINKS.policy}>编辑标准 <ArrowRight size={15} aria-hidden="true" /></a>
+    <a href={EDITORIAL_LINKS.ai}>AI 使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
+    <a href={EDITORIAL_LINKS.corrections}>提交纠错 <ArrowRight size={15} aria-hidden="true" /></a>
+  </nav>
+</aside>

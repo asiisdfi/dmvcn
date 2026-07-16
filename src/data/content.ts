@@ -35,7 +35,9 @@ export type StateGuide = {
   nameZh: string;
   agency: string;
   agencyUrl: string;
-  reviewedAt?: string;
+  publishedAt: string;
+  modifiedAt: string;
+  reviewedAt: string;
   summary: string;
   realIdSummary: string;
   licenseSummary: string;
@@ -97,7 +99,9 @@ export type TopicGuide = {
   slug: string;
   title: string;
   eyebrow: string;
-  reviewedAt?: string;
+  publishedAt: string;
+  modifiedAt: string;
+  reviewedAt: string;
   description: string;
   whoNeedsIt: string[];
   keyFacts: string[];
@@ -151,6 +155,8 @@ export const states: StateGuide[] = [
     nameZh: '加州',
     agency: 'California DMV',
     agencyUrl: 'https://www.dmv.ca.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-05',
     summary:
       '加州 DMV 的 REAL ID 页面建议先用互动清单准备材料、在线提交申请并上传文件，再带原件和确认码去 DMV 办公室完成核验。',
@@ -344,6 +350,8 @@ export const states: StateGuide[] = [
     nameZh: '纽约州',
     agency: 'New York DMV',
     agencyUrl: 'https://dmv.ny.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-05',
     summary:
       '纽约 DMV 把 Standard、REAL ID 和 Enhanced 三类证件分开说明。REAL ID 解决联邦身份用途；Enhanced 另有陆路/海路从部分地区返美用途。',
@@ -541,6 +549,8 @@ export const states: StateGuide[] = [
     nameZh: '德州',
     agency: 'Texas Department of Public Safety',
     agencyUrl: 'https://www.dps.texas.gov/section/driver-license',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-05',
     summary:
       '德州驾照和身份证由 Texas DPS 管理，Texas.gov 也提供 REAL ID、线上续期/补证/地址变更资格检查等入口。',
@@ -729,6 +739,8 @@ export const states: StateGuide[] = [
     nameZh: '佛州',
     agency: 'Florida Highway Safety and Motor Vehicles',
     agencyUrl: 'https://www.flhsmv.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     summary:
       '佛州 FLHSMV 的 What to Bring 是材料主入口，续期、补证和地址更新则先从 MyDMV Portal 判断资格。不要只看一张清单，先确认自己是首次办证、续期、补证、改名，还是只是改地址。',
@@ -930,6 +942,8 @@ export const states: StateGuide[] = [
     nameZh: '华盛顿州',
     agency: 'Washington State Department of Licensing',
     agencyUrl: 'https://dol.wa.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-07',
     summary:
       '华盛顿州 DOL 的关键不是“标准证件升级成带星 REAL ID”，而是普通驾照/ID 与 Enhanced Driver License/ID 分开。EDL/EID 是华盛顿州的 REAL ID-compliant 证件，普通证件仍可用于驾驶和州内身份用途。',
@@ -1149,6 +1163,8 @@ export const states: StateGuide[] = [
     nameZh: '新泽西',
     agency: 'New Jersey Motor Vehicle Commission',
     agencyUrl: 'https://www.nj.gov/mvc/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-07',
     summary:
       '新泽西 MVC 的 REAL ID 页面先帮你判断是否真的需要升级；材料准备则看 Document Selector 的 2 + 1 + 6 逻辑。Standard 驾照可继续用于驾驶，但不满足国内航班等 REAL ID 联邦用途。',
@@ -1339,6 +1355,8 @@ export const states: StateGuide[] = [
     nameZh: '马萨诸塞州',
     agency: 'Massachusetts RMV',
     agencyUrl: 'https://www.mass.gov/orgs/massachusetts-registry-of-motor-vehicles',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-03',
     summary:
       '马萨诸塞 RMV 把 REAL ID、REAL Mass ID、Standard license、Standard Mass ID、permit 和 CDL 分开列材料。先选证件类型，再进入 MyRMV 或服务中心路径。',
@@ -1516,6 +1534,8 @@ export const states: StateGuide[] = [
     nameZh: '伊利诺伊州',
     agency: 'Illinois Secretary of State',
     agencyUrl: 'https://www.ilsos.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-05',
     summary:
       '伊州驾照和 REAL ID 由 Secretary of State 管理。REAL ID、材料要求、普通续期和办公室预约是不同入口，先确认业务类型，再选择线上续期或现场文件核验。',
@@ -1610,6 +1630,8 @@ export const states: StateGuide[] = [
     nameZh: '宾夕法尼亚州',
     agency: 'PennDOT Driver and Vehicle Services',
     agencyUrl: 'https://www.pa.gov/agencies/dmv',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-07',
     summary:
       'PennDOT 的 REAL ID 页面不是单一路径，而是按“已预验证可线上订购、续期时一起办、现在单独申请、非美国公民、CDL 持有人”分流。先判断自己是否被 PennDOT 预验证，再决定线上还是现场。',
@@ -1760,6 +1782,8 @@ export const states: StateGuide[] = [
     nameZh: '佐治亚州',
     agency: 'Georgia Department of Driver Services',
     agencyUrl: 'https://dds.georgia.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-07',
     summary:
       '佐治亚州 DDS 把 REAL ID 称为 Secure ID initiative。2012 年后签发的 Georgia license/ID 通常是 REAL ID-compliant，卡面右上角有 gold 或 black star；但临时纸质证件不能用于 TSA 登机。',
@@ -1927,6 +1951,8 @@ export const states: StateGuide[] = [
     nameZh: '马里兰州',
     agency: 'Maryland Motor Vehicle Administration',
     agencyUrl: 'https://mva.maryland.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '马里兰 MVA 的 Licenses & IDs 页面是主入口：先查自己的 REAL ID 状态和材料，再决定是线上处理、预约、还是按新居民路径到 MVA 办理。',
@@ -2030,6 +2056,8 @@ export const states: StateGuide[] = [
     nameZh: '弗吉尼亚州',
     agency: 'Virginia Department of Motor Vehicles',
     agencyUrl: 'https://www.dmv.virginia.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '弗吉尼亚 DMV 把 REAL ID 明确写成可选升级证件。办理逻辑是先完成申请，再把原始文件带到 DMV customer service center 核验。',
@@ -2122,6 +2150,8 @@ export const states: StateGuide[] = [
     nameZh: '北卡罗来纳州',
     agency: 'North Carolina Division of Motor Vehicles',
     agencyUrl: 'https://www.ncdot.gov/dmv/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '北卡 NCDMV 对首次 REAL ID 的规则很清楚：第一次必须到 driver license office，让文件被扫描进 NCDMV 记录；已有 REAL ID 后才可能像普通证件一样线上续期。',
@@ -2270,6 +2300,8 @@ export const states: StateGuide[] = [
     nameZh: '密歇根州',
     agency: 'Michigan Secretary of State',
     agencyUrl: 'https://www.michigan.gov/sos/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '密歇根驾照和 ID 由 Secretary of State 管理。标准证件可转换为 REAL ID，但通常需要到 SOS office 带当前证件和 legal presence / citizenship 文件。',
@@ -2477,6 +2509,8 @@ export const states: StateGuide[] = [
     nameZh: '俄亥俄州',
     agency: 'Ohio Bureau of Motor Vehicles',
     agencyUrl: 'https://www.bmv.ohio.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '俄亥俄 BMV 把 REAL ID 合规证件称为 Compliant Card。办卡前先用 Acceptable Documents 页面核对 full legal name、date of birth、SSN、legal presence 和 Ohio residency。',
@@ -2567,6 +2601,8 @@ export const states: StateGuide[] = [
     nameZh: '亚利桑那州',
     agency: 'Arizona Motor Vehicle Division',
     agencyUrl: 'https://azdot.gov/mvd',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '亚利桑那把 REAL ID 合规驾照/ID 称为 Arizona Travel ID。优先从 ADOT MVD 的 Travel ID、New to Arizona、地址变更和姓名变更页面开始，确认自己是首次办证、换州、续期还是只改资料。',
@@ -2666,6 +2702,8 @@ export const states: StateGuide[] = [
     nameZh: '科罗拉多州',
     agency: 'Colorado Division of Motor Vehicles',
     agencyUrl: 'https://dmv.colorado.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '科罗拉多 DMV 说明该州驾照和 ID 为 REAL ID 合规体系。新居民通常要预约到办公室办理，并建议先在线预登记，再带身份证明、合法身份、居住地址和 SSN 相关材料。',
@@ -2769,6 +2807,8 @@ export const states: StateGuide[] = [
     nameZh: '内华达州',
     agency: 'Nevada Department of Motor Vehicles',
     agencyUrl: 'https://dmv.nv.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '内华达 DMV 把 REAL ID、地址证明、新居民和线上服务分成多个官方页面。REAL ID 或首次 license/ID 不能只靠线上完成，需要带原件到 DMV 办公室核验。',
@@ -2862,6 +2902,8 @@ export const states: StateGuide[] = [
     nameZh: '俄勒冈州',
     agency: 'Oregon Driver and Motor Vehicle Services',
     agencyUrl: 'https://www.oregon.gov/odot/dmv/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '俄勒冈 DMV 的 REAL ID 页面把旅行用途、材料清单和 DMV2U 预约放在一起说明。第一次申请 REAL ID 不能在线完成，需要到 DMV 办公室带原件或认证副本核验。',
@@ -2946,6 +2988,8 @@ export const states: StateGuide[] = [
     nameZh: '康涅狄格州',
     agency: 'Connecticut Department of Motor Vehicles',
     agencyUrl: 'https://portal.ct.gov/dmv',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '康涅狄格 DMV 用金色星标标识 REAL ID。续期、地址变更和转入外州驾照有独立页面；第一次申请 REAL ID、非美国公民、CDL、Drive-only 等情况通常不能按普通线上续期处理。',
@@ -3052,6 +3096,8 @@ export const states: StateGuide[] = [
     nameZh: '明尼苏达州',
     agency: 'Minnesota Driver and Vehicle Services',
     agencyUrl: 'https://onlineservices.dps.mn.gov/EServices/_/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '明尼苏达驾照和 ID 由 Department of Public Safety 旗下 Driver and Vehicle Services 管理。该州同时有 Standard、REAL ID 和 Enhanced 相关证件路径，先确认自己是为了驾驶、国内航班，还是边境/联邦用途。',
@@ -3133,6 +3179,8 @@ export const states: StateGuide[] = [
     nameZh: '印第安纳州',
     agency: 'Indiana Bureau of Motor Vehicles',
     agencyUrl: 'https://www.in.gov/bmv/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '印第安纳 BMV 把 REAL ID、驾照、ID、续期、地址变更和外州转入放在 BMV 服务体系内。先判断是否要 REAL ID，再看是否属于新居民、续期、补证或信息变更。',
@@ -3237,6 +3285,8 @@ export const states: StateGuide[] = [
     nameZh: '田纳西州',
     agency: 'Tennessee Driver Services',
     agencyUrl: 'https://www.tn.gov/safety/driver-services.html',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '田纳西 Driver Services 管理驾照、ID、REAL ID、续期、地址变更和新居民换证。该州官方页面把 REAL ID、Class D license、new resident 和 online services 分成不同入口。',
@@ -3320,6 +3370,8 @@ export const states: StateGuide[] = [
     nameZh: '威斯康星州',
     agency: 'Wisconsin Division of Motor Vehicles',
     agencyUrl: 'https://wisconsindot.gov/Pages/online-srvcs/external/dmv.aspx',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '威斯康星 DMV 由 Wisconsin Department of Transportation 管理。REAL ID、普通驾照、外州搬入、地址变更和线上续期/补证都有独立官方页面。',
@@ -3423,6 +3475,8 @@ export const states: StateGuide[] = [
     nameZh: '犹他州',
     agency: 'Utah Driver License Division',
     agencyUrl: 'https://dld.utah.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '犹他驾照和 ID 由 Utah Driver License Division 管理。Utah 的驾照/ID 材料页把身份、合法身份、SSN、Utah 地址和姓名变更分成清单，适合先按材料类别整理。',
@@ -3506,6 +3560,8 @@ export const states: StateGuide[] = [
     nameZh: '密苏里州',
     agency: 'Missouri Department of Revenue',
     agencyUrl: 'https://dor.mo.gov/driver-license/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '密苏里驾照和 non-driver ID 由 Department of Revenue 管理。REAL ID、普通驾照、renewal、duplicate、地址变化和材料核验都从 DOR Driver License 与 REAL ID 页面分流。',
@@ -3601,6 +3657,8 @@ export const states: StateGuide[] = [
     nameZh: '爱荷华州',
     agency: 'Iowa Department of Transportation',
     agencyUrl: 'https://iowadot.gov/drivers-licenses-ids',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '爱荷华驾照和 ID 由 Iowa DOT 管理。REAL ID、new to Iowa、renewal、change information、lost/stolen duplicate、预约和 DMV location 都有独立官方入口。',
@@ -3705,6 +3763,8 @@ export const states: StateGuide[] = [
     nameZh: '堪萨斯州',
     agency: 'Kansas Department of Revenue Division of Vehicles',
     agencyUrl: 'https://www.ksrevenue.gov/dovindex.html',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '堪萨斯驾照和 ID 由 Kansas Department of Revenue Division of Vehicles 管理。REAL ID、required documents、renewal、address change、iKan online services 和 appointment 都要分路径处理。',
@@ -3804,6 +3864,8 @@ export const states: StateGuide[] = [
     nameZh: '南卡罗来纳州',
     agency: 'South Carolina Department of Motor Vehicles',
     agencyUrl: 'https://dmv.sc.gov/driver-services',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '南卡驾照和 ID 由 SCDMV 管理。Driver License、ID card、Moving to SC、Renewals、Address or Name Change 和 branch appointment 是常用入口。',
@@ -3903,6 +3965,8 @@ export const states: StateGuide[] = [
     nameZh: '肯塔基州',
     agency: 'Kentucky Transportation Cabinet',
     agencyUrl: 'https://drive.ky.gov/Pages/index.aspx',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '肯塔基驾照、REAL ID 和 ID 服务由 Kentucky Transportation Cabinet / DRIVE 管理。REAL ID、What You Need、New to Kentucky、renewal、update/replace 和 myDrive 是核心路径。',
@@ -3995,6 +4059,8 @@ export const states: StateGuide[] = [
     nameZh: '路易斯安那州',
     agency: 'Louisiana Office of Motor Vehicles',
     agencyUrl: 'https://expresslane.la.gov/omv/drivers/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '路易斯安那州驾照、REAL ID、续期、补证和外州转入由 Office of Motor Vehicles 的 ExpressLane 系统分流。高频入口是 REAL ID、License Renewal、License Transfers、Duplicate / Replacement 和 Online Services。',
@@ -4087,6 +4153,8 @@ export const states: StateGuide[] = [
     nameZh: '俄克拉荷马州',
     agency: 'Service Oklahoma',
     agencyUrl: 'https://oklahoma.gov/service.html',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '俄克拉荷马州驾照和 REAL ID 由 Service Oklahoma 与 Licensed Operator / Licensing Office 路径共同处理。REAL ID checklist、Required Documents、Out-of-State Transfer、Renew/Replace 和 Address Update 是最重要的入口。',
@@ -4179,6 +4247,8 @@ export const states: StateGuide[] = [
     nameZh: '阿拉巴马州',
     agency: 'Alabama Law Enforcement Agency',
     agencyUrl: 'https://www.alea.gov/dps/driver-license',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '阿拉巴马州把 REAL ID 称为 STAR ID，由 Alabama Law Enforcement Agency 管理。首次 STAR ID、外州转入和材料核验要看 ALEA Driver License Exam Office；县级办公室更多处理续期和 duplicate。',
@@ -4271,6 +4341,8 @@ export const states: StateGuide[] = [
     nameZh: '阿肯色州',
     agency: 'Arkansas Department of Finance and Administration',
     agencyUrl: 'https://www.dfa.arkansas.gov/online-services/drivers/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '阿肯色州驾照、ID 和 REAL ID 由 Department of Finance and Administration / Driver Services 处理。REAL ID 页面、Revenue Office locations、MyDMV、online driver services 和 appointment 是当前最实用的入口。',
@@ -4365,6 +4437,8 @@ export const states: StateGuide[] = [
     nameZh: '新墨西哥州',
     agency: 'New Mexico Motor Vehicle Division',
     agencyUrl: 'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '新墨西哥州 MVD 同时提供 REAL ID 和 Standard Driver License / ID。中文用户最需要先判断：自己要的是可用于联邦用途的 REAL ID，还是只用于驾驶和州内一般身份用途的 Standard credential。',
@@ -4464,6 +4538,8 @@ export const states: StateGuide[] = [
     nameZh: '特拉华州',
     agency: 'Delaware Division of Motor Vehicles',
     agencyUrl: 'https://dmv.de.gov/DriverServices/drivers_license/index.shtml',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '特拉华州驾照、REAL ID、续期、外州转入和地址/姓名更新由 Delaware Division of Motor Vehicles 管理。Delaware DMV 页面把 REAL ID 称为 federally compliant driver license / ID card，并把材料、续期、搬入和线上服务分在不同入口。',
@@ -4556,6 +4632,8 @@ export const states: StateGuide[] = [
     nameZh: '罗得岛州',
     agency: 'Rhode Island Division of Motor Vehicles',
     agencyUrl: 'https://dmv.ri.gov/licenses-permits-ids',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '罗得岛州驾照、REAL ID、续期、地址/姓名变化和外州转入由 Rhode Island DMV 管理。RI DMV 的实用入口是 REAL ID 页面、License Renewal、Out of State/Country Transfers、Name & Address Change，以及官方 Document Checklist PDF。',
@@ -4655,6 +4733,8 @@ export const states: StateGuide[] = [
     nameZh: '新罕布什尔州',
     agency: 'New Hampshire Division of Motor Vehicles',
     agencyUrl: 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '新罕布什尔州驾照、REAL ID、续期、外州转入和个人信息更新由 New Hampshire Division of Motor Vehicles 管理。NH DMV 的核心入口是 REAL ID、required documents、renewal、transfer from another state、update personal information 和 online renewals。',
@@ -4754,6 +4834,8 @@ export const states: StateGuide[] = [
     nameZh: '缅因州',
     agency: 'Maine Bureau of Motor Vehicles',
     agencyUrl: 'https://www.maine.gov/sos/bmv',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '缅因州驾照、REAL ID、续期、补证和地址/姓名更新由 Maine Bureau of Motor Vehicles 管理。BMV 官网现在把 REAL ID、branch appointment、online renewal / replacement 和 online REAL ID renewal 放在同一组高频入口里。',
@@ -4846,6 +4928,8 @@ export const states: StateGuide[] = [
     nameZh: '夏威夷州',
     agency: 'Hawaii Department of Transportation / County DMV Offices',
     agencyUrl: 'https://hidot.hawaii.gov/driverslicense/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '夏威夷州的 driver license / state ID 规则由 Hawaii DOT 提供州级说明，但实际办理由各县 Driver Licensing / DMV office 处理。Oahu 用户看 Honolulu Department of Customer Services，其他岛屿也要回到本县办公室确认预约和材料。',
@@ -4945,6 +5029,8 @@ export const states: StateGuide[] = [
     nameZh: '阿拉斯加州',
     agency: 'Alaska Division of Motor Vehicles',
     agencyUrl: 'https://dmv.alaska.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '阿拉斯加州驾照、REAL ID、续期、补证和身份信息变化由 Alaska DMV 处理。最实用的入口是 REAL ID Update、REAL ID Checklist、Credential Services、Changing Identification Details 和 Online DMV。',
@@ -5037,6 +5123,8 @@ export const states: StateGuide[] = [
     nameZh: '爱达荷州',
     agency: 'Idaho Transportation Department',
     agencyUrl: 'https://itd.idaho.gov/itddmv/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '爱达荷州把 REAL ID compliant credential 称为 Star Card，由 Idaho Transportation Department / county driver license offices 处理。Star Card、acceptable documents、Add the Star tool 和 Idaho DMV portal 是核心入口。',
@@ -5136,6 +5224,8 @@ export const states: StateGuide[] = [
     nameZh: '密西西比州',
     agency: 'Mississippi Driver Service Bureau',
     agencyUrl: 'https://www.driverservicebureau.dps.ms.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '密西西比州驾照、REAL ID、续期、ID card、非公民身份和地址/姓名材料由 Driver Service Bureau 处理。DSB 首页、Required Documents、Renew Driver License / ID、Identification Cards 和 Non-U.S. Citizen 页面是核心入口。',
@@ -5228,6 +5318,8 @@ export const states: StateGuide[] = [
     nameZh: '蒙大拿州',
     agency: 'Montana Motor Vehicle Division',
     agencyUrl: 'https://mvdmt.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '蒙大拿州驾照、REAL ID、续期、补证、地址变化和新居民换证由 Montana Motor Vehicle Division 管理。MVD 官方入口包括 REAL ID、Required Documents、Renew License / ID、Address Change 和 Drivers New to Montana。',
@@ -5327,6 +5419,8 @@ export const states: StateGuide[] = [
     nameZh: '内布拉斯加州',
     agency: 'Nebraska Department of Motor Vehicles',
     agencyUrl: 'https://dmv.nebraska.gov/driver-license',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '内布拉斯加州驾照、REAL ID、续期、地址变化和新居民换证由 Nebraska DMV Driver Licensing 处理。Driver License、Document Verification Requirements、New Resident、Renewals 和 Change Address 是核心入口。',
@@ -5419,6 +5513,8 @@ export const states: StateGuide[] = [
     nameZh: '北达科他州',
     agency: 'North Dakota Department of Transportation',
     agencyUrl: 'https://www.dot.nd.gov/driver',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '北达科他州驾照、REAL ID、续期、外州转入和姓名/地址变化由 NDDOT Driver License 处理。REAL ID Information、Real ID Checklist PDF、Requirements Transferring License、Driver License 和 Driver License Renewal 是核心入口。',
@@ -5511,6 +5607,8 @@ export const states: StateGuide[] = [
     nameZh: '南达科他州',
     agency: 'South Dakota Department of Public Safety',
     agencyUrl: 'https://www.sd.gov/dps',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '南达科他州驾照、REAL ID、续期、补证、地址更新和预约由 South Dakota DPS / SD.gov 处理。Required Documents、Renew or Replace Online、Appointment Information 和 Applications and Forms 是核心入口。',
@@ -5603,6 +5701,8 @@ export const states: StateGuide[] = [
     nameZh: '佛蒙特州',
     agency: 'Vermont Department of Motor Vehicles',
     agencyUrl: 'https://dmv.vermont.gov/',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '佛蒙特州驾照、REAL ID、Enhanced Driver License、续期、外州转入和地址变化由 Vermont DMV 管理。Vermont 是少数同时有 REAL ID 和 Enhanced Driver License / ID 路径的州，旅行用户要先判断自己需要哪一种。',
@@ -5702,6 +5802,8 @@ export const states: StateGuide[] = [
     nameZh: '西弗吉尼亚州',
     agency: 'West Virginia Division of Motor Vehicles',
     agencyUrl: 'https://transportation.wv.gov/DMV/Pages/default.aspx',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '西弗吉尼亚州驾照、REAL ID、续期、地址变化和 HeadStart 由 WV Division of Motor Vehicles 处理。REAL ID、Driver Licenses / ID Cards、Renewal、Skip the Trip 和 REAL ID brochure 是核心入口。',
@@ -5794,6 +5896,8 @@ export const states: StateGuide[] = [
     nameZh: '怀俄明州',
     agency: 'Wyoming Department of Transportation',
     agencyUrl: 'https://www.dot.state.wy.us/driverservices',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-09',
     summary:
       '怀俄明州驾照、REAL ID、续期、地址变化和 oneWYO 线上服务由 Wyoming DOT Driver Services 处理。Driver License、Lost / Renewal、Add / Change Information、General Forms 和 Driver Services 是核心入口。',
@@ -5886,6 +5990,8 @@ export const topics: TopicGuide[] = [
     slug: 'real-id-basics',
     title: 'REAL ID 到底要不要办',
     eyebrow: '联邦规则',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '先别急着预约。REAL ID 只解决州驾照/ID 的联邦身份用途；如果你有有效护照或其他 TSA 接受证件，很多场景可以先不升级。',
@@ -6005,6 +6111,8 @@ export const topics: TopicGuide[] = [
     slug: 'real-id-vs-standard-license',
     title: 'REAL ID、Enhanced ID 和普通驾照怎么区分',
     eyebrow: '证件类型',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '选证件前先看用途，不要只看卡面名字。Standard、REAL ID 和 Enhanced Driver License/ID 都可能是州签发的驾照或身份证，但联邦身份用途、申请资格和边境用途不同。',
@@ -6140,6 +6248,8 @@ export const topics: TopicGuide[] = [
     slug: 'document-checklist',
     title: 'REAL ID 常见材料清单',
     eyebrow: '材料准备',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '各州表述不同，但 REAL ID 材料通常围绕身份/合法身份、SSN、居住地址和姓名变更四类。最终必须用州官方清单核对。',
@@ -6285,6 +6395,8 @@ export const topics: TopicGuide[] = [
     slug: 'proof-of-residency',
     title: '地址证明怎么准备',
     eyebrow: '材料细节',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '地址证明最容易在“看起来合理、官方却不收”这里出错。办事前要同时核对文件数量、本人姓名、住宅地址、日期范围、打印格式和替代证明路径。',
@@ -6440,6 +6552,8 @@ export const topics: TopicGuide[] = [
     slug: 'residency-proof-no-bills-po-box',
     title: '没有自己账单、住亲友家或宿舍，地址证明怎么准备',
     eyebrow: '地址证明',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '地址证明最难的情况，往往不是“没有地址”，而是没有一份写着本人姓名和当前居住地址的官方文件。住亲友家、室友家、宿舍、sublease、P.O. Box 和 mailing address，需要按不同规则判断。',
@@ -6659,7 +6773,9 @@ export const topics: TopicGuide[] = [
     slug: 'ssn-and-itin',
     title: 'SSN、ITIN 和不可取得 SSN 的情况',
     eyebrow: '身份文件',
-    reviewedAt: '2026-07-13',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       'SSN、SSA denial/ineligibility letter、无 SSN affidavit 和 ITIN 不是四种可以随意互换的材料。先判断自己是否已获发或有资格取得 SSN，再按州、证件类型和身份类别进入正确清单。',
     whoNeedsIt: [
@@ -6670,7 +6786,7 @@ export const topics: TopicGuide[] = [
     keyFacts: [
       'SSA 说明，一般只有获得 DHS 工作许可的非公民才能取得 SSN；少数依法认可的非工作原因另行适用。是否符合 SSN 资格由 SSA 判断，不由 DMV 或申请人自行判断。',
       'SSA 同时说明，非公民不需要仅为了取得普通 driver license 而申请 SSN，SSA 也不会仅以申请州驾照为由分配号码。',
-      '已获发 SSN 的人通常必须如实提供并让 DMV 与 SSA 记录核验；“暂时找不到实体卡”和“从未获发 SSN”不是同一场景。',
+      '如果州申请表要求 SSN，已经获发号码的人应按要求提供，并确保姓名与 SSA 记录一致；“暂时找不到实体卡”和“从未获发 SSN”不是同一场景，是否必须出示实体卡要看州清单。',
       '没有 SSN 的州级路径差异很大，可能要求 SSA denial / ineligibility letter、Affidavit of No SSN、护照与 I-94，或允许某类 Standard license 不提交这些文件。',
       'ITIN 是 IRS 为联邦税务目的签发的号码，不授权工作、不改变移民身份、不提供 Social Security 福利，也不构成联邦税务体系之外的身份证明。',
       '州表格即使要求填写 ITIN，也不代表 ITIN 在法律上变成 SSN 或身份证件。应把“州收集号码”和“用号码证明身份/资格”分开理解。',
@@ -6757,11 +6873,20 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility'],
       },
       {
-        claim: 'Massachusetts 的 Standard 与 REAL ID document checklist 对 SSN、SSA denial notice 和无 SSN affidavit 设置了不同路径。',
-        sourceUrls: ['https://www.mass.gov/info-details/massachusetts-identification-id-requirements'],
+        claim:
+          'Massachusetts 的 Standard license 可在符合文件组合时使用 SSA denial notice 或 Affidavit of No SSN；REAL ID 的无 SSN 路径另有 denial notice、passport、visa 和 I-94 要求。',
+        sourceUrls: [
+          'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
+          'https://www.mass.gov/doc/drivers-license-learners-permit-or-id-card-application-instructions-english/download',
+        ],
       },
       {
         claim: 'Florida 非移民材料页要求 SSN 证明上的姓名与将显示在 Florida license / ID 上的姓名一致。',
+        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/'],
+      },
+      {
+        claim:
+          'Florida 说明，没有工作签证的非移民不必取得 SSA refusal letter；没有 SSN 的申请人仍要按 Florida 的具体材料入口确认适用路径。',
         sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/non-immigrant/'],
       },
     ],
@@ -6800,6 +6925,10 @@ export const topics: TopicGuide[] = [
         url: 'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
       },
       {
+        label: 'Massachusetts License and ID Application Instructions',
+        url: 'https://www.mass.gov/doc/drivers-license-learners-permit-or-id-card-application-instructions-english/download',
+      },
+      {
         label: 'NJ MVC REAL ID',
         url: 'https://www.nj.gov/mvc/realid/',
       },
@@ -6814,6 +6943,8 @@ export const topics: TopicGuide[] = [
     slug: 'name-change-chain',
     title: '姓名变更文件怎么整理',
     eyebrow: '姓名一致性',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '姓名材料的目标不是证明“你平时用哪个名字”，而是用政府签发的文件，把原始身份文件上的姓名连续连接到本次申请使用的 current legal name。',
@@ -6965,7 +7096,9 @@ export const topics: TopicGuide[] = [
     slug: 'non-citizen-license-id',
     title: '非美国公民办理驾照或 REAL ID 的注意点',
     eyebrow: '身份类别',
-    reviewedAt: '2026-07-13',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       '非美国公民办理驾照或州 ID 时，要把证件类型、个人移民类别、SSN 状态和联邦记录核验分开处理。F-1、J-1、H-1B、家属、绿卡、EAD、庇护等身份不能共用一张材料清单。',
     whoNeedsIt: [
@@ -6977,7 +7110,7 @@ export const topics: TopicGuide[] = [
       'REAL ID 合规州证件要求按联邦规则证明 lawful status；Standard 或其他州内驾驶路径是否要求同样材料，取决于州法和证件类型。',
       '非公民不是一个文件类别。Florida 例如要求 I-94 配有效护照，并按 F/M、J、refugee、asylee、parolee 等类别补 I-20、DS-2019 或其他材料。',
       '同一人的护照、I-94、I-20/DS-2019、EAD、I-797 和 SSA 记录中的姓名、生日、号码及身份类别应相互对得上；旧文件和新文件不要混成一套。',
-      '州机构可能通过 USCIS SAVE 核验公民身份或移民状态。SAVE 向机构返回状态信息，但最终是否签发驾照/ID 仍由州机构决定。',
+      '州机构可能通过 USCIS SAVE 核验公民身份或移民状态。SAVE 向办理机构返回核验信息，但不替州机构决定申请人是否符合驾照或 ID 的签发资格。',
       'SAVE 初次未即时核验不等于自动不符合资格。机构可能提交 additional verification，申请人可用 CaseCheck 查看状态并在结果返回后联系 DMV。',
       '证件期限可能受 lawful-presence 文件影响。Florida、Georgia、California 和 Texas 都有 limited-term / temporary 相关处理，但具体期限和卡面规则不能跨州套用。',
       '移民文件即将到期不等于一律不能申请，但有些州要求文件至少剩余一定有效期，或只能签发短期凭证；例如 Florida 页面写有超过 30 天的文件有效期条件。',
@@ -7056,11 +7189,24 @@ export const topics: TopicGuide[] = [
       },
       {
         claim: 'USCIS SAVE 提供身份状态信息给签发福利或执照的机构，但不替该机构决定申请人是否有资格获得驾照或 ID。',
-        sourceUrls: ['https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVE_FACT_SHEET_for_Benefit_Applicants.pdf'],
+        sourceUrls: [
+          'https://save.uscis.gov/save/app/client/ui/case-check',
+          'https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVE_FACT_SHEET_for_Benefit_Applicants.pdf',
+        ],
       },
       {
         claim: '申请人在机构提交 SAVE 核验后，可以使用 CaseCheck 跟踪核验进度，并在结果返回后联系原办理机构。',
-        sourceUrls: ['https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVE_FACT_SHEET_for_Benefit_Applicants.pdf'],
+        sourceUrls: [
+          'https://save.uscis.gov/save/app/client/ui/case-check',
+          'https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVE_FACT_SHEET_for_Benefit_Applicants.pdf',
+        ],
+      },
+      {
+        claim:
+          'SAVE 初次未即时核验时可进入 additional verification；这表示核验仍在继续，不等于州机构已经作出不符合资格的决定。',
+        sourceUrls: [
+          'https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVEVerificationProcessFactSheet.pdf',
+        ],
       },
       {
         claim: 'Georgia LIMITED-TERM DL/ID 的期限可与获准停留时间相关，但卡片本身不是 lawful status 证明。',
@@ -7069,6 +7215,13 @@ export const topics: TopicGuide[] = [
       {
         claim: 'California 对 temporary lawful status 申请人设置 limited-term DL/ID 路径，并要求相应 original identity / lawful-presence 文件。',
         sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/limited-term-for-legal-presence/'],
+      },
+      {
+        claim:
+          'Texas 对符合条件的 temporary visitor 签发标有 Limited Term 的驾照或 ID，通常随 lawful-presence period 到期；duration of status 情况按 Texas 规则处理。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors',
+        ],
       },
     ],
     editorNotes: [
@@ -7110,12 +7263,24 @@ export const topics: TopicGuide[] = [
         url: 'https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVE_FACT_SHEET_for_Benefit_Applicants.pdf',
       },
       {
+        label: 'USCIS SAVE CaseCheck',
+        url: 'https://save.uscis.gov/save/app/client/ui/case-check',
+      },
+      {
+        label: 'USCIS SAVE Verification Process',
+        url: 'https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVEVerificationProcessFactSheet.pdf',
+      },
+      {
         label: 'California DMV Limited Term for Legal Presence',
         url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/limited-term-for-legal-presence/',
       },
       {
         label: 'Texas DPS Verifying Lawful Presence',
         url: 'https://www.dps.texas.gov/driverlicense/documents/verifyinglawfulpresence.pdf',
+      },
+      {
+        label: 'Texas DPS Driver Licenses and IDs for Temporary Visitors',
+        url: 'https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors',
       },
     ],
     relatedStateIds: ['florida', 'massachusetts', 'georgia', 'california', 'texas'],
@@ -7124,7 +7289,9 @@ export const topics: TopicGuide[] = [
     slug: 'standard-license-driving-privilege-no-lawful-status',
     title: '没有 lawful status，驾照、REAL ID 和 Driving Privilege Card 怎么分',
     eyebrow: '非 REAL ID 路径',
-    reviewedAt: '2026-07-13',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       'REAL ID 通常要求证明 lawful status，但这不等于所有州都完全不能办理驾驶用途证件。部分州有 Standard license、noncompliant license、drive-only license、AB 60 或 Driving Privilege Card 这类州内驾驶路径，规则必须按州确认。',
     whoNeedsIt: [
@@ -7136,8 +7303,8 @@ export const topics: TopicGuide[] = [
     keyFacts: [
       'REAL ID 和驾驶用途证件是两个问题。REAL ID 用于联邦身份用途，州内驾驶证件用于证明驾驶资格。',
       'DHS REAL ID 框架和州 DMV 页面通常把 REAL ID 与 lawful status / legal presence 核验绑定；无法证明 lawful status 的人不要按 REAL ID 清单准备。',
-      '部分州提供非 REAL ID 驾驶路径，但名称不同：California AB 60、New York Standard license、Connecticut drive-only license、Utah / Delaware Driving Privilege Card、Maryland noncompliant license、Colorado standard credential 等。',
-      '这些证件通常不能用于 TSA 国内航班安检、进入部分联邦设施、投票或证明移民身份；卡面常会有 not for federal identification / federal limits apply 等提示。',
+      '部分州提供非 REAL ID 驾驶路径，但名称不同：California AB 60、New York Standard license、Massachusetts Standard license、Connecticut drive-only license、Utah / Delaware Driving Privilege Card、Maryland noncompliant license、Colorado standard credential 等。',
+      '这些证件都不是 REAL ID，通常不能直接用于 TSA 国内航班或其他要求 REAL ID 的联邦用途，也不会赋予投票资格或移民身份。能否作为州内一般身份证件并不统一：Colorado Standard 是有效的 Colorado ID，而 Utah / Delaware DPC 明确不是政府或一般身份证件。',
       '申请人仍然通常要证明身份、出生日期、州居住地址，并通过知识考试、视力或路考；没有 lawful status 不等于免材料、免考试。',
       'CDL、commercial license、REAL ID、Enhanced license 和部分州 ID 规则更严格，不能把普通非商业驾驶路径套过去。',
       '证件名称会更新。Illinois 已从 2024 年 7 月 1 日起用四年 Standard driver license 取代旧 TVDL，并在卡面标注 Federal Limits Apply；旧 TVDL 教程不能继续照搬。',
@@ -7162,7 +7329,7 @@ export const topics: TopicGuide[] = [
       {
         question: '没有 lawful status 是不是一定不能办驾照？',
         answer:
-          '不是全国统一答案。REAL ID 通常不行，但 California、New York、Illinois、Connecticut、Colorado、Maryland、Utah、Delaware、New Mexico、New Jersey 等官方页面显示了不同形式的非 REAL ID 或驾驶用途路径。必须看所在州和当前证件名称。',
+          '不是全国统一答案。REAL ID 通常不行，但 California、New York、Massachusetts、Illinois、Connecticut、Colorado、Maryland、Utah、Delaware、New Mexico、New Jersey 等官方页面显示了不同形式的非 REAL ID 或驾驶用途路径。必须看所在州和当前证件名称。',
       },
       {
         question: '这类证件可以坐飞机吗？',
@@ -7238,6 +7405,24 @@ export const topics: TopicGuide[] = [
         claim: 'Utah Driving Privilege Card 是 Class D 驾驶用途证件，不能作为 Utah 政府 ID、不能用于 CDL，且通常在申请人下一次生日到期。',
         sourceUrls: ['https://dld.utah.gov/what-is-a-driving-privilege-card/'],
       },
+      {
+        claim:
+          'Massachusetts 可向无法提供 lawful presence、但满足其他驾驶资格并证明身份、生日和州居住要求的申请人签发非联邦用途 Standard license。',
+        sourceUrls: ['https://www.mass.gov/info-details/mass-general-laws-c90-ss-8'],
+      },
+      {
+        claim:
+          'Delaware DPC 面向无法提供 legal presence 的合格 Delaware 居民，仅用于驾驶并明确标注 Not Valid for Identification。',
+        sourceUrls: ['https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml'],
+      },
+      {
+        claim:
+          'New Mexico 为 noncommercial Standard driver license 和 not-intended-for-federal-purposes ID 设置单独材料路径，不能把它当作 REAL ID。',
+        sourceUrls: [
+          'https://www.mvd.newmexico.gov/chapter-7-standard-drivers-license-and-not-intended-for-federal-purposes-id/',
+          'https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf',
+        ],
+      },
     ],
     editorNotes: [
       '这页不提供移民法律建议，也不判断个人是否应申请；只解释 DMV 证件路径和用途限制。',
@@ -7305,6 +7490,18 @@ export const topics: TopicGuide[] = [
         url: 'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/',
       },
       {
+        label: 'New Mexico Standard License Procedures',
+        url: 'https://www.mvd.newmexico.gov/chapter-7-standard-drivers-license-and-not-intended-for-federal-purposes-id/',
+      },
+      {
+        label: 'New Mexico Standard License Acceptable Documents',
+        url: 'https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf',
+      },
+      {
+        label: 'Massachusetts General Laws Chapter 90 Section 8',
+        url: 'https://www.mass.gov/info-details/mass-general-laws-c90-ss-8',
+      },
+      {
         label: 'Washington DOL REAL ID',
         url: 'https://dol.wa.gov/id-cards/real-id',
       },
@@ -7331,6 +7528,8 @@ export const topics: TopicGuide[] = [
     slug: 'state-id-non-driver-id-real-id-card',
     title: '不考驾照，只办 State ID / non-driver ID 怎么准备',
     eyebrow: '州身份证',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '不准备开车，也可以在很多州申请 state ID、non-driver ID、photo ID、Mass ID 或 Enhanced ID。先分清普通 ID、REAL ID-compliant ID、Enhanced ID、移动 ID、驾照换 ID、未成年人 ID 和无家可归 / 低收入费用减免，避免把 ID card 当成驾照或护照来用。',
@@ -7664,6 +7863,8 @@ export const topics: TopicGuide[] = [
     slug: 'airport-travel-after-real-id',
     title: 'REAL ID 后坐美国国内航班要带什么',
     eyebrow: '机场安检',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       'REAL ID 联邦执行已经开始。18 岁及以上旅客通过 TSA 机场安检时，通常需要 REAL ID 合规驾照/ID，或护照、军人证等 TSA 接受的其他证件；没有可接受 ID 时，再查看 TSA 当前身份核验选项。',
@@ -7805,6 +8006,8 @@ export const topics: TopicGuide[] = [
     slug: 'online-office-appointment',
     title: 'DMV 业务先线上办还是预约到办公室',
     eyebrow: '线上/现场分流',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '续期、补证、地址变更、REAL ID、首次驾照、外州转入和路考，不是都要去同一个 DMV 窗口。先判断能否线上、kiosk、邮寄或必须预约现场，能少跑很多冤枉路。',
@@ -7972,6 +8175,8 @@ export const topics: TopicGuide[] = [
     slug: 'dmv-scam-text-fake-ticket-toll-real-id-phishing',
     title: 'DMV 诈骗短信、假罚单和假官网怎么识别',
     eyebrow: '防诈骗',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '收到“DMV 罚单未付”“toll 欠费”“REAL ID 可加急”“驾照将 suspend”的短信、邮件、电话或广告时，先不要点链接。很多州 DMV 和联邦机构都提醒，诈骗信息会伪装成官方页面，诱导你输入驾照号、SSN、银行卡或登录信息。',
@@ -8301,6 +8506,8 @@ export const topics: TopicGuide[] = [
     slug: 'lost-stolen-license-id-replacement-identity-theft',
     title: '驾照或 State ID 丢失/被盗后，补证、报案和身份盗用怎么处理',
     eyebrow: '丢证补证',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '驾照、learner permit、State ID、REAL ID 或 Enhanced ID 丢失、被盗、损坏后，最重要的不是只问“能不能马上补一张”。先判断是普通补证、地址/姓名/照片变化、REAL ID 升级、外州旅行，还是已经涉及 identity theft 或 driver license fraud。',
@@ -8701,6 +8908,8 @@ export const topics: TopicGuide[] = [
     slug: 'dmv-fees-mailing-temporary-license',
     title: 'DMV 费用、邮寄时间和临时证件怎么查',
     eyebrow: '费用 / 拿证时间',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       'DMV 办证不只是交一笔固定费用。线上服务费、现场付款方式、补证/续期类别、临时凭证、实体卡邮寄时间和 TSA 是否接受，都可能影响你什么时候真正能用上新证件。',
@@ -8873,6 +9082,8 @@ export const topics: TopicGuide[] = [
     slug: 'first-driver-license-road-test',
     title: '第一次在美国考驾照：permit、笔试和路考顺序',
     eyebrow: '首次驾照',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '第一次在美国考驾照，不要只问“哪里预约路考”。多数州会先要求身份和居住材料、learner / instruction permit、knowledge test、练车或课程，再进入 road test / skills test 和正式 license。',
@@ -9042,6 +9253,8 @@ export const topics: TopicGuide[] = [
     slug: 'road-test-day-vehicle-sponsor-insurance-rental-retest',
     title: '路考当天带什么：车辆、陪同人、保险、租车和失败重约',
     eyebrow: '路考当天',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '路考预约成功不等于当天一定能开考。Permit、课程证明、陪同驾驶人、registration、insurance、inspection、车辆设备、租车合同、临牌和迟到规则都可能让考试在上路前就被取消或改期。',
@@ -9278,6 +9491,8 @@ export const topics: TopicGuide[] = [
     slug: 'teen-driver-permit-gdl-parent-guide',
     title: '未成年人考驾照：parent consent、driver education 和 GDL 限制怎么准备',
     eyebrow: '青少年驾照',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '美国青少年考驾照通常不是“考过笔试和路考就结束”。未满 18 或未满 21 的申请人可能要走 graduated driver license (GDL)、父母/监护人签字、driver education、supervised driving hours、夜间练车、乘客限制、curfew、学校证明、保险和路考车辆要求。家长和学生需要逐项核对本州规则。',
@@ -9671,6 +9886,8 @@ export const topics: TopicGuide[] = [
     slug: 'older-driver-license-renewal-medical-review',
     title: '老人/高龄驾驶人续驾照、视力测试和医疗审查怎么处理',
     eyebrow: '高龄驾驶',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '在美国，older driver / mature driver 相关问题不只是“老人能不能开车”。不同州会把续驾照、视力测试、medical review、driver re-evaluation、家属担心 unsafe driver、医生报告和限制驾照分成不同程序，需要按触发原因找到对应官方入口。',
@@ -10072,6 +10289,8 @@ export const topics: TopicGuide[] = [
     slug: 'dmv-test-language-translation-interpreter',
     title: 'DMV 中文笔试、文件翻译和口译怎么判断',
     eyebrow: '语言 / 翻译',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '美国 DMV 的语言规则不能只问“有没有中文”。网页翻译、中文手册、knowledge test 语言、road test 口译、CDL / Hazmat 限制、外文文件 certified translation，常常是几套完全不同的规则。',
@@ -10254,6 +10473,8 @@ export const topics: TopicGuide[] = [
     slug: 'foreign-license-idp-transfer',
     title: '中国/外国驾照、IDP 和美国州驾照怎么衔接',
     eyebrow: '外国驾照',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '持中国或其他外国驾照来美国，先分清自己是短期访客、学生/临时居民，还是已经成为某州居民。IDP 通常只是翻译辅助文件，换成本州驾照仍要看州 DMV 的测试、翻译、身份和互惠规则。',
@@ -10421,6 +10642,8 @@ export const topics: TopicGuide[] = [
     slug: 'student-temporary-resident-license-registration',
     title: '留学生、访问学者和短期工作，算不算 resident，要不要换驾照或注册车',
     eyebrow: '学生 / 非居民',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       'F-1、J-1、H-1B、访问学者、外州学生、短期工作和陪读家属最容易卡在一个问题：我到底是 visitor、non-resident、temporary visitor，还是已经成为州 resident？这会影响能不能继续用外国/外州驾照、是否要办本州驾照，以及外州车辆是否要 registration。',
@@ -10684,6 +10907,8 @@ export const topics: TopicGuide[] = [
     slug: 'moving-to-new-state',
     title: '搬到新州后先办哪件事',
     eyebrow: '搬州',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '搬州要同时处理“人”和“车”：新州驾照/ID、地址证明、保险、title、registration、inspection、车牌，以及旧州登记和保险收尾。正确顺序取决于新州，不是永远先换驾照。',
@@ -10849,6 +11074,8 @@ export const topics: TopicGuide[] = [
     slug: 'used-car-title-lien-salvage-odometer-check',
     title: '买二手车前，title、lien、salvage 和 odometer 怎么查',
     eyebrow: '买二手车',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '私人买二手车或网上买 used car 时，不要只看价格和 Carfax 截图。先用 VIN、title、lien release、salvage / flood brand、odometer disclosure、seller name 和 DMV transfer 要求，判断这辆车能不能顺利过户和登记。',
@@ -11123,6 +11350,8 @@ export const topics: TopicGuide[] = [
     slug: 'lost-vehicle-title-replacement-electronic-title-lien-sale',
     title: '车辆 title 丢了怎么办：补证、电子 title 和 lien',
     eyebrow: '补车辆 title',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '纸质 vehicle title、pink slip 或 ownership certificate 丢失、损坏、被盗、一直没收到，或者贷款已还清却发现 title 仍在银行或只保留电子记录时，先确认最后签发州、登记车主、地址和 lien 状态，再决定申请 duplicate / replacement、打印 electronic title、清除 lien，还是走 correction / transfer。',
@@ -11388,6 +11617,8 @@ export const topics: TopicGuide[] = [
     slug: 'gift-inherited-vehicle-title-transfer',
     title: '亲属赠车、继承车辆和车主去世后，title 怎么转',
     eyebrow: '赠车继承',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '家里人赠车、车主去世、继承车辆、TOD beneficiary、surviving spouse、estate/probate、title 丢失或仍有 lien 时，车辆 title transfer 不是普通二手车交易。Gift、inheritance、estate、survivorship、tax exemption、registration 和 plate 必须分开判断。',
@@ -11768,6 +11999,8 @@ export const topics: TopicGuide[] = [
     slug: 'disabled-parking-placard-plates',
     title: '残疾人停车 placard、disabled plates 和临时停车证怎么申请',
     eyebrow: '残疾停车牌',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '在美国申请残疾人停车 placard、disabled parking permit、disabled plates 或临时停车证时，先分清 permanent、temporary、license plate、local permit、disabled veteran plate 和跨州使用规则，再按州官方要求准备材料。',
@@ -12124,6 +12357,8 @@ export const topics: TopicGuide[] = [
     slug: 'vehicle-title-registration-insurance-after-move',
     title: '买车或搬州后，车辆 title、registration、保险和车牌先办哪个',
     eyebrow: '车辆登记',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       'DMV 不只管驾照。买车、搬州或从外州带车时，title、registration、insurance、inspection / emissions、license plates 和 driver license 可能互相卡住，办理顺序需要按州和交易类型确认。',
@@ -12339,6 +12574,8 @@ export const topics: TopicGuide[] = [
     slug: 'vehicle-registration-renewal-expired-tags-non-operation',
     title: '车辆 registration 续期：过期、车检和停驶',
     eyebrow: '车辆登记续期',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '车牌 sticker / decal / tab 快过期、registration 已过期、没收到 renewal notice、线上续不了，或车辆准备长期停驶时，先确认登记州和准确截止日，再处理地址、保险、inspection / emissions、税费或 hold，最后选择 renewal、重新登记、补 sticker，还是本州认可的 non-operation / plate deactivation 路径。',
@@ -12642,6 +12879,8 @@ export const topics: TopicGuide[] = [
     slug: 'lost-stolen-license-plates-registration-card-sticker',
     title: '车牌、registration card 或 sticker 丢失/被盗后怎么补办',
     eyebrow: '车牌补办',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '车辆凭证丢失时，先别只问“能不能补一个 sticker”。License plate、registration card、registration sticker / decal / tab、inspection sticker 和 title 是不同事项；被盗、没收到邮件、车牌损坏、地址错误、toll / parking / insurance hold 的处理路径也不同。',
@@ -12985,6 +13224,8 @@ export const topics: TopicGuide[] = [
     slug: 'temporary-tag-trip-permit-dealer-plate',
     title: '临时牌照、temporary tag 和 trip permit：买车、搬州或没牌上路怎么办',
     eyebrow: '临时牌照',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '买车当天、跨州开回家、正式 plates / sticker 没到、车辆还没完成 smog / inspection / registration 时，常见词有 temporary tag、temporary operating permit、trip permit、transit permit、one-trip permit 和 dealer temp tag。它们不是全国通用通行证，也不能替代 title、insurance 或正式 registration。',
@@ -13296,6 +13537,8 @@ export const topics: TopicGuide[] = [
     slug: 'vehicle-inspection-emissions-smog-vin-check',
     title: '车辆年检、emissions、smog 和 VIN inspection，registration 卡住怎么办',
     eyebrow: '车辆检查',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '美国没有全国统一的车辆年检规则。买车、搬州、续 registration 或从外州带车时，先分清 safety inspection、emissions / smog check、VIN verification 和 registration hold，才能知道该找 DMV、排放项目、检查站还是 county office。',
@@ -13556,6 +13799,8 @@ export const topics: TopicGuide[] = [
     slug: 'sold-car-release-liability-plates-insurance',
     title: '卖车、捐车或报废后，DMV 责任解除、车牌和保险怎么收尾',
     eyebrow: '车辆收尾',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '卖车不是把钥匙和 title 交出去就结束。很多州还要提交 sold notice / release of liability、移除或退还车牌、确认买方 title transfer，并按正确顺序取消保险。',
@@ -13789,7 +14034,9 @@ export const topics: TopicGuide[] = [
     slug: 'tickets-tolls-insurance-lapse-registration-hold',
     title: '罚单、toll、保险 lapse 或 registration hold，先查 DMV 还是法院',
     eyebrow: '问题排查',
-    reviewedAt: '2026-07-13',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       'DMV 系统显示 hold、suspension、denial 或不能续 registration，不一定是 DMV 自己能解除。罚单、toll、保险 lapse、parking ticket、court suspension 和地方税费常常要先找发起机构处理。',
     whoNeedsIt: [
@@ -13801,7 +14048,7 @@ export const topics: TopicGuide[] = [
     keyFacts: [
       '同一个“卡住”可能影响不同对象：driver license、vehicle registration、license plate、title transfer、online renewal 或 registration renewal。先看通知写的是哪一个。',
       'Unpaid parking / toll / owner-responsibility citation 常常不是 DMV 直接判定。California、Virginia、Pennsylvania、Massachusetts 等官方页面都显示，地方机构、parking authority、toll agency 或 municipality 可能把记录发给 DMV/RMV，解除也通常要先回到发起机构。',
-      'Insurance lapse 是另一条线。New York、Florida、New Jersey、Pennsylvania、Virginia 等页面都把保险中断与 registration / plate / driver license suspension 或 reinstatement fee 联系起来。',
+      'Insurance lapse 是另一条线，而且后果不是全国统一：New York 的 lapse 会先影响 registration，达到 91 天或期限尚未确定时还会影响 driver license；Florida 可能暂停 driving privilege、plate 或 registration；Pennsylvania、Virginia 和 New Jersey 也分别有 registration、driving privilege、费用或其他处罚规则。',
       'Traffic ticket / court suspension 经常要找法院。Florida 明确失败缴纳罚款、未出庭或未完成 court-ordered school 时，应联系 citation 所在 county 的 traffic court。',
       'Toll hold 和普通 parking ticket 不一定同一机构。NY DMV、FLHSMV、PennDOT、Virginia DMV 都把 toll authority / tolling agency 作为解决入口之一。',
       '“已付款”不等于 DMV 立刻恢复。Texas DPS FAQ、Virginia local-fee pages、PennDOT toll/parking pages都提醒，需要 reporting agency、locality、toll entity 或 court 把 clearance / compliance 回传，DMV 记录才会更新。',
@@ -13831,7 +14078,7 @@ export const topics: TopicGuide[] = [
       {
         question: '保险 lapse 为什么会影响 registration 或驾照？',
         answer:
-          '很多州要求车辆在登记期间保持 liability insurance。New York 说 lapse 可能导致 registration 和 driver license suspension；Florida、Pennsylvania、Virginia 也把保险中断、plate surrender / deactivation、reinstatement fee 或 SR-22 类要求连在一起。',
+          '很多州要求登记车辆持续保持 liability insurance，但触发条件和后果不同。New York 在 lapse 达到 91 天或期限尚未确定时还会暂停 driver license；Florida 要求取消保险前先退牌；Pennsylvania、Virginia 和 New Jersey 的 registration、driving privilege、费用及处罚路径也各不相同。先按本州通知处理，不要套用别州经验。',
       },
       {
         question: '我已经交了罚单或 toll，为什么 DMV 还没恢复？',
@@ -13874,7 +14121,7 @@ export const topics: TopicGuide[] = [
       },
       {
         claim:
-          'Virginia 收到两笔以上 unpaid toll invoice 后，toll operator 可限制相关车辆 registration 的 reissue 或 renewal；车主应联系报告该记录的机构。',
+          'Virginia 在一张 invoice 涉及两笔或以上 unpaid toll 时，toll facility operator 可限制相关车辆 registration 的 reissue 或 renewal；车主应联系报告该记录的 toll facility。',
         sourceUrls: ['https://www.dmv.virginia.gov/vehicles/registration/denials'],
       },
       {
@@ -13886,15 +14133,30 @@ export const topics: TopicGuide[] = [
       },
       {
         claim:
-          'New York 车辆在 registration 有效期间出现 liability insurance lapse，可能同时导致 registration 和 driver license suspension。',
+          'New York 的 liability insurance lapse 会导致 registration suspension；lapse 达到 91 天或期限尚未确定时，driver license 也会被暂停。',
         sourceUrls: ['https://dmv.ny.gov/insurance/insurance-lapses'],
       },
       {
         claim:
-          'Pennsylvania 登记车辆必须持续保持 financial responsibility；保险中断可触发 registration suspension、proof 和 restoration 要求。',
+          'Pennsylvania 保险中断超过 30 天可导致三个月 vehicle registration suspension，并要求退回 plate/card；恢复前还要提交有效保险证明和 restoration fee。',
         sourceUrls: [
           'https://www.pa.gov/agencies/dmv/faqs/motor-vehicle-faqs/financial-responsibility-faqs',
         ],
+      },
+      {
+        claim:
+          'Florida 要求有有效 registration 的车辆持续保持 PIP/PDL；取消保险前应先退牌，否则 driving privilege、plate 或 registration 可能被暂停，并可能产生 reinstatement fee。',
+        sourceUrls: ['https://www.flhsmv.gov/insurance/'],
+      },
+      {
+        claim:
+          'New Jersey 要求登记车辆保持强制保险；驾驶 uninsured vehicle 可能带来罚款、community service、license suspension 和 insurance surcharge。',
+        sourceUrls: ['https://www.nj.gov/mvc/vehicles/insurancerequirements.htm'],
+      },
+      {
+        claim:
+          'Virginia 在 registration period 内保险终止时，车主必须重新投保、deactivate plates 或永久退牌；未保险车主可能被暂停 driving 和 vehicle registration privileges，并被要求缴费及提交 SR-22。',
+        sourceUrls: ['https://www.dmv.virginia.gov/vehicles/insurance-requirements'],
       },
       {
         claim:
@@ -14032,6 +14294,8 @@ export const topics: TopicGuide[] = [
     slug: 'driving-record-points-traffic-school',
     title: '驾照记录、points 和 traffic school：怎么查、怎么影响保险和停牌',
     eyebrow: '驾照记录',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '收到交通罚单、想查 driving record / MVR、担心 points、想上 traffic school / defensive driving / driver improvement，或雇主/保险要看驾驶记录时，不要只问“能不能消分”。不同州把驾驶记录、扣分、课程、保险折扣、停牌和商业驾照规则分得很细。',
@@ -14428,7 +14692,9 @@ export const topics: TopicGuide[] = [
     slug: 'driver-license-suspension-reinstatement-sr22',
     title: '驾照被 suspend 或 revoke 后，恢复驾驶资格先做什么',
     eyebrow: '恢复驾照',
-    reviewedAt: '2026-07-13',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       '收到 suspension、revocation、cancellation、denial、reinstatement 或 SR-22 / FR-44 通知时，先不要只问“交多少钱”。恢复驾驶资格通常要同时看 DMV status、法院或发起机构 clearance、保险/financial responsibility、课程、测试、等待期和恢复费用。',
     whoNeedsIt: [
@@ -14461,13 +14727,13 @@ export const topics: TopicGuide[] = [
       '第三步：如果涉及法院，先完成 court requirements 并确认 court / reporting agency 会向 DMV 回传 clearance；付款和回传之间可能有延迟。',
       '第四步：如果涉及保险或 financial responsibility，确认是普通 proof of insurance、SR-22、FR-44，还是 registration/plate 相关证明；让保险公司按州要求电子提交或出具证明。',
       '第五步：如果涉及课程、IID、hearing、medical review 或测试，按官方 letter 列出的项目逐项完成，不要只缴 reinstatement fee。',
-      '第六步：所有要求完成后再缴 DMV/RMV/DPS/MVC restoration / reinstatement / termination fee，并重新查 status。只有官方 status 恢复后，才把自己当作可以驾驶。',
+      '第六步：严格按个人 order 或 restoration letter 规定的顺序提交文件、clearance 和费用；有的州允许先缴费，有的要求先完成其他项目。最后重新查官方 status，确认已经恢复后再驾驶。',
     ],
     faqs: [
       {
         question: 'suspended 和 revoked 有什么区别？',
         answer:
-          '按州表述不同，但通常 suspended 是驾驶资格暂时被拿走；revoked 更严重，可能表示 license 被取消，期满后还要重新申请或请求 DMV approval。纽约 DMV 就明确说 revoked 后很多情况下要先 request approval，可能还要重考和缴 re-application fee。',
+          '法律效果和恢复流程按州而异，不能只用“哪个更严重”概括。以纽约为例，suspension 是在一定期间或完成指定动作前拿走驾驶资格；revocation 则表示 license 被取消，期满后通常还要请求 DMV approval、重新申请，并可能重考或缴 re-application fee。',
       },
       {
         question: '我交了 reinstatement fee，为什么状态还没恢复？',
@@ -14558,6 +14824,14 @@ export const topics: TopicGuide[] = [
         sourceUrls: [
           'https://dds.georgia.gov/georgia-licenseid/violations-suspensions-revocations',
           'https://dol.wa.gov/driver-licenses-and-permits/suspended-driver-license',
+          'https://www.nj.gov/mvc/license/suspension.htm',
+        ],
+      },
+      {
+        claim:
+          '驾照或 driving privilege 被暂停、撤销时，付款收据本身不代表可以驾驶：New York 要求满足 suspension 条件并持有有效 license，New Jersey 要求等到收到书面 restoration notice。',
+        sourceUrls: [
+          'https://dmv.ny.gov/points-and-penalties/suspensions-and-revocations',
           'https://www.nj.gov/mvc/license/suspension.htm',
         ],
       },
@@ -14705,6 +14979,8 @@ export const topics: TopicGuide[] = [
     slug: 'renewal-replacement-address',
     title: '续期、补证、地址变更先后顺序',
     eyebrow: '线上服务',
+    publishedAt: '2026-07-13',
+    modifiedAt: '2026-07-13',
     reviewedAt: '2026-07-13',
     description:
       '最常见的坑是顺序错了：搬家后直接补证，结果新卡寄到旧地址；想线上续期，系统又因为 REAL ID、身份状态或过期时间把你挡住。',

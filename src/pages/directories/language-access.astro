@@ -1,4 +1,5 @@
 ---
+import { SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
@@ -163,7 +164,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 考试语言、翻译和口译入口表" description="按州查找 DMV 笔试语言、中文/多语言考试、文件翻译、口译请求、driver manual 和 English-only / CDL 限制。" updatedAt={REVIEW_DATE} schema={schema}>
+<BaseLayout title="DMV 考试语言、翻译和口译入口表" description="按州查找 DMV 笔试语言、中文/多语言考试、文件翻译、口译请求、driver manual 和 English-only / CDL 限制。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE} schema={schema}>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">

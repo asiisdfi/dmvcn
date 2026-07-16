@@ -1,11 +1,11 @@
 ---
 import { ArrowRight, ShieldAlert } from '@lucide/astro/icons';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ContentMeta from '../../../components/ContentMeta.astro';
+import EditorialDisclosure from '../../../components/EditorialDisclosure.astro';
 import OfficialLinkButton from '../../../components/OfficialLinkButton.astro';
-import ReviewBadge from '../../../components/ReviewBadge.astro';
 import SourceList from '../../../components/SourceList.astro';
 import {
-  REVIEW_DATE,
   SITE,
   federalSources,
   getStatePublicStatus,
@@ -14,6 +14,7 @@ import {
   uniqueSources,
   type StateGuide,
 } from '../../../data/content';
+import { EDITORIAL_AUTHOR } from '../../../data/editorial';
 
 export function getStaticPaths() {
   return states.map((state) => ({
@@ -28,7 +29,6 @@ const realIdSource = state.actionLinks[0];
 const accessStatus = state.accessStatus ? getStatePublicStatus(state) : undefined;
 const title = `${state.nameZh} REAL ID 中文材料清单`;
 const description = `${state.nameZh} REAL ID 中文清单：材料类别、办理顺序、常见错误和官方来源。`;
-const reviewedAt = state.reviewedAt ?? REVIEW_DATE;
 const officialSources = uniqueSources([...state.sources, ...federalSources]);
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const realIdDecisions = [
@@ -97,17 +97,20 @@ const schema = [
     headline: title,
     description,
     mainEntityOfPage: pageUrl,
-    dateModified: reviewedAt,
-    datePublished: reviewedAt,
+    dateModified: state.modifiedAt,
+    datePublished: state.publishedAt,
     inLanguage: 'zh-Hans',
     isAccessibleForFree: true,
     author: {
       '@type': 'Organization',
-      name: SITE.name,
+      name: EDITORIAL_AUTHOR.name,
+      url: new URL(EDITORIAL_AUTHOR.path, Astro.site).toString(),
     },
     publisher: {
       '@type': 'Organization',
       name: SITE.name,
+      url: new URL('/', Astro.site).toString(),
+      logo: new URL('/assets/dmvcn-logo.png', Astro.site).toString(),
     },
     about: [`${state.nameEn} REAL ID`, `${state.nameEn} DMV`, 'REAL ID documents'],
     citation: officialSources.map((source) => source.url),
@@ -155,7 +158,14 @@ const schema = [
 ];
 ---
 
-<BaseLayout title={title} description={description} updatedAt={reviewedAt} schema={schema}>
+<BaseLayout
+  title={title}
+  description={description}
+  publishedAt={state.publishedAt}
+  modifiedAt={state.modifiedAt}
+  reviewedAt={state.reviewedAt}
+  schema={schema}
+>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">
@@ -165,7 +175,7 @@ const schema = [
       <h1>{state.nameZh} REAL ID 中文材料清单</h1>
       <p class="lead">{state.realIdSummary}</p>
       <div class="article-meta">
-        <ReviewBadge date={state.reviewedAt} />
+        <ContentMeta publishedAt={state.publishedAt} modifiedAt={state.modifiedAt} reviewedAt={state.reviewedAt} />
         <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
     </div>
@@ -290,6 +300,7 @@ const schema = [
         </div>
       </section>
 
+      <EditorialDisclosure />
       <SourceList sources={officialSources} />
     </article>
 

@@ -1,11 +1,11 @@
 ---
 import { ArrowRight, ShieldAlert } from '@lucide/astro/icons';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ContentMeta from '../../../components/ContentMeta.astro';
+import EditorialDisclosure from '../../../components/EditorialDisclosure.astro';
 import OfficialLinkButton from '../../../components/OfficialLinkButton.astro';
-import ReviewBadge from '../../../components/ReviewBadge.astro';
 import SourceList from '../../../components/SourceList.astro';
 import {
-  REVIEW_DATE,
   SITE,
   getPublicEditorialNotes,
   getStatePublicStatus,
@@ -14,6 +14,7 @@ import {
   uniqueSources,
   type StateGuide,
 } from '../../../data/content';
+import { EDITORIAL_AUTHOR } from '../../../data/editorial';
 
 export function getStaticPaths() {
   return states.map((state) => ({
@@ -28,7 +29,6 @@ const accessStatus = state.accessStatus ? getStatePublicStatus(state) : undefine
 const publicNotes = getPublicEditorialNotes(state.editorNotes);
 const title = `${state.nameZh} DMV / 驾照 / REAL ID 办事总览`;
 const description = `${state.nameZh} DMV 中文办事总览：官方入口、REAL ID、驾照、地址变更、预约和常见材料提醒。`;
-const reviewedAt = state.reviewedAt ?? REVIEW_DATE;
 const officialSources = uniqueSources(state.sources);
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const linkLabel = (link: StateGuide['actionLinks'][number]) => link.label.toLowerCase();
@@ -121,17 +121,20 @@ const schema = [
     headline: title,
     description,
     mainEntityOfPage: pageUrl,
-    dateModified: reviewedAt,
-    datePublished: reviewedAt,
+    dateModified: state.modifiedAt,
+    datePublished: state.publishedAt,
     inLanguage: 'zh-Hans',
     isAccessibleForFree: true,
     author: {
       '@type': 'Organization',
-      name: SITE.name,
+      name: EDITORIAL_AUTHOR.name,
+      url: new URL(EDITORIAL_AUTHOR.path, Astro.site).toString(),
     },
     publisher: {
       '@type': 'Organization',
       name: SITE.name,
+      url: new URL('/', Astro.site).toString(),
+      logo: new URL('/assets/dmvcn-logo.png', Astro.site).toString(),
     },
     about: [`${state.nameEn} DMV`, `${state.nameEn} driver license`, `${state.nameEn} REAL ID`],
     citation: officialSources.map((source) => source.url),
@@ -173,7 +176,14 @@ const schema = [
 ];
 ---
 
-<BaseLayout title={title} description={description} updatedAt={reviewedAt} schema={schema}>
+<BaseLayout
+  title={title}
+  description={description}
+  publishedAt={state.publishedAt}
+  modifiedAt={state.modifiedAt}
+  reviewedAt={state.reviewedAt}
+  schema={schema}
+>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">
@@ -183,7 +193,7 @@ const schema = [
       <h1>{state.nameZh} DMV 办事总览</h1>
       <p class="lead">{state.summary}</p>
       <div class="article-meta">
-        <ReviewBadge date={state.reviewedAt} />
+        <ContentMeta publishedAt={state.publishedAt} modifiedAt={state.modifiedAt} reviewedAt={state.reviewedAt} />
         <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
     </div>
@@ -306,6 +316,7 @@ const schema = [
         </div>
       </section>
 
+      <EditorialDisclosure />
       <SourceList sources={officialSources} />
     </article>
 

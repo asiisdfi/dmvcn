@@ -1,0 +1,74 @@
+---
+import { ArrowRight, Bot, FileSearch, ShieldCheck, UserRoundCheck } from '@lucide/astro/icons';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentMeta from '../components/ContentMeta.astro';
+import { EDITORIAL_AUTHOR, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE } from '../data/editorial';
+---
+
+<BaseLayout
+  title="AI 使用说明"
+  description="DMV中文办事库如何使用 AI 和自动化工具，以及哪些工作不能交给 AI 决定。"
+  publishedAt={EDITORIAL_POLICY_DATE}
+  modifiedAt={EDITORIAL_POLICY_DATE}
+  reviewedAt={EDITORIAL_POLICY_DATE}
+>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>AI 使用说明</span></nav>
+      <p class="eyebrow">How content is made</p>
+      <h1>AI 使用说明</h1>
+      <p class="lead">本站使用 AI 和自动化工具提升资料整理与检查效率，但不会把模型输出当作政府规则、专业意见或亲身经验。</p>
+      <div class="article-meta">
+        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_DATE} reviewedAt={EDITORIAL_POLICY_DATE} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section policy-layout">
+    <div class="article-stack">
+      <section class="panel">
+        <div class="policy-heading"><Bot size={22} aria-hidden="true" /><h2>可以辅助的工作</h2></div>
+        <ul class="check-list">
+          <li>整理大量政府页面中的主题和入口，发现可能需要复核的差异。</li>
+          <li>把已确认的事实组织成中文清单、步骤、FAQ 和对比表初稿。</li>
+          <li>检查重复内容、缺少字段、内部链接、结构化数据和页面一致性。</li>
+          <li>监测官方链接状态，为编辑复核提供线索。</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="policy-heading"><ShieldCheck size={22} aria-hidden="true" /><h2>不能作为依据的工作</h2></div>
+        <ul class="plain-list">
+          <li>AI 回答、搜索摘要或自动翻译不能单独证明费用、期限、材料或资格。</li>
+          <li>模型不能替用户判断移民身份、法律责任、保险责任或驾照是否有效。</li>
+          <li>模型生成的引用必须实际打开并确认；打不开或不支持正文结论时不得保留。</li>
+          <li>不得生成虚构作者、专业资历、采访、案例、用户评价或亲身办理经历。</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="policy-heading"><FileSearch size={22} aria-hidden="true" /><h2>发布前检查</h2></div>
+        <ol class="step-list">
+          <li>关键事实必须落到政府官方 URL。</li>
+          <li>中文表述必须与来源的适用范围一致。</li>
+          <li>高风险结论必须显示来源映射和不确定性边界。</li>
+          <li>页面通过内容、SEO、链接、结构和日期审计。</li>
+          <li>高风险页面只有在真实人员逐句复查并登记签字后，才会在内部台账标为人工通过。</li>
+        </ol>
+      </section>
+
+      <section class="notice">
+        <UserRoundCheck size={22} aria-hidden="true" />
+        <div>
+          <strong>核查状态不会混写</strong>
+          <p>{EDITORIAL_AUTHOR.name} 对发布内容、纠错和更新负责。AI 辅助证据核对会明确记录为 AI 辅助；自动化工具不会被列为作者、人工审核者或专业审核者。</p>
+        </div>
+      </section>
+
+      <nav class="policy-links" aria-label="相关政策">
+        <a href={EDITORIAL_LINKS.policy}>编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_AUTHOR.path}>编辑部介绍 <ArrowRight size={15} aria-hidden="true" /></a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

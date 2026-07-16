@@ -1,0 +1,72 @@
+---
+import { ArrowRight, CheckCircle2, Mail, ShieldAlert } from '@lucide/astro/icons';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentMeta from '../components/ContentMeta.astro';
+import { SITE } from '../data/content';
+import { EDITORIAL_LINKS, EDITORIAL_POLICY_DATE } from '../data/editorial';
+
+const contactEmail = SITE.contactEmail.trim();
+const hasContactEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail);
+---
+
+<BaseLayout
+  title="纠错政策"
+  description="如何向 DMV中文办事库报告错误、失效链接或官方要求变化，以及本站如何核对、修正和记录变更。"
+  publishedAt={EDITORIAL_POLICY_DATE}
+  modifiedAt={EDITORIAL_POLICY_DATE}
+  reviewedAt={EDITORIAL_POLICY_DATE}
+>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>纠错政策</span></nav>
+      <p class="eyebrow">Corrections policy</p>
+      <h1>纠错政策</h1>
+      <p class="lead">DMV 规则会变化。我们欢迎读者用官方来源指出错误，并公开记录会影响办事判断的实质修正。</p>
+      <div class="article-meta">
+        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_DATE} reviewedAt={EDITORIAL_POLICY_DATE} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section policy-layout">
+    <div class="article-stack">
+      <section class="panel">
+        <div class="policy-heading"><Mail size={22} aria-hidden="true" /><h2>怎样提交</h2></div>
+        <ul class="check-list">
+          <li>提供本站页面 URL 和需要修改的具体句子或字段。</li>
+          <li>附上政府机构的官方页面、公告或表格链接。</li>
+          <li>说明你看到的差异，例如费用、期限、资格、入口或材料发生变化。</li>
+        </ul>
+        {hasContactEmail ? (
+          <p>发送到 <a class="text-link" href={`mailto:${contactEmail}?subject=DMV中文办事库内容纠错`}>{contactEmail}</a>。请勿发送 SSN、驾照号码、护照、住址文件或移民材料。</p>
+        ) : (
+          <p>维护邮箱尚未公开；启用域名邮箱后，本页会显示正式纠错入口。</p>
+        )}
+      </section>
+
+      <section class="panel">
+        <div class="policy-heading"><CheckCircle2 size={22} aria-hidden="true" /><h2>怎样处理</h2></div>
+        <ol class="step-list">
+          <li>确认反馈对应的页面、业务类型和适用州。</li>
+          <li>直接打开主管政府机构来源，必要时与第二个官方来源交叉核对。</li>
+          <li>修改事实、风险提示、来源映射和相关页面。</li>
+          <li>更新内容修改日期；只有完成官方来源复核时才更新事实核对日期。</li>
+          <li>会改变用户行动的修正写入公开更新记录。</li>
+        </ol>
+      </section>
+
+      <section class="notice">
+        <ShieldAlert size={22} aria-hidden="true" />
+        <div>
+          <strong>紧急问题请直接联系官方机构</strong>
+          <p>本站不能处理预约、驾照状态、罚单、暂停记录或个人材料。若错误可能影响即将到期的业务，请先使用页面中的官方入口联系主管机构。</p>
+        </div>
+      </section>
+
+      <nav class="policy-links" aria-label="相关政策">
+        <a href={EDITORIAL_LINKS.updates}>查看更新记录 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_LINKS.policy}>查看编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

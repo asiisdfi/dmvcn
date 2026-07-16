@@ -3,6 +3,7 @@ import { ArrowRight, BadgeCheck, CalendarDays, CarFront, CircleAlert, IdCard, Ma
 import ServiceFinder from '../components/ServiceFinder.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { REVIEW_DATE, SITE, states } from '../data/content';
+import { SITE_LAUNCH_DATE } from '../data/editorial';
 const launchTasks = [
   {
     label: '登机要用驾照',
@@ -316,7 +317,13 @@ const popularStateIds = new Set([
 const popularStates = states.filter((state) => popularStateIds.has(state.id));
 ---
 
-<BaseLayout title="美国 DMV / REAL ID 中文办事信息库" description={SITE.description} updatedAt={REVIEW_DATE}>
+<BaseLayout
+  title="美国 DMV / REAL ID 中文办事信息库"
+  description={SITE.description}
+  publishedAt={SITE_LAUNCH_DATE}
+  modifiedAt={SITE_LAUNCH_DATE}
+  reviewedAt={REVIEW_DATE}
+>
   <section class="finder-band">
     <div class="section">
       <ServiceFinder />

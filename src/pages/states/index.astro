@@ -3,12 +3,19 @@ import { ArrowRight } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
 import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
+import { SITE_LAUNCH_DATE } from '../../data/editorial';
 
 const readyStates = states.filter((state) => getStatePublicStatus(state).tone === 'ready');
 const manualCheckStates = states.filter((state) => ['watch', 'risk'].includes(getStatePublicStatus(state).tone));
 ---
 
-<BaseLayout title="州 DMV 指南" description="按州查找 DMV、REAL ID、驾照、地址变更、预约和线上服务入口。" updatedAt={REVIEW_DATE}>
+<BaseLayout
+  title="州 DMV 指南"
+  description="按州查找 DMV、REAL ID、驾照、地址变更、预约和线上服务入口。"
+  publishedAt={SITE_LAUNCH_DATE}
+  modifiedAt={SITE_LAUNCH_DATE}
+  reviewedAt={REVIEW_DATE}
+>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>州指南</span></nav>

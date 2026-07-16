@@ -1,0 +1,90 @@
+---
+import { ArrowRight, BadgeCheck, BookOpenCheck, Scale, Wrench } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentMeta from '../../components/ContentMeta.astro';
+import { SITE } from '../../data/content';
+import { EDITORIAL_AUTHOR, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE } from '../../data/editorial';
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const schema = {
+  '@type': 'ProfilePage',
+  dateCreated: EDITORIAL_POLICY_DATE,
+  dateModified: EDITORIAL_POLICY_DATE,
+  mainEntity: {
+    '@type': 'Organization',
+    name: EDITORIAL_AUTHOR.name,
+    url: pageUrl,
+    description: EDITORIAL_AUTHOR.description,
+    memberOf: {
+      '@type': 'Organization',
+      name: SITE.name,
+      url: new URL('/', Astro.site).toString(),
+    },
+  },
+};
+---
+
+<BaseLayout
+  title={EDITORIAL_AUTHOR.name}
+  description="了解 DMV中文办事库编辑部的职责、能力边界、资料整理方法和纠错渠道。"
+  publishedAt={EDITORIAL_POLICY_DATE}
+  modifiedAt={EDITORIAL_POLICY_DATE}
+  reviewedAt={EDITORIAL_POLICY_DATE}
+  schema={schema}
+>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><a href="/about/">关于</a><span>/</span><span>编辑部</span></nav>
+      <p class="eyebrow">内容责任人</p>
+      <h1>{EDITORIAL_AUTHOR.name}</h1>
+      <p class="lead">{EDITORIAL_AUTHOR.description}</p>
+      <div class="article-meta">
+        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_DATE} reviewedAt={EDITORIAL_POLICY_DATE} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section policy-layout">
+    <div class="article-stack">
+      <section class="panel">
+        <div class="policy-heading"><BookOpenCheck size={22} aria-hidden="true" /><h2>负责什么</h2></div>
+        <ul class="check-list">
+          <li>从美国联邦、州政府和 DMV / DPS / RMV / MVC / DOL 等官方页面确认办事信息。</li>
+          <li>把分散的英文资料整理成中文判断路径、材料类别、办理顺序、常见失败原因和官方入口。</li>
+          <li>为费用、期限、身份、资格和法律后果等高风险事实保留可追溯来源。</li>
+          <li>维护链接、更新日期、纠错记录和页面之间的内容边界。</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="policy-heading"><Scale size={22} aria-hidden="true" /><h2>能力与身份边界</h2></div>
+        <p>{EDITORIAL_AUTHOR.limitations}</p>
+        <p>页面只解释公开资料和办事路径。遇到行政听证、刑事处罚、移民身份、事故责任、税务或保险合同争议时，读者应联系对应政府机构或具备相关执业资格的专业人士。</p>
+      </section>
+
+      <section class="panel">
+        <div class="policy-heading"><Wrench size={22} aria-hidden="true" /><h2>工作方法</h2></div>
+        <ol class="step-list">
+          <li>先确定用户要完成的具体任务和可能造成损失的错误。</li>
+          <li>优先读取官方机构的业务页、表格说明、FAQ 和法规实施说明。</li>
+          <li>把关键事实连接到对应来源，不把搜索摘要、AI 输出或其他中文网站当成最终证据。</li>
+          <li>完成中文编辑、风险措辞检查、链接检查和构建审计后再发布。</li>
+        </ol>
+      </section>
+
+      <section class="notice">
+        <BadgeCheck size={22} aria-hidden="true" />
+        <div>
+          <strong>不虚构个人资历</strong>
+          <p>本站目前以编辑组织署名，不展示不存在的律师、移民顾问、DMV 员工或“亲身办理专家”身份。未来如有实名专业审核，会单独列出审核者、资历、审核范围和日期。</p>
+        </div>
+      </section>
+
+      <nav class="policy-links" aria-label="相关编辑政策">
+        <a href={EDITORIAL_LINKS.policy}>查看编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_LINKS.ai}>查看 AI 使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_LINKS.corrections}>提交内容纠错 <ArrowRight size={15} aria-hidden="true" /></a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

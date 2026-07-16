@@ -1,0 +1,91 @@
+---
+import { AlertTriangle, ArrowRight, FileCheck2, RefreshCw, SearchCheck } from '@lucide/astro/icons';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentMeta from '../components/ContentMeta.astro';
+import { EDITORIAL_AUTHOR, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE } from '../data/editorial';
+
+const schema = {
+  '@type': 'Article',
+  headline: 'DMV中文办事库编辑政策',
+  description: '说明本站如何选题、核对官方来源、处理高风险事实、使用自动化工具和更新内容。',
+  datePublished: EDITORIAL_POLICY_DATE,
+  dateModified: EDITORIAL_POLICY_DATE,
+  author: {
+    '@type': 'Organization',
+    name: EDITORIAL_AUTHOR.name,
+    url: new URL(EDITORIAL_AUTHOR.path, Astro.site).toString(),
+  },
+};
+---
+
+<BaseLayout
+  title="编辑政策"
+  description="DMV中文办事库编辑政策：选题、官方来源、事实核对、风险分级、更新和发布门禁。"
+  publishedAt={EDITORIAL_POLICY_DATE}
+  modifiedAt={EDITORIAL_POLICY_DATE}
+  reviewedAt={EDITORIAL_POLICY_DATE}
+  schema={schema}
+>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>编辑政策</span></nav>
+      <p class="eyebrow">Publishing principles</p>
+      <h1>编辑政策</h1>
+      <p class="lead">我们的目标不是重写 DMV 官网，而是帮助中文用户做出下一步判断，同时让每项重要要求都能回到官方来源核对。</p>
+      <div class="article-meta">
+        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_DATE} reviewedAt={EDITORIAL_POLICY_DATE} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section policy-layout">
+    <div class="article-stack">
+      <section class="panel">
+        <div class="policy-heading"><SearchCheck size={22} aria-hidden="true" /><h2>选题标准</h2></div>
+        <p>页面必须对应真实办事任务，例如判断证件类型、准备材料、选择线上或现场路径、处理失败原因或找到官方入口。只有搜索量、没有独立用户价值的关键词，不单独建页。</p>
+      </section>
+
+      <section class="panel">
+        <div class="policy-heading"><FileCheck2 size={22} aria-hidden="true" /><h2>来源优先级</h2></div>
+        <ol class="step-list">
+          <li>联邦或州政府业务主管机构的正式页面、表格和说明。</li>
+          <li>USA.gov 等政府目录，用于确认机构和备用入口。</li>
+          <li>政府公告、FAQ、手册和可下载文件，用于补充细节。</li>
+          <li>新闻、论坛、搜索摘要和其他网站只能提供选题线索，不能作为办事要求的最终依据。</li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <div class="policy-heading"><AlertTriangle size={22} aria-hidden="true" /><h2>高风险事实</h2></div>
+        <p>费用、期限、资格、身份文件、SSN、非公民路径、暂停或恢复驾照、处罚、车辆所有权和法律后果属于高风险事实。发布时必须：</p>
+        <ul class="check-list">
+          <li>在正文附近显示对应官方来源，而不只是页尾放一批链接。</li>
+          <li>区分联邦规则、州规则、一般方向和个案例外。</li>
+          <li>避免“保证、一定、所有人、永久有效”等超过来源支持范围的表述。</li>
+          <li>无法确认时明确标注不确定性，并把用户送回官方机构。</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="policy-heading"><RefreshCw size={22} aria-hidden="true" /><h2>日期和更新</h2></div>
+        <dl class="definition-list">
+          <div><dt>首次发布</dt><dd>页面第一次公开提供的日期，后续更新不会覆盖。</dd></div>
+          <div><dt>内容更新</dt><dd>页面正文、结论、结构或来源发生实质变化的日期。</dd></div>
+          <div><dt>事实核对</dt><dd>编辑部最后一次回到官方来源确认关键要求的日期。</dd></div>
+        </dl>
+        <p>只改拼写、样式或构建代码时，不会把事实核对日期伪装成最新日期。具体变更会记录在<a class="text-link" href={EDITORIAL_LINKS.updates}>更新记录</a>。</p>
+      </section>
+
+      <section class="panel">
+        <h2>发布门禁</h2>
+        <p>新增或重大更新页面必须通过来源、作者、三类日期、结构化数据、内部链接、移动端和 E-E-A-T 台账检查。AI 辅助证据核对与真实人工签字会分开记录；高风险页面只有完成真实人员的逐条语义复查后，才会在台账中标为通过。</p>
+      </section>
+
+      <nav class="policy-links" aria-label="相关政策">
+        <a href={EDITORIAL_AUTHOR.path}>编辑部介绍 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_LINKS.ai}>AI 使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_LINKS.corrections}>纠错政策 <ArrowRight size={15} aria-hidden="true" /></a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

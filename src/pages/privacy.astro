@@ -1,8 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
 ---
 
-<BaseLayout title="隐私政策" description="DMV中文办事库隐私政策，说明本站不会收集身份证件、驾照、SSN 或移民文件等敏感材料。">
+<BaseLayout
+  title="隐私政策"
+  description="DMV中文办事库隐私政策，说明本站不会收集身份证件、驾照、SSN 或移民文件等敏感材料。"
+  publishedAt={SITE_LAUNCH_DATE}
+  modifiedAt={EDITORIAL_POLICY_DATE}
+  reviewedAt={EDITORIAL_POLICY_DATE}
+>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>隐私政策</span></nav>

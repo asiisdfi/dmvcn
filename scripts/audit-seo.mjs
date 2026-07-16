@@ -97,6 +97,22 @@ for (const file of htmlFiles) {
     errors.push(`${file.relative}: missing article modified time`);
   }
 
+  if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !html.includes('article:published_time')) {
+    errors.push(`${file.relative}: missing article published time`);
+  }
+
+  if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !html.includes('content-review-date')) {
+    errors.push(`${file.relative}: missing content review date`);
+  }
+
+  if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !html.includes('rel="author"')) {
+    errors.push(`${file.relative}: missing visible author link`);
+  }
+
+  if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !html.includes('content-meta')) {
+    errors.push(`${file.relative}: missing visible publication, modification, and review dates`);
+  }
+
   if (isStateContentPage(file.relative) && !html.includes('"@type":"Article"')) {
     errors.push(`${file.relative}: missing Article schema`);
   }
@@ -111,6 +127,10 @@ for (const file of htmlFiles) {
 
   if (isTopicContentPage(file.relative) && !html.includes('"@type":"FAQPage"')) {
     errors.push(`${file.relative}: missing FAQPage schema`);
+  }
+
+  if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !/"author":\{"@type":"Organization","name":"DMV中文办事库编辑部","url":"https?:\/\//.test(html)) {
+    errors.push(`${file.relative}: Article author must identify the editorial team and author URL`);
   }
 }
 

@@ -1,17 +1,27 @@
 ---
+import { ArrowRight } from '@lucide/astro/icons';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ReviewBadge from '../components/ReviewBadge.astro';
+import ContentMeta from '../components/ContentMeta.astro';
 import { SITE } from '../data/content';
+import { EDITORIAL_AUTHOR, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
 ---
 
-<BaseLayout title="关于" description="关于 DMV中文办事库：非政府中文信息整理站，帮助用户查找官方 DMV 和 REAL ID 信息。">
+<BaseLayout
+  title="关于"
+  description="关于 DMV中文办事库：非政府中文信息整理站，帮助用户查找官方 DMV 和 REAL ID 信息。"
+  publishedAt={SITE_LAUNCH_DATE}
+  modifiedAt={EDITORIAL_POLICY_DATE}
+  reviewedAt={EDITORIAL_POLICY_DATE}
+>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>关于</span></nav>
       <p class="eyebrow">关于</p>
       <h1>关于 {SITE.name}</h1>
       <p class="lead">本站把美国 DMV、REAL ID、驾照和地址变更信息整理成中文清单，帮助用户更快找到官方入口。</p>
-      <ReviewBadge />
+      <div class="article-meta">
+        <ContentMeta publishedAt={SITE_LAUNCH_DATE} modifiedAt={EDITORIAL_POLICY_DATE} reviewedAt={EDITORIAL_POLICY_DATE} />
+      </div>
     </div>
   </section>
 
@@ -33,6 +43,16 @@ import { SITE } from '../data/content';
         <h2>工具使用边界</h2>
         <p>本站会使用自动化工具辅助整理链接、检查页面结构和发现重复内容，但工具输出本身不作为事实来源。页面中的办事要求应由列出的政府机构或官方服务页面支持。</p>
       </section>
+      <section class="panel">
+        <h2>谁对内容负责</h2>
+        <p>内容由 {EDITORIAL_AUTHOR.name} 整理和维护。本站不会虚构个人资历或专业审核；编辑职责、能力边界和工作方法会公开说明。</p>
+      </section>
+      <nav class="policy-links" aria-label="网站信任信息">
+        <a href={EDITORIAL_AUTHOR.path}>编辑部介绍 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_LINKS.policy}>编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_LINKS.ai}>AI 使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_LINKS.corrections}>纠错政策 <ArrowRight size={15} aria-hidden="true" /></a>
+      </nav>
     </div>
   </section>
 </BaseLayout>

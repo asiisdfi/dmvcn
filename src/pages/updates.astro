@@ -1,0 +1,50 @@
+---
+import { ArrowRight, History } from '@lucide/astro/icons';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentMeta from '../components/ContentMeta.astro';
+import { EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE, editorialUpdates } from '../data/editorial';
+
+const latestUpdate = editorialUpdates[0]?.date ?? EDITORIAL_POLICY_DATE;
+---
+
+<BaseLayout
+  title="内容更新记录"
+  description="查看 DMV中文办事库的重要内容修正、官方来源变化、编辑政策调整和质量维护机制更新记录。"
+  publishedAt={SITE_LAUNCH_DATE}
+  modifiedAt={latestUpdate}
+  reviewedAt={latestUpdate}
+>
+  <section class="page-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>更新记录</span></nav>
+      <p class="eyebrow">Changelog</p>
+      <h1>内容更新记录</h1>
+      <p class="lead">这里记录会影响内容可信度、用户判断或站点维护方式的重要变化。纯样式调整和无关代码整理不会伪装成内容更新。</p>
+      <div class="article-meta">
+        <ContentMeta publishedAt={SITE_LAUNCH_DATE} modifiedAt={latestUpdate} reviewedAt={latestUpdate} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section policy-layout">
+    <div class="update-timeline">
+      {editorialUpdates.map((update) => (
+        <article class="update-entry">
+          <div class="update-date"><History size={17} aria-hidden="true" /><time datetime={update.date}>{update.date}</time></div>
+          <div>
+            <h2>{update.title}</h2>
+            <p>{update.summary}</p>
+            <ul class="tag-list" aria-label="变更范围">
+              {update.scope.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <nav class="policy-links" aria-label="相关政策">
+      <a href={EDITORIAL_LINKS.corrections}>报告错误 <ArrowRight size={15} aria-hidden="true" /></a>
+      <a href={EDITORIAL_LINKS.policy}>查看编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
+    </nav>
+  </section>
+</BaseLayout>

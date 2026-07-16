@@ -85,6 +85,21 @@ npm run audit:content
 
 脚本会检查每个州和专题是否有核对日期、足够的材料清单、流程、官方入口、官方来源，以及 related topic / related state 是否真实存在。
 
+## E-E-A-T 内容台账
+
+```sh
+npm run build
+npm run audit:eeat
+```
+
+脚本会为全部可索引页面生成 `reports/eeat-inventory.json` 和 `reports/eeat-inventory.csv`，记录页面类型、风险等级、八项分数、作者和日期信号、事实来源映射，以及 `pending`、`ai-assisted`、`human-approved` 三种核查状态。AI 辅助证据核对不会被统计成人工审核；高风险页面没有真实人员签字时仍保持阻塞。普通模式用于持续盘点并阻止结构性关键错误；全部页面整改完成后使用 `npm run audit:eeat:strict` 作为最终门禁。
+
+执行标准、90 天计划和月度 Search Console 流程分别见：
+
+- `docs/EEAT_STANDARD.md`
+- `docs/CONTENT_PLAN_90_DAYS.md`
+- `docs/MONTHLY_SEARCH_CONSOLE_REVIEW.md`
+
 ## SEO 体检
 
 ```sh

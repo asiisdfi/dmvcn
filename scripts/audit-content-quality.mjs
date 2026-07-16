@@ -85,7 +85,10 @@ for (const state of states) {
   assertUsefulText(state.nameZh, `${label}: nameZh`, 2);
   assertUsefulText(state.agency, `${label}: agency`, 4);
   assertUrl(state.agencyUrl, `${label}: agencyUrl`);
+  assertDate(state.publishedAt, `${label}: publishedAt`);
+  assertDate(state.modifiedAt, `${label}: modifiedAt`);
   assertDate(state.reviewedAt, `${label}: reviewedAt`);
+  assert(state.modifiedAt >= state.publishedAt, `${label}: modifiedAt cannot be earlier than publishedAt`);
   assertUsefulText(state.summary, `${label}: summary`, 35);
   assertUsefulText(state.realIdSummary, `${label}: realIdSummary`, 35);
   assertUsefulText(state.licenseSummary, `${label}: licenseSummary`, 35);
@@ -123,7 +126,10 @@ for (const topic of topics) {
   assertUsefulText(topic.slug, `${label}: slug`);
   assertUsefulText(topic.title, `${label}: title`, 8);
   assertUsefulText(topic.eyebrow, `${label}: eyebrow`, 2);
+  assertDate(topic.publishedAt, `${label}: publishedAt`);
+  assertDate(topic.modifiedAt, `${label}: modifiedAt`);
   assertDate(topic.reviewedAt, `${label}: reviewedAt`);
+  assert(topic.modifiedAt >= topic.publishedAt, `${label}: modifiedAt cannot be earlier than publishedAt`);
   assertUsefulText(topic.description, `${label}: description`, 35);
 
   assertStringList(topic.whoNeedsIt, `${label}: whoNeedsIt`, 2);

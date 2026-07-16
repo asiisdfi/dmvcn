@@ -1,0 +1,5820 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-16T20:51:24.892Z",
+    "threshold": 85,
+    "strict": false,
+    "pages": 164,
+    "passed": 11,
+    "belowThreshold": 100,
+    "evidenceReviewPending": 148,
+    "aiAssistedReviews": 5,
+    "humanApprovedReviews": 0,
+    "highRiskHumanApprovalPending": 17,
+    "criticalPages": 0,
+    "blockedPages": 153,
+    "averageScore": 85
+  },
+  "pages": [
+    {
+      "route": "/",
+      "pageType": "collection",
+      "risk": "standard",
+      "score": 93,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 8,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/about/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/ai-policy/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/authors/editorial-team/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/contact/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/corrections/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/directories/",
+      "pageType": "collection",
+      "risk": "standard",
+      "score": 93,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 8,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/directories/appointments/",
+      "pageType": "directory",
+      "risk": "standard",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 170,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/directories/costs-timing/",
+      "pageType": "directory",
+      "risk": "high",
+      "score": 98,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 216,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/directories/deadlines/",
+      "pageType": "directory",
+      "risk": "high",
+      "score": 98,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 177,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/directories/dmv-services/",
+      "pageType": "directory",
+      "risk": "standard",
+      "score": 92,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 4,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 362,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/directories/document-rules/",
+      "pageType": "directory",
+      "risk": "high",
+      "score": 98,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 154,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/directories/foreign-license/",
+      "pageType": "directory",
+      "risk": "high",
+      "score": 98,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 125,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/directories/identity-ssn/",
+      "pageType": "directory",
+      "risk": "high",
+      "score": 98,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 125,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/directories/language-access/",
+      "pageType": "directory",
+      "risk": "standard",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 196,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/directories/new-residents/",
+      "pageType": "directory",
+      "risk": "standard",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 174,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/directories/real-id/",
+      "pageType": "directory",
+      "risk": "standard",
+      "score": 92,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 4,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 49,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/directories/service-paths/",
+      "pageType": "directory",
+      "risk": "standard",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 230,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/directories/tests-permits/",
+      "pageType": "directory",
+      "risk": "standard",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 193,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/editorial-policy/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/privacy/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/quality/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/sources/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 1006,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/states/",
+      "pageType": "collection",
+      "risk": "standard",
+      "score": 93,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 8,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/states/alabama/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/alabama/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/alaska/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/alaska/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/arizona/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/arizona/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/arkansas/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 69,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 16,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 4,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 69，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/arkansas/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 80,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 24,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 4,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 80，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/california/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 16,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/california/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 16,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/colorado/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/colorado/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/connecticut/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/connecticut/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/delaware/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/delaware/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/florida/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 15,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/florida/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 15,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/georgia/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 13,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/georgia/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 13,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/hawaii/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 71,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 18,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 71，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/hawaii/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/idaho/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/idaho/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/illinois/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 4,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/illinois/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 4,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/indiana/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 7,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/indiana/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 7,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/iowa/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/iowa/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/kansas/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/kansas/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/kentucky/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/kentucky/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/louisiana/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/louisiana/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/maine/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 71,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 18,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 71，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/maine/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/maryland/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 77,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 24,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 77，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/maryland/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/massachusetts/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 13,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/massachusetts/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 13,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/michigan/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 17,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/michigan/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 17,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/minnesota/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 69,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 16,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 3,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 69，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/minnesota/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 80,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 24,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 3,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 80，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/mississippi/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 71,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 18,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 71，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/mississippi/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/missouri/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 4,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/missouri/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 4,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/montana/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/montana/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/nebraska/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/nebraska/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/nevada/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/nevada/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/new-hampshire/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/new-hampshire/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/new-jersey/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 16,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/new-jersey/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 16,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/new-mexico/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/new-mexico/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/new-york/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 15,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/new-york/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 15,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/north-carolina/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 11,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/north-carolina/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 11,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/north-dakota/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/north-dakota/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/ohio/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/ohio/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/oklahoma/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/oklahoma/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/oregon/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 71,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 18,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 71，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/oregon/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/pennsylvania/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 11,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/pennsylvania/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 11,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/rhode-island/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/rhode-island/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/south-carolina/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/south-carolina/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/south-dakota/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 71,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 18,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 71，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/south-dakota/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/tennessee/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 71,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 18,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 71，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/tennessee/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/texas/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 15,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/texas/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 15,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/utah/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 71,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 18,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 71，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/utah/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/vermont/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/vermont/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/virginia/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 75,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 75，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/virginia/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/washington/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 78,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 17,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 78，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/washington/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 17,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/west-virginia/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/west-virginia/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/wisconsin/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 73,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 20,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 73，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/wisconsin/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 81,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 6,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 81，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/wyoming/",
+      "pageType": "state-overview",
+      "risk": "medium",
+      "score": 71,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 18,
+        "evidenceMapping": 0,
+        "taskCompletion": 12,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 71，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/states/wyoming/real-id/",
+      "pageType": "state-real-id",
+      "risk": "medium",
+      "score": 74,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 18,
+        "evidenceMapping": 0,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 5,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "州页面关键事实尚未逐条映射到对应官方来源",
+        "尚未登记逐页证据核对",
+        "自动评分 74，低于 85 分门槛"
+      ]
+    },
+    {
+      "route": "/terms/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/topics/",
+      "pageType": "collection",
+      "risk": "standard",
+      "score": 93,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 8,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": false,
+        "authorLink": false,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/airport-travel-after-real-id/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 93,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 7,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/disabled-parking-placard-plates/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 44,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/dmv-fees-mailing-temporary-license/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 14,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/dmv-scam-text-fake-ticket-toll-real-id-phishing/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 44,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/dmv-test-language-translation-interpreter/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 14,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/document-checklist/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 9,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/driver-license-suspension-reinstatement-sr22/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-17",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 suspension、revocation、恢复顺序、SR-22/FR-44 和恢复前驾驶提醒。",
+        "notes": "已修正费用顺序和 suspension/revocation 表述；高风险页面仍待真实人工语义签字。"
+      },
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 28,
+        "factCheckCount": 11,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/driving-record-points-traffic-school/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 55,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/first-driver-license-road-test/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 11,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/foreign-license-idp-transfer/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 11,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/gift-inherited-vehicle-title-transfer/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 52,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/lost-stolen-license-id-replacement-identity-theft/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 58,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/lost-stolen-license-plates-registration-card-sticker/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 43,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/lost-vehicle-title-replacement-electronic-title-lien-sale/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 94,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 12,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 19,
+        "factCheckCount": 8,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/moving-to-new-state/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 9,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/name-change-chain/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 24,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 8,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/non-citizen-license-id/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-17",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 SAVE、limited-term credential、身份文件和州级非公民办理路径。",
+        "notes": "已明确 SAVE 不决定驾照资格，并补充 additional verification 与 Texas limited-term 证据；仍待人工签字。"
+      },
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 13,
+        "factCheckCount": 12,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/older-driver-license-renewal-medical-review/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 62,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/online-office-appointment/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 12,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/proof-of-residency/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 95,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 24,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 8,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/real-id-basics/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 93,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 7,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/real-id-vs-standard-license/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 93,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 7,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/renewal-replacement-address/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 10,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/residency-proof-no-bills-po-box/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 19,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/road-test-day-vehicle-sponsor-insurance-rental-retest/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 14,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/sold-car-release-liability-plates-insurance/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 17,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/ssn-and-itin/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-17",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 SSA、IRS 以及州 DMV 对 SSN、无 SSN 和 ITIN 的适用边界。",
+        "notes": "已补充 Massachusetts 与 Florida 的州别例外；高风险页面仍待真实人工语义签字。"
+      },
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 10,
+        "factCheckCount": 11,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/standard-license-driving-privilege-no-lawful-status/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-17",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对无 lawful status 的州级证件路径、联邦用途限制和证件是否可作州内身份证明。",
+        "notes": "已纠正“所有此类证件都不能作身份证明”的过度概括；仍待人工签字。"
+      },
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 18,
+        "factCheckCount": 13,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/state-id-non-driver-id-real-id-card/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 42,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/student-temporary-resident-license-registration/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 28,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/teen-driver-permit-gdl-parent-guide/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 60,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/temporary-tag-trip-permit-dealer-plate/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 35,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/tickets-tolls-insurance-lapse-registration-hold/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-17",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 toll threshold、court clearance、insurance lapse、registration hold 和诈骗提醒。",
+        "notes": "已修正 Virginia toll invoice 条件并拆分五州保险后果；高风险页面仍待真实人工语义签字。"
+      },
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 21,
+        "factCheckCount": 13,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/used-car-title-lien-salvage-odometer-check/",
+      "pageType": "topic",
+      "risk": "high",
+      "score": 97,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 27,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对",
+        "高风险页面尚未完成人工语义签字"
+      ]
+    },
+    {
+      "route": "/topics/vehicle-inspection-emissions-smog-vin-check/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 21,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/vehicle-registration-renewal-expired-tags-non-operation/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 95,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 13.5,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 24,
+        "factCheckCount": 9,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/topics/vehicle-title-registration-insurance-after-move/",
+      "pageType": "topic",
+      "risk": "medium",
+      "score": 96,
+      "threshold": 85,
+      "pass": false,
+      "reviewStatus": "pending",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 7,
+        "authorship": 10,
+        "freshness": 10,
+        "riskLanguage": 9,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 14,
+        "factCheckCount": 10,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": true,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": [
+        "尚未登记逐页证据核对"
+      ]
+    },
+    {
+      "route": "/updates/",
+      "pageType": "trust",
+      "risk": "policy",
+      "score": 98,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "not-required",
+      "reviewMethod": null,
+      "semanticReview": null,
+      "scores": {
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 10,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 0,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "hasEditorialDisclosure": false
+      },
+      "critical": [],
+      "blockers": []
+    }
+  ]
+}

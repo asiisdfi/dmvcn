@@ -1,4 +1,5 @@
 ---
+import { SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
@@ -42,7 +43,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="50 州 DMV 常用业务入口表" description="按州查找 DMV、DPS、RMV、MVC、DDS 官方机构、REAL ID、续期、补证、地址变更、预约和线上服务入口。" updatedAt={REVIEW_DATE} schema={schema}>
+<BaseLayout title="50 州 DMV 常用业务入口表" description="按州查找 DMV、DPS、RMV、MVC、DDS 官方机构、REAL ID、续期、补证、地址变更、预约和线上服务入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE} schema={schema}>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">

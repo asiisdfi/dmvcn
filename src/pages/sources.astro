@@ -2,6 +2,7 @@
 import { ExternalLink } from '@lucide/astro/icons';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { REVIEW_DATE, federalSources, states, topics, uniqueSources } from '../data/content';
+import { SITE_LAUNCH_DATE } from '../data/editorial';
 
 type SourceEntry = {
   label: string;
@@ -61,7 +62,13 @@ const sourceGroups = [
 ];
 ---
 
-<BaseLayout title="官方来源库" description="DMV中文办事库引用的 DMV、REAL ID、TSA、USA.gov、州政府来源和官方办理入口。" updatedAt={REVIEW_DATE}>
+<BaseLayout
+  title="官方来源库"
+  description="DMV中文办事库引用的 DMV、REAL ID、TSA、USA.gov、州政府来源和官方办理入口。"
+  publishedAt={SITE_LAUNCH_DATE}
+  modifiedAt={SITE_LAUNCH_DATE}
+  reviewedAt={REVIEW_DATE}
+>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>Sources</span></nav>

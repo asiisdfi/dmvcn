@@ -1,9 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../data/content';
+import { EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
 ---
 
-<BaseLayout title="使用条款" description="DMV中文办事库使用条款，说明本站非政府网站，内容仅供中文理解和官方入口导航参考。">
+<BaseLayout
+  title="使用条款"
+  description="DMV中文办事库使用条款，说明本站非政府网站，内容仅供中文理解和官方入口导航参考。"
+  publishedAt={SITE_LAUNCH_DATE}
+  modifiedAt={EDITORIAL_POLICY_DATE}
+  reviewedAt={EDITORIAL_POLICY_DATE}
+>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>使用条款</span></nav>
