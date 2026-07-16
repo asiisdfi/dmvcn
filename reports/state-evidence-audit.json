@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:41:19.723Z",
+    "generatedAt": "2026-07-16T23:52:52.908Z",
     "pages": 100,
     "states": 50,
-    "claims": 1835,
-    "links": 2281,
-    "aiAssistedClaims": 677,
-    "aiAssistedPages": 20,
+    "claims": 1872,
+    "links": 2361,
+    "aiAssistedClaims": 738,
+    "aiAssistedPages": 22,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 785,
-        "links": 1001,
+        "claims": 803,
+        "links": 1031,
         "states": 50
       },
       "real-id": {
-        "claims": 1050,
-        "links": 1280,
+        "claims": 1069,
+        "links": 1330,
         "states": 50
       }
     }
@@ -14060,21 +14060,21 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "马里兰 MVA 的 Licenses & IDs 页面是主入口：先查自己的 REAL ID 状态和材料，再决定是线上处理、预约、还是按新居民路径到 MVA 办理",
+      "claim": "Maryland 的 REAL ID 办理第一步不是猜卡面，而是打开 MVA REAL ID Lookup 查询个人档案，因为即使卡上有星标或全州合规率很高，旧档案仍可能提示补交材料",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids",
-        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
+        "https://mva.maryland.gov/Pages/realidlookup.aspx",
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs",
-        "对应官方来源：Maryland MVA Renew License or ID"
+        "对应官方来源：Maryland MVA REAL ID Lookup",
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Licenses & IDs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
-        "appointment",
-        "online-service"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -14083,18 +14083,16 @@
       "stateId": "maryland",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "document",
-      "claim": "续期、补证、地址/姓名更新和新居民换证分别有不同入口",
+      "context": "license",
+      "claim": "新居民要在搬入 Maryland 后 60 天内转入普通外州驾照，CDL 的期限是 30 天",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA New Resident License or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "replacement",
         "transfer"
       ],
       "uncoveredThemes": [],
@@ -14104,20 +14102,17 @@
       "stateId": "maryland",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "document",
-      "claim": "能否线上完成取决于个人记录、证件类型、MVA 通知和是否需要重新核验材料",
+      "context": "license",
+      "claim": "外州驾照已过期超过 12 个月时不能直接交换，申请人要重新通过视力、knowledge 和 skills tests",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids",
-        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs",
-        "对应官方来源：Maryland MVA Renew License or ID"
+        "对应官方来源：Maryland MVA New Resident License or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "online-service"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -14127,19 +14122,21 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "马里兰 REAL ID 材料围绕年龄/身份、SSN 和两份马里兰居住地址证明",
+      "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/documents/FO-150A.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Document Requirements FO-150A"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
-        "residency-proof",
-        "ssn"
+        "ssn",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -14147,18 +14144,37 @@
     {
       "stateId": "maryland",
       "surface": "overview",
-      "field": "realIdSummary",
+      "field": "appointmentNote",
       "context": "real-id",
-      "claim": "MVA 页面提示该州大多数记录已合规，但个人是否合规仍要用官方 REAL ID Check 或 MVA 通知核对",
+      "claim": "续期、补证和地址更新先查看 myMVA 线上资格，新居民转入、REAL ID 补材料、姓名变更和驾驶考试则按对应页面预约",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id",
+        "https://mva.maryland.gov/licenses-ids/replace-license-or-id",
+        "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info",
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents",
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids/prepare-drivers-license-test"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA Renew License or ID",
+        "对应官方来源：Maryland MVA Replace License or ID",
+        "对应官方来源：Maryland MVA Update Name, Address or License Info",
+        "对应官方来源：Maryland MVA New Resident Guide",
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Driver License Tests"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
+        "real-id",
+        "document",
+        "address-change",
+        "name-change",
+        "renewal",
+        "replacement",
+        "appointment",
+        "online-service",
+        "transfer",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -14168,14 +14184,16 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "先从 MVA appointments / online services 页面判断业务是否能线上做",
+      "claim": "Maryland MVA 说明有 60 多项常见业务可以线上处理，但是否可用仍取决于个人记录和通知",
       "sourceUrls": [
-        "https://mva.maryland.gov/appointments-online-services"
+        "https://mva.maryland.gov/",
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Appointments and Online Services"
+        "对应官方来源：Maryland MVA Home",
+        "对应官方来源：Maryland MVA Renew License or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "online-service"
       ],
@@ -14185,19 +14203,287 @@
     {
       "stateId": "maryland",
       "surface": "overview",
-      "field": "appointmentNote",
+      "field": "editorNotes",
       "context": "real-id",
-      "claim": "新居民、首次 REAL ID 材料核验、姓名或身份信息变化，通常更需要按 MVA 指示预约或到场",
+      "claim": "Maryland MVA 公布全州 REAL ID 合规率超过 99%，这个比例不能替代个人 REAL ID Lookup 结果",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000",
+        "https://mva.maryland.gov/Pages/realidlookup.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA Licenses & IDs",
+        "对应官方来源：Maryland MVA REAL ID Lookup"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "旧 REAL ID FAQ 仍写升级费 $20，而 2025 年 9 月 1 日生效的当前 license fee 表把 duplicate 和 corrected license 都列为 $30，付款前应以当前费用表和交易报价再次确认",
+      "sourceUrls": [
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids/license-id-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA License & ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "当前费用表列出普通驾照续期 $64 并对应最长 8 年，新申请人 21 岁及以上为 $88 或按每年 $11 计费",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/license-id-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA License & ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "当前费用表列出 Photo ID 新办或续期 $40、补发或更正 $30，65 岁及以上或有影响 major life activity 的 disability 可免 ID card fee",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/license-id-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA License & ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "limited-term driver license 的有效期只覆盖获准在美国停留的期限，费用会按该期限调整",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/license-id-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA License & ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通续期最多可提前一年，limited-term、过期至少一年或不符合线上和邮寄资格的人要到 MVA 办理",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Renew License or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "40 岁及以上续期需要两年内的 vision exam，邮寄续期只适用于收到相应通知的人并应至少提前 15 天寄出",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Renew License or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "续期后的卡通常在 7 至 10 个工作日寄出，45 天仍未收到时应联系 MVA 或通过 myMVA 申请 gratis product",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Renew License or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通补证不要求 police report，duplicate 会保留原 license number 和 expiration date，线上或 kiosk 申请后最多预留 10 个工作日收件",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/replace-license-or-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Replace License or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Maryland 要求搬家后 30 天内更新驾照或 ID 地址，单纯更新记录免费并会寄出 Change of Address card，选择重印实体卡则要付 replacement fee",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info",
+        "https://mva.maryland.gov/licenses-ids/license-id-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Update Name, Address or License Info",
+        "对应官方来源：Maryland MVA License & ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "replacement",
+        "fee",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "姓名变更要先在 SSA 更新并至少等待 72 小时，再带原件或认证的姓名变更文件预约到 MVA 办理",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Update Name, Address or License Info"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document",
+        "ssn",
+        "name-change",
+        "appointment"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Maryland 非商业 Class C knowledge test 有繁体中文，限时 20 分钟并要求至少 88% 才能通过",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/prepare-drivers-license-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Driver License Tests"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "第一次 knowledge test 失败后最早可在下一个工作日重考，第二次及以后失败要等待至少 7 个日历日",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/prepare-drivers-license-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Driver License Tests"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "Maryland learner permit 的最低申请年龄是 15 岁 9 个月，申请前应从 myMVA 完成 pre-application 并预约 full-service MVA office",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/teens-new-drivers/learners-permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Learner Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "appointment"
       ],
       "uncoveredThemes": [],
@@ -14207,19 +14493,18 @@
       "stateId": "maryland",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "real-id",
-      "claim": "Maryland MVA Licenses & IDs 页面强调先用 REAL ID Check 和 document guide 判断个人状态，不要因为全州合规率高就默认自己的证件已经没问题",
+      "context": "detail",
+      "claim": "所有新驾驶人都要完成 30 小时课堂和 6 小时 behind-the-wheel 的 Maryland Driver Education Program",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/your-mva-guide/teens-new-drivers/drivers-education",
+        "https://mva.maryland.gov/your-mva-guide/teens-new-drivers/provisional-license"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA Driver Education",
+        "对应官方来源：Maryland MVA Provisional License"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -14227,58 +14512,101 @@
       "stateId": "maryland",
       "surface": "overview",
       "field": "editorNotes",
+      "context": "detail",
+      "claim": "25 岁及以上首次驾驶人取得 permit 后至少等待 45 天，并完成 14 小时 supervised practice，其中 3 小时在夜间",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/teens-new-drivers/provisional-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Provisional License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "持外国驾照转入通常要完成 3-Hour Roadway Safety Program、视力检查、knowledge test 和 skills test，符合互惠协议时才可能免除两项驾驶考试",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA International Movers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
       "context": "document",
-      "claim": "材料要求可用官方州页面交叉核对：一份 age/identity、SSN 证明和两份 Maryland residency 是高频核心",
+      "claim": "Maryland 与韩国、法国、德国、台湾和日本有非商业 Class C 驾照互惠协议，申请人仍要满足年龄、材料、视力、三小时课程和证件有效期条件",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA International Movers"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof",
-        "ssn"
+        "test"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document"
+      ],
       "valid": true
     },
     {
       "stateId": "maryland",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "马里兰 REAL ID 材料围绕年龄/身份、SSN 和两份马里兰居住地址证明",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "没有有效 USCIS 文件的人可能申请 federally noncompliant license 或 ID，但要先有连续两年 Maryland income tax filing 并取得 Comptroller tax certification letter",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/licenses-ids/additional-driver-id-services/noncompliant-drivers-licenses-ids"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA Noncompliant Credentials"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "document",
-        "residency-proof",
-        "ssn"
+        "lawful-presence"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document",
+        "lawful-presence"
+      ],
       "valid": true
     },
     {
       "stateId": "maryland",
-      "surface": "real-id",
-      "field": "realIdSummary",
+      "surface": "overview",
+      "field": "editorNotes",
       "context": "real-id",
-      "claim": "MVA 页面提示该州大多数记录已合规，但个人是否合规仍要用官方 REAL ID Check 或 MVA 通知核对",
+      "claim": "federally noncompliant credential 不能代替 REAL ID 或其他 TSA 接受证件用于联邦身份用途",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/licenses-ids/additional-driver-id-services/noncompliant-drivers-licenses-ids",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA Noncompliant Credentials",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -14287,19 +14615,90 @@
     },
     {
       "stateId": "maryland",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "新居民如果有车辆，也要在搬入后 60 天内完成 Maryland title 和 registration，逾期会失去外州 titling tax credit 并可能收到 citation",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/title-register-your-vehicle"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA New Resident Vehicle"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
+      "sourceUrls": [
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/documents/FO-150A.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Document Requirements FO-150A"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "real-id",
-      "claim": "先在 Maryland MVA Licenses & IDs 页面进入 REAL ID Check 或材料指南",
+      "claim": "先用 REAL ID Lookup 判断 MVA 是否已收齐自己的文件，再用 Online Document Guide 生成与个人身份和业务对应的清单",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/Pages/realidlookup.aspx",
+        "https://mva.maryland.gov/Pages/realidfaq.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA REAL ID Lookup",
+        "对应官方来源：Maryland MVA REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "document",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "online-service"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "年龄与身份文件应使用原件或签发机关认证件，普通 photocopy、手机照片和 digital scan 不被接受",
+      "sourceUrls": [
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/documents/FO-150A.pdf",
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Document Requirements FO-150A",
+        "对应官方来源：Maryland MVA New Resident License or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document"
       ],
       "uncoveredThemes": [],
@@ -14310,17 +14709,20 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "准备年龄/身份、合法身份、SSN 和两份马里兰居住地址证明",
+      "claim": "美国公民常见的年龄与身份证明包括签发机关认证的出生证或有效美国 passport，非公民要按当前身份选择相应 lawful-status 文件",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/documents/FO-150A.pdf",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Document Requirements FO-150A",
+        "对应官方来源：Maryland MVA Identification Card"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof",
-        "ssn",
+        "document",
         "lawful-presence"
       ],
       "uncoveredThemes": [],
@@ -14331,19 +14733,22 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "续期或补证时，按 renewal notice、appointment confirmation 或 MVA 账户提示带额外文件",
+      "claim": "Social Security 材料要按 Online Document Guide 和个人通知准备，不要只凭旧 FAQ 推断可接受的文件或时效",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/documents/FO-150A.pdf",
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Document Requirements FO-150A",
+        "对应官方来源：Maryland MVA Renew License or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "renewal",
-        "replacement",
-        "appointment"
+        "ssn",
+        "online-service"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -14353,16 +14758,87 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "搬入马里兰的新居民，应从 New Maryland Residents guide 进入，而不是直接套用本州续期流程",
+      "claim": "准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致",
+      "sourceUrls": [
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/documents/FO-150A.pdf",
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Document Requirements FO-150A",
+        "对应官方来源：Maryland MVA New Resident License or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "出生证或其他身份文件姓名与当前姓名不一致时，要用 marriage certificate、divorce decree 或 court order 串起完整变更历史",
+      "sourceUrls": [
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Update Name, Address or License Info"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "临时或其他非公民身份申请人应准备可由 DHS SAVE 核验的当前移民文件，证件期限可能受 lawful stay 限制",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card",
+        "https://mva.maryland.gov/licenses-ids/license-id-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA International Movers",
+        "对应官方来源：Maryland MVA Identification Card",
+        "对应官方来源：Maryland MVA License & ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "新居民应带当前外州驾照并在现场交回，卡片缺失时要提供原签发州出具且不超过 30 天的 certified driving record",
       "sourceUrls": [
         "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：新居民驾照/ID"
+        "对应官方来源：Maryland MVA New Resident License or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
         "transfer"
       ],
       "uncoveredThemes": [],
@@ -14371,22 +14847,124 @@
     {
       "stateId": "maryland",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "打开 MVA Licenses & IDs，先判断自己是 REAL ID 状态核对、续期、补证、地址更新，还是新居民换证",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "40 岁及以上续期人的 vision exam 必须在两年内，并由 MVA-approved provider 电子提交或按邮寄表格完成",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA Renew License or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "非英文外国驾照要附 international driver license 或 MVA approved translator 的英文翻译，遗失外国驾照时还要准备带 apostille 的 driving record 或使馆证明信",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA International Movers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "foreign-license",
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "先判断业务属于 REAL ID 补材料、续期、补证、资料更正、首次驾照、外州转入还是外国驾照转入，不要混用入口",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000",
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents",
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Licenses & IDs",
+        "对应官方来源：Maryland MVA New Resident Guide",
+        "对应官方来源：Maryland MVA International Movers"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "address-change",
+        "document",
         "renewal",
         "replacement",
-        "transfer"
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "涉及 REAL ID 时先运行 REAL ID Lookup，再根据结果打开 Online Document Guide，而不是直接照抄通用材料示例",
+      "sourceUrls": [
+        "https://mva.maryland.gov/Pages/realidlookup.aspx",
+        "https://mva.maryland.gov/Pages/realidfaq.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA REAL ID Lookup",
+        "对应官方来源：Maryland MVA REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "online-service"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件",
+      "sourceUrls": [
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/documents/FO-150A.pdf",
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Document Requirements FO-150A",
+        "对应官方来源：Maryland MVA International Movers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -14396,20 +14974,133 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "用官方 document guide 或 appointment notice 整理材料，尤其核对两份 Maryland residency 文件",
+      "claim": "姓名已变化时先完成 SSA 更新并等待至少 72 小时，再预约 MVA correction",
       "sourceUrls": [
-        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card",
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info"
       ],
       "sourceLabels": [
-        "对应官方来源：新居民驾照/ID",
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA Update Name, Address or License Info"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "外州新居民从 myMVA 选择 New to Maryland appointment，普通驾照在 60 天内办理并按需把 license、title 和 registration 合并到一次预约",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA New Resident Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "普通续期、补证或地址更新先登录 myMVA 检查线上资格，并以 renewal notice 和账户提示为准",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id",
+        "https://mva.maryland.gov/licenses-ids/replace-license-or-id",
+        "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Renew License or ID",
+        "对应官方来源：Maryland MVA Replace License or ID",
+        "对应官方来源：Maryland MVA Update Name, Address or License Info"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "renewal",
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "首次驾照申请人先取得 learner permit、完成 Driver Education 和规定练车时数，再预约 skills test",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/teens-new-drivers/learners-permit",
+        "https://mva.maryland.gov/your-mva-guide/teens-new-drivers/drivers-education",
+        "https://mva.maryland.gov/your-mva-guide/teens-new-drivers/provisional-license",
+        "https://mva.maryland.gov/licenses-ids/prepare-drivers-license-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Learner Permit",
+        "对应官方来源：Maryland MVA Driver Education",
+        "对应官方来源：Maryland MVA Provisional License",
+        "对应官方来源：Maryland MVA Driver License Tests"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "需要考试时先确认 knowledge test 语言、等待期和车辆材料，繁体中文只适用于 noncommercial Class C knowledge test",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/prepare-drivers-license-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Driver License Tests"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof",
-        "appointment"
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "付款前打开当前 License & ID Fees 表并查看实际交易报价，尤其不要把旧 FAQ 的 $20 当作现行 duplicate 或 corrected fee",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/license-id-fees",
+        "https://mva.maryland.gov/Pages/realidfaq.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA License & ID Fees",
+        "对应官方来源：Maryland MVA REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -14419,16 +15110,18 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "能线上完成的业务先走 myMVA/online services",
+      "claim": "交易完成后保留 receipt，并用 Product Tracking Tool 跟踪邮寄卡片，超过官方时限再联系 MVA",
       "sourceUrls": [
-        "https://mva.maryland.gov/appointments-online-services"
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id",
+        "https://mva.maryland.gov/licenses-ids/replace-license-or-id"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Appointments and Online Services"
+        "对应官方来源：Maryland MVA Renew License or ID",
+        "对应官方来源：Maryland MVA Replace License or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "online-service"
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -14437,42 +15130,16 @@
       "stateId": "maryland",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "appointment",
-      "claim": "需要核验原件时再预约或到场",
+      "context": "license",
+      "claim": "有车的新居民同时安排 Maryland insurance、title、registration 和可能需要的 safety inspection，不要只完成驾照换领",
       "sourceUrls": [
-        "https://mva.maryland.gov/appointments-online-services",
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/title-register-your-vehicle"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Appointments and Online Services",
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA New Resident Vehicle"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "maryland",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "提交前确认姓名、SSN、地址和移民/合法身份文件是否互相匹配",
-      "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "ssn",
-        "lawful-presence"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -14481,14 +15148,18 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "看到“Maryland 高比例 REAL ID compliant”就不查自己的证件状态",
+      "claim": "因为卡上有星标或看到全州 99% 以上合规率，就跳过个人 REAL ID Lookup",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000",
+        "https://mva.maryland.gov/Pages/realidlookup.aspx",
+        "https://mva.maryland.gov/Pages/realidfaq.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA Licenses & IDs",
+        "对应官方来源：Maryland MVA REAL ID Lookup",
+        "对应官方来源：Maryland MVA REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -14500,14 +15171,16 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "只准备一份地址证明，到了现场才发现还需要第二份居住地址文件",
+      "claim": "只带一份 Maryland 地址证明，或两份文件上的姓名和地址与 MVA 记录不一致",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/documents/FO-150A.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Document Requirements FO-150A"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "residency-proof"
@@ -14519,17 +15192,19 @@
       "stateId": "maryland",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "license",
-      "claim": "外州刚搬来却走普通马里兰续期路径",
+      "context": "detail",
+      "claim": "携带 photocopy、手机照片或自行公证件，误以为它们等同于签发机关认证副本",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/documents/FO-150A.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Renew License or ID"
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Document Requirements FO-150A"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -14539,18 +15214,183 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "没有看 appointment confirmation 上列出的具体文件",
+      "claim": "改过多次姓名却只带最近一次文件，无法连接出生姓名到 current legal name",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids"
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA Licenses & IDs"
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Update Name, Address or License Info"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "appointment"
+        "document"
       ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "沿用旧 REAL ID FAQ 或费用页下方旧表中的 $20 金额，没有查看 2025 年 9 月 1 日生效的当前 license fee 表",
+      "sourceUrls": [
+        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids/license-id-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA License & ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "驾照过期至少一年仍尝试普通续期，忽略此时要按新申请人重新完成 vision、knowledge 和 skills tests",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Renew License or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "只向 USPS 提交转寄，没有先更新 MVA 地址，导致实体卡寄往旧地址且无法被 USPS forward",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id",
+        "https://mva.maryland.gov/licenses-ids/replace-license-or-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Renew License or ID",
+        "对应官方来源：Maryland MVA Replace License or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "address-change"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "外州新居民走 Maryland 普通续期入口，错过普通驾照 60 天或 CDL 30 天的转入期限",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA New Resident License or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "持非英文外国驾照却没有 approved translation 或 international driver license，也没有先完成三小时道路安全课程",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA International Movers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "foreign-license",
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "来自互惠国家就默认任何过期驾照都能免试，没有核对国家、证件过期时间和 surrender 规则",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA International Movers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "把 federally noncompliant license 或 ID 当作 REAL ID，用它规划国内航班或进入需要联邦合规身份证件的设施",
+      "sourceUrls": [
+        "https://mva.maryland.gov/licenses-ids/additional-driver-id-services/noncompliant-drivers-licenses-ids",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA Noncompliant Credentials",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maryland",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "只处理驾照而漏掉车辆 title 和 registration 的 60 天期限，因而失去外州 titling tax credit 或面临 citation",
+      "sourceUrls": [
+        "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/title-register-your-vehicle"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maryland MVA New Resident Vehicle"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },

@@ -1,30 +1,30 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:41:19.143Z",
+    "generatedAt": "2026-07-16T23:52:52.301Z",
     "pages": 5,
-    "claims": 412,
+    "claims": 425,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 49,
-        "states": 18
+        "claims": 51,
+        "states": 19
       },
       "deadlines": {
-        "claims": 38,
-        "states": 16
+        "claims": 41,
+        "states": 17
       },
       "document-rules": {
-        "claims": 158,
+        "claims": 159,
         "states": 47
       },
       "foreign-license": {
-        "claims": 58,
-        "states": 23
+        "claims": 62,
+        "states": 24
       },
       "identity-ssn": {
-        "claims": 109,
-        "states": 35
+        "claims": 112,
+        "states": 36
       }
     }
   },
@@ -509,6 +509,32 @@
       "sourceLabel": "对应官方来源：Georgia DDS Information for Non-US Citizens",
       "themes": [
         "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "maryland",
+      "category": "费用",
+      "claim": "旧 REAL ID FAQ 仍写升级费 $20，而 2025 年 9 月 1 日生效的当前 license fee 表把 duplicate 和 corrected license 都列为 $30，付款前应以当前费用表和交易报价再次确认",
+      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
+      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "maryland",
+      "category": "费用",
+      "claim": "limited-term driver license 的有效期只覆盖获准在美国停留的期限，费用会按该期限调整",
+      "sourceUrl": "https://mva.maryland.gov/licenses-ids/license-id-fees",
+      "sourceLabel": "对应官方来源：Maryland MVA License & ID Fees",
+      "themes": [
+        "fee"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -1007,6 +1033,47 @@
       "sourceLabel": "对应官方来源：Georgia DDS Renew License or ID",
       "themes": [
         "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "maryland",
+      "category": "搬家 / 地址",
+      "claim": "新居民应带当前外州驾照并在现场交回，卡片缺失时要提供原签发州出具且不超过 30 天的 certified driving record",
+      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card",
+      "sourceLabel": "对应官方来源：Maryland MVA New Resident License or ID",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "maryland",
+      "category": "搬家 / 地址",
+      "claim": "新居民如果有车辆，也要在搬入后 60 天内完成 Maryland title 和 registration，逾期会失去外州 titling tax credit 并可能收到 citation",
+      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/title-register-your-vehicle",
+      "sourceLabel": "对应官方来源：Maryland MVA New Resident Vehicle",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "maryland",
+      "category": "搬家 / 地址",
+      "claim": "新居民要在搬入 Maryland 后 60 天内转入普通外州驾照，CDL 的期限是 30 天",
+      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents",
+      "sourceLabel": "对应官方来源：Maryland MVA New Resident Guide",
+      "themes": [
+        "new-resident",
+        "out-of-state"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -1670,26 +1737,42 @@
     {
       "page": "document-rules",
       "stateId": "maryland",
-      "category": "清单入口",
-      "claim": "先在 Maryland MVA Licenses & IDs 页面进入 REAL ID Check 或材料指南",
-      "sourceUrl": "https://mva.maryland.gov/licenses-ids",
-      "sourceLabel": "对应官方来源：Maryland MVA Licenses & IDs",
-      "themes": [],
+      "category": "地址证明",
+      "claim": "准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致",
+      "sourceUrl": "https://mva.maryland.gov/documents/FO-150A.pdf",
+      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
+      "themes": [
+        "residency-documents"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "document-rules",
       "stateId": "maryland",
-      "category": "清单入口",
-      "claim": "Maryland MVA Licenses & IDs 页面强调先用 REAL ID Check 和 document guide 判断个人状态，不要因为全州合规率高就默认自己的证件已经没问题",
-      "sourceUrl": "https://mva.maryland.gov/licenses-ids",
-      "sourceLabel": "对应官方来源：Maryland MVA Licenses & IDs",
+      "category": "地址证明",
+      "claim": "逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件",
+      "sourceUrl": "https://mva.maryland.gov/documents/FO-150A.pdf",
+      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
       "themes": [
-        "document-checklist"
+        "residency-documents",
+        "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "maryland",
+      "category": "SSN",
+      "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
+      "sourceUrl": "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info",
+      "sourceLabel": "对应官方来源：Maryland MVA Update Name, Address or License Info",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
     },
     {
       "page": "document-rules",
@@ -3694,6 +3777,59 @@
     },
     {
       "page": "foreign-license",
+      "stateId": "maryland",
+      "category": "外州 / 加拿大转入",
+      "claim": "新居民如果有车辆，也要在搬入后 60 天内完成 Maryland title 和 registration，逾期会失去外州 titling tax credit 并可能收到 citation",
+      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/title-register-your-vehicle",
+      "sourceLabel": "对应官方来源：Maryland MVA New Resident Vehicle",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "maryland",
+      "category": "外州 / 加拿大转入",
+      "claim": "新居民驾照/ID：核对 60/30 天期限、外州证过期边界、材料和 certified driving record",
+      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card",
+      "sourceLabel": "对应官方来源：Maryland MVA New Resident License or ID",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "maryland",
+      "category": "外州 / 加拿大转入",
+      "claim": "新居民应带当前外州驾照并在现场交回，卡片缺失时要提供原签发州出具且不超过 30 天的 certified driving record",
+      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card",
+      "sourceLabel": "对应官方来源：Maryland MVA New Resident License or ID",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "maryland",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州驾照已过期超过 12 个月时不能直接交换，申请人要重新通过视力、knowledge 和 skills tests",
+      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents",
+      "sourceLabel": "对应官方来源：Maryland MVA New Resident Guide",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
       "stateId": "north-carolina",
       "category": "外州 / 加拿大转入",
       "claim": "NCDMV Moving to North Carolina 页面说明申请 NC driver license 要到 driver license office，带 out-of-state license 或身份/出生日期文件、SSN 文件、NC physical address 文件",
@@ -4511,6 +4647,46 @@
       "sourceLabel": "对应官方来源：REAL ID Document Requirements",
       "themes": [
         "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "maryland",
+      "category": "SSN",
+      "claim": "逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件",
+      "sourceUrl": "https://mva.maryland.gov/documents/FO-150A.pdf",
+      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "maryland",
+      "category": "SSN",
+      "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
+      "sourceUrl": "https://mva.maryland.gov/documents/FO-150A.pdf",
+      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "maryland",
+      "category": "移民文件",
+      "claim": "没有有效 USCIS 文件的人可能申请 federally noncompliant license 或 ID，但要先有连续两年 Maryland income tax filing 并取得 Comptroller tax certification letter",
+      "sourceUrl": "https://mva.maryland.gov/documents/FO-150A.pdf",
+      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
+      "themes": [
+        "immigration-verification"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false

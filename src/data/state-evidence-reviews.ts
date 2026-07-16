@@ -321,6 +321,46 @@ const GA_DRIVER_MANUAL_TESTS =
 const GA_CLASS_C =
   'https://dds.georgia.gov/section-2-continued-class-c-license';
 
+const MD_REAL_ID_LOOKUP =
+  'https://mva.maryland.gov/Pages/realidlookup.aspx';
+const MD_LICENSES_IDS =
+  'https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000';
+const MD_REAL_ID_FAQ =
+  'https://mva.maryland.gov/Pages/realidfaq.aspx';
+const MD_DOCUMENT_REQUIREMENTS =
+  'https://mva.maryland.gov/documents/FO-150A.pdf';
+const MD_FEES =
+  'https://mva.maryland.gov/licenses-ids/license-id-fees';
+const MD_RENEW =
+  'https://mva.maryland.gov/licenses-ids/renew-license-or-id';
+const MD_REPLACE =
+  'https://mva.maryland.gov/licenses-ids/replace-license-or-id';
+const MD_UPDATE =
+  'https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info';
+const MD_NEW_RESIDENTS =
+  'https://mva.maryland.gov/your-mva-guide/new-maryland-residents';
+const MD_TRANSFER_LICENSE =
+  'https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card';
+const MD_TRANSFER_VEHICLE =
+  'https://mva.maryland.gov/your-mva-guide/new-maryland-residents/title-register-your-vehicle';
+const MD_TESTS =
+  'https://mva.maryland.gov/licenses-ids/prepare-drivers-license-test';
+const MD_PERMIT =
+  'https://mva.maryland.gov/your-mva-guide/teens-new-drivers/learners-permit';
+const MD_PROVISIONAL =
+  'https://mva.maryland.gov/your-mva-guide/teens-new-drivers/provisional-license';
+const MD_DRIVER_ED =
+  'https://mva.maryland.gov/your-mva-guide/teens-new-drivers/drivers-education';
+const MD_INTERNATIONAL =
+  'https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers';
+const MD_NONCOMPLIANT =
+  'https://mva.maryland.gov/licenses-ids/additional-driver-id-services/noncompliant-drivers-licenses-ids';
+const MD_ID_CARD =
+  'https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card';
+const MD_HOME = 'https://mva.maryland.gov/';
+const USA_STATE_MOTOR_VEHICLE_SERVICES =
+  'https://www.usa.gov/state-motor-vehicle-services';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -2694,6 +2734,265 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '第二次改地址直接按固定 $10 预算，没有注意 DDS FAQ 与主说明对费用处理不一致': [
         GA_UPDATE,
         GA_ADDRESS_FAQ,
+      ],
+    },
+  },
+  maryland: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      MD_REAL_ID_LOOKUP,
+      MD_LICENSES_IDS,
+      MD_REAL_ID_FAQ,
+      MD_DOCUMENT_REQUIREMENTS,
+      MD_FEES,
+      MD_RENEW,
+      MD_REPLACE,
+      MD_UPDATE,
+      MD_NEW_RESIDENTS,
+      MD_TRANSFER_LICENSE,
+      MD_TRANSFER_VEHICLE,
+      MD_TESTS,
+      MD_PERMIT,
+      MD_PROVISIONAL,
+      MD_DRIVER_ED,
+      MD_INTERNATIONAL,
+      MD_NONCOMPLIANT,
+      MD_ID_CARD,
+      MD_HOME,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Maryland MVA 的 REAL ID Lookup、材料表、现行费用、续期补证、资料更新、新居民、考试、permit、驾驶教育、外国驾照、非合规证件和 Photo ID 正文。',
+    notes:
+      '重写 Maryland 总览与 REAL ID 页面，补齐 30/60 天、12 个月过期边界、考试语言、外国驾照与非公民路径，并公开标注旧 REAL ID FAQ 和当前费用表的 $20/$30 冲突；所有声明已改为显式来源，仍待真实人工签字。',
+    claims: {
+      'Maryland 的 REAL ID 办理第一步不是猜卡面，而是打开 MVA REAL ID Lookup 查询个人档案，因为即使卡上有星标或全州合规率很高，旧档案仍可能提示补交材料': [
+        MD_REAL_ID_LOOKUP,
+        MD_REAL_ID_FAQ,
+        MD_LICENSES_IDS,
+      ],
+      '需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA': [
+        MD_REAL_ID_FAQ,
+        MD_DOCUMENT_REQUIREMENTS,
+      ],
+      '新居民要在搬入 Maryland 后 60 天内转入普通外州驾照，CDL 的期限是 30 天': [
+        MD_TRANSFER_LICENSE,
+      ],
+      '外州驾照已过期超过 12 个月时不能直接交换，申请人要重新通过视力、knowledge 和 skills tests': [
+        MD_TRANSFER_LICENSE,
+      ],
+      '续期、补证和地址更新先查看 myMVA 线上资格，新居民转入、REAL ID 补材料、姓名变更和驾驶考试则按对应页面预约': [
+        MD_RENEW,
+        MD_REPLACE,
+        MD_UPDATE,
+        MD_NEW_RESIDENTS,
+        MD_REAL_ID_FAQ,
+        MD_TESTS,
+      ],
+      'Maryland MVA 说明有 60 多项常见业务可以线上处理，但是否可用仍取决于个人记录和通知': [
+        MD_HOME,
+        MD_RENEW,
+      ],
+      'Maryland MVA 公布全州 REAL ID 合规率超过 99%，这个比例不能替代个人 REAL ID Lookup 结果': [
+        MD_LICENSES_IDS,
+        MD_REAL_ID_LOOKUP,
+      ],
+      '旧 REAL ID FAQ 仍写升级费 $20，而 2025 年 9 月 1 日生效的当前 license fee 表把 duplicate 和 corrected license 都列为 $30，付款前应以当前费用表和交易报价再次确认': [
+        MD_REAL_ID_FAQ,
+        MD_FEES,
+      ],
+      '当前费用表列出普通驾照续期 $64 并对应最长 8 年，新申请人 21 岁及以上为 $88 或按每年 $11 计费': [
+        MD_FEES,
+      ],
+      '当前费用表列出 Photo ID 新办或续期 $40、补发或更正 $30，65 岁及以上或有影响 major life activity 的 disability 可免 ID card fee': [
+        MD_FEES,
+      ],
+      'limited-term driver license 的有效期只覆盖获准在美国停留的期限，费用会按该期限调整': [
+        MD_FEES,
+      ],
+      '普通续期最多可提前一年，limited-term、过期至少一年或不符合线上和邮寄资格的人要到 MVA 办理': [
+        MD_RENEW,
+      ],
+      '40 岁及以上续期需要两年内的 vision exam，邮寄续期只适用于收到相应通知的人并应至少提前 15 天寄出': [
+        MD_RENEW,
+      ],
+      '续期后的卡通常在 7 至 10 个工作日寄出，45 天仍未收到时应联系 MVA 或通过 myMVA 申请 gratis product': [
+        MD_RENEW,
+      ],
+      '普通补证不要求 police report，duplicate 会保留原 license number 和 expiration date，线上或 kiosk 申请后最多预留 10 个工作日收件': [
+        MD_REPLACE,
+      ],
+      'Maryland 要求搬家后 30 天内更新驾照或 ID 地址，单纯更新记录免费并会寄出 Change of Address card，选择重印实体卡则要付 replacement fee': [
+        MD_UPDATE,
+        MD_FEES,
+      ],
+      '姓名变更要先在 SSA 更新并至少等待 72 小时，再带原件或认证的姓名变更文件预约到 MVA 办理': [
+        MD_UPDATE,
+      ],
+      'Maryland 非商业 Class C knowledge test 有繁体中文，限时 20 分钟并要求至少 88% 才能通过': [
+        MD_TESTS,
+      ],
+      '第一次 knowledge test 失败后最早可在下一个工作日重考，第二次及以后失败要等待至少 7 个日历日': [
+        MD_TESTS,
+      ],
+      'Maryland learner permit 的最低申请年龄是 15 岁 9 个月，申请前应从 myMVA 完成 pre-application 并预约 full-service MVA office': [
+        MD_PERMIT,
+      ],
+      '所有新驾驶人都要完成 30 小时课堂和 6 小时 behind-the-wheel 的 Maryland Driver Education Program': [
+        MD_DRIVER_ED,
+        MD_PROVISIONAL,
+      ],
+      '25 岁及以上首次驾驶人取得 permit 后至少等待 45 天，并完成 14 小时 supervised practice，其中 3 小时在夜间': [
+        MD_PROVISIONAL,
+      ],
+      '持外国驾照转入通常要完成 3-Hour Roadway Safety Program、视力检查、knowledge test 和 skills test，符合互惠协议时才可能免除两项驾驶考试': [
+        MD_INTERNATIONAL,
+      ],
+      'Maryland 与韩国、法国、德国、台湾和日本有非商业 Class C 驾照互惠协议，申请人仍要满足年龄、材料、视力、三小时课程和证件有效期条件': [
+        MD_INTERNATIONAL,
+      ],
+      '没有有效 USCIS 文件的人可能申请 federally noncompliant license 或 ID，但要先有连续两年 Maryland income tax filing 并取得 Comptroller tax certification letter': [
+        MD_NONCOMPLIANT,
+      ],
+      'federally noncompliant credential 不能代替 REAL ID 或其他 TSA 接受证件用于联邦身份用途': [
+        MD_NONCOMPLIANT,
+        TSA_IDENTIFICATION,
+      ],
+      '新居民如果有车辆，也要在搬入后 60 天内完成 Maryland title 和 registration，逾期会失去外州 titling tax credit 并可能收到 citation': [
+        MD_TRANSFER_VEHICLE,
+      ],
+      '先用 REAL ID Lookup 判断 MVA 是否已收齐自己的文件，再用 Online Document Guide 生成与个人身份和业务对应的清单': [
+        MD_REAL_ID_LOOKUP,
+        MD_REAL_ID_FAQ,
+      ],
+      '年龄与身份文件应使用原件或签发机关认证件，普通 photocopy、手机照片和 digital scan 不被接受': [
+        MD_REAL_ID_FAQ,
+        MD_DOCUMENT_REQUIREMENTS,
+        MD_TRANSFER_LICENSE,
+      ],
+      '美国公民常见的年龄与身份证明包括签发机关认证的出生证或有效美国 passport，非公民要按当前身份选择相应 lawful-status 文件': [
+        MD_REAL_ID_FAQ,
+        MD_DOCUMENT_REQUIREMENTS,
+        MD_ID_CARD,
+      ],
+      'Social Security 材料要按 Online Document Guide 和个人通知准备，不要只凭旧 FAQ 推断可接受的文件或时效': [
+        MD_REAL_ID_FAQ,
+        MD_DOCUMENT_REQUIREMENTS,
+        MD_RENEW,
+      ],
+      '准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致': [
+        MD_REAL_ID_FAQ,
+        MD_DOCUMENT_REQUIREMENTS,
+        MD_TRANSFER_LICENSE,
+      ],
+      '出生证或其他身份文件姓名与当前姓名不一致时，要用 marriage certificate、divorce decree 或 court order 串起完整变更历史': [
+        MD_REAL_ID_FAQ,
+        MD_UPDATE,
+      ],
+      '临时或其他非公民身份申请人应准备可由 DHS SAVE 核验的当前移民文件，证件期限可能受 lawful stay 限制': [
+        MD_INTERNATIONAL,
+        MD_ID_CARD,
+        MD_FEES,
+      ],
+      '新居民应带当前外州驾照并在现场交回，卡片缺失时要提供原签发州出具且不超过 30 天的 certified driving record': [
+        MD_TRANSFER_LICENSE,
+      ],
+      '40 岁及以上续期人的 vision exam 必须在两年内，并由 MVA-approved provider 电子提交或按邮寄表格完成': [
+        MD_RENEW,
+      ],
+      '非英文外国驾照要附 international driver license 或 MVA approved translator 的英文翻译，遗失外国驾照时还要准备带 apostille 的 driving record 或使馆证明信': [
+        MD_INTERNATIONAL,
+      ],
+      '因为卡上有星标或看到全州 99% 以上合规率，就跳过个人 REAL ID Lookup': [
+        MD_LICENSES_IDS,
+        MD_REAL_ID_LOOKUP,
+        MD_REAL_ID_FAQ,
+      ],
+      '只带一份 Maryland 地址证明，或两份文件上的姓名和地址与 MVA 记录不一致': [
+        MD_REAL_ID_FAQ,
+        MD_DOCUMENT_REQUIREMENTS,
+      ],
+      '携带 photocopy、手机照片或自行公证件，误以为它们等同于签发机关认证副本': [
+        MD_REAL_ID_FAQ,
+        MD_DOCUMENT_REQUIREMENTS,
+      ],
+      '改过多次姓名却只带最近一次文件，无法连接出生姓名到 current legal name': [
+        MD_REAL_ID_FAQ,
+        MD_UPDATE,
+      ],
+      '沿用旧 REAL ID FAQ 或费用页下方旧表中的 $20 金额，没有查看 2025 年 9 月 1 日生效的当前 license fee 表': [
+        MD_REAL_ID_FAQ,
+        MD_FEES,
+      ],
+      '驾照过期至少一年仍尝试普通续期，忽略此时要按新申请人重新完成 vision、knowledge 和 skills tests': [
+        MD_RENEW,
+      ],
+      '只向 USPS 提交转寄，没有先更新 MVA 地址，导致实体卡寄往旧地址且无法被 USPS forward': [
+        MD_RENEW,
+        MD_REPLACE,
+      ],
+      '外州新居民走 Maryland 普通续期入口，错过普通驾照 60 天或 CDL 30 天的转入期限': [
+        MD_TRANSFER_LICENSE,
+      ],
+      '持非英文外国驾照却没有 approved translation 或 international driver license，也没有先完成三小时道路安全课程': [
+        MD_INTERNATIONAL,
+      ],
+      '来自互惠国家就默认任何过期驾照都能免试，没有核对国家、证件过期时间和 surrender 规则': [
+        MD_INTERNATIONAL,
+      ],
+      '把 federally noncompliant license 或 ID 当作 REAL ID，用它规划国内航班或进入需要联邦合规身份证件的设施': [
+        MD_NONCOMPLIANT,
+        TSA_IDENTIFICATION,
+      ],
+      '只处理驾照而漏掉车辆 title 和 registration 的 60 天期限，因而失去外州 titling tax credit 或面临 citation': [
+        MD_TRANSFER_VEHICLE,
+      ],
+      '先判断业务属于 REAL ID 补材料、续期、补证、资料更正、首次驾照、外州转入还是外国驾照转入，不要混用入口': [
+        MD_LICENSES_IDS,
+        MD_NEW_RESIDENTS,
+        MD_INTERNATIONAL,
+      ],
+      '涉及 REAL ID 时先运行 REAL ID Lookup，再根据结果打开 Online Document Guide，而不是直接照抄通用材料示例': [
+        MD_REAL_ID_LOOKUP,
+        MD_REAL_ID_FAQ,
+      ],
+      '逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件': [
+        MD_REAL_ID_FAQ,
+        MD_DOCUMENT_REQUIREMENTS,
+        MD_INTERNATIONAL,
+      ],
+      '姓名已变化时先完成 SSA 更新并等待至少 72 小时，再预约 MVA correction': [
+        MD_UPDATE,
+      ],
+      '外州新居民从 myMVA 选择 New to Maryland appointment，普通驾照在 60 天内办理并按需把 license、title 和 registration 合并到一次预约': [
+        MD_NEW_RESIDENTS,
+      ],
+      '普通续期、补证或地址更新先登录 myMVA 检查线上资格，并以 renewal notice 和账户提示为准': [
+        MD_RENEW,
+        MD_REPLACE,
+        MD_UPDATE,
+      ],
+      '首次驾照申请人先取得 learner permit、完成 Driver Education 和规定练车时数，再预约 skills test': [
+        MD_PERMIT,
+        MD_DRIVER_ED,
+        MD_PROVISIONAL,
+        MD_TESTS,
+      ],
+      '需要考试时先确认 knowledge test 语言、等待期和车辆材料，繁体中文只适用于 noncommercial Class C knowledge test': [
+        MD_TESTS,
+      ],
+      '付款前打开当前 License & ID Fees 表并查看实际交易报价，尤其不要把旧 FAQ 的 $20 当作现行 duplicate 或 corrected fee': [
+        MD_FEES,
+        MD_REAL_ID_FAQ,
+      ],
+      '交易完成后保留 receipt，并用 Product Tracking Tool 跟踪邮寄卡片，超过官方时限再联系 MVA': [
+        MD_RENEW,
+        MD_REPLACE,
+      ],
+      '有车的新居民同时安排 Maryland insurance、title、registration 和可能需要的 safety inspection，不要只完成驾照换领': [
+        MD_TRANSFER_VEHICLE,
       ],
     },
   },
