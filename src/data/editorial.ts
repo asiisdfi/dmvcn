@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成华盛顿州两页官方正文语义核对',
+    summary:
+      '逐条比对 Washington DOL 的 REAL ID、EDL/EID、enhanced 材料清单、standard 身份文件、预申请、办公室、费用、续期、地址、考试语言、互惠驾照和新居民正文；删除过时的访问警告，重写两类证件的判断路径，并明确 EDL 的公民资格、国旗标记、边境和国际航班边界。',
+    scope: ['华盛顿州办事总览', '华盛顿州 REAL ID', 'EDL/EID 材料', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成佛州两页官方正文语义核对',
     summary:
       '逐条比对 FLHSMV 的 REAL ID、身份分支、居住证明、MyDMV、费用、姓名地址、预约、考试、新居民和换证正文；补充 80 岁以上有效期与地址证明替代路径，并用 2026 年 English-only 公告纠正旧考试页仍显示的历史语言列表。',

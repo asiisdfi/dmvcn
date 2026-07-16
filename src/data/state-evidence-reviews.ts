@@ -122,6 +122,41 @@ const FL_NAME_ADDRESS = 'https://www.flhsmv.gov/name-and-address-changes/';
 const FL_NEW_CREDENTIAL_FAQ =
   'https://www.flhsmv.gov/driver-licenses-id-cards/newdl/faq/';
 
+const WA_REAL_ID = 'https://dol.wa.gov/id-cards/real-id';
+const WA_EDL =
+  'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl';
+const WA_EDL_GUIDE =
+  'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/guide-enhanced-driver-licenses-edl';
+const WA_GET_EDL =
+  'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/get-enhanced-driver-license-edl';
+const WA_EDL_CHECKLIST =
+  'https://dol.wa.gov/media/pdf/5165/applying-enhanced-washington-license-or-idpdf/download?inline=';
+const WA_PREAPPLY = 'https://dol.wa.gov/pre-apply-online';
+const WA_DRIVER_LICENSES =
+  'https://dol.wa.gov/driver-licenses-and-permits';
+const WA_IDENTITY =
+  'https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity';
+const WA_RENEW =
+  'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/renew-driver-license';
+const WA_FEES =
+  'https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-fees';
+const WA_FIRST_LICENSE =
+  'https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit/driver-license-application-ages-18';
+const WA_TRAINING =
+  'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing';
+const WA_TESTS =
+  'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test';
+const WA_MOVING = 'https://dol.wa.gov/moving-washington';
+const WA_NEW_RESIDENT_LICENSE =
+  'https://dol.wa.gov/moving-washington/get-driver-license';
+const WA_DRIVER_GUIDES =
+  'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/driver-guides';
+const WA_APPOINTMENTS = 'https://dol.wa.gov/appointments-and-locations';
+const WA_OFFICES =
+  'https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-offices';
+const WA_ADDRESS =
+  'https://dol.wa.gov/driver-licenses-and-permits/update-driver-license-information/change-your-name-or-address-your-driver-license';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -838,6 +873,249 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '没有进入所选县或 tax collector office 的网站确认 appointment、服务范围和付款方式': [
         FL_LOCATIONS,
+      ],
+    },
+  },
+  washington: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      WA_REAL_ID,
+      WA_EDL,
+      WA_EDL_GUIDE,
+      WA_GET_EDL,
+      WA_EDL_CHECKLIST,
+      WA_PREAPPLY,
+      WA_DRIVER_LICENSES,
+      WA_IDENTITY,
+      WA_RENEW,
+      WA_FEES,
+      WA_FIRST_LICENSE,
+      WA_TRAINING,
+      WA_TESTS,
+      WA_MOVING,
+      WA_NEW_RESIDENT_LICENSE,
+      WA_DRIVER_GUIDES,
+      WA_APPOINTMENTS,
+      WA_OFFICES,
+      WA_ADDRESS,
+    ],
+    scope:
+      '逐条打开并比对 Washington DOL 的 REAL ID、EDL/EID、enhanced 材料清单、standard 身份文件、预申请、办公室、费用、续期、地址、考试语言、互惠驾照、新居民和临时证件正文。',
+    notes:
+      '重写 Washington 总览与 REAL ID 页面，删除已过时的 403 访问警告，分开 standard 与 EDL/EID 路径，并将资格、材料、费用、期限、考试和出行边界改为显式来源；仍待真实人工签字。',
+    claims: {
+      '华盛顿州同时签发 standard driver license / ID 和 Enhanced Driver License / ID（EDL/EID）': [
+        WA_REAL_ID,
+        WA_DRIVER_LICENSES,
+      ],
+      '普通驾照仍可驾驶，普通驾照或 ID 仍可作州内身份证明': [
+        WA_REAL_ID,
+      ],
+      'EDL/EID 才是华盛顿州符合 REAL ID 的州证件': [
+        WA_REAL_ID,
+        WA_EDL_GUIDE,
+      ],
+      'Standard Washington driver license / ID 不表示持有人具备特定居住或合法身份状态': [
+        WA_REAL_ID,
+      ],
+      '非美国公民可以按 standard 证件规则准备身份材料，但不能申请只向美国公民签发的 EDL/EID': [
+        WA_REAL_ID,
+        WA_IDENTITY,
+        WA_EDL_GUIDE,
+      ],
+      '外国驾照、外州驾照和首次申领的考试要求不同，应先在 DOL 的 Do I need to take a test 表中匹配自己的情况': [
+        WA_TESTS,
+      ],
+      '华盛顿州 EDL/EID 用美国国旗而不是星标表示 REAL ID 合规': [
+        WA_REAL_ID,
+      ],
+      '自 2025 年 5 月 7 日起，standard Washington driver license / ID 不能作为国内航班安检证件': [
+        WA_REAL_ID,
+      ],
+      '有效护照、绿卡等 TSA 接受证件仍可替代 EDL/EID': [
+        WA_REAL_ID,
+      ],
+      '驾照与 ID 要去 driver licensing office，车辆 title / registration 要去 vehicle licensing office，knowledge / drive test 通常由 testing location 办理': [
+        WA_NEW_RESIDENT_LICENSE,
+        WA_TRAINING,
+        WA_OFFICES,
+      ],
+      'EDL 页面写明预约优先但可接待 walk-in，新居民换证页则要求预约': [
+        WA_GET_EDL,
+        WA_NEW_RESIDENT_LICENSE,
+      ],
+      'EDL 申请最晚在办公室关门前 60 分钟受理，仍应按具体业务页面和地点确认预约': [
+        WA_GET_EDL,
+        WA_OFFICES,
+      ],
+      '首次申请 standard Washington driver license 的当前基础总费用为 6 年 $111 或 8 年 $131': [
+        WA_FEES,
+      ],
+      'standard license 续期为 6 年 $61 或 8 年 $81': [
+        WA_RENEW,
+        WA_FEES,
+      ],
+      '首次同时申领 EDL 的当前总费用为 6 年 $153 或 8 年 $187': [
+        WA_GET_EDL,
+        WA_FEES,
+      ],
+      '把现有 WA driver license 升级为 EDL，按剩余期限收取 $7 至 $56': [
+        WA_GET_EDL,
+        WA_FEES,
+      ],
+      'Standard license 可提前 1 年续期，并可在过期后最多 8 年内续期': [
+        WA_RENEW,
+      ],
+      '过期超过 60 天加收 $10，达到 8 年则不能续期而要重新开始申请': [
+        WA_RENEW,
+        WA_FEES,
+      ],
+      '70 岁及以上、需要 vision screening、需要新照片或上次已在线续期的人，必须到 driver licensing office 续期': [
+        WA_RENEW,
+      ],
+      '搬家后 10 天内要更新 driver license / ID 地址': [WA_ADDRESS],
+      '更新驾驶记录免费，立即领取显示新地址的新卡为 $20，vehicle registration 地址还要另外更新': [
+        WA_ADDRESS,
+        WA_FEES,
+      ],
+      'Standard 证件的身份规则允许按一份 stand-alone、两份 A-list、一份 A-list 加两份 B-list、或四份 B-list 组合证明身份': [
+        WA_IDENTITY,
+      ],
+      'Standard 证件不接受复印、扫描或拍照文件': [WA_IDENTITY],
+      '申请驾照者必须提供 SSN，没有 SSN 时可签署声明': [
+        WA_IDENTITY,
+      ],
+      '普通 knowledge test 共 40 题，答对 32 题通过，合格成绩有效 2 年': [
+        WA_TESTS,
+      ],
+      '考试有 12 种语言，包括简体中文和繁体中文，但要先向 testing location 确认所需语言是否提供': [
+        WA_TESTS,
+      ],
+      '18 岁以上持有效美国其他州证件、British Columbia Class 5、德国或韩国驾照者通常免 knowledge 和 drive test': [
+        WA_TESTS,
+      ],
+      '台湾或日本驾照路径需要联系指定办事处取得 translated certification': [
+        WA_TESTS,
+      ],
+      '未列入 DOL 互惠表的外国或加拿大省份驾照要走首次申领步骤': [
+        WA_TESTS,
+      ],
+      '仅来访者可持本国有效驾照在 Washington 驾驶最多 1 年': [
+        WA_TESTS,
+      ],
+      '成为 Washington 新居民后 30 天内要取得 WA driver license，并且要先取得 WA license 才能登记车辆': [
+        WA_MOVING,
+        WA_NEW_RESIDENT_LICENSE,
+      ],
+      '新居民办证时带外州驾照等身份证明并完成适用测试': [
+        WA_NEW_RESIDENT_LICENSE,
+        WA_TESTS,
+      ],
+      'DOL 会打孔后退还外州证件，签发可驾驶 45 天的临时驾照，正式卡通常 7 至 10 天寄出': [
+        WA_NEW_RESIDENT_LICENSE,
+      ],
+      'EDL/EID 仅向美国公民签发，申请时要证明美国公民身份、本人身份和 Washington residency，并提供 SSN': [
+        WA_REAL_ID,
+        WA_EDL_CHECKLIST,
+      ],
+      'EDL/EID 官方清单把美国公民身份证明和本人身份证明列为两个核对类别': [
+        WA_EDL_CHECKLIST,
+      ],
+      '具体选哪些文件以 enhanced document tool 生成的个人清单为准': [
+        WA_GET_EDL,
+        WA_PREAPPLY,
+      ],
+      'EDL/EID 文件通常必须是未改动的认证原件、认证修订原件或签发机构认证的 true copy，只有清单明确注明时才接受 printout': [
+        WA_EDL_CHECKLIST,
+      ],
+      '准备两份均显示本人 first and last name 与当前 WA residential address 的居住文件，P.O. Box 不能代替 residential address': [
+        WA_EDL_CHECKLIST,
+      ],
+      '公民身份和身份证明上的姓名不一致时，要带足够的认证 marriage certificate、divorce decree、court order 或其他清单文件，把姓名变化完整连接起来': [
+        WA_EDL_CHECKLIST,
+      ],
+      '申请人必须提供 SSN，但官方 EDL/EID 清单说明无需出示 Social Security card': [
+        WA_EDL_CHECKLIST,
+        WA_GET_EDL,
+      ],
+      'DOL 提供 enhanced document tool，以及简体中文和繁体中文 printable checklist': [
+        WA_GET_EDL,
+      ],
+      '最终材料组合以个人化工具和申请时要求为准': [
+        WA_GET_EDL,
+        WA_PREAPPLY,
+      ],
+      'Temporary EDL 会在离开办公室前签发，但不能用于边境通行': [
+        WA_GET_EDL,
+      ],
+      '正式 EDL 应按约 2 至 3 周预留邮寄时间': [
+        WA_GET_EDL,
+        WA_EDL_GUIDE,
+      ],
+      'EDL/EID 可用于国内航班，也可用于从加拿大、墨西哥、百慕大和加勒比经陆路或海路重新入境美国，但不能用于国际航空旅行': [
+        WA_REAL_ID,
+        WA_EDL_GUIDE,
+      ],
+      '先按用途判断是否需要 EDL/EID：只有驾驶或州内身份证明可选 standard，国内航班可先检查自己是否已有有效护照、绿卡或其他 TSA 接受证件': [
+        WA_REAL_ID,
+      ],
+      '确认美国公民资格': [WA_REAL_ID, WA_EDL_CHECKLIST],
+      '不符合 EDL/EID 资格者应选择 standard license / ID，并另用 TSA 接受证件处理联邦用途': [
+        WA_REAL_ID,
+        WA_IDENTITY,
+      ],
+      '没有 WDL number 时先在 License Express pre-apply，保存以 WDL 开头的号码，用于预约和后续申请': [
+        WA_PREAPPLY,
+      ],
+      '运行 enhanced document tool，并用官方 printable checklist 复核 citizenship、identity、SSN、两份 residency 和完整姓名链': [
+        WA_GET_EDL,
+        WA_EDL_CHECKLIST,
+      ],
+      '预约 driver licensing office': [WA_GET_EDL, WA_OFFICES],
+      'DOL 对 EDL 写明预约优先但非强制，并要求最晚在关门前 60 分钟提交申请': [
+        WA_GET_EDL,
+      ],
+      '现场接受 document review 和 in-person interview，拍照并支付对应费用': [
+        WA_GET_EDL,
+        WA_FEES,
+      ],
+      '首次同时申领 EDL 当前为 6 年 $153 或 8 年 $187': [
+        WA_GET_EDL,
+        WA_FEES,
+      ],
+      '领取 temporary EDL 后当场核对信息，但不要把它用于边境通行': [
+        WA_GET_EDL,
+      ],
+      '正式卡按约 2 至 3 周预留': [WA_GET_EDL, WA_EDL_GUIDE],
+      '只找星标而误以为 WA EDL/EID 不合规': [WA_REAL_ID],
+      '华盛顿州使用美国国旗标记': [WA_REAL_ID],
+      '非美国公民按 EDL/EID 清单准备': [WA_REAL_ID, WA_EDL_GUIDE],
+      '绿卡或工作签证不能满足 EDL/EID 的美国公民资格': [
+        WA_EDL_GUIDE,
+      ],
+      '把 standard license 的身份文件组合套用到 EDL/EID，或把 EDL/EID 公民材料要求套到 standard license': [
+        WA_IDENTITY,
+        WA_EDL_CHECKLIST,
+      ],
+      '提交照片、普通复印件或未认证副本，而清单没有明确允许该格式': [
+        WA_EDL_CHECKLIST,
+      ],
+      '只带一份地址文件，文件没有 first and last name，或只显示 P.O. Box': [
+        WA_EDL_CHECKLIST,
+      ],
+      '身份和公民文件姓名不一致，却没有带齐连接每次姓名变化的认证文件': [
+        WA_EDL_CHECKLIST,
+      ],
+      '把 vehicle licensing office 当成 driver licensing office，或临近关门才到场而错过 EDL 的 60 分钟受理截止时间': [
+        WA_GET_EDL,
+        WA_NEW_RESIDENT_LICENSE,
+        WA_OFFICES,
+      ],
+      '把 temporary EDL 用于边境通行，或把正式 EDL 当作国际航班旅行证件': [
+        WA_GET_EDL,
+        WA_EDL_GUIDE,
       ],
     },
   },
