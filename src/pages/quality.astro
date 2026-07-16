@@ -12,6 +12,7 @@ import {
 } from '../data/content';
 import { EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
 import { buildStateEvidence } from '../data/state-evidence';
+import { reviewedStateEvidence } from '../data/state-evidence-reviews';
 
 const statePages = states.length * 2;
 const reviewedStates = states.filter((state) => state.reviewedAt).length;
@@ -23,6 +24,21 @@ const stateEvidenceClaims = states.reduce(
     total +
     buildStateEvidence(state, 'overview', getPublicEditorialNotes(state.editorNotes)).length +
     buildStateEvidence(state, 'real-id').length,
+  0,
+);
+const aiAssistedStatePages = Object.values(reviewedStateEvidence).reduce(
+  (total, review) => total + review.surfaces.length,
+  0,
+);
+const aiAssistedStateClaims = states.reduce(
+  (total, state) =>
+    total +
+    buildStateEvidence(state, 'overview', getPublicEditorialNotes(state.editorNotes)).filter(
+      (item) => item.mappingMethod === 'ai-assisted',
+    ).length +
+    buildStateEvidence(state, 'real-id').filter(
+      (item) => item.mappingMethod === 'ai-assisted',
+    ).length,
   0,
 );
 const officialUrls = new Set([
@@ -88,7 +104,7 @@ const qualitySteps = [
       </div>
       <div>
         <strong>{stateEvidenceClaims} 条</strong>
-        <span>100 个州页声明级来源映射（自动）</span>
+        <span>{statePages} 个州页声明级来源映射</span>
       </div>
       <div>
         <strong>{factChecks} 条</strong>
@@ -99,7 +115,7 @@ const qualitySteps = [
     <div class="panel audit-strip">
       <div>
         <h2>来源映射不等于人工审核</h2>
-        <p>州页声明已经通过自动拆分、州级来源白名单、主题匹配和最终 HTML 检查，当前状态为 source-mapped。后续逐页打开官方正文的 AI 辅助核对和真实人员签字会继续分开记录。</p>
+        <p>全部州页都通过自动拆分、来源白名单、主题匹配和最终 HTML 检查；其中 {aiAssistedStatePages} 页的 {aiAssistedStateClaims} 条声明已进一步逐条打开官方正文并登记为 AI 辅助核对。其余页面仍是 source-mapped，所有州页都尚未登记为真实人工审核。</p>
       </div>
     </div>
 

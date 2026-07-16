@@ -1,5 +1,6 @@
 import type { Source, StateGuide } from './content';
 import { STATE_EVIDENCE_RELEASE_DATE } from './editorial.ts';
+import { getReviewedStateClaimSources } from './state-evidence-reviews.ts';
 
 export type StateEvidenceSurface = 'overview' | 'real-id';
 export type StateEvidenceContext =
@@ -19,6 +20,7 @@ export type StateEvidenceItem = {
   context: StateEvidenceContext;
   field: string;
   sources: Source[];
+  mappingMethod: 'automated' | 'ai-assisted';
   themes: string[];
   uncoveredThemes: string[];
 };
@@ -351,6 +353,31 @@ export function resolveStateEvidence(
   const context = inferredContext(claim, requestedContext);
   const sources = candidateSources(state);
   const rules = stateEvidenceSemanticRules.filter((rule) => rule.claim.test(claim));
+  const reviewedSourceUrls = getReviewedStateClaimSources(state.id, claim);
+
+  if (reviewedSourceUrls) {
+    const sourcesByUrl = new Map(sources.map((source) => [source.url, source]));
+    const missingSources = reviewedSourceUrls.filter((url) => !sourcesByUrl.has(url));
+    const reviewedSources = reviewedSourceUrls
+      .map((url) => sourcesByUrl.get(url))
+      .filter((source): source is StateEvidenceSource => Boolean(source))
+      .map((source) => ({
+        label: source.label,
+        url: source.url,
+        note: source.note,
+      }));
+
+    return {
+      claim,
+      context,
+      field,
+      sources: reviewedSources,
+      mappingMethod: 'ai-assisted',
+      themes: rules.map((rule) => rule.id),
+      uncoveredThemes: missingSources.map((url) => `unregistered-source:${url}`),
+    };
+  }
+
   const selected = new Map<string, StateEvidenceSource>();
   const uncoveredThemes: string[] = [];
 
@@ -390,6 +417,7 @@ export function resolveStateEvidence(
     context,
     field,
     sources: ranked,
+    mappingMethod: 'automated',
     themes: evaluation.themes,
     uncoveredThemes: [...new Set([...uncoveredThemes, ...evaluation.uncoveredThemes])],
   };

@@ -156,50 +156,49 @@ export const states: StateGuide[] = [
     agency: 'California DMV',
     agencyUrl: 'https://www.dmv.ca.gov/',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-05',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     summary:
-      '加州 DMV 的 REAL ID 页面建议先用互动清单准备材料、在线提交申请并上传文件，再带原件和确认码去 DMV 办公室完成核验。',
+      '加州首次 REAL ID 可以先在线填写申请并上传材料，但最后仍要到 DMV office 出示原件和 confirmation code 才能完成申请。',
     realIdSummary:
-      '加州 REAL ID 申请会要求证明身份和居住地址等文件。在线上传可以节省现场时间，但办公室核验时仍要带上传过的原始文件和确认码。',
+      '首次申请加州 REAL ID 需要一份身份证明、Social Security number（例外情况按官方说明）、两份不同的 California residency 证明，并亲自到 DMV office 完成文件核验。',
     licenseSummary:
-      '普通加州驾照仍可用于驾驶。若要用州驾照/ID 处理国内航班安检或部分联邦设施身份用途，需要 REAL ID 合规证件或 TSA 接受的其他证件。',
+      '标有 Federal Limits Apply 的普通加州驾照仍可用于驾驶，但不能用于 REAL ID 联邦用途；如果你有有效美国护照、护照卡或其他联邦接受证件，不必只为国内航班办理 REAL ID。',
     appointmentNote:
-      'California DMV 明确提示不少常规业务不提供柜台服务，应在线、在 kiosk、通过业务伙伴或邮寄处理；首次 REAL ID 这类需要文件核验的业务才更可能需要办公室。',
+      '首次 REAL ID 必须到 DMV office；多数驾照或 ID 续期、replacement 和记录服务不提供柜台办理，应先用 online、kiosk、DMV business partner 或 mail。',
     documentHighlights: [
-      '先使用 California DMV 的互动 REAL ID document checklist。',
-      'REAL ID 居住证明通常要两份不同文件，常见例子包括 utility bill、bank statement、vehicle registration 等。',
-      '在线申请时按提示上传身份和居住地址文件。',
-      '办公室办理时带上传过的原始文件和 confirmation code。',
-      '搬家后需要在 10 天内通知 California DMV；如果刚提交地址变更，续期或补证前通常要预留最多 3 天处理时间。',
-      '不能提供美国合法居留证明、但能满足 California DMV 身份和加州居住证明要求的人，应单独查看 AB 60 driver license 路径；AB 60 不是 REAL ID。',
+      '准备一份身份证明原件或认证副本，文件要显示出生日期和 true full legal name。',
+      '准备两份不同的打印版 California residency 文件，均要显示申请人的 first and last name，并与申请中的 mailing address 一致。',
+      '使用 P.O. Box 时，一份居住文件必须同时显示 P.O. Box 和 physical residence address。',
+      '身份文件姓名与当前法定姓名不一致时，要提交能够串起每次变更的 marriage certificate、court order 或其他法定姓名变更文件。',
+      'REAL ID 申请中要提供 Social Security number，官方注明某些情况可能例外。',
+      '在线上传文件后，去 DMV office 时仍要带原件和 confirmation code。',
     ],
     commonMistakes: [
       '以为在线上传文件后，现场就不用带原件。',
-      '搬家超过 10 天还没通知 DMV，或刚改地址就立刻续期/补证。',
-      '把普通驾照误认为一定可以用于 REAL ID 联邦用途。',
-      '去 DMV 办公室办理本应在线、kiosk、业务伙伴或邮寄完成的常规业务。',
+      '用 photocopy 或 informational copy 代替身份证明原件或认证副本。',
+      '两份 residency 文件并非不同文件，或姓名和地址与申请不一致。',
+      '当前姓名与身份文件不同，却没有带齐每一次法定姓名变更的证明。',
+      '以为首次 REAL ID 可以只靠线上或邮寄续期完成。',
     ],
     recommendedSteps: [
-      '先判断自己是否要用加州驾照/ID 处理联邦身份用途；有有效护照的人可以把护照作为备选证件。',
-      '打开加州 DMV REAL ID 页面，用互动清单确认文件。',
+      '先判断自己是否要用加州驾照或 ID 处理联邦身份用途；有效美国护照、护照卡等联邦接受证件也可用于这些用途。',
+      '打开 California DMV REAL ID checklist，逐项确认 identity、SSN、residency 和 name-change 文件。',
       '在线提交申请并上传文件后，保存 confirmation code。',
-      '地址变化时先在 10 天内完成 DMV 地址更新；需要办公室核验时，带原始文件和确认码，并提前看 wait times 或预约入口。',
+      '到 DMV office 完成首次申请，带齐上传过的原件和 confirmation code，并提前查看 wait times 或预约入口。',
     ],
     editorNotes: [
-      'California DMV REAL ID 页面强调在线申请、上传文件和办公室带原件是连续流程，不是二选一。',
-      'California DMV driver handbook / update information 页面说明搬家后 10 天内通知 DMV；Change of Address 页面提示处理最多可能需要 3 天。',
-      '预约页面提示 DMV 不为部分常规续期、记录和 replacement 服务提供柜台服务，用户应先判断是否真的需要去办公室。',
-      'California DMV locations 页面提醒多数 DMV 业务可先线上开始或完成；搜索办公室前应先用 online services 或 Service Advisor 判断是否必须到场。',
-      'California DMV 首页也提示 most DMV business can be started and/or completed online；分流页应把“先线上查”放在办公室之前。',
-      'California DMV licensing fees 页面列出 Class C 原办/续期、replacement、ID card 和付款方式；信用卡、借记卡和移动支付可能有 service fee。',
-      'California DMV processing times 页面把 DL/ID online 处理估为 2 weeks，kiosk hard copy 邮寄约 2 weeks，mail 约 4 weeks；临时驾照不能当身份证件使用。',
-      'California DMV AB 60 页面说明该路径面向无法提供美国合法居留证明、但能提供身份和加州居住证明并满足 DMV 要求的 driver license 申请人；AB 60 申请人不能取得 REAL ID。',
-      'California DMV instruction permit 页面说明申请 permit 要参加 knowledge test，常见通过要求是 80%；Preparing for Knowledge and Drive Tests 页面提供线上测试准备和 drive test 路径。',
-      'California DMV Online Learning 页面说明符合条件的 renewal noncommercial Class C 申请人可用 eLearning 替代 written / online exam；eLearning 目前有 English、Spanish、Traditional Chinese，并带 Mandarin audio。',
-      'California DMV 页面明确英文网页是官方准确来源，Google Translate 或第三方机器翻译不具法律效力；涉及材料、考试和费用时要回英文原文确认。',
-      'California DMV Fast Facts 5 说明 18 岁以上访客如持有效本州或本国驾照，可在加州驾驶；一旦成为 California resident，必须在 10 天内取得 California DL。',
-      'California DMV Driver Licenses 页面说明持外国驾照申请 California DL 时按已持外州 DL 路径办理，但还需通过 driving test；有效外国 DL 去路考时需要 accompanying driver。',
+      '加州法律要求地址变更后 10 天内通知 DMV，在线变更应在办理或续办其他 DMV 业务前最多预留 3 天处理。',
+      'California DMV 当前费用页列出非商业 Class C 原办或续期 $46，replacement 或信息变更 $37，普通 ID card $40。',
+      '信用卡、借记卡和移动支付的 service fee 会因线上、办公室或 kiosk 渠道不同而变化，付款前应看费用页的最新表格。',
+      'California DMV 当前估算 DL/ID online 处理约 2 周、kiosk 实体卡邮寄约 2 周、mail 约 4 周，实际可能因额外审查延长。',
+      '即时获得的 temporary driver license 不能当作身份证明使用。',
+      '不能提供美国合法居留证明、但能提供身份和 California residency 并满足 DMV 要求的人，应走 AB 60 driver license 路径；AB 60 不能升级为 REAL ID。',
+      '加州 instruction permit 的 knowledge test 通常要求 80% 通过，办公室测试须在 4:30 p.m. 前开始。',
+      '符合条件的非商业 Class C 续期申请人可用 eLearning 满足 knowledge test 要求，课程提供 Traditional Chinese 和 Mandarin audio。',
+      '18 岁以上访客持有效本州或本国驾照时可在加州驾驶；成为 California resident 后须在 10 天内取得 California DL。',
+      '持外国驾照申请 California DL 时按外州驾照流程办理并额外参加 driving test；持有效外国驾照去参加 drive test 仍需 accompanying driver。',
+      'California DMV 明确英文网页才是官方准确来源，机器翻译差异不具有法律效力。',
     ],
     actionLinks: [
       {
@@ -224,7 +223,7 @@ export const states: StateGuide[] = [
       },
       {
         label: 'Instruction Permits',
-        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/instruction-permits/',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/learners-permits/',
         description: '加州 learner / instruction permit、knowledge test 和练车路径。',
       },
       {
@@ -277,10 +276,22 @@ export const states: StateGuide[] = [
       {
         label: 'California DMV REAL ID',
         url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/',
+        note: '在线申请、上传材料、办公室原件核验和 confirmation code 流程。',
+      },
+      {
+        label: 'California DMV What Is REAL ID',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/what-is-real-id/',
+        note: '联邦用途、普通证件限制、护照替代、首次到场、SSN 和 REAL ID 材料概览。',
       },
       {
         label: 'California DMV REAL ID Checklist',
         url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/',
+        note: '一份身份文件、姓名变更链、两份不同居住证明和 P.O. Box 规则。',
+      },
+      {
+        label: 'California DMV Document Verification FAQs',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/dl-id-online-app-edl-44/document-verification-faqs/',
+        note: '在线上传后仍须在办公室出示原件。',
       },
       {
         label: 'California DMV Driver Licenses',
@@ -296,7 +307,8 @@ export const states: StateGuide[] = [
       },
       {
         label: 'California DMV Instruction Permits',
-        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/instruction-permits/',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/learners-permits/',
+        note: 'knowledge test 的 80% 通过标准、4:30 p.m. 截止和外国驾照路考陪同要求。',
       },
       {
         label: 'California DMV Prepare for Knowledge and Drive Tests',
@@ -313,10 +325,12 @@ export const states: StateGuide[] = [
       {
         label: 'California DMV AB 60 Driver Licenses',
         url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/',
+        note: '无法证明合法居留时的身份和 California residency 路径。',
       },
       {
         label: 'California DMV Change of Address',
         url: 'https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/',
+        note: '在线地址变更、最多 3 天处理和不自动寄发新卡。',
       },
       {
         label: 'California DMV Service Locations',
@@ -325,14 +339,17 @@ export const states: StateGuide[] = [
       {
         label: 'California DMV Update Information',
         url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/updating-information-on-your-driver-license-or-identification-dl-id-card/',
+        note: '地址变更 10 天期限、姓名更新、SSN 和 REAL ID 材料。',
       },
       {
         label: 'California DMV Licensing Fees',
         url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/',
+        note: 'Class C、replacement、ID card 当前费用及各渠道支付手续费。',
       },
       {
         label: 'California DMV Processing Times',
         url: 'https://www.dmv.ca.gov/portal/about-the-california-department-of-motor-vehicles/renewal-processing-times/',
+        note: 'DL/ID online、kiosk、mail 估算时长和临时驾照身份用途限制。',
       },
     ],
     relatedTopicSlugs: [

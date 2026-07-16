@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成加州两页官方正文语义核对',
+    summary:
+      '逐条打开 California DMV 的 REAL ID、材料、预约、地址、费用、处理时间、AB 60、考试和外国驾照页面，重写加州总览与 REAL ID 清单，并把每条声明改为显式来源映射。',
+    scope: ['加州办事总览', '加州 REAL ID', 'AI 辅助证据核对', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '为 100 个州级页面增加声明级官方证据',
     summary:
       '将 50 州总览和 50 州 REAL ID 页中的摘要、材料、步骤、失败原因和州别细节拆成可审计声明，并在正文逐条显示对应政府来源；新增成品 HTML 证据门禁。',

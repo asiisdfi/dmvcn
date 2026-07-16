@@ -7,6 +7,10 @@ import {
   buildStateEvidence,
   evaluateStateEvidence,
 } from '../src/data/state-evidence.ts';
+import {
+  getReviewedStateClaimSources,
+  getReviewedStateEvidence,
+} from '../src/data/state-evidence-reviews.ts';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const distDir = path.join(projectRoot, 'dist');
@@ -71,6 +75,30 @@ function builtPathFor(stateId, surface) {
 for (const state of states) {
   const publicNotes = getPublicEditorialNotes(state.editorNotes);
   const officialUrls = officialUrlsFor(state);
+  const reviewedEvidence = getReviewedStateEvidence(state.id);
+  const renderedClaims = new Set();
+
+  if (reviewedEvidence) {
+    if (new Set(reviewedEvidence.sourceBodiesChecked).size !== reviewedEvidence.sourceBodiesChecked.length) {
+      errors.push(`${state.id}: reviewed source body list contains duplicates`);
+    }
+    for (const url of reviewedEvidence.sourceBodiesChecked) {
+      if (!officialUrls.has(url)) {
+        errors.push(`${state.id}: reviewed source body is not registered for this state: ${url}`);
+      }
+    }
+    for (const [claim, sourceUrls] of Object.entries(reviewedEvidence.claims)) {
+      if (!sourceUrls.length) errors.push(`${state.id}: reviewed claim has no source: ${claim}`);
+      for (const url of sourceUrls) {
+        if (!officialUrls.has(url)) {
+          errors.push(`${state.id}: reviewed claim uses an unregistered source: ${url}`);
+        }
+        if (!reviewedEvidence.sourceBodiesChecked.includes(url)) {
+          errors.push(`${state.id}: reviewed claim source body was not recorded as checked: ${url}`);
+        }
+      }
+    }
+  }
 
   for (const surface of surfaces) {
     const expected = buildStateEvidence(state, surface, publicNotes);
@@ -109,6 +137,7 @@ for (const state of states) {
       const attributes = attrs(itemNode);
       const context = attributes.get('data-evidence-context') ?? '';
       const field = attributes.get('data-evidence-field') ?? '';
+      const mappingMethod = attributes.get('data-evidence-method') ?? '';
       const claimNode = descendants(itemNode, (node) => node.tagName === 'p')[0];
       const claim = text(claimNode ?? {}).replace(/\s+/g, ' ').trim();
       const links = descendants(itemNode, (node) => classes(node).has('state-evidence-link'));
@@ -116,11 +145,23 @@ for (const state of states) {
       const key = itemKey(field, claim);
       const expectedItem = expectedByKey.get(key);
       const semantic = evaluateStateEvidence(state, claim, context, sourceUrls);
+      const reviewedSourceUrls = getReviewedStateClaimSources(state.id, claim);
+      const reviewApplies = reviewedEvidence?.surfaces.includes(surface);
+      const reviewedMappingMatches =
+        mappingMethod === 'ai-assisted' &&
+        Boolean(reviewedSourceUrls) &&
+        JSON.stringify(sourceUrls) === JSON.stringify(reviewedSourceUrls);
 
       seen.set(key, (seen.get(key) ?? 0) + 1);
+      renderedClaims.add(claim);
 
       if (!expectedItem) {
         errors.push(`${state.id}/${surface}: rendered claim is not in the evidence model: ${claim}`);
+      }
+      if (expectedItem && mappingMethod !== expectedItem.mappingMethod) {
+        errors.push(
+          `${state.id}/${surface}: rendered mapping method ${mappingMethod || 'missing'} does not match ${expectedItem.mappingMethod}: ${claim}`,
+        );
       }
       if (!claim) errors.push(`${state.id}/${surface}: evidence item has no claim text`);
       if (/[；;]/.test(claim)) {
@@ -139,7 +180,17 @@ for (const state of states) {
           errors.push(`${state.id}/${surface}: source is not registered for this state: ${url}`);
         }
       }
-      if (!semantic.valid) {
+      if (reviewApplies && !reviewedMappingMatches) {
+        errors.push(
+          `${state.id}/${surface}: evidence-checked surface lacks an explicit reviewed mapping: ${claim}`,
+        );
+      }
+      if (!reviewApplies && mappingMethod !== 'automated') {
+        errors.push(
+          `${state.id}/${surface}: unreviewed surface must remain automated: ${claim}`,
+        );
+      }
+      if (mappingMethod === 'automated' && !semantic.valid) {
         errors.push(
           `${state.id}/${surface}: evidence mismatch (${[
             ...semantic.uncoveredThemes,
@@ -156,9 +207,10 @@ for (const state of states) {
         claim,
         sourceUrls,
         sourceLabels: links.map((link) => text(link).replace(/\s+/g, ' ').trim()),
+        mappingMethod,
         themes: semantic.themes,
         uncoveredThemes: semantic.uncoveredThemes,
-        valid: semantic.valid,
+        valid: mappingMethod === 'ai-assisted' ? reviewedMappingMatches : semantic.valid,
       });
     }
 
@@ -173,6 +225,14 @@ for (const state of states) {
         errors.push(
           `${state.id}/${surface}: model produced incomplete evidence (${expectedItem.uncoveredThemes.join(', ')}): ${expectedItem.claim}`,
         );
+      }
+    }
+  }
+
+  if (reviewedEvidence) {
+    for (const claim of Object.keys(reviewedEvidence.claims)) {
+      if (!renderedClaims.has(claim)) {
+        errors.push(`${state.id}: reviewed claim is no longer rendered: ${claim}`);
       }
     }
   }
@@ -198,6 +258,12 @@ const summary = {
   states: states.length,
   claims: records.length,
   links: records.reduce((total, record) => total + record.sourceUrls.length, 0),
+  aiAssistedClaims: records.filter((record) => record.mappingMethod === 'ai-assisted').length,
+  aiAssistedPages: new Set(
+    records
+      .filter((record) => record.mappingMethod === 'ai-assisted')
+      .map((record) => `${record.stateId}/${record.surface}`),
+  ).size,
   errors: errors.length,
   coverage,
 };
@@ -214,6 +280,7 @@ console.log(`Pages: ${summary.pages}`);
 console.log(`States: ${summary.states}`);
 console.log(`Claims: ${summary.claims}`);
 console.log(`Official source links: ${summary.links}`);
+console.log(`AI-assisted explicit mappings: ${summary.aiAssistedClaims} claims / ${summary.aiAssistedPages} pages`);
 console.log(`Errors: ${summary.errors}`);
 for (const surface of surfaces) {
   const actual = coverage[surface];

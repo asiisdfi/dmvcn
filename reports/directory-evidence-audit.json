@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T21:54:01.240Z",
+    "generatedAt": "2026-07-16T22:16:04.385Z",
     "pages": 5,
     "claims": 372,
     "statesCovered": 49,
@@ -11,7 +11,7 @@
         "states": 15
       },
       "deadlines": {
-        "claims": 31,
+        "claims": 29,
         "states": 14
       },
       "document-rules": {
@@ -19,11 +19,11 @@
         "states": 47
       },
       "foreign-license": {
-        "claims": 57,
-        "states": 21
+        "claims": 58,
+        "states": 22
       },
       "identity-ssn": {
-        "claims": 96,
+        "claims": 97,
         "states": 34
       }
     }
@@ -34,11 +34,12 @@
       "page": "costs-timing",
       "stateId": "california",
       "category": "费用",
-      "claim": "信用卡、借记卡和移动支付可能有 service fee",
+      "claim": "California DMV 当前费用页列出非商业 Class C 原办或续期 $46，replacement 或信息变更 $37，普通 ID card $40",
       "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/",
       "sourceLabel": "对应官方来源：California DMV Licensing Fees",
       "themes": [
-        "fee"
+        "fee",
+        "renewal"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -47,21 +48,7 @@
       "page": "costs-timing",
       "stateId": "california",
       "category": "费用",
-      "claim": "California DMV licensing fees 页面列出 Class C 原办/续期、replacement、ID card 和付款方式",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/",
-      "sourceLabel": "对应官方来源：California DMV Licensing Fees",
-      "themes": [
-        "fee",
-        "renewal"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
-    },
-    {
-      "page": "costs-timing",
-      "stateId": "california",
-      "category": "费用",
-      "claim": "涉及材料、考试和费用时要回英文原文确认",
+      "claim": "信用卡、借记卡和移动支付的 service fee 会因线上、办公室或 kiosk 渠道不同而变化，付款前应看费用页的最新表格",
       "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/",
       "sourceLabel": "对应官方来源：California DMV Licensing Fees",
       "themes": [
@@ -74,14 +61,27 @@
       "page": "costs-timing",
       "stateId": "california",
       "category": "邮寄 / 卡片",
-      "claim": "California DMV processing times 页面把 DL/ID online 处理估为 2 weeks，kiosk hard copy 邮寄约 2 weeks，mail 约 4 weeks",
+      "claim": "California DMV 当前估算 DL/ID online 处理约 2 周、kiosk 实体卡邮寄约 2 周、mail 约 4 周，实际可能因额外审查延长",
       "sourceUrl": "https://www.dmv.ca.gov/portal/about-the-california-department-of-motor-vehicles/renewal-processing-times/",
       "sourceLabel": "对应官方来源：California DMV Processing Times",
       "themes": [
         "processing-or-mail"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "california",
+      "category": "邮寄 / 卡片",
+      "claim": "多数驾照或 ID 续期、replacement 和记录服务不提供柜台办理，应先用 online、kiosk、DMV business partner 或 mail",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/",
+      "sourceLabel": "对应官方来源：California DMV Licensing Fees",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
     },
     {
       "page": "costs-timing",
@@ -420,7 +420,7 @@
       "page": "deadlines",
       "stateId": "california",
       "category": "搬家 / 地址",
-      "claim": "搬家后需要在 10 天内通知 California DMV",
+      "claim": "加州法律要求地址变更后 10 天内通知 DMV，在线变更应在办理或续办其他 DMV 业务前最多预留 3 天处理",
       "sourceUrl": "https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/",
       "sourceLabel": "对应官方来源：California DMV Change of Address",
       "themes": [
@@ -428,32 +428,6 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
-    },
-    {
-      "page": "deadlines",
-      "stateId": "california",
-      "category": "搬家 / 地址",
-      "claim": "地址变化时先在 10 天内完成 DMV 地址更新",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/",
-      "sourceLabel": "对应官方来源：California DMV Change of Address",
-      "themes": [
-        "address-change"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "deadlines",
-      "stateId": "california",
-      "category": "处理 / 邮寄",
-      "claim": "Change of Address 页面提示处理最多可能需要 3 天",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/",
-      "sourceLabel": "对应官方来源：California DMV Change of Address",
-      "themes": [
-        "address-change"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
     },
     {
       "page": "deadlines",
@@ -829,7 +803,20 @@
       "page": "document-rules",
       "stateId": "california",
       "category": "地址证明",
-      "claim": "REAL ID 居住证明通常要两份不同文件，常见例子包括 utility bill、bank statement、vehicle registration 等",
+      "claim": "准备两份不同的打印版 California residency 文件，均要显示申请人的 first and last name，并与申请中的 mailing address 一致",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
+      "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "california",
+      "category": "地址证明",
+      "claim": "使用 P.O. Box 时，一份居住文件必须同时显示 P.O. Box 和 physical residence address",
       "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/",
       "sourceLabel": "对应官方来源：California DMV REAL ID Checklist",
       "themes": [
@@ -842,7 +829,7 @@
       "page": "document-rules",
       "stateId": "california",
       "category": "地址证明",
-      "claim": "不能提供美国合法居留证明、但能满足 California DMV 身份和加州居住证明要求的人，应单独查看 AB 60 driver license 路径",
+      "claim": "不能提供美国合法居留证明、但能提供身份和 California residency 并满足 DMV 要求的人，应走 AB 60 driver license 路径",
       "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
       "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
       "themes": [
@@ -857,24 +844,13 @@
       "page": "document-rules",
       "stateId": "california",
       "category": "地址证明",
-      "claim": "地址变化时先在 10 天内完成 DMV 地址更新",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/",
-      "sourceLabel": "对应官方来源：California DMV Change of Address",
-      "themes": [
-        "address-change"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "document-rules",
-      "stateId": "california",
-      "category": "清单入口",
-      "claim": "先使用 California DMV 的互动 REAL ID document checklist",
+      "claim": "打开 California DMV REAL ID checklist，逐项确认 identity、SSN、residency 和 name-change 文件",
       "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/",
       "sourceLabel": "对应官方来源：California DMV REAL ID Checklist",
       "themes": [
-        "document-checklist"
+        "residency-documents",
+        "document-checklist",
+        "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": true
@@ -2933,6 +2909,19 @@
     },
     {
       "page": "foreign-license",
+      "stateId": "california",
+      "category": "外国 / 境外驾照",
+      "claim": "持有效外国驾照去参加 drive test 仍需 accompanying driver",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/learners-permits/",
+      "sourceLabel": "对应官方来源：California DMV Instruction Permits",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
       "stateId": "new-york",
       "category": "外国 / 境外驾照",
       "claim": "申请 NY license 时必须通过 written test、5-hour pre-licensing course 和 road test，并在 road test 通过时交出 foreign driver license",
@@ -3698,20 +3687,7 @@
       "page": "identity-ssn",
       "stateId": "california",
       "category": "AB 60",
-      "claim": "AB 60 申请人不能取得 REAL ID",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
-      "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
-      "themes": [
-        "ab-60"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "california",
-      "category": "AB 60",
-      "claim": "不能提供美国合法居留证明、但能满足 California DMV 身份和加州居住证明要求的人，应单独查看 AB 60 driver license 路径",
+      "claim": "不能提供美国合法居留证明、但能提供身份和 California residency 并满足 DMV 要求的人，应走 AB 60 driver license 路径",
       "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
       "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
       "themes": [
@@ -3726,7 +3702,7 @@
       "page": "identity-ssn",
       "stateId": "california",
       "category": "AB 60",
-      "claim": "AB 60 不是 REAL ID",
+      "claim": "AB 60 不能升级为 REAL ID",
       "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
       "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
       "themes": [
@@ -3734,6 +3710,34 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "california",
+      "category": "SSN",
+      "claim": "REAL ID 申请中要提供 Social Security number，官方注明某些情况可能例外",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/what-is-real-id/",
+      "sourceLabel": "对应官方来源：California DMV What Is REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "california",
+      "category": "SSN",
+      "claim": "打开 California DMV REAL ID checklist，逐项确认 identity、SSN、residency 和 name-change 文件",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/",
+      "sourceLabel": "对应官方来源：California DMV REAL ID Checklist",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true
     },
     {
       "page": "identity-ssn",

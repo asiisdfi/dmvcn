@@ -1,4 +1,5 @@
 import { states } from './content.ts';
+import { getReviewedStateEvidence } from './state-evidence-reviews.ts';
 
 export type SemanticReview = {
   status: 'source-mapped' | 'evidence-checked' | 'human-approved';
@@ -157,15 +158,29 @@ export const semanticReviews: Record<string, SemanticReview> = {
 };
 
 for (const state of states) {
-  const review: SemanticReview = {
-    status: 'source-mapped',
-    method: 'automated',
-    reviewedAt: '2026-07-17',
-    reviewer: '站内声明级来源映射审计',
-    scope: '将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。',
-    notes: '已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。',
-  };
+  const reviewedEvidence = getReviewedStateEvidence(state.id);
 
-  semanticReviews[`/states/${state.id}/`] = review;
-  semanticReviews[`/states/${state.id}/real-id/`] = review;
+  for (const surface of ['overview', 'real-id'] as const) {
+    const isEvidenceChecked = reviewedEvidence?.surfaces.includes(surface);
+    const route =
+      surface === 'overview' ? `/states/${state.id}/` : `/states/${state.id}/real-id/`;
+
+    semanticReviews[route] = isEvidenceChecked
+      ? {
+          status: 'evidence-checked',
+          method: 'ai-assisted',
+          reviewedAt: reviewedEvidence.reviewedAt,
+          reviewer: reviewedEvidence.reviewer,
+          scope: reviewedEvidence.scope,
+          notes: reviewedEvidence.notes,
+        }
+      : {
+          status: 'source-mapped',
+          method: 'automated',
+          reviewedAt: '2026-07-17',
+          reviewer: '站内声明级来源映射审计',
+          scope: '将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。',
+          notes: '已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。',
+        };
+  }
 }
