@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:11:19.228Z",
+    "generatedAt": "2026-07-16T23:20:18.997Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 25,
+    "passed": 27,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 86,
-    "aiAssistedReviews": 31,
+    "sourceMappedReviews": 84,
+    "aiAssistedReviews": 33,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 139,
+    "blockedPages": 137,
     "averageScore": 96
   },
   "pages": [
@@ -307,7 +307,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 170,
+        "sourceCount": 172,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 228,
+        "sourceCount": 231,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 39,
-        "directoryEvidenceLinks": 39,
+        "directoryEvidenceItems": 41,
+        "directoryEvidenceLinks": 41,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 189,
+        "sourceCount": 193,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 30,
-        "directoryEvidenceLinks": 30,
+        "directoryEvidenceItems": 33,
+        "directoryEvidenceLinks": 33,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 378,
+        "sourceCount": 390,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 165,
+        "sourceCount": 167,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 130,
+        "sourceCount": 127,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -544,8 +544,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 55,
-        "directoryEvidenceLinks": 55,
+        "directoryEvidenceItems": 58,
+        "directoryEvidenceLinks": 58,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 137,
+        "sourceCount": 140,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 102,
-        "directoryEvidenceLinks": 102,
+        "directoryEvidenceItems": 106,
+        "directoryEvidenceLinks": 106,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -622,7 +622,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 193,
+        "sourceCount": 196,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -662,7 +662,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 174,
+        "sourceCount": 177,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -742,7 +742,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 231,
+        "sourceCount": 232,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1024,
+        "sourceCount": 1036,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -2117,22 +2117,22 @@
       "route": "/states/illinois/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 88,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Illinois Secretary of State 的 REAL ID、A/B/C/D 文件组、VISA/NONVISA 与原 TVDL、续期补证、地址、新居民、permit、成人教育、费用、预约、2026 Rules of the Road 和老年驾驶新规。",
+        "notes": "重写 Illinois 总览与 REAL ID 页面，移除过时 TVDL 逻辑，补充当前 Chicago Supercenter、永久卡邮寄、TSA 临时纸卡边界、90 天新居民测试差异和 2026 年 87 岁 road test 起点，并将所有声明改为显式来源；仍待真实人工签字。"
       },
       "scores": {
-        "factsAndSources": 20,
-        "evidenceMapping": 12,
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
         "authorship": 10,
@@ -2141,14 +2141,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 4,
-        "factCheckCount": 8,
+        "sourceCount": 20,
+        "factCheckCount": 35,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 8,
-        "stateEvidenceLinks": 11,
+        "stateEvidenceItems": 35,
+        "stateEvidenceLinks": 51,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2156,9 +2156,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/illinois/real-id/",
@@ -2166,16 +2164,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Illinois Secretary of State 的 REAL ID、A/B/C/D 文件组、VISA/NONVISA 与原 TVDL、续期补证、地址、新居民、permit、成人教育、费用、预约、2026 Rules of the Road 和老年驾驶新规。",
+        "notes": "重写 Illinois 总览与 REAL ID 页面，移除过时 TVDL 逻辑，补充当前 Chicago Supercenter、永久卡邮寄、TSA 临时纸卡边界、90 天新居民测试差异和 2026 年 87 岁 road test 起点，并将所有声明改为显式来源；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2188,14 +2186,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 4,
-        "factCheckCount": 14,
+        "sourceCount": 20,
+        "factCheckCount": 41,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 14,
-        "stateEvidenceLinks": 16,
+        "stateEvidenceItems": 41,
+        "stateEvidenceLinks": 63,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2203,9 +2201,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/indiana/",

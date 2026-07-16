@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成伊利诺伊州两页官方正文语义核对',
+    summary:
+      '逐条比对 Illinois Secretary of State 的 REAL ID、A/B/C/D 文件组、VISA/NONVISA 与原 TVDL、续期补证、地址、新居民、permit、成人教育、费用、预约、2026 Rules of the Road 和老年驾驶新规；重写 Standard 与 REAL ID 判断路径，并保守说明无 SSN declaration 不能自动推定为 REAL ID 豁免。',
+    scope: ['伊利诺伊州办事总览', '伊利诺伊州 REAL ID', 'VISA/NONVISA 与 SSN', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成马萨诸塞州两页官方正文语义核对',
     summary:
       '逐条比对 Mass.gov 的 REAL ID、身份清单、WFMA 现行法、续期补证、地址、permit、road test、外州转入、外国驾照、Taiwan conversion、费用和 MyMassGov 正文；明确 Standard Class D/M 的适用边界，并修正不同国家 driving record 期限。',

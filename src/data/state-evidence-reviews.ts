@@ -212,6 +212,39 @@ const MA_FEES =
 const MA_MYMASSGOV =
   'https://www.mass.gov/info-details/mymassgov-for-myrmv-services';
 
+const IL_REAL_ID = 'https://www.ilsos.gov/content/realid/us/en.html';
+const IL_DOCUMENT_REQUIREMENTS =
+  'https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html';
+const IL_ACCEPTABLE_DOCUMENTS =
+  'https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html';
+const IL_CHECKLIST =
+  'https://www.ilsos.gov/departments/drivers/drivers-license/accept-id-checklist.html';
+const IL_NONCITIZEN =
+  'https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_tvdl22.pdf';
+const IL_TVDL_CHANGE =
+  'https://www.ilsos.gov/content/dam/news/2024/july/240701d1.pdf';
+const IL_RENEW =
+  'https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html';
+const IL_DUPLICATE =
+  'https://www.ilsos.gov/departments/drivers/drivers-license/duplicate-drivers-license-or-id-card.html';
+const IL_ADDRESS = 'https://apps.ilsos.gov/addrchange/?s=1&vm=r';
+const IL_NEW_RESIDENT = 'https://www.ilsos.gov/services/newresidents.html';
+const IL_PERMIT =
+  'https://www.ilsos.gov/departments/drivers/driver-education/instructpermit.html';
+const IL_ADULT_ED =
+  'https://www.ilsos.gov/departments/drivers/driver-education/ade.html';
+const IL_RULES =
+  'https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_a112.pdf';
+const IL_DRIVER_INFO =
+  'https://www.ilsos.gov/departments/drivers/drivers_license/drlicid.html';
+const IL_FEES = 'https://www.ilsos.gov/departments/drivers/basicfees.html';
+const IL_APPOINTMENTS =
+  'https://www.ilsos.gov/departments/drivers/appointments.html';
+const IL_FACILITY =
+  'https://apps.ilsos.gov/facilityfinder/facility?command=map';
+const IL_OLDER_DRIVER_UPDATE =
+  'https://www.ilsos.gov/news/2026/june-17-2026-giannoulias-ends-mandatory-road-tests-for-drivers-ages-79-86.html';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -1700,6 +1733,287 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '按统一的 30 天记录期限准备外国驾照 conversion，忽略 Taiwan 和 South Korea 等路径的 60 天规则': [
         MA_FOREIGN_CONVERSION,
+      ],
+    },
+  },
+  illinois: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      IL_REAL_ID,
+      IL_DOCUMENT_REQUIREMENTS,
+      IL_ACCEPTABLE_DOCUMENTS,
+      IL_CHECKLIST,
+      IL_NONCITIZEN,
+      IL_TVDL_CHANGE,
+      IL_RENEW,
+      IL_DUPLICATE,
+      IL_ADDRESS,
+      IL_NEW_RESIDENT,
+      IL_PERMIT,
+      IL_ADULT_ED,
+      IL_RULES,
+      IL_DRIVER_INFO,
+      IL_FEES,
+      IL_APPOINTMENTS,
+      IL_FACILITY,
+      IL_OLDER_DRIVER_UPDATE,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Illinois Secretary of State 的 REAL ID、A/B/C/D 文件组、VISA/NONVISA 与原 TVDL、续期补证、地址、新居民、permit、成人教育、费用、预约、2026 Rules of the Road 和老年驾驶新规。',
+    notes:
+      '重写 Illinois 总览与 REAL ID 页面，移除过时 TVDL 逻辑，补充当前 Chicago Supercenter、永久卡邮寄、TSA 临时纸卡边界、90 天新居民测试差异和 2026 年 87 岁 road test 起点，并将所有声明改为显式来源；仍待真实人工签字。',
+    claims: {
+      '伊利诺伊州先分 Standard 与 REAL ID：Standard license 可用于驾驶，移民申请路径自 2024-07-01 起已由 TVDL 改为四年 Standard license，并标注 Federal Limits Apply': [
+        IL_NONCITIZEN,
+        IL_TVDL_CHANGE,
+      ],
+      'REAL ID 可用于国内航班和受限联邦设施，但首次申请必须按 A/B/C/D 材料组现场办理': [
+        IL_REAL_ID,
+        IL_DOCUMENT_REQUIREMENTS,
+      ],
+      '走 VISA 或 NONVISA Standard credential 路径且当时无资格取得 SSN 的人，官方文件页说明可不提交 Group C，而是在现场签署 ineligibility declaration': [
+        IL_DOCUMENT_REQUIREMENTS,
+        IL_ACCEPTABLE_DOCUMENTS,
+      ],
+      '该声明只解决这条申请路径的 Group C 栏，不能据此认定自己已满足 REAL ID': [
+        IL_DOCUMENT_REQUIREMENTS,
+        IL_ACCEPTABLE_DOCUMENTS,
+        IL_REAL_ID,
+      ],
+      'REAL ID 仍要按实时清单另行核对 lawful status、SSN 和两份地址材料': [
+        IL_REAL_ID,
+        IL_DOCUMENT_REQUIREMENTS,
+      ],
+      '搬入伊州后通常有 90 天取得 Illinois credential：有效外州驾照转入通常只做 vision test，外国驾照转入则要 vision、written 和 road exams': [
+        IL_NEW_RESIDENT,
+      ],
+      '首次申请 Illinois REAL ID 要准备一份 Group A written signature、一份 Group B date of birth / lawful status、一份 Group C 完整 SSN，以及两份 Group D Illinois residency': [
+        IL_REAL_ID,
+        IL_DOCUMENT_REQUIREMENTS,
+      ],
+      '即使已经持有 Standard Illinois license / ID，第一次升级 REAL ID 仍按 first-time REAL ID 处理': [
+        IL_DOCUMENT_REQUIREMENTS,
+      ],
+      'Chicago REAL ID Supercenter 已延长开放至 2026 年底，工作日 7:30–17:00 接受 walk-in': [
+        IL_REAL_ID,
+      ],
+      '其他 full-service DMV 有些必须预约，应先查 Facility Finder': [
+        IL_REAL_ID,
+        IL_FACILITY,
+      ],
+      '线上续期只适用于收到 renewal letter 和 PIN / authorization number 的申请人，升级 REAL ID 或需要考试、medical / vision report 时必须到 DMV': [
+        IL_RENEW,
+      ],
+      '自 2024-07-01 起，Illinois 已用四年 Standard driver’s license 取代面向 undocumented immigrants 和部分无 SSN 非公民的 TVDL': [
+        IL_NONCITIZEN,
+        IL_TVDL_CHANGE,
+      ],
+      '新卡标注 Federal Limits Apply': [IL_TVDL_CHANGE],
+      '第一张 REAL ID 的材料结构是 Group A written signature、Group B date of birth / lawful status、Group C full SSN 和两份 Group D residency': [
+        IL_REAL_ID,
+        IL_DOCUMENT_REQUIREMENTS,
+      ],
+      'REAL ID 与同类传统 license / ID 的卡费相同': [
+        IL_REAL_ID,
+        IL_FEES,
+      ],
+      '当前 basic driver’s license 为 $30，18–20 岁为 $5，Class D instruction permit 为 $20，corrected / duplicate driver’s license 为 $5': [
+        IL_FEES,
+      ],
+      '在线续期要求 renewal letter 上的 PIN 或 authorization number': [
+        IL_RENEW,
+      ],
+      '升级 REAL ID、需要 written / road test、更新 medical / vision report 或加入 P.O. Box 时不能线上续': [
+        IL_RENEW,
+      ],
+      '线上续期、duplicate 和 REAL ID 正式卡通常在 15 个工作日内寄到': [
+        IL_RENEW,
+        IL_DUPLICATE,
+        IL_REAL_ID,
+      ],
+      '线上 duplicate 不适用于 suspended / revoked / canceled credential、30 天内到期、此前线上改址、需要改信息或已达到补证次数上限等情况，而且不会提供 temporary credential': [
+        IL_DUPLICATE,
+      ],
+      '地址变化后 10 天内必须通知 Secretary of State': [IL_ADDRESS],
+      'driver license / ID 与 vehicle registration 要分别更新，线上改记录免费，但显示新地址的实体卡要现场办理并支付适用费用': [
+        IL_ADDRESS,
+        IL_FEES,
+      ],
+      '从外州搬入通常有 90 天办理 Illinois license，有效外州驾照一般只需 vision test': [
+        IL_NEW_RESIDENT,
+      ],
+      '从外国搬入也有 90 天，但要参加 vision、written 和 road exams，并提供保险证明': [
+        IL_NEW_RESIDENT,
+      ],
+      '18–20 岁首次申请且未上过认可 driver education 的人必须先完成至少 6 小时的州认证 Adult Driver Education Course，再做 vision、written 和 road tests': [
+        IL_ADULT_ED,
+      ],
+      '15–17 岁 instruction permit 申请人要在认可 driver education 中就读或距开课 30 天内': [
+        IL_PERMIT,
+      ],
+      '未满 18 岁的 permit 有效两年，并通常要持有至少 9 个月': [
+        IL_PERMIT,
+      ],
+      'Illinois Class D written test 至少 35 题，答对 80% 才通过': [
+        IL_RULES,
+      ],
+      '非 CDL 申请人可按可用语言或口试 / interpreter 规则向 facility 询问，CDL knowledge test 规则另行处理': [
+        IL_RULES,
+      ],
+      '从 2026-07-01 起，单纯因年龄触发的 mandatory road test 起点由 79 岁提高到 87 岁': [
+        IL_OLDER_DRIVER_UPDATE,
+      ],
+      '81–86 岁 license 通常两年有效，87 岁及以上每年续期': [
+        IL_DRIVER_INFO,
+        IL_OLDER_DRIVER_UPDATE,
+      ],
+      'Chicago REAL ID Supercenter 位于 191 N. Clark St.，已延长至 2026 年底，工作日 7:30–17:00 walk-in': [
+        IL_REAL_ID,
+      ],
+      '州内许多 Driver Services location 仍标注 appointment required': [
+        IL_FACILITY,
+        IL_APPOINTMENTS,
+      ],
+      'REAL ID 申请现场发 temporary paper credential，永久卡通常 15 个工作日内邮寄': [
+        IL_REAL_ID,
+      ],
+      'TSA 的接受证件页明确说明 temporary driver’s license 不是可接受身份证件': [
+        TSA_IDENTIFICATION,
+      ],
+      'First-time REAL ID 要一份 Group A、一份 Group B、一份 Group C 和两份 Group D': [
+        IL_DOCUMENT_REQUIREMENTS,
+      ],
+      '一份文件可以同时满足多个 group，但仍要覆盖全部要求': [
+        IL_DOCUMENT_REQUIREMENTS,
+      ],
+      'Group B 的 REAL ID 文件要证明 full legal name、date of birth 和 citizenship / lawful status': [
+        IL_REAL_ID,
+        IL_ACCEPTABLE_DOCUMENTS,
+      ],
+      'Group C 文件要显示姓名和完整 SSN': [IL_ACCEPTABLE_DOCUMENTS],
+      '只有持有效 Illinois license / ID 且此前已向州里提交并核验 Social Security card 时，REAL ID 页面才说明可免再次出示': [
+        IL_REAL_ID,
+      ],
+      '两份 Group D 要显示 full name 和 current Illinois residence address': [
+        IL_ACCEPTABLE_DOCUMENTS,
+      ],
+      '银行账单、utility bill 等 printed electronic documents 可以使用，但 account number 要清楚可见': [
+        IL_REAL_ID,
+        IL_ACCEPTABLE_DOCUMENTS,
+      ],
+      '还要带一份 written signature 证明，例如当前 non-REAL ID license、信用卡或借记卡、passport 或 canceled check': [
+        IL_REAL_ID,
+        IL_ACCEPTABLE_DOCUMENTS,
+      ],
+      '所有材料要在可接受时限内有效，REAL ID 只接受 original hard copies，不接受 photocopies': [
+        IL_REAL_ID,
+        IL_ACCEPTABLE_DOCUMENTS,
+      ],
+      '现用姓名与 birth certificate 或 passport 不一致时，要用 certified marriage certificate、adoption document、civil union document 或 certified name change document 接起姓名链': [
+        IL_REAL_ID,
+      ],
+      'VISA / NONVISA Standard credential 的无 SSN declaration 只解决该路径的 Group C 栏': [
+        IL_DOCUMENT_REQUIREMENTS,
+        IL_ACCEPTABLE_DOCUMENTS,
+      ],
+      '是否符合 REAL ID 仍要另按 REAL ID 页面与实时清单核对 lawful status、SSN 和其他材料': [
+        IL_REAL_ID,
+        IL_DOCUMENT_REQUIREMENTS,
+      ],
+      '当前 Standard credential 仍可驾驶': [
+        IL_NONCITIZEN,
+        IL_TVDL_CHANGE,
+      ],
+      '没有 REAL ID 但持 passport 等 TSA 接受证件的人，也不必只为国内航班升级': [
+        IL_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '先判断用途：有 passport 等 TSA 接受证件且只需驾驶，可继续用 Standard': [
+        IL_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '需要州证件用于国内航班或受限联邦设施，再办 REAL ID': [
+        IL_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '走 Standard VISA / NONVISA 路径时，先用 live Document Requirements 和 Acceptable Identification Documents 确认 A/B/D 以及无 SSN declaration': [
+        IL_DOCUMENT_REQUIREMENTS,
+        IL_ACCEPTABLE_DOCUMENTS,
+        IL_NONCITIZEN,
+      ],
+      '办 REAL ID 时按 A/B/C/D 逐组定好文件，再核对姓名链、材料时限、原件和打印要求': [
+        IL_REAL_ID,
+        IL_DOCUMENT_REQUIREMENTS,
+        IL_ACCEPTABLE_DOCUMENTS,
+      ],
+      '选择地点：Chicago Supercenter 在 2026 年底前为工作日 walk-in，其他 DMV 先用 Facility Finder 看服务项目和 appointment 标记': [
+        IL_REAL_ID,
+        IL_FACILITY,
+      ],
+      '出行前至少预留一个月申请': [IL_REAL_ID],
+      '现场先拿 temporary paper credential，永久卡通常在 15 个工作日内邮寄': [
+        IL_REAL_ID,
+      ],
+      '续期先找 renewal letter 上的 PIN / authorization number': [
+        IL_RENEW,
+      ],
+      '想升级 REAL ID 或被要求考试、medical / vision report 时改走现场': [
+        IL_RENEW,
+      ],
+      '搬家后 10 天内分别更新 driver license / ID 和 vehicle registration record': [
+        IL_ADDRESS,
+      ],
+      '需要显示新地址的卡，再到 DMV 申请 corrected credential': [
+        IL_ADDRESS,
+        IL_FEES,
+      ],
+      '新居民在 90 天窗口内办理：外州有效驾照通常只做 vision test，外国驾照准备 vision、written、road exam 和车辆保险证明': [
+        IL_NEW_RESIDENT,
+      ],
+      '18–20 岁首次申请且从未完成认可 driver education 的人，先完成州认证的 6-hour Adult Driver Education Course': [
+        IL_ADULT_ED,
+      ],
+      '还按旧 TVDL 路径准备，而没有查看当前 VISA / NONVISA Standard license 规则': [
+        IL_NONCITIZEN,
+        IL_TVDL_CHANGE,
+      ],
+      '已有 Standard Illinois license 就以为第一次 REAL ID 不再需要完整 A/B/C/D 材料': [
+        IL_DOCUMENT_REQUIREMENTS,
+      ],
+      '只带一份 Illinois residency，或把手机里的电子账单当作可直接展示的文件而没有打印': [
+        IL_REAL_ID,
+        IL_ACCEPTABLE_DOCUMENTS,
+      ],
+      '为了遮挡隐私把 residency document 的 account number 涂掉': [
+        IL_REAL_ID,
+      ],
+      '拿 photocopy 代替 REAL ID original hard copy': [
+        IL_REAL_ID,
+        IL_ACCEPTABLE_DOCUMENTS,
+      ],
+      '只带一张改名文件，无法把 birth name 连到 current legal name': [
+        IL_REAL_ID,
+      ],
+      '只看到 VISA / NONVISA 的 Group C declaration，就认定它自动等同于 REAL ID 的 SSN 豁免': [
+        IL_DOCUMENT_REQUIREMENTS,
+        IL_REAL_ID,
+      ],
+      '尝试用普通 online renewal 升级 REAL ID': [IL_RENEW],
+      '拿 DMV 当天发的 temporary paper REAL ID 去机场': [
+        IL_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      'TSA 明确不接受 temporary driver’s license 作为有效身份件': [
+        TSA_IDENTIFICATION,
+      ],
+      '地址变化只更新 driver license / ID file，却忘了 vehicle registration 是另一个系统': [
+        IL_ADDRESS,
+      ],
+      '从外国搬入时误以为有效外国驾照可像有效外州驾照一样免 written 和 road exams': [
+        IL_NEW_RESIDENT,
       ],
     },
   },

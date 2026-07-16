@@ -1,30 +1,30 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:11:18.062Z",
+    "generatedAt": "2026-07-16T23:20:17.807Z",
     "pages": 5,
-    "claims": 386,
+    "claims": 398,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 39,
-        "states": 15
+        "claims": 41,
+        "states": 16
       },
       "deadlines": {
-        "claims": 30,
-        "states": 14
+        "claims": 33,
+        "states": 15
       },
       "document-rules": {
         "claims": 160,
         "states": 47
       },
       "foreign-license": {
-        "claims": 55,
-        "states": 22
+        "claims": 58,
+        "states": 23
       },
       "identity-ssn": {
-        "claims": 102,
-        "states": 34
+        "claims": 106,
+        "states": 35
       }
     }
   },
@@ -377,6 +377,32 @@
       "claim": "考试 25 分钟 25 题，答对 18 题通过，permit fee 为 $30",
       "sourceUrl": "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees",
       "sourceLabel": "对应官方来源：Massachusetts RMV Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "illinois",
+      "category": "费用",
+      "claim": "当前 basic driver’s license 为 $30，18–20 岁为 $5，Class D instruction permit 为 $20，corrected / duplicate driver’s license 为 $5",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/basicfees.html",
+      "sourceLabel": "对应官方来源：Illinois Driver License Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "illinois",
+      "category": "费用",
+      "claim": "driver license / ID 与 vehicle registration 要分别更新，线上改记录免费，但显示新地址的实体卡要现场办理并支付适用费用",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/basicfees.html",
+      "sourceLabel": "对应官方来源：Illinois Driver License Fees",
       "themes": [
         "fee"
       ],
@@ -759,6 +785,46 @@
       "sourceLabel": "对应官方来源：Change your address with the RMV",
       "themes": [
         "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "illinois",
+      "category": "搬家 / 地址",
+      "claim": "搬家后 10 天内分别更新 driver license / ID 和 vehicle registration record",
+      "sourceUrl": "https://apps.ilsos.gov/addrchange/?s=1&vm=r",
+      "sourceLabel": "对应官方来源：Illinois Address Change",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "illinois",
+      "category": "搬家 / 地址",
+      "claim": "地址变化后 10 天内必须通知 Secretary of State",
+      "sourceUrl": "https://apps.ilsos.gov/addrchange/?s=1&vm=r",
+      "sourceLabel": "对应官方来源：Illinois Address Change",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "illinois",
+      "category": "搬家 / 地址",
+      "claim": "从外州搬入通常有 90 天办理 Illinois license，有效外州驾照一般只需 vision test",
+      "sourceUrl": "https://www.ilsos.gov/services/newresidents.html",
+      "sourceLabel": "对应官方来源：Illinois New Resident Guide",
+      "themes": [
+        "new-resident",
+        "out-of-state"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -1314,46 +1380,56 @@
     {
       "page": "document-rules",
       "stateId": "illinois",
-      "category": "清单入口",
-      "claim": "查看 Illinois REAL ID 官方页面",
-      "sourceUrl": "https://www.ilsos.gov/content/realid/us/en.html",
-      "sourceLabel": "对应官方来源：Illinois REAL ID",
-      "themes": [],
+      "category": "地址证明",
+      "claim": "银行账单、utility bill 等 printed electronic documents 可以使用，但 account number 要清楚可见",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
+      "sourceLabel": "对应官方来源：Illinois Acceptable Identification Documents",
+      "themes": [
+        "residency-documents"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "document-rules",
       "stateId": "illinois",
-      "category": "清单入口",
-      "claim": "先打开伊州 REAL ID 页面判断是否需要办理",
-      "sourceUrl": "https://www.ilsos.gov/content/realid/us/en.html",
-      "sourceLabel": "对应官方来源：Illinois REAL ID",
-      "themes": [],
+      "category": "地址证明",
+      "claim": "第一张 REAL ID 的材料结构是 Group A written signature、Group B date of birth / lawful status、Group C full SSN 和两份 Group D residency",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
+      "sourceLabel": "对应官方来源：Illinois Acceptable Identification Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "document-rules",
       "stateId": "illinois",
-      "category": "清单入口",
-      "claim": "官方 REAL ID 页面和 PDF 是核对核心",
-      "sourceUrl": "https://www.ilsos.gov/content/realid/us/en.html",
-      "sourceLabel": "对应官方来源：Illinois REAL ID",
-      "themes": [],
+      "category": "地址证明",
+      "claim": "升级 REAL ID、需要 written / road test、更新 medical / vision report 或加入 P.O. Box 时不能线上续",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
+      "sourceLabel": "对应官方来源：Illinois Document Requirements",
+      "themes": [
+        "residency-documents"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "document-rules",
       "stateId": "illinois",
-      "category": "材料规则",
-      "claim": "使用官方 document requirements PDF 核对材料类别",
-      "sourceUrl": "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_x173.pdf",
-      "sourceLabel": "对应官方来源：Document Requirements PDF",
-      "themes": [],
+      "category": "地址证明",
+      "claim": "首次申请 Illinois REAL ID 要准备一份 Group A written signature、一份 Group B date of birth / lawful status、一份 Group C 完整 SSN，以及两份 Group D Illinois residency",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
+      "sourceLabel": "对应官方来源：Illinois Acceptable Identification Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "document-rules",
@@ -3341,6 +3417,46 @@
     },
     {
       "page": "foreign-license",
+      "stateId": "illinois",
+      "category": "外州 / 加拿大转入",
+      "claim": "从外州搬入通常有 90 天办理 Illinois license，有效外州驾照一般只需 vision test",
+      "sourceUrl": "https://www.ilsos.gov/services/newresidents.html",
+      "sourceLabel": "对应官方来源：Illinois New Resident Guide",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "illinois",
+      "category": "外州 / 加拿大转入",
+      "claim": "新居民指南：外州和外国搬入的 90 天期限、测试差异和材料提示",
+      "sourceUrl": "https://www.ilsos.gov/services/newresidents.html",
+      "sourceLabel": "对应官方来源：Illinois New Resident Guide",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "illinois",
+      "category": "测试判断",
+      "claim": "从外国搬入也有 90 天，但要参加 vision、written 和 road exams，并提供保险证明",
+      "sourceUrl": "https://www.ilsos.gov/services/newresidents.html",
+      "sourceLabel": "对应官方来源：Illinois New Resident Guide",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
       "stateId": "pennsylvania",
       "category": "外国 / 境外驾照",
       "claim": "PennDOT Driver Licensing FAQ 和 driver manual 说明持有效 foreign driver license 的人可在入境美国后最多一年内在宾州驾驶，或直到 foreign license 过期，以较早者为准",
@@ -4142,6 +4258,60 @@
       "sourceLabel": "对应官方来源：Mass. General Laws c.90 § 8",
       "themes": [
         "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "illinois",
+      "category": "无 SSN / SSA",
+      "claim": "自 2024-07-01 起，Illinois 已用四年 Standard driver’s license 取代面向 undocumented immigrants 和部分无 SSN 非公民的 TVDL",
+      "sourceUrl": "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_tvdl22.pdf",
+      "sourceLabel": "对应官方来源：Non-Citizen and Former TVDL Information",
+      "themes": [
+        "ssn",
+        "non-citizen"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "illinois",
+      "category": "无 SSN / SSA",
+      "claim": "VISA / NONVISA Standard credential 的无 SSN declaration 只解决该路径的 Group C 栏",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
+      "sourceLabel": "对应官方来源：Illinois Acceptable Identification Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "illinois",
+      "category": "无 SSN / SSA",
+      "claim": "走 VISA 或 NONVISA Standard credential 路径且当时无资格取得 SSN 的人，官方文件页说明可不提交 Group C，而是在现场签署 ineligibility declaration",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
+      "sourceLabel": "对应官方来源：Illinois Acceptable Identification Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "illinois",
+      "category": "SSN",
+      "claim": "第一张 REAL ID 的材料结构是 Group A written signature、Group B date of birth / lawful status、Group C full SSN 和两份 Group D residency",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
+      "sourceLabel": "对应官方来源：Illinois Document Requirements",
+      "themes": [
+        "residency-documents",
+        "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false

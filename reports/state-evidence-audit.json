@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:11:18.574Z",
+    "generatedAt": "2026-07-16T23:20:18.334Z",
     "pages": 100,
     "states": 50,
-    "claims": 1707,
-    "links": 2032,
-    "aiAssistedClaims": 443,
-    "aiAssistedPages": 14,
+    "claims": 1761,
+    "links": 2119,
+    "aiAssistedClaims": 519,
+    "aiAssistedPages": 16,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 729,
-        "links": 887,
+        "claims": 756,
+        "links": 927,
         "states": 50
       },
       "real-id": {
-        "claims": 978,
-        "links": 1145,
+        "claims": 1005,
+        "links": 1192,
         "states": 50
       }
     }
@@ -9163,14 +9163,16 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "伊州驾照和 REAL ID 由 Secretary of State 管理",
+      "claim": "伊利诺伊州先分 Standard 与 REAL ID：Standard license 可用于驾驶，移民申请路径自 2024-07-01 起已由 TVDL 改为四年 Standard license，并标注 Federal Limits Apply",
       "sourceUrls": [
-        "https://www.ilsos.gov/content/realid/us/en.html"
+        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_tvdl22.pdf",
+        "https://www.ilsos.gov/content/dam/news/2024/july/240701d1.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Illinois REAL ID"
+        "对应官方来源：Non-Citizen and Former TVDL Information",
+        "对应官方来源：Illinois Standard License Replaced TVDL"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -9182,22 +9184,87 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "REAL ID、材料要求、普通续期和办公室预约是不同入口，先确认业务类型，再选择线上续期或现场文件核验",
+      "claim": "REAL ID 可用于国内航班和受限联邦设施，但首次申请必须按 A/B/C/D 材料组现场办理",
       "sourceUrls": [
         "https://www.ilsos.gov/content/realid/us/en.html",
-        "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
       ],
       "sourceLabels": [
         "对应官方来源：Illinois REAL ID",
-        "对应官方来源：Illinois Driver License Renewal"
+        "对应官方来源：Illinois Document Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "document",
+      "claim": "走 VISA 或 NONVISA Standard credential 路径且当时无资格取得 SSN 的人，官方文件页说明可不提交 Group C，而是在现场签署 ineligibility declaration",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Document Requirements",
+        "对应官方来源：Illinois Acceptable Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "real-id",
+      "claim": "该声明只解决这条申请路径的 Group C 栏，不能据此认定自己已满足 REAL ID",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
+        "https://www.ilsos.gov/content/realid/us/en.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Document Requirements",
+        "对应官方来源：Illinois Acceptable Identification Documents",
+        "对应官方来源：Illinois REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "real-id",
+      "claim": "REAL ID 仍要按实时清单另行核对 lawful status、SSN 和两份地址材料",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Document Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
-        "renewal",
-        "appointment",
-        "online-service"
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -9207,38 +9274,44 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "license",
-      "claim": "普通伊州驾照仍可用于驾驶",
+      "claim": "搬入伊州后通常有 90 天取得 Illinois credential：有效外州驾照转入通常只做 vision test，外国驾照转入则要 vision、written 和 road exams",
       "sourceUrls": [
-        "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
+        "https://www.ilsos.gov/services/newresidents.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Illinois Driver License Renewal"
+        "对应官方来源：Illinois New Resident Guide"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer",
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "foreign-license",
+        "test"
+      ],
       "valid": true
     },
     {
       "stateId": "illinois",
       "surface": "overview",
-      "field": "licenseSummary",
+      "field": "realIdSummary",
       "context": "real-id",
-      "claim": "部分续期可线上完成，但申请 REAL ID、材料核验或特殊情况可能需要现场服务",
+      "claim": "首次申请 Illinois REAL ID 要准备一份 Group A written signature、一份 Group B date of birth / lawful status、一份 Group C 完整 SSN，以及两份 Group D Illinois residency",
       "sourceUrls": [
         "https://www.ilsos.gov/content/realid/us/en.html",
-        "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
       ],
       "sourceLabels": [
         "对应官方来源：Illinois REAL ID",
-        "对应官方来源：Illinois Driver License Renewal"
+        "对应官方来源：Illinois Document Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
-        "renewal",
-        "online-service"
+        "residency-proof",
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -9248,36 +9321,14 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "伊州 REAL ID 通常要求按官方材料类别准备身份、SSN、居住地址、签名和合法身份相关文件",
+      "claim": "即使已经持有 Standard Illinois license / ID，第一次升级 REAL ID 仍按 first-time REAL ID 处理",
       "sourceUrls": [
-        "https://www.ilsos.gov/content/realid/us/en.html"
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Illinois REAL ID"
+        "对应官方来源：Illinois Document Requirements"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "ssn",
-        "lawful-presence"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "illinois",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "官方 REAL ID 页面和 PDF 是核对核心",
-      "sourceUrls": [
-        "https://www.ilsos.gov/content/realid/us/en.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Illinois REAL ID"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -9288,18 +9339,17 @@
       "stateId": "illinois",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "license",
-      "claim": "普通驾照续期可先查看 online renewal 资格",
+      "context": "real-id",
+      "claim": "Chicago REAL ID Supercenter 已延长开放至 2026 年底，工作日 7:30–17:00 接受 walk-in",
       "sourceUrls": [
-        "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
+        "https://www.ilsos.gov/content/realid/us/en.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Illinois Driver License Renewal"
+        "对应官方来源：Illinois REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "online-service"
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -9308,20 +9358,18 @@
       "stateId": "illinois",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "REAL ID、首次申请或需要文件核验时，应使用 facility finder 和预约入口确认可办理地点",
+      "context": "appointment",
+      "claim": "其他 full-service DMV 有些必须预约，应先查 Facility Finder",
       "sourceUrls": [
         "https://www.ilsos.gov/content/realid/us/en.html",
-        "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
+        "https://apps.ilsos.gov/facilityfinder/facility?command=map"
       ],
       "sourceLabels": [
         "对应官方来源：Illinois REAL ID",
-        "对应官方来源：Illinois Driver License Renewal"
+        "对应官方来源：Illinois DMV Facility Finder"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document",
         "appointment"
       ],
       "uncoveredThemes": [],
@@ -9329,19 +9377,44 @@
     },
     {
       "stateId": "illinois",
-      "surface": "real-id",
-      "field": "realIdSummary",
+      "surface": "overview",
+      "field": "appointmentNote",
       "context": "real-id",
-      "claim": "伊州 REAL ID 通常要求按官方材料类别准备身份、SSN、居住地址、签名和合法身份相关文件",
+      "claim": "线上续期只适用于收到 renewal letter 和 PIN / authorization number 的申请人，升级 REAL ID 或需要考试、medical / vision report 时必须到 DMV",
       "sourceUrls": [
-        "https://www.ilsos.gov/content/realid/us/en.html"
+        "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Illinois REAL ID"
+        "对应官方来源：Illinois Driver License Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "renewal",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "自 2024-07-01 起，Illinois 已用四年 Standard driver’s license 取代面向 undocumented immigrants 和部分无 SSN 非公民的 TVDL",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_tvdl22.pdf",
+        "https://www.ilsos.gov/content/dam/news/2024/july/240701d1.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Non-Citizen and Former TVDL Information",
+        "对应官方来源：Illinois Standard License Replaced TVDL"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document",
         "ssn",
         "lawful-presence"
@@ -9351,17 +9424,60 @@
     },
     {
       "stateId": "illinois",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "官方 REAL ID 页面和 PDF 是核对核心",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "新卡标注 Federal Limits Apply",
       "sourceUrls": [
-        "https://www.ilsos.gov/content/realid/us/en.html"
+        "https://www.ilsos.gov/content/dam/news/2024/july/240701d1.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Illinois REAL ID"
+        "对应官方来源：Illinois Standard License Replaced TVDL"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "第一张 REAL ID 的材料结构是 Group A written signature、Group B date of birth / lawful status、Group C full SSN 和两份 Group D residency",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Document Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 与同类传统 license / ID 的卡费相同",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/basicfees.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -9370,75 +9486,416 @@
     },
     {
       "stateId": "illinois",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "查看 Illinois REAL ID 官方页面",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "当前 basic driver’s license 为 $30，18–20 岁为 $5，Class D instruction permit 为 $20，corrected / duplicate driver’s license 为 $5",
       "sourceUrls": [
-        "https://www.ilsos.gov/content/realid/us/en.html"
+        "https://www.ilsos.gov/departments/drivers/basicfees.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Illinois REAL ID"
+        "对应官方来源：Illinois Driver License Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
+        "replacement",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
     },
     {
       "stateId": "illinois",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "使用官方 document requirements PDF 核对材料类别",
-      "sourceUrls": [
-        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_x173.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Document Requirements PDF"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "illinois",
-      "surface": "real-id",
-      "field": "documentHighlights",
+      "surface": "overview",
+      "field": "editorNotes",
       "context": "license",
-      "claim": "续期前确认是否符合 online renewal 条件",
+      "claim": "在线续期要求 renewal letter 上的 PIN 或 authorization number",
       "sourceUrls": [
         "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
       ],
       "sourceLabels": [
         "对应官方来源：Illinois Driver License Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "online-service"
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true
     },
     {
       "stateId": "illinois",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "需要现场服务时使用 DMV Appointments 或 facility finder",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "升级 REAL ID、需要 written / road test、更新 medical / vision report 或加入 P.O. Box 时不能线上续",
       "sourceUrls": [
-        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_x173.pdf"
+        "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Document Requirements PDF"
+        "对应官方来源：Illinois Driver License Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "residency-proof",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "线上续期、duplicate 和 REAL ID 正式卡通常在 15 个工作日内寄到",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/duplicate-drivers-license-or-id-card.html",
+        "https://www.ilsos.gov/content/realid/us/en.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Driver License Renewal",
+        "对应官方来源：Illinois Duplicate License or ID",
+        "对应官方来源：Illinois REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement",
+        "online-service",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "线上 duplicate 不适用于 suspended / revoked / canceled credential、30 天内到期、此前线上改址、需要改信息或已达到补证次数上限等情况，而且不会提供 temporary credential",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/duplicate-drivers-license-or-id-card.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Duplicate License or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "online-service",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "地址变化后 10 天内必须通知 Secretary of State",
+      "sourceUrls": [
+        "https://apps.ilsos.gov/addrchange/?s=1&vm=r"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "driver license / ID 与 vehicle registration 要分别更新，线上改记录免费，但显示新地址的实体卡要现场办理并支付适用费用",
+      "sourceUrls": [
+        "https://apps.ilsos.gov/addrchange/?s=1&vm=r",
+        "https://www.ilsos.gov/departments/drivers/basicfees.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Address Change",
+        "对应官方来源：Illinois Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "fee",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "online-service"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "从外州搬入通常有 90 天办理 Illinois license，有效外州驾照一般只需 vision test",
+      "sourceUrls": [
+        "https://www.ilsos.gov/services/newresidents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois New Resident Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "test"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "从外国搬入也有 90 天，但要参加 vision、written 和 road exams，并提供保险证明",
+      "sourceUrls": [
+        "https://www.ilsos.gov/services/newresidents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois New Resident Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "test"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "18–20 岁首次申请且未上过认可 driver education 的人必须先完成至少 6 小时的州认证 Adult Driver Education Course，再做 vision、written 和 road tests",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/driver-education/ade.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Adult Driver Education"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [
+        "test"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "15–17 岁 instruction permit 申请人要在认可 driver education 中就读或距开课 30 天内",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/driver-education/instructpermit.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Instruction Permit Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "未满 18 岁的 permit 有效两年，并通常要持有至少 9 个月",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/driver-education/instructpermit.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Instruction Permit Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Illinois Class D written test 至少 35 题，答对 80% 才通过",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_a112.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Rules of the Road 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "非 CDL 申请人可按可用语言或口试 / interpreter 规则向 facility 询问，CDL knowledge test 规则另行处理",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_a112.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Rules of the Road 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "从 2026-07-01 起，单纯因年龄触发的 mandatory road test 起点由 79 岁提高到 87 岁",
+      "sourceUrls": [
+        "https://www.ilsos.gov/news/2026/june-17-2026-giannoulias-ends-mandatory-road-tests-for-drivers-ages-79-86.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Road Safety and Fairness Act Update"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "81–86 岁 license 通常两年有效，87 岁及以上每年续期",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers_license/drlicid.html",
+        "https://www.ilsos.gov/news/2026/june-17-2026-giannoulias-ends-mandatory-road-tests-for-drivers-ages-79-86.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Driver License Information",
+        "对应官方来源：Illinois Road Safety and Fairness Act Update"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Chicago REAL ID Supercenter 位于 191 N. Clark St.，已延长至 2026 年底，工作日 7:30–17:00 walk-in",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "州内许多 Driver Services location 仍标注 appointment required",
+      "sourceUrls": [
+        "https://apps.ilsos.gov/facilityfinder/facility?command=map",
+        "https://www.ilsos.gov/departments/drivers/appointments.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois DMV Facility Finder",
+        "对应官方来源：Illinois DMV Appointments"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 申请现场发 temporary paper credential，永久卡通常 15 个工作日内邮寄",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [
+        "temporary-credential"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "TSA 的接受证件页明确说明 temporary driver’s license 不是可接受身份证件",
+      "sourceUrls": [
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -9446,16 +9903,371 @@
     {
       "stateId": "illinois",
       "surface": "real-id",
-      "field": "recommendedSteps",
+      "field": "realIdSummary",
       "context": "real-id",
-      "claim": "先打开伊州 REAL ID 页面判断是否需要办理",
+      "claim": "首次申请 Illinois REAL ID 要准备一份 Group A written signature、一份 Group B date of birth / lawful status、一份 Group C 完整 SSN，以及两份 Group D Illinois residency",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Document Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "即使已经持有 Standard Illinois license / ID，第一次升级 REAL ID 仍按 first-time REAL ID 处理",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Document Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "First-time REAL ID 要一份 Group A、一份 Group B、一份 Group C 和两份 Group D",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Document Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "一份文件可以同时满足多个 group，但仍要覆盖全部要求",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Document Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "Group B 的 REAL ID 文件要证明 full legal name、date of birth 和 citizenship / lawful status",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Acceptable Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Group C 文件要显示姓名和完整 SSN",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Acceptable Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "只有持有效 Illinois license / ID 且此前已向州里提交并核验 Social Security card 时，REAL ID 页面才说明可免再次出示",
       "sourceUrls": [
         "https://www.ilsos.gov/content/realid/us/en.html"
       ],
       "sourceLabels": [
         "对应官方来源：Illinois REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两份 Group D 要显示 full name 和 current Illinois residence address",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Acceptable Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "银行账单、utility bill 等 printed electronic documents 可以使用，但 account number 要清楚可见",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Acceptable Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "还要带一份 written signature 证明，例如当前 non-REAL ID license、信用卡或借记卡、passport 或 canceled check",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Acceptable Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "所有材料要在可接受时限内有效，REAL ID 只接受 original hard copies，不接受 photocopies",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Acceptable Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "现用姓名与 birth certificate 或 passport 不一致时，要用 certified marriage certificate、adoption document、civil union document 或 certified name change document 接起姓名链",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "VISA / NONVISA Standard credential 的无 SSN declaration 只解决该路径的 Group C 栏",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Document Requirements",
+        "对应官方来源：Illinois Acceptable Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "是否符合 REAL ID 仍要另按 REAL ID 页面与实时清单核对 lawful status、SSN 和其他材料",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Document Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "当前 Standard credential 仍可驾驶",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_tvdl22.pdf",
+        "https://www.ilsos.gov/content/dam/news/2024/july/240701d1.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Non-Citizen and Former TVDL Information",
+        "对应官方来源：Illinois Standard License Replaced TVDL"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "没有 REAL ID 但持 passport 等 TSA 接受证件的人，也不必只为国内航班升级",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "先判断用途：有 passport 等 TSA 接受证件且只需驾驶，可继续用 Standard",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "需要州证件用于国内航班或受限联邦设施，再办 REAL ID",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -9467,16 +10279,46 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "下载或查看官方 document requirements PDF",
+      "claim": "走 Standard VISA / NONVISA 路径时，先用 live Document Requirements 和 Acceptable Identification Documents 确认 A/B/D 以及无 SSN declaration",
       "sourceUrls": [
-        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_x173.pdf"
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
+        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_tvdl22.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Document Requirements PDF"
+        "对应官方来源：Illinois Document Requirements",
+        "对应官方来源：Illinois Acceptable Identification Documents",
+        "对应官方来源：Non-Citizen and Former TVDL Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "办 REAL ID 时按 A/B/C/D 逐组定好文件，再核对姓名链、材料时限、原件和打印要求",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Document Requirements",
+        "对应官方来源：Illinois Acceptable Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -9486,14 +10328,16 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "appointment",
-      "claim": "需要现场时查找设施和预约",
+      "claim": "选择地点：Chicago Supercenter 在 2026 年底前为工作日 walk-in，其他 DMV 先用 Facility Finder 看服务项目和 appointment 标记",
       "sourceUrls": [
-        "https://apps.ilsos.gov/dlexamcheck/"
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://apps.ilsos.gov/facilityfinder/facility?command=map"
       ],
       "sourceLabels": [
-        "对应官方来源：DMV Appointments"
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois DMV Facility Finder"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment"
       ],
@@ -9504,18 +10348,56 @@
       "stateId": "illinois",
       "surface": "real-id",
       "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "出行前至少预留一个月申请",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "现场先拿 temporary paper credential，永久卡通常在 15 个工作日内邮寄",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [
+        "temporary-credential"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "recommendedSteps",
       "context": "license",
-      "claim": "如果只是普通续期，先检查 online renewal 页面",
+      "claim": "续期先找 renewal letter 上的 PIN / authorization number",
       "sourceUrls": [
         "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
       ],
       "sourceLabels": [
         "对应官方来源：Illinois Driver License Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "online-service"
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -9523,42 +10405,101 @@
     {
       "stateId": "illinois",
       "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "document",
-      "claim": "只看第三方清单，没有打开 Secretary of State 官方材料 PDF",
-      "sourceUrls": [
-        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_x173.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Document Requirements PDF"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "illinois",
-      "surface": "real-id",
-      "field": "commonMistakes",
+      "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "需要 REAL ID 却尝试走普通线上续期路径",
+      "claim": "想升级 REAL ID 或被要求考试、medical / vision report 时改走现场",
       "sourceUrls": [
-        "https://www.ilsos.gov/content/realid/us/en.html",
         "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Illinois REAL ID",
         "对应官方来源：Illinois Driver License Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "renewal",
-        "online-service"
+        "test"
       ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "搬家后 10 天内分别更新 driver license / ID 和 vehicle registration record",
+      "sourceUrls": [
+        "https://apps.ilsos.gov/addrchange/?s=1&vm=r"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要显示新地址的卡，再到 DMV 申请 corrected credential",
+      "sourceUrls": [
+        "https://apps.ilsos.gov/addrchange/?s=1&vm=r",
+        "https://www.ilsos.gov/departments/drivers/basicfees.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Address Change",
+        "对应官方来源：Illinois Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "新居民在 90 天窗口内办理：外州有效驾照通常只做 vision test，外国驾照准备 vision、written、road exam 和车辆保险证明",
+      "sourceUrls": [
+        "https://www.ilsos.gov/services/newresidents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois New Resident Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer",
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "foreign-license",
+        "test"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "18–20 岁首次申请且从未完成认可 driver education 的人，先完成州认证的 6-hour Adult Driver Education Course",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/driver-education/ade.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Adult Driver Education"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -9567,14 +10508,16 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "detail",
-      "claim": "没有提前查找可办理相应服务的 DMV facility",
+      "claim": "还按旧 TVDL 路径准备，而没有查看当前 VISA / NONVISA Standard license 规则",
       "sourceUrls": [
-        "https://www.ilsos.gov/content/realid/us/en.html"
+        "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_tvdl22.pdf",
+        "https://www.ilsos.gov/content/dam/news/2024/july/240701d1.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Illinois REAL ID"
+        "对应官方来源：Non-Citizen and Former TVDL Information",
+        "对应官方来源：Illinois Standard License Replaced TVDL"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -9584,21 +10527,227 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "没有先确认具体 facility 是否办理 REAL ID、首次申请或所需预约类别",
+      "claim": "已有 Standard Illinois license 就以为第一次 REAL ID 不再需要完整 A/B/C/D 材料",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Document Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只带一份 Illinois residency，或把手机里的电子账单当作可直接展示的文件而没有打印",
       "sourceUrls": [
         "https://www.ilsos.gov/content/realid/us/en.html",
-        "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
       ],
       "sourceLabels": [
         "对应官方来源：Illinois REAL ID",
-        "对应官方来源：Illinois Driver License Renewal"
+        "对应官方来源：Illinois Acceptable Identification Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "appointment"
+        "document",
+        "residency-proof"
       ],
       "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "为了遮挡隐私把 residency document 的 account number 涂掉",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "拿 photocopy 代替 REAL ID original hard copy",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：Illinois Acceptable Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只带一张改名文件，无法把 birth name 连到 current legal name",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "只看到 VISA / NONVISA 的 Group C declaration，就认定它自动等同于 REAL ID 的 SSN 豁免",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
+        "https://www.ilsos.gov/content/realid/us/en.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Document Requirements",
+        "对应官方来源：Illinois REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "尝试用普通 online renewal 升级 REAL ID",
+      "sourceUrls": [
+        "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Driver License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "拿 DMV 当天发的 temporary paper REAL ID 去机场",
+      "sourceUrls": [
+        "https://www.ilsos.gov/content/realid/us/en.html",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "TSA 明确不接受 temporary driver’s license 作为有效身份件",
+      "sourceUrls": [
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "地址变化只更新 driver license / ID file，却忘了 vehicle registration 是另一个系统",
+      "sourceUrls": [
+        "https://apps.ilsos.gov/addrchange/?s=1&vm=r"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "illinois",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "从外国搬入时误以为有效外国驾照可像有效外州驾照一样免 written 和 road exams",
+      "sourceUrls": [
+        "https://www.ilsos.gov/services/newresidents.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Illinois New Resident Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "foreign-license",
+        "test"
+      ],
       "valid": true
     },
     {
