@@ -6636,7 +6636,9 @@ export const topics: TopicGuide[] = [
       },
       {
         claim: 'Washington Enhanced credential 的清单要求两份写有姓名和当前 WA 住宅地址的文件，不接受 P.O. Box，并允许部分账单打印件。',
-        sourceUrls: ['https://dol.wa.gov/forms/view/520431/download?inline='],
+        sourceUrls: [
+          'https://dol.wa.gov/media/pdf/5165/applying-enhanced-washington-license-or-idpdf/download?inline=',
+        ],
       },
       {
         claim: 'Iowa REAL ID 要两份打印出的当前 Iowa 居住证明，地址必须是实际居住地址而不是邮政信箱。',
@@ -6725,8 +6727,8 @@ export const topics: TopicGuide[] = [
         url: 'https://www.dmv.ca.gov/portal/assembly-bill-ab-60-wizard/',
       },
       {
-        label: 'Washington DOL Enhanced Document Checklist',
-        url: 'https://dol.wa.gov/forms/view/520431/download?inline=',
+        label: 'Washington DOL Applying for an Enhanced License or ID',
+        url: 'https://dol.wa.gov/media/pdf/5165/applying-enhanced-washington-license-or-idpdf/download?inline=',
       },
       {
         label: 'Iowa DOT REAL ID Residency Documents',
@@ -6944,8 +6946,8 @@ export const topics: TopicGuide[] = [
     title: '姓名变更文件怎么整理',
     eyebrow: '姓名一致性',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       '姓名材料的目标不是证明“你平时用哪个名字”，而是用政府签发的文件，把原始身份文件上的姓名连续连接到本次申请使用的 current legal name。',
     whoNeedsIt: [
@@ -6955,10 +6957,10 @@ export const topics: TopicGuide[] = [
     ],
     keyFacts: [
       '昵称、英文常用名、拼音变化和自行选择的 preferred name 通常不能代替 legal name。REAL ID / Enhanced 等证件通常只打印可由法律文件支持的完整法定姓名。',
-      '常见姓名变更依据包括政府签发的 marriage certificate、divorce decree、court order、amended birth certificate 和 naturalization document；教堂纪念证书、普通复印件或自己写的声明通常不等价。',
+      '常见姓名变更依据包括政府签发的 marriage certificate、divorce decree、court order、amended birth certificate 和 naturalization document。Florida 明确不接受 church-issued marriage certificate；SSA 也不接受普通 photocopy 或仅由 notary 认证的副本。',
       '多次结婚、离婚或法院改名时，要按时间顺序提供每一段连接文件。New York 明确要求一次或多次变更都要证明每一步。',
-      'SSA 和 DMV 是不同记录系统。SSA 要求依法改名的人更新 Social Security 记录；部分州还要求 DMV 申请姓名与 SSA 记录匹配。',
-      'SSA 办 corrected card 时通常要证明身份、新法定姓名和改名事件，并可能要求公民身份或 lawful noncitizen status 证明。',
+      'SSA 和州 DMV 是不同记录系统，“一定先改 SSA”不是全国统一顺序。California 和 Florida 明确要求或先核验 SSA 新姓名；New York 的部分 Standard 邮寄路径也要求 SSA 已更新且姓名准确匹配。',
+      'SSA 办 corrected card 时通常要证明身份、新法定姓名和改名事件，并可能要求公民身份或 lawful noncitizen status。若改名文件不足以识别本人，或改名已超过两年（未满 18 岁为四年），SSA 还会要求旧姓名身份证明；旧姓名证件可以已经过期。',
       '原件、签发机构 certified copy、电子认证记录和翻译件是否接受，由签发机构与州 DMV 分别决定。SSA 明确不接受普通 photocopy 或仅由公证人认证的副本。',
       '外文文件不能默认现场口译。应查看州 DMV 是否要求完整 English translation、certified translation、译者声明或原文与译文同时提交。',
       '地址文件上的旧姓也可能触发补证。先用法律文件把旧姓与当前姓名相连，再确认州是否允许该地址文件继续作为 residency proof。',
@@ -6969,7 +6971,7 @@ export const topics: TopicGuide[] = [
       '画出时间线：原始姓名 -> 第一次婚姻/法院改名 -> 离婚/再婚 -> 当前姓名。',
       '为每一条箭头准备政府签发的 marriage certificate、divorce decree、court order、naturalization document 或 amended birth certificate。',
       '确认每份是原件还是签发机构 certified copy；不要把 notarized photocopy 当作 certified copy。',
-      '核对 SSA 记录是否已更新，以及本州 DMV 是否要求先等待姓名同步。',
+      '核对 SSA 记录是否已更新，以及本州 DMV 是否要求先同步。California 会先向 SSA 核验；Florida 建议 SSA 更新后等待 24 至 48 小时。',
       '外文材料按本州 translation 规则准备原文和译文，并检查译者资格、签名或认证要求。',
       '再检查地址证明、预约和申请表；旧姓文件若无法由姓名链连接，就换成 current-name 文件。',
     ],
@@ -6977,7 +6979,7 @@ export const topics: TopicGuide[] = [
       '第一步：以 REAL ID / DMV 身份清单里准备使用的 primary identity 或 lawful-presence document 为起点。',
       '第二步：列出每次法律变更，不要只准备最近一次。每份文件必须能解释前一姓名如何变成后一姓名。',
       '第三步：从签发机构取得原件或 certified copy。缺失婚姻、离婚或法院记录时，应先补记录再约 DMV。',
-      '第四步：需要时先更新 SSA。用 SSA 官方流程申请 corrected card，并让新姓名与 DMV 申请保持一致。',
+      '第四步：查签发州的 SSA 顺序。California、Florida 和 New York 的部分路径要求先更新或匹配 SSA；其他州仍以本州姓名变更页为准。',
       '第五步：处理移民和护照记录差异。DMV 不能替 USCIS、Department of State 或外国签发机构更改其记录。',
       '第六步：按州规则准备翻译。原文姓名、音译姓名和 legal name 之间的解释不能只靠口头说明。',
       '第七步：按顺序夹好 primary identity、每段姓名变更文件、SSN 证明和地址文件，并带官方清单内的备用证据。',
@@ -6991,7 +6993,7 @@ export const topics: TopicGuide[] = [
       {
         question: '中文名和英文名不同怎么办？',
         answer:
-          '这属于高风险材料问题。看州 DMV 对翻译、公证和法律姓名文件的要求，必要时先咨询官方。',
+          '先判断是同一个法定姓名的翻译/音译差异，还是已经采用了新的 legal name。不要自行挑一个英文名填表来“统一”文件；应以 primary identity document 为起点，用签发机构认可的翻译、姓名变更文件或源记录更正把两套写法连接起来。具体译者资格和文件形式看申请州官方清单。',
       },
       {
         question: '公证过的复印件等于 certified copy 吗？',
@@ -7001,7 +7003,7 @@ export const topics: TopicGuide[] = [
       {
         question: '应该先改 SSN 姓名还是先改驾照？',
         answer:
-          '很多州会核验 SSA 记录，因此通常先看 SSA corrected-card 流程，再按州 DMV 的等待或同步说明办理。New York Standard name change 就要求请求姓名与 SSA 记录匹配；不同州仍要看本州步骤。',
+          '没有全国统一顺序。California 明确先向 SSA 核验新姓名，Florida 要求先改 SSA 并建议等待 24 至 48 小时，New York 的部分 Standard 邮寄路径要求姓名已在 SSA 更新并准确匹配。其他州应先看本州 name-change 页面，再安排 SSA 与 DMV 的先后。',
       },
       {
         question: '地址证明还是旧姓，可以继续用吗？',
@@ -7017,6 +7019,11 @@ export const topics: TopicGuide[] = [
       {
         claim: 'SSA corrected-card 申请通常要提供身份、新法定姓名和改名事件证据，并可能要证明公民身份或 lawful noncitizen status。',
         sourceUrls: ['https://www.ssa.gov/faqs/en/questions/KA-01981.html'],
+      },
+      {
+        claim:
+          '改名文件不足以识别本人，或改名已超过两年（未满 18 岁为四年）时，SSA 会要求旧姓名身份证明，并可接受已经过期的旧姓名证件。',
+        sourceUrls: ['https://www.ssa.gov/ssnumber/ss5doc.htm'],
       },
       {
         claim: 'SSA 不接受普通 photocopy 或仅由 notary 认证的副本，要求原件或由记录保管机构认证的副本。',
@@ -7043,6 +7050,21 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/'],
       },
       {
+        claim:
+          'California 办理 DL/ID 姓名变更时会先与 SSA 核验新姓名；SSA 信息不匹配会导致申请不能按新姓名完成。',
+        sourceUrls: [
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/updating-information-on-your-driver-license-or-identification-dl-id-card/',
+        ],
+      },
+      {
+        claim:
+          'Florida 驾照或 ID 姓名变更要求先更新 SSA，并建议等待 24 至 48 小时；婚姻、离婚或法院改名要提交原件或 certified copy，church-issued marriage certificate 不被接受。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/',
+          'https://www.flhsmv.gov/name-and-address-changes/',
+        ],
+      },
+      {
         claim: 'Massachusetts REAL ID 要求当前姓名与提交文件一致，不一致时要提供 marriage certificate 或 court document 等证明。',
         sourceUrls: ['https://www.mass.gov/info-details/massachusetts-identification-id-requirements'],
       },
@@ -7054,7 +7076,7 @@ export const topics: TopicGuide[] = [
     editorNotes: [
       '这页的核心不是“带一张结婚证”，而是证明从原始身份文件姓名到当前法定姓名的连续链条。',
       '不同州对认证副本、翻译件和多次改名文件要求不同；外文文件尤其要回到州页面确认。',
-      '如果 SSN 记录、移民文件和驾照申请姓名不一致，可能先要处理记录更新，再办理 DMV 业务。',
+      '如果 SSN 记录、移民文件和驾照申请姓名不一致，可能先要处理记录更新，再办理 DMV 业务；不能把 California 或 Florida 的顺序写成全国统一规则。',
     ],
     sources: [
       {
@@ -7074,6 +7096,10 @@ export const topics: TopicGuide[] = [
         url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/',
       },
       {
+        label: 'California DMV Update DL/ID Information',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/updating-information-on-your-driver-license-or-identification-dl-id-card/',
+      },
+      {
         label: 'NY DMV Enhanced or REAL ID',
         url: 'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
       },
@@ -7089,8 +7115,16 @@ export const topics: TopicGuide[] = [
         label: 'Massachusetts Identification Requirements',
         url: 'https://www.mass.gov/info-details/massachusetts-identification-id-requirements',
       },
+      {
+        label: 'FLHSMV What to Bring - U.S. Citizen',
+        url: 'https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/',
+      },
+      {
+        label: 'FLHSMV Name and Address Changes',
+        url: 'https://www.flhsmv.gov/name-and-address-changes/',
+      },
     ],
-    relatedStateIds: ['california', 'new-york', 'massachusetts', 'pennsylvania'],
+    relatedStateIds: ['california', 'new-york', 'massachusetts', 'pennsylvania', 'florida'],
   },
   {
     slug: 'non-citizen-license-id',
@@ -7205,7 +7239,7 @@ export const topics: TopicGuide[] = [
         claim:
           'SAVE 初次未即时核验时可进入 additional verification；这表示核验仍在继续，不等于州机构已经作出不符合资格的决定。',
         sourceUrls: [
-          'https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVEVerificationProcessFactSheet.pdf',
+          'https://www.uscis.gov/sites/default/files/document/guides/SAVE-Guide%20to%20Understanding%20SAVE%20Verification%20Responses.pdf',
         ],
       },
       {
@@ -7267,8 +7301,8 @@ export const topics: TopicGuide[] = [
         url: 'https://save.uscis.gov/save/app/client/ui/case-check',
       },
       {
-        label: 'USCIS SAVE Verification Process',
-        url: 'https://www.uscis.gov/sites/default/files/document/fact-sheets/SAVEVerificationProcessFactSheet.pdf',
+        label: 'USCIS Guide to Understanding SAVE Verification Responses',
+        url: 'https://www.uscis.gov/sites/default/files/document/guides/SAVE-Guide%20to%20Understanding%20SAVE%20Verification%20Responses.pdf',
       },
       {
         label: 'California DMV Limited Term for Legal Presence',
@@ -10643,8 +10677,8 @@ export const topics: TopicGuide[] = [
     title: '留学生、访问学者和短期工作，算不算 resident，要不要换驾照或注册车',
     eyebrow: '学生 / 非居民',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       'F-1、J-1、H-1B、访问学者、外州学生、短期工作和陪读家属最容易卡在一个问题：我到底是 visitor、non-resident、temporary visitor，还是已经成为州 resident？这会影响能不能继续用外国/外州驾照、是否要办本州驾照，以及外州车辆是否要 registration。',
     whoNeedsIt: [
@@ -10654,27 +10688,27 @@ export const topics: TopicGuide[] = [
       '刚毕业、开始工作、搬家、买车或把外州车带到新州，身份从“临时停留”变成“居住生活”的人。',
     ],
     keyFacts: [
-      '“签证身份”和“州 DMV 的 resident 判断”不是同一件事。F-1 / J-1 可能是 non-immigrant，但某州 DMV 仍会按居住事实、工作、学校、车辆、住房或停留意图判断你是否要办本州业务。',
-      '纽约 DMV 是重要例子：来自其他州或国家的学生通常不被视为纽约居民，但纽约居民必须在规定期限内取得纽约驾照。这个例子说明“学生身份”可以影响居民判断，但不能跨州套用。',
+      '“签证身份”和州法里的 resident / domiciliary 不是同一件事。F-1 / J-1 属于移民分类，不会自动回答驾照和车辆登记问题；必须回到所在州对 resident、new resident、student exemption 和 nonresident 的官方定义。',
+      '纽约是重要边界例子：外州或外国学生通常不被视为纽约居民，维持住所 90 天只是居民身份的推定证据；有争议时由法官结合州法、居住意图和证据判断，NY DMV 明确说它不裁定一个人是否为居民或必须换证、登记车辆。',
       '加州、佛州、德州、华盛顿、宾州、佐州、新泽西等州把 new resident、temporary visitor、foreign license、out-of-state transfer 和 vehicle registration 分成不同入口；驾照和车辆登记也可能有不同期限。',
       '外国驾照 / IDP 只能先解决“能不能作为访客驾驶”的问题，不能自动证明你不需要本州驾照。成为州 resident 后，通常要看本州 first license、foreign license 或 out-of-state transfer 页面。',
       '临时访客办州驾照时，证件期限可能受 lawful presence 影响。德州 DPS 的 temporary visitor 页面就是典型例子，合格临时访客可能拿到 Limited Term driver license / ID。',
       '车辆 registration 更不能只看签证身份。外州车是否要转入，常取决于车辆实际停放地、使用地、保险、车主居民身份、new resident 规则和州税费规则。',
       '学校国际办公室、雇主或租车公司可以提供方向，但最终办理规则仍以 DMV / DPS / RMV / MVC / DOL / DOR 官方页面为准。',
-      '驾照和车辆期限必须分开抄录：California 新居民通常是驾照 10 天、车辆 20 天；Texas 是车辆 30 天、驾照 90 天；Washington 两者均为 30 天；New Jersey 通常为 60 天或现有证件先到期时更早。',
+      '驾照和车辆期限必须分开抄录：California 新居民通常是驾照 10 天、车辆 20 天；Florida 是驾照 30 天、车辆 title/registration 10 天；Texas 是车辆 30 天、驾照 90 天；Washington 两者均为 30 天；New Jersey 通常为 60 天或现有证件先到期时更早。',
       '外国驾照的 visitor 权限也不统一。New York 不要求 IDP 但建议准备；Massachusetts 对非英文外国驾照要求 IDP 或合格英文翻译；Pennsylvania 说明 IDP 建议携带但不是单独驾驶资格。',
     ],
     checklist: [
       '先写清自己的场景：只是短期访问、来上学、交换访问、短期工作、已经毕业工作、搬到新州、买车，还是把外州车带到学校所在州。',
       '确认你当前拿什么驾驶资格：外国驾照、IDP、外州驾照、学习许可、过期驾照、国际互惠国家驾照，还是没有驾照。',
-      '确认州 DMV 如何定义 resident / non-resident / temporary visitor / new resident；不要只用移民法里的 non-immigrant 来判断 DMV 规则。',
+      '确认州法和州机构页面如何定义 resident / non-resident / temporary visitor / new resident，并查看是否有 student exemption；不要只用移民法里的 non-immigrant 来判断。',
       '准备身份和合法停留文件：passport、visa、I-94、I-20、DS-2019、I-797、EAD、green card、SSN 或 SSA ineligibility letter。',
       '准备州居住地址证明；临时访客、学生宿舍、sublease、住亲友家或没有账单时，回到本州 proof of residency 页面确认替代路径。',
       '如果有车，准备 title / registration、insurance、VIN、plate、parking address、campus parking permit、inspection / emissions 文件。',
       '保存学校、雇主、lease、utility、bank、insurance、DMV notice 和 vehicle paperwork；这些文件可能同时影响驾照、地址证明、保险和车辆登记。',
     ],
     steps: [
-      '第一步：先判断“人”的身份路径。只是访客或外州学生时，看 visitor / non-resident / foreign license 页面；已经建立州 resident 身份时，看 new resident、first license 或 transfer 页面。',
+      '第一步：先判断“人”的州法路径。只是访客或符合学生/非居民例外时，看 visitor / non-resident / foreign license 页面；已经建立 resident 身份时，看 new resident、first license 或 transfer 页面。存在争议时不要把 DMV 清单当成法律裁定。',
       '第二步：再判断“车”的登记路径。外州车辆是否要转入，可能和驾照期限不同；不要因为自己暂时不用换驾照，就自动认为车辆也不用 registration。',
       '第三步：把州页面分成三组读：driver license、non-citizen / temporary visitor documents、vehicle registration。三组页面的材料、期限和承办机构可能不同。',
       '第四步：如果拿外国驾照，先确认是否需要 IDP 或 certified translation；如果拿外州驾照，确认是否能 exchange、是否要 surrender old license、是否要测试。',
@@ -10685,7 +10719,7 @@ export const topics: TopicGuide[] = [
       {
         question: '留学生一定不用换本州驾照吗？',
         answer:
-          '不能这样一概而论。纽约 DMV 明确说外州或外国学生通常不算纽约居民，这是纽约规则；其他州要看本州 resident / new resident 页面。毕业、工作、长期租房、买车或建立居住事实后，判断可能改变。',
+          '不能这样一概而论。纽约 DMV 明确说外州或外国学生通常不算纽约居民，但这只是纽约规则，而且“通常”不是绝对豁免。其他州要看 resident / new resident 和 student exemption 页面；就业、住房、投票、子女入学、车辆或居住意图等事实是否触发居民义务，也只能按该州规则判断。',
       },
       {
         question: '我是 F-1 / J-1，办驾照会不会只能拿短期驾照？',
@@ -10705,7 +10739,7 @@ export const topics: TopicGuide[] = [
       {
         question: '学校国际办公室说不用办 DMV，我还能只听学校吗？',
         answer:
-          '学校建议很有用，但不能替代 DMV。国际办公室通常熟悉校园和身份文件，DMV 才决定驾照、ID、车辆登记、地址证明、SSN / SSA letter 和 lawful presence 材料是否合格。',
+          '学校建议很有用，但不能替代官方规则。国际办公室通常熟悉校园和身份文件；驾照、ID、车辆登记、地址证明、SSN / SSA letter 和 lawful presence 材料要由相应州机构按规则受理。居民身份本身若存在法律争议，也不一定由柜台或 DMV 最终裁定；纽约就明确把争议留给法官。',
       },
     ],
     factChecks: [
@@ -10714,11 +10748,17 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://www.usa.gov/non-citizen-driving'],
       },
       {
-        claim: 'New York DMV 说明来自其他州或国家的学生通常不被视为 New York resident，但一旦成为居民并驾驶，就要在 30 天内取得 New York 驾照。',
+        claim:
+          'New York DMV 说明外州或外国学生通常不被视为 New York resident；成为居民并驾驶时要在 30 天内取得 New York 驾照。',
         sourceUrls: [
           'https://dmv.ny.gov/driver-license/driving-in-new-york-state',
           'https://dmv.ny.gov/more-info/moving-to-or-from-new-york-state',
         ],
+      },
+      {
+        claim:
+          'New York 把 resident 定义为有意把州内住所作为固定永久居所的人，维持住所至少 90 天是推定证据；有争议时由法官判断，DMV 不决定是否为居民或必须换证、登记车辆。',
+        sourceUrls: ['https://dmv.ny.gov/driver-license/driving-in-new-york-state'],
       },
       {
         claim: 'New York 允许符合条件的 nonresident 使用有效外国驾照驾驶，IDP 不是强制文件，但在驾照非英文时可帮助说明内容。',
@@ -10738,7 +10778,15 @@ export const topics: TopicGuide[] = [
       },
       {
         claim: 'Florida visitor 可持居住国有效驾照驾驶；一旦符合官方 resident 触发条件，通常要在 30 天内取得 Florida 驾照。',
-        sourceUrls: ['https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/'],
+        sourceUrls: [
+          'https://www.flhsmv.gov/driver-licenses-id-cards/visiting-florida-faqs/',
+          'https://www.flhsmv.gov/new-resident/',
+        ],
+      },
+      {
+        claim:
+          'Florida 新居民页面把人的驾照和车辆业务分开：驾照通常在建立 residency 后 30 天内办理，车辆要先取得 Florida insurance，并在 10 天内 title 和 register。',
+        sourceUrls: ['https://www.flhsmv.gov/new-resident/'],
       },
       {
         claim: 'Texas 新居民通常要在 30 天内先登记车辆，并可在搬入后最多 90 天内使用外州驾照再申请 Texas 驾照。',
@@ -10767,7 +10815,7 @@ export const topics: TopicGuide[] = [
     ],
     editorNotes: [
       '这页的核心是把 immigration status、state residency、driver license eligibility 和 vehicle registration 分开，避免中文用户把“非移民身份”误读成“DMV 非居民”。',
-      '纽约 DMV 的 student language 很适合做正例，但正文必须明确不能跨州套用。',
+      '纽约的 student language 很适合做正例，但必须同时保留 90 天只是推定证据、争议由法官判断、不能跨州套用这三个边界。',
       '临时访客证件期限要谨慎，只写 lawful presence / Limited Term 关系，不替用户判断具体 I-20、DS-2019、I-94 或 I-797 到期日。',
       '车辆登记与驾照不同步是高风险点，特别是外州学生、跨州通勤、校园停车和保险州别不一致的场景。',
       '这页不是移民法律建议，也不判断 tax resident、in-state tuition、domicile 或保险合同义务。',
@@ -11075,8 +11123,8 @@ export const topics: TopicGuide[] = [
     title: '买二手车前，title、lien、salvage 和 odometer 怎么查',
     eyebrow: '买二手车',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       '私人买二手车或网上买 used car 时，不要只看价格和 Carfax 截图。先用 VIN、title、lien release、salvage / flood brand、odometer disclosure、seller name 和 DMV transfer 要求，判断这辆车能不能顺利过户和登记。',
     whoNeedsIt: [
@@ -11086,18 +11134,18 @@ export const topics: TopicGuide[] = [
       '已经读过车辆 title / registration 顺序页，但想在付款前做买方检查的人。',
     ],
     keyFacts: [
-      'Title 是买方能不能把车转到自己名下的核心文件。California DMV 明确提醒，如果卖家不是 title 上的 owner 或 owner 授权代理，卖家无权出售，买方也不能把车转到自己名下。',
-      'Bill of sale 通常不能替代 title。很多州把 bill of sale、odometer、damage disclosure、tax form、title application 和 lien release 当作不同文件；只拿收据不等于能过户。',
+      'Title 是买方能不能把车转到自己名下的核心文件。California 私人交易要求取得卖方签署的 title；如果眼前卖家不是 title 上的登记车主，还要有由该卖家和 title owner 共同签署的 bill of sale，把中间所有权链连接起来。',
+      'Bill of sale 通常只是所有权链或交易材料的一部分，不能自动替代州要求的 title。California 在特定链条中接受 bill of sale，New York 也要求把 bill of sale 与其他 ownership proofs 一起提交；只有一张收据不等于一定能过户。',
       'Lien 是高风险项。NY DMV Driver Manual 提醒，title 上有 lien holder 时，要向卖家索取贷款已还清的官方 lien release；否则 lien holder 仍可能 repossess 车辆。',
       'Salvage、rebuilt、flood、junk、not actual mileage 等 title brand 会影响登记、保险、安全和转售。NMVTIS 说明 brand 由州用于标记车辆当前或历史状态，并且 brand washing 可能发生在跨州重新 title 时。',
       'Odometer disclosure 不是一句口头承诺。NHTSA 说明转移所有权时联邦规则要求书面 mileage disclosure；Texas DMV 和 NY DMV 都提醒要把 title 上的里程与车上 odometer、维修/检查记录对照。',
       'Vehicle history report 有用，但不能替代 DMV 文件和机械检查。Washington DOL、Texas DMV 和 FTC 都建议查历史报告，同时找独立 mechanic 检查。',
       'Dealer used car 和 private sale 不是同一套保护。FTC Used Car Rule 要求多数 used-car dealers 张贴 Buyers Guide；NY DMV 明确提醒 private seller 不受很多 dealer 规则约束，私人交易纠纷通常更难处理。',
-      '付款前先验证 VIN、title owner、title brand、lien、odometer、seller 身份和本州 transfer 要求。Texas DMV 甚至明确提醒私人交易不要在没拿到 title 的情况下离开。',
+      '付款前先验证 VIN、title owner、完整 ownership chain、title brand、lien、odometer、seller 身份和本州 transfer 要求。Texas DMV 明确提醒私人交易绝不要在没拿到 title 的情况下离开；New York 也不会接受有涂改、擦除或取消信息的 title。',
     ],
     checklist: [
       '拍下 VIN，并确认 dashboard、driver door、title、registration、insurance card 或 seller 文件里的 VIN 一致。',
-      '看 title 原件：owner name、seller name、lienholder、brand、odometer、damage disclosure、签名位置、涂改、刮擦、空白转让或跳 title 痕迹。',
+      '看 title 原件：owner name、seller name、lienholder、brand、odometer、damage disclosure、签名位置、涂改、刮擦、空白转让或跳 title 痕迹；卖家与 title owner 不同时，要求州认可的完整连接文件。',
       '如果 title 上有 lien，要求官方 lien release 或按州 DMV 指示处理；不要只接受卖家的短信或口头说明。',
       '用 NMVTIS / vehiclehistory.gov 或州 DMV title-check 入口查 title、brand、latest odometer、salvage / total loss / theft history 线索。',
       '对比里程：title disclosure、车内 odometer、inspection record、maintenance record、oil-change sticker 和 seller 叙述是否一致。',
@@ -11107,7 +11155,7 @@ export const topics: TopicGuide[] = [
     ],
     steps: [
       '第一步：先用 VIN 做官方路径检查。打开 NMVTIS / vehiclehistory.gov、州 DMV title check 或 buying a vehicle 页面，不要先付款或交 deposit。',
-      '第二步：现场核对 title。卖家姓名必须能和 title owner 或授权文件对上；有 lien、lost title、only bill of sale、open title、cross-out、white-out 或 signature mismatch 时先停下来。',
+      '第二步：现场核对 title。卖家姓名必须能和 title owner、授权文件或州认可的 bill-of-sale chain 对上；有 unexplained owner mismatch、lien、lost title、only bill of sale、open title、cross-out、white-out 或 signature mismatch 时先停下来。',
       '第三步：看 brand 和 damage disclosure。出现 salvage、rebuilt、flood、junk、not actual mileage、total loss 或 out-of-state title 时，先查本州是否能登记、是否要检查、保险是否接受。',
       '第四步：核对 odometer。把 title disclosure、车上里程、维修记录、inspection record 和 NMVTIS / history report 里程线串起来，发现倒退或不合理跳跃就不要急着成交。',
       '第五步：请独立 mechanic 检查车辆，尤其是 salvage / rebuilt / flood、低价车、跨州车、无完整维修记录或网上远程交易。',
@@ -11128,7 +11176,7 @@ export const topics: TopicGuide[] = [
       {
         question: 'seller name 不在 title 上，是不是 title jumping？',
         answer:
-          '可能是。California DMV 明确说卖家如果不是 owner 或授权代理，就无权出售，买方也不能把车转到自己名下。某些场景可能有 dealer reassignment、power of attorney、estate 或 lien documents，但普通私人交易不要接受解释不清的 open title。',
+          '不一定自动等于 title jumping，但必须解释完整。California 允许卖家不是 title owner 的私人交易使用由实际卖家和 title owner 共同签署的 bill of sale 来连接所有权；dealer reassignment、power of attorney、estate 等也可能有专门文件。没有连续签字、只有空白 title、卖家拒绝出示身份或不愿一起去办理时，应停止付款。',
       },
       {
         question: 'odometer 显示低里程，但 title 或报告里不一致怎么办？',
@@ -11144,7 +11192,7 @@ export const topics: TopicGuide[] = [
     factChecks: [
       {
         claim:
-          'California 私人交易指引要求卖方是 title 上的登记车主或有权代理；卖方身份与 title 对不上时，买方不应直接完成交易。',
+          'California 私人交易要求取得卖方签署的 title；若实际卖家不是 title 上的登记车主，还要提交由实际卖家和登记车主共同签署的 bill of sale。',
         sourceUrls: [
           'https://www.dmv.ca.gov/portal/vehicle-registration/new-registration/registering-a-vehicle-purchased-from-a-private-party/',
         ],
@@ -11154,6 +11202,14 @@ export const topics: TopicGuide[] = [
           'New York 指引提醒，title 显示 lienholder 时应取得贷款已清偿的正式 lien release，否则 lien 仍可能影响所有权和车辆处置。',
         sourceUrls: [
           'https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-3-owning-a-vehicle',
+        ],
+      },
+      {
+        claim:
+          'New York 不接受 odometer/damage disclosure 未完成，或姓名、签名等信息被调整、擦除、取消的 title；发现错误应先取得有效更正或 replacement，而不是自行涂改。',
+        sourceUrls: [
+          'https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-3-owning-a-vehicle',
+          'https://dmv.ny.gov/titles/certificate-of-title',
         ],
       },
       {
@@ -11192,6 +11248,13 @@ export const topics: TopicGuide[] = [
       },
       {
         claim:
+          'Texas Title Check 明确提醒私人交易不能在未取得 title 的情况下离开，并要求卖方在 title 上填写姓名、出售日期和 odometer。',
+        sourceUrls: [
+          'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/title-check-look-before-you-buy',
+        ],
+      },
+      {
+        claim:
           'California 的 branded title 会显示车辆发生过重大损坏、高里程或其他重要历史；clean title 不能替代事故历史和机械状态调查。',
         sourceUrls: [
           'https://www.dmv.ca.gov/portal/vehicle-registration/titles/branded-titles/',
@@ -11214,7 +11277,7 @@ export const topics: TopicGuide[] = [
     editorNotes: [
       '这页专门讲 buyer-side 风险，避免和 vehicle-title-registration-insurance-after-move 的办理顺序重复；两个页面应互相导流。',
       '不要推荐某个商业 vehicle history report。可以引用 NMVTIS / vehiclehistory.gov 和 approved providers，但必须提醒报告不能替代 title 原件、DMV 要求和 mechanic inspection。',
-      '私人交易、dealer sale、online sale、cross-state sale 是四个不同风险层级。中文解释要把 Buyers Guide、private seller、open title、lien release 和 title brand 分开。',
+      '私人交易、dealer sale、online sale、cross-state sale 是四个不同风险层级。中文解释要把 Buyers Guide、private seller、open title、合法 bill-of-sale chain、lien release 和 title brand 分开。',
       'Federal odometer rule、state title transfer rule、state salvage inspection rule 和 consumer complaint route 不能混写成一个全国统一步骤。',
       '这页不提供法律、税务、贷款或保险建议；如果已经付款且过户失败，用户可能需要 DMV special title unit、state attorney general、dealer complaint unit 或法律咨询。',
     ],
@@ -11243,6 +11306,10 @@ export const topics: TopicGuide[] = [
       {
         label: 'NY DMV Driver Manual: Owning a Vehicle',
         url: 'https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-3-owning-a-vehicle',
+      },
+      {
+        label: 'NY DMV Certificate of Title',
+        url: 'https://dmv.ny.gov/titles/certificate-of-title',
       },
       {
         label: 'NY DMV Buy, Sell, or Transfer Vehicle Ownership',
@@ -11351,8 +11418,8 @@ export const topics: TopicGuide[] = [
     title: '车辆 title 丢了怎么办：补证、电子 title 和 lien',
     eyebrow: '补车辆 title',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       '纸质 vehicle title、pink slip 或 ownership certificate 丢失、损坏、被盗、一直没收到，或者贷款已还清却发现 title 仍在银行或只保留电子记录时，先确认最后签发州、登记车主、地址和 lien 状态，再决定申请 duplicate / replacement、打印 electronic title、清除 lien，还是走 correction / transfer。',
     whoNeedsIt: [
@@ -11375,6 +11442,13 @@ export const topics: TopicGuide[] = [
       'Damaged、lost in transit、deceased owner、business / trust owner、out-of-state resident 和 no proof of ownership 可能有独立材料。不要为了走简单 duplicate 路径，把仍持有的损坏 title 误报成 lost，或用 replacement 规避 lien、brand、共同车主和所有权问题。',
     ],
     factChecks: [
+      {
+        claim:
+          'Title 与 registration 作用不同：registration 允许车辆按登记状态上路，title certificate 用来证明车辆所有权；补 registration 不会自动补出 ownership title。',
+        sourceUrls: [
+          'https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-3-owning-a-vehicle',
+        ],
+      },
       {
         claim:
           'Replacement title 应从最后签发或记录所有权的州开始办理；车辆现在所在州通常不能直接替另一个州补发 title。',
@@ -11442,6 +11516,14 @@ export const topics: TopicGuide[] = [
           'https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/',
           'https://www.mass.gov/how-to/replace-your-vehicles-certificate-of-title',
           'https://www.dmv.virginia.gov/online-services/replace-title',
+        ],
+      },
+      {
+        claim:
+          'Washington 普通 lost-title 路径要求所有 registered owners 在 notary 面前签 Affidavit of Loss；仍在还贷时由 lienholder 申请，并另有费用更高且有资格限制的 Quick Title 路径。',
+        sourceUrls: [
+          'https://dol.wa.gov/vehicles-and-boats/vehicles/vehicle-registration/vehicle-title/replace-lost-title-or-registration',
+          'https://dol.wa.gov/vehicles-and-boats/vehicles/renew-or-replace-vehicle-tabs/affidavit-lossrelease-interest',
         ],
       },
     ],
@@ -11539,6 +11621,10 @@ export const topics: TopicGuide[] = [
         url: 'https://dmv.ny.gov/titles/certificate-of-title',
       },
       {
+        label: 'New York Driver Manual - Registration and Title',
+        url: 'https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-3-owning-a-vehicle',
+      },
+      {
         label: 'TxDMV Get a Copy of Your Vehicle Title',
         url: 'https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/get-a-copy-of-your-title',
       },
@@ -11618,8 +11704,8 @@ export const topics: TopicGuide[] = [
     title: '亲属赠车、继承车辆和车主去世后，title 怎么转',
     eyebrow: '赠车继承',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-17',
+    reviewedAt: '2026-07-17',
     description:
       '家里人赠车、车主去世、继承车辆、TOD beneficiary、surviving spouse、estate/probate、title 丢失或仍有 lien 时，车辆 title transfer 不是普通二手车交易。Gift、inheritance、estate、survivorship、tax exemption、registration 和 plate 必须分开判断。',
     whoNeedsIt: [
@@ -11631,9 +11717,9 @@ export const topics: TopicGuide[] = [
     ],
     keyFacts: [
       'Gift、family transfer 和 inheritance 是不同路径。California DMV 把 family、estate、inheritance、gift 和 deceased owner 拆开；PennDOT 也把 gift affidavit 与 death-owner transfer 分开处理。',
-      '赠车不等于自动免税。Washington DOL 说明收到 gift vehicle 时可能仍要看 use tax；Florida 税务程序说明没有付款且没有承接 lien 的 gift 才通常是 nontaxable；Pennsylvania 也提醒假 gift 但承接贷款余额时可能被视为有对价。',
+      '赠车不等于自动免税。Washington 会看赠与人是否已缴税、车辆来源州以及是否交换金钱、物品或服务；Florida 的一般免税规则要求无付款且不承接 outstanding lien；Pennsylvania 把承接贷款余额视为 consideration；Texas 还限制可适用 gift tax 的关系并要求 Form 14-317。',
       '车主去世后，要先判断 title 上是谁。共同车主、right of survivorship、tenants in common、spouse、minor children、heirs、executor、administrator、TOD beneficiary 和 estate 的文件完全不同。',
-      '继承人不一定能直接卖车。Georgia DOR 明确提醒，使用 inheritance affidavit 且没有 Letters of Testamentary 时，继承人可能要先把车 title 到自己名下，再出售或转让。',
+      '继承人不一定能直接卖车。Georgia 明确规定：使用 T-20 Affidavit of Inheritance，或没有 Letters of Testamentary 的继承人，要先把车 title 到自己名下再出售或转让；executor / administrator 等其他路径的签字权限不同。',
       'TOD / beneficiary 不是生前共同车主。California、Texas、Virginia、New Jersey 都有车辆 beneficiary 或 transfer-on-death 相关规则，但通常在车主去世后才生效，并且受 lien、申请期限或表格限制。',
       'Registration、plate、title 和 insurance 不要混在一起。Virginia DMV 把 deceased owner 的 vehicle ownership transfer 和 registration transfer 分成不同页面；PennDOT 也把 title fee、registration plate transfer 和 insurance information 拆开。',
       'Title 丢失会改变流程。California REG 227、Florida duplicate title 表格、Georgia replacement title 页面都提醒，丢失 title 时不能简单手写 bill of sale 代替，通常要先走 replacement / duplicate 或特定 transfer-with-duplicate 路径。',
@@ -11663,7 +11749,7 @@ export const topics: TopicGuide[] = [
       {
         question: '亲属把车送给我，只要在 title 价格写 gift 就行吗？',
         answer:
-          '通常不够。很多州要求专门的 gift affidavit、tax exemption form、family relationship form 或 use tax 证明。Washington、Florida、Pennsylvania 和 New Jersey 都把 gift 与 sales/use tax 条件分开说明；有 lien、承接贷款或交换其他价值时，可能不算纯 gift。',
+          '通常不够。Texas 要求符合关系范围并提交 Form 14-317；California 要写 Gift 并提交 REG 256；Pennsylvania 要 MV-13ST；Washington 还会检查原税款、来源州和是否交换任何价值。Florida 和 Pennsylvania 都明确提示，承接 outstanding lien / loan balance 可能让交易不再按纯 gift 处理。',
       },
       {
         question: '家人去世后，我能不能先把车卖掉再去 DMV？',
@@ -11723,6 +11809,19 @@ export const topics: TopicGuide[] = [
       },
       {
         claim:
+          'Florida 的一般 gift 免税规则要求转移时没有付款且新车主不承接 outstanding lien，并要在 title / registration 申请中申报适用 exemption。',
+        sourceUrls: ['https://www.flhsmv.gov/pdf/proc/tl/tl-08.pdf'],
+      },
+      {
+        claim:
+          'Pennsylvania 要求赠车税务豁免使用 MV-13ST；受让人承接现有 lien 余额时，该余额属于 consideration 并可能产生 sales tax。',
+        sourceUrls: [
+          'https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/use-tax/motor-vehicle-understated-value-program',
+          'https://www.pa.gov/agencies/dmv/vehicle-services/title-and-registration/buying-or-selling-a-vehicle',
+        ],
+      },
+      {
+        claim:
           'Florida 为 surviving spouse 或适用继承人设置 HSMV 82152 等专用文件，死亡后转 title 不能直接套用普通私人出售表格。',
         sourceUrls: ['https://www.flhsmv.gov/pdf/forms/82152.pdf'],
       },
@@ -11752,10 +11851,26 @@ export const topics: TopicGuide[] = [
       },
       {
         claim:
+          'Georgia 使用 T-20 Affidavit of Inheritance，或没有 Letters of Testamentary 的继承人，必须先把车辆 title 到自己名下再出售或转让。',
+        sourceUrls: [
+          'https://dor.georgia.gov/vehicle-inherited-or-purchased-estate',
+          'https://dor.georgia.gov/document/form/form-t-20-affidavit-inheritance/download',
+        ],
+      },
+      {
+        claim:
           'New Jersey 的 vehicle gift、sales-tax exemption 和 transfer-on-death beneficiary 是不同规则，申请人应分别核对 title、税务和 beneficiary 文件。',
         sourceUrls: [
           'https://www.nj.gov/mvc/vehicles/transowner.htm',
           'https://www.nj.gov/mvc/vehicletopics/taxexempt.htm',
+          'https://www.nj.gov/mvc/pdf/vehicles/beneficiary_transfer_form.pdf',
+        ],
+      },
+      {
+        claim:
+          'New Jersey TOD beneficiary 要在车主死亡后连同 title、death certificate 和 title application 使用；原 title 上的 lien 要先清偿，或按规则转到 sole owner。',
+        sourceUrls: [
+          'https://www.nj.gov/mvc/vehicles/transowner.htm',
           'https://www.nj.gov/mvc/pdf/vehicles/beneficiary_transfer_form.pdf',
         ],
       },
