@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:52:53.645Z",
+    "generatedAt": "2026-07-17T00:00:23.545Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 33,
+    "passed": 35,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 78,
-    "aiAssistedReviews": 39,
+    "sourceMappedReviews": 76,
+    "aiAssistedReviews": 41,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 131,
+    "blockedPages": 129,
     "averageScore": 96
   },
   "pages": [
@@ -307,7 +307,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 177,
+        "sourceCount": 178,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 235,
+        "sourceCount": 238,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 51,
-        "directoryEvidenceLinks": 51,
+        "directoryEvidenceItems": 55,
+        "directoryEvidenceLinks": 55,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 198,
+        "sourceCount": 200,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 41,
-        "directoryEvidenceLinks": 41,
+        "directoryEvidenceItems": 43,
+        "directoryEvidenceLinks": 43,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 423,
+        "sourceCount": 438,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 173,
+        "sourceCount": 175,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -497,8 +497,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 159,
-        "directoryEvidenceLinks": 159,
+        "directoryEvidenceItems": 162,
+        "directoryEvidenceLinks": 162,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 134,
+        "sourceCount": 132,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -544,8 +544,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 62,
-        "directoryEvidenceLinks": 62,
+        "directoryEvidenceItems": 64,
+        "directoryEvidenceLinks": 64,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 148,
+        "sourceCount": 152,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 112,
-        "directoryEvidenceLinks": 112,
+        "directoryEvidenceItems": 116,
+        "directoryEvidenceLinks": 116,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -662,7 +662,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 177,
+        "sourceCount": 178,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1060,
+        "sourceCount": 1071,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -5187,21 +5187,21 @@
       "route": "/states/virginia/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 93,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Virginia DMV 的 REAL ID、材料表、驾照申请与资格、续期补证、姓名地址、新居民、knowledge 和 road tests、permit、外国驾照、Driver Privilege Card、legal presence、费用、预约与寄送正文。",
+        "notes": "重写 Virginia 总览与 REAL ID 页面，补齐 30/60 天、2027 年训练变化、中文考试、六国互惠与 Taiwan 特例、EAD I-766 限制和 2026 Driver Privilege Card 续期提示；所有声明已改为显式来源，仍待真实人工签字。"
       },
       "scores": {
-        "factsAndSources": 22,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -5211,14 +5211,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 12,
+        "sourceCount": 22,
+        "factCheckCount": 37,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 12,
-        "stateEvidenceLinks": 15,
+        "stateEvidenceItems": 37,
+        "stateEvidenceLinks": 61,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5226,9 +5226,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/virginia/real-id/",
@@ -5236,16 +5234,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Virginia DMV 的 REAL ID、材料表、驾照申请与资格、续期补证、姓名地址、新居民、knowledge 和 road tests、permit、外国驾照、Driver Privilege Card、legal presence、费用、预约与寄送正文。",
+        "notes": "重写 Virginia 总览与 REAL ID 页面，补齐 30/60 天、2027 年训练变化、中文考试、六国互惠与 Taiwan 特例、EAD I-766 限制和 2026 Driver Privilege Card 续期提示；所有声明已改为显式来源，仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5258,14 +5256,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 16,
+        "sourceCount": 22,
+        "factCheckCount": 38,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 16,
-        "stateEvidenceLinks": 17,
+        "stateEvidenceItems": 38,
+        "stateEvidenceLinks": 77,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5273,9 +5271,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/washington/",

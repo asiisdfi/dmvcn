@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-16T23:52:52.908Z",
+    "generatedAt": "2026-07-17T00:00:22.762Z",
     "pages": 100,
     "states": 50,
-    "claims": 1872,
-    "links": 2361,
-    "aiAssistedClaims": 738,
-    "aiAssistedPages": 22,
+    "claims": 1919,
+    "links": 2467,
+    "aiAssistedClaims": 813,
+    "aiAssistedPages": 24,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 803,
-        "links": 1031,
+        "claims": 828,
+        "links": 1077,
         "states": 50
       },
       "real-id": {
-        "claims": 1069,
-        "links": 1330,
+        "claims": 1091,
+        "links": 1390,
         "states": 50
       }
     }
@@ -15399,35 +15399,18 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "弗吉尼亚 DMV 把 REAL ID 明确写成可选升级证件",
+      "claim": "Virginia REAL ID 是自愿升级，Standard license 仍可驾驶、投票和办理多数日常事务，但国内航班或特定联邦设施要改用 REAL ID 或 TSA 接受的其他身份证件",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "virginia",
-      "surface": "overview",
-      "field": "summary",
-      "context": "document",
-      "claim": "办理逻辑是先完成申请，再把原始文件带到 DMV customer service center 核验",
-      "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -15436,18 +15419,37 @@
       "stateId": "virginia",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "标准弗吉尼亚驾照仍可驾驶和办理不少日常用途，但证件会标注 Federal Limits Apply，不能替代 REAL ID 或 TSA 接受的其他证件用于相应联邦用途",
+      "context": "license",
+      "claim": "新居民要在搬入 Virginia 后 60 天内取得普通驾照，现有 CDL 要在 30 天内转入",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
+        "https://www.dmv.virginia.gov/moving/new-virginia",
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
+        "对应官方来源：Virginia DMV New to Virginia",
+        "对应官方来源：Virginia DMV Driver License Eligibility"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
+        "transfer"
       ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "车辆 title 和 registration 采用另一条 30 天期限，不要和驾照期限混用",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/moving/new-virginia"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV New to Virginia"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -15456,81 +15458,22 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "弗吉尼亚 REAL ID 通常需要一份 identity、两份 Virginia residency、一份 legal presence、SSN 证明以及姓名变更文件",
-      "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "residency-proof",
-        "ssn",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "virginia",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "DMV 页面特别提醒不要把文件上传给非官方网站",
-      "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "virginia",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "REAL ID 可先 online start application，但官方页面说明这不会要求上传文件",
+      "claim": "首次申请 Virginia REAL ID 要到 DMV customer service center，带一份 identity、两份 Virginia residency、一份 legal presence、Social Security 信息和适用的姓名变更链，并支付一次性 $10 REAL ID fee 加当前驾照或 ID 交易费",
       "sourceUrls": [
         "https://www.dmv.virginia.gov/licenses-ids/real-id",
-        "https://www.dmv.virginia.gov/online-services-all"
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq"
       ],
       "sourceLabels": [
         "对应官方来源：Virginia DMV REAL ID",
-        "对应官方来源：Online Services"
+        "对应官方来源：Virginia DMV REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "virginia",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "document",
-      "claim": "需要把材料带到 DMV customer service center",
-      "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
+        "residency-proof",
+        "ssn",
+        "name-change",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -15540,19 +15483,40 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "地址变更等记录业务通常先查 online services",
+      "claim": "DMV 提供 50 多项线上交易，必须到场时可选周一至周五 appointment、同日 e-ticket 或营业时间内 walk-in",
       "sourceUrls": [
         "https://www.dmv.virginia.gov/appointments",
         "https://www.dmv.virginia.gov/online-services-all"
       ],
       "sourceLabels": [
-        "对应官方来源：预约与排队",
-        "对应官方来源：Online Services"
+        "对应官方来源：Virginia DMV Plan Your Visit",
+        "对应官方来源：Virginia DMV Online Services"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
+        "appointment",
         "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "Knowledge 和 road skills walk-in 申请人要在周一至周五 4:30 p.m. 前或周六 11:30 a.m. 前到场",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/exams/know-exam",
+        "https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Knowledge Exam",
+        "对应官方来源：Virginia DMV Road Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -15562,14 +15526,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "Virginia DMV 页面直接警告：声称可以在家预扫并上传 REAL ID 文件的网站不是 DMV，用户不应提交证件图片",
+      "claim": "Virginia REAL ID 可以先在线开始申请，但 DMV 不提供在家预扫或上传文件的流程，声称能代传 REAL ID 文件的网站不属于 Virginia DMV",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -15581,17 +15547,372 @@
       "stateId": "virginia",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "弗吉尼亚搬家后有 30 天地址更新要求",
+      "context": "real-id",
+      "claim": "从其他州搬入后，原州 REAL ID 不会自动转成 Virginia REAL ID，仍要按 Virginia 首次 REAL ID 路径提交材料",
       "sourceUrls": [
         "https://www.dmv.virginia.gov/licenses-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Virginia DMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change"
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "首次 REAL ID 必须本人到场，取得首张 REAL ID 后才可能按普通续期周期在线续办",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "当前 REAL ID 一次性附加费是 $10，普通 8 年驾照为 $32，普通 replacement license 为 $20",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying",
+        "https://www.dmv.virginia.gov/licenses-ids/license/replace",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv201.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV Apply for a Driver License",
+        "对应官方来源：Virginia DMV Replace License or Permit",
+        "对应官方来源：Virginia DMV Fee Chart"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 身份材料必须是原件，允许清单内 online residency document 的打印件，但不接受 temporary documents 或普通 photocopies",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV Document Guide DMV 141"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "online-service"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "有效且姓名一致的美国 passport 或 passport card 可以同时覆盖 identity 和 legal presence，不一定必须使用出生证",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID FAQ",
+        "对应官方来源：Virginia DMV Document Guide DMV 141"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "有多次姓名变化时要为每一次变化提供 certified marriage certificate、divorce decree、court order 或 adoption record，形成完整姓名链",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "知道自己的 SSN 且 DMV 能电子核验时可以不出示纸质 SSN proof，CDL 申请人仍要按专用要求准备 Social Security 文件",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV Driver License Eligibility"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Virginia legal presence 页面明确不把 Employment Authorization Document I-766 单独接受为 REAL ID legal-presence proof，持有人应按身份表寻找其他可接受文件",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/id-cards/legal-presence"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "temporary authorized applicant 的 REAL ID 有效期通常跟随 authorized stay，没有明确结束日时为一年，申请日剩余合法停留少于 30 天则不能取得 REAL ID permit",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying",
+        "https://www.dmv.virginia.gov/licenses-ids/learners/apply"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Apply for a Driver License",
+        "对应官方来源：Virginia DMV Learner Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通驾照最多可提前一年续期，线上或邮寄通常只能隔一个 renewal cycle 使用一次，下一周期要本人到场更新照片和视力",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/renewing"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Renew Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service",
+        "test",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通续期后的卡最多预留 15 天邮寄，75 岁及以上的 renewed license 通常有效 5 年而不是 8 年",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/renewing"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Renew Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Virginia 驾照过期超过一年后不能走普通续期，要重考 vision、two-part knowledge 和 road skills",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/renewing"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Renew Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通 replacement license 为 $20、replacement permit 为 $2，线上补证会沿用现有照片且新卡通过邮件寄送",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/replace",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv201.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Replace License or Permit",
+        "对应官方来源：Virginia DMV Fee Chart"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "USPS 不会转寄 Virginia license 或 ID，线上补证和续期前都应先确认 DMV 记录地址，并至少预留 15 天收件",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/online-services/replace-license",
+        "https://www.dmv.virginia.gov/licenses-ids/license/renewing"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Online License Replacement",
+        "对应官方来源：Virginia DMV Renew Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "搬到新的 Virginia residence 后 30 天内要更新 DMV 地址，residence address 不能只填 P.O. box 或 business address",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/records/personal-information-updates"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Personal Information Updates"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "address-change",
+        "transfer"
+      ],
+      "uncoveredThemes": [
+        "transfer"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "姓名变更可先在线开始，但要带原始 marriage certificate、divorce decree 或 court order 到 customer service center 完成",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/records/personal-information-updates"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Personal Information Updates"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "name-change"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Knowledge exam 第一部分 10 道 road sign 必须全对，第二部分 30 道 general knowledge 至少答对 24 道",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/exams/know-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Knowledge Exam"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -15601,14 +15922,93 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "无论跨州迁入还是州内搬家，都应先处理 DMV 记录地址",
+      "claim": "Virginia knowledge exam 提供 Chinese/Mandarin 和 Chinese/Mandarin Traditional，CDL HAZMAT knowledge exam 例外为 English only",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
+        "https://www.dmv.virginia.gov/licenses-ids/exams/know-exam"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
+        "对应官方来源：Virginia DMV Knowledge Exam"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "未满 18 岁 knowledge exam 失败后要完整等待 15 天，18 岁及以上同一天只能考一次，任何年龄三次失败都要先完成规定课程",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/exams/know-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Knowledge Exam"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Road skills test 在道路上以英语进行，需要语言协助时可自带至少 18 岁且持有效美国驾照的 translator 或 interpreter",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Road Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Road test 自备车辆要有有效 safety inspection sticker、plates、registration card 和可工作的制动、安全带、喇叭、灯、转向灯、后视镜与 speedometer",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Road Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Virginia learner permit 最低年龄是 15 岁 6 个月，普通驾照最低年龄是 16 岁 3 个月",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility",
+        "https://www.dmv.virginia.gov/licenses-ids/learners/apply"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Driver License Eligibility",
+        "对应官方来源：Virginia DMV Learner Permit"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -15617,21 +16017,160 @@
       "stateId": "virginia",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "document",
-      "claim": "材料页面允许部分 online residency document printouts，但 temporary documents 和 photocopies 不接受",
+      "context": "detail",
+      "claim": "在 2027 年 1 月 1 日之前，18 岁及以上从未持证者可选择持 permit 至少 60 天或在持 permit 时完成州批准驾驶教育",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id",
-        "https://www.dmv.virginia.gov/online-services-all"
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying",
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility",
+        "https://www.dmv.virginia.gov/licenses-ids/learners/apply"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID",
-        "对应官方来源：Online Services"
+        "对应官方来源：Virginia DMV Apply for a Driver License",
+        "对应官方来源：Virginia DMV Driver License Eligibility",
+        "对应官方来源：Virginia DMV Learner Permit"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "从 2027 年 1 月 1 日起，18 至 20 岁从未持证者要持 permit 至少 90 天并完成州批准驾驶教育，21 岁及以上仍保留 60 天或驾驶教育二选一",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying",
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility",
+        "https://www.dmv.virginia.gov/licenses-ids/learners/apply"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Apply for a Driver License",
+        "对应官方来源：Virginia DMV Driver License Eligibility",
+        "对应官方来源：Virginia DMV Learner Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Virginia 的外国驾照互惠国家包括 Canada、France、Germany、Japan、South Korea 和 Taiwan，但 Taiwan 申请人仍要通过 vision 和 two-part knowledge exam",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/exchange-foreign-dl"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Foreign License Exchange"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "residency-proof",
-        "online-service"
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "France、Germany、Japan、South Korea 和 Taiwan 驾照要先提交 DL 7 和驾照副本供 DMV 核验，验证最长可能需要 15 天，Canada 不走这一步",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/exchange-foreign-dl"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Foreign License Exchange"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "非互惠国家的有效外国驾照持有人通常要通过 two-part knowledge、road skills 和 vision，但可接受的外国驾照可能免 60 天 permit 和 driver education",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/exchange-foreign-dl"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Foreign License Exchange"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "不能满足 standard license legal-presence 要求的非美国公民可能申请 Driver Privilege Card，但要有过去 12 个月 Virginia-source income 或作为 Virginia tax return dependent 的记录",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/driver-privilege-card",
+        "https://www.dmv.virginia.gov/licenses-ids/id-cards/legal-presence"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Driver Privilege Card",
+        "对应官方来源：Virginia DMV Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Driver Privilege Card 不是 REAL ID、不能用于相应联邦身份用途或申请 CDL，当前新办和续期均为 $50",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/driver-privilege-card",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv201.pdf",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Driver Privilege Card",
+        "对应官方来源：Virginia DMV Fee Chart",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "续办 2026 年 7 月 1 日前签发的 Driver Privilege Card 时要本人到场更新照片，并在适用时完成 vision screening",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/driver-privilege-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Driver Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -15641,77 +16180,74 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "弗吉尼亚 REAL ID 通常需要一份 identity、两份 Virginia residency、一份 legal presence、SSN 证明以及姓名变更文件",
+      "claim": "首次申请 Virginia REAL ID 要到 DMV customer service center，带一份 identity、两份 Virginia residency、一份 legal presence、Social Security 信息和适用的姓名变更链，并支付一次性 $10 REAL ID fee 加当前驾照或 ID 交易费",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "residency-proof",
+        "ssn",
+        "name-change",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "先用 Virginia DMV Online Document Guide 按 REAL ID、Standard license 或 Driver Privilege Card 生成对应清单，不要混用三套要求",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf",
+        "https://www.dmv.virginia.gov/licenses-ids/license/driver-privilege-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV Document Guide DMV 141",
+        "对应官方来源：Virginia DMV Driver Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "online-service"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 核心材料是 one identity、one legal presence、two Virginia residency、SSN 信息和适用的 certified name-change documents",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV REAL ID FAQ",
+        "对应官方来源：Virginia DMV Document Guide DMV 141"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
         "residency-proof",
-        "ssn",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "virginia",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "DMV 页面特别提醒不要把文件上传给非官方网站",
-      "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "virginia",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "一份 identity 文件、两份 Virginia residency 文件、一份 legal presence 文件",
-      "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "virginia",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "如果已签发 SSN，要提供 SSN 证明",
-      "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -15722,51 +16258,18 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "部分情况下 DMV 可电子核验",
+      "claim": "所有身份与 legal-presence 文件使用原件，普通 photocopy 和 temporary document 不被接受",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf",
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV Document Guide DMV 141",
+        "对应官方来源：Virginia DMV Driver License Eligibility"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "virginia",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "姓名不一致时，要带认证的姓名变更文件，可能需要完整链条",
-      "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "virginia",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "文件通常要是原件",
-      "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -15778,14 +16281,204 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "临时文件和普通复印件不能替代",
+      "claim": "清单明确接受的在线账单或其他 online residency document 可以打印后作为住址证明，但仍要准备两份",
       "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV Document Guide DMV 141"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "online-service"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两份 Virginia residency 文件要显示当前 residential street address，P.O. box 只能作为额外 mailing address，不能取代 residence address",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf",
+        "https://www.dmv.virginia.gov/records/personal-information-updates"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Apply for a Driver License",
+        "对应官方来源：Virginia DMV Document Guide DMV 141",
+        "对应官方来源：Virginia DMV Personal Information Updates"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "文件上的姓名要使用 full legal name，不能用 nickname 或缩写，姓名不同就补齐每一段 certified change record",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/records/personal-information-updates",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV Personal Information Updates",
+        "对应官方来源：Virginia DMV Document Guide DMV 141"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "已经签发 SSN 的申请人要提供号码，DMV 能电子核验时可能免纸质证明，没有 SSN 的情形按 Document Guide 分流",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV Driver License Eligibility",
+        "对应官方来源：Virginia DMV Document Guide DMV 141"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "temporary authorized applicant 要按当前身份准备 legal-presence 文件，EAD I-766 本身不能单独证明 REAL ID legal presence",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/id-cards/legal-presence"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "外州换证应带 current out-of-state license，新居民同时申请 REAL ID 时仍要补齐 Virginia REAL ID 全套文件",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility",
         "https://www.dmv.virginia.gov/licenses-ids/real-id"
       ],
       "sourceLabels": [
+        "对应官方来源：Virginia DMV Driver License Eligibility",
         "对应官方来源：Virginia DMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "互惠外国驾照申请人先提交 DL 7 与清晰驾照副本，收到 approval letter 后再带身份、legal presence、两份住址、SSN 和 current foreign license 到 DMV",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/exchange-foreign-dl"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Foreign License Exchange"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "ssn"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Driver Privilege Card 采用另一套材料，要有 two identity、two Virginia residency、SSN 或 ITIN、tax return documentation，并为外文文件附 professional translator 的 certified English translation",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/driver-privilege-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Driver Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "residency-proof",
+        "ssn",
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "先判断自己是否需要用州证件登机或进入受限联邦设施，有有效 passport 等替代证件时可继续保留 Standard license",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -15797,36 +16490,18 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "先进入 Virginia REAL ID 页面，确认是否真的需要升级",
-      "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "virginia",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "使用 DMV online document guide 生成材料清单",
+      "claim": "需要 REAL ID 时只从 Virginia DMV 官方页启动申请，并用 Online Document Guide 生成个人清单，不上传任何证件图片",
       "sourceUrls": [
         "https://www.dmv.virginia.gov/licenses-ids/real-id",
-        "https://www.dmv.virginia.gov/online-services-all"
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq"
       ],
       "sourceLabels": [
         "对应官方来源：Virginia DMV REAL ID",
-        "对应官方来源：Online Services"
+        "对应官方来源：Virginia DMV REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "real-id",
         "document",
         "online-service"
       ],
@@ -15838,16 +16513,100 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "可以先在线开始申请，但不要向第三方网站上传证件文件",
+      "claim": "按 identity、legal presence、two residency、SSN 和 full name-change chain 五栏整理原件，再预约或到 customer service center",
       "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV REAL ID FAQ",
+        "对应官方来源：Virginia DMV Document Guide DMV 141"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn",
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "搬家或改名时先完成 30 天地址更新和必要的原始姓名文件核验，再续期、补证或申请 REAL ID",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/records/personal-information-updates",
+        "https://www.dmv.virginia.gov/licenses-ids/license/renewing",
+        "https://www.dmv.virginia.gov/licenses-ids/license/replace",
         "https://www.dmv.virginia.gov/licenses-ids/real-id"
       ],
       "sourceLabels": [
+        "对应官方来源：Virginia DMV Personal Information Updates",
+        "对应官方来源：Virginia DMV Renew Driver License",
+        "对应官方来源：Virginia DMV Replace License or Permit",
         "对应官方来源：Virginia DMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "real-id",
+        "document",
+        "address-change",
+        "name-change",
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "新居民把普通驾照 60 天、CDL 30 天和车辆 title/registration 30 天分别列入日历，并先处理保险、inspection 和车辆材料",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/moving/new-virginia"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV New to Virginia"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "transfer"
+      ],
+      "uncoveredThemes": [
         "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期先确认是否轮到本人到场，补证先检查线上排除条件，交易后打印 receipt 并预留至少 15 天收件",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/renewing",
+        "https://www.dmv.virginia.gov/licenses-ids/license/replace",
+        "https://www.dmv.virginia.gov/online-services/replace-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Renew Driver License",
+        "对应官方来源：Virginia DMV Replace License or Permit",
+        "对应官方来源：Virginia DMV Online License Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "online-service"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -15857,17 +16616,137 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "带原件到 customer service center，并在地址变化时先处理 address update",
+      "claim": "首次驾驶人按办理日期和年龄选择 permit 期限，尤其要区分 2027 年 1 月 1 日前后的 18 至 20 岁规则",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying",
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility",
+        "https://www.dmv.virginia.gov/licenses-ids/learners/apply"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
+        "对应官方来源：Virginia DMV Apply for a Driver License",
+        "对应官方来源：Virginia DMV Driver License Eligibility",
+        "对应官方来源：Virginia DMV Learner Permit"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "Knowledge test 前用中文或繁体中文资料练习 10 道 signs 全对与 24/30 general knowledge 的通过线",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/exams/know-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Knowledge Exam"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "Road skills test 前核对 CSMA 140、permit、driver education 或 observation record，以及车辆 inspection、registration 和安全设备",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Road Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "外国驾照先判断是否属于六个互惠国家，Taiwan 申请人单独准备 knowledge test，其他互惠国家先完成 DL 7 verification",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/exchange-foreign-dl"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Foreign License Exchange"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "无法满足 legal-presence 要求的非美国公民先核对 Driver Privilege Card 的税务、身份和住址条件，不要把它当成 REAL ID",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/driver-privilege-card",
+        "https://www.dmv.virginia.gov/licenses-ids/id-cards/legal-presence"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Driver Privilege Card",
+        "对应官方来源：Virginia DMV Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "完成交易后使用 Track Your DMV Products 查看生产和寄送状态，地址错误或 USPS 退件时及时联系 DMV",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/tracking"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Product Tracking"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "把在线 start application 误解成上传材料，把 passport、出生证或 SSN 图片交给声称能代办 REAL ID 的第三方网站",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
         "document",
-        "address-change"
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -15877,14 +16756,188 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "相信第三方网站可以替你上传 REAL ID 文件",
+      "claim": "已有其他州 REAL ID 就以为换成 Virginia 驾照时可以跳过首次 REAL ID 材料核验",
       "sourceUrls": [
         "https://www.dmv.virginia.gov/licenses-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Virginia DMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只带一份 Virginia residency，或用 P.O. box 代替 residential street address",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying",
+        "https://www.dmv.virginia.gov/records/personal-information-updates"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV Apply for a Driver License",
+        "对应官方来源：Virginia DMV Personal Information Updates"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "带 temporary document、普通 photocopy 或手机照片，忽略 DMV 要求原件和 certified name-change records",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq",
+        "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV REAL ID FAQ",
+        "对应官方来源：Virginia DMV Document Guide DMV 141"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "文件使用 nickname、缩写或不一致姓名，却没有带完整姓名变更链",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.dmv.virginia.gov/licenses-ids/real-id/faq",
+        "https://www.dmv.virginia.gov/records/personal-information-updates"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：Virginia DMV REAL ID FAQ",
+        "对应官方来源：Virginia DMV Personal Information Updates"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "只带 EAD I-766 就认定足够申请 REAL ID，没有核对 Virginia 的 Acceptable Documents by Status",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/id-cards/legal-presence"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把驾照 60 天期限和车辆 30 天期限混为一谈，导致 vehicle title 或 registration 逾期",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/moving/new-virginia"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV New to Virginia"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "搬家只向 USPS 更新地址，未在 30 天内改 DMV residence、mailing 和 vehicle registration records",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/records/personal-information-updates",
+        "https://www.dmv.virginia.gov/online-services/replace-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Personal Information Updates",
+        "对应官方来源：Virginia DMV Online License Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "address-change",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "临近到期或旅行才在线续期或补证，没有为不转寄的邮件至少预留 15 天",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/renewing",
+        "https://www.dmv.virginia.gov/online-services/replace-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Renew Driver License",
+        "对应官方来源：Virginia DMV Online License Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "拿 Federal Limits Apply 的 Standard license 去规划国内航班，没有准备 REAL ID、passport 或其他 TSA accepted ID",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -15897,16 +16950,37 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "detail",
-      "claim": "只在线填了申请，以为不需要到 DMV 带原件",
+      "claim": "把 Taiwan reciprocity 当成 knowledge test 也免除，或在未取得 DMV verification approval 前直接到场换证",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/exchange-foreign-dl"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
+        "对应官方来源：Virginia DMV Foreign License Exchange"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "非互惠外国驾照持有人直接预约免试换证，没有准备 knowledge、road skills 和 vision tests",
+      "sourceUrls": [
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/exchange-foreign-dl"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Virginia DMV Foreign License Exchange"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "foreign-license",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -15916,17 +16990,19 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "detail",
-      "claim": "搬家后没有在 30 天内更新 DMV 地址",
+      "claim": "只看当前 60 天成人 permit 规则，没有注意 2027 年 1 月 1 日起 18 至 20 岁首次申请人改为 90 天加驾驶教育",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying",
+        "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility",
+        "https://www.dmv.virginia.gov/licenses-ids/learners/apply"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
+        "对应官方来源：Virginia DMV Apply for a Driver License",
+        "对应官方来源：Virginia DMV Driver License Eligibility",
+        "对应官方来源：Virginia DMV Learner Permit"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -15934,17 +17010,17 @@
       "stateId": "virginia",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "用一份地址证明或复印件去办理",
+      "context": "detail",
+      "claim": "Road skills test 自备车辆缺少 inspection sticker、registration、有效车牌或必要安全设备",
       "sourceUrls": [
-        "https://www.dmv.virginia.gov/licenses-ids/real-id"
+        "https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test"
       ],
       "sourceLabels": [
-        "对应官方来源：Virginia DMV REAL ID"
+        "对应官方来源：Virginia DMV Road Skills Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true

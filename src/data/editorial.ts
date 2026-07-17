@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成弗吉尼亚州两页官方正文语义核对',
+    summary:
+      '逐条比对 Virginia DMV 的 REAL ID、材料、驾照资格、续期补证、姓名地址、新居民、中文考试、road test、permit、外国驾照、六国互惠、Driver Privilege Card、legal presence 和费用正文；补齐 30/60 天与 2027 年训练变化，并明确 Taiwan knowledge test 和 EAD I-766 边界。',
+    scope: ['弗吉尼亚州办事总览', '弗吉尼亚州 REAL ID', '2027 训练变化与六国互惠', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成马里兰州两页官方正文语义核对',
     summary:
       '逐条比对 Maryland MVA 的 REAL ID Lookup、材料、现行费用、续期补证、姓名地址、新居民、考试、permit、驾驶教育、外国驾照、五国互惠、非合规证件和 Photo ID 正文；补齐 30/60 天与 12 个月分界，并公开标注旧 REAL ID FAQ 和现行费用表的 $20/$30 冲突。',

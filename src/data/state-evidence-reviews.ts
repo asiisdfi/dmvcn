@@ -358,8 +358,47 @@ const MD_NONCOMPLIANT =
 const MD_ID_CARD =
   'https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card';
 const MD_HOME = 'https://mva.maryland.gov/';
-const USA_STATE_MOTOR_VEHICLE_SERVICES =
-  'https://www.usa.gov/state-motor-vehicle-services';
+
+const VA_REAL_ID =
+  'https://www.dmv.virginia.gov/licenses-ids/real-id';
+const VA_REAL_ID_FAQ =
+  'https://www.dmv.virginia.gov/licenses-ids/real-id/faq';
+const VA_DOCUMENT_GUIDE =
+  'https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf';
+const VA_APPLY =
+  'https://www.dmv.virginia.gov/licenses-ids/license/applying';
+const VA_ELIGIBILITY =
+  'https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility';
+const VA_RENEW =
+  'https://www.dmv.virginia.gov/licenses-ids/license/renewing';
+const VA_REPLACE =
+  'https://www.dmv.virginia.gov/licenses-ids/license/replace';
+const VA_REPLACE_ONLINE =
+  'https://www.dmv.virginia.gov/online-services/replace-license';
+const VA_UPDATE =
+  'https://www.dmv.virginia.gov/records/personal-information-updates';
+const VA_NEW_RESIDENT =
+  'https://www.dmv.virginia.gov/moving/new-virginia';
+const VA_KNOWLEDGE =
+  'https://www.dmv.virginia.gov/licenses-ids/exams/know-exam';
+const VA_ROAD_TEST =
+  'https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test';
+const VA_PERMIT =
+  'https://www.dmv.virginia.gov/licenses-ids/learners/apply';
+const VA_FOREIGN =
+  'https://www.dmv.virginia.gov/licenses-ids/license/applying/exchange-foreign-dl';
+const VA_PRIVILEGE =
+  'https://www.dmv.virginia.gov/licenses-ids/license/driver-privilege-card';
+const VA_LEGAL_PRESENCE =
+  'https://www.dmv.virginia.gov/licenses-ids/id-cards/legal-presence';
+const VA_FEES =
+  'https://www.dmv.virginia.gov/sites/default/files/forms/dmv201.pdf';
+const VA_APPOINTMENTS =
+  'https://www.dmv.virginia.gov/appointments';
+const VA_TRACK =
+  'https://www.dmv.virginia.gov/licenses-ids/license/applying/tracking';
+const VA_ONLINE =
+  'https://www.dmv.virginia.gov/online-services-all';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
@@ -2993,6 +3032,324 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '有车的新居民同时安排 Maryland insurance、title、registration 和可能需要的 safety inspection，不要只完成驾照换领': [
         MD_TRANSFER_VEHICLE,
+      ],
+    },
+  },
+  virginia: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      VA_REAL_ID,
+      VA_REAL_ID_FAQ,
+      VA_DOCUMENT_GUIDE,
+      VA_APPLY,
+      VA_ELIGIBILITY,
+      VA_RENEW,
+      VA_REPLACE,
+      VA_REPLACE_ONLINE,
+      VA_UPDATE,
+      VA_NEW_RESIDENT,
+      VA_KNOWLEDGE,
+      VA_ROAD_TEST,
+      VA_PERMIT,
+      VA_FOREIGN,
+      VA_PRIVILEGE,
+      VA_LEGAL_PRESENCE,
+      VA_FEES,
+      VA_APPOINTMENTS,
+      VA_TRACK,
+      VA_ONLINE,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Virginia DMV 的 REAL ID、材料表、驾照申请与资格、续期补证、姓名地址、新居民、knowledge 和 road tests、permit、外国驾照、Driver Privilege Card、legal presence、费用、预约与寄送正文。',
+    notes:
+      '重写 Virginia 总览与 REAL ID 页面，补齐 30/60 天、2027 年训练变化、中文考试、六国互惠与 Taiwan 特例、EAD I-766 限制和 2026 Driver Privilege Card 续期提示；所有声明已改为显式来源，仍待真实人工签字。',
+    claims: {
+      'Virginia REAL ID 是自愿升级，Standard license 仍可驾驶、投票和办理多数日常事务，但国内航班或特定联邦设施要改用 REAL ID 或 TSA 接受的其他身份证件': [
+        VA_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '首次申请 Virginia REAL ID 要到 DMV customer service center，带一份 identity、两份 Virginia residency、一份 legal presence、Social Security 信息和适用的姓名变更链，并支付一次性 $10 REAL ID fee 加当前驾照或 ID 交易费': [
+        VA_REAL_ID,
+        VA_REAL_ID_FAQ,
+      ],
+      '新居民要在搬入 Virginia 后 60 天内取得普通驾照，现有 CDL 要在 30 天内转入': [
+        VA_NEW_RESIDENT,
+        VA_ELIGIBILITY,
+      ],
+      '车辆 title 和 registration 采用另一条 30 天期限，不要和驾照期限混用': [
+        VA_NEW_RESIDENT,
+      ],
+      'DMV 提供 50 多项线上交易，必须到场时可选周一至周五 appointment、同日 e-ticket 或营业时间内 walk-in': [
+        VA_APPOINTMENTS,
+        VA_ONLINE,
+      ],
+      'Knowledge 和 road skills walk-in 申请人要在周一至周五 4:30 p.m. 前或周六 11:30 a.m. 前到场': [
+        VA_KNOWLEDGE,
+        VA_ROAD_TEST,
+      ],
+      'Virginia REAL ID 可以先在线开始申请，但 DMV 不提供在家预扫或上传文件的流程，声称能代传 REAL ID 文件的网站不属于 Virginia DMV': [
+        VA_REAL_ID,
+        VA_REAL_ID_FAQ,
+      ],
+      '从其他州搬入后，原州 REAL ID 不会自动转成 Virginia REAL ID，仍要按 Virginia 首次 REAL ID 路径提交材料': [
+        VA_REAL_ID,
+      ],
+      '首次 REAL ID 必须本人到场，取得首张 REAL ID 后才可能按普通续期周期在线续办': [
+        VA_REAL_ID_FAQ,
+      ],
+      '当前 REAL ID 一次性附加费是 $10，普通 8 年驾照为 $32，普通 replacement license 为 $20': [
+        VA_REAL_ID,
+        VA_APPLY,
+        VA_REPLACE,
+        VA_FEES,
+      ],
+      'REAL ID 身份材料必须是原件，允许清单内 online residency document 的打印件，但不接受 temporary documents 或普通 photocopies': [
+        VA_REAL_ID,
+        VA_DOCUMENT_GUIDE,
+      ],
+      '有效且姓名一致的美国 passport 或 passport card 可以同时覆盖 identity 和 legal presence，不一定必须使用出生证': [
+        VA_REAL_ID_FAQ,
+        VA_DOCUMENT_GUIDE,
+      ],
+      '有多次姓名变化时要为每一次变化提供 certified marriage certificate、divorce decree、court order 或 adoption record，形成完整姓名链': [
+        VA_REAL_ID,
+        VA_REAL_ID_FAQ,
+      ],
+      '知道自己的 SSN 且 DMV 能电子核验时可以不出示纸质 SSN proof，CDL 申请人仍要按专用要求准备 Social Security 文件': [
+        VA_REAL_ID,
+        VA_ELIGIBILITY,
+      ],
+      'Virginia legal presence 页面明确不把 Employment Authorization Document I-766 单独接受为 REAL ID legal-presence proof，持有人应按身份表寻找其他可接受文件': [
+        VA_LEGAL_PRESENCE,
+      ],
+      'temporary authorized applicant 的 REAL ID 有效期通常跟随 authorized stay，没有明确结束日时为一年，申请日剩余合法停留少于 30 天则不能取得 REAL ID permit': [
+        VA_APPLY,
+        VA_PERMIT,
+      ],
+      '普通驾照最多可提前一年续期，线上或邮寄通常只能隔一个 renewal cycle 使用一次，下一周期要本人到场更新照片和视力': [
+        VA_RENEW,
+      ],
+      '普通续期后的卡最多预留 15 天邮寄，75 岁及以上的 renewed license 通常有效 5 年而不是 8 年': [
+        VA_RENEW,
+      ],
+      'Virginia 驾照过期超过一年后不能走普通续期，要重考 vision、two-part knowledge 和 road skills': [
+        VA_RENEW,
+      ],
+      '普通 replacement license 为 $20、replacement permit 为 $2，线上补证会沿用现有照片且新卡通过邮件寄送': [
+        VA_REPLACE,
+        VA_FEES,
+      ],
+      'USPS 不会转寄 Virginia license 或 ID，线上补证和续期前都应先确认 DMV 记录地址，并至少预留 15 天收件': [
+        VA_REPLACE_ONLINE,
+        VA_RENEW,
+      ],
+      '搬到新的 Virginia residence 后 30 天内要更新 DMV 地址，residence address 不能只填 P.O. box 或 business address': [
+        VA_UPDATE,
+      ],
+      '姓名变更可先在线开始，但要带原始 marriage certificate、divorce decree 或 court order 到 customer service center 完成': [
+        VA_UPDATE,
+      ],
+      'Knowledge exam 第一部分 10 道 road sign 必须全对，第二部分 30 道 general knowledge 至少答对 24 道': [
+        VA_KNOWLEDGE,
+      ],
+      'Virginia knowledge exam 提供 Chinese/Mandarin 和 Chinese/Mandarin Traditional，CDL HAZMAT knowledge exam 例外为 English only': [
+        VA_KNOWLEDGE,
+      ],
+      '未满 18 岁 knowledge exam 失败后要完整等待 15 天，18 岁及以上同一天只能考一次，任何年龄三次失败都要先完成规定课程': [
+        VA_KNOWLEDGE,
+      ],
+      'Road skills test 在道路上以英语进行，需要语言协助时可自带至少 18 岁且持有效美国驾照的 translator 或 interpreter': [
+        VA_ROAD_TEST,
+      ],
+      'Road test 自备车辆要有有效 safety inspection sticker、plates、registration card 和可工作的制动、安全带、喇叭、灯、转向灯、后视镜与 speedometer': [
+        VA_ROAD_TEST,
+      ],
+      'Virginia learner permit 最低年龄是 15 岁 6 个月，普通驾照最低年龄是 16 岁 3 个月': [
+        VA_ELIGIBILITY,
+        VA_PERMIT,
+      ],
+      '在 2027 年 1 月 1 日之前，18 岁及以上从未持证者可选择持 permit 至少 60 天或在持 permit 时完成州批准驾驶教育': [
+        VA_APPLY,
+        VA_ELIGIBILITY,
+        VA_PERMIT,
+      ],
+      '从 2027 年 1 月 1 日起，18 至 20 岁从未持证者要持 permit 至少 90 天并完成州批准驾驶教育，21 岁及以上仍保留 60 天或驾驶教育二选一': [
+        VA_APPLY,
+        VA_ELIGIBILITY,
+        VA_PERMIT,
+      ],
+      'Virginia 的外国驾照互惠国家包括 Canada、France、Germany、Japan、South Korea 和 Taiwan，但 Taiwan 申请人仍要通过 vision 和 two-part knowledge exam': [
+        VA_FOREIGN,
+      ],
+      'France、Germany、Japan、South Korea 和 Taiwan 驾照要先提交 DL 7 和驾照副本供 DMV 核验，验证最长可能需要 15 天，Canada 不走这一步': [
+        VA_FOREIGN,
+      ],
+      '非互惠国家的有效外国驾照持有人通常要通过 two-part knowledge、road skills 和 vision，但可接受的外国驾照可能免 60 天 permit 和 driver education': [
+        VA_FOREIGN,
+      ],
+      '不能满足 standard license legal-presence 要求的非美国公民可能申请 Driver Privilege Card，但要有过去 12 个月 Virginia-source income 或作为 Virginia tax return dependent 的记录': [
+        VA_PRIVILEGE,
+        VA_LEGAL_PRESENCE,
+      ],
+      'Driver Privilege Card 不是 REAL ID、不能用于相应联邦身份用途或申请 CDL，当前新办和续期均为 $50': [
+        VA_PRIVILEGE,
+        VA_FEES,
+        TSA_IDENTIFICATION,
+      ],
+      '续办 2026 年 7 月 1 日前签发的 Driver Privilege Card 时要本人到场更新照片，并在适用时完成 vision screening': [
+        VA_PRIVILEGE,
+      ],
+      '先用 Virginia DMV Online Document Guide 按 REAL ID、Standard license 或 Driver Privilege Card 生成对应清单，不要混用三套要求': [
+        VA_REAL_ID,
+        VA_DOCUMENT_GUIDE,
+        VA_PRIVILEGE,
+      ],
+      'REAL ID 核心材料是 one identity、one legal presence、two Virginia residency、SSN 信息和适用的 certified name-change documents': [
+        VA_REAL_ID,
+        VA_REAL_ID_FAQ,
+        VA_DOCUMENT_GUIDE,
+      ],
+      '所有身份与 legal-presence 文件使用原件，普通 photocopy 和 temporary document 不被接受': [
+        VA_REAL_ID,
+        VA_DOCUMENT_GUIDE,
+        VA_ELIGIBILITY,
+      ],
+      '清单明确接受的在线账单或其他 online residency document 可以打印后作为住址证明，但仍要准备两份': [
+        VA_REAL_ID,
+        VA_DOCUMENT_GUIDE,
+      ],
+      '两份 Virginia residency 文件要显示当前 residential street address，P.O. box 只能作为额外 mailing address，不能取代 residence address': [
+        VA_APPLY,
+        VA_DOCUMENT_GUIDE,
+        VA_UPDATE,
+      ],
+      '文件上的姓名要使用 full legal name，不能用 nickname 或缩写，姓名不同就补齐每一段 certified change record': [
+        VA_REAL_ID,
+        VA_UPDATE,
+        VA_DOCUMENT_GUIDE,
+      ],
+      '已经签发 SSN 的申请人要提供号码，DMV 能电子核验时可能免纸质证明，没有 SSN 的情形按 Document Guide 分流': [
+        VA_REAL_ID,
+        VA_ELIGIBILITY,
+        VA_DOCUMENT_GUIDE,
+      ],
+      'temporary authorized applicant 要按当前身份准备 legal-presence 文件，EAD I-766 本身不能单独证明 REAL ID legal presence': [
+        VA_LEGAL_PRESENCE,
+      ],
+      '外州换证应带 current out-of-state license，新居民同时申请 REAL ID 时仍要补齐 Virginia REAL ID 全套文件': [
+        VA_ELIGIBILITY,
+        VA_REAL_ID,
+      ],
+      '互惠外国驾照申请人先提交 DL 7 与清晰驾照副本，收到 approval letter 后再带身份、legal presence、两份住址、SSN 和 current foreign license 到 DMV': [
+        VA_FOREIGN,
+      ],
+      'Driver Privilege Card 采用另一套材料，要有 two identity、two Virginia residency、SSN 或 ITIN、tax return documentation，并为外文文件附 professional translator 的 certified English translation': [
+        VA_PRIVILEGE,
+      ],
+      '把在线 start application 误解成上传材料，把 passport、出生证或 SSN 图片交给声称能代办 REAL ID 的第三方网站': [
+        VA_REAL_ID,
+        VA_REAL_ID_FAQ,
+      ],
+      '已有其他州 REAL ID 就以为换成 Virginia 驾照时可以跳过首次 REAL ID 材料核验': [
+        VA_REAL_ID,
+      ],
+      '只带一份 Virginia residency，或用 P.O. box 代替 residential street address': [
+        VA_REAL_ID,
+        VA_APPLY,
+        VA_UPDATE,
+      ],
+      '带 temporary document、普通 photocopy 或手机照片，忽略 DMV 要求原件和 certified name-change records': [
+        VA_REAL_ID,
+        VA_REAL_ID_FAQ,
+        VA_DOCUMENT_GUIDE,
+      ],
+      '文件使用 nickname、缩写或不一致姓名，却没有带完整姓名变更链': [
+        VA_REAL_ID,
+        VA_REAL_ID_FAQ,
+        VA_UPDATE,
+      ],
+      '只带 EAD I-766 就认定足够申请 REAL ID，没有核对 Virginia 的 Acceptable Documents by Status': [
+        VA_LEGAL_PRESENCE,
+      ],
+      '把驾照 60 天期限和车辆 30 天期限混为一谈，导致 vehicle title 或 registration 逾期': [
+        VA_NEW_RESIDENT,
+      ],
+      '搬家只向 USPS 更新地址，未在 30 天内改 DMV residence、mailing 和 vehicle registration records': [
+        VA_UPDATE,
+        VA_REPLACE_ONLINE,
+      ],
+      '临近到期或旅行才在线续期或补证，没有为不转寄的邮件至少预留 15 天': [
+        VA_RENEW,
+        VA_REPLACE_ONLINE,
+      ],
+      '拿 Federal Limits Apply 的 Standard license 去规划国内航班，没有准备 REAL ID、passport 或其他 TSA accepted ID': [
+        VA_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '把 Taiwan reciprocity 当成 knowledge test 也免除，或在未取得 DMV verification approval 前直接到场换证': [
+        VA_FOREIGN,
+      ],
+      '非互惠外国驾照持有人直接预约免试换证，没有准备 knowledge、road skills 和 vision tests': [
+        VA_FOREIGN,
+      ],
+      '只看当前 60 天成人 permit 规则，没有注意 2027 年 1 月 1 日起 18 至 20 岁首次申请人改为 90 天加驾驶教育': [
+        VA_APPLY,
+        VA_ELIGIBILITY,
+        VA_PERMIT,
+      ],
+      'Road skills test 自备车辆缺少 inspection sticker、registration、有效车牌或必要安全设备': [
+        VA_ROAD_TEST,
+      ],
+      '先判断自己是否需要用州证件登机或进入受限联邦设施，有有效 passport 等替代证件时可继续保留 Standard license': [
+        VA_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '需要 REAL ID 时只从 Virginia DMV 官方页启动申请，并用 Online Document Guide 生成个人清单，不上传任何证件图片': [
+        VA_REAL_ID,
+        VA_REAL_ID_FAQ,
+      ],
+      '按 identity、legal presence、two residency、SSN 和 full name-change chain 五栏整理原件，再预约或到 customer service center': [
+        VA_REAL_ID,
+        VA_REAL_ID_FAQ,
+        VA_DOCUMENT_GUIDE,
+      ],
+      '搬家或改名时先完成 30 天地址更新和必要的原始姓名文件核验，再续期、补证或申请 REAL ID': [
+        VA_UPDATE,
+        VA_RENEW,
+        VA_REPLACE,
+        VA_REAL_ID,
+      ],
+      '新居民把普通驾照 60 天、CDL 30 天和车辆 title/registration 30 天分别列入日历，并先处理保险、inspection 和车辆材料': [
+        VA_NEW_RESIDENT,
+      ],
+      '续期先确认是否轮到本人到场，补证先检查线上排除条件，交易后打印 receipt 并预留至少 15 天收件': [
+        VA_RENEW,
+        VA_REPLACE,
+        VA_REPLACE_ONLINE,
+      ],
+      '首次驾驶人按办理日期和年龄选择 permit 期限，尤其要区分 2027 年 1 月 1 日前后的 18 至 20 岁规则': [
+        VA_APPLY,
+        VA_ELIGIBILITY,
+        VA_PERMIT,
+      ],
+      'Knowledge test 前用中文或繁体中文资料练习 10 道 signs 全对与 24/30 general knowledge 的通过线': [
+        VA_KNOWLEDGE,
+      ],
+      'Road skills test 前核对 CSMA 140、permit、driver education 或 observation record，以及车辆 inspection、registration 和安全设备': [
+        VA_ROAD_TEST,
+      ],
+      '外国驾照先判断是否属于六个互惠国家，Taiwan 申请人单独准备 knowledge test，其他互惠国家先完成 DL 7 verification': [
+        VA_FOREIGN,
+      ],
+      '无法满足 legal-presence 要求的非美国公民先核对 Driver Privilege Card 的税务、身份和住址条件，不要把它当成 REAL ID': [
+        VA_PRIVILEGE,
+        VA_LEGAL_PRESENCE,
+      ],
+      '完成交易后使用 Track Your DMV Products 查看生产和寄送状态，地址错误或 USPS 退件时及时联系 DMV': [
+        VA_TRACK,
       ],
     },
   },
