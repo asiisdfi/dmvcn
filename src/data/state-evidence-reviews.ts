@@ -558,6 +558,37 @@ const AZ_LAW_TERM = 'https://www.azleg.gov/ars/28/03171.htm';
 const AZ_LAW_RECIPROCITY = 'https://www.azleg.gov/ars/28/00413.htm';
 const AZ_LAW_FEES = 'https://www.azleg.gov/ars/28/03002.htm';
 
+const CO_REAL_ID = 'https://dmv.colorado.gov/real-id-and-colorado';
+const CO_DOCUMENTS = 'https://dmv.colorado.gov/documents';
+const CO_DR2300A =
+  'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf';
+const CO_STANDARD =
+  'https://dmv.colorado.gov/drivers/standard-license-and-ID-cards';
+const CO_DR2300B =
+  'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf';
+const CO_DR2300C =
+  'https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf';
+const CO_AFFIDAVIT =
+  'https://dmv.colorado.gov/sites/dmv/files/251DR2212A.pdf';
+const CO_NEW = 'https://dmv.colorado.gov/new-to-colorado';
+const CO_FOREIGN =
+  'https://dmv.colorado.gov/new-colorado-another-country';
+const CO_ADULT_PERMIT = 'https://dmv.colorado.gov/adult-permit';
+const CO_ADULT_LICENSE = 'https://dmv.colorado.gov/adult-license';
+const CO_HOME_TEST =
+  'https://dmv.colorado.gov/home-driving-knowledge-tests';
+const CO_APPOINTMENT =
+  'https://dmv.colorado.gov/AppointmentScheduling';
+const CO_FEES = 'https://dmv.colorado.gov/state-dmv-fees';
+const CO_RENEW =
+  'https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card';
+const CO_ADDRESS = 'https://dmv.colorado.gov/change-your-address';
+const CO_FAQ = 'https://dmv.colorado.gov/faq-driver-license';
+const CO_STANDARD_FAQ = 'https://dmv.colorado.gov/sb251-co-rcsa-faqs';
+const CO_REPLACE =
+  'https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id';
+const CO_ID = 'https://dmv.colorado.gov/identification-cards';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -5154,6 +5185,549 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         AZ_FOREIGN,
         AZ_TRAVEL_ID,
         AZ_LAW_TERM,
+      ],
+    },
+  },
+  colorado: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      CO_REAL_ID,
+      CO_DOCUMENTS,
+      CO_DR2300A,
+      CO_STANDARD,
+      CO_DR2300B,
+      CO_DR2300C,
+      CO_AFFIDAVIT,
+      CO_NEW,
+      CO_FOREIGN,
+      CO_ADULT_PERMIT,
+      CO_ADULT_LICENSE,
+      CO_HOME_TEST,
+      CO_APPOINTMENT,
+      CO_FEES,
+      CO_RENEW,
+      CO_ADDRESS,
+      CO_FAQ,
+      CO_STANDARD_FAQ,
+      CO_REPLACE,
+      CO_ID,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开并比对 Colorado DMV 的 REAL ID、DR 2300A/B/C、CO-RCSA、材料、预约、费用、新居民、外州与外国驾照、permit、考试语言、第三方路考、续期、改址改名、补证、ID 和邮寄正文。',
+    notes:
+      '重写身份分流与办事路径，纳入 2025-03-31 后 Standard 新规则，区分中国大陆与 Taiwan reciprocity，并把费用、期限、材料、考试和法律后果改为显式来源；仍待真实人工签字。',
+    claims: {
+      '科罗拉多先按身份与用途分流：符合联邦条件的申请人办理带星 REAL ID，undocumented 或多数 temporarily lawfully present 居民办理带黑色限制栏的 Standard credential': [
+        CO_REAL_ID,
+        CO_STANDARD,
+      ],
+      '成为 Colorado resident 后，驾照通常要在 30 天内转入，车辆由 county office 在 90 天内注册': [
+        CO_NEW,
+      ],
+      'Colorado Standard driver license、permit 或 ID 是有效州身份证件，但不是 REAL ID，不能用于要求 REAL ID 的联邦用途': [
+        CO_STANDARD,
+        CO_REAL_ID,
+      ],
+      '现行 CO-RCSA 路径面向 undocumented 与 temporarily lawfully present 居民，通常有效 3 年，并按身份类别使用 DR 2300B 或 DR 2300C': [
+        CO_STANDARD,
+        CO_DR2300B,
+        CO_DR2300C,
+      ],
+      '首次 Colorado REAL ID 或外州转入通常要按 DR 2300A 准备 identity 与 lawful-presence 文件、Social Security number、两份不同的 Colorado physical-address 证明和完整姓名变化链': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      '外州卡即使已经有 REAL ID 星标，也不会免除 Colorado 的文件核验': [
+        CO_DOCUMENTS,
+        CO_REAL_ID,
+      ],
+      'State driver license office 主要实行预约制，首次申请和外州转入应先 pre-register 再预约': [
+        CO_APPOINTMENT,
+        CO_DOCUMENTS,
+      ],
+      '14 个 county office 的驾照服务、walk-in 和费用各自确认，车辆 title/registration 由 county 办理，普通 drive skills test 则直接向州批准的 third-party school 预约': [
+        CO_APPOINTMENT,
+      ],
+      'Colorado 给符合 REAL ID 条件的居民签发带黑色或旧版金色星标的 credential': [
+        CO_REAL_ID,
+      ],
+      '带黑色横幅并写有 NOT VALID FOR FEDERAL IDENTIFICATION, VOTING OR PUBLIC BENEFIT PURPOSES 的 Standard credential 不属于 REAL ID': [
+        CO_REAL_ID,
+        CO_STANDARD,
+      ],
+      'REAL ID 不是合法驾驶的额外许可': [CO_REAL_ID, CO_STANDARD],
+      '18 岁以上旅客自 2025 年 5 月 7 日起进入 TSA checkpoint 时，可使用 REAL ID 或有效护照等 TSA 接受的替代证件': [
+        CO_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      'Colorado temporary paper credential 可以立即作为临时驾驶凭证，但 DMV 与 TSA 都提醒它本身不是可接受的 REAL ID 航空身份证件': [
+        CO_DOCUMENTS,
+        CO_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '美国公民、永久居民、Freely Associated States 公民和适用 CDL 申请人的首次 Colorado credential，应按 Required Documents 或 DR 2300A 路径证明 identity、lawful presence、SSN 和 Colorado address': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      '身份与 lawful-presence 文件通常必须是未更改的原件或签发机关认证副本': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      '普通复印件、手机照片、层压版本和仅经公证人认证的副本不能替代': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      'Required Documents 页面要求准备 SSN card、W-2、显示全名和完整 SSN 的 pay stub、SSA-1099 或其他 1099 之一': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      'Driver License FAQ 也说明可口头提供号码，但材料条件复杂时携带文件更稳妥': [
+        CO_FAQ,
+        CO_DOCUMENTS,
+      ],
+      'REAL ID 路径要带两份不同的 Colorado address 文件，两份都显示全名和当前 physical address、不得只有 P.O. Box，并在过去一年内出具': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      '电子版地址证明可以在手机上出示': [CO_DOCUMENTS],
+      'junk mail、手写收据、仅有 P.O. Box 或贴标签/手写改址的信封不接受': [
+        CO_DOCUMENTS,
+      ],
+      '姓名与 identity、SSN 或旧 credential 不一致时，按身份类别准备能连接每次变化的认证文件': [
+        CO_DOCUMENTS,
+        CO_STANDARD,
+      ],
+      '普通 REAL ID 姓名变更还要先让 SSA 更新记录': [CO_FAQ],
+      '自 2025 年 3 月 31 日起，undocumented 首次 Standard 申请人不再需要 SSN/ITIN、上一年度 Colorado income-tax filing 或过去两年居住打印证明': [
+        CO_STANDARD,
+      ],
+      'Undocumented Standard 首次申请通常需要一份 home-country passport、consular card 或 military ID、一份过去一年内的当前 Colorado physical-address 证明，以及 CO-RCSA affidavit': [
+        CO_STANDARD,
+        CO_DR2300C,
+        CO_AFFIDAVIT,
+      ],
+      '身份文件可未过期或过期不足 10 年': [
+        CO_STANDARD,
+        CO_DR2300C,
+      ],
+      'Temporarily lawfully present 申请人按 DR 2300B 提交 identity、当前 lawful-presence 文件和一份过去一年内的 Colorado physical-address 证明，并通过 SAVE 等适用核验': [
+        CO_STANDARD,
+        CO_DR2300B,
+      ],
+      'Standard credential 是有效 Colorado 身份证件但不是 REAL ID，通常自签发日起有效 3 年': [
+        CO_STANDARD,
+      ],
+      '未成年人驾照为 3 年或 21 岁生日后 20 天，以较早者为准': [
+        CO_STANDARD,
+      ],
+      '多数 temporarily lawfully present 居民即使原外州卡有 REAL ID 星标，转入 Colorado 后仍取得 Standard credential': [
+        CO_STANDARD,
+        CO_DR2300B,
+        CO_REAL_ID,
+      ],
+      '不要把外州星标当作 Colorado REAL ID 资格证明': [
+        CO_DOCUMENTS,
+        CO_STANDARD,
+      ],
+      '当前费用表列 REAL ID driver license/renewal $32、instruction permit $19、未满 60 岁 ID $13': [
+        CO_FEES,
+      ],
+      '超过 60 岁的普通 ID 免费': [CO_FEES, CO_ID],
+      '当前 Standard 费用表列 driver license $34、instruction permit $21.50、ID $13.30': [
+        CO_FEES,
+      ],
+      '首次 duplicate permit/license $12.30，后续 duplicate $16.40': [
+        CO_FEES,
+        CO_REPLACE,
+      ],
+      'Colorado resident 的触发条件包括在州内经营业务、在州内受雇，或连续居住 90 天': [
+        CO_NEW,
+      ],
+      '建立 residency 后驾照转入期限为 30 天，车辆注册期限为 90 天': [
+        CO_NEW,
+      ],
+      '持有效或过期不足 1 年的美国外州驾照转入时，应带原卡': [
+        CO_NEW,
+        CO_DOCUMENTS,
+      ],
+      '也可用 30 天内出具、显示该驾照仍有效或过期不足 1 年的 MVR，原外州卡会被打孔作废': [
+        CO_NEW,
+      ],
+      '持有效美国外州驾照通常无需重新考试': [CO_FAQ, CO_NEW],
+      '证件过期超过 1 年，或从未持证、驾照取消超过 12 个月，则应准备 written test、permit 和 drive test 路径': [
+        CO_NEW,
+        CO_ADULT_PERMIT,
+        CO_RENEW,
+      ],
+      'Colorado 当前外国驾照 reciprocity 名单是 Canada、France、Germany、Republic of South Korea、Taiwan 和 Japan': [
+        CO_FOREIGN,
+      ],
+      '符合国籍、永久居民和文件条件者可免 permit、written 与 drive tests': [
+        CO_FOREIGN,
+      ],
+      'Taiwan 驾照还要 Denver Taipei Economic and Cultural Office 出具确认有效并含翻译的 official statement': [
+        CO_FOREIGN,
+      ],
+      'Japan 路径限日本国民，并要带预约前 3 个月内由 Denver 日本总领馆签发的 VCDL': [
+        CO_FOREIGN,
+      ],
+      '中国大陆驾照不在当前 reciprocity 名单中': [CO_FOREIGN],
+      '持证人应按年龄和身份完成 Colorado permit、written test、vision 与 third-party drive test，不要套用 Taiwan 路径': [
+        CO_FOREIGN,
+        CO_ADULT_PERMIT,
+        CO_ADULT_LICENSE,
+      ],
+      'Adult applicant 从未有驾照，或驾照 expired/canceled 超过 12 个月时必须先取得 permit': [
+        CO_ADULT_PERMIT,
+      ],
+      '可在办公室或 @Home 完成 knowledge test': [
+        CO_ADULT_PERMIT,
+        CO_HOME_TEST,
+      ],
+      '@Home 与州办公室 knowledge test 目前只直接提供 English 和 Spanish': [
+        CO_HOME_TEST,
+        CO_ADULT_PERMIT,
+      ],
+      '需要其他口语翻译可按 office accommodation 路径自带 interpreter，interpreter 要出示未过期 driver license 或 ID，姓名和证件号会记入档案': [
+        CO_ADULT_PERMIT,
+        CO_STANDARD_FAQ,
+        CO_DOCUMENTS,
+      ],
+      '@Home knowledge test 第一次总费用当前为 $6.50，之后每次 $17.65，每天最多两次': [
+        CO_HOME_TEST,
+      ],
+      '通过后仍要预约 state office 完成 permit 签发': [
+        CO_HOME_TEST,
+        CO_ADULT_PERMIT,
+      ],
+      'State driver license offices 当前不做普通 drive skills test': [
+        CO_ADULT_LICENSE,
+        CO_APPOINTMENT,
+      ],
+      '申请人直接向 approved third-party testing school 预约，学校可另收自己的测试费': [
+        CO_APPOINTMENT,
+        CO_STANDARD_FAQ,
+      ],
+      'Drive test 车辆要有有效 registration、有效 insurance 并通过灯光等安全检查': [
+        CO_STANDARD_FAQ,
+      ],
+      '州费表另列每次 written retest $11.50 和 drive-test retest $15.40': [
+        CO_FEES,
+      ],
+      '办公室交易先发立即有效的 paper temporary credential，实体卡通常约 10 至 14 个工作日寄到，官方统一要求最多预留 30 天': [
+        CO_DOCUMENTS,
+        CO_ID,
+      ],
+      '成人 regular credential 符合条件时可线上续期': [CO_RENEW],
+      '常见条件包括 21 岁以上、照片不足 10 年、过期不超过 1 年、无姓名或视力变化、无 active restriction，且过去 5 年没有 DUI': [
+        CO_RENEW,
+      ],
+      '21 至 79 岁线上续期要确认过去一年做过 eye exam': [
+        CO_RENEW,
+      ],
+      '80 岁及以上要上传过去 6 个月内由 optometrist/ophthalmologist 签署的 DR 2498': [
+        CO_RENEW,
+      ],
+      'Undocumented 居民可按资格 online renewal，并重新提交 CO-RCSA affidavit': [
+        CO_STANDARD,
+        CO_RENEW,
+      ],
+      'temporarily lawfully present 居民只能到 office 续期，并带当前 lawful-presence 文件或 extension letter': [
+        CO_STANDARD,
+        CO_RENEW,
+      ],
+      '只更新地址可在线、邮寄或到 office 修改记录，再自行把新地址标签贴到卡背，DMV 不会因此自动寄新卡': [
+        CO_ADDRESS,
+        CO_FAQ,
+      ],
+      '要让新地址印在卡上需购买新 credential 或在续期中更新': [
+        CO_ADDRESS,
+      ],
+      '普通姓名变更要先在 SSA 留档并至少等待 24 至 48 个工作小时，再预约 state office 带认证姓名文件': [
+        CO_FAQ,
+      ],
+      'TLP 或 undocumented 的姓名证据必须按其 USCIS 或 home-country 文件规则处理，不能直接套用普通 marriage-certificate 路径': [
+        CO_STANDARD,
+        CO_DR2300B,
+        CO_DR2300C,
+      ],
+      '遗失、被盗或严重损坏的 driver license/permit duplicate 不能在线办理，通常要预约并保留原到期日': [
+        CO_REPLACE,
+      ],
+      '遗失 ID 则按 renewal 处理，是否可线上取决于照片和其他资格': [
+        CO_REPLACE,
+      ],
+      '实体卡签发 30 天仍未收到时先查 Where is my Driver License/ID': [
+        CO_REPLACE,
+        CO_ID,
+      ],
+      '在签发后第 30 至 90 天到 state office 申请可能免费，超过 90 天通常要重新付 duplicate 费用': [
+        CO_REPLACE,
+      ],
+      'Colorado 居民不能同时持有 Colorado driver license/permit 和 ID card': [
+        CO_ID,
+      ],
+      '首次 ID 要预约并交相应身份文件，未满 21 岁通常由 legal guardian 陪同并证明 guardianship': [
+        CO_ID,
+        CO_DOCUMENTS,
+      ],
+      '先按身份选择正确清单：U.S. citizen/permanent resident/FAS/适用 CDL 用 Required Documents 或 DR 2300A': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      'temporarily lawfully present 用 DR 2300B': [
+        CO_STANDARD,
+        CO_DR2300B,
+      ],
+      'undocumented 用 DR 2300C': [CO_STANDARD, CO_DR2300C],
+      'REAL ID 身份与 lawful-presence 材料带原件或签发机关认证副本': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      '不要带手机照片、普通 photocopy、层压件或仅由 notary 认证的副本': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      'SSN 最稳妥的准备方式是带 signed Social Security card、W-2、显示全名和完整号码的 pay stub、SSA-1099 或其他 1099 之一': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      '准备两份不同来源的 Colorado residency：两份都显示全名、当前 physical address、完整日期且不超过一年': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      '电子版可在手机上展示，但不能只有 P.O. Box': [CO_DOCUMENTS],
+      '身份文件与当前姓名不同，按每次变更准备 certified marriage/civil-union certificate、divorce decree 或 court order，并先完成适用的 SSA 或 USCIS/home-country 记录更新': [
+        CO_DOCUMENTS,
+        CO_FAQ,
+        CO_STANDARD,
+      ],
+      'Undocumented Standard 首次申请带一份合格 home-country passport、consular card 或 military ID、一份当前 Colorado address 和 CO-RCSA affidavit': [
+        CO_STANDARD,
+        CO_DR2300C,
+        CO_AFFIDAVIT,
+      ],
+      '不要再按 2025 年 3 月 31 日前的 SSN/ITIN、报税或两年居住旧清单准备': [
+        CO_STANDARD,
+      ],
+      'Temporarily lawfully present 申请人带 DR 2300B 所列 current passport、I-94、I-766、I-797 或其他适用 USCIS 文件及一份当前地址证明': [
+        CO_STANDARD,
+        CO_DR2300B,
+      ],
+      '具体组合必须能通过 SAVE': [CO_DR2300B, CO_STANDARD],
+      '外州转入带有效或过期不足 1 年的原驾照': [
+        CO_NEW,
+        CO_DOCUMENTS,
+      ],
+      '没有原卡时准备 30 天内出具并显示相同有效状态的 MVR，仍要另带 Colorado 身份、SSN 和地址材料': [
+        CO_NEW,
+        CO_DOCUMENTS,
+      ],
+      '外国驾照不要单独当 identity document': [
+        CO_ADULT_PERMIT,
+        CO_STANDARD,
+      ],
+      'reciprocity 申请人同时准备有效原驾照和该国家的附加证明，中国大陆申请人另备 knowledge、vision、permit 与 drive-test 文件': [
+        CO_FOREIGN,
+        CO_ADULT_PERMIT,
+        CO_ADULT_LICENSE,
+      ],
+      '需要中文口头协助时提前确认 office interpreter 路径': [
+        CO_ADULT_PERMIT,
+        CO_STANDARD_FAQ,
+      ],
+      '自带 interpreter 要有未过期 driver license/ID，外文身份文件还要与满足 Colorado 固定声明格式的完整英文翻译一起提交': [
+        CO_DOCUMENTS,
+        CO_STANDARD,
+        CO_STANDARD_FAQ,
+      ],
+      'Permit 签发带通过证明和身份材料': [
+        CO_ADULT_PERMIT,
+        CO_DOCUMENTS,
+      ],
+      'drive test 当天带 permit、有效 vehicle registration、insurance，并先确认第三方学校的车辆、安全检查和额外费用要求': [
+        CO_ADULT_LICENSE,
+        CO_STANDARD_FAQ,
+        CO_APPOINTMENT,
+      ],
+      '先判断用途：只需驾驶或州内身份，还是需要 TSA/联邦用途': [
+        CO_REAL_ID,
+        CO_STANDARD,
+      ],
+      '有有效 passport 等 TSA accepted ID 时，不必把临行前办理 REAL ID 当作唯一方案': [
+        CO_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '再判断身份清单：DR 2300A、DR 2300B 或 DR 2300C，只使用与自己当前身份相符的一套，不混用 REAL ID 与 Standard 要求': [
+        CO_DOCUMENTS,
+        CO_STANDARD,
+      ],
+      '确认交易类型：首次驾照、外州转入、外国驾照、permit、续期、duplicate、地址变更、姓名变更或 ID card': [
+        CO_APPOINTMENT,
+        CO_RENEW,
+        CO_REPLACE,
+      ],
+      '首次和转入先完成 online pre-registration，再用 Appointment Scheduling 选择 First Time CO DL/Permit/ID': [
+        CO_DOCUMENTS,
+        CO_APPOINTMENT,
+      ],
+      '保存 confirmation email 和 appointment ID': [CO_APPOINTMENT],
+      'REAL ID 按 identity/lawful presence、SSN、两份 current Colorado address、name-change chain 五组整理原件或认证副本': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      'Standard 申请人按 DR 2300B/2300C 准备 identity、适用 lawful presence、一份 current address 和 CO-RCSA affidavit，不提交已经取消的旧税表或两年居住要求': [
+        CO_STANDARD,
+        CO_DR2300B,
+        CO_DR2300C,
+        CO_AFFIDAVIT,
+      ],
+      '姓名不一致时先完成 SSA、USCIS 或 home-country document 更新，再准备对应认证文件': [
+        CO_FAQ,
+        CO_STANDARD,
+      ],
+      '普通姓名变更至少给 SSA 24 至 48 个工作小时同步': [CO_FAQ],
+      '美国外州转入核对旧证是否有效或过期不足 1 年': [CO_NEW],
+      '没有原卡时在到访前 30 天内取得合格 MVR': [CO_NEW],
+      '外国驾照先检查六地 reciprocity 及附加条件': [CO_FOREIGN],
+      '中国大陆驾照按无 reciprocity 路径准备 permit、English/Spanish knowledge test、vision 和 third-party drive test': [
+        CO_FOREIGN,
+        CO_ADULT_PERMIT,
+        CO_ADULT_LICENSE,
+      ],
+      '需要 knowledge test 时选择 @Home、state office 或 driving school': [
+        CO_HOME_TEST,
+        CO_ADULT_PERMIT,
+      ],
+      '要中文口头翻译则提前确认 office interpreter 要求，不把 @Home 当作中文考试': [
+        CO_HOME_TEST,
+        CO_ADULT_PERMIT,
+        CO_STANDARD_FAQ,
+      ],
+      '通过 permit test 后预约 state office 完成签发': [
+        CO_HOME_TEST,
+        CO_ADULT_PERMIT,
+      ],
+      '再直接联系 approved third-party school 做 drive test，核对 permit、registration、insurance、安全检查和学校收费': [
+        CO_APPOINTMENT,
+        CO_ADULT_LICENSE,
+        CO_STANDARD_FAQ,
+      ],
+      'office 交易后核对 paper temporary credential 上的姓名和地址，并为实体卡预留 10 至 14 个工作日、最多 30 天': [
+        CO_DOCUMENTS,
+        CO_ID,
+      ],
+      '飞行时另带正式 TSA accepted ID': [
+        CO_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '续期先让 myDMV 判断线上资格': [CO_RENEW],
+      '照片满 10 年、姓名/视力/身份变化、TLP、过期超过 1 年等情形改走 office': [
+        CO_RENEW,
+      ],
+      '只改地址时更新记录并贴自制地址标签': [CO_ADDRESS],
+      '要新地址印在卡上、要改名或要 duplicate 时，按相应 office/renewal 路径付费办理': [
+        CO_ADDRESS,
+        CO_FAQ,
+        CO_REPLACE,
+      ],
+      '签发 30 天仍未收到就立即查 delivery status': [
+        CO_REPLACE,
+        CO_ID,
+      ],
+      '在第 30 至 90 天窗口向 state office 处理可能的免费 replacement': [
+        CO_REPLACE,
+      ],
+      '成为 resident 后同时安排 driver credential 与 county vehicle registration：驾照 30 天、车辆 90 天，不把 county title/registration 约到 state driver-license office': [
+        CO_NEW,
+        CO_APPOINTMENT,
+      ],
+      '外州驾照已有 REAL ID 星标，就以为 Colorado 不会重新核验 identity、lawful presence、SSN 和两份地址': [
+        CO_DOCUMENTS,
+        CO_REAL_ID,
+      ],
+      '用带黑色限制栏的 Standard credential 单独过 TSA，忽略它不是 REAL ID': [
+        CO_STANDARD,
+        CO_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '把 paper temporary credential 当作 TSA 接受的正式带星证件': [
+        CO_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      'REAL ID 只带一份地址证明，或文件超过一年、只有 P.O. Box、没有申请人全名': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      '用普通复印件、手机照片、层压文件或 notary copy 代替签发机关认证副本': [
+        CO_DOCUMENTS,
+        CO_DR2300A,
+      ],
+      '看到 FAQ 可口头报 SSN，就完全不准备 Required Documents 页面列出的 SSN 文件': [
+        CO_FAQ,
+        CO_DOCUMENTS,
+      ],
+      '仍按旧 CO-RCSA 清单准备 SSN/ITIN、上一年度报税和过去两年 residency，反而漏掉当前 affidavit 与一份地址': [
+        CO_STANDARD,
+        CO_AFFIDAVIT,
+      ],
+      'Temporarily lawfully present 申请人拿外州 REAL ID 来期待 Colorado 继续签发 REAL ID，而没有按 DR 2300B 准备 Standard credential': [
+        CO_STANDARD,
+        CO_DR2300B,
+        CO_REAL_ID,
+      ],
+      'Undocumented 或 TLP 直接用普通 marriage certificate 改名，没有先按 home-country 或 USCIS 记录规则更新': [
+        CO_STANDARD,
+        CO_DR2300B,
+        CO_DR2300C,
+      ],
+      '把中国大陆驾照误当 Taiwan 驾照，缺少 written、permit 或 drive test': [
+        CO_FOREIGN,
+        CO_ADULT_PERMIT,
+        CO_ADULT_LICENSE,
+      ],
+      '用外国驾照代替 Standard 申请所需的 passport、consular card 或 home-country military ID': [
+        CO_STANDARD,
+        CO_DR2300C,
+      ],
+      '在 Colorado state driver license office 预约普通 road test，而没有联系 approved third-party school': [
+        CO_ADULT_LICENSE,
+        CO_APPOINTMENT,
+      ],
+      '以为 @Home test 有中文界面，未提前安排 English/Spanish 或 office interpreter 路径': [
+        CO_HOME_TEST,
+        CO_ADULT_PERMIT,
+      ],
+      '驾照过期超过 1 年仍按普通 transfer/renewal 预约，没准备重新考 written 和 drive test': [
+        CO_NEW,
+        CO_RENEW,
+        CO_ADULT_PERMIT,
+      ],
+      '首次申请或外州转入没有 pre-register，也没有 state-office appointment confirmation': [
+        CO_DOCUMENTS,
+        CO_APPOINTMENT,
+      ],
+      '把 driver license、vehicle registration 和 road test 都预约到同一个地点，忽略 state、county 与 third party 的分工': [
+        CO_APPOINTMENT,
+        CO_NEW,
+      ],
+      '只更新 DMV address record 后等待新卡寄来，未自行贴标签或另购印有新地址的 credential': [
+        CO_ADDRESS,
+      ],
+      '先到 DMV 改名，没有先完成 SSA 更新和至少 24 至 48 个工作小时同步': [
+        CO_FAQ,
+      ],
+      '尝试在线办理 duplicate driver license，忽略该业务通常需要 office appointment': [
+        CO_REPLACE,
+      ],
+      '实体卡 30 天未到仍不查状态，错过签发后 30 至 90 天的可能免费 replacement 窗口': [
+        CO_REPLACE,
+      ],
+      '同时保留 Colorado driver license/permit 和 Colorado ID card，忽略州规则只允许二者之一': [
+        CO_ID,
       ],
     },
   },

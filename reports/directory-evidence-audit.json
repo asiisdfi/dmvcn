@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T01:24:14.987Z",
+    "generatedAt": "2026-07-17T01:49:44.128Z",
     "pages": 5,
-    "claims": 484,
+    "claims": 502,
     "statesCovered": 49,
-    "aiAssisted": 251,
+    "aiAssisted": 269,
     "automated": 233,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 66,
+        "claims": 69,
         "states": 22
       },
       "deadlines": {
-        "claims": 55,
-        "states": 21
+        "claims": 58,
+        "states": 22
       },
       "document-rules": {
-        "claims": 167,
-        "states": 47
+        "claims": 171,
+        "states": 48
       },
       "foreign-license": {
-        "claims": 70,
-        "states": 27
+        "claims": 74,
+        "states": 28
       },
       "identity-ssn": {
-        "claims": 126,
-        "states": 39
+        "claims": 130,
+        "states": 40
       }
     }
   },
@@ -933,17 +933,63 @@
     {
       "page": "costs-timing",
       "stateId": "colorado",
-      "category": "付款",
-      "claim": "地址已经变化且需要新卡时，官方 FAQ 指向办公室路径，并要求携带当前证件、两份 Colorado 地址证明和付款方式",
-      "sourceUrl": "https://dmv.colorado.gov/faq-driver-license",
-      "sourceLabel": "对应官方来源：Colorado DMV FAQ Driver License",
+      "category": "费用",
+      "claim": "当前费用表列 REAL ID driver license/renewal $32、instruction permit $19、未满 60 岁 ID $13",
+      "sourceUrl": "https://dmv.colorado.gov/state-dmv-fees",
+      "sourceLabel": "对应官方来源：Colorado State DMV Fees",
       "themes": [
         "fee",
-        "residency-documents"
+        "renewal"
+      ],
+      "failedThemes": [
+        "renewal"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "colorado",
+      "category": "费用",
+      "claim": "当前 Standard 费用表列 driver license $34、instruction permit $21.50、ID $13.30",
+      "sourceUrl": "https://dmv.colorado.gov/state-dmv-fees",
+      "sourceLabel": "对应官方来源：Colorado State DMV Fees",
+      "themes": [
+        "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "colorado",
+      "category": "费用",
+      "claim": "首次 duplicate permit/license $12.30，后续 duplicate $16.40",
+      "sourceUrl": "https://dmv.colorado.gov/state-dmv-fees",
+      "sourceLabel": "对应官方来源：Colorado State DMV Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "colorado",
+      "category": "费用",
+      "claim": "@Home knowledge test 第一次总费用当前为 $6.50，之后每次 $17.65，每天最多两次",
+      "sourceUrl": "https://dmv.colorado.gov/home-driving-knowledge-tests",
+      "sourceLabel": "对应官方来源：Colorado DMV @Home Knowledge Tests",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -1664,6 +1710,52 @@
       ],
       "failedThemes": [
         "immigration-verification"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "colorado",
+      "category": "材料时效",
+      "claim": "不要再按 2025 年 3 月 31 日前的 SSN/ITIN、报税或两年居住旧清单准备",
+      "sourceUrl": "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+      "sourceLabel": "对应官方来源：Colorado DMV Standard Licenses and IDs",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "colorado",
+      "category": "期限提醒",
+      "claim": "外州转入带有效或过期不足 1 年的原驾照",
+      "sourceUrl": "https://dmv.colorado.gov/new-to-colorado",
+      "sourceLabel": "对应官方来源：Colorado DMV New to Colorado",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [
+        "out-of-state"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "colorado",
+      "category": "搬家 / 地址",
+      "claim": "没有原卡时准备 30 天内出具并显示相同有效状态的 MVR，仍要另带 Colorado 身份、SSN 和地址材料",
+      "sourceUrl": "https://dmv.colorado.gov/new-to-colorado",
+      "sourceLabel": "对应官方来源：Colorado DMV New to Colorado",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [
+        "ssn"
       ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
@@ -2719,6 +2811,63 @@
       "sourceLabel": "对应官方来源：Arizona DL/ID Requirements 40-5144 R03/26",
       "themes": [
         "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "colorado",
+      "category": "地址证明",
+      "claim": "准备两份不同来源的 Colorado residency：两份都显示全名、当前 physical address、完整日期且不超过一年",
+      "sourceUrl": "https://dmv.colorado.gov/documents",
+      "sourceLabel": "对应官方来源：Colorado DMV Required Identification Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "colorado",
+      "category": "地址证明",
+      "claim": "电子版可在手机上展示，但不能只有 P.O. Box",
+      "sourceUrl": "https://dmv.colorado.gov/documents",
+      "sourceLabel": "对应官方来源：Colorado DMV Required Identification Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "colorado",
+      "category": "地址证明",
+      "claim": "不要再按 2025 年 3 月 31 日前的 SSN/ITIN、报税或两年居住旧清单准备",
+      "sourceUrl": "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+      "sourceLabel": "对应官方来源：Colorado DMV Standard Licenses and IDs",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "colorado",
+      "category": "地址证明",
+      "claim": "Temporarily lawfully present 申请人带 DR 2300B 所列 current passport、I-94、I-766、I-797 或其他适用 USCIS 文件及一份当前地址证明",
+      "sourceUrl": "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+      "sourceLabel": "对应官方来源：Colorado DMV Standard Licenses and IDs",
+      "themes": [
+        "residency-documents",
+        "immigration-verification"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
@@ -4982,6 +5131,67 @@
     },
     {
       "page": "foreign-license",
+      "stateId": "colorado",
+      "category": "外国 / 境外驾照",
+      "claim": "Colorado 当前外国驾照 reciprocity 名单是 Canada、France、Germany、Republic of South Korea、Taiwan 和 Japan",
+      "sourceUrl": "https://dmv.colorado.gov/new-colorado-another-country",
+      "sourceLabel": "对应官方来源：Colorado DMV Out-of-Country License",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "colorado",
+      "category": "外国 / 境外驾照",
+      "claim": "Out-of-Country License：六地 reciprocity、Taiwan/Japan 附加文件和其他国家考试路径",
+      "sourceUrl": "https://dmv.colorado.gov/new-colorado-another-country",
+      "sourceLabel": "对应官方来源：Colorado DMV Out-of-Country License",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "colorado",
+      "category": "外国 / 境外驾照",
+      "claim": "外国驾照先检查六地 reciprocity 及附加条件",
+      "sourceUrl": "https://dmv.colorado.gov/new-colorado-another-country",
+      "sourceLabel": "对应官方来源：Colorado DMV Out-of-Country License",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "colorado",
+      "category": "外州 / 加拿大转入",
+      "claim": "持有效美国外州驾照通常无需重新考试",
+      "sourceUrl": "https://dmv.colorado.gov/faq-driver-license",
+      "sourceLabel": "对应官方来源：Colorado DMV FAQ Driver License",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [
+        "out-of-state"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
       "stateId": "nevada",
       "category": "外州 / 加拿大转入",
       "claim": "新搬到 Nevada 的用户按 New Resident Guide 准备外州证件和两份 Nevada 地址证明",
@@ -6115,6 +6325,68 @@
         "ssn"
       ],
       "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "colorado",
+      "category": "无 SSN / SSA",
+      "claim": "SSN 最稳妥的准备方式是带 signed Social Security card、W-2、显示全名和完整号码的 pay stub、SSA-1099 或其他 1099 之一",
+      "sourceUrl": "https://dmv.colorado.gov/documents",
+      "sourceLabel": "对应官方来源：Colorado DMV Required Identification Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "colorado",
+      "category": "无 SSN / SSA",
+      "claim": "身份文件与当前姓名不同，按每次变更准备 certified marriage/civil-union certificate、divorce decree 或 court order，并先完成适用的 SSA 或 USCIS/home-country 记录更新",
+      "sourceUrl": "https://dmv.colorado.gov/documents",
+      "sourceLabel": "对应官方来源：Colorado DMV Required Identification Documents",
+      "themes": [
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "colorado",
+      "category": "无 SSN / SSA",
+      "claim": "姓名不一致时先完成 SSA、USCIS 或 home-country document 更新，再准备对应认证文件",
+      "sourceUrl": "https://dmv.colorado.gov/faq-driver-license",
+      "sourceLabel": "对应官方来源：Colorado DMV FAQ Driver License",
+      "themes": [
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "immigration-verification"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "colorado",
+      "category": "ITIN / affidavit",
+      "claim": "Standard 申请人按 DR 2300B/2300C 准备 identity、适用 lawful presence、一份 current address 和 CO-RCSA affidavit，不提交已经取消的旧税表或两年居住要求",
+      "sourceUrl": "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+      "sourceLabel": "对应官方来源：Colorado DMV Standard Licenses and IDs",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [
+        "lawful-presence"
+      ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },

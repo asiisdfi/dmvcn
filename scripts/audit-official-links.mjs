@@ -5,6 +5,7 @@ import { federalSources, states, topics } from '../src/data/content.ts';
 const execFileAsync = promisify(execFile);
 const timeoutSeconds = Number.parseInt(process.env.LINK_AUDIT_TIMEOUT ?? '12', 10);
 const concurrency = Number.parseInt(process.env.LINK_AUDIT_CONCURRENCY ?? '5', 10);
+const ownerFilter = (process.env.LINK_AUDIT_OWNER ?? '').trim();
 const userAgent =
   process.env.LINK_AUDIT_UA ??
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
@@ -107,7 +108,14 @@ function formatRow(result) {
   return `| ${result.status}${note} | ${result.tone} | ${result.owner} | ${result.label} | ${result.url} |`;
 }
 
-const entries = await extractLinks();
+const allEntries = await extractLinks();
+const entries = ownerFilter
+  ? allEntries.filter((entry) => entry.owner.split(', ').includes(ownerFilter))
+  : allEntries;
+if (ownerFilter && !entries.length) {
+  console.error(`No official links found for owner: ${ownerFilter}`);
+  process.exit(1);
+}
 const results = await mapLimit(entries, concurrency, checkUrl);
 const groups = {
   ok: results.filter((result) => result.tone === 'ok'),
@@ -122,6 +130,7 @@ console.log(`OK: ${groups.ok.length}`);
 console.log(`Watch: ${groups.watch.length}`);
 console.log(`Fail: ${groups.fail.length}`);
 console.log(`Timeout: ${timeoutSeconds}s`);
+if (ownerFilter) console.log(`Owner filter: ${ownerFilter}`);
 console.log('');
 
 if (groups.watch.length || groups.fail.length) {

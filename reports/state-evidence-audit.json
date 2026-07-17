@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T01:24:15.566Z",
+    "generatedAt": "2026-07-17T01:49:44.724Z",
     "pages": 100,
     "states": 50,
-    "claims": 2185,
-    "links": 3095,
-    "aiAssistedClaims": 1212,
-    "aiAssistedPages": 32,
+    "claims": 2303,
+    "links": 3332,
+    "aiAssistedClaims": 1357,
+    "aiAssistedPages": 34,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 965,
-        "links": 1382,
+        "claims": 1028,
+        "links": 1492,
         "states": 50
       },
       "real-id": {
-        "claims": 1220,
-        "links": 1713,
+        "claims": 1275,
+        "links": 1840,
         "states": 50
       }
     }
@@ -25691,16 +25691,19 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "科罗拉多 DMV 说明该州驾照和 ID 为 REAL ID 合规体系",
+      "claim": "科罗拉多先按身份与用途分流：符合联邦条件的申请人办理带星 REAL ID，undocumented 或多数 temporarily lawfully present 居民办理带黑色限制栏的 Standard credential",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/real-id-and-colorado",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV REAL ID and Colorado",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
+        "real-id",
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -25710,21 +25713,35 @@
       "surface": "overview",
       "field": "summary",
       "context": "document",
-      "claim": "新居民通常要预约到办公室办理，并建议先在线预登记，再带身份证明、合法身份、居住地址和 SSN 相关材料",
+      "claim": "成为 Colorado resident 后，驾照通常要在 30 天内转入，车辆由 county office 在 90 天内注册",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado",
-        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card"
+        "https://dmv.colorado.gov/new-to-colorado"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado",
-        "对应官方来源：Colorado DMV Renew License Permit or ID"
+        "对应官方来源：Colorado DMV New to Colorado"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "real-id",
+      "claim": "Colorado Standard driver license、permit 或 ID 是有效州身份证件，但不是 REAL ID，不能用于要求 REAL ID 的联邦用途",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/real-id-and-colorado"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DMV REAL ID and Colorado"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "ssn",
-        "lawful-presence",
-        "appointment"
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -25733,20 +25750,88 @@
       "stateId": "colorado",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "license",
-      "claim": "续期、地址变更和新居民换证要分别看 DMV 页面",
+      "context": "document",
+      "claim": "现行 CO-RCSA 路径面向 undocumented 与 temporarily lawfully present 居民，通常有效 3 年，并按身份类别使用 DR 2300B 或 DR 2300C",
       "sourceUrls": [
-        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card",
-        "https://dmv.colorado.gov/change-your-license/id/permit-address"
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV Renew License Permit or ID",
-        "对应官方来源：Colorado DMV Change License/ID/Permit Address"
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300B TLP Checklist",
+        "对应官方来源：Colorado DR 2300C Undocumented Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "renewal",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "首次 Colorado REAL ID 或外州转入通常要按 DR 2300A 准备 identity 与 lawful-presence 文件、Social Security number、两份不同的 Colorado physical-address 证明和完整姓名变化链",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "外州卡即使已经有 REAL ID 星标，也不会免除 Colorado 的文件核验",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/real-id-and-colorado"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV REAL ID and Colorado"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "State driver license office 主要实行预约制，首次申请和外州转入应先 pre-register 再预约",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/AppointmentScheduling",
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Appointment Scheduling",
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
         "transfer"
       ],
       "uncoveredThemes": [],
@@ -25755,18 +25840,549 @@
     {
       "stateId": "colorado",
       "surface": "overview",
-      "field": "licenseSummary",
-      "context": "document",
-      "claim": "地址已经变化且需要新卡时，官方 FAQ 指向办公室路径，并要求携带当前证件、两份 Colorado 地址证明和付款方式",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "14 个 county office 的驾照服务、walk-in 和费用各自确认，车辆 title/registration 由 county 办理，普通 drive skills test 则直接向州批准的 third-party school 预约",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/AppointmentScheduling"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Appointment Scheduling"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Colorado 给符合 REAL ID 条件的居民签发带黑色或旧版金色星标的 credential",
       "sourceUrls": [
         "https://dmv.colorado.gov/real-id-and-colorado"
       ],
       "sourceLabels": [
         "对应官方来源：Colorado DMV REAL ID and Colorado"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof",
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "带黑色横幅并写有 NOT VALID FOR FEDERAL IDENTIFICATION, VOTING OR PUBLIC BENEFIT PURPOSES 的 Standard credential 不属于 REAL ID",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/real-id-and-colorado",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV REAL ID and Colorado",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 不是合法驾驶的额外许可",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/real-id-and-colorado",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV REAL ID and Colorado",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "18 岁以上旅客自 2025 年 5 月 7 日起进入 TSA checkpoint 时，可使用 REAL ID 或有效护照等 TSA 接受的替代证件",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/real-id-and-colorado",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV REAL ID and Colorado",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Colorado temporary paper credential 可以立即作为临时驾驶凭证，但 DMV 与 TSA 都提醒它本身不是可接受的 REAL ID 航空身份证件",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/real-id-and-colorado",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV REAL ID and Colorado",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "美国公民、永久居民、Freely Associated States 公民和适用 CDL 申请人的首次 Colorado credential，应按 Required Documents 或 DR 2300A 路径证明 identity、lawful presence、SSN 和 Colorado address",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "身份与 lawful-presence 文件通常必须是未更改的原件或签发机关认证副本",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "普通复印件、手机照片、层压版本和仅经公证人认证的副本不能替代",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Required Documents 页面要求准备 SSN card、W-2、显示全名和完整 SSN 的 pay stub、SSA-1099 或其他 1099 之一",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Driver License FAQ 也说明可口头提供号码，但材料条件复杂时携带文件更稳妥",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/faq-driver-license",
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV FAQ Driver License",
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 路径要带两份不同的 Colorado address 文件，两份都显示全名和当前 physical address、不得只有 P.O. Box，并在过去一年内出具",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "电子版地址证明可以在手机上出示",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "junk mail、手写收据、仅有 P.O. Box 或贴标签/手写改址的信封不接受",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "姓名与 identity、SSN 或旧 credential 不一致时，按身份类别准备能连接每次变化的认证文件",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "普通 REAL ID 姓名变更还要先让 SSA 更新记录",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/faq-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV FAQ Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "自 2025 年 3 月 31 日起，undocumented 首次 Standard 申请人不再需要 SSN/ITIN、上一年度 Colorado income-tax filing 或过去两年居住打印证明",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Undocumented Standard 首次申请通常需要一份 home-country passport、consular card 或 military ID、一份过去一年内的当前 Colorado physical-address 证明，以及 CO-RCSA affidavit",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf",
+        "https://dmv.colorado.gov/sites/dmv/files/251DR2212A.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300C Undocumented Checklist",
+        "对应官方来源：Colorado CO-RCSA Affidavit DR 2212A"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "身份文件可未过期或过期不足 10 年",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300C Undocumented Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Temporarily lawfully present 申请人按 DR 2300B 提交 identity、当前 lawful-presence 文件和一份过去一年内的 Colorado physical-address 证明，并通过 SAVE 等适用核验",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300B TLP Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Standard credential 是有效 Colorado 身份证件但不是 REAL ID，通常自签发日起有效 3 年",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "未成年人驾照为 3 年或 21 岁生日后 20 天，以较早者为准",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "多数 temporarily lawfully present 居民即使原外州卡有 REAL ID 星标，转入 Colorado 后仍取得 Standard credential",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf",
+        "https://dmv.colorado.gov/real-id-and-colorado"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300B TLP Checklist",
+        "对应官方来源：Colorado DMV REAL ID and Colorado"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "不要把外州星标当作 Colorado REAL ID 资格证明",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "当前费用表列 REAL ID driver license/renewal $32、instruction permit $19、未满 60 岁 ID $13",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/state-dmv-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado State DMV Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "renewal"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "超过 60 岁的普通 ID 免费",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/state-dmv-fees",
+        "https://dmv.colorado.gov/identification-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado State DMV Fees",
+        "对应官方来源：Colorado DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "fee"
       ],
       "uncoveredThemes": [],
@@ -25775,20 +26391,18 @@
     {
       "stateId": "colorado",
       "surface": "overview",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "Colorado REAL ID 相关页面要求核对身份、lawful status、Colorado residency 和 Social Security Number",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "当前 Standard 费用表列 driver license $34、instruction permit $21.50、ID $13.30",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/state-dmv-fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado State DMV Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "residency-proof",
-        "ssn"
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -25796,36 +26410,216 @@
     {
       "stateId": "colorado",
       "surface": "overview",
-      "field": "realIdSummary",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "首次 duplicate permit/license $12.30，后续 duplicate $16.40",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/state-dmv-fees",
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado State DMV Fees",
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
       "context": "document",
-      "claim": "姓名不一致时，需要把姓名变更文件准备齐",
-      "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "colorado",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "Colorado 新居民页面提示所有新居民都要预约，并建议到场前在线预登记",
+      "claim": "Colorado resident 的触发条件包括在州内经营业务、在州内受雇，或连续居住 90 天",
       "sourceUrls": [
         "https://dmv.colorado.gov/new-to-colorado"
       ],
       "sourceLabels": [
         "对应官方来源：Colorado DMV New to Colorado"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "建立 residency 后驾照转入期限为 30 天，车辆注册期限为 90 天",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-to-colorado"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV New to Colorado"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "持有效或过期不足 1 年的美国外州驾照转入时，应带原卡",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-to-colorado",
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV New to Colorado",
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "也可用 30 天内出具、显示该驾照仍有效或过期不足 1 年的 MVR，原外州卡会被打孔作废",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-to-colorado"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV New to Colorado"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "持有效美国外州驾照通常无需重新考试",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/faq-driver-license",
+        "https://dmv.colorado.gov/new-to-colorado"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV FAQ Driver License",
+        "对应官方来源：Colorado DMV New to Colorado"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "证件过期超过 1 年，或从未持证、驾照取消超过 12 个月，则应准备 written test、permit 和 drive test 路径",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-to-colorado",
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV New to Colorado",
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV Renew License Permit or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Colorado 当前外国驾照 reciprocity 名单是 Canada、France、Germany、Republic of South Korea、Taiwan 和 Japan",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-colorado-another-country"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Out-of-Country License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "符合国籍、永久居民和文件条件者可免 permit、written 与 drive tests",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-colorado-another-country"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Out-of-Country License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Taiwan 驾照还要 Denver Taipei Economic and Cultural Office 出具确认有效并含翻译的 official statement",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-colorado-another-country"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Out-of-Country License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "Japan 路径限日本国民，并要带预约前 3 个月内由 Denver 日本总领馆签发的 VCDL",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-colorado-another-country"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Out-of-Country License"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment"
       ],
@@ -25835,16 +26629,283 @@
     {
       "stateId": "colorado",
       "surface": "overview",
-      "field": "appointmentNote",
+      "field": "editorNotes",
       "context": "license",
-      "claim": "能线上处理的续期可先从 renewal 页面判断资格",
+      "claim": "中国大陆驾照不在当前 reciprocity 名单中",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-colorado-another-country"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Out-of-Country License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "持证人应按年龄和身份完成 Colorado permit、written test、vision 与 third-party drive test，不要套用 Taiwan 路径",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-colorado-another-country",
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/adult-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Out-of-Country License",
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV Adult License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Adult applicant 从未有驾照，或驾照 expired/canceled 超过 12 个月时必须先取得 permit",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/adult-permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Adult Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "可在办公室或 @Home 完成 knowledge test",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/home-driving-knowledge-tests"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV @Home Knowledge Tests"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "@Home 与州办公室 knowledge test 目前只直接提供 English 和 Spanish",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/home-driving-knowledge-tests",
+        "https://dmv.colorado.gov/adult-permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV @Home Knowledge Tests",
+        "对应官方来源：Colorado DMV Adult Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "需要其他口语翻译可按 office accommodation 路径自带 interpreter，interpreter 要出示未过期 driver license 或 ID，姓名和证件号会记入档案",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/sb251-co-rcsa-faqs",
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV Standard License FAQ",
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "@Home knowledge test 第一次总费用当前为 $6.50，之后每次 $17.65，每天最多两次",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/home-driving-knowledge-tests"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV @Home Knowledge Tests"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "通过后仍要预约 state office 完成 permit 签发",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/home-driving-knowledge-tests",
+        "https://dmv.colorado.gov/adult-permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV @Home Knowledge Tests",
+        "对应官方来源：Colorado DMV Adult Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "State driver license offices 当前不做普通 drive skills test",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/adult-license",
+        "https://dmv.colorado.gov/AppointmentScheduling"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Adult License",
+        "对应官方来源：Colorado DMV Appointment Scheduling"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "申请人直接向 approved third-party testing school 预约，学校可另收自己的测试费",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/AppointmentScheduling",
+        "https://dmv.colorado.gov/sb251-co-rcsa-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Appointment Scheduling",
+        "对应官方来源：Colorado DMV Standard License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Drive test 车辆要有有效 registration、有效 insurance 并通过灯光等安全检查",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/sb251-co-rcsa-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "州费表另列每次 written retest $11.50 和 drive-test retest $15.40",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/state-dmv-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado State DMV Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "办公室交易先发立即有效的 paper temporary credential，实体卡通常约 10 至 14 个工作日寄到，官方统一要求最多预留 30 天",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/identification-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "成人 regular credential 符合条件时可线上续期",
       "sourceUrls": [
         "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card"
       ],
       "sourceLabels": [
         "对应官方来源：Colorado DMV Renew License Permit or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "online-service"
@@ -25855,18 +26916,18 @@
     {
       "stateId": "colorado",
       "surface": "overview",
-      "field": "appointmentNote",
+      "field": "editorNotes",
       "context": "document",
-      "claim": "首次文件核验仍按办公室流程准备",
+      "claim": "常见条件包括 21 岁以上、照片不足 10 年、过期不超过 1 年、无姓名或视力变化、无 active restriction，且过去 5 年没有 DUI",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Renew License Permit or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -25875,17 +26936,19 @@
       "stateId": "colorado",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "real-id",
-      "claim": "Colorado 页面明确把 REAL ID 执行和 TSA 接受证件联系起来",
+      "context": "license",
+      "claim": "21 至 79 岁线上续期要确认过去一年做过 eye exam",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Renew License Permit or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
+        "renewal",
+        "online-service",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -25895,16 +26958,272 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "机场用途要提示护照等替代证件仍可用",
+      "claim": "80 岁及以上要上传过去 6 个月内由 optometrist/ophthalmologist 签署的 DR 2498",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Renew License Permit or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Undocumented 居民可按资格 online renewal，并重新提交 CO-RCSA affidavit",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DMV Renew License Permit or ID"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "document",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "temporarily lawfully present 居民只能到 office 续期，并带当前 lawful-presence 文件或 extension letter",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DMV Renew License Permit or ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "只更新地址可在线、邮寄或到 office 修改记录，再自行把新地址标签贴到卡背，DMV 不会因此自动寄新卡",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/change-your-address",
+        "https://dmv.colorado.gov/faq-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Change Your Address",
+        "对应官方来源：Colorado DMV FAQ Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "要让新地址印在卡上需购买新 credential 或在续期中更新",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/change-your-address"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Change Your Address"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [
+        "renewal"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "普通姓名变更要先在 SSA 留档并至少等待 24 至 48 个工作小时，再预约 state office 带认证姓名文件",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/faq-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV FAQ Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "name-change",
+        "appointment"
+      ],
+      "uncoveredThemes": [
         "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "TLP 或 undocumented 的姓名证据必须按其 USCIS 或 home-country 文件规则处理，不能直接套用普通 marriage-certificate 路径",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300B TLP Checklist",
+        "对应官方来源：Colorado DR 2300C Undocumented Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "遗失、被盗或严重损坏的 driver license/permit duplicate 不能在线办理，通常要预约并保留原到期日",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "遗失 ID 则按 renewal 处理，是否可线上取决于照片和其他资格",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "实体卡签发 30 天仍未收到时先查 Where is my Driver License/ID",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id",
+        "https://dmv.colorado.gov/identification-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential",
+        "对应官方来源：Colorado DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "在签发后第 30 至 90 天到 state office 申请可能免费，超过 90 天通常要重新付 duplicate 费用",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Colorado 居民不能同时持有 Colorado driver license/permit 和 ID card",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/identification-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "首次 ID 要预约并交相应身份文件，未满 21 岁通常由 legal guardian 陪同并证明 guardianship",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/identification-cards",
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Identification Cards",
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "appointment"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -25914,18 +27233,21 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Colorado REAL ID 相关页面要求核对身份、lawful status、Colorado residency 和 Social Security Number",
+      "claim": "首次 Colorado REAL ID 或外州转入通常要按 DR 2300A 准备 identity 与 lawful-presence 文件、Social Security number、两份不同的 Colorado physical-address 证明和完整姓名变化链",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "residency-proof",
-        "ssn"
+        "document",
+        "ssn",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -25934,18 +27256,20 @@
       "stateId": "colorado",
       "surface": "real-id",
       "field": "realIdSummary",
-      "context": "document",
-      "claim": "姓名不一致时，需要把姓名变更文件准备齐",
+      "context": "real-id",
+      "claim": "外州卡即使已经有 REAL ID 星标，也不会免除 Colorado 的文件核验",
       "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
         "https://dmv.colorado.gov/real-id-and-colorado"
       ],
       "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
         "对应官方来源：Colorado DMV REAL ID and Colorado"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "name-change"
+        "real-id",
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -25955,14 +27279,16 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "身份证明和 lawful status 文件",
+      "claim": "先按身份选择正确清单：U.S. citizen/permanent resident/FAS/适用 CDL 用 Required Documents 或 DR 2300A",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -25974,14 +27300,118 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Colorado residency 证明",
+      "claim": "temporarily lawfully present 用 DR 2300B",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300B TLP Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "undocumented 用 DR 2300C",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300C Undocumented Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 身份与 lawful-presence 材料带原件或签发机关认证副本",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "不要带手机照片、普通 photocopy、层压件或仅由 notary 认证的副本",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "SSN 最稳妥的准备方式是带 signed Social Security card、W-2、显示全名和完整号码的 pay stub、SSA-1099 或其他 1099 之一",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "准备两份不同来源的 Colorado residency：两份都显示全名、当前 physical address、完整日期且不超过一年",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -25993,17 +27423,16 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "若地址变更并要新卡，准备两份当前 Colorado 地址证明",
+      "claim": "电子版可在手机上展示，但不能只有 P.O. Box",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/documents"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Required Identification Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof",
-        "address-change"
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -26013,14 +27442,64 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Social Security Number 或官方要求的 SSN 证明路径",
+      "claim": "身份文件与当前姓名不同，按每次变更准备 certified marriage/civil-union certificate、divorce decree 或 court order，并先完成适用的 SSA 或 USCIS/home-country 记录更新",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/faq-driver-license",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV FAQ Driver License",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Undocumented Standard 首次申请带一份合格 home-country passport、consular card 或 military ID、一份当前 Colorado address 和 CO-RCSA affidavit",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf",
+        "https://dmv.colorado.gov/sites/dmv/files/251DR2212A.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300C Undocumented Checklist",
+        "对应官方来源：Colorado CO-RCSA Affidavit DR 2212A"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "不要再按 2025 年 3 月 31 日前的 SSN/ITIN、报税或两年居住旧清单准备",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -26032,17 +27511,314 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名前后不一致时，带 marriage certificate、court order 等能连接姓名变化的文件",
+      "claim": "Temporarily lawfully present 申请人带 DR 2300B 所列 current passport、I-94、I-766、I-797 或其他适用 USCIS 文件及一份当前地址证明",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300B TLP Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "name-change"
+        "residency-proof",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "具体组合必须能通过 SAVE",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DR 2300B TLP Checklist",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "外州转入带有效或过期不足 1 年的原驾照",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-to-colorado",
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV New to Colorado",
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "没有原卡时准备 30 天内出具并显示相同有效状态的 MVR，仍要另带 Colorado 身份、SSN 和地址材料",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-to-colorado",
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV New to Colorado",
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "外国驾照不要单独当 identity document",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "reciprocity 申请人同时准备有效原驾照和该国家的附加证明，中国大陆申请人另备 knowledge、vision、permit 与 drive-test 文件",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-colorado-another-country",
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/adult-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Out-of-Country License",
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV Adult License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "需要中文口头协助时提前确认 office interpreter 路径",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/sb251-co-rcsa-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV Standard License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "自带 interpreter 要有未过期 driver license/ID，外文身份文件还要与满足 Colorado 固定声明格式的完整英文翻译一起提交",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sb251-co-rcsa-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DMV Standard License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Permit 签发带通过证明和身份材料",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "drive test 当天带 permit、有效 vehicle registration、insurance，并先确认第三方学校的车辆、安全检查和额外费用要求",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/adult-license",
+        "https://dmv.colorado.gov/sb251-co-rcsa-faqs",
+        "https://dmv.colorado.gov/AppointmentScheduling"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Adult License",
+        "对应官方来源：Colorado DMV Standard License FAQ",
+        "对应官方来源：Colorado DMV Appointment Scheduling"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "先判断用途：只需驾驶或州内身份，还是需要 TSA/联邦用途",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/real-id-and-colorado",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV REAL ID and Colorado",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "有有效 passport 等 TSA accepted ID 时，不必把临行前办理 REAL ID 当作唯一方案",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/real-id-and-colorado",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV REAL ID and Colorado",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "再判断身份清单：DR 2300A、DR 2300B 或 DR 2300C，只使用与自己当前身份相符的一套，不混用 REAL ID 与 Standard 要求",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "确认交易类型：首次驾照、外州转入、外国驾照、permit、续期、duplicate、地址变更、姓名变更或 ID card",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/AppointmentScheduling",
+        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card",
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Appointment Scheduling",
+        "对应官方来源：Colorado DMV Renew License Permit or ID",
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "name-change",
+        "renewal",
+        "replacement",
+        "transfer",
+        "foreign-license"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -26052,14 +27828,36 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "appointment",
-      "claim": "新居民先打开 New to Colorado 页面预约，并按提示预登记",
+      "claim": "首次和转入先完成 online pre-registration，再用 Appointment Scheduling 选择 First Time CO DL/Permit/ID",
       "sourceUrls": [
-        "https://dmv.colorado.gov/new-to-colorado"
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/AppointmentScheduling"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV New to Colorado"
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV Appointment Scheduling"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "保存 confirmation email 和 appointment ID",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/AppointmentScheduling"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Appointment Scheduling"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment"
       ],
@@ -26071,16 +27869,91 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "申请或转换 REAL ID 时，用 Real ID and Colorado 页面进入 identification requirements",
+      "claim": "REAL ID 按 identity/lawful presence、SSN、两份 current Colorado address、name-change chain 五组整理原件或认证副本",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
+        "real-id",
+        "document",
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "Standard 申请人按 DR 2300B/2300C 准备 identity、适用 lawful presence、一份 current address 和 CO-RCSA affidavit，不提交已经取消的旧税表或两年居住要求",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf",
+        "https://dmv.colorado.gov/sites/dmv/files/251DR2212A.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300B TLP Checklist",
+        "对应官方来源：Colorado DR 2300C Undocumented Checklist",
+        "对应官方来源：Colorado CO-RCSA Affidavit DR 2212A"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "姓名不一致时先完成 SSA、USCIS 或 home-country document 更新，再准备对应认证文件",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/faq-driver-license",
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV FAQ Driver License",
+        "对应官方来源：Colorado DMV Standard Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "普通姓名变更至少给 SSA 24 至 48 个工作小时同步",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/faq-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV FAQ Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -26090,14 +27963,223 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "license",
-      "claim": "续期先看 renewal 页面，判断是否能线上办",
+      "claim": "美国外州转入核对旧证是否有效或过期不足 1 年",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-to-colorado"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV New to Colorado"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "没有原卡时在到访前 30 天内取得合格 MVR",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-to-colorado"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV New to Colorado"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "外国驾照先检查六地 reciprocity 及附加条件",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-colorado-another-country"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Out-of-Country License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "中国大陆驾照按无 reciprocity 路径准备 permit、English/Spanish knowledge test、vision 和 third-party drive test",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-colorado-another-country",
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/adult-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Out-of-Country License",
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV Adult License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要 knowledge test 时选择 @Home、state office 或 driving school",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/home-driving-knowledge-tests",
+        "https://dmv.colorado.gov/adult-permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV @Home Knowledge Tests",
+        "对应官方来源：Colorado DMV Adult Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "要中文口头翻译则提前确认 office interpreter 要求，不把 @Home 当作中文考试",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/home-driving-knowledge-tests",
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/sb251-co-rcsa-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV @Home Knowledge Tests",
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV Standard License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "通过 permit test 后预约 state office 完成签发",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/home-driving-knowledge-tests",
+        "https://dmv.colorado.gov/adult-permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV @Home Knowledge Tests",
+        "对应官方来源：Colorado DMV Adult Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "再直接联系 approved third-party school 做 drive test，核对 permit、registration、insurance、安全检查和学校收费",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/AppointmentScheduling",
+        "https://dmv.colorado.gov/adult-license",
+        "https://dmv.colorado.gov/sb251-co-rcsa-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Appointment Scheduling",
+        "对应官方来源：Colorado DMV Adult License",
+        "对应官方来源：Colorado DMV Standard License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "office 交易后核对 paper temporary credential 上的姓名和地址，并为实体卡预留 10 至 14 个工作日、最多 30 天",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/identification-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "飞行时另带正式 TSA accepted ID",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/real-id-and-colorado",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV REAL ID and Colorado",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期先让 myDMV 判断线上资格",
       "sourceUrls": [
         "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card"
       ],
       "sourceLabels": [
         "对应官方来源：Colorado DMV Renew License Permit or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "online-service"
@@ -26109,15 +28191,34 @@
       "stateId": "colorado",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "地址变化时先更新地址",
+      "context": "document",
+      "claim": "照片满 10 年、姓名/视力/身份变化、TLP、过期超过 1 年等情形改走 office",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Renew License Permit or ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "只改地址时更新记录并贴自制地址标签",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/change-your-address"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Change Your Address"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "address-change"
       ],
@@ -26128,16 +28229,172 @@
       "stateId": "colorado",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "document",
-      "claim": "如果要印新卡，再按 Colorado DMV 说明准备当前证件和两份地址证明",
+      "context": "license",
+      "claim": "要新地址印在卡上、要改名或要 duplicate 时，按相应 office/renewal 路径付费办理",
       "sourceUrls": [
+        "https://dmv.colorado.gov/change-your-address",
+        "https://dmv.colorado.gov/faq-driver-license",
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Change Your Address",
+        "对应官方来源：Colorado DMV FAQ Driver License",
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change",
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "签发 30 天仍未收到就立即查 delivery status",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id",
+        "https://dmv.colorado.gov/identification-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential",
+        "对应官方来源：Colorado DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "在第 30 至 90 天窗口向 state office 处理可能的免费 replacement",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "成为 resident 后同时安排 driver credential 与 county vehicle registration：驾照 30 天、车辆 90 天，不把 county title/registration 约到 state driver-license office",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-to-colorado",
+        "https://dmv.colorado.gov/AppointmentScheduling"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV New to Colorado",
+        "对应官方来源：Colorado DMV Appointment Scheduling"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "外州驾照已有 REAL ID 星标，就以为 Colorado 不会重新核验 identity、lawful presence、SSN 和两份地址",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
         "https://dmv.colorado.gov/real-id-and-colorado"
       ],
       "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
         "对应官方来源：Colorado DMV REAL ID and Colorado"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "real-id",
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "用带黑色限制栏的 Standard credential 单独过 TSA，忽略它不是 REAL ID",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/real-id-and-colorado",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DMV REAL ID and Colorado",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "把 paper temporary credential 当作 TSA 接受的正式带星证件",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/real-id-and-colorado",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV REAL ID and Colorado",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "REAL ID 只带一份地址证明，或文件超过一年、只有 P.O. Box、没有申请人全名",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -26147,15 +28404,246 @@
       "stateId": "colorado",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "appointment",
-      "claim": "新搬到 Colorado 后直接去办公室，没先预约或预登记",
+      "context": "document",
+      "claim": "用普通复印件、手机照片、层压文件或 notary copy 代替签发机关认证副本",
       "sourceUrls": [
-        "https://dmv.colorado.gov/new-to-colorado"
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV New to Colorado"
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DR 2300A Identification Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "看到 FAQ 可口头报 SSN，就完全不准备 Required Documents 页面列出的 SSN 文件",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/faq-driver-license",
+        "https://dmv.colorado.gov/documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV FAQ Driver License",
+        "对应官方来源：Colorado DMV Required Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "仍按旧 CO-RCSA 清单准备 SSN/ITIN、上一年度报税和过去两年 residency，反而漏掉当前 affidavit 与一份地址",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/251DR2212A.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado CO-RCSA Affidavit DR 2212A"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "Temporarily lawfully present 申请人拿外州 REAL ID 来期待 Colorado 继续签发 REAL ID，而没有按 DR 2300B 准备 Standard credential",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf",
+        "https://dmv.colorado.gov/real-id-and-colorado"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300B TLP Checklist",
+        "对应官方来源：Colorado DMV REAL ID and Colorado"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "Undocumented 或 TLP 直接用普通 marriage certificate 改名，没有先按 home-country 或 USCIS 记录规则更新",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300B TLP Checklist",
+        "对应官方来源：Colorado DR 2300C Undocumented Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把中国大陆驾照误当 Taiwan 驾照，缺少 written、permit 或 drive test",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-colorado-another-country",
+        "https://dmv.colorado.gov/adult-permit",
+        "https://dmv.colorado.gov/adult-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Out-of-Country License",
+        "对应官方来源：Colorado DMV Adult Permit",
+        "对应官方来源：Colorado DMV Adult License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "用外国驾照代替 Standard 申请所需的 passport、consular card 或 home-country military ID",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
+        "https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Standard Licenses and IDs",
+        "对应官方来源：Colorado DR 2300C Undocumented Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "在 Colorado state driver license office 预约普通 road test，而没有联系 approved third-party school",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/adult-license",
+        "https://dmv.colorado.gov/AppointmentScheduling"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Adult License",
+        "对应官方来源：Colorado DMV Appointment Scheduling"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "以为 @Home test 有中文界面，未提前安排 English/Spanish 或 office interpreter 路径",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/home-driving-knowledge-tests",
+        "https://dmv.colorado.gov/adult-permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV @Home Knowledge Tests",
+        "对应官方来源：Colorado DMV Adult Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "驾照过期超过 1 年仍按普通 transfer/renewal 预约，没准备重新考 written 和 drive test",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/new-to-colorado",
+        "https://dmv.colorado.gov/renew-your-colorado-driver-license-permit-or-id-card",
+        "https://dmv.colorado.gov/adult-permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV New to Colorado",
+        "对应官方来源：Colorado DMV Renew License Permit or ID",
+        "对应官方来源：Colorado DMV Adult Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "首次申请或外州转入没有 pre-register，也没有 state-office appointment confirmation",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/documents",
+        "https://dmv.colorado.gov/AppointmentScheduling"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Required Identification Documents",
+        "对应官方来源：Colorado DMV Appointment Scheduling"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment"
       ],
@@ -26166,17 +28654,20 @@
       "stateId": "colorado",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "以为已有其他身份证件就不用提交 Colorado DMV 要求的文件",
+      "context": "appointment",
+      "claim": "把 driver license、vehicle registration 和 road test 都预约到同一个地点，忽略 state、county 与 third party 的分工",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/AppointmentScheduling",
+        "https://dmv.colorado.gov/new-to-colorado"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Appointment Scheduling",
+        "对应官方来源：Colorado DMV New to Colorado"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "appointment",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -26185,17 +28676,35 @@
       "stateId": "colorado",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "改地址后想要新卡，却没有准备两份 Colorado 地址证明",
+      "context": "detail",
+      "claim": "只更新 DMV address record 后等待新卡寄来，未自行贴标签或另购印有新地址的 credential",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/change-your-address"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Change Your Address"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "先到 DMV 改名，没有先完成 SSA 更新和至少 24 至 48 个工作小时同步",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/faq-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV FAQ Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "ssn",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -26204,18 +28713,59 @@
       "stateId": "colorado",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "姓名文件和当前 legal name 对不上",
+      "context": "appointment",
+      "claim": "尝试在线办理 duplicate driver license，忽略该业务通常需要 office appointment",
       "sourceUrls": [
-        "https://dmv.colorado.gov/real-id-and-colorado"
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id"
       ],
       "sourceLabels": [
-        "对应官方来源：Colorado DMV REAL ID and Colorado"
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "replacement",
+        "appointment"
       ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "实体卡 30 天未到仍不查状态，错过签发后 30 至 90 天的可能免费 replacement 窗口",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Replace Lost or Stolen Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "colorado",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "同时保留 Colorado driver license/permit 和 Colorado ID card，忽略州规则只允许二者之一",
+      "sourceUrls": [
+        "https://dmv.colorado.gov/identification-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Colorado DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },

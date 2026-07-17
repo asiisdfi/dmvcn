@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成科罗拉多州两页官方正文语义核对',
+    summary:
+      '逐条比对 Colorado DMV 的 REAL ID、DR 2300A/B/C、CO-RCSA、2025 Standard 新规则、费用、新居民 30/90 天、外州与外国驾照、Taiwan/Japan 附加材料、知识考试语言、第三方路考、续期、改址改名、补证、ID 与邮寄；纠正 TLP、无证件居民和中国大陆驾照的办事分流。',
+    scope: ['科罗拉多州办事总览', '科罗拉多州 REAL ID', 'Standard credential 新规则', '143 条显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成亚利桑那州两页官方正文语义核对',
     summary:
       '逐条比对 Arizona MVD 的 Travel/Non-Travel、R03/26 材料表、费用、邮寄、permit 与 road test、Mandarin 笔试、Authorized Third Party、续补证、改址改名、外国申请人、SSN、authorized presence、新居民与现行州法；补齐中国大陆与 Taiwan 的免试差异，并明确无 SSN、普通新居民期限和 temporary receipt 的风险边界。',
