@@ -1,8 +1,8 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T00:25:38.780Z",
+    "generatedAt": "2026-07-17T00:40:35.070Z",
     "pages": 5,
-    "claims": 451,
+    "claims": 459,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
@@ -11,19 +11,19 @@
         "states": 21
       },
       "deadlines": {
-        "claims": 46,
-        "states": 18
+        "claims": 49,
+        "states": 19
       },
       "document-rules": {
-        "claims": 163,
+        "claims": 165,
         "states": 47
       },
       "foreign-license": {
-        "claims": 63,
+        "claims": 64,
         "states": 25
       },
       "identity-ssn": {
-        "claims": 120,
+        "claims": 122,
         "states": 38
       }
     }
@@ -651,9 +651,23 @@
       "page": "costs-timing",
       "stateId": "michigan",
       "category": "费用",
-      "claim": "线上可用 credit/debit card 或 e-check/bank account number，信用/借记卡会有 additional fees",
-      "sourceUrl": "https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement",
-      "sourceLabel": "对应官方来源：Michigan SOS License, ID or Permit Replacement",
+      "claim": "在正常 renewal 或 replacement 同时转换 REAL ID 不加收升级费，其他时间转换按 correction 收取 driver license $9 或 state ID $10",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/license-or-id-renewal",
+      "sourceLabel": "对应官方来源：Michigan SOS License or ID Renewal",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "michigan",
+      "category": "费用",
+      "claim": "18 岁及以上且过去 4 年没有 Michigan 或其他美国州驾照的首次驾驶人通常先通过知识和视力检查取得 $25 TIP，TIP 有效 180 天并要求至少 30 天由持照成人监督练习后才能路考",
+      "sourceUrl": "https://www.michigan.gov/sos/license-id/new-drivers-18-older",
+      "sourceLabel": "对应官方来源：Michigan SOS New Drivers 18+",
       "themes": [
         "fee"
       ],
@@ -664,9 +678,9 @@
       "page": "costs-timing",
       "stateId": "michigan",
       "category": "费用",
-      "claim": "具体资格、语言/音频选项和费用应以 SOS 当前入口为准",
-      "sourceUrl": "https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement",
-      "sourceLabel": "对应官方来源：Michigan SOS License, ID or Permit Replacement",
+      "claim": "18 岁及以上可选择线上 knowledge test，当前总收费 $6.50，需带键盘和鼠标的电脑及 webcam，Operator 与 Signs 两部分约需 45 分钟和 15 分钟，办公室考试免费",
+      "sourceUrl": "https://www.michigan.gov/sos/license-id/new-drivers-18-older",
+      "sourceLabel": "对应官方来源：Michigan SOS New Drivers 18+",
       "themes": [
         "fee"
       ],
@@ -676,28 +690,16 @@
     {
       "page": "costs-timing",
       "stateId": "michigan",
-      "category": "邮寄 / 卡片",
-      "claim": "Michigan SOS license/ID replacement 页面说明补证可 online、out-of-state by mail、self-service station 或 office visit",
+      "category": "费用",
+      "claim": "Michigan 路考由获授权的独立 driver testing business 执行，第三方收费不受 Department of State 统一定价，预约前应询问初考、重考、取消和材料不合格费用",
       "sourceUrl": "https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement",
-      "sourceLabel": "对应官方来源：Michigan SOS License, ID or Permit Replacement",
+      "sourceLabel": "对应官方来源：Michigan SOS Replacement",
       "themes": [
-        "out-of-state"
+        "fee",
+        "appointment"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
-    },
-    {
-      "page": "costs-timing",
-      "stateId": "michigan",
-      "category": "邮寄 / 卡片",
-      "claim": "Michigan SOS license/ID FAQ 提供 View Credential Mail Status，可查看 credential processed、mailed 或 USPS undeliverable 状态",
-      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/licenses-and-id",
-      "sourceLabel": "对应官方来源：Michigan SOS Licenses and ID FAQ",
-      "themes": [
-        "processing-or-mail"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "costs-timing",
@@ -1260,6 +1262,47 @@
       "sourceLabel": "对应官方来源：NCDMV License & ID Renewal",
       "themes": [
         "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "michigan",
+      "category": "处理 / 邮寄",
+      "claim": "SSN 可用 Social Security card、W-2、1099 或含姓名与 SSN 的 pay stub，无资格者按当前交易说明准备 60 天内 SSA-L676 并配合显示 non-work-authorized status 的 USCIS 文件",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
+      "themes": [
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "michigan",
+      "category": "材料时效",
+      "claim": "两份 Michigan residency 都要有申请人姓名和 residential street address，90 天内 utility、credit-card bill 或 financial statement 可用电子版，P.O. Box 不能代替居住地址",
+      "sourceUrl": "https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa",
+      "sourceLabel": "对应官方来源：Michigan SOS-428 Accepted Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "michigan",
+      "category": "期限提醒",
+      "claim": "最多提前 6 个月预约 office，收到确认邮件后保留管理链接，walk-in 只作为可能排到当天稍后或下一工作日的备用方案",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement",
+      "sourceLabel": "对应官方来源：Michigan SOS Replacement",
+      "themes": [
+        "processing-or-mail",
+        "appointment"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -2063,13 +2106,13 @@
       "page": "document-rules",
       "stateId": "michigan",
       "category": "地址证明",
-      "claim": "首次 license/ID 还要准备 SSN、identity、Michigan residency 和可能的翻译文件",
+      "claim": "首次 license/ID 按 legal presence、SSN、identity、两份 Michigan residency 和 name-change chain 五组准备，申请驾照者另做 vision exam",
       "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
-      "sourceLabel": "对应官方来源：Michigan SOS License and ID Document Requirements",
+      "sourceLabel": "对应官方来源：Michigan SOS Document Requirements FAQ",
       "themes": [
         "residency-documents",
-        "translation",
-        "ssn"
+        "ssn",
+        "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -2078,11 +2121,40 @@
       "page": "document-rules",
       "stateId": "michigan",
       "category": "地址证明",
-      "claim": "车辆地址更新还会涉及 plate number",
-      "sourceUrl": "https://www.michigan.gov/sos/all-services/change-of-address",
-      "sourceLabel": "对应官方来源：Michigan SOS Change of Address",
+      "claim": "Legal presence 与 identity 文件须用原件，所有非英文文件要附 English translation，只有列明的 residency 文件可使用电子版本",
+      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
+      "sourceLabel": "对应官方来源：Michigan SOS Document Requirements FAQ",
       "themes": [
-        "address-change"
+        "residency-documents",
+        "translation",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "michigan",
+      "category": "地址证明",
+      "claim": "SSN 可用 Social Security card、W-2、1099 或含姓名与 SSN 的 pay stub，无资格者按当前交易说明准备 60 天内 SSA-L676 并配合显示 non-work-authorized status 的 USCIS 文件",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
+      "themes": [
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "michigan",
+      "category": "地址证明",
+      "claim": "两份 Michigan residency 都要有申请人姓名和 residential street address，90 天内 utility、credit-card bill 或 financial statement 可用电子版，P.O. Box 不能代替居住地址",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
+      "themes": [
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -4123,23 +4195,26 @@
       "page": "foreign-license",
       "stateId": "michigan",
       "category": "外国 / 境外驾照",
-      "claim": "Michigan SOS New Drivers 18+ 页面说明 knowledge test 有 English 和多种 foreign languages，并有 audio / written format",
-      "sourceUrl": "https://www.michigan.gov/sos/license-id/new-drivers-18-older",
-      "sourceLabel": "对应官方来源：Michigan SOS New Drivers 18 and Older",
-      "themes": [],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "michigan",
-      "category": "IDP / 国际驾照",
-      "claim": "Driver License Requirements PDF：Michigan SOS-428 文件，说明 foreign documents、foreign driver license、IDP / English translation 和证明用途限制",
+      "claim": "SOS-428 accepted documents：官方材料表，含原件、翻译、外国驾照用途和各组可接受文件",
       "sourceUrl": "https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa",
-      "sourceLabel": "对应官方来源：Michigan SOS Driver License or ID Requirements PDF",
+      "sourceLabel": "对应官方来源：Michigan SOS-428 Accepted Documents",
       "themes": [
         "foreign-license",
         "translation"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "michigan",
+      "category": "外国 / 境外驾照",
+      "claim": "License and ID FAQ：28 天限制、姓名、费用、foreign license、邮件状态和临时纸质证件",
+      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/licenses-and-id",
+      "sourceLabel": "对应官方来源：Michigan SOS Licenses and ID FAQ",
+      "themes": [
+        "fee",
+        "foreign-license"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": true
@@ -4147,16 +4222,28 @@
     {
       "page": "foreign-license",
       "stateId": "michigan",
-      "category": "IDP / 国际驾照",
-      "claim": "Foreign DL Law Enforcement PDF：Michigan SOS 关于 foreign driver license、International Driving Permit 和英文翻译的执法说明",
-      "sourceUrl": "https://www.michigan.gov/-/media/Project/Websites/sos/10lawensn/Foreign_DL_Law_Enforcement.pdf?rev=9fde1916b25c4e48a9f004d516952945",
-      "sourceLabel": "对应官方来源：Michigan SOS Foreign Driver License Law Enforcement PDF",
+      "category": "外国 / 境外驾照",
+      "claim": "Foreign license treaty table：当前 treaty 与 non-treaty 国家表，包含 China 与 China (Taiwan) 的不同分类",
+      "sourceUrl": "https://www.michigan.gov/sos/-/media/Project/Websites/sos/10lawensn/Foreign_DL_countries_palm_card.pdf?hash=6F19225BE4943DB7003B1FD3DAE9A44D&rev=d519354f7c0948e5aeeea5109dfccd3c",
+      "sourceLabel": "对应官方来源：Michigan SOS Foreign License Treaty Table",
       "themes": [
-        "foreign-license",
-        "translation"
+        "foreign-license"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": true
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "michigan",
+      "category": "外国 / 境外驾照",
+      "claim": "Identity 通常用一份列明的美国或加拿大证件，无法走单文件路径时，foreign passport、I-94、EAD、I-571 或附 I-797 的过期移民文件等通常要按两份组合规则准备",
+      "sourceUrl": "https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa",
+      "sourceLabel": "对应官方来源：Michigan SOS-428 Accepted Documents",
+      "themes": [
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
     },
     {
       "page": "foreign-license",
@@ -5051,14 +5138,13 @@
     {
       "page": "identity-ssn",
       "stateId": "michigan",
-      "category": "SSN",
-      "claim": "首次 license/ID 还要准备 SSN、identity、Michigan residency 和可能的翻译文件",
-      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
-      "sourceLabel": "对应官方来源：Michigan SOS License and ID Document Requirements",
+      "category": "无 SSN / SSA",
+      "claim": "SSN 可用 Social Security card、W-2、1099 或含姓名与 SSN 的 pay stub，无资格者按当前交易说明准备 60 天内 SSA-L676 并配合显示 non-work-authorized status 的 USCIS 文件",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
       "themes": [
-        "residency-documents",
-        "translation",
-        "ssn"
+        "ssn",
+        "immigration-verification"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -5066,12 +5152,43 @@
     {
       "page": "identity-ssn",
       "stateId": "michigan",
-      "category": "lawful presence",
-      "claim": "带 U.S. citizenship 或 legal presence 证明",
+      "category": "SSN",
+      "claim": "首次 license/ID 需要 legal presence、SSN、identity、两份 Michigan residency 和适用的姓名变更文件，license 申请人另做视力检查，18 岁及以上首次驾驶人还要完成知识与路考路径",
       "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
-      "sourceLabel": "对应官方来源：Michigan SOS License and ID Document Requirements",
+      "sourceLabel": "对应官方来源：Michigan SOS Document Requirements FAQ",
       "themes": [
+        "residency-documents",
+        "ssn",
         "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "michigan",
+      "category": "SSN",
+      "claim": "首次 license/ID 按 legal presence、SSN、identity、两份 Michigan residency 和 name-change chain 五组准备，申请驾照者另做 vision exam",
+      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
+      "sourceLabel": "对应官方来源：Michigan SOS Document Requirements FAQ",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "michigan",
+      "category": "SSN",
+      "claim": "Enhanced credential 的 legal-presence 栏只列美国公民文件，申请还要 SSN、identity、两份 residency 和适用姓名文件，并必须本人到 office",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
+      "themes": [
+        "residency-documents",
+        "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false

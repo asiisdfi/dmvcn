@@ -443,6 +443,44 @@ const NC_UPLOAD_UPDATE =
 const NC_HANDBOOK =
   'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf';
 
+const MI_REAL_ID = 'https://www.michigan.gov/sos/license-id/real-id';
+const MI_LICENSE_ID =
+  'https://www.michigan.gov/sos/license-id/license-and-id';
+const MI_FIRST_TIME =
+  'https://www.michigan.gov/sos/all-services/first-time-license-or-id';
+const MI_SOS428 =
+  'https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa';
+const MI_NEW_RESIDENTS =
+  'https://www.michigan.gov/sos/resources/communities/new-mi-residents';
+const MI_DOCUMENT_REQUIREMENTS =
+  'https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements';
+const MI_NEW_DRIVERS =
+  'https://www.michigan.gov/sos/license-id/new-drivers-18-older';
+const MI_RENEW =
+  'https://www.michigan.gov/sos/all-services/license-or-id-renewal';
+const MI_REPLACE =
+  'https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement';
+const MI_ADDRESS =
+  'https://www.michigan.gov/sos/all-services/change-of-address';
+const MI_LICENSE_FAQ =
+  'https://www.michigan.gov/sos/faqs/license-and-id/licenses-and-id';
+const MI_APPOINTMENTS =
+  'https://www.michigan.gov/sos/faqs/resources/scheduling-an-office-visit';
+const MI_ENHANCED =
+  'https://www.michigan.gov/sos/all-services/enhanced-license-and-id';
+const MI_FOREIGN_TABLE =
+  'https://www.michigan.gov/sos/-/media/Project/Websites/sos/10lawensn/Foreign_DL_countries_palm_card.pdf?hash=6F19225BE4943DB7003B1FD3DAE9A44D&rev=d519354f7c0948e5aeeea5109dfccd3c';
+const MI_FOREIGN_GUIDANCE =
+  'https://www.michigan.gov/-/media/Project/Websites/sos/10lawensn/Foreign_DL_Law_Enforcement.pdf?rev=9fde1916b25c4e48a9f004d516952945';
+const MI_MANUAL =
+  'https://www.michigan.gov/sos/resources/forms/what-every-driver-must-know';
+const MI_LANGUAGE =
+  'https://www.michigan.gov/sos/language-services';
+const MI_DRIVER_TESTING =
+  'https://www.michigan.gov/sos/industry-services/driver-testing-businesses-and-examiners';
+const MI_ONLINE_TEST =
+  'https://www.michigan.gov/sos/resources/news/2025/07/02/michigan-secretary-of-state-now-offers-online-drivers-license-testing-for-adults';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -3730,6 +3768,347 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '外州学生只为银行或住房申请 North Carolina ID，却没意识到新签发 ID 可能自动取消仍要驾驶使用的外州 license': [
         NC_STATE_TO_STATE,
+      ],
+    },
+  },
+  michigan: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      MI_REAL_ID,
+      MI_LICENSE_ID,
+      MI_FIRST_TIME,
+      MI_SOS428,
+      MI_NEW_RESIDENTS,
+      MI_DOCUMENT_REQUIREMENTS,
+      MI_NEW_DRIVERS,
+      MI_RENEW,
+      MI_REPLACE,
+      MI_ADDRESS,
+      MI_LICENSE_FAQ,
+      MI_APPOINTMENTS,
+      MI_ENHANCED,
+      MI_FOREIGN_TABLE,
+      MI_FOREIGN_GUIDANCE,
+      MI_MANUAL,
+      MI_LANGUAGE,
+      MI_DRIVER_TESTING,
+      MI_ONLINE_TEST,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Michigan SOS 的 REAL ID、Standard/Enhanced 区别、首次与外州转入、材料、SAVE、外国驾照 treaty 规则、成人考试、TIP、路考、续期补证、费用、地址、预约和邮件状态正文。',
+    notes:
+      '重写 Michigan 总览与 REAL ID 页面，补齐首次申请默认 REAL ID 与已有证件转换的分流、SSA-L676 官方冲突、中国大陆/台湾 treaty 差异、线上知识考试、第三方路考、连续远程续期和新居民路径；所有声明已改为显式来源，仍待真实人工签字。',
+    claims: {
+      '密歇根驾照和州 ID 由 Secretary of State 管理，办事前先区分 Standard、REAL ID-compliant 与 Enhanced 三类证件，再判断自己是首次申请、外州转入、续期、补证还是已有标准证件升级': [
+        MI_LICENSE_ID,
+        MI_REAL_ID,
+        MI_FIRST_TIME,
+        MI_RENEW,
+        MI_REPLACE,
+      ],
+      'Michigan license/ID 通常每 4 年在生日到期，可提前 1 年至到期后 4 年办理续期，但线上、邮寄或 self-service station 资格因照片、合法居留、既往续期方式和证件状态而异，多数居民约每 12 年仍需本人到场更新照片，驾驶人还要做视力检查': [
+        MI_LICENSE_ID,
+        MI_RENEW,
+      ],
+      'Michigan REAL ID 完全自愿，Standard license 或 ID 仍可用于驾驶和多数州内身份用途，但国内航班及受限联邦设施要使用带合规标志的 REAL ID、自动合规的 Enhanced credential、passport 或 TSA 接受的其他证件': [
+        MI_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      'Secretary of State office 可提前最多 6 个月预约，未预约到场者会被安排下一个可用时段，可能是当天稍后或下一个工作日，因此首次办证、REAL ID 转换和姓名更正宜先预申请并预约': [
+        MI_APPOINTMENTS,
+        MI_FIRST_TIME,
+        MI_REAL_ID,
+        MI_LICENSE_ID,
+      ],
+      '已有 Michigan Standard credential 的人必须到 Secretary of State office 才能转换 REAL ID，并带当前证件、美国公民或合法居留证明，以及姓名不一致时的完整姓名变更文件': [
+        MI_REAL_ID,
+      ],
+      '在正常 renewal 或 replacement 同时转换 REAL ID 不加收升级费，其他时间转换按 correction 收取 driver license $9 或 state ID $10': [
+        MI_REAL_ID,
+      ],
+      '首次满足 Michigan 驾照全部要求的申请人通常会获发 REAL ID-compliant license，除非主动选择退出，但首次 REAL ID 仍需要到场和额外文件核验': [
+        MI_NEW_DRIVERS,
+        MI_LICENSE_ID,
+      ],
+      'Enhanced license/ID 只适用于符合美国公民和 Michigan 居民条件者，必须到场申请，可用于从加拿大、墨西哥、百慕大或加勒比地区经陆路或海路返回美国，也自动符合 REAL ID，但不能替代国际航空所需 passport': [
+        MI_ENHANCED,
+        MI_REAL_ID,
+      ],
+      '非美国公民申请或续期时要通过联邦 SAVE 核验，官方当前提示多数延迟案例从受理到处理约 40 天，这只是动态估计而不是承诺时限': [
+        MI_FIRST_TIME,
+        MI_RENEW,
+      ],
+      'Michigan 当前合法居留清单不接受 B1、B2、WB 或 WT 作为办证依据，F 身份通常要随 foreign passport、visa 和 I-94 提交 I-20，J 身份还要提交 DS-2019': [
+        MI_FIRST_TIME,
+        MI_REAL_ID,
+        MI_SOS428,
+      ],
+      '首次 license/ID 需要 legal presence、SSN、identity、两份 Michigan residency 和适用的姓名变更文件，license 申请人另做视力检查，18 岁及以上首次驾驶人还要完成知识与路考路径': [
+        MI_FIRST_TIME,
+        MI_NEW_DRIVERS,
+      ],
+      'SSA-L676 无 SSN 资格信的时效在官方材料间存在冲突，当前交易说明要求 60 天内签发，而 SOS-428 仍写一年，实际准备时应采用更严格的 60 天标准并在预约前确认': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+      ],
+      'Utility、credit-card bill 或 bank statement 用作住址证明时须为 90 天内文件，电子版本可接受，住址必须是 Michigan residential street address，P.O. Box 只能另作 mailing address': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+        MI_LICENSE_FAQ,
+      ],
+      '姓名与出生或合法居留文件不一致时要用原始 marriage certificate、certified divorce decree 或美国法院命令串联，经历多次改名时可能需要多份文件': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+        MI_LICENSE_FAQ,
+      ],
+      '18 岁及以上且过去 4 年没有 Michigan 或其他美国州驾照的首次驾驶人通常先通过知识和视力检查取得 $25 TIP，TIP 有效 180 天并要求至少 30 天由持照成人监督练习后才能路考': [
+        MI_NEW_DRIVERS,
+        MI_LICENSE_FAQ,
+      ],
+      '18 岁及以上可选择线上 knowledge test，当前总收费 $6.50，需带键盘和鼠标的电脑及 webcam，Operator 与 Signs 两部分约需 45 分钟和 15 分钟，办公室考试免费': [
+        MI_NEW_DRIVERS,
+        MI_ONLINE_TEST,
+      ],
+      '线上和办公室 knowledge test 提供多种外语及 audio/written 格式，官方另有 2025 年版中文驾驶手册，但中文手册的存在不等于每个考试渠道都保证中文，考试前应向实际入口或考点确认': [
+        MI_NEW_DRIVERS,
+        MI_MANUAL,
+        MI_LANGUAGE,
+      ],
+      'Michigan 路考由获授权的独立 driver testing business 执行，第三方收费不受 Department of State 统一定价，预约前应询问初考、重考、取消和材料不合格费用': [
+        MI_NEW_DRIVERS,
+        MI_DRIVER_TESTING,
+      ],
+      '路考车辆要有安全设备、有效 registration、当年 plate tab 和 Michigan No-Fault insurance，口译员可翻译 examiner 指令，但考生不能使用笔记、手机或其他辅助设备': [
+        MI_NEW_DRIVERS,
+      ],
+      '路考任一组成部分失败会终止当次考试，同一申请人 24 小时内只能参加一次 driving skills test，考官签发的 receipt 本身不是驾照': [
+        MI_NEW_DRIVERS,
+      ],
+      '路考结果电子送达后可从 e-Services 获取 Temporary Operator License，24 小时后仍未显示结果时应带 test certificate、TIP 和身份文件到 office 处理': [
+        MI_NEW_DRIVERS,
+      ],
+      'Michigan 新驾驶人取得 operator license 后至少有 3 年 probationary period，最后 10 个月出现责任事故、饮酒事故、暂停或交通定罪会延长该期限': [
+        MI_NEW_DRIVERS,
+      ],
+      '临时合法居留者的 limited-term license 只签发到获准留美期限，身份核验或延期处理中不能依据旧卡自行推断新的有效期': [
+        MI_NEW_DRIVERS,
+      ],
+      '当前普通 first-time driver license 为 $25，Standard ID 为 $10，Enhanced driver license 为 $45，Enhanced ID 为 $30': [
+        MI_LICENSE_ID,
+        MI_NEW_DRIVERS,
+        MI_ENHANCED,
+      ],
+      '普通 driver license 续期为 $18，逾期通常为 $25，Enhanced license 为 $38 或逾期 $45，Standard ID 续期 $10，Enhanced ID 续期 $30': [
+        MI_RENEW,
+        MI_LICENSE_ID,
+        MI_LICENSE_FAQ,
+      ],
+      'Self-service station 每个办理项目另收 $4.25 service fee，信用卡或借记卡在其他渠道也可能产生 additional fees': [
+        MI_RENEW,
+      ],
+      '最近两次都用线上、邮寄或 station 续期、非美国公民需要复核合法居留、照片超过 12 年、线上改址未满 28 天、证件逾期超过 4 年或被暂停撤销者，通常不能继续走普通 online renewal': [
+        MI_RENEW,
+        MI_LICENSE_FAQ,
+      ],
+      '补证可从 online、仅限外州居民的 mail、self-service station 或 office 开始，Standard duplicate 通常 $9，Enhanced duplicate $24，station 可打印 temporary credential': [
+        MI_REPLACE,
+        MI_LICENSE_FAQ,
+      ],
+      '最近 28 天内改过地址或已经申请过 replacement 的人通常要到 office 提供 identity proof，不能反复在线补证': [
+        MI_LICENSE_FAQ,
+        MI_REPLACE,
+      ],
+      '线上改址需要 Michigan license/ID number 和 SSN 后四位，车辆地址另需 plate number，license/ID 与 vehicle registration 地址必须分别更新，除非线上流程同时选择两项': [
+        MI_ADDRESS,
+      ],
+      'Standard credential 改址后会邮寄背面贴纸，Enhanced credential 会邮寄新卡，官方改址说明未列统一天数，但要求先完成 USPS change-of-address 以免证件和续期通知无法投递': [
+        MI_ADDRESS,
+      ],
+      '姓名更正必须先更新 Social Security Administration 记录，再带当前 Michigan credential 和 legal name-change document 到 office，当前 correction fee 为 license $9、ID $10': [
+        MI_LICENSE_ID,
+        MI_LICENSE_FAQ,
+      ],
+      'Michigan 当前 treaty 表把 China 列为 non-treaty、把 China (Taiwan) 列为 treaty，因此中国大陆驾照访客除英文驾照或英文翻译外还须能出示美国合法居留证明，台湾驾照访客按 treaty 路径不要求该项州内证明': [
+        MI_FOREIGN_TABLE,
+        MI_FOREIGN_GUIDANCE,
+      ],
+      '外国访客可持有效本国驾照加英文文本或 English translation/IDP 驾驶，IDP 只是随原驾照携带的翻译，不能单独当作驾照': [
+        MI_FOREIGN_GUIDANCE,
+        MI_LICENSE_FAQ,
+      ],
+      '外国驾照在申请 Michigan credential 时只能证明 driving experience，不能作为 identity 或 legal presence，也不享有美国州、领地或加拿大有效驾照的直接 conversion 路径': [
+        MI_SOS428,
+        MI_FIRST_TIME,
+        MI_NEW_RESIDENTS,
+      ],
+      '新居民持有效且未过期的其他美国州、美国领地或加拿大驾照，可预申请并到 office 提交原证件、合法居留、SSN、identity 和两份 Michigan residency 走 conversion，官方新居民说明没有公布统一的搬入后办证天数': [
+        MI_NEW_RESIDENTS,
+        MI_FIRST_TIME,
+        MI_LICENSE_FAQ,
+      ],
+      '新居民办理 Michigan plate 通常要带原始 vehicle title、Michigan No-Fault insurance、license/ID 或有效 passport、适用的 lienholder 文件和费用，title photocopy 不被接受': [
+        MI_NEW_RESIDENTS,
+      ],
+      'office 交易后领取的是 temporary paper credential，永久证件由安全设施制作并邮寄，可在 Online Services 的 View Credential Mail Status 查看 processed、mailed 或 USPS undeliverable 状态': [
+        MI_LICENSE_FAQ,
+      ],
+      '已有 Michigan credential 转换 REAL ID 时，带当前 license/ID、一份美国公民或合法居留证明，以及从原姓名连接到当前姓名的适用文件': [
+        MI_REAL_ID,
+      ],
+      '首次 license/ID 按 legal presence、SSN、identity、两份 Michigan residency 和 name-change chain 五组准备，申请驾照者另做 vision exam': [
+        MI_FIRST_TIME,
+      ],
+      'Legal presence 与 identity 文件须用原件，所有非英文文件要附 English translation，只有列明的 residency 文件可使用电子版本': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+        MI_LICENSE_FAQ,
+      ],
+      'SSN 可用 Social Security card、W-2、1099 或含姓名与 SSN 的 pay stub，无资格者按当前交易说明准备 60 天内 SSA-L676 并配合显示 non-work-authorized status 的 USCIS 文件': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+      ],
+      '两份 Michigan residency 都要有申请人姓名和 residential street address，90 天内 utility、credit-card bill 或 financial statement 可用电子版，P.O. Box 不能代替居住地址': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+        MI_LICENSE_FAQ,
+      ],
+      '姓名变化文件要显示前后姓名并把每次变化串联，marriage certificate 用原件，divorce decree 用 certified copy，美国法院命令也可作为相应证明': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+        MI_LICENSE_FAQ,
+      ],
+      '非美国公民常见组合包括有效 foreign passport、U.S. visa 与 I-94，F 身份另带 I-20，J 身份另带 DS-2019，B1/B2/WB/WT 不在当前可接受办证范围': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+        MI_REAL_ID,
+      ],
+      'Identity 通常用一份列明的美国或加拿大证件，无法走单文件路径时，foreign passport、I-94、EAD、I-571 或附 I-797 的过期移民文件等通常要按两份组合规则准备': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+      ],
+      'Enhanced credential 的 legal-presence 栏只列美国公民文件，申请还要 SSN、identity、两份 residency 和适用姓名文件，并必须本人到 office': [
+        MI_ENHANCED,
+      ],
+      '外国驾照须附 IDP 或 English translation 才能作为 driving experience proof，不能替代 legal presence、identity 或 Michigan residency': [
+        MI_SOS428,
+      ],
+      '先看现有卡面和旅行目的，只有国内航班或受限联邦设施需求时才在 REAL ID、Enhanced、passport 或其他 TSA accepted ID 中选择': [
+        MI_REAL_ID,
+        MI_ENHANCED,
+        TSA_IDENTIFICATION,
+      ],
+      '首次申请者按 First-time License/ID 路径预申请，已有 Michigan Standard credential 者按 Convert to REAL ID 路径预约，不把两条流程混用': [
+        MI_FIRST_TIME,
+        MI_REAL_ID,
+      ],
+      '把材料分成 legal presence、SSN、identity、two residency、name chain 五栏，逐栏确认姓名、生日和地址一致': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+      ],
+      '使用 SSA-L676 时按当前交易说明采用 60 天内文件，并在预约前再次确认官方冲突是否已消除': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+      ],
+      '非美国公民先确认具体移民文件是否被接受，为 SAVE 预留延迟，不在现有卡到期前最后几天才开始': [
+        MI_FIRST_TIME,
+        MI_REAL_ID,
+        MI_RENEW,
+      ],
+      '最多提前 6 个月预约 office，收到确认邮件后保留管理链接，walk-in 只作为可能排到当天稍后或下一工作日的备用方案': [
+        MI_APPOINTMENTS,
+      ],
+      '新居民先预申请并准备两份 Michigan residency，外州、美国领地或加拿大有效驾照走 conversion，外国驾照走 first-time driver 判断': [
+        MI_NEW_RESIDENTS,
+        MI_FIRST_TIME,
+        MI_SOS428,
+      ],
+      '成人首次考试前比较 $6.50 线上知识考试与免费 office 考试，线上路径提前准备电脑、键盘鼠标、webcam 和约一小时不受打扰的环境': [
+        MI_NEW_DRIVERS,
+      ],
+      '需要中文时先使用 2025 Chinese driver manual 学习，再向实际在线入口或 office 确认可选考试语言和 audio/written 格式': [
+        MI_MANUAL,
+        MI_NEW_DRIVERS,
+        MI_LANGUAGE,
+      ],
+      '取得 TIP 后记录 180 天到期日和最早 30 天路考日，只向 authorized driver testing business 预约并先问清全部第三方费用': [
+        MI_NEW_DRIVERS,
+        MI_DRIVER_TESTING,
+      ],
+      '路考前逐项检查 TIP、安全车辆、Michigan No-Fault insurance、registration、plate/tab，并提前安排只翻译指令的口译员': [
+        MI_NEW_DRIVERS,
+      ],
+      '通过路考后等待结果电子上传，再从 e-Services 获取 Temporary Operator License，24 小时仍无结果则带原始材料到 office': [
+        MI_NEW_DRIVERS,
+      ],
+      '续期前先用官方 eligibility 判断 online、mail、station 或 office，非公民核验、旧照片、连续远程续期或异常状态直接预留到场时间': [
+        MI_RENEW,
+      ],
+      '补证或改址时同时检查 license/ID 与 vehicle registration 两套地址，最近 28 天有相关操作时准备 identity proof 到 office': [
+        MI_REPLACE,
+        MI_ADDRESS,
+        MI_LICENSE_FAQ,
+      ],
+      '交易后保留 temporary paper credential，并用 View Credential Mail Status 追踪制作、寄送和 USPS 退件状态': [
+        MI_LICENSE_FAQ,
+      ],
+      '看到 Michigan Standard license 仍可驾驶，就误以为它也能直接通过国内航班安检': [
+        MI_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      'Enhanced credential 没有星标就重复申请 REAL ID，忽略 Enhanced 无论是否显示星标都自动合规': [
+        MI_REAL_ID,
+        MI_ENHANCED,
+      ],
+      '已有 Standard credential 却只做 online renewal，期待系统自动完成首次 REAL ID 转换': [
+        MI_REAL_ID,
+        MI_RENEW,
+      ],
+      '把扫描件、手机照片或普通 photocopy 当作 legal-presence 或 identity 原件': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+        MI_LICENSE_FAQ,
+      ],
+      '使用超过 60 天的 SSA-L676，只依据较旧 SOS-428 的一年口径准备': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+      ],
+      '只带一份 residency，或把 P.O. Box 当作 Michigan residential address': [
+        MI_FIRST_TIME,
+        MI_SOS428,
+        MI_LICENSE_FAQ,
+      ],
+      '持 B1/B2、WB/WT 或待核验移民文件时，未先确认当前 legal-presence 资格和 SAVE 状态': [
+        MI_FIRST_TIME,
+        MI_REAL_ID,
+      ],
+      '看到官方中文驾驶手册就预设线上或指定 office 一定提供中文 knowledge test': [
+        MI_MANUAL,
+        MI_NEW_DRIVERS,
+      ],
+      '购买所谓 international driver license 后不携带本国原驾照，或把 IDP 当成独立驾驶资格': [
+        MI_FOREIGN_GUIDANCE,
+        MI_LICENSE_FAQ,
+      ],
+      '持外国驾照时照搬美国州或加拿大驾照 conversion 路径，遗漏知识考试、TIP、路考或身份材料': [
+        MI_SOS428,
+        MI_FIRST_TIME,
+        MI_NEW_DRIVERS,
+        MI_NEW_RESIDENTS,
+      ],
+      '驾驶资格已 suspended、revoked 或 denied 仍支付 $6.50 线上知识考试费，官方明确这种情况不退款也不能发证': [
+        MI_NEW_DRIVERS,
+      ],
+      '路考时车辆缺 Michigan No-Fault insurance、有效 registration、当年 tab 或安全设备，导致考试在上路前取消': [
+        MI_NEW_DRIVERS,
+      ],
+      '把 driver testing business 的签字 receipt 当作可驾驶证件，没有等待电子结果并取得 Temporary Operator License': [
+        MI_NEW_DRIVERS,
+      ],
+      '连续使用非到场渠道续期后仍假定下一次一定可线上办理，未检查照片、合法居留和 28 天改址限制': [
+        MI_RENEW,
       ],
     },
   },

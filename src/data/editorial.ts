@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成密歇根州两页官方正文语义核对',
+    summary:
+      '逐条比对 Michigan SOS 的 Standard、REAL ID 与 Enhanced、首次与外州转入、材料、SAVE、成人知识考试、TIP、第三方路考、续期补证、费用、地址、预约、外国驾照和新居民正文；补齐首次申请与已有证件转换分流，并公开标注 SSA-L676 时效冲突及 China / China (Taiwan) treaty 差异。',
+    scope: ['密歇根州办事总览', '密歇根州 REAL ID', 'SSA-L676 冲突与外国驾照 treaty 路径', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成北卡罗来纳州两页官方正文语义核对',
     summary:
       '逐条比对 NCDMV 的 REAL ID、identity/SSN/residency、legal presence、保险、首次驾照、考试与口译、certified school road test、续期补证、费用、预约、外州证件注销、新居民和 2026 现场上传正文；补齐 60/30 天路线，并明确外国驾照、IDP、中文考试和 secure upload 的边界。',

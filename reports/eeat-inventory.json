@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T00:25:40.041Z",
+    "generatedAt": "2026-07-17T00:40:36.504Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 37,
+    "passed": 39,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 74,
-    "aiAssistedReviews": 43,
+    "sourceMappedReviews": 72,
+    "aiAssistedReviews": 45,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 127,
+    "blockedPages": 125,
     "averageScore": 96
   },
   "pages": [
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 240,
+        "sourceCount": 241,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 202,
+        "sourceCount": 203,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 46,
-        "directoryEvidenceLinks": 46,
+        "directoryEvidenceItems": 49,
+        "directoryEvidenceLinks": 49,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 449,
+        "sourceCount": 452,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -497,8 +497,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 163,
-        "directoryEvidenceLinks": 163,
+        "directoryEvidenceItems": 165,
+        "directoryEvidenceLinks": 165,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 133,
+        "sourceCount": 134,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -544,8 +544,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 63,
-        "directoryEvidenceLinks": 63,
+        "directoryEvidenceItems": 64,
+        "directoryEvidenceLinks": 64,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 120,
-        "directoryEvidenceLinks": 120,
+        "directoryEvidenceItems": 122,
+        "directoryEvidenceLinks": 122,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1082,
+        "sourceCount": 1085,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -2949,16 +2949,16 @@
       "risk": "medium",
       "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Michigan SOS 的 REAL ID、Standard/Enhanced 区别、首次与外州转入、材料、SAVE、外国驾照 treaty 规则、成人考试、TIP、路考、续期补证、费用、地址、预约和邮件状态正文。",
+        "notes": "重写 Michigan 总览与 REAL ID 页面，补齐首次申请默认 REAL ID 与已有证件转换的分流、SSA-L676 官方冲突、中国大陆/台湾 treaty 差异、线上知识考试、第三方路考、连续远程续期和新居民路径；所有声明已改为显式来源，仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2971,14 +2971,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 17,
-        "factCheckCount": 26,
+        "sourceCount": 21,
+        "factCheckCount": 38,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 26,
-        "stateEvidenceLinks": 29,
+        "stateEvidenceItems": 38,
+        "stateEvidenceLinks": 77,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2986,9 +2986,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/michigan/real-id/",
@@ -2996,16 +2994,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Michigan SOS 的 REAL ID、Standard/Enhanced 区别、首次与外州转入、材料、SAVE、外国驾照 treaty 规则、成人考试、TIP、路考、续期补证、费用、地址、预约和邮件状态正文。",
+        "notes": "重写 Michigan 总览与 REAL ID 页面，补齐首次申请默认 REAL ID 与已有证件转换的分流、SSA-L676 官方冲突、中国大陆/台湾 treaty 差异、线上知识考试、第三方路考、连续远程续期和新居民路径；所有声明已改为显式来源，仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3018,14 +3016,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 17,
-        "factCheckCount": 20,
+        "sourceCount": 21,
+        "factCheckCount": 40,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 20,
-        "stateEvidenceLinks": 22,
+        "stateEvidenceItems": 40,
+        "stateEvidenceLinks": 79,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3033,9 +3031,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/minnesota/",
