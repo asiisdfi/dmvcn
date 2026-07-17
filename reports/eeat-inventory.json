@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T00:00:23.545Z",
+    "generatedAt": "2026-07-17T00:25:40.041Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 35,
+    "passed": 37,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 76,
-    "aiAssistedReviews": 41,
+    "sourceMappedReviews": 74,
+    "aiAssistedReviews": 43,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 129,
+    "blockedPages": 127,
     "averageScore": 96
   },
   "pages": [
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 238,
+        "sourceCount": 240,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 55,
-        "directoryEvidenceLinks": 55,
+        "directoryEvidenceItems": 59,
+        "directoryEvidenceLinks": 59,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 200,
+        "sourceCount": 202,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 43,
-        "directoryEvidenceLinks": 43,
+        "directoryEvidenceItems": 46,
+        "directoryEvidenceLinks": 46,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 438,
+        "sourceCount": 449,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 175,
+        "sourceCount": 177,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -497,8 +497,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 162,
-        "directoryEvidenceLinks": 162,
+        "directoryEvidenceItems": 163,
+        "directoryEvidenceLinks": 163,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 132,
+        "sourceCount": 133,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -544,8 +544,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 64,
-        "directoryEvidenceLinks": 64,
+        "directoryEvidenceItems": 63,
+        "directoryEvidenceLinks": 63,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 152,
+        "sourceCount": 154,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 116,
-        "directoryEvidenceLinks": 116,
+        "directoryEvidenceItems": 120,
+        "directoryEvidenceLinks": 120,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -622,7 +622,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 201,
+        "sourceCount": 203,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -782,7 +782,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 197,
+        "sourceCount": 200,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1071,
+        "sourceCount": 1082,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -3975,16 +3975,16 @@
       "risk": "medium",
       "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 NCDMV 的 REAL ID、材料、legal presence、SSN、保险、首次驾照、考试与口译、road test、续期补证、费用、预约、外州证件注销、新居民与 2026 现场上传变化正文。",
+        "notes": "重写 North Carolina 总览与 REAL ID 页面，补齐 60/30 天路线、one-credential 风险、外国驾照与 IDP 边界、不同语言但不保证中文、7 天重考、certified school road test、连续线上续期和 secure upload 适用范围；所有声明已改为显式来源，仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3997,14 +3997,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 11,
-        "factCheckCount": 19,
+        "sourceCount": 23,
+        "factCheckCount": 38,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 19,
-        "stateEvidenceLinks": 22,
+        "stateEvidenceItems": 38,
+        "stateEvidenceLinks": 71,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4012,9 +4012,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/north-carolina/real-id/",
@@ -4022,16 +4020,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 NCDMV 的 REAL ID、材料、legal presence、SSN、保险、首次驾照、考试与口译、road test、续期补证、费用、预约、外州证件注销、新居民与 2026 现场上传变化正文。",
+        "notes": "重写 North Carolina 总览与 REAL ID 页面，补齐 60/30 天路线、one-credential 风险、外国驾照与 IDP 边界、不同语言但不保证中文、7 天重考、certified school road test、连续线上续期和 secure upload 适用范围；所有声明已改为显式来源，仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4044,14 +4042,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 11,
-        "factCheckCount": 15,
+        "sourceCount": 23,
+        "factCheckCount": 40,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 15,
-        "stateEvidenceLinks": 16,
+        "stateEvidenceItems": 40,
+        "stateEvidenceLinks": 80,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4059,9 +4057,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/north-dakota/",

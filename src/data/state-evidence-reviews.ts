@@ -400,6 +400,49 @@ const VA_TRACK =
 const VA_ONLINE =
   'https://www.dmv.virginia.gov/online-services-all';
 
+const NC_REAL_ID =
+  'https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx';
+const NC_REAL_ID_REQUIREMENTS =
+  'https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx';
+const NC_REAL_ID_WIZARD =
+  'https://www.ncdot.gov/dmv/real-id-wizard/Pages/default.aspx';
+const NC_NEW_DRIVERS =
+  'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx';
+const NC_TESTS =
+  'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx';
+const NC_INTERPRETER =
+  'https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx';
+const NC_SCHOOL_ROAD_TESTS =
+  'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-schools-road-tests.aspx';
+const NC_RENEW =
+  'https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx';
+const NC_REPLACE =
+  'https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx';
+const NC_FEES =
+  'https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/licenses-fees.aspx';
+const NC_LEGAL_PRESENCE =
+  'https://www.ncdot.gov/dmv/help/Pages/proving-legal-presence.aspx';
+const NC_SSN =
+  'https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx';
+const NC_INSURANCE =
+  'https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx';
+const NC_MOVING =
+  'https://www.ncdot.gov/dmv/help/moving/Pages/default.aspx';
+const NC_NEW_RESIDENTS =
+  'https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx';
+const NC_MOVING_WITHIN =
+  'https://www.ncdot.gov/dmv/help/moving/Pages/moving-within-nc.aspx';
+const NC_STATE_TO_STATE =
+  'https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/state-to-state-verification.aspx';
+const NC_APPOINTMENTS =
+  'https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx';
+const NC_OFFICES =
+  'https://www.ncdot.gov/dmv/offices-services/locate-dmv-office/Pages/dmv-offices.aspx';
+const NC_UPLOAD_UPDATE =
+  'https://www.ncdot.gov/news/press-releases/Pages/2026/2026-06-02-ncdmv-document-upload-tool.aspx';
+const NC_HANDBOOK =
+  'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -3350,6 +3393,343 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '完成交易后使用 Track Your DMV Products 查看生产和寄送状态，地址错误或 USPS 退件时及时联系 DMV': [
         VA_TRACK,
+      ],
+    },
+  },
+  'north-carolina': {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      NC_REAL_ID,
+      NC_REAL_ID_REQUIREMENTS,
+      NC_REAL_ID_WIZARD,
+      NC_NEW_DRIVERS,
+      NC_TESTS,
+      NC_INTERPRETER,
+      NC_SCHOOL_ROAD_TESTS,
+      NC_RENEW,
+      NC_REPLACE,
+      NC_FEES,
+      NC_LEGAL_PRESENCE,
+      NC_SSN,
+      NC_INSURANCE,
+      NC_MOVING,
+      NC_NEW_RESIDENTS,
+      NC_MOVING_WITHIN,
+      NC_STATE_TO_STATE,
+      NC_APPOINTMENTS,
+      NC_OFFICES,
+      NC_UPLOAD_UPDATE,
+      NC_HANDBOOK,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 NCDMV 的 REAL ID、材料、legal presence、SSN、保险、首次驾照、考试与口译、road test、续期补证、费用、预约、外州证件注销、新居民与 2026 现场上传变化正文。',
+    notes:
+      '重写 North Carolina 总览与 REAL ID 页面，补齐 60/30 天路线、one-credential 风险、外国驾照与 IDP 边界、不同语言但不保证中文、7 天重考、certified school road test、连续线上续期和 secure upload 适用范围；所有声明已改为显式来源，仍待真实人工签字。',
+    claims: {
+      'North Carolina REAL ID 完全自愿，Standard license 或 ID 仍可用于驾驶、投票和多数日常事务，但国内航班及部分联邦设施要改用 REAL ID、passport 或 TSA 接受的其他身份证件': [
+        NC_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '在 North Carolina 建立 permanent residence 后，计划驾驶者要在 60 天内取得本州驾照，通常应先完成 license/ID，再按就业开始日或原州 reciprocity 期限处理车辆 title/registration，车辆期限通常约 30 天且必须使用 North Carolina insurance': [
+        NC_NEW_RESIDENTS,
+      ],
+      '首次 North Carolina REAL ID 必须到 driver license office，通常要带一份 identity/date of birth、一份显示完整 SSN 的证明、两份当前 North Carolina physical address、适用的 legal presence 与完整姓名变更链，申请驾照还要提供 North Carolina 认可的 liability insurance proof': [
+        NC_REAL_ID,
+        NC_REAL_ID_REQUIREMENTS,
+        NC_INSURANCE,
+      ],
+      'Driver license office 预约最多提前 7 天，每个工作日释放新名额，收到链接后须在 15 分钟内确认': [
+        NC_APPOINTMENTS,
+      ],
+      '所有 driver license offices 也接收营业时间内 walk-in，直到当日容量满，license plate agency 不提供这类预约，也不能代办驾照或 REAL ID': [
+        NC_APPOINTMENTS,
+        NC_NEW_DRIVERS,
+        NC_OFFICES,
+      ],
+      '第一张 North Carolina REAL ID 不能在线取得，必须到 driver license office，所需文件会被扫描并永久保存在 NCDMV 记录中，已有 REAL ID 后才可能按续期资格在线办理': [
+        NC_REAL_ID,
+        NC_RENEW,
+      ],
+      'North Carolina REAL ID 本身没有额外附加费，到期前 6 个月内升级按 renewal 处理，超过 6 个月则按 $16.75 replacement 处理': [
+        NC_REAL_ID,
+        NC_REPLACE,
+      ],
+      '在 renewal window 外升级 REAL ID 要重新拍照但通常不重考，到期前 6 个月内升级则要做 vision test 并重新拍照': [
+        NC_REAL_ID,
+      ],
+      'North Carolina 是 one-credential state，签发新的或 replacement license/ID 后，其他州的 noncommercial license 或 ID 会通过 State-to-State Verification 自动取消': [
+        NC_STATE_TO_STATE,
+        NC_REAL_ID,
+      ],
+      '即使只申请 North Carolina state ID，若它成为最近签发的州证件，也可能取消仍在使用的外州驾照，不想取消外州证件就不要完成 North Carolina credential 签发': [
+        NC_STATE_TO_STATE,
+      ],
+      'REAL ID driver license 核心材料是一份 identity/date of birth、一份带 full SSN 的证明、两份 current physical address、适用的 legal presence 与每段姓名变更文件，另加 North Carolina liability insurance': [
+        NC_REAL_ID_REQUIREMENTS,
+        NC_INSURANCE,
+      ],
+      'REAL ID identification card 与 REAL ID driver license 的身份、SSN、两份住址、姓名链和 legal presence 规则相近，但 state ID 不要求 liability insurance': [
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      'Certified birth certificate 的普通 photocopy 不被接受，除非复印件由签发机构认证，美国 digital passport 也不能代替有效实体 passport': [
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      'REAL ID 的 SSN 证明必须显示 full Social Security number，Social Security card 不接受 photocopy、laminated card 或金属/塑料复制品': [
+        NC_REAL_ID_REQUIREMENTS,
+        NC_SSN,
+      ],
+      '1099、W-2 或 payroll record 可作为 REAL ID SSN 证明，但必须显示 full SSN，且姓名要和 identity document 对得上': [
+        NC_REAL_ID_REQUIREMENTS,
+        NC_SSN,
+      ],
+      '多次姓名变化要用多份 certified documents 串起每一段，国际 marriage license 要是 original 或 certified，并同时附 Name Change Affidavit': [
+        NC_REAL_ID,
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      'NCDMV 将 legal-presence 文件分成“可办 REAL ID”和“只能办非 REAL ID”两组，I-20、DS-2019、单独 I-94、部分 I-797 等不能因为可办 Standard credential 就自动用于 REAL ID': [
+        NC_LEGAL_PRESENCE,
+      ],
+      '外国 passport 用作 North Carolina REAL ID 文件时，必须有效且未过期，并附有效美国 visa 与 I-94 Arrival/Departure Record': [
+        NC_REAL_ID_REQUIREMENTS,
+        NC_LEGAL_PRESENCE,
+      ],
+      '首次申请 driver license 的 liability insurance 必须来自获准在 North Carolina 营业的保险公司，并在证明上列出每位申请驾驶人，learner permit 不要求该保险证明': [
+        NC_NEW_DRIVERS,
+        NC_REAL_ID_REQUIREMENTS,
+        NC_INSURANCE,
+      ],
+      '当前 NCDMV 允许带纸质保险证明，或在 driver license office 由工作人员引导安全上传 digital copy，直接展示普通手机图片不是同一办理路径': [
+        NC_INSURANCE,
+        NC_NEW_DRIVERS,
+        NC_UPLOAD_UPDATE,
+      ],
+      '2026 年启用的 in-office upload tool 目前用于保险和住址材料，不能据此把 identity、SSN、legal presence 或姓名文件都改成手机照片': [
+        NC_UPLOAD_UPDATE,
+        NC_REAL_ID_REQUIREMENTS,
+        NC_LEGAL_PRESENCE,
+        NC_SSN,
+      ],
+      '18 岁及以上首次申请普通驾照者要本人到 driver license office，并完成 written knowledge、traffic signs、vision 和 driving skills 四类测试': [
+        NC_NEW_DRIVERS,
+        NC_TESTS,
+      ],
+      '普通 Class C knowledge 或 driving test 未通过后，要等 7 个 calendar days 才能重考': [
+        NC_TESTS,
+      ],
+      '官方只说明 written knowledge test 提供不同语言并可按请求安排 oral test，没有在该页公开逐项语言清单，不要在未确认考点前保证一定有中文版本': [
+        NC_TESTS,
+      ],
+      '不熟悉英语的居民可在线或致电 (919) 715-7000 请求 language interpreter 协助 DMV transaction，但该服务说明不等于允许口译员代译考试答案': [
+        NC_INTERPRETER,
+        NC_TESTS,
+      ],
+      '持 learner permit 的成人和申请 Level 2 的青少年可选择 NCDMV certified driver education school 完成 road test，学校自行定价，之后仍要到 NCDMV 完成最终发证交易': [
+        NC_SCHOOL_ROAD_TESTS,
+        NC_NEW_DRIVERS,
+      ],
+      '首次办证后会收到 60-day Temporary Driving Certificate，正式卡通常在 20 个 business days 内寄到，临时证只可用于驾驶，不能当作 photo identification': [
+        NC_NEW_DRIVERS,
+        NC_HANDBOOK,
+      ],
+      '普通 Class C 驾照当前为 $6.50 per year，18 至 65 岁通常签发 8 年，按现行费率合计 $52，66 岁及以上通常 5 年，合计 $32.50': [
+        NC_FEES,
+        NC_NEW_DRIVERS,
+        NC_HANDBOOK,
+      ],
+      'Adult learner permit 当前为 $25.50，duplicate license/ID 为 $16.75，PayIt 线上交易另收每笔 $3 加 1.85% card processing fee': [
+        NC_FEES,
+        NC_REPLACE,
+        NC_HANDBOOK,
+      ],
+      'Non-REAL ID license/ID 目前可连续两次 online renewal，REAL ID 要连续第二次线上续期，则上次续期后须有一次本人到场并拍新照片的交易': [
+        NC_RENEW,
+      ],
+      '有美国政府签发的 legal-presence document、驾照暂停或欠款、普通 Class A/B、CDL、learner permit 或特定 restriction 的人不能走普通 online renewal': [
+        NC_RENEW,
+      ],
+      '线上 replacement 要求 credential 仍为 active、NCDMV 照片不超过 5 年并知道 DL/ID number，持 legal-presence document、要首次升级 REAL ID、被暂停或欠款者须到场': [
+        NC_REPLACE,
+      ],
+      '姓名变化后 60 天内要通知 NCDMV，先到 Social Security Administration 更新并至少等待 24 小时，再带 certified name-change proof 到 driver license office': [
+        NC_REPLACE,
+        NC_MOVING_WITHIN,
+      ],
+      'North Carolina 州内搬家后 60 天内要更新 physical address，并取得 replacement license/ID 与 replacement vehicle registration card，当前费用分别为 $16.75 和 $25.50': [
+        NC_MOVING,
+        NC_MOVING_WITHIN,
+        NC_REPLACE,
+      ],
+      '新居民持有效其他美国州驾照时，written 和 road tests 可能获免，官方没有对外国驾照作同样免试承诺，不应预设外国驾照可直接换领': [
+        NC_NEW_RESIDENTS,
+        NC_NEW_DRIVERS,
+        NC_TESTS,
+      ],
+      '在 North Carolina 合法驾驶需要美国州或其他国家政府签发的有效驾照，International Driving Permit 或所谓 international driver license 本身不被 North Carolina 执法机关承认为驾照': [
+        NC_NEW_RESIDENTS,
+      ],
+      '新居民要先取得 North Carolina license/ID，再办理车辆，车辆登记通常要在开始 gainful employment 或原州 reciprocity 期限届满时完成，通常约 30 天，且不接受外州保险': [
+        NC_NEW_RESIDENTS,
+      ],
+      '新居民首次登记车辆可以先不做 North Carolina inspection，但下一次 renewal 前必须完成检查': [
+        NC_NEW_RESIDENTS,
+      ],
+      '先用 NCDMV REAL ID Document Wizard 生成个人清单，再回到 Requirements 页面逐项核对，向导结果不能替代柜台最终审核': [
+        NC_REAL_ID_WIZARD,
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      '按 identity/date of birth、full SSN、two residency、legal presence、name changes 和 liability insurance 六栏整理，state ID 不需要最后一栏': [
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      '所有文件都使用一致的 full legal name，不一致时先列出从出生姓名到当前姓名的完整变化顺序': [
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      '出生证明使用 issuing agency 签发的 certified copy，不带普通 photocopy，passport 使用有效实体证件而不是 digital version': [
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      'SSN 栏优先准备未覆膜的原始 Social Security card，或显示 full SSN 的 1099、W-2、payroll record': [
+        NC_SSN,
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      '两份 residency 都要显示当前 North Carolina physical address，可用政府文件、utility/cable bill、lease、mortgage、tax、preprinted financial statement、school record 等官方认可材料': [
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      'Driver license 的保险证明应显示申请人姓名、policy number、effective/expiration dates，并确认 insurer 获准在 North Carolina 营业': [
+        NC_INSURANCE,
+      ],
+      '忘带保险或住址打印件时，只使用柜台提供的 secure upload 流程，不要把身份证明或移民文件上传给来历不明的链接': [
+        NC_INSURANCE,
+        NC_UPLOAD_UPDATE,
+        NC_REAL_ID_REQUIREMENTS,
+        NC_LEGAL_PRESENCE,
+      ],
+      '非美国公民申请 REAL ID 时，按 REAL ID legal-presence 清单准备 I-551、I-766、合规 foreign passport/visa/I-94 或其他列明文件': [
+        NC_REAL_ID_REQUIREMENTS,
+        NC_LEGAL_PRESENCE,
+      ],
+      '学生、交换访问者或其他临时身份先比较 legal-presence 页面两张表，能办 Standard credential 的 I-20、DS-2019 或 I-94 组合不一定能办 REAL ID': [
+        NC_LEGAL_PRESENCE,
+      ],
+      '国际 marriage license 要有 raised seal 或 certifying ink stamp，并附 NCDMV Name Change Affidavit，多次改名继续补齐每一段文件': [
+        NC_REAL_ID,
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      '新居民带 current out-of-state license，另准备 SSN、North Carolina physical address、适用的 legal presence 和本州 liability insurance，同时申请 REAL ID 时仍要补足两份住址等升级材料': [
+        NC_NEW_RESIDENTS,
+        NC_NEW_DRIVERS,
+        NC_REAL_ID_REQUIREMENTS,
+        NC_INSURANCE,
+      ],
+      '先判断自己是否确实需要州证件用于国内航班或受限联邦设施，已有有效 passport 时，可继续使用 Standard license 并避免不必要的升级交易': [
+        NC_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '需要第一张 REAL ID 时只从 NCDMV 官方页面进入 Document Wizard，并确认选择的是 driver license office 而不是 license plate agency': [
+        NC_REAL_ID,
+        NC_REAL_ID_WIZARD,
+        NC_APPOINTMENTS,
+        NC_OFFICES,
+      ],
+      '把 identity、full SSN、two physical-address proofs、legal presence、name chain 与 insurance 分栏，到场前逐项核对姓名和地址': [
+        NC_REAL_ID_REQUIREMENTS,
+        NC_INSURANCE,
+      ],
+      '非美国公民先在 legal-presence 页面判断文件属于 REAL ID 组还是 Standard-only 组，不根据签证类别自行推断': [
+        NC_LEGAL_PRESENCE,
+      ],
+      '准备 North Carolina liability insurance 的纸质证明，临时忘带时只按柜台工作人员给出的 secure upload 流程操作': [
+        NC_INSURANCE,
+        NC_UPLOAD_UPDATE,
+      ],
+      '预约时选 First Time、Duplicate、Renewal 或 ID Card 对应业务，并在收到确认链接后 15 分钟内确认，没有名额时可评估 walk-in 容量': [
+        NC_APPOINTMENTS,
+      ],
+      '新居民把 license 60 天和 vehicle registration 通常约 30 天分别记入日历，先取得 license/ID，再处理 North Carolina insurance、title 和 registration': [
+        NC_NEW_RESIDENTS,
+      ],
+      '首次考试前按 knowledge、traffic signs、vision、road skills 四项准备，需要语言帮助时先向考点确认实际语言，并单独申请 transaction interpreter': [
+        NC_TESTS,
+        NC_INTERPRETER,
+      ],
+      '已经持成人 learner permit 时，可比较 NCDMV office 与 certified driver education school 的 road test 时间和价格，完成后仍回 NCDMV 办最终证件': [
+        NC_SCHOOL_ROAD_TESTS,
+        NC_NEW_DRIVERS,
+      ],
+      '完成交易后保留 60-day Temporary Driving Certificate，但另备 passport 等 photo ID，并为正式卡预留 20 个 business days': [
+        NC_NEW_DRIVERS,
+        NC_HANDBOOK,
+        TSA_IDENTIFICATION,
+      ],
+      '续期或补证前先看 online eligibility，legal-presence、REAL ID 首次升级、暂停欠款或特殊 class/restriction 直接安排 office visit': [
+        NC_RENEW,
+        NC_REPLACE,
+      ],
+      '搬家或改名后在 60 天内更新，改名先完成 SSA 记录并等待至少 24 小时，再到 NCDMV 办 replacement': [
+        NC_MOVING_WITHIN,
+        NC_REPLACE,
+      ],
+      '以为第一次 REAL ID 可以在线申请，或在线续期时顺便上传文件完成首次升级': [
+        NC_REAL_ID,
+        NC_RENEW,
+      ],
+      '只带一份 North Carolina residency，或者材料显示 mailing address 而不是 current physical address': [
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      '把 license plate agency 当成 driver license office，预约后才发现不能办理驾照、ID 或 REAL ID': [
+        NC_APPOINTMENTS,
+        NC_OFFICES,
+      ],
+      '把 2026 in-office upload tool 理解为所有证件都可用手机照片，缺少身份、SSN、legal presence 或姓名文件原件': [
+        NC_UPLOAD_UPDATE,
+        NC_REAL_ID_REQUIREMENTS,
+        NC_LEGAL_PRESENCE,
+        NC_SSN,
+      ],
+      'SSN 文件只显示 last four digits，或带 laminated Social Security card、普通 photocopy 和复制品': [
+        NC_SSN,
+        NC_REAL_ID_REQUIREMENTS,
+      ],
+      '当前姓名和 birth certificate、passport 或 SSN 文件不一致，却没有带完整 certified name-change chain': [
+        NC_REAL_ID,
+        NC_REAL_ID_REQUIREMENTS,
+        NC_SSN,
+      ],
+      '持 I-20、DS-2019、单独 I-94 或部分 I-797 就认定一定符合 REAL ID，没有先看 legal-presence 的两组文件': [
+        NC_LEGAL_PRESENCE,
+      ],
+      '直接向柜员展示保险截图，却没有纸质证明，也没有使用办公室提供的 secure upload 流程': [
+        NC_INSURANCE,
+        NC_UPLOAD_UPDATE,
+        NC_NEW_DRIVERS,
+      ],
+      '看到“different languages”就断言某个考点一定提供中文，或把 transaction interpreter 当成可以代答或代译考试': [
+        NC_TESTS,
+        NC_INTERPRETER,
+      ],
+      '把 International Driving Permit 当作独立驾照，忽略 North Carolina 要求有效政府签发的国内或外国驾照': [
+        NC_NEW_RESIDENTS,
+      ],
+      '把外州驾照的 possible test waiver 套到外国驾照上，未准备 knowledge、sign、vision 和可能的 road test': [
+        NC_NEW_RESIDENTS,
+        NC_NEW_DRIVERS,
+        NC_TESTS,
+      ],
+      '持有 legal-presence document 仍直接尝试 online renewal 或 replacement，没有预留本人到场时间': [
+        NC_RENEW,
+        NC_REPLACE,
+      ],
+      '把 60-day Temporary Driving Certificate 当成可登机或开户的 photo ID，正式卡未到又没有其他身份证件': [
+        NC_NEW_DRIVERS,
+        NC_HANDBOOK,
+        TSA_IDENTIFICATION,
+      ],
+      '把驾照 60 天期限和车辆通常约 30 天的期限混在一起，或用外州 insurance 去办 North Carolina registration': [
+        NC_NEW_RESIDENTS,
+      ],
+      '外州学生只为银行或住房申请 North Carolina ID，却没意识到新签发 ID 可能自动取消仍要驾驶使用的外州 license': [
+        NC_STATE_TO_STATE,
       ],
     },
   },

@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T00:00:22.762Z",
+    "generatedAt": "2026-07-17T00:25:39.339Z",
     "pages": 100,
     "states": 50,
-    "claims": 1919,
-    "links": 2467,
-    "aiAssistedClaims": 813,
-    "aiAssistedPages": 24,
+    "claims": 1963,
+    "links": 2580,
+    "aiAssistedClaims": 891,
+    "aiAssistedPages": 26,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 828,
-        "links": 1077,
+        "claims": 847,
+        "links": 1126,
         "states": 50
       },
       "real-id": {
-        "claims": 1091,
-        "links": 1390,
+        "claims": 1116,
+        "links": 1454,
         "states": 50
       }
     }
@@ -17030,14 +17030,16 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "北卡 NCDMV 对首次 REAL ID 的规则很清楚：第一次必须到 driver license office，让文件被扫描进 NCDMV 记录",
+      "claim": "North Carolina REAL ID 完全自愿，Standard license 或 ID 仍可用于驾驶、投票和多数日常事务，但国内航班及部分联邦设施要改用 REAL ID、passport 或 TSA 接受的其他身份证件",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx"
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV N.C. REAL ID"
+        "对应官方来源：NCDMV N.C. REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -17048,62 +17050,18 @@
     {
       "stateId": "north-carolina",
       "surface": "overview",
-      "field": "summary",
-      "context": "real-id",
-      "claim": "已有 REAL ID 后才可能像普通证件一样线上续期",
-      "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
-        "https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NCDMV N.C. REAL ID",
-        "对应官方来源：NCDMV License & ID Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "renewal",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "north-carolina",
-      "surface": "overview",
       "field": "licenseSummary",
-      "context": "appointment",
-      "claim": "驾照、ID、续期、补证和预约都在 NCDMV License & ID 体系下，但 license plate agency 不是 driver license office",
+      "context": "document",
+      "claim": "在 North Carolina 建立 permanent residence 后，计划驾驶者要在 60 天内取得本州驾照，通常应先完成 license/ID，再按就业开始日或原州 reciprocity 期限处理车辆 title/registration，车辆期限通常约 30 天且必须使用 North Carolina insurance",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx"
+        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV Driver License Appointments"
+        "对应官方来源：NCDMV Moving to North Carolina"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "replacement",
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "north-carolina",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "需要 REAL ID 或驾照业务时要选对办公室类型",
-      "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NCDMV N.C. REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -17113,17 +17071,21 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "N.C. REAL ID 材料通常包括身份/生日、SSN、两份北卡居住地址、非美国出生者的 legal presence、姓名变更文件",
+      "claim": "首次 North Carolina REAL ID 必须到 driver license office，通常要带一份 identity/date of birth、一份显示完整 SSN 的证明、两份当前 North Carolina physical address、适用的 legal presence 与完整姓名变更链，申请驾照还要提供 North Carolina 认可的 liability insurance proof",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx"
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV N.C. REAL ID"
+        "对应官方来源：NCDMV N.C. REAL ID",
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Liability Insurance"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
+        "residency-proof",
         "ssn",
         "name-change"
       ],
@@ -17133,33 +17095,16 @@
     {
       "stateId": "north-carolina",
       "surface": "overview",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "申请驾照还可能需要 liability insurance proof",
-      "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NCDMV REAL ID Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "north-carolina",
-      "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "NCDMV driver license appointments 页面说明预约针对 driver license office，通常最多提前 7 天开放",
+      "claim": "Driver license office 预约最多提前 7 天，每个工作日释放新名额，收到链接后须在 15 分钟内确认",
       "sourceUrls": [
         "https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx"
       ],
       "sourceLabels": [
         "对应官方来源：NCDMV Driver License Appointments"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment"
       ],
@@ -17170,18 +17115,47 @@
       "stateId": "north-carolina",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "CDL road test 不能在线预约",
+      "context": "real-id",
+      "claim": "所有 driver license offices 也接收营业时间内 walk-in，直到当日容量满，license plate agency 不提供这类预约，也不能代办驾照或 REAL ID",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx"
+        "https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/offices-services/locate-dmv-office/Pages/dmv-offices.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV Driver License Appointments"
+        "对应官方来源：NCDMV Driver License Appointments",
+        "对应官方来源：NCDMV New Adult Drivers",
+        "对应官方来源：NCDMV DMV Office Locations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "appointment",
-        "test"
+        "real-id",
+        "appointment"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "第一张 North Carolina REAL ID 不能在线取得，必须到 driver license office，所需文件会被扫描并永久保存在 NCDMV 记录中，已有 REAL ID 后才可能按续期资格在线办理",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV N.C. REAL ID",
+        "对应官方来源：NCDMV License & ID Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -17191,14 +17165,251 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "北卡页面必须强调“first REAL ID in person”，这比普通材料清单更重要",
+      "claim": "North Carolina REAL ID 本身没有额外附加费，到期前 6 个月内升级按 renewal 处理，超过 6 个月则按 $16.75 replacement 处理",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV N.C. REAL ID",
+        "对应官方来源：NCDMV License & ID Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "在 renewal window 外升级 REAL ID 要重新拍照但通常不重考，到期前 6 个月内升级则要做 vision test 并重新拍照",
       "sourceUrls": [
         "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx"
       ],
       "sourceLabels": [
         "对应官方来源：NCDMV N.C. REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "North Carolina 是 one-credential state，签发新的或 replacement license/ID 后，其他州的 noncommercial license 或 ID 会通过 State-to-State Verification 自动取消",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/state-to-state-verification.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV State-to-State Verification",
+        "对应官方来源：NCDMV N.C. REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "即使只申请 North Carolina state ID，若它成为最近签发的州证件，也可能取消仍在使用的外州驾照，不想取消外州证件就不要完成 North Carolina credential 签发",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/state-to-state-verification.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV State-to-State Verification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID driver license 核心材料是一份 identity/date of birth、一份带 full SSN 的证明、两份 current physical address、适用的 legal presence 与每段姓名变更文件，另加 North Carolina liability insurance",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Liability Insurance"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID identification card 与 REAL ID driver license 的身份、SSN、两份住址、姓名链和 legal presence 规则相近，但 state ID 不要求 liability insurance",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV REAL ID Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Certified birth certificate 的普通 photocopy 不被接受，除非复印件由签发机构认证，美国 digital passport 也不能代替有效实体 passport",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV REAL ID Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 的 SSN 证明必须显示 full Social Security number，Social Security card 不接受 photocopy、laminated card 或金属/塑料复制品",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Social Security"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "1099、W-2 或 payroll record 可作为 REAL ID SSN 证明，但必须显示 full SSN，且姓名要和 identity document 对得上",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Social Security"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "多次姓名变化要用多份 certified documents 串起每一段，国际 marriage license 要是 original 或 certified，并同时附 Name Change Affidavit",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV N.C. REAL ID",
+        "对应官方来源：NCDMV REAL ID Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "NCDMV 将 legal-presence 文件分成“可办 REAL ID”和“只能办非 REAL ID”两组，I-20、DS-2019、单独 I-94、部分 I-797 等不能因为可办 Standard credential 就自动用于 REAL ID",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/Pages/proving-legal-presence.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Proving Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "外国 passport 用作 North Carolina REAL ID 文件时，必须有效且未过期，并附有效美国 visa 与 I-94 Arrival/Departure Record",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-legal-presence.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -17211,14 +17422,18 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "搬到北卡或州内搬家后的地址/证件/车辆记录处理页面写有 60 天窗口，应提醒用户优先看 moving 页面",
+      "claim": "首次申请 driver license 的 liability insurance 必须来自获准在 North Carolina 营业的保险公司，并在证明上列出每位申请驾驶人，learner permit 不要求该保险证明",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx"
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV Moving to North Carolina"
+        "对应官方来源：NCDMV New Adult Drivers",
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Liability Insurance"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -17227,17 +17442,45 @@
       "stateId": "north-carolina",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "appointment",
-      "claim": "预约地点容易混淆：license plate agency 处理车辆牌照，不等于 driver license office",
+      "context": "license",
+      "claim": "当前 NCDMV 允许带纸质保险证明，或在 driver license office 由工作人员引导安全上传 digital copy，直接展示普通手机图片不是同一办理路径",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx"
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+        "https://www.ncdot.gov/news/press-releases/Pages/2026/2026-06-02-ncdmv-document-upload-tool.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV Driver License Appointments"
+        "对应官方来源：NCDMV Proving Liability Insurance",
+        "对应官方来源：NCDMV New Adult Drivers",
+        "对应官方来源：NCDMV In-office Document Upload Update"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "2026 年启用的 in-office upload tool 目前用于保险和住址材料，不能据此把 identity、SSN、legal presence 或姓名文件都改成手机照片",
+      "sourceUrls": [
+        "https://www.ncdot.gov/news/press-releases/Pages/2026/2026-06-02-ncdmv-document-upload-tool.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-legal-presence.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV In-office Document Upload Update",
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Legal Presence",
+        "对应官方来源：NCDMV Proving Social Security"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "appointment"
+        "document",
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -17247,14 +17490,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "NCDMV Driver License Tests 页面说明测试包括 written knowledge、traffic signs、vision 和 driving skills",
+      "claim": "18 岁及以上首次申请普通驾照者要本人到 driver license office，并完成 written knowledge、traffic signs、vision 和 driving skills 四类测试",
       "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
         "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：NCDMV New Adult Drivers",
         "对应官方来源：NCDMV Driver License Tests"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test"
       ],
@@ -17265,17 +17510,17 @@
       "stateId": "north-carolina",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "document",
-      "claim": "Getting a License or Learner Permit 页面要求到 driver license office 完成材料和测试",
+      "context": "detail",
+      "claim": "普通 Class C knowledge 或 driving test 未通过后，要等 7 个 calendar days 才能重考",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV REAL ID Requirements"
+        "对应官方来源：NCDMV Driver License Tests"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -17284,15 +17529,15 @@
       "stateId": "north-carolina",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "license",
-      "claim": "NCDMV Driver License Tests 页面说明 written knowledge tests offered in different languages，oral tests available upon request",
+      "context": "detail",
+      "claim": "官方只说明 written knowledge test 提供不同语言并可按请求安排 oral test，没有在该页公开逐项语言清单，不要在未确认考点前保证一定有中文版本",
       "sourceUrls": [
         "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx"
       ],
       "sourceLabels": [
         "对应官方来源：NCDMV Driver License Tests"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test",
         "language"
@@ -17304,19 +17549,19 @@
       "stateId": "north-carolina",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "appointment",
-      "claim": "需要口试或语言协助时到场/预约前确认",
+      "context": "detail",
+      "claim": "不熟悉英语的居民可在线或致电 (919) 715-7000 请求 language interpreter 协助 DMV transaction，但该服务说明不等于允许口译员代译考试答案",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx",
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx"
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV Driver License Appointments",
-        "对应官方来源：NCDMV N.C. REAL ID"
+        "对应官方来源：NCDMV Interpreter Services",
+        "对应官方来源：NCDMV Driver License Tests"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "appointment",
+        "test",
         "language"
       ],
       "uncoveredThemes": [],
@@ -17326,57 +17571,17 @@
       "stateId": "north-carolina",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "document",
-      "claim": "NCDMV Moving to North Carolina 页面说明申请 NC driver license 要到 driver license office，带 out-of-state license 或身份/出生日期文件、SSN 文件、NC physical address 文件",
+      "context": "detail",
+      "claim": "持 learner permit 的成人和申请 Level 2 的青少年可选择 NCDMV certified driver education school 完成 road test，学校自行定价，之后仍要到 NCDMV 完成最终发证交易",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-schools-road-tests.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV Moving to North Carolina",
-        "对应官方来源：NCDMV REAL ID Requirements"
+        "对应官方来源：NCDMV Certified School Road Tests",
+        "对应官方来源：NCDMV New Adult Drivers"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "residency-proof",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "north-carolina",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "document",
-      "claim": "非美国出生还要 lawful status 文件",
-      "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NCDMV REAL ID Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "north-carolina",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "license",
-      "claim": "NCDMV Moving to North Carolina 页面说明 valid out-of-state license 可能免 written 和 road tests",
-      "sourceUrls": [
-        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NCDMV Moving to North Carolina"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test"
       ],
@@ -17387,17 +17592,268 @@
       "stateId": "north-carolina",
       "surface": "overview",
       "field": "editorNotes",
+      "context": "detail",
+      "claim": "首次办证后会收到 60-day Temporary Driving Certificate，正式卡通常在 20 个 business days 内寄到，临时证只可用于驾驶，不能当作 photo identification",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV New Adult Drivers",
+        "对应官方来源：North Carolina Driver Handbook"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
       "context": "license",
-      "claim": "但 North Carolina law enforcement authorities do not recognize international driver licenses，有外国驾照或 IDP 场景不要把 IDP 当驾照本身",
+      "claim": "普通 Class C 驾照当前为 $6.50 per year，18 至 65 岁通常签发 8 年，按现行费率合计 $52，66 岁及以上通常 5 年，合计 $32.50",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/licenses-fees.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Licenses & Fees",
+        "对应官方来源：NCDMV New Adult Drivers",
+        "对应官方来源：North Carolina Driver Handbook"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Adult learner permit 当前为 $25.50，duplicate license/ID 为 $16.75，PayIt 线上交易另收每笔 $3 加 1.85% card processing fee",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/licenses-fees.aspx",
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Licenses & Fees",
+        "对应官方来源：NCDMV License & ID Replacement",
+        "对应官方来源：North Carolina Driver Handbook"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Non-REAL ID license/ID 目前可连续两次 online renewal，REAL ID 要连续第二次线上续期，则上次续期后须有一次本人到场并拍新照片的交易",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV License & ID Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "有美国政府签发的 legal-presence document、驾照暂停或欠款、普通 Class A/B、CDL、learner permit 或特定 restriction 的人不能走普通 online renewal",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV License & ID Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "线上 replacement 要求 credential 仍为 active、NCDMV 照片不超过 5 年并知道 DL/ID number，持 legal-presence document、要首次升级 REAL ID、被暂停或欠款者须到场",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV License & ID Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "姓名变化后 60 天内要通知 NCDMV，先到 Social Security Administration 更新并至少等待 24 小时，再带 certified name-change proof 到 driver license office",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx",
+        "https://www.ncdot.gov/dmv/help/moving/Pages/moving-within-nc.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV License & ID Replacement",
+        "对应官方来源：NCDMV Moving Within North Carolina"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [
+        "ssn",
+        "name-change"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "North Carolina 州内搬家后 60 天内要更新 physical address，并取得 replacement license/ID 与 replacement vehicle registration card，当前费用分别为 $16.75 和 $25.50",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/moving/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/help/moving/Pages/moving-within-nc.aspx",
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Moving",
+        "对应官方来源：NCDMV Moving Within North Carolina",
+        "对应官方来源：NCDMV License & ID Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "address-change",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "新居民持有效其他美国州驾照时，written 和 road tests 可能获免，官方没有对外国驾照作同样免试承诺，不应预设外国驾照可直接换领",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Moving to North Carolina",
+        "对应官方来源：NCDMV New Adult Drivers",
+        "对应官方来源：NCDMV Driver License Tests"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "在 North Carolina 合法驾驶需要美国州或其他国家政府签发的有效驾照，International Driving Permit 或所谓 international driver license 本身不被 North Carolina 执法机关承认为驾照",
       "sourceUrls": [
         "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx"
       ],
       "sourceLabels": [
         "对应官方来源：NCDMV Moving to North Carolina"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "新居民要先取得 North Carolina license/ID，再办理车辆，车辆登记通常要在开始 gainful employment 或原州 reciprocity 期限届满时完成，通常约 30 天，且不接受外州保险",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Moving to North Carolina"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "新居民首次登记车辆可以先不做 North Carolina inspection，但下一次 renewal 前必须完成检查",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Moving to North Carolina"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "foreign-license"
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -17407,17 +17863,21 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "N.C. REAL ID 材料通常包括身份/生日、SSN、两份北卡居住地址、非美国出生者的 legal presence、姓名变更文件",
+      "claim": "首次 North Carolina REAL ID 必须到 driver license office，通常要带一份 identity/date of birth、一份显示完整 SSN 的证明、两份当前 North Carolina physical address、适用的 legal presence 与完整姓名变更链，申请驾照还要提供 North Carolina 认可的 liability insurance proof",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx"
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV N.C. REAL ID"
+        "对应官方来源：NCDMV N.C. REAL ID",
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Liability Insurance"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
+        "residency-proof",
         "ssn",
         "name-change"
       ],
@@ -17427,36 +17887,21 @@
     {
       "stateId": "north-carolina",
       "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "申请驾照还可能需要 liability insurance proof",
-      "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：NCDMV REAL ID Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "north-carolina",
-      "surface": "real-id",
       "field": "documentHighlights",
-      "context": "document",
-      "claim": "一份 identity/date of birth 文件和一份完整 SSN 文件",
+      "context": "real-id",
+      "claim": "先用 NCDMV REAL ID Document Wizard 生成个人清单，再回到 Requirements 页面逐项核对，向导结果不能替代柜台最终审核",
       "sourceUrls": [
+        "https://www.ncdot.gov/dmv/real-id-wizard/Pages/default.aspx",
         "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：NCDMV REAL ID Document Wizard",
         "对应官方来源：NCDMV REAL ID Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "ssn"
+        "real-id",
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -17466,17 +17911,18 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 current physical address 的 North Carolina residency 文件",
+      "claim": "按 identity/date of birth、full SSN、two residency、legal presence、name changes 和 liability insurance 六栏整理，state ID 不需要最后一栏",
       "sourceUrls": [
         "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
       ],
       "sourceLabels": [
         "对应官方来源：NCDMV REAL ID Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "residency-proof"
+        "residency-proof",
+        "ssn",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -17486,14 +17932,14 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "非美国公民或非美国出生场景，要按 legal presence/lawful status 要求准备文件",
+      "claim": "所有文件都使用一致的 full legal name，不一致时先列出从出生姓名到当前姓名的完整变化顺序",
       "sourceUrls": [
         "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
       ],
       "sourceLabels": [
         "对应官方来源：NCDMV REAL ID Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -17505,14 +17951,74 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "申请 driver license 时，可能需要北卡认可保险公司的 liability insurance proof",
+      "claim": "出生证明使用 issuing agency 签发的 certified copy，不带普通 photocopy，passport 使用有效实体证件而不是 digital version",
       "sourceUrls": [
         "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
       ],
       "sourceLabels": [
         "对应官方来源：NCDMV REAL ID Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "SSN 栏优先准备未覆膜的原始 Social Security card，或显示 full SSN 的 1099、W-2、payroll record",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Proving Social Security",
+        "对应官方来源：NCDMV REAL ID Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两份 residency 都要显示当前 North Carolina physical address，可用政府文件、utility/cable bill、lease、mortgage、tax、preprinted financial statement、school record 等官方认可材料",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV REAL ID Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Driver license 的保险证明应显示申请人姓名、policy number、effective/expiration dates，并确认 insurer 获准在 North Carolina 营业",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Proving Liability Insurance"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -17522,31 +18028,62 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "learner permit 例外",
+      "claim": "忘带保险或住址打印件时，只使用柜台提供的 secure upload 流程，不要把身份证明或移民文件上传给来历不明的链接",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx",
+        "https://www.ncdot.gov/news/press-releases/Pages/2026/2026-06-02-ncdmv-document-upload-tool.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-legal-presence.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV REAL ID Requirements"
+        "对应官方来源：NCDMV Proving Liability Insurance",
+        "对应官方来源：NCDMV In-office Document Upload Update",
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Legal Presence"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
     {
       "stateId": "north-carolina",
       "surface": "real-id",
-      "field": "recommendedSteps",
+      "field": "documentHighlights",
       "context": "real-id",
-      "claim": "打开 NCDMV REAL ID 页面，先确认是否是第一次 REAL ID",
+      "claim": "非美国公民申请 REAL ID 时，按 REAL ID legal-presence 清单准备 I-551、I-766、合规 foreign passport/visa/I-94 或其他列明文件",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx"
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-legal-presence.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV N.C. REAL ID"
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Legal Presence"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "学生、交换访问者或其他临时身份先比较 legal-presence 页面两张表，能办 Standard credential 的 I-20、DS-2019 或 I-94 组合不一定能办 REAL ID",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/Pages/proving-legal-presence.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Proving Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -17556,19 +18093,176 @@
     {
       "stateId": "north-carolina",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "第一次 REAL ID 用 requirements 页面核对材料，并预约 driver license office",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "国际 marriage license 要有 raised seal 或 certifying ink stamp，并附 NCDMV Name Change Affidavit，多次改名继续补齐每一段文件",
       "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
         "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：NCDMV N.C. REAL ID",
         "对应官方来源：NCDMV REAL ID Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "新居民带 current out-of-state license，另准备 SSN、North Carolina physical address、适用的 legal presence 和本州 liability insurance，同时申请 REAL ID 时仍要补足两份住址等升级材料",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Moving to North Carolina",
+        "对应官方来源：NCDMV New Adult Drivers",
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Liability Insurance"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "先判断自己是否确实需要州证件用于国内航班或受限联邦设施，已有有效 passport 时，可继续使用 Standard license 并避免不必要的升级交易",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV N.C. REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "需要第一张 REAL ID 时只从 NCDMV 官方页面进入 Document Wizard，并确认选择的是 driver license office 而不是 license plate agency",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/real-id-wizard/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/offices-services/locate-dmv-office/Pages/dmv-offices.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV N.C. REAL ID",
+        "对应官方来源：NCDMV REAL ID Document Wizard",
+        "对应官方来源：NCDMV Driver License Appointments",
+        "对应官方来源：NCDMV DMV Office Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "把 identity、full SSN、two physical-address proofs、legal presence、name chain 与 insurance 分栏，到场前逐项核对姓名和地址",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Liability Insurance"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "非美国公民先在 legal-presence 页面判断文件属于 REAL ID 组还是 Standard-only 组，不根据签证类别自行推断",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/Pages/proving-legal-presence.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Proving Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "准备 North Carolina liability insurance 的纸质证明，临时忘带时只按柜台工作人员给出的 secure upload 流程操作",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx",
+        "https://www.ncdot.gov/news/press-releases/Pages/2026/2026-06-02-ncdmv-document-upload-tool.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Proving Liability Insurance",
+        "对应官方来源：NCDMV In-office Document Upload Update"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "预约时选 First Time、Duplicate、Renewal 或 ID Card 对应业务，并在收到确认链接后 15 分钟内确认，没有名额时可评估 walk-in 容量",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Driver License Appointments"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
         "appointment"
       ],
       "uncoveredThemes": [],
@@ -17578,21 +18272,17 @@
       "stateId": "north-carolina",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "已有 REAL ID 后，续期前再看 license renewal 页面判断是否可线上完成",
+      "context": "detail",
+      "claim": "新居民把 license 60 天和 vehicle registration 通常约 30 天分别记入日历，先取得 license/ID，再处理 North Carolina insurance、title 和 registration",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
-        "https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx"
+        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV N.C. REAL ID",
-        "对应官方来源：NCDMV License & ID Renewal"
+        "对应官方来源：NCDMV Moving to North Carolina"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "renewal",
-        "online-service"
+        "transfer"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -17601,17 +18291,119 @@
       "stateId": "north-carolina",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "license",
-      "claim": "搬家或搬入北卡时，从 NCDMV moving 页面开始，按地址、驾照、车辆记录顺序处理",
+      "context": "detail",
+      "claim": "首次考试前按 knowledge、traffic signs、vision、road skills 四项准备，需要语言帮助时先向考点确认实际语言，并单独申请 transaction interpreter",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx"
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV Moving to North Carolina"
+        "对应官方来源：NCDMV Driver License Tests",
+        "对应官方来源：NCDMV Interpreter Services"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
       "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "已经持成人 learner permit 时，可比较 NCDMV office 与 certified driver education school 的 road test 时间和价格，完成后仍回 NCDMV 办最终证件",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-schools-road-tests.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Certified School Road Tests",
+        "对应官方来源：NCDMV New Adult Drivers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "完成交易后保留 60-day Temporary Driving Certificate，但另备 passport 等 photo ID，并为正式卡预留 20 个 business days",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV New Adult Drivers",
+        "对应官方来源：North Carolina Driver Handbook",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "续期或补证前先看 online eligibility，legal-presence、REAL ID 首次升级、暂停欠款或特殊 class/restriction 直接安排 office visit",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx",
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV License & ID Renewal",
+        "对应官方来源：NCDMV License & ID Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "搬家或改名后在 60 天内更新，改名先完成 SSA 记录并等待至少 24 小时，再到 NCDMV 办 replacement",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/moving/Pages/moving-within-nc.aspx",
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Moving Within North Carolina",
+        "对应官方来源：NCDMV License & ID Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "name-change",
+        "replacement"
+      ],
+      "uncoveredThemes": [
+        "ssn",
+        "name-change"
+      ],
       "valid": true
     },
     {
@@ -17619,16 +18411,19 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "以为第一次 REAL ID 可以在线办理或在线续期时顺便升级",
+      "claim": "以为第一次 REAL ID 可以在线申请，或在线续期时顺便上传文件完成首次升级",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx"
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV N.C. REAL ID"
+        "对应官方来源：NCDMV N.C. REAL ID",
+        "对应官方来源：NCDMV License & ID Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "document",
         "renewal"
       ],
       "uncoveredThemes": [],
@@ -17639,16 +18434,18 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "只准备一份北卡地址证明",
+      "claim": "只带一份 North Carolina residency，或者材料显示 mailing address 而不是 current physical address",
       "sourceUrls": [
         "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
       ],
       "sourceLabels": [
         "对应官方来源：NCDMV REAL ID Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "document",
+        "residency-proof",
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -17658,16 +18455,156 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "把 license plate agency 当成能办 REAL ID 的 driver license office",
+      "claim": "把 license plate agency 当成 driver license office，预约后才发现不能办理驾照、ID 或 REAL ID",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx"
+        "https://www.ncdot.gov/dmv/license-id/driver-license-appointments/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/offices-services/locate-dmv-office/Pages/dmv-offices.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV N.C. REAL ID"
+        "对应官方来源：NCDMV Driver License Appointments",
+        "对应官方来源：NCDMV DMV Office Locations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "real-id",
+        "appointment"
+      ],
+      "uncoveredThemes": [
         "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "把 2026 in-office upload tool 理解为所有证件都可用手机照片，缺少身份、SSN、legal presence 或姓名文件原件",
+      "sourceUrls": [
+        "https://www.ncdot.gov/news/press-releases/Pages/2026/2026-06-02-ncdmv-document-upload-tool.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-legal-presence.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV In-office Document Upload Update",
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Legal Presence",
+        "对应官方来源：NCDMV Proving Social Security"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "SSN 文件只显示 last four digits，或带 laminated Social Security card、普通 photocopy 和复制品",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Proving Social Security",
+        "对应官方来源：NCDMV REAL ID Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "当前姓名和 birth certificate、passport 或 SSN 文件不一致，却没有带完整 certified name-change chain",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+        "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV N.C. REAL ID",
+        "对应官方来源：NCDMV REAL ID Requirements",
+        "对应官方来源：NCDMV Proving Social Security"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "持 I-20、DS-2019、单独 I-94 或部分 I-797 就认定一定符合 REAL ID，没有先看 legal-presence 的两组文件",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/Pages/proving-legal-presence.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Proving Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "直接向柜员展示保险截图，却没有纸质证明，也没有使用办公室提供的 secure upload 流程",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/Pages/proving-insurance.aspx",
+        "https://www.ncdot.gov/news/press-releases/Pages/2026/2026-06-02-ncdmv-document-upload-tool.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Proving Liability Insurance",
+        "对应官方来源：NCDMV In-office Document Upload Update",
+        "对应官方来源：NCDMV New Adult Drivers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "看到“different languages”就断言某个考点一定提供中文，或把 transaction interpreter 当成可以代答或代译考试",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Driver License Tests",
+        "对应官方来源：NCDMV Interpreter Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -17677,14 +18614,123 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "license",
-      "claim": "搬入北卡后没有在官方 moving 页面给出的期限内处理地址、驾照和车辆记录",
+      "claim": "把 International Driving Permit 当作独立驾照，忽略 North Carolina 要求有效政府签发的国内或外国驾照",
       "sourceUrls": [
         "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx"
       ],
       "sourceLabels": [
         "对应官方来源：NCDMV Moving to North Carolina"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把外州驾照的 possible test waiver 套到外国驾照上，未准备 knowledge、sign、vision 和可能的 road test",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Moving to North Carolina",
+        "对应官方来源：NCDMV New Adult Drivers",
+        "对应官方来源：NCDMV Driver License Tests"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "持有 legal-presence document 仍直接尝试 online renewal 或 replacement，没有预留本人到场时间",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx",
+        "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV License & ID Renewal",
+        "对应官方来源：NCDMV License & ID Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "renewal",
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "把 60-day Temporary Driving Certificate 当成可登机或开户的 photo ID，正式卡未到又没有其他身份证件",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+        "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV New Adult Drivers",
+        "对应官方来源：North Carolina Driver Handbook",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把驾照 60 天期限和车辆通常约 30 天的期限混在一起，或用外州 insurance 去办 North Carolina registration",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV Moving to North Carolina"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "north-carolina",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "外州学生只为银行或住房申请 North Carolina ID，却没意识到新签发 ID 可能自动取消仍要驾驶使用的外州 license",
+      "sourceUrls": [
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/state-to-state-verification.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：NCDMV State-to-State Verification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true

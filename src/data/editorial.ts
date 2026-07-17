@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成北卡罗来纳州两页官方正文语义核对',
+    summary:
+      '逐条比对 NCDMV 的 REAL ID、identity/SSN/residency、legal presence、保险、首次驾照、考试与口译、certified school road test、续期补证、费用、预约、外州证件注销、新居民和 2026 现场上传正文；补齐 60/30 天路线，并明确外国驾照、IDP、中文考试和 secure upload 的边界。',
+    scope: ['北卡罗来纳州办事总览', '北卡罗来纳州 REAL ID', '现场上传与外州证件注销', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成弗吉尼亚州两页官方正文语义核对',
     summary:
       '逐条比对 Virginia DMV 的 REAL ID、材料、驾照资格、续期补证、姓名地址、新居民、中文考试、road test、permit、外国驾照、六国互惠、Driver Privilege Card、legal presence 和费用正文；补齐 30/60 天与 2027 年训练变化，并明确 Taiwan knowledge test 和 EAD I-766 边界。',

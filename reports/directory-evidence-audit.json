@@ -1,30 +1,30 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T00:00:22.167Z",
+    "generatedAt": "2026-07-17T00:25:38.780Z",
     "pages": 5,
-    "claims": 440,
+    "claims": 451,
     "statesCovered": 49,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 55,
-        "states": 20
+        "claims": 59,
+        "states": 21
       },
       "deadlines": {
-        "claims": 43,
-        "states": 17
+        "claims": 46,
+        "states": 18
       },
       "document-rules": {
-        "claims": 162,
+        "claims": 163,
         "states": 47
       },
       "foreign-license": {
-        "claims": 64,
+        "claims": 63,
         "states": 25
       },
       "identity-ssn": {
-        "claims": 116,
-        "states": 37
+        "claims": 120,
+        "states": 38
       }
     }
   },
@@ -591,6 +591,58 @@
         "residency-documents",
         "ssn",
         "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "north-carolina",
+      "category": "费用",
+      "claim": "普通 Class C 驾照当前为 $6.50 per year，18 至 65 岁通常签发 8 年，按现行费率合计 $52，66 岁及以上通常 5 年，合计 $32.50",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/licenses-fees.aspx",
+      "sourceLabel": "对应官方来源：NCDMV Licenses & Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "north-carolina",
+      "category": "费用",
+      "claim": "Adult learner permit 当前为 $25.50，duplicate license/ID 为 $16.75，PayIt 线上交易另收每笔 $3 加 1.85% card processing fee",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/licenses-fees.aspx",
+      "sourceLabel": "对应官方来源：NCDMV Licenses & Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "north-carolina",
+      "category": "邮寄 / 卡片",
+      "claim": "首次办证后会收到 60-day Temporary Driving Certificate，正式卡通常在 20 个 business days 内寄到，临时证只可用于驾驶，不能当作 photo identification",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx",
+      "sourceLabel": "对应官方来源：NCDMV License & ID Replacement",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "north-carolina",
+      "category": "处理时间",
+      "claim": "完成交易后保留 60-day Temporary Driving Certificate，但另备 passport 等 photo ID，并为正式卡预留 20 个 business days",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx",
+      "sourceLabel": "对应官方来源：NCDMV License & ID Replacement",
+      "themes": [
+        "processing-or-mail"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false
@@ -1167,6 +1219,45 @@
       "claim": "USPS 不会转寄 Virginia license 或 ID，线上补证和续期前都应先确认 DMV 记录地址，并至少预留 15 天收件",
       "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/license/renewing",
       "sourceLabel": "对应官方来源：Virginia DMV Renew Driver License",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "north-carolina",
+      "category": "搬家 / 地址",
+      "claim": "新居民把 license 60 天和 vehicle registration 通常约 30 天分别记入日历，先取得 license/ID，再处理 North Carolina insurance、title 和 registration",
+      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
+      "sourceLabel": "对应官方来源：NCDMV Moving to North Carolina",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "north-carolina",
+      "category": "搬家 / 地址",
+      "claim": "搬家或改名后在 60 天内更新，改名先完成 SSA 记录并等待至少 24 小时，再到 NCDMV 办 replacement",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "deadlines",
+      "stateId": "north-carolina",
+      "category": "续期 / 到期",
+      "claim": "在 renewal window 外升级 REAL ID 要重新拍照但通常不重考，到期前 6 个月内升级则要做 vision test 并重新拍照",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx",
+      "sourceLabel": "对应官方来源：NCDMV License & ID Renewal",
       "themes": [
         "renewal"
       ],
@@ -1916,7 +2007,22 @@
       "page": "document-rules",
       "stateId": "north-carolina",
       "category": "地址证明",
-      "claim": "两份 current physical address 的 North Carolina residency 文件",
+      "claim": "按 identity/date of birth、full SSN、two residency、legal presence、name changes 和 liability insurance 六栏整理，state ID 不需要最后一栏",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "document-rules",
+      "stateId": "north-carolina",
+      "category": "地址证明",
+      "claim": "两份 residency 都要显示当前 North Carolina physical address，可用政府文件、utility/cable bill、lease、mortgage、tax、preprinted financial statement、school record 等官方认可材料",
       "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
       "sourceLabel": "对应官方来源：NCDMV Moving to North Carolina",
       "themes": [
@@ -1928,26 +2034,30 @@
     {
       "page": "document-rules",
       "stateId": "north-carolina",
-      "category": "清单入口",
-      "claim": "打开 NCDMV REAL ID 页面，先确认是否是第一次 REAL ID",
-      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
-      "sourceLabel": "对应官方来源：NCDMV N.C. REAL ID",
-      "themes": [],
+      "category": "地址证明",
+      "claim": "REAL ID driver license 核心材料是一份 identity/date of birth、一份带 full SSN 的证明、两份 current physical address、适用的 legal presence 与每段姓名变更文件，另加 North Carolina liability insurance",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "document-rules",
       "stateId": "north-carolina",
-      "category": "清单入口",
-      "claim": "第一次 REAL ID 用 requirements 页面核对材料，并预约 driver license office",
-      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
-      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "category": "地址证明",
+      "claim": "姓名变化后 60 天内要通知 NCDMV，先到 Social Security Administration 更新并至少等待 24 小时，再带 certified name-change proof 到 driver license office",
+      "sourceUrl": "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx",
+      "sourceLabel": "对应官方来源：NCDMV Proving Social Security",
       "themes": [
-        "appointment"
+        "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "document-rules",
@@ -3986,37 +4096,20 @@
       "page": "foreign-license",
       "stateId": "north-carolina",
       "category": "外州 / 加拿大转入",
-      "claim": "NCDMV Moving to North Carolina 页面说明申请 NC driver license 要到 driver license office，带 out-of-state license 或身份/出生日期文件、SSN 文件、NC physical address 文件",
-      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
-      "sourceLabel": "对应官方来源：NCDMV Moving to North Carolina",
+      "claim": "即使只申请 North Carolina state ID，若它成为最近签发的州证件，也可能取消仍在使用的外州驾照，不想取消外州证件就不要完成 North Carolina credential 签发",
+      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/default.aspx",
+      "sourceLabel": "对应官方来源：NCDMV Moving",
       "themes": [
-        "residency-documents",
-        "new-resident",
-        "out-of-state",
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "north-carolina",
-      "category": "外州 / 加拿大转入",
-      "claim": "NCDMV Moving to North Carolina 页面说明 valid out-of-state license 可能免 written 和 road tests",
-      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
-      "sourceLabel": "对应官方来源：NCDMV Moving to North Carolina",
-      "themes": [
-        "new-resident",
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": false
     },
     {
       "page": "foreign-license",
       "stateId": "north-carolina",
       "category": "IDP / 国际驾照",
-      "claim": "New Residents：NCDMV 搬入北卡后 driver license、out-of-state license、国际驾照不被承认、车辆登记和保险顺序说明",
+      "claim": "New Residents：处理 license 60 天、车辆通常约 30 天、外州换证、IDP 和 NC insurance",
       "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
       "sourceLabel": "对应官方来源：NCDMV Moving to North Carolina",
       "themes": [
@@ -4898,6 +4991,62 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": true
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "north-carolina",
+      "category": "SSN",
+      "claim": "REAL ID driver license 核心材料是一份 identity/date of birth、一份带 full SSN 的证明、两份 current physical address、适用的 legal presence 与每段姓名变更文件，另加 North Carolina liability insurance",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "north-carolina",
+      "category": "SSN",
+      "claim": "REAL ID identification card 与 REAL ID driver license 的身份、SSN、两份住址、姓名链和 legal presence 规则相近，但 state ID 不要求 liability insurance",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "north-carolina",
+      "category": "SSN",
+      "claim": "1099、W-2 或 payroll record 可作为 REAL ID SSN 证明，但必须显示 full SSN，且姓名要和 identity document 对得上",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "north-carolina",
+      "category": "SSN",
+      "claim": "2026 年启用的 in-office upload tool 目前用于保险和住址材料，不能据此把 identity、SSN、legal presence 或姓名文件都改成手机照片",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false
     },
     {
       "page": "identity-ssn",
