@@ -481,6 +481,36 @@ const MI_DRIVER_TESTING =
 const MI_ONLINE_TEST =
   'https://www.michigan.gov/sos/resources/news/2025/07/02/michigan-secretary-of-state-now-offers-online-drivers-license-testing-for-adults';
 
+const OH_REAL_ID = 'https://www.bmv.ohio.gov/dl-real-id.aspx';
+const OH_DOCUMENTS =
+  'https://www.bmv.ohio.gov/dl-identity-documents.aspx';
+const OH_COMPLIANT_PDF =
+  'https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/bmv2430.pdf';
+const OH_STANDARD_PDF =
+  'https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/bmv2424.pdf';
+const OH_FIRST_ISSUANCE = 'https://www.bmv.ohio.gov/dl-gdl.aspx';
+const OH_MANUAL =
+  'https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/hsy7607.pdf';
+const OH_NON_US =
+  'https://www.bmv.ohio.gov/dl-non-permanent-resident.aspx';
+const OH_RENEW =
+  'https://www.bmv.ohio.gov/dl-renewal-current.aspx';
+const OH_REPRINT =
+  'https://www.bmv.ohio.gov/dl-reprint-duplicate.aspx';
+const OH_ID_CARD = 'https://www.bmv.ohio.gov/dl-id-card.aspx';
+const OH_FEES = 'https://www.bmv.ohio.gov/doc-fees.aspx';
+const OH_ONLINE = 'https://bmvonline.dps.ohio.gov/';
+const OH_NEW_RESIDENTS = 'https://www.bmv.ohio.gov/new-to-ohio.aspx';
+const OH_FORMS = 'https://www.bmv.ohio.gov/doc-forms.aspx';
+const OH_LAW_TERM =
+  'https://codes.ohio.gov/ohio-revised-code/section-4507.09/9-30-2025';
+const OH_LAW_NEW_RESIDENT =
+  'https://codes.ohio.gov/ohio-revised-code/section-4507.213';
+const OH_LAW_RECIPROCITY =
+  'https://codes.ohio.gov/ohio-revised-code/section-4507.101';
+const OH_LAW_ONLINE =
+  'https://codes.ohio.gov/ohio-revised-code/section-4507.061';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -4109,6 +4139,486 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '连续使用非到场渠道续期后仍假定下一次一定可线上办理，未检查照片、合法居留和 28 天改址限制': [
         MI_RENEW,
+      ],
+    },
+  },
+  ohio: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      OH_REAL_ID,
+      OH_DOCUMENTS,
+      OH_COMPLIANT_PDF,
+      OH_STANDARD_PDF,
+      OH_FIRST_ISSUANCE,
+      OH_MANUAL,
+      OH_NON_US,
+      OH_RENEW,
+      OH_REPRINT,
+      OH_ID_CARD,
+      OH_FEES,
+      OH_ONLINE,
+      OH_NEW_RESIDENTS,
+      OH_FORMS,
+      OH_LAW_TERM,
+      OH_LAW_NEW_RESIDENT,
+      OH_LAW_RECIPROCITY,
+      OH_LAW_ONLINE,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Ohio BMV 的 Compliant/Standard、可接受材料、首次申请、中文考试、TIPIC、成人与临时居民训练、外国驾照 reciprocity、SAVE、续期补证、费用、改址、新居民与邮寄正文，并交叉检查现行 Ohio Revised Code。',
+    notes:
+      '重写 Ohio 总览与 REAL ID 页面，补齐 exam station 与 deputy registrar 分工、费用页与旧 ID FAQ 差异、limited-term 新州法与旧页面命名冲突、中国大陆/台湾训练豁免差异、10/30/60/90 天判断路径；所有公开声明已改为显式来源，仍待真实人工签字。',
+    claims: {
+      '俄亥俄驾照和 ID 由 BMV 管理，但知识与路考通常由 Driver Exam Station 执行，证件签发则在 Deputy Registrar License Agency 完成': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      '先区分 Standard、REAL ID Compliant、首次申请、外州转入和外国驾照路径': [
+        OH_REAL_ID,
+        OH_FIRST_ISSUANCE,
+        OH_NEW_RESIDENTS,
+        OH_LAW_RECIPROCITY,
+        OH_RENEW,
+      ],
+      '当前或过期不足 6 个月的 Ohio driver license 可到 Deputy Registrar 续期，符合条件者也可线上续期': [
+        OH_RENEW,
+        OH_LAW_ONLINE,
+      ],
+      '过期超过 6 个月通常要重新取得 TIPIC 并完成规定测试，不能把它当作普通 late renewal': [
+        OH_RENEW,
+        OH_FIRST_ISSUANCE,
+      ],
+      'Ohio 把 REAL ID 合规证件称为 Compliant Card，与 Standard Card 收费相同但材料更多': [
+        OH_REAL_ID,
+        OH_DOCUMENTS,
+      ],
+      'Compliant 可用于国内航班和受限联邦设施，Standard 仍可驾驶和办理一般身份事务，但不能单独满足联邦旅行身份要求': [
+        OH_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '知识考试可按资格在线或到指定 Deputy Registrar / Driver Exam Station，路考需从 BMV Online Services 预约': [
+        OH_FIRST_ISSUANCE,
+        OH_ONLINE,
+      ],
+      '签发业务可先用 Get In Line Online 排队，但它不等于路考预约': [
+        OH_MANUAL,
+        OH_ONLINE,
+        OH_FIRST_ISSUANCE,
+      ],
+      'Compliant Card 是 Ohio 对 REAL ID 合规驾照或 ID 的称呼，完全可以选择 Standard': [
+        OH_REAL_ID,
+      ],
+      '首次签发无论选哪种卡都要提交完整身份材料，已有 Standard 在普通续期时通常不需要额外材料': [
+        OH_REAL_ID,
+        OH_DOCUMENTS,
+      ],
+      '首次申领 Compliant credential 不能在线完成，必须到 Deputy Registrar': [
+        OH_REAL_ID,
+        OH_LAW_ONLINE,
+      ],
+      'Compliant 与 Standard 本身没有额外价差，但交易类型、4 年或 8 年期限仍会影响费用': [
+        OH_REAL_ID,
+        OH_FEES,
+        OH_RENEW,
+      ],
+      'Compliant Card 需要证明 full legal name、date of birth、legal presence、SSN、两份来自不同来源的 Ohio street address，以及适用的完整姓名变化链': [
+        OH_DOCUMENTS,
+        OH_COMPLIANT_PDF,
+      ],
+      'Ohio BMV 2430 与 BMV 2424 要求身份材料使用原件或由签发机关认证的副本，普通复印件、认证副本的再次复印件不能替代': [
+        OH_COMPLIANT_PDF,
+        OH_STANDARD_PDF,
+      ],
+      'Compliant 卡不能替代 passport 做国际旅行': [
+        OH_REAL_ID,
+      ],
+      'Standard 卡可继续作为驾驶资格和一般州内身份证明，但国内航班要另带 TSA 接受的证件': [
+        OH_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '永久驾照或 ID 通常在到访 Deputy Registrar 后 10 个工作日内邮寄，28 天仍未收到应联系 BMV': [
+        OH_REAL_ID,
+      ],
+      '现场发的 interim document 只是待制卡证明，不是通用身份证件': [
+        OH_REAL_ID,
+      ],
+      'Interim driver license 或 TIPIC 文件可在等待期间用于驾驶非 CDL 车辆，但不能单独作为身份证明，也不能单独申请 CDL 或 CDL permit': [
+        OH_REAL_ID,
+      ],
+      'BMV 当前总费用表列出 21 岁以上首次 operator license 4 年 $27.50、8 年 $54.00，普通续期 4 年 $30.25、8 年 $59.40，duplicate $29.00，operator TIPIC $26.50': [
+        OH_FEES,
+      ],
+      '交易前再检查 Fees 页面页首的 Last Updated': [
+        OH_FEES,
+      ],
+      'Ohio 当前费用总表与个别 ID FAQ 的旧数字并不完全一致，涉及州 ID 时应以中央 Fees 页面和实际交易报价为准，不根据旧 FAQ 承诺固定金额': [
+        OH_FEES,
+        OH_ID_CARD,
+      ],
+      '知识考试有 40 道选择题，至少答对 75%': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      '中文与英语等语言提供文字和音频，其他语言可预约带自备口译员的监考考试，但考生仍须理解英文路标': [
+        OH_FIRST_ISSUANCE,
+      ],
+      '知识考试失败后至少等 24 小时': [
+        OH_FIRST_ISSUANCE,
+      ],
+      '线下考试没有次数上限，online knowledge test 在 6 个月内最多两次': [
+        OH_FIRST_ISSUANCE,
+      ],
+      '成人取得 TIPIC 后只能在 21 岁或以上持照驾驶人陪同下练车，路考包括 driving 与 maneuverability 两部分并要求携带 TIPIC 和状况良好的车辆': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      '21 岁及以上首次申请人第一次未通过 road 或 maneuverability test，且过去 12 个月没有完成认可课程时，第二次考试前必须完成 abbreviated adult driver training': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      'Abbreviated adult course 可选择 4 小时课堂或州认可线上课程，再配 4 小时驾校实车，或改为 24 小时由 21 岁以上持照人陪练': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      '24 小时路径要提交 notarized BMV 5789': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+        OH_FORMS,
+      ],
+      '通过 driving 与 maneuverability tests 后应在 60 天内到 Deputy Registrar 购买 driver license，考试通过本身不会自动寄出驾照': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      '21 岁以上 temporary resident 当前要完成 24 小时课堂或线上 instruction、8 小时驾校实车、50 小时陪练且含 10 小时夜间，并持 TIPIC 至少 14 天': [
+        OH_MANUAL,
+        OH_NON_US,
+      ],
+      '当前 Ohio Driver Manual 只对持有效加拿大、法国、德国、日本、韩国或台湾驾照的 21 岁以上 temporary resident 豁免上述训练要求': [
+        OH_MANUAL,
+      ],
+      '中国大陆驾照不在这份明确名单中，不能自行推定可免考或直接换证': [
+        OH_MANUAL,
+        OH_LAW_RECIPROCITY,
+      ],
+      'Ohio 法律允许 BMV 与外国建立 reciprocity 并酌情免除考试，但官网没有给出可供用户自行扩张解释的完整实时名单，外国驾照持有人应让 BMV 按当前证件和身份确认': [
+        OH_LAW_RECIPROCITY,
+        OH_MANUAL,
+      ],
+      '非美国公民的证件姓名以 USCIS 文件为准，合法身份必须通过 SAVE': [
+        OH_NON_US,
+      ],
+      'SAVE 尚未完成时 BMV 不能最终签发，pending application 也不等于当前已有驾驶资格': [
+        OH_NON_US,
+      ],
+      '绿卡持有人提交有效 I-551、适用 SSN 和 Ohio residency 后可获普通 4 年或 8 年证件': [
+        OH_NON_US,
+      ],
+      'temporary resident 则要在每次签发时重新提交当前 USCIS 文件和住址证明': [
+        OH_NON_US,
+      ],
+      '现行 Ohio Revised Code 4507.09 自 2025-09-30 起允许 limited-term license 在到期前 90 天凭持续合法身份材料续期，但 BMV 页面仍把一类证件标作 Non-Renewable/Non-Transferable': [
+        OH_LAW_TERM,
+        OH_NON_US,
+      ],
+      '必须按卡面类型向 BMV 确认，本站不承诺一定可续': [
+        OH_LAW_TERM,
+        OH_NON_US,
+      ],
+      'Limited-term 证件最长不能超过获准停留截止日或 4 年': [
+        OH_LAW_TERM,
+        OH_NON_US,
+      ],
+      '若合法停留文件没有截止日，现行州法把签发上限设为 1 年': [
+        OH_LAW_TERM,
+      ],
+      '使用 asylum I-94 申请时，BMV 提示文件核验可能需要最多 15 天': [
+        OH_NON_US,
+      ],
+      'SAVE CaseCheck 只显示联邦核验状态，不替代 Ohio driving record 对驾驶资格的确认': [
+        OH_NON_US,
+        OH_ONLINE,
+      ],
+      '当前或过期不足 6 个月的 license 可续期，21 岁以上且未满 65 岁者按资格可选 4 年或 8 年': [
+        OH_RENEW,
+        OH_LAW_TERM,
+      ],
+      '65 岁及以上只能办 4 年且不符合普通线上续期': [
+        OH_RENEW,
+        OH_LAW_ONLINE,
+      ],
+      '线上续期通常要求当前证件曾在 Deputy Registrar 本人办理、是 4 年证件、签发时已满 21 岁、申请人未满 65 岁且为美国公民或永久居民，并且除地址外没有个人信息变化或需到场的医疗限制': [
+        OH_LAW_ONLINE,
+      ],
+      '首次 Ohio credential、首次 Compliant credential、TIPIC、limited-term credential 和过期超过 6 个月的证件都不能套用普通 online renewal': [
+        OH_LAW_ONLINE,
+        OH_RENEW,
+      ],
+      'Ohio 驾驶人搬家后须在 10 天内通知 BMV': [
+        OH_LAW_TERM,
+      ],
+      '线上或 BMV 5756 可更新记录，需要卡面显示新地址时再按 duplicate 路径处理': [
+        OH_ONLINE,
+        OH_FORMS,
+        OH_REPRINT,
+        OH_LAW_TERM,
+      ],
+      '有效且未过期、信息不变的遗失或损坏证件可在线购买一次 reprint': [
+        OH_REPRINT,
+        OH_ONLINE,
+      ],
+      '若要改姓名、地址等信息则需到 Deputy Registrar 购买 duplicate，两者都沿用原到期日': [
+        OH_REPRINT,
+        OH_DOCUMENTS,
+      ],
+      '未满 21 岁者在 21 岁生日之前 30 天内不能申请 reprint 或 duplicate，应按生日续期规则安排': [
+        OH_REPRINT,
+        OH_RENEW,
+      ],
+      'Ohio 把就业、签租约、买房或子女入学列为建立 residency 的常见触发点': [
+        OH_NEW_RESIDENTS,
+      ],
+      '建立居民身份后 30 天内要转入驾照或 ID、车辆 title 与 registration': [
+        OH_NEW_RESIDENTS,
+        OH_LAW_NEW_RESIDENT,
+      ],
+      '持有效未过期外州非 CDL 驾照的新居民通常带原证件和完整材料到 Deputy Registrar 并完成 vision screening': [
+        OH_NEW_RESIDENTS,
+        OH_DOCUMENTS,
+      ],
+      '过期外州证件或首次驾驶人要走完整 testing path': [
+        OH_NEW_RESIDENTS,
+        OH_FIRST_ISSUANCE,
+      ],
+      '申请 Ohio ID 会取消申请人持有的外州 driver license，因此仍需驾驶的外州学生或临时居住者不要把州 ID 当作无影响的备用证件': [
+        OH_ID_CARD,
+      ],
+      '外州车辆先在 County Clerk of Courts Title Office 办 Ohio title，再到 Deputy Registrar 注册': [
+        OH_NEW_RESIDENTS,
+      ],
+      'BMV 本身不签发 vehicle title': [
+        OH_NEW_RESIDENTS,
+      ],
+      '首次 Standard credential 要覆盖 full legal name、date of birth、legal presence、SSN 和一份 Ohio street address': [
+        OH_DOCUMENTS,
+        OH_STANDARD_PDF,
+      ],
+      'Compliant credential 把地址证明提高为两份且须来自不同来源': [
+        OH_DOCUMENTS,
+        OH_COMPLIANT_PDF,
+      ],
+      'Birth certificate、passport、I-551、EAD 或其他身份与合法居留文件按 BMV 2430/2424 对应栏位组合，不能只因一份文件有照片就假定覆盖全部五类要素': [
+        OH_COMPLIANT_PDF,
+        OH_STANDARD_PDF,
+        OH_NON_US,
+      ],
+      'Social Security card、显示完整 SSN 的 W-2 或 1099 可作为常见 SSN 证据': [
+        OH_COMPLIANT_PDF,
+        OH_STANDARD_PDF,
+      ],
+      'BMV 5745 只有在 SSN 已经向 Ohio BMV 建档时才能单独用于这一栏': [
+        OH_DOCUMENTS,
+        OH_FORMS,
+      ],
+      'Compliant 住址材料常见可用 utility bill、bank statement、credit-card statement、pay stub、insurance policy、Ohio title/registration 等，其中标注时限的账单通常须在 12 个月内': [
+        OH_COMPLIANT_PDF,
+      ],
+      '两份 Compliant residency 必须显示姓名和当前 Ohio street address': [
+        OH_COMPLIANT_PDF,
+        OH_DOCUMENTS,
+      ],
+      '同一 utility provider 的两张账单不算不同来源，但两个不同 utility provider 可分别计入': [
+        OH_COMPLIANT_PDF,
+      ],
+      '依赖父母、配偶或 nursing home 地址的人可查看 BMV 2336 certified statement 路径，证明人仍要满足身份、关系和相应住址材料要求': [
+        OH_COMPLIANT_PDF,
+        OH_FORMS,
+      ],
+      '姓名与 birth certificate、passport 或 USCIS 文件不一致时，带 marriage certificate/license、certified divorce/dissolution/annulment decree 或 certified court order，把每次变化串联起来': [
+        OH_DOCUMENTS,
+        OH_COMPLIANT_PDF,
+        OH_STANDARD_PDF,
+      ],
+      '非美国公民应带全部当前 legal-presence documents：学生常见 passport、visa、I-94、I-20 或 DS-2019': [
+        OH_NON_US,
+      ],
+      '就业者常见有效 EAD，或 passport、visa、I-94 与可接受 case type 的 I-797': [
+        OH_NON_US,
+      ],
+      '外州转入要带有效未过期的原州 license、完整身份材料并做 vision screening': [
+        OH_NEW_RESIDENTS,
+        OH_DOCUMENTS,
+      ],
+      '外州证件过期时不要预设能免知识或路考': [
+        OH_NEW_RESIDENTS,
+        OH_FIRST_ISSUANCE,
+      ],
+      '首次驾驶人先准备知识考试所需姓名、生日和适用 SSN 证据，再在购买 TIPIC 时补齐 Ohio residency 与 citizenship/legal presence': [
+        OH_FIRST_ISSUANCE,
+        OH_DOCUMENTS,
+      ],
+      '已有 Ohio ID 会在 TIPIC 签发时被取消': [
+        OH_FIRST_ISSUANCE,
+        OH_ID_CARD,
+      ],
+      '路考携带 TIPIC、状况良好的车辆和按年龄或身份适用的 BMV 5791': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+        OH_FORMS,
+      ],
+      '临时居民 21 岁以上也应核对 14 天持证、训练证书和 notarized fifty-hour affidavit': [
+        OH_MANUAL,
+        OH_NON_US,
+        OH_FORMS,
+      ],
+      '先按用途选择 Standard 或 Compliant：有 passport 等 TSA accepted ID 且只需驾驶时，可比较是否值得多准备 REAL ID 材料': [
+        OH_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '首次或首次 Compliant 申请把材料分成 legal name/date of birth、legal presence、SSN、Ohio street address 和 name-change chain，并用 BMV 2430 checklist 逐格核对': [
+        OH_DOCUMENTS,
+        OH_COMPLIANT_PDF,
+      ],
+      '两份 Compliant 地址证明先按 issuing source 去重，再检查姓名、street address 和 12 个月等时效，特殊家庭住址情形提前准备 BMV 2336': [
+        OH_COMPLIANT_PDF,
+        OH_FORMS,
+      ],
+      '非美国公民先把 passport、visa、I-94、I-20/DS-2019、EAD 或 I-797 按自己身份配齐，再用 SAVE CaseCheck 跟踪核验，但另行确认 Ohio driving privilege': [
+        OH_NON_US,
+      ],
+      '21 岁以上 temporary resident 在报考前先核对自己是否属于六个当前训练豁免来源': [
+        OH_MANUAL,
+      ],
+      '中国大陆驾照默认按不在明示豁免名单准备，直到 BMV 个案确认': [
+        OH_MANUAL,
+        OH_LAW_RECIPROCITY,
+      ],
+      '首次驾驶人先学习 Ohio Driver Manual，再选择 online 或 in-person knowledge test': [
+        OH_MANUAL,
+        OH_FIRST_ISSUANCE,
+      ],
+      '需要中文时确认 text/audio 选项并继续熟悉英文路标': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      '通过知识和视力检查后购买 TIPIC，记录适用陪练、14 天或其他持证要求以及 60 天购买最终 license 的节点': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      '路考前检查 TIPIC、车辆安全状况和适用 BMV 5791': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+        OH_FORMS,
+      ],
+      '第一次失败时先完成 abbreviated course，再安排第二次': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      '续期先判断证件是否过期超过 6 个月，再检查 online eligibility': [
+        OH_RENEW,
+        OH_LAW_ONLINE,
+      ],
+      '首次 Compliant、limited-term、65 岁以上或信息变化直接预留到场路径': [
+        OH_LAW_ONLINE,
+        OH_RENEW,
+        OH_NON_US,
+      ],
+      'Limited-term 持有人在到期前至少 90 天开始核对卡面、持续合法身份和 BMV 当前执行口径，保存 SAVE 与柜台答复，不依赖网页标题猜测': [
+        OH_LAW_TERM,
+        OH_NON_US,
+      ],
+      '补证前先区分 reprint 与 duplicate：信息完全不变才走一次性 online reprint，需要更正则带证明到 Deputy Registrar': [
+        OH_REPRINT,
+        OH_DOCUMENTS,
+      ],
+      '搬家后 10 天内分别更新 driver credential 与 vehicle record': [
+        OH_LAW_TERM,
+        OH_FORMS,
+        OH_ONLINE,
+      ],
+      '新居民在 30 天内按 license/ID、County title、registration 三条线推进': [
+        OH_NEW_RESIDENTS,
+        OH_LAW_NEW_RESIDENT,
+      ],
+      '现场交易前使用 Get In Line Online，考试则使用专门的 Schedule a Driving or Skills Test 入口，不把两个队列混淆': [
+        OH_ONLINE,
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      '现场领取 interim document 后继续携带其他正式 photo ID，预留 10 个工作日邮寄窗口，并在 28 天未收到时联系 BMV': [
+        OH_REAL_ID,
+      ],
+      '把 Compliant Card 当成另一种驾照类别，或误以为升级 REAL ID 必须多付一笔固定附加费': [
+        OH_REAL_ID,
+      ],
+      '首次申请 Standard Card 时以为材料要求和普通续期一样，只带旧卡或一份姓名文件': [
+        OH_REAL_ID,
+        OH_DOCUMENTS,
+        OH_STANDARD_PDF,
+      ],
+      '两份住址证明来自同一 bank account 或同一 utility provider，未满足 different sources': [
+        OH_COMPLIANT_PDF,
+      ],
+      '带手机照片、普通复印件或 copy of certified copy 去证明 legal presence 或姓名变化': [
+        OH_COMPLIANT_PDF,
+        OH_STANDARD_PDF,
+        OH_DOCUMENTS,
+      ],
+      '把 Deputy Registrar 发的 interim document 当成可登机、开户或证明身份的正式 photo ID': [
+        OH_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '只看到“10 个工作日寄到”就按保证日期订旅行，28 天仍未收到也没有联系 BMV': [
+        OH_REAL_ID,
+      ],
+      '看见中文 knowledge test 就以为可以不理解英文交通标志，或让口译员替自己回答': [
+        OH_FIRST_ISSUANCE,
+      ],
+      '线上知识考试失败两次后继续反复尝试，忽略 6 个月两次上限和线下考试路径': [
+        OH_FIRST_ISSUANCE,
+      ],
+      '21 岁以上第一次路考失败后直接预约第二次，没有先完成 abbreviated adult course 和适用 affidavit': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+        OH_FORMS,
+      ],
+      '通过路考后等待系统自动寄卡，错过 60 天内到 Deputy Registrar 购买 license 的步骤': [
+        OH_FIRST_ISSUANCE,
+        OH_MANUAL,
+      ],
+      '持中国大陆驾照就照搬台湾或其他 reciprocity 路径，遗漏 temporary-resident 训练、TIPIC 和考试要求': [
+        OH_MANUAL,
+        OH_LAW_RECIPROCITY,
+        OH_FIRST_ISSUANCE,
+      ],
+      '把 SAVE pending 或手中的 USCIS receipt 当作 Ohio 已经确认可驾驶，未检查当前 driving privilege': [
+        OH_NON_US,
+      ],
+      '只依据 BMV 页面上的 Non-Renewable 名称或只依据新州法就推定 limited-term 一定不能或一定可以续期，没有核对卡面和个案': [
+        OH_NON_US,
+        OH_LAW_TERM,
+      ],
+      '证件过期超过 6 个月仍在线支付普通 renewal，未准备 TIPIC 与重新测试': [
+        OH_RENEW,
+        OH_LAW_ONLINE,
+        OH_FIRST_ISSUANCE,
+      ],
+      '搬家后只向 USPS 改地址，超过 10 天仍未更新 BMV 驾照和车辆记录': [
+        OH_LAW_TERM,
+        OH_FORMS,
+        OH_ONLINE,
+      ],
+      '遗失证件同时要改姓名或地址却选择 online reprint，忽略 reprint 不能改信息且只有一次': [
+        OH_REPRINT,
+      ],
+      '搬到 Ohio 后只转驾照，没有在 30 天路径中分别处理 County title office 与 Deputy Registrar registration': [
+        OH_NEW_RESIDENTS,
+        OH_LAW_NEW_RESIDENT,
+      ],
+      '仍要使用外州驾照的学生申请 Ohio ID，没意识到外州驾照会被取消': [
+        OH_ID_CARD,
       ],
     },
   },

@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T00:40:36.504Z",
+    "generatedAt": "2026-07-17T00:57:14.526Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 39,
+    "passed": 41,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 72,
-    "aiAssistedReviews": 45,
+    "sourceMappedReviews": 70,
+    "aiAssistedReviews": 47,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 125,
+    "blockedPages": 123,
     "averageScore": 96
   },
   "pages": [
@@ -307,7 +307,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 178,
+        "sourceCount": 180,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 241,
+        "sourceCount": 243,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 59,
-        "directoryEvidenceLinks": 59,
+        "directoryEvidenceItems": 62,
+        "directoryEvidenceLinks": 62,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 203,
+        "sourceCount": 205,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 49,
-        "directoryEvidenceLinks": 49,
+        "directoryEvidenceItems": 52,
+        "directoryEvidenceLinks": 52,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 452,
+        "sourceCount": 464,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 177,
+        "sourceCount": 178,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 134,
+        "sourceCount": 139,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -544,8 +544,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 64,
-        "directoryEvidenceLinks": 64,
+        "directoryEvidenceItems": 68,
+        "directoryEvidenceLinks": 68,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 154,
+        "sourceCount": 157,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 122,
-        "directoryEvidenceLinks": 122,
+        "directoryEvidenceItems": 124,
+        "directoryEvidenceLinks": 124,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -662,7 +662,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 178,
+        "sourceCount": 179,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1085,
+        "sourceCount": 1098,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -4153,22 +4153,22 @@
       "route": "/states/ohio/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 90,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Ohio BMV 的 Compliant/Standard、可接受材料、首次申请、中文考试、TIPIC、成人与临时居民训练、外国驾照 reciprocity、SAVE、续期补证、费用、改址、新居民与邮寄正文，并交叉检查现行 Ohio Revised Code。",
+        "notes": "重写 Ohio 总览与 REAL ID 页面，补齐 exam station 与 deputy registrar 分工、费用页与旧 ID FAQ 差异、limited-term 新州法与旧页面命名冲突、中国大陆/台湾训练豁免差异、10/30/60/90 天判断路径；所有公开声明已改为显式来源，仍待真实人工签字。"
       },
       "scores": {
-        "factsAndSources": 20,
-        "evidenceMapping": 13.5,
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
         "authorship": 10,
@@ -4177,14 +4177,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 9,
+        "sourceCount": 20,
+        "factCheckCount": 61,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 9,
-        "stateEvidenceLinks": 9,
+        "stateEvidenceItems": 61,
+        "stateEvidenceLinks": 107,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4192,9 +4192,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/ohio/real-id/",
@@ -4202,16 +4200,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Ohio BMV 的 Compliant/Standard、可接受材料、首次申请、中文考试、TIPIC、成人与临时居民训练、外国驾照 reciprocity、SAVE、续期补证、费用、改址、新居民与邮寄正文，并交叉检查现行 Ohio Revised Code。",
+        "notes": "重写 Ohio 总览与 REAL ID 页面，补齐 exam station 与 deputy registrar 分工、费用页与旧 ID FAQ 差异、limited-term 新州法与旧页面命名冲突、中国大陆/台湾训练豁免差异、10/30/60/90 天判断路径；所有公开声明已改为显式来源，仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4224,14 +4222,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 16,
+        "sourceCount": 20,
+        "factCheckCount": 57,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 16,
-        "stateEvidenceLinks": 17,
+        "stateEvidenceItems": 57,
+        "stateEvidenceLinks": 113,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4239,9 +4237,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/oklahoma/",

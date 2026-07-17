@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成俄亥俄州两页官方正文语义核对',
+    summary:
+      '逐条比对 Ohio BMV 的 Compliant/Standard、可接受材料、费用、邮寄与 interim document、首次申请、中文考试、TIPIC、成人与临时居民训练、外国驾照 reciprocity、SAVE、续期补证、改址和新居民正文，并交叉检查现行州法；补齐 China/Taiwan 训练豁免差异，公开标注 limited-term 新法与旧页面命名及 ID 费用页面之间的冲突。',
+    scope: ['俄亥俄州办事总览', '俄亥俄州 REAL ID', '临时居民训练与 China/Taiwan 差异', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成密歇根州两页官方正文语义核对',
     summary:
       '逐条比对 Michigan SOS 的 Standard、REAL ID 与 Enhanced、首次与外州转入、材料、SAVE、成人知识考试、TIP、第三方路考、续期补证、费用、地址、预约、外国驾照和新居民正文；补齐首次申请与已有证件转换分流，并公开标注 SSA-L676 时效冲突及 China / China (Taiwan) treaty 差异。',
