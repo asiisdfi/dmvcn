@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T00:57:14.526Z",
+    "generatedAt": "2026-07-17T01:24:16.273Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 41,
+    "passed": 43,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 70,
-    "aiAssistedReviews": 47,
+    "sourceMappedReviews": 68,
+    "aiAssistedReviews": 49,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 123,
+    "blockedPages": 121,
     "averageScore": 96
   },
   "pages": [
@@ -307,7 +307,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 180,
+        "sourceCount": 181,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 243,
+        "sourceCount": 252,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 62,
-        "directoryEvidenceLinks": 62,
+        "directoryEvidenceItems": 66,
+        "directoryEvidenceLinks": 66,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 205,
+        "sourceCount": 207,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 52,
-        "directoryEvidenceLinks": 52,
+        "directoryEvidenceItems": 55,
+        "directoryEvidenceLinks": 55,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 464,
+        "sourceCount": 477,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 178,
+        "sourceCount": 176,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -497,8 +497,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 165,
-        "directoryEvidenceLinks": 165,
+        "directoryEvidenceItems": 167,
+        "directoryEvidenceLinks": 167,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 139,
+        "sourceCount": 143,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -544,8 +544,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 68,
-        "directoryEvidenceLinks": 68,
+        "directoryEvidenceItems": 70,
+        "directoryEvidenceLinks": 70,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 157,
+        "sourceCount": 166,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 124,
-        "directoryEvidenceLinks": 124,
+        "directoryEvidenceItems": 126,
+        "directoryEvidenceLinks": 126,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -622,7 +622,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 203,
+        "sourceCount": 204,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -742,7 +742,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 232,
+        "sourceCount": 233,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -782,7 +782,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 200,
+        "sourceCount": 201,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1098,
+        "sourceCount": 1122,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -1185,21 +1185,21 @@
       "route": "/states/arizona/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 91,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Arizona MVD 的 Travel ID、R03/26 材料表、外国申请人、permit/road test、费用、续补证、改址改名、第三方网点与现行 Arizona Revised Statutes。",
+        "notes": "重写 Travel/Non-Travel 判断、明确中国大陆与 Taiwan 的免试差异，并补齐 SSN、authorized presence、resident triggers、考试、邮寄和第三方收费边界；仍待真实人工签字。"
       },
       "scores": {
-        "factsAndSources": 20,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -1209,14 +1209,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 10,
+        "sourceCount": 29,
+        "factCheckCount": 64,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 10,
-        "stateEvidenceLinks": 12,
+        "stateEvidenceItems": 64,
+        "stateEvidenceLinks": 122,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1224,9 +1224,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/arizona/real-id/",
@@ -1234,16 +1232,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Arizona MVD 的 Travel ID、R03/26 材料表、外国申请人、permit/road test、费用、续补证、改址改名、第三方网点与现行 Arizona Revised Statutes。",
+        "notes": "重写 Travel/Non-Travel 判断、明确中国大陆与 Taiwan 的免试差异，并补齐 SSN、authorized presence、resident triggers、考试、邮寄和第三方收费边界；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1256,14 +1254,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 18,
+        "sourceCount": 29,
+        "factCheckCount": 61,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 18,
-        "stateEvidenceLinks": 19,
+        "stateEvidenceItems": 61,
+        "stateEvidenceLinks": 125,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1271,9 +1269,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/arkansas/",

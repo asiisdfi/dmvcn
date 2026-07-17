@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成亚利桑那州两页官方正文语义核对',
+    summary:
+      '逐条比对 Arizona MVD 的 Travel/Non-Travel、R03/26 材料表、费用、邮寄、permit 与 road test、Mandarin 笔试、Authorized Third Party、续补证、改址改名、外国申请人、SSN、authorized presence、新居民与现行州法；补齐中国大陆与 Taiwan 的免试差异，并明确无 SSN、普通新居民期限和 temporary receipt 的风险边界。',
+    scope: ['亚利桑那州办事总览', '亚利桑那州 REAL ID', '中国大陆与 Taiwan 免试差异', '显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成俄亥俄州两页官方正文语义核对',
     summary:
       '逐条比对 Ohio BMV 的 Compliant/Standard、可接受材料、费用、邮寄与 interim document、首次申请、中文考试、TIPIC、成人与临时居民训练、外国驾照 reciprocity、SAVE、续期补证、改址和新居民正文，并交叉检查现行州法；补齐 China/Taiwan 训练豁免差异，公开标注 limited-term 新法与旧页面命名及 ID 费用页面之间的冲突。',

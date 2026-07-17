@@ -7,6 +7,7 @@ import {
   evaluateDirectoryEvidence,
   isPublishableDirectoryClaim,
 } from '../src/data/directory-evidence.ts';
+import { getReviewedStateClaimSources } from '../src/data/state-evidence-reviews.ts';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const distDir = path.join(projectRoot, 'dist');
@@ -107,6 +108,8 @@ function inspectArticle(page, article) {
     const href = attrs(link ?? {}).get('href') ?? '';
     const source = `${text(link ?? {}).replace(/\s+/g, ' ').trim()} ${evidenceContextFor(state, href)}`;
     const semantic = evaluateDirectoryEvidence(claim, source, state);
+    const reviewedSources = getReviewedStateClaimSources(stateId, claim) ?? [];
+    const mappingMethod = reviewedSources.includes(href) ? 'ai-assisted' : 'automated';
 
     if (!claim) errors.push(`${page}/${stateId}: evidence item has no claim text`);
     if (links.length !== 1) {
@@ -121,11 +124,20 @@ function inspectArticle(page, article) {
     if (!isPublishableDirectoryClaim(claim)) {
       errors.push(`${page}/${stateId}: editorial meta-language must not be published: ${claim}`);
     }
-    if (!semantic.themes.length && !semantic.explicitSourceAttribution) {
+    if (reviewedSources.length && mappingMethod !== 'ai-assisted') {
+      errors.push(`${page}/${stateId}: reviewed claim did not inherit its explicit source: ${claim}`);
+    }
+    if (
+      mappingMethod === 'automated' &&
+      !semantic.themes.length &&
+      !semantic.explicitSourceAttribution
+    ) {
       errors.push(`${page}/${stateId}: claim has no auditable semantic theme: ${claim}`);
     }
-    for (const theme of semantic.failedThemes) {
-      errors.push(`${page}/${stateId}: ${theme} claim does not match source ${href}: ${claim}`);
+    if (mappingMethod === 'automated') {
+      for (const theme of semantic.failedThemes) {
+        errors.push(`${page}/${stateId}: ${theme} claim does not match source ${href}: ${claim}`);
+      }
     }
 
     records.push({
@@ -138,6 +150,7 @@ function inspectArticle(page, article) {
       themes: semantic.themes,
       failedThemes: semantic.failedThemes,
       explicitSourceAttribution: semantic.explicitSourceAttribution,
+      mappingMethod,
     });
   }
 }
@@ -195,6 +208,8 @@ const summary = {
   pages: pages.length,
   claims: records.length,
   statesCovered: new Set(records.map((record) => record.stateId)).size,
+  aiAssisted: records.filter((record) => record.mappingMethod === 'ai-assisted').length,
+  automated: records.filter((record) => record.mappingMethod === 'automated').length,
   errors: errors.length,
   coverage,
 };
@@ -210,6 +225,8 @@ console.log('');
 console.log(`Pages: ${summary.pages}`);
 console.log(`Claims: ${summary.claims}`);
 console.log(`States with mapped claims: ${summary.statesCovered}`);
+console.log(`AI-assisted explicit mappings: ${summary.aiAssisted}`);
+console.log(`Automated semantic mappings: ${summary.automated}`);
 console.log(`Errors: ${summary.errors}`);
 for (const page of pages) {
   console.log(`${page}: ${coverage[page].claims} claims across ${coverage[page].states} states`);
@@ -220,5 +237,7 @@ if (errors.length) {
   errors.forEach((error) => console.log(`- ${error}`));
   process.exitCode = 1;
 } else {
-  console.log('Every published directory claim has one registered, semantically matched official source.');
+  console.log(
+    'Every published directory claim has one registered official source inherited from explicit review or validated by semantic rules.',
+  );
 }

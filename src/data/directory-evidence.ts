@@ -1,4 +1,5 @@
 import type { StateGuide } from './content';
+import { getReviewedStateClaimSources } from './state-evidence-reviews.ts';
 
 export type DirectoryEvidence = {
   label: string;
@@ -287,23 +288,38 @@ export function pickDirectoryEvidence(
 ): DirectoryEvidence | null {
   if (!isPublishableDirectoryClaim(noteText)) return null;
 
-  const ranked = evidenceCandidates(state)
-    .map((candidate) => {
-      const patternIndex = patterns.findIndex((pattern) => pattern.test(candidate.searchText));
-      if (patternIndex < 0) return null;
-      if (!evaluateDirectoryEvidence(noteText, candidate.searchText, state).valid) return null;
+  const candidates = evidenceCandidates(state);
+  const reviewedUrls = getReviewedStateClaimSources(state.id, noteText);
+  const rank = (pool: EvidenceCandidate[]) =>
+    pool
+      .map((candidate) => {
+        const patternIndex = patterns.findIndex((pattern) => pattern.test(candidate.searchText));
+        if (patternIndex < 0) return null;
+        if (!evaluateDirectoryEvidence(noteText, candidate.searchText, state).valid) return null;
 
-      return {
-        candidate,
-        score:
-          (patterns.length - patternIndex) * 100 +
-          keywordOverlap(noteText, candidate.searchText) * 8 +
-          candidate.sourceWeight * 3 -
-          candidate.order / 1000,
-      };
-    })
-    .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
-    .sort((a, b) => b.score - a.score);
+        return {
+          candidate,
+          score:
+            (patterns.length - patternIndex) * 100 +
+            keywordOverlap(noteText, candidate.searchText) * 8 +
+            candidate.sourceWeight * 3 -
+            candidate.order / 1000,
+        };
+      })
+      .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+      .sort((a, b) => b.score - a.score);
+
+  const ranked = rank(candidates);
+  if (!ranked.length) return null;
+
+  if (reviewedUrls?.length) {
+    for (const url of reviewedUrls) {
+      const reviewedCandidate = candidates.find((candidate) => candidate.url === url);
+      if (reviewedCandidate) {
+        return { label: reviewedCandidate.label, url: reviewedCandidate.url };
+      }
+    }
+  }
 
   const match = ranked[0]?.candidate;
   return match ? { label: match.label, url: match.url } : null;

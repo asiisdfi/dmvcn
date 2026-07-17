@@ -1,30 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T00:57:13.257Z",
+    "generatedAt": "2026-07-17T01:24:14.987Z",
     "pages": 5,
-    "claims": 471,
+    "claims": 484,
     "statesCovered": 49,
+    "aiAssisted": 251,
+    "automated": 233,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 62,
-        "states": 21
+        "claims": 66,
+        "states": 22
       },
       "deadlines": {
-        "claims": 52,
-        "states": 20
+        "claims": 55,
+        "states": 21
       },
       "document-rules": {
-        "claims": 165,
+        "claims": 167,
         "states": 47
       },
       "foreign-license": {
-        "claims": 68,
-        "states": 26
+        "claims": 70,
+        "states": 27
       },
       "identity-ssn": {
-        "claims": 124,
-        "states": 38
+        "claims": 126,
+        "states": 39
       }
     }
   },
@@ -42,7 +44,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -55,7 +58,8 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -68,47 +72,57 @@
         "processing-or-mail"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "california",
       "category": "邮寄 / 卡片",
       "claim": "多数驾照或 ID 续期、replacement 和记录服务不提供柜台办理，应先用 online、kiosk、DMV business partner 或 mail",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/licensing-fees/",
-      "sourceLabel": "对应官方来源：California DMV Licensing Fees",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/appointments/",
+      "sourceLabel": "对应官方来源：预约入口",
       "themes": [
         "renewal"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "renewal"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "new-york",
       "category": "费用",
       "claim": "常见 Class D 续期费为 $64.50，MCTD 地区为 $80.50",
-      "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
-      "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/renew-a-driver-license",
+      "sourceLabel": "对应官方来源：NY DMV Renew a Driver License",
       "themes": [
         "fee",
         "renewal"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "new-york",
       "category": "费用",
       "claim": "REAL ID 不额外收费，Enhanced 另加 $30",
-      "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
-      "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/enhanced-or-real-id",
+      "sourceLabel": "对应官方来源：NY DMV Enhanced or REAL ID",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -121,7 +135,8 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -134,7 +149,8 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -147,46 +163,54 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "texas",
       "category": "费用",
       "claim": "现场核对申请、材料、照片、指纹、费用和适用考试",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-license-fees",
-      "sourceLabel": "对应官方来源：Texas DPS Driver License Fees",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license",
+      "sourceLabel": "对应官方来源：Texas DPS Apply for a Driver License",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "texas",
       "category": "费用",
       "claim": "地址或姓名变更属于 replacement，并要支付适用费用",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-license-fees",
-      "sourceLabel": "对应官方来源：Texas DPS Driver License Fees",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/how-change-information-your-driver-license-or-id-card",
+      "sourceLabel": "对应官方来源：Texas DPS Change Information",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "texas",
       "category": "临时凭证",
       "claim": "temporary driver license 自业务办理日起有效 60 天，正式驾照通常约 2 至 3 周邮寄到达",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors",
-      "sourceLabel": "对应官方来源：Texas DPS Temporary Visitors",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/faq/section-3-issuing-temporary-permit",
+      "sourceLabel": "对应官方来源：Texas DPS Temporary Permit FAQ",
       "themes": [
         "processing-or-mail"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -199,7 +223,8 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -212,20 +237,24 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "florida",
       "category": "付款",
       "claim": "到场提交原件或认证文件并完成照片、适用测试和付款",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/fees/",
-      "sourceLabel": "对应官方来源：FLHSMV Driver License and ID Fees",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -238,7 +267,8 @@
         "processing-or-mail"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -251,85 +281,104 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "washington",
       "category": "费用",
       "claim": "首次同时申领 EDL 的当前总费用为 6 年 $153 或 8 年 $187",
-      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-fees",
-      "sourceLabel": "对应官方来源：WA DOL Driver Licensing Fees",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/get-enhanced-driver-license-edl",
+      "sourceLabel": "对应官方来源：WA DOL Get an Enhanced Driver License",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "washington",
       "category": "费用",
       "claim": "把现有 WA driver license 升级为 EDL，按剩余期限收取 $7 至 $56",
-      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-fees",
-      "sourceLabel": "对应官方来源：WA DOL Driver Licensing Fees",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/get-enhanced-driver-license-edl",
+      "sourceLabel": "对应官方来源：WA DOL Get an Enhanced Driver License",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "washington",
       "category": "费用",
       "claim": "更新驾驶记录免费，立即领取显示新地址的新卡为 $20，vehicle registration 地址还要另外更新",
-      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-fees",
-      "sourceLabel": "对应官方来源：WA DOL Driver Licensing Fees",
+      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/update-driver-license-information/change-your-name-or-address-your-driver-license",
+      "sourceLabel": "对应官方来源：WA DOL Change Name or Address",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "new-jersey",
       "category": "费用",
       "claim": "NJMVC 当前列出的 Standard NJ license / ID 费用为 $24，REAL ID 为 $35",
-      "sourceUrl": "https://www.nj.gov/mvc/license/licrenew.htm",
-      "sourceLabel": "对应官方来源：NJ MVC License Renewal",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/faq.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID FAQ",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "new-jersey",
       "category": "费用",
       "claim": "外州 auto、motorcycle 或 CDL transfer permit 当前为 $10，auto license 加 motorcycle endorsement 另加 $5",
-      "sourceUrl": "https://www.nj.gov/mvc/license/licrenew.htm",
-      "sourceLabel": "对应官方来源：NJ MVC License Renewal",
+      "sourceUrl": "https://www.nj.gov/mvc/drivertopics/movetonj.htm",
+      "sourceLabel": "对应官方来源：NJ MVC Moving To New Jersey",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "new-jersey",
       "category": "费用",
       "claim": "首次 REAL ID 当前费用为 $35",
-      "sourceUrl": "https://www.nj.gov/mvc/license/licrenew.htm",
-      "sourceLabel": "对应官方来源：NJ MVC License Renewal",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/faq.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID FAQ",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -342,7 +391,8 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -355,33 +405,40 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "massachusetts",
       "category": "费用",
       "claim": "只改记录不必换卡，需要新地址实体卡时 replacement 费用为 $25",
-      "sourceUrl": "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees",
-      "sourceLabel": "对应官方来源：Massachusetts RMV Fees",
+      "sourceUrl": "https://www.mass.gov/how-to/change-your-address-with-the-rmv",
+      "sourceLabel": "对应官方来源：Change your address with the RMV",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "massachusetts",
       "category": "费用",
       "claim": "考试 25 分钟 25 题，答对 18 题通过，permit fee 为 $30",
-      "sourceUrl": "https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees",
-      "sourceLabel": "对应官方来源：Massachusetts RMV Fees",
+      "sourceUrl": "https://www.mass.gov/how-to/apply-for-a-passenger-class-d-learners-permit",
+      "sourceLabel": "对应官方来源：Mass.gov Class D Learner Permit",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -394,33 +451,40 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "illinois",
       "category": "费用",
       "claim": "driver license / ID 与 vehicle registration 要分别更新，线上改记录免费，但显示新地址的实体卡要现场办理并支付适用费用",
-      "sourceUrl": "https://www.ilsos.gov/departments/drivers/basicfees.html",
-      "sourceLabel": "对应官方来源：Illinois Driver License Fees",
+      "sourceUrl": "https://apps.ilsos.gov/addrchange/?s=1&vm=r",
+      "sourceLabel": "对应官方来源：Illinois Address Change",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "pennsylvania",
       "category": "费用",
       "claim": "现场申请会先给 15 天有效的 interim license，当前 duplicate / replacement license 费用为 $42.50",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/payments-and-fees",
-      "sourceLabel": "对应官方来源：PennDOT Payments and Fees",
+      "sourceUrl": "https://www.pa.gov/services/dmv/replace-a-drivers-license",
+      "sourceLabel": "对应官方来源：Pennsylvania Replacement Driver License",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -433,33 +497,40 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "pennsylvania",
       "category": "邮寄 / 卡片",
       "claim": "普通 Driver License Center 核验后，REAL ID 在 15 个工作日内邮寄",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
-      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id",
+      "sourceLabel": "对应官方来源：PennDOT REAL ID",
       "themes": [
         "processing-or-mail"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "pennsylvania",
       "category": "邮寄 / 卡片",
       "claim": "可等邮寄则到普通 Driver License Center，预留 15 个工作日",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
-      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id",
+      "sourceLabel": "对应官方来源：PennDOT REAL ID",
       "themes": [
         "processing-or-mail"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -472,7 +543,8 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -485,33 +557,38 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "georgia",
       "category": "临时凭证",
       "claim": "常见 residency 文件有近 6 个月的 utility/phone bill、USPS 实体投递邮件、lease/rent receipt，或当前或上一 calendar year 的政府、住房、就业、银行、学校或医疗记录",
-      "sourceUrl": "https://dds.georgia.gov/renewals-faqs",
-      "sourceLabel": "对应官方来源：Georgia DDS Renewals FAQs",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/real-id",
+      "sourceLabel": "对应官方来源：Georgia DDS REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "georgia",
       "category": "邮寄 / 卡片",
       "claim": "先检查现有 Georgia credential 的 gold/black star，并判断是否会在永久卡寄到前乘机",
-      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens",
-      "sourceLabel": "对应官方来源：Georgia DDS Information for Non-US Citizens",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/real-id",
+      "sourceLabel": "对应官方来源：Georgia DDS REAL ID",
       "themes": [
         "processing-or-mail"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -524,7 +601,8 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -537,47 +615,55 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "virginia",
       "category": "费用",
       "claim": "当前 REAL ID 一次性附加费是 $10，普通 8 年驾照为 $32，普通 replacement license 为 $20",
-      "sourceUrl": "https://www.dmv.virginia.gov/sites/default/files/forms/dmv201.pdf",
-      "sourceLabel": "对应官方来源：Virginia DMV Fee Chart",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/real-id",
+      "sourceLabel": "对应官方来源：Virginia DMV REAL ID",
       "themes": [
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "virginia",
       "category": "费用",
       "claim": "普通 replacement license 为 $20、replacement permit 为 $2，线上补证会沿用现有照片且新卡通过邮件寄送",
-      "sourceUrl": "https://www.dmv.virginia.gov/sites/default/files/forms/dmv201.pdf",
-      "sourceLabel": "对应官方来源：Virginia DMV Fee Chart",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/license/replace",
+      "sourceLabel": "对应官方来源：Virginia DMV Replace License or Permit",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "virginia",
       "category": "费用",
       "claim": "Driver Privilege Card 不是 REAL ID、不能用于相应联邦身份用途或申请 CDL，当前新办和续期均为 $50",
-      "sourceUrl": "https://www.dmv.virginia.gov/sites/default/files/forms/dmv201.pdf",
-      "sourceLabel": "对应官方来源：Virginia DMV Fee Chart",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/license/driver-privilege-card",
+      "sourceLabel": "对应官方来源：Virginia DMV Driver Privilege Card",
       "themes": [
         "fee",
         "renewal"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "renewal"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -593,7 +679,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -606,7 +693,8 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -619,47 +707,58 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "north-carolina",
       "category": "邮寄 / 卡片",
       "claim": "首次办证后会收到 60-day Temporary Driving Certificate，正式卡通常在 20 个 business days 内寄到，临时证只可用于驾驶，不能当作 photo identification",
-      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx",
-      "sourceLabel": "对应官方来源：NCDMV License & ID Replacement",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+      "sourceLabel": "对应官方来源：NCDMV New Adult Drivers",
       "themes": [
         "processing-or-mail"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "north-carolina",
       "category": "处理时间",
       "claim": "完成交易后保留 60-day Temporary Driving Certificate，但另备 passport 等 photo ID，并为正式卡预留 20 个 business days",
-      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx",
-      "sourceLabel": "对应官方来源：NCDMV License & ID Replacement",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/default.aspx",
+      "sourceLabel": "对应官方来源：NCDMV New Adult Drivers",
       "themes": [
         "processing-or-mail"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "michigan",
       "category": "费用",
       "claim": "在正常 renewal 或 replacement 同时转换 REAL ID 不加收升级费，其他时间转换按 correction 收取 driver license $9 或 state ID $10",
-      "sourceUrl": "https://www.michigan.gov/sos/all-services/license-or-id-renewal",
-      "sourceLabel": "对应官方来源：Michigan SOS License or ID Renewal",
+      "sourceUrl": "https://www.michigan.gov/sos/license-id/real-id",
+      "sourceLabel": "对应官方来源：Michigan SOS REAL ID",
       "themes": [
         "fee",
         "renewal"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee",
+        "renewal"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -672,7 +771,8 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -685,34 +785,41 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "michigan",
       "category": "费用",
       "claim": "Michigan 路考由获授权的独立 driver testing business 执行，第三方收费不受 Department of State 统一定价，预约前应询问初考、重考、取消和材料不合格费用",
-      "sourceUrl": "https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement",
-      "sourceLabel": "对应官方来源：Michigan SOS Replacement",
+      "sourceUrl": "https://www.michigan.gov/sos/license-id/new-drivers-18-older",
+      "sourceLabel": "对应官方来源：Michigan SOS New Drivers 18+",
       "themes": [
         "fee",
         "appointment"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "appointment"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "ohio",
       "category": "费用",
       "claim": "Compliant 与 Standard 本身没有额外价差，但交易类型、4 年或 8 年期限仍会影响费用",
-      "sourceUrl": "https://www.bmv.ohio.gov/doc-fees.aspx",
-      "sourceLabel": "对应官方来源：Ohio BMV Fees",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-real-id.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV REAL ID Card",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -725,33 +832,103 @@
         "fee"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "ohio",
       "category": "邮寄 / 卡片",
       "claim": "永久驾照或 ID 通常在到访 Deputy Registrar 后 10 个工作日内邮寄，28 天仍未收到应联系 BMV",
-      "sourceUrl": "https://bmvonline.dps.ohio.gov/",
-      "sourceLabel": "对应官方来源：Ohio BMV Online Services",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-real-id.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV REAL ID Card",
       "themes": [
         "processing-or-mail"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "ohio",
       "category": "邮寄 / 卡片",
       "claim": "现场领取 interim document 后继续携带其他正式 photo ID，预留 10 个工作日邮寄窗口，并在 28 天未收到时联系 BMV",
-      "sourceUrl": "https://bmvonline.dps.ohio.gov/",
-      "sourceLabel": "对应官方来源：Ohio BMV Online Services",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-real-id.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV REAL ID Card",
       "themes": [
         "processing-or-mail"
       ],
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "arizona",
+      "category": "费用",
+      "claim": "当前费用页列出 Non-Travel Class D 年龄 16 至 39 岁 $25、40 至 44 岁 $20、45 至 49 岁 $15、50 岁及以上 $10",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-services/driver-license-information/fees-driver-license",
+      "sourceLabel": "对应官方来源：ADOT MVD Driver License Fees",
+      "themes": [
+        "fee"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "arizona",
+      "category": "费用",
+      "claim": "遗失、被盗或损坏的 license/ID 可在 AZ MVD Now 申请 $12 replacement",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-license-ID/replace-your-license",
+      "sourceLabel": "对应官方来源：ADOT MVD Replace License or ID",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "arizona",
+      "category": "费用",
+      "claim": "Standard Arizona ID card 面向所有年龄，通常 $12",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-license-ID/id-card",
+      "sourceLabel": "对应官方来源：ADOT MVD Identification Card",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "arizona",
+      "category": "费用",
+      "claim": "选择 ATP 前电话确认具体业务、预约方式和 convenience fee",
+      "sourceUrl": "https://azdot.gov/mvd/services/professional-services/authorized-third-party-services",
+      "sourceLabel": "对应官方来源：ADOT MVD Authorized Third Parties",
+      "themes": [
+        "fee",
+        "appointment"
+      ],
+      "failedThemes": [
+        "appointment"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -765,7 +942,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "costs-timing",
@@ -779,7 +957,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "costs-timing",
@@ -792,7 +971,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "costs-timing",
@@ -805,7 +985,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "costs-timing",
@@ -818,7 +999,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "costs-timing",
@@ -831,7 +1013,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "costs-timing",
@@ -844,33 +1027,38 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
       "stateId": "california",
       "category": "搬家 / 地址",
       "claim": "加州法律要求地址变更后 10 天内通知 DMV，在线变更应在办理或续办其他 DMV 业务前最多预留 3 天处理",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/online-change-of-address-coa-system/",
-      "sourceLabel": "对应官方来源：California DMV Change of Address",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/updating-information-on-your-driver-license-or-identification-dl-id-card/",
+      "sourceLabel": "对应官方来源：California DMV Update Information",
       "themes": [
         "address-change"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "address-change"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "new-york",
       "category": "期限提醒",
       "claim": "用于 REAL ID 的 Social Security ineligibility letter 必须由 SSA 在办公室访问前 30 天内签发，并同时带向 SSA 出示过的 DHS 文件",
-      "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
-      "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
+      "sourceUrl": "https://dmv.ny.gov/forms/id44.pdf",
+      "sourceLabel": "对应官方来源：NY DMV ID-44",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -883,7 +1071,8 @@
         "address-change"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -896,7 +1085,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -909,7 +1099,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -922,20 +1113,24 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "texas",
       "category": "搬家 / 地址",
       "claim": "成为新居民后须在 90 天内申请 Texas license",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids",
-      "sourceLabel": "对应官方来源：Texas DPS Moving to Texas Guide",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity",
+      "sourceLabel": "对应官方来源：Texas DPS Driving Privilege Reciprocity",
       "themes": [
         "new-resident"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "new-resident"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -948,7 +1143,8 @@
         "processing-or-mail"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -962,7 +1158,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -975,7 +1172,8 @@
         "address-change"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -988,7 +1186,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1001,7 +1200,8 @@
         "address-change"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1014,7 +1214,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1027,7 +1228,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1040,7 +1242,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1053,7 +1256,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1066,7 +1270,8 @@
         "address-change"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1079,7 +1284,8 @@
         "address-change"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1092,7 +1298,8 @@
         "address-change"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1106,46 +1313,54 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "pennsylvania",
       "category": "期限提醒",
       "claim": "现有外州驾照要交回，并且必须仍有效或过期不超过 6 个月",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-within-pa",
-      "sourceLabel": "对应官方来源：PennDOT Moving Within Pennsylvania",
+      "sourceUrl": "https://www.pa.gov/services/dmv/transfer-a-drivers-license-from-another-state",
+      "sourceLabel": "对应官方来源：Transfer an Out-of-State Driver License",
       "themes": [
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "pennsylvania",
       "category": "搬家 / 地址",
       "claim": "搬家后 15 天内分别更新 driver credential 和 vehicle registration",
-      "sourceUrl": "https://www.pa.gov/services/dmv/change-a-driver-license-name-or-address",
-      "sourceLabel": "对应官方来源：Pennsylvania Name or Address Change",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-within-pa",
+      "sourceLabel": "对应官方来源：PennDOT Moving Within Pennsylvania",
       "themes": [
         "address-change"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "address-change"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "pennsylvania",
       "category": "材料时效",
       "claim": "外州新居民在 60 天内到 Driver License Center 交回有效或过期不超过 6 个月的外州证，完成 DL-180R、vision 和材料核验",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/resources/relocation/moving-within-pa",
-      "sourceLabel": "对应官方来源：PennDOT Moving Within Pennsylvania",
+      "sourceUrl": "https://www.pa.gov/services/dmv/transfer-a-drivers-license-from-another-state",
+      "sourceLabel": "对应官方来源：Transfer an Out-of-State Driver License",
       "themes": [
         "new-resident"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "new-resident"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1158,7 +1373,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1171,7 +1387,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1184,7 +1401,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1198,7 +1416,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1211,21 +1430,23 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "maryland",
       "category": "搬家 / 地址",
       "claim": "新居民要在搬入 Maryland 后 60 天内转入普通外州驾照，CDL 的期限是 30 天",
-      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents",
-      "sourceLabel": "对应官方来源：Maryland MVA New Resident Guide",
+      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card",
+      "sourceLabel": "对应官方来源：Maryland MVA New Resident License or ID",
       "themes": [
         "new-resident",
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1238,7 +1459,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1251,20 +1473,22 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "virginia",
       "category": "搬家 / 地址",
       "claim": "USPS 不会转寄 Virginia license 或 ID，线上补证和续期前都应先确认 DMV 记录地址，并至少预留 15 天收件",
-      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/license/renewing",
-      "sourceLabel": "对应官方来源：Virginia DMV Renew Driver License",
+      "sourceUrl": "https://www.dmv.virginia.gov/online-services/replace-license",
+      "sourceLabel": "对应官方来源：Virginia DMV Online License Replacement",
       "themes": [
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1277,33 +1501,40 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "north-carolina",
       "category": "搬家 / 地址",
       "claim": "搬家或改名后在 60 天内更新，改名先完成 SSA 记录并等待至少 24 小时，再到 NCDMV 办 replacement",
-      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
-      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/moving-within-nc.aspx",
+      "sourceLabel": "对应官方来源：NCDMV Moving Within North Carolina",
       "themes": [
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "north-carolina",
       "category": "续期 / 到期",
       "claim": "在 renewal window 外升级 REAL ID 要重新拍照但通常不重考，到期前 6 个月内升级则要做 vision test 并重新拍照",
-      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/Pages/license-renewal.aspx",
-      "sourceLabel": "对应官方来源：NCDMV License & ID Renewal",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/default.aspx",
+      "sourceLabel": "对应官方来源：NCDMV N.C. REAL ID",
       "themes": [
         "renewal"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "renewal"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1317,34 +1548,39 @@
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "michigan",
       "category": "材料时效",
       "claim": "两份 Michigan residency 都要有申请人姓名和 residential street address，90 天内 utility、credit-card bill 或 financial statement 可用电子版，P.O. Box 不能代替居住地址",
-      "sourceUrl": "https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa",
-      "sourceLabel": "对应官方来源：Michigan SOS-428 Accepted Documents",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "michigan",
       "category": "期限提醒",
       "claim": "最多提前 6 个月预约 office，收到确认邮件后保留管理链接，walk-in 只作为可能排到当天稍后或下一工作日的备用方案",
-      "sourceUrl": "https://www.michigan.gov/sos/all-services/license-id-or-permit-replacement",
-      "sourceLabel": "对应官方来源：Michigan SOS Replacement",
+      "sourceUrl": "https://www.michigan.gov/sos/faqs/resources/scheduling-an-office-visit",
+      "sourceLabel": "对应官方来源：Michigan SOS Office Visit FAQ",
       "themes": [
         "processing-or-mail",
         "appointment"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1357,7 +1593,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1370,20 +1607,66 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "ohio",
       "category": "续期 / 到期",
       "claim": "续期先判断证件是否过期超过 6 个月，再检查 online eligibility",
-      "sourceUrl": "https://codes.ohio.gov/ohio-revised-code/section-4507.061",
-      "sourceLabel": "对应官方来源：Ohio Revised Code 4507.061",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-renewal-current.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Current License Renewal",
       "themes": [
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "arizona",
+      "category": "续期 / 到期",
+      "claim": "续期前检查卡面到期日、authorized-presence 截止日和 12 年照片节点，再让 AZ MVD Now 判断能否 online renewal",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-services/driver-license-information/renew-your-license",
+      "sourceLabel": "对应官方来源：ADOT MVD Renew Your License",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "arizona",
+      "category": "搬家 / 地址",
+      "claim": "搬家后 10 天内免费更新 MVD records",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-license-ID/change-your-address",
+      "sourceLabel": "对应官方来源：ADOT MVD Change Your Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "arizona",
+      "category": "续期 / 到期",
+      "claim": "60 岁及以上通常为签发日起 5 年，58 或 59 岁签发者在 65 岁当年的相同月日到期，非美国公民不得超过所提交移民文件的到期日或 8 年",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-services/arizona-travel-id",
+      "sourceLabel": "对应官方来源：ADOT MVD Arizona Travel ID",
+      "themes": [
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "immigration-verification"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -1396,7 +1679,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
@@ -1409,7 +1693,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
@@ -1422,7 +1707,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
@@ -1435,7 +1721,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
@@ -1448,7 +1735,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
@@ -1462,7 +1750,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
@@ -1475,7 +1764,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
@@ -1488,7 +1778,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
@@ -1501,7 +1792,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
@@ -1514,7 +1806,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "deadlines",
@@ -1527,20 +1820,22 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
       "stateId": "california",
       "category": "地址证明",
       "claim": "准备两份不同的打印版 California residency 文件，均要显示申请人的 first and last name，并与申请中的 mailing address 一致",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
-      "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/",
+      "sourceLabel": "对应官方来源：California DMV REAL ID Checklist",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1553,7 +1848,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1568,49 +1864,62 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "california",
       "category": "地址证明",
       "claim": "打开 California DMV REAL ID checklist，逐项确认 identity、SSN、residency 和 name-change 文件",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/",
-      "sourceLabel": "对应官方来源：California DMV REAL ID Checklist",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/what-is-real-id/",
+      "sourceLabel": "对应官方来源：California DMV What Is REAL ID",
       "themes": [
         "residency-documents",
         "document-checklist",
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
+      "failedThemes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn",
+        "explicit-source-title"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-york",
       "category": "地址证明",
       "claim": "REAL ID 需要 Social Security 证明、citizenship 或 lawful status、两份纽约州居住证明，以及累计 6 points 的姓名证明",
-      "sourceUrl": "https://dmv.ny.gov/more-info/dmv-document-guide",
-      "sourceLabel": "对应官方来源：NY DMV Document Guide",
+      "sourceUrl": "https://dmv.ny.gov/forms/id44.pdf",
+      "sourceLabel": "对应官方来源：NY DMV ID-44",
       "themes": [
         "residency-documents",
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-york",
       "category": "地址证明",
       "claim": "两份居住证明都必须显示当前纽约州地址，P.O. Box 不接受",
-      "sourceUrl": "https://dmv.ny.gov/more-info/dmv-document-guide",
-      "sourceLabel": "对应官方来源：NY DMV Document Guide",
+      "sourceUrl": "https://dmv.ny.gov/forms/id44.pdf",
+      "sourceLabel": "对应官方来源：NY DMV ID-44",
       "themes": [
         "residency-documents"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1623,20 +1932,24 @@
         "address-change"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-york",
       "category": "地址证明",
       "claim": "逐份检查姓名链、当前地址、签发日期、原件或认证副本以及英文翻译",
-      "sourceUrl": "https://dmv.ny.gov/more-info/dmv-document-guide",
-      "sourceLabel": "对应官方来源：NY DMV Document Guide",
+      "sourceUrl": "https://dmv.ny.gov/forms/id44.pdf",
+      "sourceLabel": "对应官方来源：NY DMV ID-44",
       "themes": [
         "translation"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "translation"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1649,7 +1962,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1662,7 +1976,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1675,7 +1990,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1688,47 +2004,51 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "florida",
       "category": "地址证明",
       "claim": "现场 REAL ID 通常要一份可接受的 primary identification、SSN 证明和两份 Florida residential address 文件",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "florida",
       "category": "地址证明",
       "claim": "两份地址文件必须不同并显示 Florida residential address，当前 driver license 或 ID 不能用作地址证明",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "florida",
       "category": "地址证明",
       "claim": "地址文件不在本人名下时，可由同住人提交 Certification of Address 和两份配套地址证明",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1742,130 +2062,144 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "washington",
       "category": "地址证明",
       "claim": "EDL/EID 仅向美国公民签发，申请时要证明美国公民身份、本人身份和 Washington residency，并提供 SSN",
-      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity",
-      "sourceLabel": "对应官方来源：WA DOL Documents for Proof of Identity",
+      "sourceUrl": "https://dol.wa.gov/id-cards/real-id",
+      "sourceLabel": "对应官方来源：WA DOL REAL ID",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "washington",
       "category": "地址证明",
       "claim": "准备两份均显示本人 first and last name 与当前 WA residential address 的居住文件，P.O. Box 不能代替 residential address",
-      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/get-enhanced-driver-license-edl",
-      "sourceLabel": "对应官方来源：WA DOL Get an Enhanced Driver License",
+      "sourceUrl": "https://dol.wa.gov/media/pdf/5165/applying-enhanced-washington-license-or-idpdf/download?inline=",
+      "sourceLabel": "对应官方来源：WA DOL Enhanced License or ID Document Checklist",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "washington",
       "category": "地址证明",
       "claim": "Standard Washington driver license / ID 不表示持有人具备特定居住或合法身份状态",
-      "sourceUrl": "https://dol.wa.gov/media/pdf/5165/applying-enhanced-washington-license-or-idpdf/download?inline=",
-      "sourceLabel": "对应官方来源：WA DOL Enhanced License or ID Document Checklist",
+      "sourceUrl": "https://dol.wa.gov/id-cards/real-id",
+      "sourceLabel": "对应官方来源：WA DOL REAL ID",
       "themes": [
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "washington",
       "category": "SSN",
       "claim": "申请人必须提供 SSN，但官方 EDL/EID 清单说明无需出示 Social Security card",
-      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity",
-      "sourceLabel": "对应官方来源：WA DOL Documents for Proof of Identity",
+      "sourceUrl": "https://dol.wa.gov/media/pdf/5165/applying-enhanced-washington-license-or-idpdf/download?inline=",
+      "sourceLabel": "对应官方来源：WA DOL Enhanced License or ID Document Checklist",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-jersey",
       "category": "地址证明",
       "claim": "REAL ID 使用 2 + 1 + 6：两份 NJ residential address 证明、一个可核验的完整 SSN、以及 primary / secondary 合计 6 个 REAL ID identity points",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/faq.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID FAQ",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-jersey",
       "category": "地址证明",
       "claim": "地址证明可用官方清单列出的 electronic 或 paper 版本，但 identity 的 6 Points 要用 paper 或 hard copy",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "sourceUrl": "https://www.nj.gov/mvc/license/6pointid.htm",
+      "sourceLabel": "对应官方来源：NJ MVC 6 Points of ID",
       "themes": [
         "residency-documents"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-jersey",
       "category": "地址证明",
       "claim": "Standard license / ID 与 REAL ID 不同：通常只要一份 residency，号码栏可用 SSN、ITIN 或 affidavit，身份 points 也要按 Standard 清单计算",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
+      "sourceUrl": "https://www.nj.gov/mvc/license/6pointid.htm",
+      "sourceLabel": "对应官方来源：NJ MVC 6 Points of ID",
       "themes": [
         "residency-documents",
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-jersey",
       "category": "地址证明",
       "claim": "需要 REAL ID 时运行 Document Selector，选齐两份 residency、一个 full SSN 路径和 6 个 REAL ID points，并打印最终清单",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "massachusetts",
       "category": "地址证明",
       "claim": "首次或升级 REAL ID 通常带 1 份 lawful presence、1 份显示完整 9 位 SSN 的证明、2 份显示姓名和当前 Massachusetts residential address 的住址证明",
-      "sourceUrl": "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf",
-      "sourceLabel": "对应官方来源：REAL ID Documents Checklist",
+      "sourceUrl": "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+      "sourceLabel": "对应官方来源：Massachusetts Identification Requirements",
       "themes": [
         "residency-documents",
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1878,7 +2212,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1891,7 +2226,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1904,88 +2240,97 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "illinois",
       "category": "地址证明",
       "claim": "银行账单、utility bill 等 printed electronic documents 可以使用，但 account number 要清楚可见",
-      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
-      "sourceLabel": "对应官方来源：Illinois Acceptable Identification Documents",
+      "sourceUrl": "https://www.ilsos.gov/content/realid/us/en.html",
+      "sourceLabel": "对应官方来源：Illinois REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "illinois",
       "category": "地址证明",
       "claim": "第一张 REAL ID 的材料结构是 Group A written signature、Group B date of birth / lawful status、Group C full SSN 和两份 Group D residency",
-      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
-      "sourceLabel": "对应官方来源：Illinois Acceptable Identification Documents",
+      "sourceUrl": "https://www.ilsos.gov/content/realid/us/en.html",
+      "sourceLabel": "对应官方来源：Illinois REAL ID",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "illinois",
       "category": "地址证明",
       "claim": "升级 REAL ID、需要 written / road test、更新 medical / vision report 或加入 P.O. Box 时不能线上续",
-      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
-      "sourceLabel": "对应官方来源：Illinois Document Requirements",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/renewonline.html",
+      "sourceLabel": "对应官方来源：Illinois Driver License Renewal",
       "themes": [
         "residency-documents"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "illinois",
       "category": "地址证明",
       "claim": "首次申请 Illinois REAL ID 要准备一份 Group A written signature、一份 Group B date of birth / lawful status、一份 Group C 完整 SSN，以及两份 Group D Illinois residency",
-      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
-      "sourceLabel": "对应官方来源：Illinois Acceptable Identification Documents",
+      "sourceUrl": "https://www.ilsos.gov/content/realid/us/en.html",
+      "sourceLabel": "对应官方来源：Illinois REAL ID",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "pennsylvania",
       "category": "地址证明",
       "claim": "两份 residency 要是显示 Pennsylvania address 的 physical documents，而不是电子展示",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
-      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
+      "sourceLabel": "对应官方来源：REAL ID Document Requirements",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "pennsylvania",
       "category": "地址证明",
       "claim": "没有通过确认或不符合资格时，按 identity / lawful status、SSN、two physical residency 和 name-change chain 四栏准备 original / certified documents",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
-      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
+      "sourceLabel": "对应官方来源：REAL ID Document Requirements",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -1999,130 +2344,146 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "pennsylvania",
       "category": "地址证明",
       "claim": "多数首次 Pennsylvania REAL ID 申请人要带一份 identity / lawful status、一份符合本人类别的 SSN 证明、两份 physical Pennsylvania residency 文件，以及适用的完整姓名变更链",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
-      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
+      "sourceLabel": "对应官方来源：REAL ID Document Requirements",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "georgia",
       "category": "SSN",
       "claim": "先在 Online License/ID/Permit Form 填完整 SSN，系统核验失败时再带显示姓名与完整号码的 Social Security card、SSA printout、W-2、1099 或 pay stub 等官方清单文件",
-      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/information-non-us-citizens",
-      "sourceLabel": "对应官方来源：Georgia DDS Information for Non-US Citizens",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/real-id",
+      "sourceLabel": "对应官方来源：Georgia DDS REAL ID",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "maryland",
       "category": "地址证明",
       "claim": "准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致",
-      "sourceUrl": "https://mva.maryland.gov/documents/FO-150A.pdf",
-      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
+      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
+      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "maryland",
       "category": "地址证明",
       "claim": "逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件",
-      "sourceUrl": "https://mva.maryland.gov/documents/FO-150A.pdf",
-      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
+      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
+      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "maryland",
       "category": "SSN",
       "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
-      "sourceUrl": "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info",
-      "sourceLabel": "对应官方来源：Maryland MVA Update Name, Address or License Info",
+      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
+      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "virginia",
       "category": "地址证明",
       "claim": "REAL ID 核心材料是 one identity、one legal presence、two Virginia residency、SSN 信息和适用的 certified name-change documents",
-      "sourceUrl": "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf",
-      "sourceLabel": "对应官方来源：Virginia DMV Document Guide DMV 141",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/real-id",
+      "sourceLabel": "对应官方来源：Virginia DMV REAL ID",
       "themes": [
         "residency-documents",
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "virginia",
       "category": "地址证明",
       "claim": "清单明确接受的在线账单或其他 online residency document 可以打印后作为住址证明，但仍要准备两份",
-      "sourceUrl": "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf",
-      "sourceLabel": "对应官方来源：Virginia DMV Document Guide DMV 141",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/real-id",
+      "sourceLabel": "对应官方来源：Virginia DMV REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "virginia",
       "category": "地址证明",
       "claim": "两份 Virginia residency 文件要显示当前 residential street address，P.O. box 只能作为额外 mailing address，不能取代 residence address",
-      "sourceUrl": "https://www.dmv.virginia.gov/records/personal-information-updates",
-      "sourceLabel": "对应官方来源：Virginia DMV Personal Information Updates",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/license/applying",
+      "sourceLabel": "对应官方来源：Virginia DMV Apply for a Driver License",
       "themes": [
         "residency-documents"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "virginia",
       "category": "地址证明",
       "claim": "Driver Privilege Card 采用另一套材料，要有 two identity、two Virginia residency、SSN 或 ITIN、tax return documentation，并为外文文件附 professional translator 的 certified English translation",
-      "sourceUrl": "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf",
-      "sourceLabel": "对应官方来源：Virginia DMV Document Guide DMV 141",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/license/driver-privilege-card",
+      "sourceLabel": "对应官方来源：Virginia DMV Driver Privilege Card",
       "themes": [
         "residency-documents",
         "translation",
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "residency-documents",
+        "translation",
+        "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -2137,20 +2498,22 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "north-carolina",
       "category": "地址证明",
       "claim": "两份 residency 都要显示当前 North Carolina physical address，可用政府文件、utility/cable bill、lease、mortgage、tax、preprinted financial statement、school record 等官方认可材料",
-      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/new-residents.aspx",
-      "sourceLabel": "对应官方来源：NCDMV Moving to North Carolina",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
+      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -2165,50 +2528,58 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "north-carolina",
       "category": "地址证明",
       "claim": "姓名变化后 60 天内要通知 NCDMV，先到 Social Security Administration 更新并至少等待 24 小时，再带 certified name-change proof 到 driver license office",
-      "sourceUrl": "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx",
-      "sourceLabel": "对应官方来源：NCDMV Proving Social Security",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/Pages/license-id-replacement.aspx",
+      "sourceLabel": "对应官方来源：NCDMV License & ID Replacement",
       "themes": [
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "michigan",
       "category": "地址证明",
       "claim": "首次 license/ID 按 legal presence、SSN、identity、两份 Michigan residency 和 name-change chain 五组准备，申请驾照者另做 vision exam",
-      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
-      "sourceLabel": "对应官方来源：Michigan SOS Document Requirements FAQ",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
       "themes": [
         "residency-documents",
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "michigan",
       "category": "地址证明",
       "claim": "Legal presence 与 identity 文件须用原件，所有非英文文件要附 English translation，只有列明的 residency 文件可使用电子版本",
-      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
-      "sourceLabel": "对应官方来源：Michigan SOS Document Requirements FAQ",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
       "themes": [
         "residency-documents",
         "translation",
         "lawful-presence"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "translation"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -2222,7 +2593,8 @@
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -2235,7 +2607,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -2249,72 +2622,107 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "ohio",
       "category": "地址证明",
       "claim": "Compliant credential 把地址证明提高为两份且须来自不同来源",
-      "sourceUrl": "https://www.bmv.ohio.gov/dl-real-id.aspx",
-      "sourceLabel": "对应官方来源：Ohio BMV REAL ID Card",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-identity-documents.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Acceptable Documents",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "ohio",
       "category": "地址证明",
       "claim": "Compliant 住址材料常见可用 utility bill、bank statement、credit-card statement、pay stub、insurance policy、Ohio title/registration 等，其中标注时限的账单通常须在 12 个月内",
-      "sourceUrl": "https://www.bmv.ohio.gov/new-to-ohio.aspx",
-      "sourceLabel": "对应官方来源：Ohio BMV New Ohio Residents",
+      "sourceUrl": "https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/bmv2430.pdf",
+      "sourceLabel": "对应官方来源：Ohio BMV Compliant Documents BMV 2430",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "ohio",
       "category": "地址证明",
       "claim": "两份 Compliant residency 必须显示姓名和当前 Ohio street address",
-      "sourceUrl": "https://www.bmv.ohio.gov/dl-real-id.aspx",
-      "sourceLabel": "对应官方来源：Ohio BMV REAL ID Card",
+      "sourceUrl": "https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/bmv2430.pdf",
+      "sourceLabel": "对应官方来源：Ohio BMV Compliant Documents BMV 2430",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "arizona",
       "category": "地址证明",
-      "claim": "姓名变化通常不能只靠普通在线地址变更完成",
-      "sourceUrl": "https://azdot.gov/mvd/services/driver-license-ID/change-your-address",
-      "sourceLabel": "对应官方来源：ADOT MVD Change Your Address",
+      "claim": "先下载当前 40-5144，按一份 primary identity、Social Security number、两份 Arizona physical residential address 和适用姓名变化文件分组",
+      "sourceUrl": "https://apps.azdot.gov/files/mvd/mvd-forms-lib/40-5144.pdf",
+      "sourceLabel": "对应官方来源：Arizona DL/ID Requirements 40-5144 R03/26",
       "themes": [
-        "address-change"
+        "residency-documents",
+        "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "arizona",
-      "category": "材料规则",
-      "claim": "Travel ID 通常需要一份身份证明或合法身份文件",
+      "category": "地址证明",
+      "claim": "两份 residency 应来自不同来源，并同时显示申请人姓名和当前 Arizona physical residential address",
       "sourceUrl": "https://azdot.gov/mvd/services/driver-services/arizona-travel-id",
       "sourceLabel": "对应官方来源：ADOT MVD Arizona Travel ID",
       "themes": [
-        "lawful-presence"
+        "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "arizona",
+      "category": "地址证明",
+      "claim": "材料不足两份时，Arizona Residency Affidavit 只能作为其中一份 residency，仍须再带一份合格地址证明",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-services/arizona-travel-id",
+      "sourceLabel": "对应官方来源：ADOT MVD Arizona Travel ID",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "arizona",
+      "category": "地址证明",
+      "claim": "下载当前 40-5144，逐项核对修订号、primary identity、SSN、两份不同来源 Arizona address 和完整 name-change chain",
+      "sourceUrl": "https://apps.azdot.gov/files/mvd/mvd-forms-lib/40-5144.pdf",
+      "sourceLabel": "对应官方来源：Arizona DL/ID Requirements 40-5144 R03/26",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -2327,7 +2735,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2341,7 +2750,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2355,7 +2765,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2369,7 +2780,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2382,7 +2794,8 @@
         "address-change"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2397,7 +2810,8 @@
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2410,7 +2824,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2423,7 +2838,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2436,7 +2852,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2449,7 +2866,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2463,7 +2881,8 @@
         "document-checklist"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2476,7 +2895,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2490,7 +2910,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2504,7 +2925,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2517,7 +2939,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2531,7 +2954,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2544,7 +2968,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2557,7 +2982,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2570,7 +2996,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2585,7 +3012,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2599,7 +3027,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2613,7 +3042,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2627,7 +3057,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2640,7 +3071,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2653,7 +3085,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2666,7 +3099,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2679,7 +3113,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2693,7 +3128,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2707,7 +3143,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2720,7 +3157,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2733,7 +3171,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2750,7 +3189,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2764,7 +3204,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2779,7 +3220,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2790,7 +3232,8 @@
       "sourceLabel": "对应官方来源：SCDMV Address or Name Change",
       "themes": [],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2803,7 +3246,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2817,7 +3261,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2831,7 +3276,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2844,7 +3290,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2858,7 +3305,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2871,7 +3319,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2884,7 +3333,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2897,7 +3347,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2910,7 +3361,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2925,7 +3377,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2938,7 +3391,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2951,7 +3405,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2964,7 +3419,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2977,7 +3433,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -2990,7 +3447,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3003,7 +3461,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3014,7 +3473,8 @@
       "sourceLabel": "对应官方来源：Arkansas DFA Real ID",
       "themes": [],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3025,7 +3485,8 @@
       "sourceLabel": "对应官方来源：Arkansas DFA Real ID",
       "themes": [],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3038,7 +3499,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3051,7 +3513,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3064,7 +3527,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3077,7 +3541,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3090,7 +3555,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3103,7 +3569,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3116,7 +3583,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3129,7 +3597,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3142,7 +3611,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3156,7 +3626,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3170,7 +3641,8 @@
         "document-checklist"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3183,7 +3655,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3196,7 +3669,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3211,7 +3685,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3226,7 +3701,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3240,7 +3716,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3254,7 +3731,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3267,7 +3745,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3280,7 +3759,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3294,7 +3774,8 @@
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3307,7 +3788,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3320,7 +3802,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3334,7 +3817,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3347,7 +3831,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3360,7 +3845,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3373,7 +3859,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3386,7 +3873,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3400,7 +3888,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3413,7 +3902,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3426,7 +3916,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3441,7 +3932,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3454,7 +3946,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3467,7 +3960,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3480,7 +3974,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3493,7 +3988,8 @@
         "address-change"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3507,7 +4003,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3520,7 +4017,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3533,7 +4031,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3546,7 +4045,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3559,7 +4059,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3572,7 +4073,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3585,7 +4087,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3599,7 +4102,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3612,7 +4116,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3625,7 +4130,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3638,7 +4144,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3652,7 +4159,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3665,7 +4173,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3678,7 +4187,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3689,7 +4199,8 @@
       "sourceLabel": "对应官方来源：WV DMV REAL ID",
       "themes": [],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3702,7 +4213,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3715,7 +4227,8 @@
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3728,7 +4241,8 @@
         "address-change"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "document-rules",
@@ -3743,7 +4257,8 @@
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -3756,7 +4271,8 @@
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -3769,7 +4285,8 @@
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -3782,7 +4299,8 @@
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -3795,7 +4313,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -3809,34 +4328,39 @@
         "translation"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "texas",
       "category": "外国 / 境外驾照",
       "claim": "持有效未过期证件且交出外国驾照者可能免 knowledge 和 skills exams",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity",
-      "sourceLabel": "对应官方来源：Texas DPS Driving Privilege Reciprocity",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids",
+      "sourceLabel": "对应官方来源：Texas DPS Moving to Texas Guide",
       "themes": [
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "texas",
       "category": "外国 / 境外驾照",
       "claim": "外国驾照不是 English 或 Spanish 时，去办公室前要由翻译服务机构或领事馆完成翻译",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driving-privilege-reciprocity",
-      "sourceLabel": "对应官方来源：Texas DPS Driving Privilege Reciprocity",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids",
+      "sourceLabel": "对应官方来源：Texas DPS Moving to Texas Guide",
       "themes": [
         "foreign-license",
         "translation"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "translation"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -3849,7 +4373,8 @@
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -3864,7 +4389,8 @@
         "reciprocity"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -3877,7 +4403,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -3891,48 +4418,54 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
       "stateId": "florida",
       "category": "外州 / 加拿大转入",
       "claim": "先进入 What to Bring，按 U.S. Citizen、Immigrant、Non-Immigrant 或 Canadian 选择身份分支",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring FAQ",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring",
       "themes": [
         "what-to-bring",
         "non-citizen"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "florida",
       "category": "外州 / 加拿大转入",
       "claim": "primary identification 要用官方列出的原件或认证文件，out-of-state driver license 不能替代这组身份证明",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/frequently-asked-questions/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring FAQ",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
       "themes": [
         "out-of-state"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "out-of-state"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "washington",
       "category": "外州 / 加拿大转入",
       "claim": "新居民办证时带外州驾照等身份证明并完成适用测试",
-      "sourceUrl": "https://dol.wa.gov/moving-washington",
-      "sourceLabel": "对应官方来源：WA DOL Moving to Washington",
+      "sourceUrl": "https://dol.wa.gov/moving-washington/get-driver-license",
+      "sourceLabel": "对应官方来源：WA DOL Moving to Washington: Get a Driver License",
       "themes": [
         "new-resident",
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -3945,7 +4478,8 @@
         "temporary-credential"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -3958,7 +4492,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -3971,20 +4506,22 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "massachusetts",
       "category": "外国 / 境外驾照",
       "claim": "外国驾照只有 Canada、Mexico、U.S. Territories、South Korea、Germany、France 和 Taiwan 等 RMV 列出的协议地区可走 conversion",
-      "sourceUrl": "https://www.mass.gov/info-details/information-for-converting-certain-foreign-drivers-licenses",
-      "sourceLabel": "对应官方来源：Mass.gov Foreign License Conversion",
+      "sourceUrl": "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country",
+      "sourceLabel": "对应官方来源：Mass.gov Transfer Foreign Driver License",
       "themes": [
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -3998,20 +4535,24 @@
         "translation"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
       "stateId": "massachusetts",
       "category": "外国 / 境外驾照",
       "claim": "第二份从州法列明的出生证、外国身份证、外国驾照等类别中选",
-      "sourceUrl": "https://www.mass.gov/how-to/transfer-your-drivers-license-from-a-foreign-country",
-      "sourceLabel": "对应官方来源：Mass.gov Transfer Foreign Driver License",
+      "sourceUrl": "https://www.mass.gov/info-details/mass-general-laws-c90-ss-8",
+      "sourceLabel": "对应官方来源：Mass. General Laws c.90 § 8",
       "themes": [
         "foreign-license"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "foreign-license"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4024,7 +4565,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4038,7 +4580,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4051,7 +4594,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4064,20 +4608,22 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "pennsylvania",
       "category": "外国 / 境外驾照",
       "claim": "符合条件的外国驾照持有人可驾驶到入境美国满一年或外国驾照到期，以较早者为准",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/driving-in-pennsylvania-with-a-foreign-driver-s-license",
-      "sourceLabel": "对应官方来源：Driving with a Foreign Driver License",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/applying-for-a-learners-permit",
+      "sourceLabel": "对应官方来源：Pennsylvania Permit and Foreign Reciprocity Rules",
       "themes": [
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4091,20 +4637,22 @@
         "reciprocity"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
       "stateId": "pennsylvania",
       "category": "外国 / 境外驾照",
       "claim": "持有效外国驾照的合格访客可从入境美国起最多驾驶一年或到外国驾照到期，以较早者为准",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/driving-in-pennsylvania-with-a-foreign-driver-s-license",
-      "sourceLabel": "对应官方来源：Driving with a Foreign Driver License",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/applying-for-a-learners-permit",
+      "sourceLabel": "对应官方来源：Pennsylvania Permit and Foreign Reciprocity Rules",
       "themes": [
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4117,20 +4665,24 @@
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "georgia",
       "category": "外国 / 境外驾照",
       "claim": "非居民持有效外国驾照可在 Georgia 驾驶，但执法人员可能要求 passport 或 visa 核验驾照有效性，成为 resident 后则进入 30 天换证规则",
-      "sourceUrl": "https://dds.georgia.gov/transfer-unexpired-foreign-drivers-license",
-      "sourceLabel": "对应官方来源：Georgia DDS Transfer Unexpired Foreign Driver License",
+      "sourceUrl": "https://dds.georgia.gov/georgia-licenseid/new-licenseid/drivers-other-nations",
+      "sourceLabel": "对应官方来源：Georgia DDS Drivers From Other Nations",
       "themes": [
         "foreign-license"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "foreign-license"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4143,7 +4695,8 @@
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4156,7 +4709,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4169,7 +4723,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4182,7 +4737,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4196,34 +4752,40 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "maryland",
       "category": "外州 / 加拿大转入",
       "claim": "外州驾照已过期超过 12 个月时不能直接交换，申请人要重新通过视力、knowledge 和 skills tests",
-      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents",
-      "sourceLabel": "对应官方来源：Maryland MVA New Resident Guide",
+      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card",
+      "sourceLabel": "对应官方来源：Maryland MVA New Resident License or ID",
       "themes": [
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "virginia",
       "category": "外州 / 加拿大转入",
       "claim": "外州换证应带 current out-of-state license，新居民同时申请 REAL ID 时仍要补齐 Virginia REAL ID 全套文件",
-      "sourceUrl": "https://www.dmv.virginia.gov/moving/new-virginia",
-      "sourceLabel": "对应官方来源：Virginia DMV New to Virginia",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/license/applying/eligibility",
+      "sourceLabel": "对应官方来源：Virginia DMV Driver License Eligibility",
       "themes": [
         "new-resident",
         "out-of-state"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4236,20 +4798,24 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "north-carolina",
       "category": "外州 / 加拿大转入",
       "claim": "即使只申请 North Carolina state ID，若它成为最近签发的州证件，也可能取消仍在使用的外州驾照，不想取消外州证件就不要完成 North Carolina credential 签发",
-      "sourceUrl": "https://www.ncdot.gov/dmv/help/moving/Pages/default.aspx",
-      "sourceLabel": "对应官方来源：NCDMV Moving",
+      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/state-to-state-verification.aspx",
+      "sourceLabel": "对应官方来源：NCDMV State-to-State Verification",
       "themes": [
         "out-of-state"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "out-of-state"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4263,7 +4829,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4277,7 +4844,8 @@
         "translation"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4291,7 +4859,8 @@
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4304,20 +4873,22 @@
         "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
       "stateId": "michigan",
       "category": "外国 / 境外驾照",
       "claim": "Identity 通常用一份列明的美国或加拿大证件，无法走单文件路径时，foreign passport、I-94、EAD、I-571 或附 I-797 的过期移民文件等通常要按两份组合规则准备",
-      "sourceUrl": "https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa",
-      "sourceLabel": "对应官方来源：Michigan SOS-428 Accepted Documents",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
       "themes": [
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4331,7 +4902,8 @@
         "reciprocity"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4345,20 +4917,24 @@
         "reciprocity"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
       "stateId": "ohio",
       "category": "外州 / 加拿大转入",
       "claim": "持有效未过期外州非 CDL 驾照的新居民通常带原证件和完整材料到 Deputy Registrar 并完成 vision screening",
-      "sourceUrl": "https://codes.ohio.gov/ohio-revised-code/section-4507.213",
-      "sourceLabel": "对应官方来源：Ohio Revised Code 4507.213",
+      "sourceUrl": "https://www.bmv.ohio.gov/new-to-ohio.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV New Ohio Residents",
       "themes": [
         "new-resident"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "new-resident"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -4371,7 +4947,38 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "arizona",
+      "category": "IDP / 国际驾照",
+      "claim": "IDP 不是州法强制，但因有英文而受官方推荐，IDP 只是翻译辅助，不能替代原始外国驾照",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-license-ID/driver-license-foreign-applicants",
+      "sourceLabel": "对应官方来源：ADOT MVD Foreign Applicants",
+      "themes": [
+        "foreign-license",
+        "translation"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "arizona",
+      "category": "互惠 / 免考",
+      "claim": "Foreign Applicants：外国访客、authorized presence、SSN、四地免试、中国大陆路径和期限",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-license-ID/driver-license-foreign-applicants",
+      "sourceLabel": "对应官方来源：ADOT MVD Foreign Applicants",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4385,7 +4992,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4398,7 +5006,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4411,7 +5020,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4426,7 +5036,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4440,7 +5051,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4453,7 +5065,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4466,7 +5079,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4479,7 +5093,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4492,7 +5107,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4505,7 +5121,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4518,7 +5135,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4531,7 +5149,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4545,7 +5164,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4558,7 +5178,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4571,7 +5192,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4584,7 +5206,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4597,7 +5220,8 @@
         "out-of-state"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4612,7 +5236,8 @@
         "renewal"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4625,7 +5250,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4638,7 +5264,8 @@
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
@@ -4652,7 +5279,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -4667,20 +5295,24 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "california",
       "category": "AB 60",
       "claim": "AB 60 不能升级为 REAL ID",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/assembly-bill-ab-60-driver-licenses/",
-      "sourceLabel": "对应官方来源：California DMV AB 60 Driver Licenses",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/what-is-real-id/",
+      "sourceLabel": "对应官方来源：California DMV What Is REAL ID",
       "themes": [
         "ab-60"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "ab-60"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -4693,90 +5325,111 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "california",
       "category": "SSN",
       "claim": "打开 California DMV REAL ID checklist，逐项确认 identity、SSN、residency 和 name-change 文件",
-      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/",
-      "sourceLabel": "对应官方来源：California DMV REAL ID Checklist",
+      "sourceUrl": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/what-is-real-id/",
+      "sourceLabel": "对应官方来源：California DMV What Is REAL ID",
       "themes": [
         "residency-documents",
         "document-checklist",
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true
+      "failedThemes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn",
+        "explicit-source-title"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "new-york",
       "category": "无 SSN / SSA",
       "claim": "用于 REAL ID 的 Social Security ineligibility letter 必须由 SSA 在办公室访问前 30 天内签发，并同时带向 SSA 出示过的 DHS 文件",
-      "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
-      "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
+      "sourceUrl": "https://dmv.ny.gov/forms/id44.pdf",
+      "sourceLabel": "对应官方来源：NY DMV ID-44",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "new-york",
       "category": "SSN",
       "claim": "REAL ID 需要 Social Security 证明、citizenship 或 lawful status、两份纽约州居住证明，以及累计 6 points 的姓名证明",
-      "sourceUrl": "https://dmv.ny.gov/driver-license/applying-for-a-standard-license-without-a-social-security-number-or-ineligibility",
-      "sourceLabel": "对应官方来源：NY DMV Applying Without SSN or Ineligibility",
+      "sourceUrl": "https://dmv.ny.gov/forms/id44.pdf",
+      "sourceLabel": "对应官方来源：NY DMV ID-44",
       "themes": [
         "residency-documents",
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "new-york",
       "category": "公民身份",
       "claim": "Enhanced 仅面向美国公民和纽约州居民，并在普通交易费之外加收 $30",
-      "sourceUrl": "https://dmv.ny.gov/driver-license/fees-refunds",
-      "sourceLabel": "对应官方来源：NY DMV Driver License Fees and Refunds",
+      "sourceUrl": "https://dmv.ny.gov/driver-license/enhanced-or-real-id",
+      "sourceLabel": "对应官方来源：NY DMV Enhanced or REAL ID",
       "themes": [
         "fee"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "texas",
       "category": "SSN",
       "claim": "准备 citizenship 或 lawful presence、identity 和 Social Security number 对应文件",
-      "sourceUrl": "https://www.dps.texas.gov/apps/DriverLicense/RealID/",
-      "sourceLabel": "对应官方来源：Texas DPS REAL ID Document Check",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/apply-texas-driver-license",
+      "sourceLabel": "对应官方来源：Texas DPS Apply for a Driver License",
       "themes": [
         "ssn",
         "lawful-presence"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "texas",
       "category": "SSN",
       "claim": "DPS 会与联邦系统核验 SSN 和 lawful presence",
-      "sourceUrl": "https://www.dps.texas.gov/apps/DriverLicense/RealID/",
-      "sourceLabel": "对应官方来源：Texas DPS REAL ID Document Check",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/social-security-number-ssn",
+      "sourceLabel": "对应官方来源：Texas DPS Social Security Number",
       "themes": [
         "ssn",
         "lawful-presence"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "lawful-presence"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -4789,33 +5442,38 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "texas",
       "category": "lawful presence",
       "claim": "DPS 会通过 DHS 核验 lawful presence，在核验完成前不能签发驾照或 ID",
-      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/driver-licenses-and-id-cards-temporary-visitors",
-      "sourceLabel": "对应官方来源：Texas DPS Temporary Visitors",
+      "sourceUrl": "https://www.dps.texas.gov/section/driver-license/us-citizenship-or-lawful-presence-requirement",
+      "sourceLabel": "对应官方来源：Texas DPS Citizenship or Lawful Presence",
       "themes": [
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "florida",
       "category": "SSN",
       "claim": "改名要先更新 Social Security Administration 记录，并在等待 24 至 48 小时后再到 Florida 办证机构办理",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+      "sourceUrl": "https://www.flhsmv.gov/name-and-address-changes/",
+      "sourceLabel": "对应官方来源：FLHSMV Name and Address Changes",
       "themes": [
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -4829,7 +5487,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -4842,89 +5501,96 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "florida",
       "category": "SSN",
       "claim": "打开 What to Bring 的正确身份分支，逐项准备 primary identification、SSN、两份地址文件和完整姓名链",
-      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/",
-      "sourceLabel": "对应官方来源：FLHSMV What to Bring - U.S. Citizen",
+      "sourceUrl": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/",
+      "sourceLabel": "对应官方来源：FLHSMV What to Bring",
       "themes": [
         "what-to-bring",
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "washington",
       "category": "SSN",
       "claim": "EDL/EID 仅向美国公民签发，申请时要证明美国公民身份、本人身份和 Washington residency，并提供 SSN",
-      "sourceUrl": "https://dol.wa.gov/media/pdf/5165/applying-enhanced-washington-license-or-idpdf/download?inline=",
-      "sourceLabel": "对应官方来源：WA DOL Enhanced License or ID Document Checklist",
+      "sourceUrl": "https://dol.wa.gov/id-cards/real-id",
+      "sourceLabel": "对应官方来源：WA DOL REAL ID",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "washington",
       "category": "SSN",
       "claim": "申请人必须提供 SSN，但官方 EDL/EID 清单说明无需出示 Social Security card",
-      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl/get-enhanced-driver-license-edl",
-      "sourceLabel": "对应官方来源：WA DOL Get an Enhanced Driver License",
+      "sourceUrl": "https://dol.wa.gov/media/pdf/5165/applying-enhanced-washington-license-or-idpdf/download?inline=",
+      "sourceLabel": "对应官方来源：WA DOL Enhanced License or ID Document Checklist",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "washington",
       "category": "lawful presence",
       "claim": "Standard Washington driver license / ID 不表示持有人具备特定居住或合法身份状态",
-      "sourceUrl": "https://dol.wa.gov/media/pdf/5165/applying-enhanced-washington-license-or-idpdf/download?inline=",
-      "sourceLabel": "对应官方来源：WA DOL Enhanced License or ID Document Checklist",
+      "sourceUrl": "https://dol.wa.gov/id-cards/real-id",
+      "sourceLabel": "对应官方来源：WA DOL REAL ID",
       "themes": [
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "new-jersey",
       "category": "SSN",
       "claim": "REAL ID 使用 2 + 1 + 6：两份 NJ residential address 证明、一个可核验的完整 SSN、以及 primary / secondary 合计 6 个 REAL ID identity points",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/faq.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID FAQ",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "new-jersey",
       "category": "SSN",
       "claim": "如果核验失败，要提交显示 full name 和完整 SSN 的 Social Security card、近期 W-2、pay stub 或 1099 等清单文件",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -4937,20 +5603,22 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "new-jersey",
       "category": "SSN",
       "claim": "现有 MVC、SSN 和 primary document 姓名不匹配时，可能需要认证婚姻、离婚或法院文件连接姓名",
-      "sourceUrl": "https://www.nj.gov/mvc/realid/selector.html",
-      "sourceLabel": "对应官方来源：NJ MVC REAL ID Document Selector",
+      "sourceUrl": "https://www.nj.gov/mvc/realid/name-matches.html",
+      "sourceLabel": "对应官方来源：NJ MVC REAL ID Name Matches",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -4963,35 +5631,40 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "massachusetts",
       "category": "SSN",
       "claim": "首次关联时要输入生日、姓氏、马州证件号以及 SSN 后四位、foreign passport number 或 Consular ID 之一，并可能需要 Letter ID",
-      "sourceUrl": "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf",
-      "sourceLabel": "对应官方来源：REAL ID Documents Checklist",
+      "sourceUrl": "https://www.mass.gov/info-details/mymassgov-for-myrmv-services",
+      "sourceLabel": "对应官方来源：MyMassGov for myRMV Services",
       "themes": [
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "massachusetts",
       "category": "SSN",
       "claim": "首次或升级 REAL ID 通常带 1 份 lawful presence、1 份显示完整 9 位 SSN 的证明、2 份显示姓名和当前 Massachusetts residential address 的住址证明",
-      "sourceUrl": "https://www.mass.gov/doc/real-id-documents-checklist/download?os=fdf",
-      "sourceLabel": "对应官方来源：REAL ID Documents Checklist",
+      "sourceUrl": "https://www.mass.gov/info-details/massachusetts-identification-id-requirements",
+      "sourceLabel": "对应官方来源：Massachusetts Identification Requirements",
       "themes": [
         "residency-documents",
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -5004,7 +5677,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -5018,87 +5692,94 @@
         "non-citizen"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "illinois",
       "category": "无 SSN / SSA",
       "claim": "VISA / NONVISA Standard credential 的无 SSN declaration 只解决该路径的 Group C 栏",
-      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
-      "sourceLabel": "对应官方来源：Illinois Acceptable Identification Documents",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
+      "sourceLabel": "对应官方来源：Illinois Document Requirements",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "illinois",
       "category": "无 SSN / SSA",
       "claim": "走 VISA 或 NONVISA Standard credential 路径且当时无资格取得 SSN 的人，官方文件页说明可不提交 Group C，而是在现场签署 ineligibility declaration",
-      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card/acceptable-identification-documents.html",
-      "sourceLabel": "对应官方来源：Illinois Acceptable Identification Documents",
+      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
+      "sourceLabel": "对应官方来源：Illinois Document Requirements",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "illinois",
       "category": "SSN",
       "claim": "第一张 REAL ID 的材料结构是 Group A written signature、Group B date of birth / lawful status、Group C full SSN 和两份 Group D residency",
-      "sourceUrl": "https://www.ilsos.gov/departments/drivers/drivers-license/document-requirements-to-obtain-drivers-license-or-state-id-card.html",
-      "sourceLabel": "对应官方来源：Illinois Document Requirements",
+      "sourceUrl": "https://www.ilsos.gov/content/realid/us/en.html",
+      "sourceLabel": "对应官方来源：Illinois REAL ID",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "pennsylvania",
       "category": "无 SSN / SSA",
       "claim": "通用 REAL ID 清单的 SSN 栏接受 Social Security card、W-2、SSA-1099、non-SSA-1099 或显示完整号码的 pay stub",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
-      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
+      "sourceLabel": "对应官方来源：REAL ID Document Requirements",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "pennsylvania",
       "category": "无 SSN / SSA",
       "claim": "lawfully present non-U.S. citizen 还要按专页核对原始 Social Security card 或 ineligibility letter 及移民文件，不能只套用美国公民示例",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
-      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-info-for-non-us-citizens",
+      "sourceLabel": "对应官方来源：REAL ID for Non-U.S. Citizens",
       "themes": [
         "ssn",
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "pennsylvania",
       "category": "无 SSN / SSA",
       "claim": "没有 SSN 时，通用清单要求 original SSA ineligibility letter",
-      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/proof-of-identity-and-residency/customers-who-do-not-have-a-social-security-card",
-      "sourceLabel": "对应官方来源：Standard Credential Without Social Security Card",
+      "sourceUrl": "https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check",
+      "sourceLabel": "对应官方来源：REAL ID Document Requirements",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -5111,88 +5792,95 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "maryland",
       "category": "SSN",
       "claim": "逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件",
-      "sourceUrl": "https://mva.maryland.gov/documents/FO-150A.pdf",
-      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
+      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
+      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "maryland",
       "category": "SSN",
       "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
-      "sourceUrl": "https://mva.maryland.gov/documents/FO-150A.pdf",
-      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
+      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
+      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "maryland",
       "category": "移民文件",
       "claim": "没有有效 USCIS 文件的人可能申请 federally noncompliant license 或 ID，但要先有连续两年 Maryland income tax filing 并取得 Comptroller tax certification letter",
-      "sourceUrl": "https://mva.maryland.gov/documents/FO-150A.pdf",
-      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
+      "sourceUrl": "https://mva.maryland.gov/licenses-ids/additional-driver-id-services/noncompliant-drivers-licenses-ids",
+      "sourceLabel": "对应官方来源：Maryland MVA Noncompliant Credentials",
       "themes": [
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "virginia",
       "category": "SSN",
       "claim": "知道自己的 SSN 且 DMV 能电子核验时可以不出示纸质 SSN proof，CDL 申请人仍要按专用要求准备 Social Security 文件",
-      "sourceUrl": "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf",
-      "sourceLabel": "对应官方来源：Virginia DMV Document Guide DMV 141",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/real-id",
+      "sourceLabel": "对应官方来源：Virginia DMV REAL ID",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "virginia",
       "category": "SSN",
       "claim": "REAL ID 核心材料是 one identity、one legal presence、two Virginia residency、SSN 信息和适用的 certified name-change documents",
-      "sourceUrl": "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf",
-      "sourceLabel": "对应官方来源：Virginia DMV Document Guide DMV 141",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/real-id",
+      "sourceLabel": "对应官方来源：Virginia DMV REAL ID",
       "themes": [
         "residency-documents",
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "virginia",
       "category": "lawful presence",
       "claim": "有效且姓名一致的美国 passport 或 passport card 可以同时覆盖 identity 和 legal presence，不一定必须使用出生证",
-      "sourceUrl": "https://www.dmv.virginia.gov/sites/default/files/forms/dmv141.pdf",
-      "sourceLabel": "对应官方来源：Virginia DMV Document Guide DMV 141",
+      "sourceUrl": "https://www.dmv.virginia.gov/licenses-ids/real-id/faq",
+      "sourceLabel": "对应官方来源：Virginia DMV REAL ID FAQ",
       "themes": [
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -5205,7 +5893,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -5220,7 +5909,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -5234,7 +5924,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -5247,21 +5938,25 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "north-carolina",
       "category": "SSN",
       "claim": "2026 年启用的 in-office upload tool 目前用于保险和住址材料，不能据此把 identity、SSN、legal presence 或姓名文件都改成手机照片",
-      "sourceUrl": "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
-      "sourceLabel": "对应官方来源：NCDMV REAL ID Requirements",
+      "sourceUrl": "https://www.ncdot.gov/news/press-releases/Pages/2026/2026-06-02-ncdmv-document-upload-tool.aspx",
+      "sourceLabel": "对应官方来源：NCDMV In-office Document Upload Update",
       "themes": [
         "ssn",
         "lawful-presence"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "lawful-presence"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -5275,108 +5970,153 @@
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "michigan",
       "category": "SSN",
       "claim": "首次 license/ID 需要 legal presence、SSN、identity、两份 Michigan residency 和适用的姓名变更文件，license 申请人另做视力检查，18 岁及以上首次驾驶人还要完成知识与路考路径",
-      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
-      "sourceLabel": "对应官方来源：Michigan SOS Document Requirements FAQ",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
       "themes": [
         "residency-documents",
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "michigan",
       "category": "SSN",
       "claim": "首次 license/ID 按 legal presence、SSN、identity、两份 Michigan residency 和 name-change chain 五组准备，申请驾照者另做 vision exam",
-      "sourceUrl": "https://www.michigan.gov/sos/faqs/license-and-id/license-and-id-document-requirements",
-      "sourceLabel": "对应官方来源：Michigan SOS Document Requirements FAQ",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
+      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
       "themes": [
         "residency-documents",
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "michigan",
       "category": "SSN",
       "claim": "Enhanced credential 的 legal-presence 栏只列美国公民文件，申请还要 SSN、identity、两份 residency 和适用姓名文件，并必须本人到 office",
-      "sourceUrl": "https://www.michigan.gov/sos/all-services/first-time-license-or-id",
-      "sourceLabel": "对应官方来源：Michigan SOS First-time License or ID",
+      "sourceUrl": "https://www.michigan.gov/sos/all-services/enhanced-license-and-id",
+      "sourceLabel": "对应官方来源：Michigan SOS Enhanced License and ID",
       "themes": [
         "residency-documents",
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "ohio",
       "category": "SSN",
       "claim": "Compliant Card 需要证明 full legal name、date of birth、legal presence、SSN、两份来自不同来源的 Ohio street address，以及适用的完整姓名变化链",
-      "sourceUrl": "https://www.bmv.ohio.gov/dl-real-id.aspx",
-      "sourceLabel": "对应官方来源：Ohio BMV REAL ID Card",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-identity-documents.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Acceptable Documents",
       "themes": [
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "ohio",
       "category": "SSN",
       "claim": "首次 Standard credential 要覆盖 full legal name、date of birth、legal presence、SSN 和一份 Ohio street address",
-      "sourceUrl": "https://www.bmv.ohio.gov/dl-real-id.aspx",
-      "sourceLabel": "对应官方来源：Ohio BMV REAL ID Card",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-identity-documents.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Acceptable Documents",
       "themes": [
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "ohio",
       "category": "SSN",
       "claim": "首次驾驶人先准备知识考试所需姓名、生日和适用 SSN 证据，再在购买 TIPIC 时补齐 Ohio residency 与 citizenship/legal presence",
-      "sourceUrl": "https://www.bmv.ohio.gov/dl-real-id.aspx",
-      "sourceLabel": "对应官方来源：Ohio BMV REAL ID Card",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-gdl.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV First Issuance",
       "themes": [
         "residency-documents",
         "ssn",
         "lawful-presence"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false
+      "failedThemes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "ohio",
       "category": "lawful presence",
       "claim": "非美国公民的证件姓名以 USCIS 文件为准，合法身份必须通过 SAVE",
-      "sourceUrl": "https://www.bmv.ohio.gov/dl-real-id.aspx",
-      "sourceLabel": "对应官方来源：Ohio BMV REAL ID Card",
+      "sourceUrl": "https://www.bmv.ohio.gov/dl-non-permanent-resident.aspx",
+      "sourceLabel": "对应官方来源：Ohio BMV Non-U.S. Citizens",
       "themes": [
         "lawful-presence",
         "immigration-verification"
       ],
+      "failedThemes": [
+        "lawful-presence"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "arizona",
+      "category": "无 SSN / SSA",
+      "claim": "primary identity 上姓名与当前姓名不同，先向 SSA 更新，再带 marriage license/certificate、divorce decree、adoption decree 或 court order 等原件或认证副本连接姓名变化",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-license-ID/change-your-name",
+      "sourceLabel": "对应官方来源：ADOT MVD Change Your Name",
+      "themes": [
+        "ssn"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "arizona",
+      "category": "SSN",
+      "claim": "F-1/J-1 除 passport、visa、I-94 外还应准备 I-20/DS-2019，EAD 持有人同时核对 SSN 要求",
+      "sourceUrl": "https://azdot.gov/mvd/services/driver-license-ID/driver-license-foreign-applicants",
+      "sourceLabel": "对应官方来源：ADOT MVD Foreign Applicants",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
@@ -5389,7 +6129,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5403,7 +6144,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5417,7 +6159,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5430,7 +6173,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5443,7 +6187,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5456,7 +6201,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5469,7 +6215,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5482,7 +6229,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5496,7 +6244,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5510,7 +6259,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5523,7 +6273,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5537,7 +6288,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5550,7 +6302,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5563,7 +6316,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5577,7 +6331,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5591,7 +6346,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5604,7 +6360,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5617,7 +6374,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5631,7 +6389,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5644,7 +6403,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5661,7 +6421,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5676,7 +6437,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5689,7 +6451,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5702,7 +6465,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5716,7 +6480,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5730,7 +6495,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5743,7 +6509,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5756,7 +6523,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5769,7 +6537,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5783,7 +6552,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5796,7 +6566,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5809,7 +6580,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5824,7 +6596,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5837,7 +6610,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5850,7 +6624,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5863,7 +6638,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5876,7 +6652,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5889,7 +6666,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5903,7 +6681,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5916,7 +6695,8 @@
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5929,7 +6709,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5942,7 +6723,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5956,7 +6738,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5970,7 +6753,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -5985,7 +6769,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true
+      "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6000,7 +6785,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6013,7 +6799,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6026,7 +6813,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6040,7 +6828,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6054,7 +6843,8 @@
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6067,7 +6857,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6081,7 +6872,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6094,7 +6886,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6108,7 +6901,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6121,7 +6915,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6135,7 +6930,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6149,7 +6945,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6162,7 +6959,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6175,7 +6973,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6190,7 +6989,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6204,7 +7004,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6217,7 +7018,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6231,7 +7033,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6245,7 +7048,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6258,7 +7062,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6271,7 +7076,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6284,7 +7090,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6298,7 +7105,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6311,7 +7119,8 @@
         "lawful-presence"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6325,7 +7134,8 @@
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     },
     {
       "page": "identity-ssn",
@@ -6339,7 +7149,8 @@
         "immigration-verification"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
     }
   ]
 }

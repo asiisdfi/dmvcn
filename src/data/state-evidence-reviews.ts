@@ -511,6 +511,53 @@ const OH_LAW_RECIPROCITY =
 const OH_LAW_ONLINE =
   'https://codes.ohio.gov/ohio-revised-code/section-4507.061';
 
+const AZ_TRAVEL_ID =
+  'https://azdot.gov/mvd/services/driver-services/arizona-travel-id';
+const AZ_DOCUMENTS =
+  'https://apps.azdot.gov/files/mvd/mvd-forms-lib/40-5144.pdf';
+const AZ_RESIDENCY_AFFIDAVIT =
+  'https://apps.azdot.gov/files/mvd/mvd-forms-lib/40-5143.pdf';
+const AZ_NEW_RESIDENT =
+  'https://azdot.gov/mvd/services/driver-license-ID/new-to-arizona';
+const AZ_FOREIGN =
+  'https://azdot.gov/mvd/services/driver-license-ID/driver-license-foreign-applicants';
+const AZ_PERMIT =
+  'https://azdot.gov/mvd/services/driver-license-ID/permit-test';
+const AZ_ROAD_TEST =
+  'https://azdot.gov/mvd/services/driver-services/tests-manuals-and-driving-schools/road-tests';
+const AZ_MANUAL =
+  'https://apps.azdot.gov/files/mvd/mvd-forms-lib/99-0117.pdf';
+const AZ_FEES =
+  'https://azdot.gov/mvd/services/driver-services/driver-license-information/fees-driver-license';
+const AZ_RENEW =
+  'https://azdot.gov/mvd/services/driver-services/driver-license-information/renew-your-license';
+const AZ_FAQ = 'https://azdot.gov/mvd/drivers-faq';
+const AZ_REPLACE =
+  'https://azdot.gov/mvd/services/driver-license-ID/replace-your-license';
+const AZ_ADDRESS =
+  'https://azdot.gov/mvd/services/driver-license-ID/change-your-address';
+const AZ_NAME =
+  'https://azdot.gov/mvd/services/driver-license-ID/change-your-name';
+const AZ_ATP =
+  'https://azdot.gov/mvd/services/professional-services/authorized-third-party-services';
+const AZ_ATP_LOCATIONS =
+  'https://azdot.gov/mvd/services/driver-services/authorized-third-party-driver-license-locations';
+const AZ_IDENTITY =
+  'https://azdot.gov/mvd/services/driver-services/driver-license-information/proof-identification-age-and-authorized';
+const AZ_LICENSE_INFO =
+  'https://azdot.gov/mvd/services/driver-services/driver-license-and-identification-information';
+const AZ_ID_CARD =
+  'https://azdot.gov/mvd/services/driver-license-ID/id-card';
+const AZ_PORTAL = 'https://azmvdnow.gov/';
+const AZ_LAW_ADDRESS = 'https://www.azleg.gov/ars/28/00448.htm';
+const AZ_LAW_RESIDENT = 'https://www.azleg.gov/ars/28/02001.htm';
+const AZ_LAW_NONRESIDENT = 'https://www.azleg.gov/ars/28/03152.htm';
+const AZ_LAW_APPLICATION = 'https://www.azleg.gov/ars/28/03158.htm';
+const AZ_LAW_EXAM = 'https://www.azleg.gov/ars/28/03164.htm';
+const AZ_LAW_TERM = 'https://www.azleg.gov/ars/28/03171.htm';
+const AZ_LAW_RECIPROCITY = 'https://www.azleg.gov/ars/28/00413.htm';
+const AZ_LAW_FEES = 'https://www.azleg.gov/ars/28/03002.htm';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -4619,6 +4666,494 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '仍要使用外州驾照的学生申请 Ohio ID，没意识到外州驾照会被取消': [
         OH_ID_CARD,
+      ],
+    },
+  },
+  arizona: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      AZ_TRAVEL_ID,
+      AZ_DOCUMENTS,
+      AZ_RESIDENCY_AFFIDAVIT,
+      AZ_NEW_RESIDENT,
+      AZ_FOREIGN,
+      AZ_PERMIT,
+      AZ_ROAD_TEST,
+      AZ_MANUAL,
+      AZ_FEES,
+      AZ_RENEW,
+      AZ_FAQ,
+      AZ_REPLACE,
+      AZ_ADDRESS,
+      AZ_NAME,
+      AZ_ATP,
+      AZ_ATP_LOCATIONS,
+      AZ_IDENTITY,
+      AZ_LICENSE_INFO,
+      AZ_ID_CARD,
+      AZ_PORTAL,
+      AZ_LAW_ADDRESS,
+      AZ_LAW_RESIDENT,
+      AZ_LAW_NONRESIDENT,
+      AZ_LAW_APPLICATION,
+      AZ_LAW_EXAM,
+      AZ_LAW_TERM,
+      AZ_LAW_RECIPROCITY,
+      AZ_LAW_FEES,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Arizona MVD 的 Travel ID、R03/26 材料表、外国申请人、permit/road test、费用、续补证、改址改名、第三方网点与现行 Arizona Revised Statutes。',
+    notes:
+      '重写 Travel/Non-Travel 判断、明确中国大陆与 Taiwan 的免试差异，并补齐 SSN、authorized presence、resident triggers、考试、邮寄和第三方收费边界；仍待真实人工签字。',
+    claims: {
+      '亚利桑那先按用途选择 Non-Travel credential 或 Arizona Travel ID，再按首次申领、外州转入、外国驾照、续期或补证进入不同路径': [
+        AZ_TRAVEL_ID,
+        AZ_NEW_RESIDENT,
+        AZ_FOREIGN,
+        AZ_RENEW,
+        AZ_REPLACE,
+      ],
+      '中国大陆驾照不在当前四个免知识与路考的来源地名单中，不能套用 Taiwan 路径': [
+        AZ_FOREIGN,
+        AZ_LAW_RECIPROCITY,
+      ],
+      'Non-Travel driver license 仍可用于合法驾驶，但卡面标注 NOT FOR FEDERAL IDENTIFICATION，不能单独用于 TSA 国内航班等 REAL ID 联邦用途': [
+        AZ_LICENSE_INFO,
+        AZ_TRAVEL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '普通 Class D 费用按年龄为 $10 至 $25，Travel credential、limited-term 身份和其他交易另有期限或费用规则': [
+        AZ_FEES,
+        AZ_FOREIGN,
+        AZ_LAW_FEES,
+      ],
+      'Arizona Travel ID 是该州 REAL ID 合规驾照或 ID，但不是每位居民都必须办理': [
+        AZ_TRAVEL_ID,
+      ],
+      '首次或续期州费为 $25，通常要提交一份主要身份文件、完整 Social Security number，以及两份来自不同来源并显示姓名和当前 Arizona physical residential address 的证明': [
+        AZ_TRAVEL_ID,
+        AZ_DOCUMENTS,
+        AZ_FEES,
+      ],
+      'New to Arizona 页面说明首次到访 MVD 可不预约，但 Travel ID 申请人应先让 AZ MVD Now 判断能否在线办理或预约': [
+        AZ_NEW_RESIDENT,
+        AZ_TRAVEL_ID,
+        AZ_PORTAL,
+      ],
+      'road test 必须预约，Authorized Third Party 是私人机构，业务、营业时间和额外 convenience fee 要向具体地点确认': [
+        AZ_ROAD_TEST,
+        AZ_ATP,
+        AZ_ATP_LOCATIONS,
+      ],
+      'Arizona Travel ID 带星标，可用于 TSA 国内航班和受限联邦设施': [
+        AZ_TRAVEL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '有效护照等 TSA 接受证件仍可替代，Travel ID 也不能替代 passport 做国际旅行': [
+        AZ_TRAVEL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '已有 Arizona credential 的居民应从 AZ MVD Now 查看自己能否在线申请 Travel ID': [
+        AZ_TRAVEL_ID,
+        AZ_PORTAL,
+      ],
+      '没有 Arizona driver license 或 ID 的申请人要到 MVD 或提供 driver-license 服务的 Authorized Third Party': [
+        AZ_TRAVEL_ID,
+        AZ_ATP_LOCATIONS,
+      ],
+      '当前 Arizona DL/ID Requirements 40-5144 标注 R03/26，要求文件为英文原件或由签发机关认证的副本': [
+        AZ_DOCUMENTS,
+      ],
+      '手机照片、普通复印件和自行声明的副本不能代替': [AZ_DOCUMENTS],
+      'Travel ID 通常最长有效 8 年': [AZ_TRAVEL_ID],
+      '60 岁及以上通常为签发日起 5 年，58 或 59 岁签发者在 65 岁当年的相同月日到期，非美国公民不得超过所提交移民文件的到期日或 8 年': [
+        AZ_TRAVEL_ID,
+        AZ_FOREIGN,
+      ],
+      'Travel ID 页面估计实体卡最多约 2 周寄到，一般 DL/ID 页面提示最多预留 15 天': [
+        AZ_TRAVEL_ID,
+        AZ_LICENSE_INFO,
+      ],
+      '现场先发带照片的 temporary receipt，近期旅行仍应携带其他 TSA 接受的正式证件': [
+        AZ_LICENSE_INFO,
+        TSA_IDENTIFICATION,
+      ],
+      '当前费用页列出 Non-Travel Class D 年龄 16 至 39 岁 $25、40 至 44 岁 $20、45 至 49 岁 $15、50 岁及以上 $10': [
+        AZ_FEES,
+        AZ_LAW_FEES,
+      ],
+      'Travel DL/ID 首次或续期 $25、duplicate $12，instruction permit $7': [
+        AZ_FEES,
+      ],
+      '从未持有美国驾照者不论年龄都要先通过 permit test 才能预约路考': [
+        AZ_PERMIT,
+      ],
+      '笔试为 30 道选择题，至少 80% 通过': [AZ_PERMIT],
+      'Permit Test @ Home 只面向未满 18 岁并由父母、法定监护人账户或参与项目的 Arizona Professional Driving School 监考的申请人': [
+        AZ_PERMIT,
+      ],
+      '成人按现场路径准备': [AZ_PERMIT],
+      '当前 permit test 提供 Mandarin 等语言，但 road test 的考官指令和交通标志理解要求使用英语': [
+        AZ_PERMIT,
+        AZ_ROAD_TEST,
+      ],
+      '会做中文笔试不等于可以忽略英文路考指令': [AZ_PERMIT, AZ_ROAD_TEST],
+      '未满 18 岁者取得 instruction permit 后通常要持证 6 个月或直到满 18 岁，permit 本身有效 12 个月': [
+        AZ_PERMIT,
+      ],
+      '18 岁以上者通过笔试后不适用未成年人 6 个月等待': [
+        AZ_PERMIT,
+        AZ_ROAD_TEST,
+      ],
+      'Road test 必须预约，每位申请人每天只能考一次': [AZ_ROAD_TEST],
+      '车辆要能安全运行并带有效 registration 和 current liability insurance，外国保险不接受，租车还要把申请人列在 rental agreement 上': [
+        AZ_ROAD_TEST,
+      ],
+      'Road test 累计 21 分或以上判为未通过': [AZ_ROAD_TEST],
+      '每年 6 月 1 日至 9 月 22 日中午 12 点以后，没有空调的车辆不能用于 skills test': [
+        AZ_ROAD_TEST,
+      ],
+      '持当前有效外州驾照通常可免知识和路考，但 MVD 保留个案要求测试的权力': [
+        AZ_FAQ,
+        AZ_DOCUMENTS,
+      ],
+      '当前 40-5144 还提示，用于免试的外州驾照或 MVR 不得过期满 1 年': [
+        AZ_DOCUMENTS,
+      ],
+      '短期访客可随身携带有效本国驾照在 Arizona 驾驶': [
+        AZ_FOREIGN,
+        AZ_LAW_NONRESIDENT,
+      ],
+      'IDP 不是州法强制，但因有英文而受官方推荐，IDP 只是翻译辅助，不能替代原始外国驾照': [
+        AZ_FOREIGN,
+        AZ_FAQ,
+        AZ_LAW_NONRESIDENT,
+      ],
+      '当前外国申请人页面只把 Canada、Germany、South Korea 和 Taiwan 列为知识与路考双免来源': [
+        AZ_FOREIGN,
+        AZ_LAW_RECIPROCITY,
+      ],
+      '中国大陆不在名单中，应按笔试、视力和路考路径准备，直到 MVD 依据当前证件确认': [
+        AZ_FOREIGN,
+        AZ_LAW_RECIPROCITY,
+        AZ_LAW_EXAM,
+      ],
+      '所有申请人都要证明在美国的 authorized presence': [
+        AZ_IDENTITY,
+        AZ_LAW_APPLICATION,
+      ],
+      '常见文件包括 I-551、EAD 或 I-94，F-1 或 J-1 还要带 I-20 或 DS-2019': [
+        AZ_FOREIGN,
+        AZ_DOCUMENTS,
+      ],
+      'Arizona 一般 DL/ID 页面要求申请时提供 Social Security number，Travel ID 通常只需完整号码而不需 SSN 文件': [
+        AZ_IDENTITY,
+        AZ_TRAVEL_ID,
+        AZ_LAW_APPLICATION,
+      ],
+      '外国申请人页面同时说明是否需要 SSN 取决于 class type，EAD 持有人必须提供 SSN 或 card': [
+        AZ_FOREIGN,
+      ],
+      '没有 SSN 的非公民不要自行用 SSA denial letter 或宣誓书替代': [
+        AZ_IDENTITY,
+        AZ_FOREIGN,
+        AZ_LAW_APPLICATION,
+      ],
+      '应让 MVD 按 I-94 class type 和当前 authorized-presence 文件确认是否存在可办路径': [
+        AZ_FOREIGN,
+        AZ_IDENTITY,
+      ],
+      '外国申请人的 Arizona license 通常与 authorized-presence 文件同日到期，身份延期后要带更新文件续期': [
+        AZ_FOREIGN,
+      ],
+      '这类期限不能按普通居民或 Travel ID 的最大年限推算': [
+        AZ_FOREIGN,
+        AZ_TRAVEL_ID,
+        AZ_LAW_TERM,
+      ],
+      'Arizona 的居民触发条件包括在州内工作、登记投票、按居民标准让子女入学、取得居民费率州证照或学费，以及一个日历年累计停留至少 7 个月': [
+        AZ_NEW_RESIDENT,
+        AZ_IDENTITY,
+        AZ_LAW_RESIDENT,
+      ],
+      '不要把别州常见的 30 天宽限直接套到普通 Arizona 新居民': [
+        AZ_NEW_RESIDENT,
+        AZ_LAW_RESIDENT,
+      ],
+      '外州车辆应在成为 Arizona resident 后尽快注册': [
+        AZ_NEW_RESIDENT,
+        AZ_MANUAL,
+      ],
+      'Phoenix Metro 和 Tucson 部分车辆可能要先完成 emissions testing': [
+        AZ_NEW_RESIDENT,
+      ],
+      '普通 Class D 驾照一般有效至 65 岁，60 岁以后按 5 年周期续期': [
+        AZ_LAW_TERM,
+      ],
+      'Travel ID、非公民授权期限、limited license 和医疗限制可能更早到期': [
+        AZ_TRAVEL_ID,
+        AZ_FOREIGN,
+        AZ_LAW_TERM,
+      ],
+      '驾照可在到期前 6 个月内续期且多数情况可在 AZ MVD Now 办理，但 MVD 可能要求到场更新照片、视力或身份文件': [
+        AZ_RENEW,
+      ],
+      'Arizona 不发送正式 renewal notice，照片通常每 12 年更新一次': [
+        AZ_FAQ,
+      ],
+      '遗失、被盗或损坏的 license/ID 可在 AZ MVD Now 申请 $12 replacement': [
+        AZ_REPLACE,
+        AZ_FEES,
+      ],
+      '要更新照片则到 MVD 或 driver-license ATP，从 Non-Travel 改成 Travel ID 属于新申请而非普通 replacement': [
+        AZ_REPLACE,
+        AZ_TRAVEL_ID,
+      ],
+      '地址变化后 10 天内必须通知 MVD，线上更新记录免费并会同步到申请人名下的 driver 与 vehicle records': [
+        AZ_ADDRESS,
+        AZ_LAW_ADDRESS,
+      ],
+      '需要新地址实体卡时另付 $12，官方提示最多约 2 周寄到': [
+        AZ_ADDRESS,
+        AZ_FEES,
+      ],
+      '法定姓名变化后 10 天内更新 MVD': [AZ_NAME, AZ_LAW_ADDRESS],
+      '先向 SSA 改名并等 2 个工作日，再带同时连接旧名与新名的原件或认证副本到 MVD 或 ATP，不能只做在线地址变更': [
+        AZ_NAME,
+        AZ_DOCUMENTS,
+      ],
+      'Authorized Third Party 可办理的 driver license、Travel ID、knowledge test 或 road test 取决于授权范围': [
+        AZ_ATP,
+        AZ_ATP_LOCATIONS,
+      ],
+      '它们可在州费之外收 convenience fee，实体证件仍由系统邮寄而不是柜台当场制卡': [
+        AZ_ATP,
+        AZ_ATP_LOCATIONS,
+      ],
+      'Standard Arizona ID card 面向所有年龄，通常 $12': [AZ_ID_CARD, AZ_FEES],
+      '65 岁及以上、符合 SSI 等特定资格者可能免费，但免费资格不适用于 Travel ID': [
+        AZ_ID_CARD,
+        AZ_TRAVEL_ID,
+      ],
+      '先下载当前 40-5144，按一份 primary identity、Social Security number、两份 Arizona physical residential address 和适用姓名变化文件分组': [
+        AZ_DOCUMENTS,
+      ],
+      '要求可能变化，以表格修订号为准': [AZ_DOCUMENTS, AZ_IDENTITY],
+      'Travel ID 常见 primary 可包括原件或认证出生证明、未过期美国护照/护照卡、未过期 I-551、EAD，或符合清单组合要求的 I-94、外国护照与美国签证': [
+        AZ_DOCUMENTS,
+        AZ_TRAVEL_ID,
+        AZ_FOREIGN,
+      ],
+      '所有提交文件应为英文原件或由签发机关认证的副本': [AZ_DOCUMENTS],
+      '中文文件不要自行翻译后直接假定可接受，应先向 MVD 确认可接受的英文或认证文件路径': [
+        AZ_DOCUMENTS,
+      ],
+      '两份 residency 应来自不同来源，并同时显示申请人姓名和当前 Arizona physical residential address': [
+        AZ_TRAVEL_ID,
+        AZ_DOCUMENTS,
+      ],
+      'utility bill、bank/credit-card statement、insurance policy 或 government document 只是常见类别': [
+        AZ_TRAVEL_ID,
+        AZ_NEW_RESIDENT,
+      ],
+      '材料不足两份时，Arizona Residency Affidavit 只能作为其中一份 residency，仍须再带一份合格地址证明': [
+        AZ_TRAVEL_ID,
+        AZ_RESIDENCY_AFFIDAVIT,
+      ],
+      'Travel ID 申请通常提供完整 SSN 即可，不要求另带 SSN card': [
+        AZ_TRAVEL_ID,
+      ],
+      'EAD 持有人和姓名变化等情形可能需要 SSN 或 card，应按 class type 与当前页面准备': [
+        AZ_FOREIGN,
+        AZ_NAME,
+        AZ_NEW_RESIDENT,
+      ],
+      'primary identity 上姓名与当前姓名不同，先向 SSA 更新，再带 marriage license/certificate、divorce decree、adoption decree 或 court order 等原件或认证副本连接姓名变化': [
+        AZ_NAME,
+        AZ_DOCUMENTS,
+      ],
+      '非公民把全部 current authorized-presence 文件一起带齐': [
+        AZ_FOREIGN,
+        AZ_DOCUMENTS,
+      ],
+      'F-1/J-1 除 passport、visa、I-94 外还应准备 I-20/DS-2019，EAD 持有人同时核对 SSN 要求': [
+        AZ_FOREIGN,
+      ],
+      '外州转入带 current driver license 或 ID、authorized-presence 证明、SSN 和适用 Arizona residency': [
+        AZ_NEW_RESIDENT,
+        AZ_DOCUMENTS,
+      ],
+      '若靠 MVR 或过期证件申请免试，先确认是否未过期满 1 年': [
+        AZ_DOCUMENTS,
+        AZ_FAQ,
+      ],
+      '外国驾照持有人同时带原始有效 foreign license': [
+        AZ_FOREIGN,
+        AZ_LAW_NONRESIDENT,
+      ],
+      '中国大陆申请人按 permit test、vision 和 road test 准备，不把 IDP 或 Taiwan 免试规则当作换证凭证': [
+        AZ_FOREIGN,
+        AZ_PERMIT,
+        AZ_ROAD_TEST,
+      ],
+      'Road test 当天带有效身份证明、current vehicle registration、Arizona 接受的 liability insurance，并检查租车合同是否列出申请人及车辆是否满足安全和空调时段要求': [
+        AZ_ROAD_TEST,
+      ],
+      '先按用途选择 Non-Travel 或 Travel ID': [AZ_LICENSE_INFO, AZ_TRAVEL_ID],
+      '只需驾驶且已有 passport 等 TSA accepted ID 时，不必把 Travel ID 当成唯一方案': [
+        AZ_TRAVEL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '再判断自己属于首次美国驾照、外州转入、外国驾照、续期、replacement、地址变化还是姓名变化，避免套错免试与线上资格': [
+        AZ_PERMIT,
+        AZ_NEW_RESIDENT,
+        AZ_FOREIGN,
+        AZ_RENEW,
+        AZ_REPLACE,
+        AZ_NAME,
+      ],
+      '下载当前 40-5144，逐项核对修订号、primary identity、SSN、两份不同来源 Arizona address 和完整 name-change chain': [
+        AZ_DOCUMENTS,
+      ],
+      '姓名不一致时先向 SSA 更新并等 2 个工作日，再准备原件或认证副本': [
+        AZ_NAME,
+        AZ_DOCUMENTS,
+      ],
+      '不要先预约一个材料无法通过的到访': [AZ_DOCUMENTS, AZ_NAME],
+      '非公民按 I-551、EAD 或 I-94 class type 配齐文件，F-1/J-1 加 I-20/DS-2019': [
+        AZ_FOREIGN,
+        AZ_DOCUMENTS,
+      ],
+      '无 SSN 时先让 MVD 明确当前 class type 的要求': [
+        AZ_FOREIGN,
+        AZ_IDENTITY,
+      ],
+      '中国大陆驾照持有人按没有 reciprocity exemption 的路径学习 Arizona Driver License Manual，完成 30 题、80% permit test、vision 和 road test': [
+        AZ_FOREIGN,
+        AZ_MANUAL,
+        AZ_PERMIT,
+        AZ_ROAD_TEST,
+      ],
+      '18 岁以上通过笔试后再预约 road test': [AZ_PERMIT, AZ_ROAD_TEST],
+      '未满 18 岁者记录 permit 签发日、6 个月持证期和监护人要求': [
+        AZ_PERMIT,
+      ],
+      '路考前检查身份证明、registration、liability insurance、租车授权、车辆安全与夏季空调限制，并熟悉英文指令': [
+        AZ_ROAD_TEST,
+      ],
+      '用官方 locations 列表比较 MVD 和 driver-license ATP': [AZ_ATP_LOCATIONS],
+      '选择 ATP 前电话确认具体业务、预约方式和 convenience fee': [
+        AZ_ATP,
+        AZ_ATP_LOCATIONS,
+      ],
+      '成为 Arizona resident 后同时推进 driver credential 与车辆 registration，先检查 Phoenix/Tucson emissions requirement，不等待一个未由普通新居民页面给出的通用 30 天倒计时': [
+        AZ_NEW_RESIDENT,
+        AZ_LAW_RESIDENT,
+      ],
+      '续期前检查卡面到期日、authorized-presence 截止日和 12 年照片节点，再让 AZ MVD Now 判断能否 online renewal': [
+        AZ_RENEW,
+        AZ_FOREIGN,
+        AZ_FAQ,
+      ],
+      '遗失损坏且信息不变时走 $12 replacement': [AZ_REPLACE, AZ_FEES],
+      '需要 Travel ID、改照片、改姓名或 MVD 要求重新核验时改走相应新申请或到场路径': [
+        AZ_REPLACE,
+        AZ_TRAVEL_ID,
+        AZ_NAME,
+      ],
+      '搬家后 10 天内免费更新 MVD records': [AZ_ADDRESS, AZ_LAW_ADDRESS],
+      '法定姓名变化则先改 SSA、等 2 个工作日并到场提交姓名文件': [
+        AZ_NAME,
+        AZ_LAW_ADDRESS,
+      ],
+      '完成交易后核对 temporary receipt 上的姓名和地址，为邮寄预留最多约 15 天': [
+        AZ_LICENSE_INFO,
+      ],
+      '临近飞行时继续准备 passport 等 TSA accepted ID': [
+        AZ_TRAVEL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '以为 Arizona Travel ID 是驾驶必办证件，已有 passport 等 TSA 接受证件仍在临行前仓促申请': [
+        AZ_TRAVEL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '拿 Non-Travel license 单独过 TSA，忽略卡面 NOT FOR FEDERAL IDENTIFICATION': [
+        AZ_LICENSE_INFO,
+        TSA_IDENTIFICATION,
+      ],
+      '只带一份地址证明，或两份都来自同一来源、没有当前 physical residential address': [
+        AZ_TRAVEL_ID,
+        AZ_DOCUMENTS,
+      ],
+      '带手机照片、普通复印件或自行翻译的中文材料，未满足英文原件或签发机关认证副本要求': [
+        AZ_DOCUMENTS,
+      ],
+      '认为所有申请都必须出示 SSN card，或反过来认为任何非公民都可不提供 SSN，未按 class type 与文件类型核对': [
+        AZ_TRAVEL_ID,
+        AZ_FOREIGN,
+        AZ_IDENTITY,
+      ],
+      '把中国大陆驾照当作 Taiwan 驾照，错误预期知识和路考双免': [
+        AZ_FOREIGN,
+        AZ_LAW_RECIPROCITY,
+      ],
+      '只携带 IDP 而没有随身携带原始有效外国驾照': [
+        AZ_FOREIGN,
+        AZ_FAQ,
+        AZ_LAW_NONRESIDENT,
+      ],
+      '从未持有美国驾照就直接预约 road test，没有先通过 30 题、80% 门槛的 permit test': [
+        AZ_PERMIT,
+        AZ_ROAD_TEST,
+      ],
+      '通过 Mandarin 笔试后仍未准备 road test 的英文指令和英文交通标志': [
+        AZ_PERMIT,
+        AZ_ROAD_TEST,
+      ],
+      '借用没有当前 registration、合格 liability insurance 的车辆，或租车合同没有列出申请人': [
+        AZ_ROAD_TEST,
+      ],
+      '夏季中午后用没有空调的车辆参加 road test，或同一天安排第二次考试': [
+        AZ_ROAD_TEST,
+      ],
+      '把外州驾照通常免试的规则套给外国驾照，或用过期满 1 年的证件预期自动免试': [
+        AZ_FAQ,
+        AZ_DOCUMENTS,
+        AZ_FOREIGN,
+      ],
+      '照搬其他州的 30 天期限，忽略 Arizona 的工作、投票、居民学费和一年 7 个月等 resident triggers': [
+        AZ_NEW_RESIDENT,
+        AZ_IDENTITY,
+        AZ_LAW_RESIDENT,
+      ],
+      '默认 Authorized Third Party 与 MVD 同价、所有地点都做 road test，或期待柜台当场拿到塑料卡': [
+        AZ_ATP,
+        AZ_ATP_LOCATIONS,
+      ],
+      '只向 USPS 改地址，超过 10 天仍未更新 MVD driver 和 vehicle records': [
+        AZ_ADDRESS,
+        AZ_LAW_ADDRESS,
+      ],
+      '姓名变化后先去 MVD，未先向 SSA 更新并等 2 个工作日，也没有带连接旧名与新名的认证文件': [
+        AZ_NAME,
+        AZ_DOCUMENTS,
+      ],
+      '等待 renewal notice 才检查到期日，或忘记 12 年照片更新可能触发 office visit': [
+        AZ_RENEW,
+        AZ_FAQ,
+      ],
+      '把 temporary receipt 当成 TSA 保证接受的正式证件，未为实体卡预留约 2 周': [
+        AZ_LICENSE_INFO,
+        AZ_TRAVEL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '非公民按普通最大期限推算到期日，忽略 license 会受 authorized-presence 文件截止日限制': [
+        AZ_FOREIGN,
+        AZ_TRAVEL_ID,
+        AZ_LAW_TERM,
       ],
     },
   },
