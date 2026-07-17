@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成俄勒冈州两页官方正文语义核对',
+    summary:
+      '逐条比对 Oregon DMV 的 Standard、REAL ID、identity/residency、HB 2015、新居民 30 天、外国驾照、China/Taiwan 免试边界、简体中文 online/office knowledge test、drive test、现行费用、续补证、改名改址、office、ID 与邮寄正文；补齐无 SSN 的线上考试限制，并纠正 REAL ID 地址 printout 与 identity 原件要求不可混用的旧说法。',
+    scope: ['俄勒冈州办事总览', '俄勒冈州 REAL ID', 'Standard 与 REAL ID 材料分流', '157 条显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成内华达州两页官方正文语义核对',
     summary:
       '逐条比对 Nevada DMV 的 REAL ID、Standard、Driver Authorization Card、identity/residency、现行 NRS、2026 handbook、费用、新居民、外国驾照、Taiwan/South Korea waiver、China 路径、考试口译、Quick Cards、续期补证、改名改址、ID 与邮寄；重写三类证件判断，并公开标注 Taiwan waiver 年龄和 out-of-state REAL ID 模块的官方页面差异。',

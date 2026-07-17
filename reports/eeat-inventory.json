@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T02:03:47.791Z",
+    "generatedAt": "2026-07-17T02:34:00.703Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 47,
+    "passed": 49,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 64,
-    "aiAssistedReviews": 53,
+    "sourceMappedReviews": 62,
+    "aiAssistedReviews": 55,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 117,
+    "blockedPages": 115,
     "averageScore": 96
   },
   "pages": [
@@ -307,7 +307,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 184,
+        "sourceCount": 186,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 255,
+        "sourceCount": 259,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 73,
-        "directoryEvidenceLinks": 73,
+        "directoryEvidenceItems": 77,
+        "directoryEvidenceLinks": 77,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 208,
+        "sourceCount": 213,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 60,
-        "directoryEvidenceLinks": 60,
+        "directoryEvidenceItems": 63,
+        "directoryEvidenceLinks": 63,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 493,
+        "sourceCount": 498,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -497,8 +497,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 171,
-        "directoryEvidenceLinks": 171,
+        "directoryEvidenceItems": 174,
+        "directoryEvidenceLinks": 174,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 149,
+        "sourceCount": 148,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -544,8 +544,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 76,
-        "directoryEvidenceLinks": 76,
+        "directoryEvidenceItems": 79,
+        "directoryEvidenceLinks": 79,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 173,
+        "sourceCount": 177,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 131,
-        "directoryEvidenceLinks": 131,
+        "directoryEvidenceItems": 135,
+        "directoryEvidenceLinks": 135,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -622,7 +622,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 210,
+        "sourceCount": 211,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -662,7 +662,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 180,
+        "sourceCount": 182,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -742,7 +742,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 233,
+        "sourceCount": 234,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -782,7 +782,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 201,
+        "sourceCount": 204,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1152,
+        "sourceCount": 1167,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -4325,21 +4325,21 @@
       "route": "/states/oregon/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 89,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Oregon DMV 的 Standard、REAL ID、identity/residency、HB 2015、新居民、外国驾照、成人 license、简体中文 online/office knowledge test、drive test、费用、续补证、改名改址、office、ID 与邮寄正文。",
+        "notes": "重写 Standard/REAL ID 判断与材料差异，补齐中国大陆与 Taiwan、无 SSN online-test 限制、30 天新居民路径、当前费用及续补证边界，并纠正地址 printout 与 identity 原件不能混用的旧说法；仍待真实人工签字。"
       },
       "scores": {
-        "factsAndSources": 18,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -4349,14 +4349,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 13,
+        "sourceCount": 21,
+        "factCheckCount": 88,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 13,
-        "stateEvidenceLinks": 13,
+        "stateEvidenceItems": 88,
+        "stateEvidenceLinks": 204,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4364,9 +4364,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/oregon/real-id/",
@@ -4374,16 +4372,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Oregon DMV 的 Standard、REAL ID、identity/residency、HB 2015、新居民、外国驾照、成人 license、简体中文 online/office knowledge test、drive test、费用、续补证、改名改址、office、ID 与邮寄正文。",
+        "notes": "重写 Standard/REAL ID 判断与材料差异，补齐中国大陆与 Taiwan、无 SSN online-test 限制、30 天新居民路径、当前费用及续补证边界，并纠正地址 printout 与 identity 原件不能混用的旧说法；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4396,14 +4394,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 18,
+        "sourceCount": 21,
+        "factCheckCount": 72,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 18,
-        "stateEvidenceLinks": 18,
+        "stateEvidenceItems": 72,
+        "stateEvidenceLinks": 161,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4411,9 +4409,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/pennsylvania/",

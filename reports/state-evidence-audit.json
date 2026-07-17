@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T02:03:38.677Z",
+    "generatedAt": "2026-07-17T02:33:59.894Z",
     "pages": 100,
     "states": 50,
-    "claims": 2422,
-    "links": 3582,
-    "aiAssistedClaims": 1504,
-    "aiAssistedPages": 36,
+    "claims": 2551,
+    "links": 3916,
+    "aiAssistedClaims": 1664,
+    "aiAssistedPages": 38,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1094,
-        "links": 1626,
+        "claims": 1169,
+        "links": 1817,
         "states": 50
       },
       "real-id": {
-        "claims": 1328,
-        "links": 1956,
+        "claims": 1382,
+        "links": 2099,
         "states": 50
       }
     }
@@ -31981,18 +31981,23 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "俄勒冈 DMV 的 REAL ID 页面把旅行用途、材料清单和 DMV2U 预约放在一起说明",
+      "claim": "俄勒冈州先在 Standard credential 与带星 REAL ID 之间选择：Standard noncommercial license、permit 或 ID 要证明身份、出生日期、Oregon residence，并在已获配 SSN 时提供可核验号码，但不要求证明美国合法居留",
       "sourceUrls": [
+        "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2015",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
         "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：Oregon HB 2015 Official Measure",
+        "对应官方来源：Oregon DMV Driver Information",
         "对应官方来源：Oregon DMV REAL ID Traveler"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
-        "appointment"
+        "residency-proof",
+        "ssn",
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -32002,17 +32007,58 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "第一次申请 REAL ID 不能在线完成，需要到 DMV 办公室带原件或认证副本核验",
+      "claim": "REAL ID 另要求 lawful status，才可作为州证件用于受 REAL ID 约束的联邦场景",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document"
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "summary",
+      "context": "document",
+      "claim": "成为 Oregon resident 后，如要驾驶，应在 30 天内取得 Oregon 驾照，并在同一期限内完成车辆 title 和 registration",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "交回有效或过期不超过 1 年的美国州/领地/DC/国务院、Canada、Germany、Japan、South Korea 或 Taiwan 驾照时，多数新居民可能免 knowledge 与 drive tests",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -32022,16 +32068,18 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "license",
-      "claim": "地址变更可在线或电话处理",
+      "claim": "中国大陆驾照不在当前免试名单中，不能套用 Taiwan 路径，通常要按首次 Oregon Class C 路径完成 vision、knowledge 和 drive tests",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon DMV New to Oregon",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -32040,37 +32088,21 @@
       "stateId": "oregon",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "license",
-      "claim": "2020 年起不再发地址贴纸，如需显示新地址可申请 replacement card",
+      "context": "document",
+      "claim": "Standard 申请人可用符合期限和翻译要求的 foreign passport 等证明身份，没有获配 SSN 时在申请中作电子声明",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV Change of Address"
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "replacement"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "已经拥有 Oregon REAL ID 的用户在符合条件时可在线续期",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "renewal"
+        "document",
+        "ssn",
+        "language"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -32080,18 +32112,24 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Oregon REAL ID 要准备身份证明、生日、lawful status、SSN 或不符合 SSN 的证明，以及两份来自不同来源的 Oregon 地址证明",
+      "claim": "第一次申请或从 Standard 升级 Oregon REAL ID 必须到 DMV office，带 identity 与 lawful-status 原件或签发机关认证副本、SSN 或不符合 SSN 的官方证明、两份不同来源的打印版 Oregon residence-address 证明，以及连接每次姓名变化的认证文件",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "document",
         "residency-proof",
-        "ssn"
+        "ssn",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -32101,15 +32139,20 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "地址证明不能只用 PO Box",
+      "claim": "地址证明可以是合格文件的 photocopy 或电子文件 printout，但 identity、lawful-status 与 name-change 文件不能用普通复印件替代",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "document",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -32118,20 +32161,24 @@
     {
       "stateId": "oregon",
       "surface": "overview",
-      "field": "appointmentNote",
-      "context": "document",
-      "claim": "DMV2U 可用于材料清单、预约和部分线上业务",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "已经持有 Oregon REAL ID 的人符合条件时可在线续期或补证，单独升级并不会延长原卡到期日",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "appointment",
-        "online-service"
+        "real-id",
+        "renewal",
+        "replacement"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -32141,16 +32188,20 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "临近旅行时要预留实体卡邮寄时间",
+      "claim": "多数 office 业务可通过 DMV2U 预约，也可到开放办公室等 standby service，但各点时段和服务不同，walk-in 不保证当天办完",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/offices/index.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/appointments.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon DMV Offices",
+        "对应官方来源：Oregon DMV Appointments",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "processing-or-mail"
+        "appointment"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -32159,15 +32210,66 @@
       "stateId": "oregon",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "Oregon DMV 特别提醒 temporary paper ID 不被 TSA 接受，REAL ID 卡片可能需要最多约 3 周寄达",
+      "context": "appointment",
+      "claim": "Class C knowledge test 可在线或在 office 完成，并提供简体中文读题与语音",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon DMV Online Knowledge Testing",
+        "对应官方来源：Oregon Driver Manual - Testing",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "drive test 只能预约 Oregon DMV 或 DMV-contracted Class C testing business，第三方自行定价",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/form/what_to_expect_on_your_drive_test.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/classctestingbusiness.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Drive Test Guide",
+        "对应官方来源：Oregon DMV Contracted Class C Testing Businesses"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Oregon REAL ID 是可选的联邦合规 license、permit 或 ID，右上角有星标",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -32179,14 +32281,18 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "Oregon REAL ID Traveler 页面把 temporary paper ID 不被 TSA 接受写得很清楚，机场专题和州页都要提醒",
+      "claim": "未升级的卡标有 Not for REAL ID Act，仍可在有效驾驶权限范围内驾驶，但不能单独用于要求 REAL ID 的联邦用途",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：Oregon DMV Driver Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -32198,16 +32304,550 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "REAL ID 页面要求两份地址证明来自 different sources，且 no PO Box，是中文用户常见失误点",
+      "claim": "18 岁及以上旅客自 2025 年 5 月 7 日起进入 TSA checkpoint 时，应出示 REAL ID 或 passport 等 TSA 接受的替代证件",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.tsa.gov/travel/security-screening/identification",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：TSA Acceptable Identification",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "有效外国政府护照也在 TSA 当前接受名单中",
+      "sourceUrls": [
+        "https://www.tsa.gov/travel/security-screening/identification",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：TSA Acceptable Identification",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Oregon office 签发的 interim paper credential 和 online receipt 可证明适用的驾驶权限，但 TSA 不把 temporary driver license 当作可接受身份证件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "第一次申请 Oregon REAL ID 或把 Standard 卡升级为 REAL ID 不能完全在线完成，必须到 office 出示 federally required documents",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "DMV 会扫描并保存 REAL ID 文件副本 10 年",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID identity/lawful-status 常见路径包括未过期 U.S. passport、U.S. birth certificate、Certificate of Naturalization/Citizenship、未过期 Permanent Resident Card、I-766，或符合 visa 与 I-94 条件的未过期 foreign passport",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 的 identity、lawful-status 与姓名文件必须用原件或签发机关认证副本，普通 photocopy、电子图像和仅自行扫描的文件不能替代",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 申请人可口头提供 SSN，不必仅为此携带实体 Social Security card，但号码和当前法定姓名必须通过 SSA 核验",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "没有资格取得 SSN 的 REAL ID 申请人要带 SSA、DHS、其他联邦机关或联邦法院出具的不符合资格证明，并在 office 签 Form 735-7255",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Original REAL ID 要两份显示当前姓名和 Oregon residence address 的打印文件，两份来自不同 agency、business 或 institution，mailing address 可以另列但不能用 P.O. Box 取代 residence address",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 地址材料允许使用合格 photocopy 或电子账单 printout",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "这项规则不同于 identity、lawful-status 和 name-change 原件要求，不要把两类材料混为一谈",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "住在同一地址的人也可亲自陪同并出示自己的 residence proof，以 verbal statement 支持申请人的地址，但不要只带一封没有其他核验路径的私人说明",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "当前姓名与 identity 文件不同时，要用政府 marriage certificate、domestic-partnership record、divorce decree、adoption decree 或 court order 连起变化，文件仍须是原件或签发机关认证副本",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "临时合法居留申请人的 limited-term REAL ID 通常到 authorized stay 截止，最长不超过同类八年期限",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "如果停留期限不确定，通常自签发日起 1 年",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Oregon 自 2021 年实施 HB 2015 后，Standard noncommercial license、permit 和 ID 不再要求证明 legal presence",
+      "sourceUrls": [
+        "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2015",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon HB 2015 Official Measure",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "这不表示持卡人具有移民身份，也不把 Standard 卡变成 REAL ID",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Standard non-REAL ID 通常用一份 primary identity/date-of-birth 原件或认证副本",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "当前清单接受含英文或附英文翻译、有效或过期不超过 5 年的 foreign passport",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "外国政府驾照在 Standard identity 清单中属于 secondary document",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "没有 primary document 时通常要从不同机关或法院准备至少两份 secondary documents，且至少一份同时显示姓名和出生日期",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Standard 申请人如已获配 SSN 必须提供可核验号码",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "从未获配 SSN 的人可在申请流程中作电子声明，不应虚构号码或把 ITIN 当作 SSN",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Non-REAL ID 申请要一份显示姓名和当前 Oregon residence address 的文件，合格 photocopy 或在电子设备上展示的版本通常可接受，但 DMV 保留要求额外证据或拒绝文件的权利",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -32218,16 +32858,1140 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "地址变更页面说明不再发 sticker，replacement card 只是需要新卡面时的选择",
+      "claim": "Oregon 一人只能持有一张有效州级 driver license 或 ID credential",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "取得 Oregon license、permit 或 ID 会使外州卡失效，申请时还要交回手中的 Oregon、外州或外国 license、permit 或 ID",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "当前八年期 Class C 首次 Standard license 为 $64，首次 REAL ID license 为 $94",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/fees/driver.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Driver and ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "八年期续期分别为 $54 与 $84，REAL ID 的 $30 附加费在 original、renewal 和 replacement 每次都收取",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/fees/driver.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Driver and ID Fees",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "当前 replacement license/permit 为 Standard $30、REAL ID $60",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/fees/driver.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Driver and ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Class C knowledge test 每次 $7，DMV Class C drive test 每次 $45，contracted testing business 另按自己的价格收费",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/form/what_to_expect_on_your_drive_test.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/classctestingbusiness.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Drive Test Guide",
+        "对应官方来源：Oregon DMV Contracted Class C Testing Businesses"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "成为 Oregon resident 后 30 天内，如要驾驶应取得 Oregon license，并为车辆办理 Oregon title 与 registration",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "只处理驾照而漏掉车辆并不满足新居民页面的完整要求",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Oregon residency 判断会看每年连续居住至少 6 个月、子女公校非居民学费、resident tuition、居民税、军籍 home of record 等事实",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/residency.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Residency and Domicile",
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "仅在 Oregon 拥有房产本身不必然构成居民",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/residency.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Residency and Domicile",
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "交回有效或过期不超过 1 年的美国州、领地、DC、U.S. Department of State、Canada、Germany、Japan、South Korea 或 Taiwan 驾照时，多数申请人可能免 knowledge 和 drive tests，但 DMV 仍可按记录或安全问题要求考试",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Oregon visitor 如保持州外永久住所且未采取建立 Oregon residency 的行动，可凭有效外国政府驾照在 Oregon 驾驶",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/residency.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Residency and Domicile",
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "成为 resident 后则进入 30 天换证规则",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "中国大陆不在 Oregon 当前 foreign-license 免试名单",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "中国大陆驾照不能按 Taiwan 证件处理，也不能单独代替 Oregon 申请所需的 identity、address、SSN 声明和适用考试",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "成年人首次申请 Oregon Class C license 时要通过 vision test，并在不符合转入或 driver-education 豁免时完成 knowledge 与 drive tests",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon Driver Manual - Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Class C knowledge test 有 35 道选择题，答对 28 题才通过",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon Driver Manual - Testing",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "online 和 office 版本都提供 English、Spanish、Arabic、Chinese (Simplified Mandarin)、Japanese、Korean、Russian 与 Vietnamese",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing",
+        "对应官方来源：Oregon Driver Manual - Testing",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Online knowledge test 必须使用带 mouse、keyboard 和 webcam 的 desktop 或 laptop，不能用手机、平板或其他 touchscreen device",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Online test 注册要求考生和适用 proctor 都有可核验 SSN",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "从未获配 SSN 或无法通过供应商身份核验的人应到 DMV office 考试",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "18 岁及以上 online tester 不要求 proctor",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "未满 18 岁要由 21 岁以上、持 SSN 且过去 12 个月监考不超过 5 次的人注册并监督",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "同类 online knowledge test 每 24 小时最多两次、线上总计最多四次，之后要到 office",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "office 资源允许时，失败后可能同日重考，但每次仍收考试费",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon Driver Manual - Testing",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Knowledge test 禁止书本、笔记、手机、交谈或他人代考",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing",
+        "对应官方来源：Oregon Driver Manual - Testing",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "作弊会中止考试并导致 90 天不得重考，让他人代考还可能触发一年驾驶权限或申请权暂停及刑事后果",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing",
+        "对应官方来源：Oregon Driver Manual - Testing",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "需要 drive test 时必须先通过 knowledge test",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon Driver Manual - Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "考试只能预约 DMV 或 contracted Class C testing business，后者只负责 Class C 并自行确定营业日和费用",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/classctestingbusiness.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/appointments.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Contracted Class C Testing Businesses",
+        "对应官方来源：Oregon DMV Appointments"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "DMV drive test 当天要提供 current liability insurance、车辆 current registration，并使用符合安全要求的 passenger vehicle",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/form/what_to_expect_on_your_drive_test.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Drive Test Guide",
+        "对应官方来源：Oregon Driver Manual - Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "DMV test fee 当前每次 $45",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/form/what_to_expect_on_your_drive_test.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Drive Test Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "18 岁以上 applicant 若要在 road test 前上路练习才需要 instruction permit",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon Driver Manual - Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "不需要练习的人可在完成前置要求后直接预约 drive test",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon Driver Manual - Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Oregon license 可在到期前 12 个月至到期后 2 年内续期",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "过期超过 2 年要按新申请付 original fee，并重新完成 vision、knowledge 和 drive tests",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon Driver Manual - Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Online renewal 通常要求 DMV 照片不足 9 年、保留现有照片/身高/体重、没有要新增或删除的 restriction/endorsement、不是 limited-term，且驾驶权限未 suspended、cancelled 或 revoked",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "已有 Oregon REAL ID 的人符合其他条件时可 online renewal",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "第一次换成 REAL ID 仍要 office，65 岁及以上也不能 online renewal，必须到 office 做 vision test",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "遗失、被盗或损坏的 credential 通常可在 DMV2U 补办",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "第一次升级 REAL ID、姓名变化或需要提交新身份文件时应改走 office",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Change Name"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "搬家后必须在 30 天内在线或电话免费更新 DMV 地址",
       "sourceUrls": [
         "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV Change of Address"
+        "对应官方来源：Oregon DMV Change Address"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "address-change",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "DMV 不再发 address sticker，也不会仅因改址自动寄新卡，需要卡面显示新地址时另付 replacement fee",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Address",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Credential 改名应先更新 SSA，再到 office 带 legal-name-change、identity 和 address 文件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Name",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 姓名必须与 SSA 匹配，driver credential 改名也不会自动修改车辆 title/registration",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Name",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Permanent card 会寄到 DMV 记录地址且 USPS 不转寄",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "官方页面要求最多预留约 20 天，office interim card 或 online receipt 在等待期间不能当作 TSA 接受的身份证件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "Oregon office 页面提供 Mandarin 与 Cantonese 版本的 office-service list，但具体地点的营业日、预约类型和可办业务仍要在出发前逐点确认",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/offices/index.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/appointments.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Offices",
+        "对应官方来源：Oregon DMV Appointments"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Oregon ID card 没有最低年龄，但不能与另一张有效州级 driver license/ID 并持",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "当前八年期 original Standard ID 为 $47、REAL ID 为 $77",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/fees/driver.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Identification Cards",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Driver and ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "第一次申请或从 Standard 升级 Oregon REAL ID 必须到 DMV office，带 identity 与 lawful-status 原件或签发机关认证副本、SSN 或不符合 SSN 的官方证明、两份不同来源的打印版 Oregon residence-address 证明，以及连接每次姓名变化的认证文件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "地址证明可以是合格文件的 photocopy 或电子文件 printout，但 identity、lawful-status 与 name-change 文件不能用普通复印件替代",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "已经持有 Oregon REAL ID 的人符合条件时可在线续期或补证，单独升级并不会延长原卡到期日",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
         "replacement"
       ],
       "uncoveredThemes": [],
@@ -32236,261 +34000,20 @@
     {
       "stateId": "oregon",
       "surface": "real-id",
-      "field": "realIdSummary",
+      "field": "documentHighlights",
       "context": "real-id",
-      "claim": "Oregon REAL ID 要准备身份证明、生日、lawful status、SSN 或不符合 SSN 的证明，以及两份来自不同来源的 Oregon 地址证明",
+      "claim": "先选择 Standard 或 REAL ID：Standard 不要求 lawful-status proof，REAL ID 要按联邦清单证明 identity 与 lawful status",
       "sourceUrls": [
+        "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2015",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
         "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：Oregon HB 2015 Official Measure",
+        "对应官方来源：Oregon DMV Driver Information",
         "对应官方来源：Oregon DMV REAL ID Traveler"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "residency-proof",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "地址证明不能只用 PO Box",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "一份 identity / date of birth / lawful status 相关证明",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "SSN，或官方接受的 SSN 不适用证明",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "两份 Oregon 居住地址证明，来自不同来源，不能只显示 PO Box",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "电子版、影印件通常不能替代",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "非美国公民按官方页面准备未过期护照、签证、I-94 或 I-797A 等适用文件",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "先在 Oregon REAL ID Traveler 页面判断是否真的需要 REAL ID，或是否可以用护照等替代证件",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "使用 DMV2U 或官方 checklist 整理 identity、SSN、lawful status 和两份地址证明",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "第一次申请 REAL ID 时预约 DMV office，并带原件或认证副本",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "旅行前至少预留寄卡时间",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "不要依赖 temporary paper ID 乘机",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "只是搬家时，先用 Change of Address 页面更新记录，再决定是否补办新卡",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV Change of Address"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "oregon",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "临近航班才办 REAL ID，没有预留最多约 3 周收卡时间",
-      "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -32500,16 +34023,1050 @@
     {
       "stateId": "oregon",
       "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "detail",
-      "claim": "以为 DMV 给的 temporary paper ID 可以过 TSA 安检",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两者都不是移民身份决定",
       "sourceUrls": [
+        "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2015",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon HB 2015 Official Measure",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID identity、lawful-status 与姓名链带原件或签发机关认证副本",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "可用文件包括适用的 U.S. passport/birth certificate、I-551、I-766 或未过期 foreign passport + visa + I-94",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "提供可核验 SSN",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 未获配 SSN 者另带联邦机关/法院出具的不符合资格证明并签 Form 735-7255，Standard 未获配者作电子声明",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 准备两份不同来源、打印版、显示当前姓名和 Oregon residence address 的文件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "P.O. Box 只能另作 mailing address，不能取代 residence",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "地址证明可以使用合格 photocopy 或电子文件 printout",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "不要因此把 identity、lawful-status 或 name-change 文件也换成普通复印件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "姓名不同则准备能连接每次变化的 government marriage/domestic-partnership record、divorce/adoption decree 或 court order，并先完成适用的 SSA 更新",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Name",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Standard identity 优先准备一份 primary 原件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "foreign passport 可有效或过期不超过 5 年，并须含英文或附英文翻译，外国驾照通常只算 secondary evidence",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Standard 另备一份当前 Oregon residence-address proof",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "已获配 SSN 者提供可核验号码，从未获配者在申请中如实声明",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "外州或外国转入带原 credential",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "免试名单要求证件有效或过期不超过 1 年，中国大陆驾照持有人按非免试路径准备考试",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Road test 带 current vehicle registration、current liability insurance 和合格车辆",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/form/what_to_expect_on_your_drive_test.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Drive Test Guide",
+        "对应官方来源：Oregon Driver Manual - Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "需要先练习时再办理 instruction permit",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon Driver Manual - Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Office 办理后核对 interim card 的姓名和地址，并确保 DMV 记录地址可收件，因为 permanent card 不会被 USPS 转寄",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "先判断自己是 visitor 还是已经建立 Oregon residency",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/residency.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Residency and Domicile",
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "resident 如要驾驶，从成立 residency 起按 30 天安排驾照和车辆业务",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "再按用途选择 Standard 或 REAL ID：有有效 passport 等 TSA accepted ID 时，不必把临行前升级 REAL ID 当作唯一方案",
+      "sourceUrls": [
+        "https://www.tsa.gov/travel/security-screening/identification",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：TSA Acceptable Identification",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "确认交易类型是首次申请、外州/外国转入、续期、replacement、姓名变更、地址变更还是 ID card，不把不同材料清单混用",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "address-change",
+        "name-change",
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "使用 DMV2U REAL ID checklist 生成个人材料清单，并在出发前重新打开 Required Identity Documentation 核对当前可接受文件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "走 Standard 路径时，准备 primary identity/date-of-birth 原件、一份 Oregon residence proof、已获配 SSN 或未获配声明",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "本州 Standard 流程不要求额外提交 lawful-status proof，申请 REAL ID 或 CDL 时则要改用相应清单",
+      "sourceUrls": [
+        "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2015",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
         "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：Oregon HB 2015 Official Measure",
+        "对应官方来源：Oregon DMV Driver Information",
         "对应官方来源：Oregon DMV REAL ID Traveler"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "走 REAL ID 路径时，按 identity/lawful status、SSN/不符合资格证明、两份不同来源地址、完整姓名链四组整理文件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "姓名不一致时先更新 SSA，再准备每一步政府签发的认证文件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Name",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "同时单独安排 vehicle title/registration 的姓名更新",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Name",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "外州或外国转入先核对旧证签发地和过期时间",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "中国大陆驾照按无 reciprocity 路径规划 vision、knowledge 与 drive tests",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要 knowledge test 时可选择简体中文 online 或 office 版本",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing",
+        "对应官方来源：Oregon Driver Manual - Testing",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "没有 SSN、设备不合格或供应商无法核验时直接改约 office",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "线上考试前准备 desktop/laptop、mouse、keyboard 和 webcam，成人本人独立完成，不让他人提示或代考",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "通过 knowledge test 后，如需上路练习先取得 instruction permit",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon Driver Manual - Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "否则按资格直接预约 DMV 或 contracted business 的 drive test",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/classctestingbusiness.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/appointments.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Contracted Class C Testing Businesses",
+        "对应官方来源：Oregon DMV Appointments"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "Road test 前核对车辆 registration、liability insurance、安全状况，并分别确认 DMV $45 test fee 或第三方报价及 license issuance fee",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/form/what_to_expect_on_your_drive_test.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/classctestingbusiness.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Drive Test Guide",
+        "对应官方来源：Oregon Driver Manual - Testing",
+        "对应官方来源：Oregon DMV Contracted Class C Testing Businesses"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "通过 DMV2U 预约适当业务，出发前查看 office 实时状态与具体服务",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/offices/index.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/appointments.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Offices",
+        "对应官方来源：Oregon DMV Appointments"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "没有预约只能按 standby 排队且不保证当天完成",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/offices/index.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/appointments.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Offices",
+        "对应官方来源：Oregon DMV Appointments",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "窗口付款前按 current fee page 区分 original、renewal、replacement、REAL ID surcharge 和每次 test fee",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/fees/driver.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/form/what_to_expect_on_your_drive_test.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Driver and ID Fees",
+        "对应官方来源：Oregon DMV Drive Test Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "当前八年期 Class C REAL ID license 的 original、renewal、replacement 分别为 $94、$84、$60",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/fees/driver.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Driver and ID Fees",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "办结后立即核对 interim card",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "实体卡 20 天仍未到就用 DMV2U 查 card status，不要依赖 USPS forwarding",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期先检查照片年龄、本人年龄、limited-term、restriction/endorsement 和 suspension 状态，再决定 online 或 office",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "搬家后 30 天内免费更新地址",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Address"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "只有确实需要卡面显示新地址时才另付费 replacement",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Address",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "领取 Oregon credential 时交回其他州或国家 credential，并确认旧证已失效",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "新居民同时完成 vehicle title/registration，不要把车辆业务误认为会随驾照自动完成",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -32519,14 +35076,16 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "带两份同一来源地址证明，或只显示 PO Box",
+      "claim": "以为 Standard Oregon license 也必须证明 lawful status，因而在其实符合 Standard identity 和 residency 路径时放弃申请",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2015",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon HB 2015 Official Measure",
+        "对应官方来源：Oregon DMV Driver Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -32537,16 +35096,87 @@
       "stateId": "oregon",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "detail",
-      "claim": "带手机照片、扫描件或普通复印件替代原件/认证副本",
+      "context": "license",
+      "claim": "把中国大陆驾照当作 Taiwan 驾照，期待直接免 knowledge 与 drive tests",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon DMV New to Oregon",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只带中国驾照作为 identity，忽略外国驾照通常只是 secondary document，不能单独完成 Standard 身份证明",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "REAL ID 两份地址材料来自同一家 institution，或只有 P.O. Box 而没有 Oregon residence address",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "用手机照片或普通扫描件代替 REAL ID identity、lawful-status 和 name-change 原件/认证副本",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
         "document"
       ],
       "uncoveredThemes": [],
@@ -32556,18 +35186,328 @@
       "stateId": "oregon",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "detail",
-      "claim": "地址变更后等待 DMV 寄地址贴纸",
+      "context": "real-id",
+      "claim": "反过来以为 REAL ID 地址证明也必须全部是原件，遗漏官方允许的合格 photocopy 或电子账单 printout",
       "sourceUrls": [
-        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx"
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Oregon DMV REAL ID Traveler"
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV REAL ID Traveler",
+        "对应官方来源：Oregon DMV Driver Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change"
+        "real-id",
+        "document",
+        "residency-proof"
       ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "REAL ID 姓名与 SSA 不一致，或没有 SSN 资格却只做口头声明、未带联邦不符合资格证明",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Required Identity Documentation",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "在卡片有效期中途升级 REAL ID，却以为 $30 附加费会换来新的八年有效期",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：Oregon DMV Driver Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "临近航班才办 REAL ID，或把 interim paper credential / online receipt 当作 TSA 接受证件",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV REAL ID FAQs",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "没有 SSN 仍尝试 online knowledge test，或用手机/平板进入只支持 desktop/laptop 的考试",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "已有 current valid license 只为练习而参加正式 online knowledge test，忽略失败可能影响现有 driving privilege",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Online Knowledge Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "没有先通过 knowledge test 就预约 drive test，或考试车辆缺 current registration / liability insurance",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/form/what_to_expect_on_your_drive_test.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Drive Test Guide",
+        "对应官方来源：Oregon Driver Manual - Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "把 standby service 当作当天一定受理，没有先检查 office 实时状态、营业日和具体业务",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/offices/index.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/appointments.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Offices",
+        "对应官方来源：Oregon DMV Appointments"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "65 岁以上、limited-term 或要首次升级 REAL ID 时直接假定可以 online renewal",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "Oregon license 过期超过 2 年仍按普通 renewal 准备，没有预算 original fee 和三项考试",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/real_id.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV REAL ID FAQs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "免费更新地址后等待 DMV 寄 address sticker 或新卡，忽略新卡要另行申请并付 replacement fee",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Address",
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "搬家超过 30 天仍未通知 DMV，或只改 credential 地址却忘记核对车辆记录",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Address"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "先到 DMV 改名，没有先处理 SSA，也以为 credential 改名会自动修改 vehicle title/registration",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Change Name",
+        "对应官方来源：Oregon DMV Required Identity Documentation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "取得 Oregon credential 后仍同时使用原外州或外国 credential，忽略交回与失效规则",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+        "https://www.oregon.gov/odot/dmv/pages/driverid/idget.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+        "对应官方来源：Oregon DMV Driver Information",
+        "对应官方来源：Oregon DMV Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "oregon",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "成为 Oregon resident 后只关注驾照，漏掉同为 30 天的 vehicle title/registration",
+      "sourceUrls": [
+        "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Oregon DMV New to Oregon"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },

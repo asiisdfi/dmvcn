@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T02:03:43.974Z",
+    "generatedAt": "2026-07-17T02:33:59.194Z",
     "pages": 5,
-    "claims": 511,
+    "claims": 528,
     "statesCovered": 49,
-    "aiAssisted": 287,
+    "aiAssisted": 304,
     "automated": 224,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 73,
-        "states": 23
+        "claims": 77,
+        "states": 24
       },
       "deadlines": {
-        "claims": 60,
-        "states": 23
+        "claims": 63,
+        "states": 24
       },
       "document-rules": {
-        "claims": 171,
+        "claims": 174,
         "states": 48
       },
       "foreign-license": {
-        "claims": 76,
-        "states": 28
+        "claims": 79,
+        "states": 29
       },
       "identity-ssn": {
-        "claims": 131,
-        "states": 40
+        "claims": 135,
+        "states": 41
       }
     }
   },
@@ -1057,6 +1057,63 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "oregon",
+      "category": "费用",
+      "claim": "当前八年期 Class C 首次 Standard license 为 $64，首次 REAL ID license 为 $94",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Driver Information",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "oregon",
+      "category": "费用",
+      "claim": "八年期续期分别为 $54 与 $84，REAL ID 的 $30 附加费在 original、renewal 和 replacement 每次都收取",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Driver Information",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "oregon",
+      "category": "费用",
+      "claim": "当前 replacement license/permit 为 Standard $30、REAL ID $60",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Driver Information",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "oregon",
+      "category": "费用",
+      "claim": "Class C knowledge test 每次 $7，DMV Class C drive test 每次 $45，contracted testing business 另按自己的价格收费",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Driver Information",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "kentucky",
       "category": "邮寄 / 卡片",
       "claim": "想升级 REAL ID 时，官方 renewal 页面说明不能在线或邮寄完成升级，必须到 Regional Office 并带额外材料",
@@ -1853,6 +1910,50 @@
       "failedThemes": [
         "processing-or-mail"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "oregon",
+      "category": "搬家 / 地址",
+      "claim": "resident 如要驾驶，从成立 residency 起按 30 天安排驾照和车辆业务",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV New to Oregon",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "oregon",
+      "category": "搬家 / 地址",
+      "claim": "搬家后 30 天内免费更新地址",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Change Address",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "oregon",
+      "category": "期限提醒",
+      "claim": "Oregon 自 2021 年实施 HB 2015 后，Standard noncommercial license、permit 和 ID 不再要求证明 legal presence",
+      "sourceUrl": "https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2015",
+      "sourceLabel": "对应官方来源：Oregon HB 2015 Official Measure",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -3032,15 +3133,57 @@
       "page": "document-rules",
       "stateId": "oregon",
       "category": "地址证明",
-      "claim": "只是搬家时，先用 Change of Address 页面更新记录，再决定是否补办新卡",
-      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx",
-      "sourceLabel": "对应官方来源：Oregon DMV Change of Address",
+      "claim": "REAL ID 准备两份不同来源、打印版、显示当前姓名和 Oregon residence address 的文件",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Required Identity Documentation",
       "themes": [
-        "address-change"
+        "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "oregon",
+      "category": "地址证明",
+      "claim": "P.O. Box 只能另作 mailing address，不能取代 residence",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Required Identity Documentation",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "oregon",
+      "category": "地址证明",
+      "claim": "地址证明可以使用合格 photocopy 或电子文件 printout",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Required Identity Documentation",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "oregon",
+      "category": "地址证明",
+      "claim": "Original REAL ID 要两份显示当前姓名和 Oregon residence address 的打印文件，两份来自不同 agency、business 或 institution，mailing address 可以另列但不能用 P.O. Box 取代 residence address",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Required Identity Documentation",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -5348,6 +5491,48 @@
     },
     {
       "page": "foreign-license",
+      "stateId": "oregon",
+      "category": "外州 / 加拿大转入",
+      "claim": "交回有效或过期不超过 1 年的美国州/领地/DC/国务院、Canada、Germany、Japan、South Korea 或 Taiwan 驾照时，多数新居民可能免 knowledge 与 drive tests",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV New to Oregon",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "oregon",
+      "category": "测试判断",
+      "claim": "Get a Driver License - Over 18：首次、转入、考试、续期、补证、online 资格和制证流程",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Get a Driver License - Over 18",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "oregon",
+      "category": "翻译要求",
+      "claim": "当前清单接受含英文或附英文翻译、有效或过期不超过 5 年的 foreign passport",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Required Identity Documentation",
+      "themes": [
+        "translation"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
       "stateId": "connecticut",
       "category": "外州 / 加拿大转入",
       "claim": "Transfer Out-of-State License：外州驾照转入 Connecticut 的材料和流程",
@@ -6566,6 +6751,62 @@
       "claim": "姓名与 identity 或 SSN 不一致时，为每一次变化带 government-issued marriage certificate、divorce decree、adoption record 或 court order",
       "sourceUrl": "https://dmv.nv.gov/realid.htm",
       "sourceLabel": "对应官方来源：Nevada DMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "oregon",
+      "category": "无 SSN / SSA",
+      "claim": "REAL ID 申请人可口头提供 SSN，不必仅为此携带实体 Social Security card，但号码和当前法定姓名必须通过 SSA 核验",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Required Identity Documentation",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "oregon",
+      "category": "无 SSN / SSA",
+      "claim": "没有资格取得 SSN 的 REAL ID 申请人要带 SSA、DHS、其他联邦机关或联邦法院出具的不符合资格证明，并在 office 签 Form 735-7255",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Required Identity Documentation",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "oregon",
+      "category": "无 SSN / SSA",
+      "claim": "Credential 改名应先更新 SSA，再到 office 带 legal-name-change、identity 和 address 文件",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Change Name",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "oregon",
+      "category": "无 SSN / SSA",
+      "claim": "REAL ID 姓名必须与 SSA 匹配，driver credential 改名也不会自动修改车辆 title/registration",
+      "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx",
+      "sourceLabel": "对应官方来源：Oregon DMV Change Name",
       "themes": [
         "ssn"
       ],

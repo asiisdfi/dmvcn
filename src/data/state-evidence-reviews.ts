@@ -612,6 +612,43 @@ const NV_ONLINE = 'https://dmv.nv.gov/onlineservices.htm';
 const NV_ID = 'https://dmv.nv.gov/idcards.htm';
 const NV_FAQ = 'https://dmv.nv.gov/faqs.htm';
 
+const OR_REAL_ID =
+  'https://www.oregon.gov/odot/dmv/pages/realidtraveler.aspx';
+const OR_REAL_ID_FAQ =
+  'https://www.oregon.gov/odot/dmv/pages/real_id.aspx';
+const OR_IDENTITY =
+  'https://www.oregon.gov/odot/dmv/pages/driverid/idproof.aspx';
+const OR_DRIVER_INFO =
+  'https://www.oregon.gov/odot/dmv/pages/online_quick_tips/driver_information.aspx';
+const OR_NEW =
+  'https://www.oregon.gov/odot/dmv/pages/new2or/moving.aspx';
+const OR_RESIDENCY =
+  'https://www.oregon.gov/odot/dmv/pages/driverid/residency.aspx';
+const OR_LICENSE =
+  'https://www.oregon.gov/odot/dmv/pages/driverid/licenseget.aspx';
+const OR_ONLINE_TEST =
+  'https://www.oregon.gov/odot/dmv/pages/online_services/online_knowledge_testing.aspx';
+const OR_MANUAL_TESTING =
+  'https://www.oregon.gov/odot/dmv/pages/online_manual/testing.aspx';
+const OR_DRIVE_TEST =
+  'https://www.oregon.gov/odot/dmv/pages/form/what_to_expect_on_your_drive_test.aspx';
+const OR_TESTING_BUSINESS =
+  'https://www.oregon.gov/odot/dmv/pages/driverid/classctestingbusiness.aspx';
+const OR_FEES =
+  'https://www.oregon.gov/odot/dmv/pages/fees/driver.aspx';
+const OR_ADDRESS =
+  'https://www.oregon.gov/odot/dmv/pages/dv/chgaddress.aspx';
+const OR_NAME =
+  'https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx';
+const OR_APPOINTMENTS =
+  'https://www.oregon.gov/odot/dmv/pages/appointments.aspx';
+const OR_OFFICES =
+  'https://www.oregon.gov/odot/dmv/pages/offices/index.aspx';
+const OR_ID_CARD =
+  'https://www.oregon.gov/odot/dmv/pages/driverid/idget.aspx';
+const OR_HB2015 =
+  'https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2015';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -6306,6 +6343,195 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         NV_FAQ,
         NV_ID,
       ],
+    },
+  },
+  oregon: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      OR_REAL_ID,
+      OR_REAL_ID_FAQ,
+      OR_IDENTITY,
+      OR_DRIVER_INFO,
+      OR_NEW,
+      OR_RESIDENCY,
+      OR_LICENSE,
+      OR_ONLINE_TEST,
+      OR_MANUAL_TESTING,
+      OR_DRIVE_TEST,
+      OR_TESTING_BUSINESS,
+      OR_FEES,
+      OR_ADDRESS,
+      OR_NAME,
+      OR_APPOINTMENTS,
+      OR_OFFICES,
+      OR_ID_CARD,
+      OR_HB2015,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开并比对 Oregon DMV 的 Standard、REAL ID、identity/residency、HB 2015、新居民、外国驾照、成人 license、简体中文 online/office knowledge test、drive test、费用、续补证、改名改址、office、ID 与邮寄正文。',
+    notes:
+      '重写 Standard/REAL ID 判断与材料差异，补齐中国大陆与 Taiwan、无 SSN online-test 限制、30 天新居民路径、当前费用及续补证边界，并纠正地址 printout 与 identity 原件不能混用的旧说法；仍待真实人工签字。',
+    claims: {
+      '俄勒冈州先在 Standard credential 与带星 REAL ID 之间选择：Standard noncommercial license、permit 或 ID 要证明身份、出生日期、Oregon residence，并在已获配 SSN 时提供可核验号码，但不要求证明美国合法居留': [OR_HB2015, OR_DRIVER_INFO, OR_REAL_ID],
+      'REAL ID 另要求 lawful status，才可作为州证件用于受 REAL ID 约束的联邦场景': [OR_IDENTITY, OR_REAL_ID, OR_DRIVER_INFO],
+      '成为 Oregon resident 后，如要驾驶，应在 30 天内取得 Oregon 驾照，并在同一期限内完成车辆 title 和 registration': [OR_NEW],
+      '交回有效或过期不超过 1 年的美国州/领地/DC/国务院、Canada、Germany、Japan、South Korea 或 Taiwan 驾照时，多数新居民可能免 knowledge 与 drive tests': [OR_NEW, OR_LICENSE],
+      '中国大陆驾照不在当前免试名单中，不能套用 Taiwan 路径，通常要按首次 Oregon Class C 路径完成 vision、knowledge 和 drive tests': [OR_NEW, OR_LICENSE],
+      'Standard 申请人可用符合期限和翻译要求的 foreign passport 等证明身份，没有获配 SSN 时在申请中作电子声明': [OR_IDENTITY, OR_DRIVER_INFO],
+      '第一次申请或从 Standard 升级 Oregon REAL ID 必须到 DMV office，带 identity 与 lawful-status 原件或签发机关认证副本、SSN 或不符合 SSN 的官方证明、两份不同来源的打印版 Oregon residence-address 证明，以及连接每次姓名变化的认证文件': [OR_REAL_ID, OR_REAL_ID_FAQ, OR_IDENTITY],
+      '地址证明可以是合格文件的 photocopy 或电子文件 printout，但 identity、lawful-status 与 name-change 文件不能用普通复印件替代': [OR_IDENTITY, OR_REAL_ID, OR_DRIVER_INFO],
+      '已经持有 Oregon REAL ID 的人符合条件时可在线续期或补证，单独升级并不会延长原卡到期日': [OR_LICENSE, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '多数 office 业务可通过 DMV2U 预约，也可到开放办公室等 standby service，但各点时段和服务不同，walk-in 不保证当天办完': [OR_OFFICES, OR_APPOINTMENTS, OR_REAL_ID_FAQ],
+      'Class C knowledge test 可在线或在 office 完成，并提供简体中文读题与语音': [OR_ONLINE_TEST, OR_MANUAL_TESTING, OR_LICENSE],
+      'drive test 只能预约 Oregon DMV 或 DMV-contracted Class C testing business，第三方自行定价': [OR_DRIVER_INFO, OR_DRIVE_TEST, OR_TESTING_BUSINESS],
+      'Oregon REAL ID 是可选的联邦合规 license、permit 或 ID，右上角有星标': [OR_REAL_ID, OR_REAL_ID_FAQ, OR_DRIVER_INFO],
+      '未升级的卡标有 Not for REAL ID Act，仍可在有效驾驶权限范围内驾驶，但不能单独用于要求 REAL ID 的联邦用途': [OR_REAL_ID, OR_REAL_ID_FAQ, OR_DRIVER_INFO],
+      '18 岁及以上旅客自 2025 年 5 月 7 日起进入 TSA checkpoint 时，应出示 REAL ID 或 passport 等 TSA 接受的替代证件': [TSA_IDENTIFICATION, OR_REAL_ID_FAQ],
+      '有效外国政府护照也在 TSA 当前接受名单中': [TSA_IDENTIFICATION, OR_REAL_ID_FAQ],
+      'Oregon office 签发的 interim paper credential 和 online receipt 可证明适用的驾驶权限，但 TSA 不把 temporary driver license 当作可接受身份证件': [OR_LICENSE, OR_REAL_ID_FAQ, TSA_IDENTIFICATION],
+      '第一次申请 Oregon REAL ID 或把 Standard 卡升级为 REAL ID 不能完全在线完成，必须到 office 出示 federally required documents': [OR_REAL_ID, OR_REAL_ID_FAQ, OR_IDENTITY],
+      'DMV 会扫描并保存 REAL ID 文件副本 10 年': [OR_REAL_ID_FAQ, OR_DRIVER_INFO],
+      'REAL ID identity/lawful-status 常见路径包括未过期 U.S. passport、U.S. birth certificate、Certificate of Naturalization/Citizenship、未过期 Permanent Resident Card、I-766，或符合 visa 与 I-94 条件的未过期 foreign passport': [OR_IDENTITY, OR_REAL_ID_FAQ, OR_DRIVER_INFO],
+      'REAL ID 的 identity、lawful-status 与姓名文件必须用原件或签发机关认证副本，普通 photocopy、电子图像和仅自行扫描的文件不能替代': [OR_IDENTITY],
+      'REAL ID 申请人可口头提供 SSN，不必仅为此携带实体 Social Security card，但号码和当前法定姓名必须通过 SSA 核验': [OR_IDENTITY, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '没有资格取得 SSN 的 REAL ID 申请人要带 SSA、DHS、其他联邦机关或联邦法院出具的不符合资格证明，并在 office 签 Form 735-7255': [OR_IDENTITY, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      'Original REAL ID 要两份显示当前姓名和 Oregon residence address 的打印文件，两份来自不同 agency、business 或 institution，mailing address 可以另列但不能用 P.O. Box 取代 residence address': [OR_IDENTITY, OR_REAL_ID, OR_DRIVER_INFO],
+      'REAL ID 地址材料允许使用合格 photocopy 或电子账单 printout': [OR_IDENTITY, OR_REAL_ID, OR_DRIVER_INFO],
+      '这项规则不同于 identity、lawful-status 和 name-change 原件要求，不要把两类材料混为一谈': [OR_IDENTITY],
+      '住在同一地址的人也可亲自陪同并出示自己的 residence proof，以 verbal statement 支持申请人的地址，但不要只带一封没有其他核验路径的私人说明': [OR_IDENTITY, OR_REAL_ID, OR_DRIVER_INFO],
+      '当前姓名与 identity 文件不同时，要用政府 marriage certificate、domestic-partnership record、divorce decree、adoption decree 或 court order 连起变化，文件仍须是原件或签发机关认证副本': [OR_IDENTITY],
+      '临时合法居留申请人的 limited-term REAL ID 通常到 authorized stay 截止，最长不超过同类八年期限': [OR_DRIVER_INFO, OR_LICENSE, OR_REAL_ID_FAQ],
+      '如果停留期限不确定，通常自签发日起 1 年': [OR_DRIVER_INFO, OR_LICENSE, OR_REAL_ID_FAQ],
+      'Oregon 自 2021 年实施 HB 2015 后，Standard noncommercial license、permit 和 ID 不再要求证明 legal presence': [OR_HB2015, OR_DRIVER_INFO],
+      '这不表示持卡人具有移民身份，也不把 Standard 卡变成 REAL ID': [OR_REAL_ID, OR_REAL_ID_FAQ, OR_DRIVER_INFO],
+      'Standard non-REAL ID 通常用一份 primary identity/date-of-birth 原件或认证副本': [OR_IDENTITY, OR_DRIVER_INFO],
+      '当前清单接受含英文或附英文翻译、有效或过期不超过 5 年的 foreign passport': [OR_IDENTITY, OR_DRIVER_INFO],
+      '外国政府驾照在 Standard identity 清单中属于 secondary document': [OR_IDENTITY, OR_DRIVER_INFO],
+      '没有 primary document 时通常要从不同机关或法院准备至少两份 secondary documents，且至少一份同时显示姓名和出生日期': [OR_IDENTITY, OR_DRIVER_INFO],
+      'Standard 申请人如已获配 SSN 必须提供可核验号码': [OR_IDENTITY, OR_DRIVER_INFO],
+      '从未获配 SSN 的人可在申请流程中作电子声明，不应虚构号码或把 ITIN 当作 SSN': [OR_IDENTITY, OR_DRIVER_INFO],
+      'Non-REAL ID 申请要一份显示姓名和当前 Oregon residence address 的文件，合格 photocopy 或在电子设备上展示的版本通常可接受，但 DMV 保留要求额外证据或拒绝文件的权利': [OR_IDENTITY, OR_DRIVER_INFO],
+      'Oregon 一人只能持有一张有效州级 driver license 或 ID credential': [OR_LICENSE, OR_DRIVER_INFO, OR_ID_CARD],
+      '取得 Oregon license、permit 或 ID 会使外州卡失效，申请时还要交回手中的 Oregon、外州或外国 license、permit 或 ID': [OR_LICENSE, OR_DRIVER_INFO, OR_ID_CARD],
+      '当前八年期 Class C 首次 Standard license 为 $64，首次 REAL ID license 为 $94': [OR_DRIVER_INFO, OR_FEES],
+      '八年期续期分别为 $54 与 $84，REAL ID 的 $30 附加费在 original、renewal 和 replacement 每次都收取': [OR_DRIVER_INFO, OR_FEES, OR_REAL_ID_FAQ],
+      '当前 replacement license/permit 为 Standard $30、REAL ID $60': [OR_DRIVER_INFO, OR_FEES],
+      'Class C knowledge test 每次 $7，DMV Class C drive test 每次 $45，contracted testing business 另按自己的价格收费': [OR_DRIVER_INFO, OR_DRIVE_TEST, OR_TESTING_BUSINESS],
+      '成为 Oregon resident 后 30 天内，如要驾驶应取得 Oregon license，并为车辆办理 Oregon title 与 registration': [OR_NEW],
+      '只处理驾照而漏掉车辆并不满足新居民页面的完整要求': [OR_NEW],
+      'Oregon residency 判断会看每年连续居住至少 6 个月、子女公校非居民学费、resident tuition、居民税、军籍 home of record 等事实': [OR_RESIDENCY, OR_NEW],
+      '仅在 Oregon 拥有房产本身不必然构成居民': [OR_RESIDENCY, OR_NEW],
+      '交回有效或过期不超过 1 年的美国州、领地、DC、U.S. Department of State、Canada、Germany、Japan、South Korea 或 Taiwan 驾照时，多数申请人可能免 knowledge 和 drive tests，但 DMV 仍可按记录或安全问题要求考试': [OR_NEW, OR_LICENSE],
+      'Oregon visitor 如保持州外永久住所且未采取建立 Oregon residency 的行动，可凭有效外国政府驾照在 Oregon 驾驶': [OR_RESIDENCY, OR_NEW],
+      '成为 resident 后则进入 30 天换证规则': [OR_NEW],
+      '中国大陆不在 Oregon 当前 foreign-license 免试名单': [OR_NEW, OR_LICENSE],
+      '中国大陆驾照不能按 Taiwan 证件处理，也不能单独代替 Oregon 申请所需的 identity、address、SSN 声明和适用考试': [OR_NEW, OR_LICENSE, OR_IDENTITY],
+      '成年人首次申请 Oregon Class C license 时要通过 vision test，并在不符合转入或 driver-education 豁免时完成 knowledge 与 drive tests': [OR_LICENSE, OR_MANUAL_TESTING],
+      'Class C knowledge test 有 35 道选择题，答对 28 题才通过': [OR_MANUAL_TESTING, OR_LICENSE],
+      'online 和 office 版本都提供 English、Spanish、Arabic、Chinese (Simplified Mandarin)、Japanese、Korean、Russian 与 Vietnamese': [OR_ONLINE_TEST, OR_MANUAL_TESTING, OR_LICENSE],
+      'Online knowledge test 必须使用带 mouse、keyboard 和 webcam 的 desktop 或 laptop，不能用手机、平板或其他 touchscreen device': [OR_ONLINE_TEST],
+      'Online test 注册要求考生和适用 proctor 都有可核验 SSN': [OR_ONLINE_TEST, OR_IDENTITY],
+      '从未获配 SSN 或无法通过供应商身份核验的人应到 DMV office 考试': [OR_ONLINE_TEST, OR_IDENTITY],
+      '18 岁及以上 online tester 不要求 proctor': [OR_ONLINE_TEST],
+      '未满 18 岁要由 21 岁以上、持 SSN 且过去 12 个月监考不超过 5 次的人注册并监督': [OR_ONLINE_TEST, OR_IDENTITY],
+      '同类 online knowledge test 每 24 小时最多两次、线上总计最多四次，之后要到 office': [OR_ONLINE_TEST],
+      'office 资源允许时，失败后可能同日重考，但每次仍收考试费': [OR_LICENSE, OR_MANUAL_TESTING, OR_DRIVER_INFO],
+      'Knowledge test 禁止书本、笔记、手机、交谈或他人代考': [OR_ONLINE_TEST, OR_MANUAL_TESTING, OR_LICENSE],
+      '作弊会中止考试并导致 90 天不得重考，让他人代考还可能触发一年驾驶权限或申请权暂停及刑事后果': [OR_ONLINE_TEST, OR_MANUAL_TESTING, OR_LICENSE],
+      '需要 drive test 时必须先通过 knowledge test': [OR_LICENSE, OR_MANUAL_TESTING],
+      '考试只能预约 DMV 或 contracted Class C testing business，后者只负责 Class C 并自行确定营业日和费用': [OR_LICENSE, OR_TESTING_BUSINESS, OR_APPOINTMENTS],
+      'DMV drive test 当天要提供 current liability insurance、车辆 current registration，并使用符合安全要求的 passenger vehicle': [OR_DRIVE_TEST, OR_MANUAL_TESTING],
+      'DMV test fee 当前每次 $45': [OR_DRIVER_INFO, OR_DRIVE_TEST],
+      '18 岁以上 applicant 若要在 road test 前上路练习才需要 instruction permit': [OR_LICENSE, OR_MANUAL_TESTING],
+      '不需要练习的人可在完成前置要求后直接预约 drive test': [OR_LICENSE, OR_MANUAL_TESTING],
+      'Oregon license 可在到期前 12 个月至到期后 2 年内续期': [OR_LICENSE, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '过期超过 2 年要按新申请付 original fee，并重新完成 vision、knowledge 和 drive tests': [OR_LICENSE, OR_MANUAL_TESTING],
+      'Online renewal 通常要求 DMV 照片不足 9 年、保留现有照片/身高/体重、没有要新增或删除的 restriction/endorsement、不是 limited-term，且驾驶权限未 suspended、cancelled 或 revoked': [OR_LICENSE, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '已有 Oregon REAL ID 的人符合其他条件时可 online renewal': [OR_LICENSE, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '第一次换成 REAL ID 仍要 office，65 岁及以上也不能 online renewal，必须到 office 做 vision test': [OR_LICENSE, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '遗失、被盗或损坏的 credential 通常可在 DMV2U 补办': [OR_LICENSE, OR_DRIVER_INFO],
+      '第一次升级 REAL ID、姓名变化或需要提交新身份文件时应改走 office': [OR_REAL_ID, OR_LICENSE, OR_NAME],
+      '搬家后必须在 30 天内在线或电话免费更新 DMV 地址': [OR_ADDRESS],
+      'DMV 不再发 address sticker，也不会仅因改址自动寄新卡，需要卡面显示新地址时另付 replacement fee': [OR_ADDRESS, OR_LICENSE],
+      'Credential 改名应先更新 SSA，再到 office 带 legal-name-change、identity 和 address 文件': [OR_NAME, OR_IDENTITY],
+      'REAL ID 姓名必须与 SSA 匹配，driver credential 改名也不会自动修改车辆 title/registration': [OR_NAME, OR_IDENTITY],
+      'Permanent card 会寄到 DMV 记录地址且 USPS 不转寄': [OR_LICENSE, OR_REAL_ID_FAQ],
+      '官方页面要求最多预留约 20 天，office interim card 或 online receipt 在等待期间不能当作 TSA 接受的身份证件': [OR_LICENSE, OR_REAL_ID_FAQ, TSA_IDENTIFICATION],
+      'Oregon office 页面提供 Mandarin 与 Cantonese 版本的 office-service list，但具体地点的营业日、预约类型和可办业务仍要在出发前逐点确认': [OR_OFFICES, OR_APPOINTMENTS],
+      'Oregon ID card 没有最低年龄，但不能与另一张有效州级 driver license/ID 并持': [OR_LICENSE, OR_DRIVER_INFO, OR_ID_CARD],
+      '当前八年期 original Standard ID 为 $47、REAL ID 为 $77': [OR_ID_CARD, OR_DRIVER_INFO, OR_FEES],
+      '先选择 Standard 或 REAL ID：Standard 不要求 lawful-status proof，REAL ID 要按联邦清单证明 identity 与 lawful status': [OR_HB2015, OR_DRIVER_INFO, OR_REAL_ID],
+      '两者都不是移民身份决定': [OR_HB2015, OR_DRIVER_INFO],
+      'REAL ID identity、lawful-status 与姓名链带原件或签发机关认证副本': [OR_IDENTITY],
+      '可用文件包括适用的 U.S. passport/birth certificate、I-551、I-766 或未过期 foreign passport + visa + I-94': [OR_IDENTITY, OR_REAL_ID_FAQ, OR_DRIVER_INFO],
+      '提供可核验 SSN': [OR_IDENTITY, OR_DRIVER_INFO],
+      'REAL ID 未获配 SSN 者另带联邦机关/法院出具的不符合资格证明并签 Form 735-7255，Standard 未获配者作电子声明': [OR_IDENTITY, OR_DRIVER_INFO],
+      'REAL ID 准备两份不同来源、打印版、显示当前姓名和 Oregon residence address 的文件': [OR_IDENTITY, OR_REAL_ID, OR_DRIVER_INFO],
+      'P.O. Box 只能另作 mailing address，不能取代 residence': [OR_IDENTITY, OR_REAL_ID, OR_DRIVER_INFO],
+      '地址证明可以使用合格 photocopy 或电子文件 printout': [OR_IDENTITY, OR_REAL_ID, OR_DRIVER_INFO],
+      '不要因此把 identity、lawful-status 或 name-change 文件也换成普通复印件': [OR_IDENTITY],
+      '姓名不同则准备能连接每次变化的 government marriage/domestic-partnership record、divorce/adoption decree 或 court order，并先完成适用的 SSA 更新': [OR_NAME, OR_IDENTITY],
+      'Standard identity 优先准备一份 primary 原件': [OR_IDENTITY, OR_DRIVER_INFO],
+      'foreign passport 可有效或过期不超过 5 年，并须含英文或附英文翻译，外国驾照通常只算 secondary evidence': [OR_IDENTITY, OR_DRIVER_INFO],
+      'Standard 另备一份当前 Oregon residence-address proof': [OR_IDENTITY, OR_DRIVER_INFO],
+      '已获配 SSN 者提供可核验号码，从未获配者在申请中如实声明': [OR_IDENTITY, OR_DRIVER_INFO],
+      '外州或外国转入带原 credential': [OR_LICENSE, OR_DRIVER_INFO, OR_ID_CARD],
+      '免试名单要求证件有效或过期不超过 1 年，中国大陆驾照持有人按非免试路径准备考试': [OR_NEW, OR_LICENSE],
+      'Road test 带 current vehicle registration、current liability insurance 和合格车辆': [OR_DRIVE_TEST, OR_MANUAL_TESTING],
+      '需要先练习时再办理 instruction permit': [OR_LICENSE, OR_MANUAL_TESTING],
+      'Office 办理后核对 interim card 的姓名和地址，并确保 DMV 记录地址可收件，因为 permanent card 不会被 USPS 转寄': [OR_LICENSE, OR_REAL_ID_FAQ],
+      '先判断自己是 visitor 还是已经建立 Oregon residency': [OR_RESIDENCY, OR_NEW],
+      'resident 如要驾驶，从成立 residency 起按 30 天安排驾照和车辆业务': [OR_NEW],
+      '再按用途选择 Standard 或 REAL ID：有有效 passport 等 TSA accepted ID 时，不必把临行前升级 REAL ID 当作唯一方案': [TSA_IDENTIFICATION, OR_REAL_ID_FAQ],
+      '确认交易类型是首次申请、外州/外国转入、续期、replacement、姓名变更、地址变更还是 ID card，不把不同材料清单混用': [OR_LICENSE, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '使用 DMV2U REAL ID checklist 生成个人材料清单，并在出发前重新打开 Required Identity Documentation 核对当前可接受文件': [OR_IDENTITY, OR_REAL_ID, OR_LICENSE],
+      '走 Standard 路径时，准备 primary identity/date-of-birth 原件、一份 Oregon residence proof、已获配 SSN 或未获配声明': [OR_IDENTITY, OR_DRIVER_INFO],
+      '本州 Standard 流程不要求额外提交 lawful-status proof，申请 REAL ID 或 CDL 时则要改用相应清单': [OR_HB2015, OR_DRIVER_INFO, OR_REAL_ID],
+      '走 REAL ID 路径时，按 identity/lawful status、SSN/不符合资格证明、两份不同来源地址、完整姓名链四组整理文件': [OR_IDENTITY, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '姓名不一致时先更新 SSA，再准备每一步政府签发的认证文件': [OR_NAME, OR_IDENTITY],
+      '同时单独安排 vehicle title/registration 的姓名更新': [OR_NAME, OR_IDENTITY],
+      '外州或外国转入先核对旧证签发地和过期时间': [OR_NEW, OR_LICENSE],
+      '中国大陆驾照按无 reciprocity 路径规划 vision、knowledge 与 drive tests': [OR_NEW, OR_LICENSE],
+      '需要 knowledge test 时可选择简体中文 online 或 office 版本': [OR_ONLINE_TEST, OR_MANUAL_TESTING, OR_LICENSE],
+      '没有 SSN、设备不合格或供应商无法核验时直接改约 office': [OR_ONLINE_TEST],
+      '线上考试前准备 desktop/laptop、mouse、keyboard 和 webcam，成人本人独立完成，不让他人提示或代考': [OR_ONLINE_TEST],
+      '通过 knowledge test 后，如需上路练习先取得 instruction permit': [OR_LICENSE, OR_MANUAL_TESTING],
+      '否则按资格直接预约 DMV 或 contracted business 的 drive test': [OR_LICENSE, OR_TESTING_BUSINESS, OR_APPOINTMENTS],
+      'Road test 前核对车辆 registration、liability insurance、安全状况，并分别确认 DMV $45 test fee 或第三方报价及 license issuance fee': [OR_DRIVE_TEST, OR_MANUAL_TESTING, OR_TESTING_BUSINESS],
+      '通过 DMV2U 预约适当业务，出发前查看 office 实时状态与具体服务': [OR_OFFICES, OR_APPOINTMENTS],
+      '没有预约只能按 standby 排队且不保证当天完成': [OR_OFFICES, OR_APPOINTMENTS, OR_REAL_ID_FAQ],
+      '窗口付款前按 current fee page 区分 original、renewal、replacement、REAL ID surcharge 和每次 test fee': [OR_DRIVER_INFO, OR_FEES, OR_DRIVE_TEST],
+      '当前八年期 Class C REAL ID license 的 original、renewal、replacement 分别为 $94、$84、$60': [OR_DRIVER_INFO, OR_FEES, OR_REAL_ID_FAQ],
+      '办结后立即核对 interim card': [OR_LICENSE, OR_REAL_ID_FAQ],
+      '实体卡 20 天仍未到就用 DMV2U 查 card status，不要依赖 USPS forwarding': [OR_LICENSE, OR_REAL_ID_FAQ],
+      '续期先检查照片年龄、本人年龄、limited-term、restriction/endorsement 和 suspension 状态，再决定 online 或 office': [OR_LICENSE, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '搬家后 30 天内免费更新地址': [OR_ADDRESS],
+      '只有确实需要卡面显示新地址时才另付费 replacement': [OR_ADDRESS, OR_LICENSE],
+      '领取 Oregon credential 时交回其他州或国家 credential，并确认旧证已失效': [OR_LICENSE, OR_DRIVER_INFO, OR_ID_CARD],
+      '新居民同时完成 vehicle title/registration，不要把车辆业务误认为会随驾照自动完成': [OR_NEW],
+      '以为 Standard Oregon license 也必须证明 lawful status，因而在其实符合 Standard identity 和 residency 路径时放弃申请': [OR_HB2015, OR_DRIVER_INFO],
+      '把中国大陆驾照当作 Taiwan 驾照，期待直接免 knowledge 与 drive tests': [OR_NEW, OR_LICENSE],
+      '只带中国驾照作为 identity，忽略外国驾照通常只是 secondary document，不能单独完成 Standard 身份证明': [OR_IDENTITY, OR_DRIVER_INFO],
+      'REAL ID 两份地址材料来自同一家 institution，或只有 P.O. Box 而没有 Oregon residence address': [OR_IDENTITY, OR_REAL_ID, OR_DRIVER_INFO],
+      '用手机照片或普通扫描件代替 REAL ID identity、lawful-status 和 name-change 原件/认证副本': [OR_IDENTITY],
+      '反过来以为 REAL ID 地址证明也必须全部是原件，遗漏官方允许的合格 photocopy 或电子账单 printout': [OR_IDENTITY, OR_REAL_ID, OR_DRIVER_INFO],
+      'REAL ID 姓名与 SSA 不一致，或没有 SSN 资格却只做口头声明、未带联邦不符合资格证明': [OR_IDENTITY, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '在卡片有效期中途升级 REAL ID，却以为 $30 附加费会换来新的八年有效期': [OR_REAL_ID_FAQ, OR_DRIVER_INFO],
+      '临近航班才办 REAL ID，或把 interim paper credential / online receipt 当作 TSA 接受证件': [OR_LICENSE, OR_REAL_ID_FAQ, TSA_IDENTIFICATION],
+      '没有 SSN 仍尝试 online knowledge test，或用手机/平板进入只支持 desktop/laptop 的考试': [OR_ONLINE_TEST, OR_IDENTITY],
+      '已有 current valid license 只为练习而参加正式 online knowledge test，忽略失败可能影响现有 driving privilege': [OR_ONLINE_TEST],
+      '没有先通过 knowledge test 就预约 drive test，或考试车辆缺 current registration / liability insurance': [OR_DRIVE_TEST, OR_MANUAL_TESTING],
+      '把 standby service 当作当天一定受理，没有先检查 office 实时状态、营业日和具体业务': [OR_OFFICES, OR_APPOINTMENTS],
+      '65 岁以上、limited-term 或要首次升级 REAL ID 时直接假定可以 online renewal': [OR_LICENSE, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      'Oregon license 过期超过 2 年仍按普通 renewal 准备，没有预算 original fee 和三项考试': [OR_LICENSE, OR_DRIVER_INFO, OR_REAL_ID_FAQ],
+      '免费更新地址后等待 DMV 寄 address sticker 或新卡，忽略新卡要另行申请并付 replacement fee': [OR_ADDRESS, OR_LICENSE],
+      '搬家超过 30 天仍未通知 DMV，或只改 credential 地址却忘记核对车辆记录': [OR_ADDRESS],
+      '先到 DMV 改名，没有先处理 SSA，也以为 credential 改名会自动修改 vehicle title/registration': [OR_NAME, OR_IDENTITY],
+      '取得 Oregon credential 后仍同时使用原外州或外国 credential，忽略交回与失效规则': [OR_LICENSE, OR_DRIVER_INFO, OR_ID_CARD],
+      '成为 Oregon resident 后只关注驾照，漏掉同为 30 天的 vehicle title/registration': [OR_NEW],
     },
   },
 };
