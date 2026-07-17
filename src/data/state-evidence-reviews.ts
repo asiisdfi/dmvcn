@@ -649,6 +649,44 @@ const OR_ID_CARD =
 const OR_HB2015 =
   'https://olis.oregonlegislature.gov/liz/2019R1/Measures/Overview/HB2015';
 
+const CT_REAL_ID =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/get-real-id';
+const CT_REAL_ID_CHECKLIST =
+  'https://portal.ct.gov/dmv/-/media/dmv/dmv-pdfs/selectidaccptdocs3pdf.pdf';
+const CT_LICENSE =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/get-a-drivers-license-ct?page=1';
+const CT_TRANSFER =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/transfer-out-of-state-license';
+const CT_ADULT_PERMIT =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/get-learners-permit/adult-learners-permit';
+const CT_TESTS =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/take-knowledge-vision-test';
+const CT_ROAD_TEST =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/take-road-test';
+const CT_FEES = 'https://portal.ct.gov/dmv/resources/dmv-fees';
+const CT_RENEW =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/renew-driver-license';
+const CT_DUPLICATE =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/request-duplicate-driver-license';
+const CT_CHANGE =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/change-driver-license';
+const CT_DRIVE_ONLY =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/get-drive-only-license';
+const CT_DRIVE_ONLY_CHECKLIST =
+  'https://portal.ct.gov/dmv/-/media/dmv/dmv-pdfs/di4pdf.pdf';
+const CT_RENEW_DRIVE_ONLY =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/renew-drive-only-license';
+const CT_TRANSLATORS =
+  'https://portal.ct.gov/dmv/resources/approved-translators';
+const CT_ID =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/get-non-driver-id';
+const CT_CENTRAL =
+  'https://portal.ct.gov/dmv/licenses-permits-ids/get-a-drivers-license-ct/protect-your-identity-central-issuance-ct';
+const CT_APPOINTMENTS =
+  'https://portal.ct.gov/dmv/resources/make-change-appointment';
+const CT_LOCATIONS =
+  'https://portal.ct.gov/dmv/resources/locations-office-hours';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -6532,6 +6570,212 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '先到 DMV 改名，没有先处理 SSA，也以为 credential 改名会自动修改 vehicle title/registration': [OR_NAME, OR_IDENTITY],
       '取得 Oregon credential 后仍同时使用原外州或外国 credential，忽略交回与失效规则': [OR_LICENSE, OR_DRIVER_INFO, OR_ID_CARD],
       '成为 Oregon resident 后只关注驾照，漏掉同为 30 天的 vehicle title/registration': [OR_NEW],
+    },
+  },
+  connecticut: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      CT_REAL_ID,
+      CT_REAL_ID_CHECKLIST,
+      CT_LICENSE,
+      CT_TRANSFER,
+      CT_ADULT_PERMIT,
+      CT_TESTS,
+      CT_ROAD_TEST,
+      CT_FEES,
+      CT_RENEW,
+      CT_DUPLICATE,
+      CT_CHANGE,
+      CT_DRIVE_ONLY,
+      CT_DRIVE_ONLY_CHECKLIST,
+      CT_RENEW_DRIVE_ONLY,
+      CT_TRANSLATORS,
+      CT_ID,
+      CT_CENTRAL,
+      CT_APPOINTMENTS,
+      CT_LOCATIONS,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开并比对 Connecticut DMV 的 REAL ID、材料清单、普通驾照、外州与外国驾照、成人 permit、中英文考试、路考、费用、续补证、改名改址、Drive Only、non-driver ID、central issuance、预约与 office 正文。',
+    notes:
+      '重写金色星标、ordinary non-verified 与 Drive Only 判断路径，补齐中国大陆申请人的成人 permit、90 天等待豁免边界、2026 Work Zone 课程、当前费用和邮寄规则；对 SSN documentation、limited-term eligibility 与首证期限的州方页面冲突作显式风险提示，仍待真实人工签字。',
+    claims: {
+      '康涅狄格州先区分三条证件路径：右上角金色星标的 REAL ID 可用于受 REAL ID 约束的联邦身份场景': [CT_REAL_ID],
+      '没有星标并写有 Not for Federal Identification 的普通驾照仍可在有效驾驶权限范围内驾驶': [CT_REAL_ID],
+      'Drive Only 只供符合条件、无法证明美国 lawful presence 的居民取得驾驶权限，不能用于联邦身份识别或投票': [CT_DRIVE_ONLY],
+      '成为 Connecticut resident 后，外州驾照和车辆 registration 通常都要在 90 天内转入': [CT_TRANSFER],
+      '有效或过期不超过两年的美国州/领地驾照，以及 Canada、Germany 或 France 驾照，可按 transfer 路径预约、做 vision test 并支付 $40 application fee 与 $84 license fee': [CT_TRANSFER,CT_FEES],
+      '其他国家包括中国大陆不在 transfer 名单中，要先办 adult learner’s permit、完成适用课程和考试': [CT_LICENSE,CT_ADULT_PERMIT],
+      '但能出示过去 foreign license 或 driving history 的成年人可能免 90 天持证等待，这不等于免 permit、knowledge 或 road test': [CT_ADULT_PERMIT,CT_LICENSE],
+      '第一次申请 Connecticut REAL ID 必须本人到 DMV site': [CT_REAL_ID],
+      '当前 checklist 要两份不同 identity documents（至少一份 primary）、原件或 certified copies、两份不同来源且通常在 90 天内的 Connecticut residence hard copies、完整姓名链和 DMV-approved English translation': [CT_REAL_ID_CHECKLIST,CT_TRANSLATORS],
+      '普通 photocopy 不接受': [CT_REAL_ID_CHECKLIST],
+      'CT DMV 当前 REAL ID 页面又明确说不再要求仅为 REAL ID 提交 SSN 证明文件，但新办 credential 仍要提供并核验 SSN 或适用的 SSA ineligibility 路径，办理前不要只看旧 checklist 的单一句话': [CT_REAL_ID,CT_LICENSE,CT_REAL_ID_CHECKLIST],
+      'Learner’s permit 的 vision/knowledge tests 和 road test 都要本人预约': [CT_TESTS,CT_ROAD_TEST,CT_APPOINTMENTS],
+      '2026 年 1 月 1 日起 permit applicant 先完成免费线上 Connecticut Work Zone Safety Course 并打印证书': [CT_TESTS],
+      'knowledge test 有 25 题、答对 20 题通过，电脑考试提供 Mandarin Chinese，另可申请 Chinese Simplified hard-copy test': [CT_TESTS],
+      '首次 REAL ID、非美国公民首次申请、Drive Only、转入和姓名变更要按指定 DMV office 路径办理': [CT_APPOINTMENTS,CT_LOCATIONS],
+      'Connecticut REAL ID 是可选的 verified license 或 ID，右上角是金色星标': [CT_REAL_ID],
+      '没有星标的 credential 标注 Not for Federal Identification，仍可合法驾驶，但不能单独用于要求 REAL ID 的联邦身份用途': [CT_REAL_ID],
+      '18 岁及以上旅客在 TSA checkpoint 应使用 REAL ID 或 passport、Permanent Resident Card 等 TSA 接受的替代证件': [TSA_IDENTIFICATION,CT_REAL_ID],
+      '已有可接受证件时，不必把临行前升级 REAL ID 当作唯一方案': [TSA_IDENTIFICATION],
+      '第一次取得金色星标必须本人到 DMV site 或适用 partner office 完成一次性 original-document verification，不能只走普通 online renewal': [CT_REAL_ID],
+      'REAL ID checklist 要两份不同 identity documents，至少一份来自 primary list': [CT_REAL_ID_CHECKLIST],
+      '文件必须 valid/unexpired original 或 certified copy，普通 photocopy、notarized photocopy、损坏文件不接受': [CT_REAL_ID_CHECKLIST],
+      'Primary 常见 U.S. passport/birth certificate、I-551、I-766 或附适用 immigration supporting documents 的 foreign passport': [CT_REAL_ID_CHECKLIST],
+      'SS card、CT/外州驾照、Canadian photo license、court order 等属于 secondary examples，不能把两份同类证件当作两份不同 identity': [CT_REAL_ID_CHECKLIST],
+      'REAL ID 要两份不同来源的 Connecticut residency hard copies，显示申请人姓名和 Connecticut residence address，通常在 90 天内且为 computer-generated': [CT_REAL_ID_CHECKLIST],
+      '税单、保险、registration、lease 等少数类别按 checklist 的 12 个月或当前有效期规则': [CT_REAL_ID_CHECKLIST],
+      '不要只用 P.O. Box 或 mailing address 代替 Connecticut residence address': [CT_REAL_ID_CHECKLIST],
+      '官方清单要求两份文件显示实际 Connecticut residence address': [CT_REAL_ID_CHECKLIST],
+      '非英文文件必须由 CT DMV-approved translator 翻译，译文要有 translator number、文件类型、翻译日期、打印姓名/签名，并与 original document 一起提交': [CT_TRANSLATORS,CT_REAL_ID_CHECKLIST],
+      '姓名与 primary identity 不一致时，要用 certified marriage/civil-union record、dissolution 或 probate court order 串起每次变化': [CT_REAL_ID_CHECKLIST],
+      '多次改名不能只带最后一份': [CT_REAL_ID_CHECKLIST],
+      '先在 SSA 完成姓名更新并至少预留 48 小时，再到 DMV 办 name change 或 REAL ID，避免 SSA 与 credential 记录不一致': [CT_CHANGE,CT_REAL_ID_CHECKLIST],
+      'CT DMV 当前 REAL ID landing page 明确写明：按 REAL ID Modernization Act 与州政策，申请 REAL ID 不再要求提交 SSN documentation': [CT_REAL_ID],
+      '但新办 license/permit/ID 的 general credential page 和 checklist 仍要求提供可核验 SSN，未获配 SSN 的非公民按 SSA ineligibility 规则处理': [CT_LICENSE,CT_REAL_ID_CHECKLIST],
+      '因此没有实体 Social Security card 不等于一定不能办 REAL ID': [CT_REAL_ID,CT_LICENSE],
+      '仍应准备准确 SSN，并在首次 credential、non-citizen 或 limited-term 场景按当前交易页核对是否要 W-2、1099、SSA letter 或其他文件': [CT_REAL_ID,CT_LICENSE,CT_REAL_ID_CHECKLIST],
+      '未在美国出生且不能出示有效 U.S. passport 的申请人通常通过 SAVE 核验 lawful status，官方页面提示可能需要 10 个 business days 或更久，并可能要求回到同一 DMV office': [CT_LICENSE,CT_REAL_ID_CHECKLIST],
+      '非美国公民首次申请 Connecticut learner’s permit 或 driver license 必须本人到 DMV hub office，不能把 express office 或普通 online service 当作替代': [CT_LICENSE,CT_LOCATIONS],
+      'CT REAL ID 页面上方说其他 visa categories 可能符合 limited-term REAL ID，但同页 FAQ 当前又说 only DACA residents': [CT_REAL_ID],
+      '同一官方页面表述不完全一致，非 DACA 临时身份申请人应让 CT DMV 确认当前 eligibility，本站不代替州方判断': [CT_REAL_ID],
+      '当前 limited-term FAQ 要 DACA applicant 提交有效 I-766 Category C33、secondary identity、SSN、适用姓名文件和两份 Connecticut residency，并要求 legal-status document 至少剩余 6 个月': [CT_REAL_ID],
+      'Limited-term REAL ID 与 legal-status document 的到期日对齐并标注 LIMITED-TERM': [CT_REAL_ID],
+      '当前 FAQ 还写明一旦改成 limited-term，之后不能自行恢复 regular full-term credential': [CT_REAL_ID],
+      'Drive Only 面向 16 岁以上、无法证明 lawful presence 的 undocumented residents，不是 REAL ID、不能用于投票，也不能作为一般联邦身份证件': [CT_DRIVE_ONLY],
+      'Drive Only checklist 要 applicant 在 Connecticut 居住至少 90 天，并用两份来自不同来源、符合年龄窗口的 mail/e-mail 证明': [CT_DRIVE_ONLY_CHECKLIST],
+      '最近 90 天内搬家时要按清单准备新旧地址共四份材料': [CT_DRIVE_ONLY_CHECKLIST],
+      'Drive Only 身份文件用原件或 certified documents，非英文材料必须由 DMV-approved translator 翻译': [CT_DRIVE_ONLY_CHECKLIST,CT_TRANSLATORS],
+      '预约时还要签署在符合资格后申请合法化身份的 affidavit': [CT_DRIVE_ONLY,CT_DRIVE_ONLY_CHECKLIST],
+      'Connecticut 当前不接受外州 Drive Only 或类似 driving-privilege license 直接 transfer，申请人要按新的 Connecticut Drive Only permit、training 与 tests 路径办理': [CT_DRIVE_ONLY],
+      'Drive Only 页面列出的费用为 $40 testing、$19 learner’s permit 和通过 road test 后 $36 license fee': [CT_DRIVE_ONLY,CT_FEES],
+      '遗失 Drive Only 也必须到 DMV office 补办，不能用普通 online duplicate': [CT_DRIVE_ONLY],
+      'Drive Only 申请会检查 Connecticut driving issues、fraudulent credential 和 Connecticut felony record': [CT_DRIVE_ONLY],
+      '官方页面写明 Connecticut felony 或 CT DMV identity fraud 会影响资格，缺材料、考试失败或 background check 失败通常不退款': [CT_DRIVE_ONLY,CT_DRIVE_ONLY_CHECKLIST],
+      '成为 Connecticut resident 后通常有 90 天转入外州驾照，并在同一 90 天内转入 out-of-state vehicle registration': [CT_TRANSFER],
+      '两个业务不会因完成其中一个而自动完成另一个': [CT_TRANSFER],
+      '外州驾照要 current 或过期不超过 2 年，申请人带原证、acceptable identification、R-229，预约 vision test，并支付 $40 application fee 与 $84 license fee': [CT_TRANSFER,CT_FEES],
+      '遗失外州驾照时，可用签发州出具且日期在 60 天内的 certified driving history': [CT_TRANSFER],
+      '原证过期超过 2 年则要取得 Connecticut learner’s permit、完成 8-hour Safe Driving Practices Course 并参加 skills test': [CT_TRANSFER,CT_ADULT_PERMIT],
+      'Canada、Germany 与 France 的有效驾照可按 out-of-state transfer 流程办理': [CT_TRANSFER],
+      '中国大陆、Taiwan 及其他未列国家不能套用这一 transfer waiver，要先办 adult learner’s permit': [CT_TRANSFER,CT_LICENSE],
+      '中国大陆或其他非 reciprocity 国家过去签发的驾照/驾驶记录，可用于申请 adult permit 的 90-day wait exemption，但不把外国证件变成可直接转入的 license，也不自动免 vision、knowledge、training 或 road test': [CT_ADULT_PERMIT,CT_LICENSE],
+      '仍保持外州或外国永久住所的 full-time student、active-duty military/dependent 或 visitor 可能不必转 Connecticut license': [CT_TRANSFER],
+      'visitor/student 可用有效 foreign license 在 Connecticut 驾驶最多一年': [CT_TRANSFER],
+      'Foreign license 不是 Connecticut identity document': [CT_LICENSE],
+      '若驾照不是 English 或 Spanish，还必须随车携带由原签发国家取得的 IDP，且 IDP 单独不构成有效驾照': [CT_TRANSFER,CT_LICENSE],
+      '18 岁以上首次 applicant 先办 adult learner’s permit': [CT_ADULT_PERMIT],
+      '一般至少持有 90 天并完成 8-hour Safe Driving Practices Course，曾持 CT、外州、领地或 foreign license 并提供旧证或 driving history 等情况可能免 90 天等待': [CT_ADULT_PERMIT],
+      '2026 年 1 月 1 日起任何 learner’s permit applicant 都要完成免费的 online Connecticut Work Zone Safety Course，用 legal name 建立账户、打印 completion certificate，并在 knowledge test 前交给 DMV': [CT_TESTS],
+      'Class D knowledge test 有 25 题、至少答对 20 题': [CT_TESTS],
+      'vision 要达到 20/40 或更好并有 140-degree binocular peripheral field，先通过 vision 才能参加 knowledge test': [CT_TESTS],
+      '电脑 knowledge test 当前提供 Mandarin Chinese': [CT_TESTS],
+      '另可提前申请 hard-copy Chinese Simplified test，不要把网站机翻、中文 manual 或口头翻译当作已预约的中文考试': [CT_TESTS],
+      'Knowledge test 失败后要等待 7 天并重新支付 $40': [CT_TESTS,CT_FEES],
+      'vision 失败可立即重新预约，但同样要重新安排 appointment 和费用': [CT_TESTS,CT_FEES],
+      'Permit appointment 当前收 $40 testing fee（覆盖 vision、knowledge 和 road tests）及 $19 Class D learner’s permit fee': [CT_TESTS,CT_FEES],
+      '通过 road test 后 first regular license 当前另付 $84': [CT_FEES,CT_LICENSE],
+      'Road test 前要通过 vision/knowledge、完成 Work Zone Safety Course、满足 permit 持有期和 training': [CT_ROAD_TEST,CT_TESTS,CT_ADULT_PERMIT],
+      '到场带 confirmation、R-229、learner’s permit、current registration 与 Connecticut insurance card': [CT_ROAD_TEST],
+      'Road-test vehicle 必须 mechanically safe，registration 与 insurance 要当前有效': [CT_ROAD_TEST],
+      '没有有效驾照的 applicant 不能独自把车开到考场，应由合格 licensed driver 陪同': [CT_ROAD_TEST],
+      'Road test 至少提前 3 天 reschedule 才能避免损失 prepaid test fee': [CT_ROAD_TEST],
+      '到场建议提前 15 分钟，缺 permit、registration、insurance 或车辆不合格会导致改约': [CT_ROAD_TEST],
+      'CT Get a Driver’s License 页面当前写首次 noncommercial license 约 6.5 至 8.5 年，DMV fees 页面仍写 $84 对应约 5.5 至 7 年': [CT_LICENSE,CT_FEES],
+      '两个官方页面的首证期限表述不一致，本站只采用一致的 $84 费用，实际 expiration 以交易系统和卡面为准': [CT_LICENSE,CT_FEES],
+      '普通 license renewal 可在到期前 180 天开始': [CT_RENEW],
+      '当前 6-year renewal 为 $72、8-year 为 $96，65 岁以上可选 $24 的 two-year renewal，late fee 为 $25': [CT_RENEW,CT_FEES],
+      '第一次 REAL ID、非美国公民、Drive Only、CDL、suspended、过期至少 2 年、部分 endorsement、需要改名或上次未拍新照片的人不能按普通 online renewal 完成': [CT_RENEW],
+      '地址变化计划与 online renewal 一起处理时，CT DMV 建议至少提前一周先在线改址': [CT_RENEW,CT_CHANGE],
+      '过期 2 年或更久要回到 new-license 流程': [CT_RENEW,CT_LICENSE],
+      '普通遗失、被盗或损坏 license 的 duplicate fee 为 $30': [CT_DUPLICATE,CT_FEES],
+      'online duplicate 不适用于姓名变化、非美国公民、Drive Only 或 CDL，这些情形应预约 in-person': [CT_DUPLICATE],
+      '地址变化后 48 小时内要更新 DMV 的 license/ID 与 vehicle registration 记录': [CT_CHANGE,CT_LICENSE],
+      'online change 免费，当前卡背可贴/打印 address label，需要新卡面地址时再付 $30 duplicate': [CT_CHANGE,CT_DUPLICATE,CT_FEES],
+      '姓名变更先更新 SSA 并等最多 48 小时，再带 certified supporting document 到 appointment': [CT_CHANGE],
+      'material change 会收回旧 credential、发 temporary paper card，并收 $30 change fee': [CT_CHANGE,CT_FEES,CT_CENTRAL],
+      'DMV in-person transaction 通常先发 temporary paper credential，永久 license/ID 在 20 business days 内寄到 application address且不转寄': [CT_CENTRAL,CT_DUPLICATE],
+      'online renewal/duplicate 页面有时写 30 days，应按对应交易页跟踪': [CT_RENEW,CT_DUPLICATE],
+      'Temporary paper credential 可用于适用驾驶权限，但 TSA 不把它当作 standalone airport ID': [CT_CENTRAL,TSA_IDENTIFICATION],
+      '续期时通常要与 expiring/expired card 一起使用并以 TSA 当前规则为准': [CT_RENEW,TSA_IDENTIFICATION],
+      '没有有效 driver license 的 Connecticut resident 可申请 non-driver ID，new ID 当前 $28、约七年': [CT_ID,CT_FEES],
+      '已有 license 或 permit 时需要按 exchange/surrender 路径处理，不能把两张有效 credential 当作可并持': [CT_ID],
+      'DMV hub、branch、express 和 partner office 可办业务不同，测试、non-citizen first-time、Drive Only、CDL 等要按具体页面选择地点': [CT_LOCATIONS,CT_APPOINTMENTS],
+      '预约页面和 location service list 应在出发前再次核对': [CT_LOCATIONS,CT_APPOINTMENTS],
+      '先按 REAL ID、ordinary non-verified license/ID 或 Drive Only 选择对应 checklist，不要把三套 identity、SSN/lawful-status 和 residency 规则混在一起': [CT_REAL_ID,CT_LICENSE,CT_DRIVE_ONLY],
+      'REAL ID identity 带两份不同证件且至少一份 primary': [CT_REAL_ID_CHECKLIST],
+      '只带 original 或 issuing-agency certified copy，普通/公证复印件和手机照片不接受': [CT_REAL_ID_CHECKLIST],
+      '准备两份不同来源、hard-copy、显示姓名与 Connecticut residence address 的 residency proof，通常在 90 天内': [CT_REAL_ID_CHECKLIST],
+      '按清单核对税单、保险、registration 或 lease 的例外期限': [CT_REAL_ID_CHECKLIST],
+      '提供准确 SSN': [CT_LICENSE,CT_REAL_ID_CHECKLIST],
+      '当前 REAL ID page 不再要求仅为 REAL ID 出示 SSN documentation，但首次 credential、non-citizen 或 limited-term 交易仍要按适用页面准备 SSN/SSA 文件': [CT_REAL_ID,CT_LICENSE,CT_REAL_ID_CHECKLIST],
+      '姓名不一致时，带 certified marriage/civil-union certificate、dissolution 或 probate court order 串起完整姓名链，并先完成 SSA update': [CT_REAL_ID_CHECKLIST,CT_CHANGE],
+      '非英文 identity、residency 或 foreign-license documents 交由 DMV-approved translator，译文与 original document 一起带到现场': [CT_TRANSLATORS,CT_REAL_ID_CHECKLIST],
+      '非美国出生申请人带当前 passport、I-94、I-551、I-766、I-20/DS-2019 等与本人 status 相符的组合，并给 SAVE 留出 10+ business days': [CT_LICENSE,CT_REAL_ID_CHECKLIST],
+      'DACA limited-term REAL ID 另核对 I-766 Category C33、至少 6 个月 remaining status、SSN、secondary identity、姓名文件和两份地址证明': [CT_REAL_ID],
+      'Drive Only 用该项目自己的 original/certified identity 与 90-day Connecticut residency checklist': [CT_DRIVE_ONLY_CHECKLIST],
+      '近期搬家者按官方四份新旧地址 mail 规则准备': [CT_DRIVE_ONLY_CHECKLIST],
+      '外州转入带 current/不超过两年 expired license、R-229 和 acceptable identity': [CT_TRANSFER],
+      '丢证时准备 60 天内 certified driving history': [CT_TRANSFER],
+      '中国大陆等 non-reciprocity license holder 另带过去 license 或 country driving history，用于判断 90-day wait exemption，但仍按 adult permit/tests 路径': [CT_ADULT_PERMIT,CT_LICENSE],
+      'Road test 带 permit、appointment confirmation、R-229、current registration、Connecticut insurance card 和 mechanically safe vehicle': [CT_ROAD_TEST],
+      '先看卡面和目的：金色星标用于 REAL ID federal purpose，普通证件仍可驾驶，Drive Only 只解决符合资格者的 driving privilege': [CT_REAL_ID,CT_DRIVE_ONLY],
+      '已有 passport、green card 等 TSA accepted ID 时，先判断是否真的需要在本次 renewal/duplicate 之外额外付 $30 升级': [CT_REAL_ID,CT_FEES,TSA_IDENTIFICATION],
+      '打开 current Get REAL ID page 与 PDF checklist，特别比较 SSN-documentation note，不把 2023 checklist 单独当作最新政策全文': [CT_REAL_ID,CT_REAL_ID_CHECKLIST],
+      '按 identity、SSN/SSA、two residency、name chain、lawful status/translation 五组放文件': [CT_REAL_ID_CHECKLIST,CT_LICENSE,CT_TRANSLATORS],
+      '每份写下 source、日期、是否 original/certified': [CT_REAL_ID_CHECKLIST],
+      '非美国公民先确认 full-term、DACA limited-term、ordinary non-verified 或 Drive Only 路径，并让 DMV 解释同页对 non-DACA limited-term 的冲突表述': [CT_REAL_ID,CT_LICENSE,CT_DRIVE_ONLY],
+      '需要 SAVE 的人预留至少 10 business days 以上，不在旅行、status document 到期或搬家前最后几天才开始': [CT_LICENSE,CT_REAL_ID_CHECKLIST],
+      'Drive Only applicant 使用专用 checklist 核对 90-day Connecticut residency、两份或搬家后的四份 mail、翻译和 affidavit，不套 REAL ID 清单': [CT_DRIVE_ONLY,CT_DRIVE_ONLY_CHECKLIST],
+      '新居民先记录 residency established date，在 90 天内分别安排 license transfer 与 vehicle registration transfer': [CT_TRANSFER],
+      '外州/Canada/Germany/France license holder 检查原证是否 current 或过期不超过两年，并准备 R-229、identity、vision 与 $40+$84': [CT_TRANSFER,CT_FEES],
+      '中国大陆等其他国家 license holder 走 adult learner’s permit': [CT_LICENSE,CT_ADULT_PERMIT],
+      '同时带旧证或 driving history，向 DMV 申请适用的 90-day wait exemption': [CT_ADULT_PERMIT,CT_LICENSE],
+      'Permit applicant 先用 legal name 完成免费 Work Zone Safety Course并打印证书，再预约 in-person vision/knowledge test': [CT_TESTS],
+      '需要中文考试时明确提出 Mandarin computer test 或 Chinese Simplified hard-copy test，预约前确认具体 location 和提供方式': [CT_TESTS],
+      'Knowledge appointment 带 original checklist documents、R-229、眼镜/隐形眼镜、Work Zone certificate，并预算 $40 test 与 $19 permit': [CT_TESTS,CT_REAL_ID_CHECKLIST,CT_FEES],
+      '取得 permit 后完成 8-hour Safe Driving Practices Course和适用练习期': [CT_ADULT_PERMIT],
+      '有过去 license 的人只申请等待期 exemption，不自行跳过其他步骤': [CT_ADULT_PERMIT],
+      'Road test 前逐项检查 permit、confirmation、R-229、registration、insurance、车辆安全和 licensed companion': [CT_ROAD_TEST],
+      '不能参加时至少提前 3 天 reschedule': [CT_ROAD_TEST],
+      '续期先检查 180-day window、online exclusions、6/8-year fee 和 65+ option': [CT_RENEW,CT_FEES],
+      '首次 REAL ID、non-citizen、Drive Only、expired 2+ years 等改走对应现场路径': [CT_RENEW,CT_REAL_ID,CT_DRIVE_ONLY],
+      '搬家后 48 小时内免费更新 license/ID 与 registration': [CT_CHANGE],
+      '准备 online renewal 时至少提前一周改址，需要新卡面地址再付 duplicate fee': [CT_RENEW,CT_CHANGE,CT_DUPLICATE],
+      '改名先在 SSA 办理并等 48 小时，带 certified name-change documents 预约 DMV，另核对 vehicle registration 是否也要同场更新': [CT_CHANGE],
+      '补证前判断是否符合 online route': [CT_DUPLICATE],
+      'non-citizen、Drive Only、CDL、姓名变化或复杂身份情形直接预约 office': [CT_DUPLICATE,CT_LOCATIONS],
+      '现场办结后核对 temporary paper credential 与 mailing address，20 business days 未收到就查 card status': [CT_CENTRAL],
+      '不要依赖 mail forwarding': [CT_CENTRAL],
+      '把金色星标、ordinary non-verified license 和 Drive Only 当成同一证件，只比较费用而没先判断用途与资格': [CT_REAL_ID,CT_LICENSE,CT_DRIVE_ONLY],
+      '第一次申请 REAL ID 却走普通 online renewal，或以为网上续期会自动完成 original-document verification': [CT_REAL_ID,CT_RENEW],
+      '只带一份 identity，或两份完全相同类别文件，忽略 checklist 要至少一份 primary 和两份不同 identity': [CT_REAL_ID_CHECKLIST],
+      '用普通 photocopy、notarized photocopy、手机照片或损坏文件替代 REAL ID original/certified documents': [CT_REAL_ID_CHECKLIST],
+      '把 P.O. Box、mailing address 或不显示本人姓名的账单当作 Connecticut residence address proof': [CT_REAL_ID_CHECKLIST],
+      '两份 residency 来自同一 source，或都超出 90 天又不属于官方允许的 12-month/current exceptions': [CT_REAL_ID_CHECKLIST],
+      '看到旧 checklist 写 SSN proof 就认定丢失实体 Social Security card 一定不能办，也没有阅读当前 REAL ID Modernization note': [CT_REAL_ID,CT_REAL_ID_CHECKLIST],
+      '反过来把“不再要求 SSN documentation”理解成 DMV 完全不需要 SSN、SSA ineligibility 或系统核验': [CT_REAL_ID,CT_LICENSE,CT_REAL_ID_CHECKLIST],
+      '非英文文件自行翻译，或译文没有 DMV-approved translator number、签名、日期和 original document': [CT_TRANSLATORS,CT_REAL_ID_CHECKLIST],
+      '姓名在 SSA、primary identity 与 residency 文件上不一致，也没有完整 certified name-change chain': [CT_REAL_ID_CHECKLIST,CT_CHANGE],
+      '非美国公民临近旅行才申请，没有给 SAVE 或 limited-term eligibility clarification 留 10+ business days': [CT_LICENSE,CT_REAL_ID],
+      '把中国大陆或 Taiwan 驾照当作 Canada/Germany/France reciprocity，直接预约 out-of-state transfer': [CT_TRANSFER],
+      '听说过去 foreign license 可免 90 天，就误以为 adult permit、knowledge、training 和 road test 也都免除': [CT_ADULT_PERMIT,CT_LICENSE],
+      '只转入 driver license，漏掉同为 90 天的 vehicle registration': [CT_TRANSFER],
+      '或外州 license 过期超过两年仍按普通 transfer 准备': [CT_TRANSFER],
+      'IDP 单独使用、在美国购买 IDP，或 foreign license 非 English/Spanish 时只带驾照不带原签发国 IDP': [CT_TRANSFER,CT_LICENSE],
+      '2026 permit appointment 没有先完成 Work Zone Safety Course，或忘记打印 completion certificate': [CT_TESTS],
+      '把 Mandarin computer test 与 Chinese Simplified hard-copy test 当作同一预约形式，没有提前向 DMV 确认': [CT_TESTS],
+      'Knowledge test 失败后立即约次日，忽略 7 天等待和重新支付 $40': [CT_TESTS,CT_FEES],
+      'Road test 车辆缺 current registration/Connecticut insurance，或 applicant 没有合格 licensed driver 陪同却自行开到考场': [CT_ROAD_TEST],
+      '搬家超过 48 小时仍未更新 license/ID 和 vehicle records，或以为免费 online change 会自动寄一张新卡': [CT_CHANGE],
+      '地址已经变化但在 online renewal 前不足一周才改址，导致新卡仍按 transaction 中选择的 shipping address 处理': [CT_RENEW,CT_CHANGE],
+      '遗失证件时直接走 online duplicate，忽略 non-citizen、Drive Only、CDL 或 name-change 情形必须 in-person': [CT_DUPLICATE],
+      '把 temporary paper credential 当作 TSA standalone ID，或依赖 USPS forwarding 接收永久卡': [CT_CENTRAL,TSA_IDENTIFICATION],
+      'Drive Only applicant 把外州 driving-privilege license 当作可直接 transfer，或没有准备 90-day residency 与 background-check 边界': [CT_DRIVE_ONLY,CT_DRIVE_ONLY_CHECKLIST],
     },
   },
 };

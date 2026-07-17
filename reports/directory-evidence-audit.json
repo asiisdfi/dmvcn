@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T02:33:59.194Z",
+    "generatedAt": "2026-07-17T02:52:15.309Z",
     "pages": 5,
-    "claims": 528,
+    "claims": 544,
     "statesCovered": 49,
-    "aiAssisted": 304,
-    "automated": 224,
+    "aiAssisted": 321,
+    "automated": 223,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 77,
-        "states": 24
+        "claims": 81,
+        "states": 25
       },
       "deadlines": {
-        "claims": 63,
-        "states": 24
+        "claims": 66,
+        "states": 25
       },
       "document-rules": {
-        "claims": 174,
+        "claims": 177,
         "states": 48
       },
       "foreign-license": {
-        "claims": 79,
+        "claims": 81,
         "states": 29
       },
       "identity-ssn": {
-        "claims": 135,
-        "states": 41
+        "claims": 139,
+        "states": 42
       }
     }
   },
@@ -1114,6 +1114,66 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "connecticut",
+      "category": "费用",
+      "claim": "Drive Only 页面列出的费用为 $40 testing、$19 learner’s permit 和通过 road test 后 $36 license fee",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/get-drive-only-license",
+      "sourceLabel": "对应官方来源：Connecticut DMV Drive Only License",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "connecticut",
+      "category": "费用",
+      "claim": "Knowledge test 失败后要等待 7 天并重新支付 $40",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/take-knowledge-vision-test",
+      "sourceLabel": "对应官方来源：Connecticut DMV Knowledge and Vision Tests",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "connecticut",
+      "category": "费用",
+      "claim": "通过 road test 后 first regular license 当前另付 $84",
+      "sourceUrl": "https://portal.ct.gov/dmv/resources/dmv-fees",
+      "sourceLabel": "对应官方来源：Connecticut DMV Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "connecticut",
+      "category": "费用",
+      "claim": "Road test 至少提前 3 天 reschedule 才能避免损失 prepaid test fee",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/take-road-test",
+      "sourceLabel": "对应官方来源：Connecticut DMV Road Test",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "kentucky",
       "category": "邮寄 / 卡片",
       "claim": "想升级 REAL ID 时，官方 renewal 页面说明不能在线或邮寄完成升级，必须到 Regional Office 并带额外材料",
@@ -1954,6 +2014,52 @@
         "lawful-presence"
       ],
       "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "connecticut",
+      "category": "材料时效",
+      "claim": "准备两份不同来源、hard-copy、显示姓名与 Connecticut residence address 的 residency proof，通常在 90 天内",
+      "sourceUrl": "https://portal.ct.gov/dmv/-/media/dmv/dmv-pdfs/selectidaccptdocs3pdf.pdf",
+      "sourceLabel": "对应官方来源：Connecticut REAL ID Document Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "connecticut",
+      "category": "材料时效",
+      "claim": "DACA limited-term REAL ID 另核对 I-766 Category C33、至少 6 个月 remaining status、SSN、secondary identity、姓名文件和两份地址证明",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/get-real-id",
+      "sourceLabel": "对应官方来源：Connecticut DMV Get REAL ID",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "connecticut",
+      "category": "搬家 / 地址",
+      "claim": "需要 SAVE 的人预留至少 10 business days 以上，不在旅行、status document 到期或搬家前最后几天才开始",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/get-a-drivers-license-ct?page=1",
+      "sourceLabel": "对应官方来源：Connecticut DMV Get a Driver’s License",
+      "themes": [
+        "processing-or-mail",
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "processing-or-mail"
+      ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -3188,18 +3294,61 @@
     {
       "page": "document-rules",
       "stateId": "connecticut",
-      "category": "清单入口",
-      "claim": "CT REAL ID 页面提到 SAVE 验证可能需要 10+ business days，非公民用户应提前规划",
+      "category": "地址证明",
+      "claim": "准备两份不同来源、hard-copy、显示姓名与 Connecticut residence address 的 residency proof，通常在 90 天内",
+      "sourceUrl": "https://portal.ct.gov/dmv/-/media/dmv/dmv-pdfs/selectidaccptdocs3pdf.pdf",
+      "sourceLabel": "对应官方来源：Connecticut REAL ID Document Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "connecticut",
+      "category": "地址证明",
+      "claim": "非英文 identity、residency 或 foreign-license documents 交由 DMV-approved translator，译文与 original document 一起带到现场",
+      "sourceUrl": "https://portal.ct.gov/dmv/resources/approved-translators",
+      "sourceLabel": "对应官方来源：Connecticut DMV Approved Translators",
+      "themes": [
+        "residency-documents",
+        "translation"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "connecticut",
+      "category": "地址证明",
+      "claim": "DACA limited-term REAL ID 另核对 I-766 Category C33、至少 6 个月 remaining status、SSN、secondary identity、姓名文件和两份地址证明",
       "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/get-real-id",
       "sourceLabel": "对应官方来源：Connecticut DMV Get REAL ID",
       "themes": [
-        "processing-or-mail",
-        "non-citizen",
-        "immigration-verification"
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "connecticut",
+      "category": "地址证明",
+      "claim": "Drive Only 用该项目自己的 original/certified identity 与 90-day Connecticut residency checklist",
+      "sourceUrl": "https://portal.ct.gov/dmv/-/media/dmv/dmv-pdfs/di4pdf.pdf",
+      "sourceLabel": "对应官方来源：Connecticut Drive Only Document Checklist",
+      "themes": [
+        "residency-documents",
+        "document-checklist"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -5534,12 +5683,27 @@
     {
       "page": "foreign-license",
       "stateId": "connecticut",
-      "category": "外州 / 加拿大转入",
-      "claim": "Transfer Out-of-State License：外州驾照转入 Connecticut 的材料和流程",
-      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/transfer-out-of-state-license",
-      "sourceLabel": "对应官方来源：Connecticut DMV Transfer Out-of-State License",
+      "category": "外国 / 境外驾照",
+      "claim": "一般至少持有 90 天并完成 8-hour Safe Driving Practices Course，曾持 CT、外州、领地或 foreign license 并提供旧证或 driving history 等情况可能免 90 天等待",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/get-learners-permit/adult-learners-permit",
+      "sourceLabel": "对应官方来源：Connecticut DMV Adult Learner’s Permit",
       "themes": [
-        "out-of-state"
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "connecticut",
+      "category": "外国 / 境外驾照",
+      "claim": "Adult Learner’s Permit：90 天、过去外国驾照 exemption、8-hour course、考试与 permit fee",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/get-learners-permit/adult-learners-permit",
+      "sourceLabel": "对应官方来源：Connecticut DMV Adult Learner’s Permit",
+      "themes": [
+        "fee",
+        "foreign-license"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
@@ -5548,18 +5712,36 @@
     {
       "page": "foreign-license",
       "stateId": "connecticut",
-      "category": "外州 / 加拿大转入",
-      "claim": "从外州搬入 Connecticut 的用户先看 transfer out-of-state license 页面准备外州证件和 CT 地址证明",
+      "category": "IDP / 国际驾照",
+      "claim": "Get a Connecticut Driver’s License：首次驾照、non-citizen、foreign license/IDP、SSN、地址和考试语言",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/get-a-drivers-license-ct?page=1",
+      "sourceLabel": "对应官方来源：Connecticut DMV Get a Driver’s License",
+      "themes": [
+        "foreign-license",
+        "ssn",
+        "non-citizen"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "connecticut",
+      "category": "期限 / 居民身份",
+      "claim": "新居民先记录 residency established date，在 90 天内分别安排 license transfer 与 vehicle registration transfer",
       "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/transfer-out-of-state-license",
       "sourceLabel": "对应官方来源：Connecticut DMV Transfer Out-of-State License",
       "themes": [
         "residency-documents",
-        "new-resident",
-        "out-of-state"
+        "new-resident"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "failedThemes": [
+        "residency-documents",
+        "new-resident"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -6808,6 +6990,67 @@
       "sourceUrl": "https://www.oregon.gov/odot/dmv/pages/dv/chgname.aspx",
       "sourceLabel": "对应官方来源：Oregon DMV Change Name",
       "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "connecticut",
+      "category": "无 SSN / SSA",
+      "claim": "先在 SSA 完成姓名更新并至少预留 48 小时，再到 DMV 办 name change 或 REAL ID，避免 SSA 与 credential 记录不一致",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/change-driver-license",
+      "sourceLabel": "对应官方来源：Connecticut DMV Change License or Registration",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "connecticut",
+      "category": "无 SSN / SSA",
+      "claim": "仍应准备准确 SSN，并在首次 credential、non-citizen 或 limited-term 场景按当前交易页核对是否要 W-2、1099、SSA letter 或其他文件",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/get-real-id",
+      "sourceLabel": "对应官方来源：Connecticut DMV Get REAL ID",
+      "themes": [
+        "ssn",
+        "non-citizen"
+      ],
+      "failedThemes": [
+        "non-citizen"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "connecticut",
+      "category": "无 SSN / SSA",
+      "claim": "当前 REAL ID page 不再要求仅为 REAL ID 出示 SSN documentation，但首次 credential、non-citizen 或 limited-term 交易仍要按适用页面准备 SSN/SSA 文件",
+      "sourceUrl": "https://portal.ct.gov/dmv/licenses-permits-ids/get-real-id",
+      "sourceLabel": "对应官方来源：Connecticut DMV Get REAL ID",
+      "themes": [
+        "ssn",
+        "non-citizen"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "connecticut",
+      "category": "无 SSN / SSA",
+      "claim": "按 identity、SSN/SSA、two residency、name chain、lawful status/translation 五组放文件",
+      "sourceUrl": "https://portal.ct.gov/dmv/-/media/dmv/dmv-pdfs/selectidaccptdocs3pdf.pdf",
+      "sourceLabel": "对应官方来源：Connecticut REAL ID Document Checklist",
+      "themes": [
+        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],

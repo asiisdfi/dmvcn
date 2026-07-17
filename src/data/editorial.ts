@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成康涅狄格州两页官方正文语义核对',
+    summary:
+      '逐条比对 Connecticut DMV 的 REAL ID、材料清单、普通驾照、外州与外国驾照、成人 permit、中英文考试、2026 Work Zone 课程、路考、费用、续补证、改名改址、Drive Only、non-driver ID、central issuance、预约与 office 正文；补齐中国大陆申请人的 permit 路径与 90 天等待豁免边界，并公开标注 SSN documentation、limited-term eligibility 和首证期限的州方页面冲突。',
+    scope: ['康涅狄格州办事总览', '康涅狄格州 REAL ID', '三类 credential 与中国大陆申请路径', '173 条显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成俄勒冈州两页官方正文语义核对',
     summary:
       '逐条比对 Oregon DMV 的 Standard、REAL ID、identity/residency、HB 2015、新居民 30 天、外国驾照、China/Taiwan 免试边界、简体中文 online/office knowledge test、drive test、现行费用、续补证、改名改址、office、ID 与邮寄正文；补齐无 SSN 的线上考试限制，并纠正 REAL ID 地址 printout 与 identity 原件要求不可混用的旧说法。',

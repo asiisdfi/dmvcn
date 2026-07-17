@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T02:34:00.703Z",
+    "generatedAt": "2026-07-17T02:52:16.720Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 49,
+    "passed": 51,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 62,
-    "aiAssistedReviews": 55,
+    "sourceMappedReviews": 60,
+    "aiAssistedReviews": 57,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 115,
+    "blockedPages": 113,
     "averageScore": 96
   },
   "pages": [
@@ -307,7 +307,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 186,
+        "sourceCount": 188,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 259,
+        "sourceCount": 263,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 77,
-        "directoryEvidenceLinks": 77,
+        "directoryEvidenceItems": 81,
+        "directoryEvidenceLinks": 81,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 213,
+        "sourceCount": 214,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 63,
-        "directoryEvidenceLinks": 63,
+        "directoryEvidenceItems": 66,
+        "directoryEvidenceLinks": 66,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 498,
+        "sourceCount": 505,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 178,
+        "sourceCount": 180,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -497,8 +497,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 174,
-        "directoryEvidenceLinks": 174,
+        "directoryEvidenceItems": 177,
+        "directoryEvidenceLinks": 177,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 148,
+        "sourceCount": 152,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -544,8 +544,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 79,
-        "directoryEvidenceLinks": 79,
+        "directoryEvidenceItems": 81,
+        "directoryEvidenceLinks": 81,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 177,
+        "sourceCount": 180,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 135,
-        "directoryEvidenceLinks": 135,
+        "directoryEvidenceItems": 139,
+        "directoryEvidenceLinks": 139,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -782,7 +782,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 204,
+        "sourceCount": 208,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1167,
+        "sourceCount": 1181,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -1549,21 +1549,21 @@
       "route": "/states/connecticut/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 93,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Connecticut DMV 的 REAL ID、材料清单、普通驾照、外州与外国驾照、成人 permit、中英文考试、路考、费用、续补证、改名改址、Drive Only、non-driver ID、central issuance、预约与 office 正文。",
+        "notes": "重写金色星标、ordinary non-verified 与 Drive Only 判断路径，补齐中国大陆申请人的成人 permit、90 天等待豁免边界、2026 Work Zone 课程、当前费用和邮寄规则；对 SSN documentation、limited-term eligibility 与首证期限的州方页面冲突作显式风险提示，仍待真实人工签字。"
       },
       "scores": {
-        "factsAndSources": 22,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -1573,14 +1573,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 10,
+        "sourceCount": 21,
+        "factCheckCount": 103,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 10,
-        "stateEvidenceLinks": 11,
+        "stateEvidenceItems": 103,
+        "stateEvidenceLinks": 154,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1588,9 +1588,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/connecticut/real-id/",
@@ -1598,16 +1596,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Connecticut DMV 的 REAL ID、材料清单、普通驾照、外州与外国驾照、成人 permit、中英文考试、路考、费用、续补证、改名改址、Drive Only、non-driver ID、central issuance、预约与 office 正文。",
+        "notes": "重写金色星标、ordinary non-verified 与 Drive Only 判断路径，补齐中国大陆申请人的成人 permit、90 天等待豁免边界、2026 Work Zone 课程、当前费用和邮寄规则；对 SSN documentation、limited-term eligibility 与首证期限的州方页面冲突作显式风险提示，仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1620,14 +1618,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 20,
+        "sourceCount": 21,
+        "factCheckCount": 74,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 20,
-        "stateEvidenceLinks": 21,
+        "stateEvidenceItems": 74,
+        "stateEvidenceLinks": 122,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1635,9 +1633,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/delaware/",
