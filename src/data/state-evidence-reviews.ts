@@ -589,6 +589,29 @@ const CO_REPLACE =
   'https://dmv.colorado.gov/replace-your-lost-stolen-or-destroyed-driver-license/permit/cdl/id';
 const CO_ID = 'https://dmv.colorado.gov/identification-cards';
 
+const NV_REAL_ID = 'https://dmv.nv.gov/realid.htm';
+const NV_RESIDENCY = 'https://dmv.nv.gov/dlresidency.htm';
+const NV_DAC = 'https://dmv.nv.gov/dac.htm';
+const NV_NEW = 'https://dmv.nv.gov/newresident.htm';
+const NV_LAW = 'https://www.leg.state.nv.us/nrs/nrs-483.html';
+const NV_HANDBOOK = 'https://dmv.nv.gov/pdfforms/dlbook.pdf';
+const NV_FIRST = 'https://dmv.nv.gov/nvdlfirst.htm';
+const NV_ADULT = 'https://dmv.nv.gov/nvdladult.htm';
+const NV_TESTING = 'https://dmv.nv.gov/dltesting.htm';
+const NV_ROAD = 'https://dmv.nv.gov/roadtestadult.htm';
+const NV_WAIVER = 'https://dmv.nv.gov/pdfforms/dmv015.pdf';
+const NV_TRANSLATORS = 'https://dmv.nv.gov/translators.asp';
+const NV_FEES = 'https://dmv.nv.gov/dlfees.htm';
+const NV_RENEW = 'https://dmv.nv.gov/dlrenewal.htm';
+const NV_DUPLICATE = 'https://dmv.nv.gov/dlduplicate.htm';
+const NV_ADDRESS = 'https://dmv.nv.gov/addchange.htm';
+const NV_QUICK = 'https://dmv.nv.gov/quickcards.htm';
+const NV_APPOINTMENTS = 'https://dmv.nv.gov/appointments.htm';
+const NV_LOCATIONS = 'https://dmv.nv.gov/locat.htm';
+const NV_ONLINE = 'https://dmv.nv.gov/onlineservices.htm';
+const NV_ID = 'https://dmv.nv.gov/idcards.htm';
+const NV_FAQ = 'https://dmv.nv.gov/faqs.htm';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
   california: {
     reviewedAt: '2026-07-17',
@@ -5728,6 +5751,560 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '同时保留 Colorado driver license/permit 和 Colorado ID card，忽略州规则只允许二者之一': [
         CO_ID,
+      ],
+    },
+  },
+  nevada: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      NV_REAL_ID,
+      NV_RESIDENCY,
+      NV_DAC,
+      NV_NEW,
+      NV_LAW,
+      NV_HANDBOOK,
+      NV_FIRST,
+      NV_ADULT,
+      NV_TESTING,
+      NV_ROAD,
+      NV_WAIVER,
+      NV_TRANSLATORS,
+      NV_FEES,
+      NV_RENEW,
+      NV_DUPLICATE,
+      NV_ADDRESS,
+      NV_QUICK,
+      NV_APPOINTMENTS,
+      NV_LOCATIONS,
+      NV_ONLINE,
+      NV_ID,
+      NV_FAQ,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开并比对 Nevada DMV 的 REAL ID、Standard、DAC、identity/residency、现行 NRS、2026 handbook、新居民、外国驾照、DMV 015、成人 permit、知识与路考、翻译、费用、续期、补证、改名改址、Quick Cards、预约、ID 和邮寄正文。',
+    notes:
+      '重写三类 credential 判断与办事路径，补齐 China/Taiwan/South Korea、无 SSN、Limited Term、口译和 current fee 边界，并公开标注 Taiwan waiver 年龄与 out-of-state REAL ID 模块的官方页面差异；仍待真实人工签字。',
+    claims: {
+      '内华达州先按用途和文件能力选择 REAL ID、Standard license/ID 或 Driver Authorization Card（DAC）：REAL ID 用于联邦身份场景，Standard 仍可州内驾驶和一般身份证明，DAC 只授予驾驶权限而不作为身份证明': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+        NV_DAC,
+      ],
+      '成为 Nevada resident 后，如要在州内驾驶，现行 NRS 483.245 要求在 30 天内取得 Nevada 驾照': [
+        NV_LAW,
+        NV_HANDBOOK,
+      ],
+      '21 岁及以上持有效美国州、美国领地或 Canada 驾照的新居民，在没有不良记录等触发条件时通常只做 vision test': [
+        NV_NEW,
+        NV_FIRST,
+        NV_TESTING,
+      ],
+      '外国证件不是自动免试依据': [NV_FIRST, NV_TESTING],
+      '中国大陆驾照不在当前 DMV 015 reciprocity 名单中，成为 Nevada resident 后通常要按 foreign-country license 路径完成 vision、knowledge 和 skills tests': [
+        NV_NEW,
+        NV_FIRST,
+        NV_TESTING,
+        NV_WAIVER,
+      ],
+      '首次或升级 Nevada REAL ID 必须到 DMV office 出示一份合格 identity、一份显示完整 SSN 的证明、两份 Nevada residential-address 证明、完整姓名变化链及适用的 DMV-approved translation': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '有效外州 REAL ID 通常只能作为 Nevada Standard credential 的 identity 依据': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '要取得 Nevada REAL ID，专门 REAL ID 页面要求重新出示 foundational documents': [
+        NV_REAL_ID,
+      ],
+      'Quick Cards 只能让符合条件的成人在线开始首次 license、ID、instruction permit 或 DAC 申请': [
+        NV_QUICK,
+      ],
+      'conditional approval 后仍要预约办公室出示原件、付款和拍照': [
+        NV_QUICK,
+      ],
+      'Nevada DMV 当前除牌照交回、逾期债务付款、部分 VIN inspection 和 Turbo Titles 文件交回外，其他 office 服务均要求预约': [
+        NV_APPOINTMENTS,
+      ],
+      'Nevada REAL ID 是现有 driver license、permit 或 ID 的联邦合规版本，右上角有金色 Nevada 星标': [
+        NV_REAL_ID,
+      ],
+      'Standard 卡标有 Not for Real ID Purposes，DAC 标有 Not Valid for ID': [
+        NV_REAL_ID,
+        NV_DAC,
+      ],
+      '18 岁以上旅客自 2025 年 5 月 7 日起进入 TSA checkpoint 时，要使用 REAL ID 或 passport 等 TSA 接受的替代证件': [
+        NV_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      'Standard Nevada license 仍可用于合法驾驶和州内一般用途，但不能单独用于要求 REAL ID 的国内航班或安全联邦设施': [
+        NV_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      'DAC 允许符合条件的 Nevada resident 驾驶、注册和投保车辆，但不能用来取得福利、执照或服务，也不能作为航空或联邦身份证件': [
+        NV_DAC,
+      ],
+      'Nevada 一人只能持有一张有效 credential，升级 REAL ID 会替换 Standard credential，居民申领 Nevada license 或 DAC 时也必须交回外州 license/ID': [
+        NV_REAL_ID,
+        NV_DAC,
+        NV_FAQ,
+        NV_ID,
+      ],
+      'REAL ID identity 通常从未过期 U.S. passport、U.S. birth certificate、FS-240、N-550、N-560、I-551、合格 foreign passport/I-94 或 I-766 中选一份': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      'Hospital birth certificate、军人证、外国驾照、外国出生证、border crossing card 和 consular ID 不能作为 Nevada REAL ID identity document': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      'Identity 与姓名文件应是有效原件或签发机关认证副本，普通 photocopy、scan 或手机照片不能替代': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+        NV_DAC,
+      ],
+      '姓名不同要用政府签发 marriage certificate、divorce decree、adoption record 或 court order 连起每一次变化': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      'Social Security card 不能代替姓名变更文件': [NV_REAL_ID, NV_RESIDENCY],
+      'SSN 证明可用 Social Security card、W-2、IRS 1099 或 printed pay stub，文件必须显示当前法定姓名和完整号码': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '已有合法身份但没有 SSN 的申请人可能取得 Standard license/ID': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '已申请但尚未收到 SSN 时，Nevada DMV 页面允许在申请表中作 attestation': [
+        NV_RESIDENCY,
+        NV_ADULT,
+      ],
+      'REAL ID 与 Standard 通常都要两份显示申请人姓名和 Nevada residential address 的证明，online account 的原始打印件可以接受': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      'Lease、utility bill、bank statement、pay stub、court record 等常见地址材料通常要在前 60 天内出具': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      'insurance、medical、tax、property-tax 或 mortgage 类材料按最近签发版本准备': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      'REAL ID 卡面必须显示 physical address，Standard 与 DAC 可显示 physical 或 mailing address，但申请人仍要证明 Nevada residency': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '缺少本人名下地址材料时，可核对 DMV 005、DMV 115 或 DMV 116 是否符合自己的居住情形，不要自行写一封无对应表格的说明代替全部证据': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+        NV_DAC,
+      ],
+      '任何非英文文件都要由 Nevada DMV approved translator 制作完整 typed/electronically printed translation，包含日期、translator number、姓名、签名和规定声明': [
+        NV_TRANSLATORS,
+        NV_RESIDENCY,
+        NV_DAC,
+      ],
+      '摘要式翻译或把声明另放一页会被拒': [NV_TRANSLATORS],
+      '以美国移民文件证明 identity 的 license/ID 会标为 Limited Term，通常跟随电子核验的 departure date，到期日为 D/S 时一般自签发日起一年': [
+        NV_RENEW,
+        NV_RESIDENCY,
+        NV_HANDBOOK,
+      ],
+      'Standard identity 清单可接受有效外州 REAL ID，但 non-compliant 外州卡和 Limited Term 外州 REAL ID 不能单独替代所需移民文件': [
+        NV_RESIDENCY,
+        NV_REAL_ID,
+      ],
+      'DAC 不要求 SSN，identity 可按一份主文件、一份特定军人/部落文件，或两份外州/外国政府文件中的相应组合证明': [
+        NV_DAC,
+        NV_RESIDENCY,
+      ],
+      'DAC 的外国文件必须有效且用原件，外文材料仍需 DMV-approved translation，通常还要完整姓名变化链和两份 Nevada 地址证明': [
+        NV_DAC,
+        NV_TRANSLATORS,
+        NV_RESIDENCY,
+      ],
+      '当前费用表列 64 岁及以下 original/renewal 8-year non-commercial license $41.50，4-year DAC 或 Limited Term license $22.50，instruction permit $22.50，duplicate license/DAC $17.50': [
+        NV_FEES,
+      ],
+      '65 岁及以上 non-commercial license 的 original、duplicate、renewal 或 instruction permit 当前均为 $17.50': [
+        NV_FEES,
+      ],
+      '首次 knowledge 与 skills testing fee 当前为 $25，之后每次 retest $10': [
+        NV_TESTING,
+        NV_FEES,
+      ],
+      'KnowToDrive online knowledge exam 另收每次 $6.75，DMV 的 $25 initial testing fee 仍会收取': [
+        NV_TESTING,
+      ],
+      '单独把现有 Nevada driver license 升级 REAL ID 的页面费用为 $8.50，ID card 为 $7.50': [
+        NV_REAL_ID,
+        NV_ADDRESS,
+      ],
+      '首次签发或续期仍应按对应 license/ID transaction fee 判断总额': [
+        NV_FEES,
+        NV_REAL_ID,
+      ],
+      'Nevada resident 包括依法定居、在州内经营并保有车辆、在州内生活工作，或为取得仅居民可用权益而声明 residency 的人': [
+        NV_RESIDENCY,
+        NV_NEW,
+      ],
+      '成为 resident 后继续在 Nevada 驾驶，NRS 483.245 要求 30 天内取得 Nevada driver license': [
+        NV_LAW,
+        NV_HANDBOOK,
+      ],
+      '新居民车辆通常也要在 30 天内注册': [NV_NEW, NV_HANDBOOK],
+      '有效美国州、美国领地或 Canada 驾照的 21+ 新居民通常只做 vision test，但证件遗失、年龄未满 21 岁、近年违规、DUI、停吊销或 restriction 可能触发 knowledge 或 skills test': [
+        NV_NEW,
+        NV_FIRST,
+        NV_TESTING,
+      ],
+      'Nevada honor 合法外国政府签发的访客驾照，International Driver License/Permit 不是必须文件，也不能脱离原驾照单独使用': [
+        NV_FAQ,
+        NV_LAW,
+      ],
+      '游客不能取得 Nevada license/ID': [NV_RESIDENCY, NV_NEW, NV_ADULT],
+      '成为居民后，持 China 等非 Canada 外国驾照者通常要 vision、knowledge 和 skills tests': [
+        NV_NEW,
+        NV_FIRST,
+        NV_TESTING,
+      ],
+      'DMV 015（3/2025）把 South Korea 与 Republic of China（Taiwan）列为可申请 drive-test waiver 的 reciprocity 地区，但明确只免 skills test，其他材料和测试要求仍适用': [
+        NV_WAIVER,
+        NV_RESIDENCY,
+      ],
+      'Nevada 网页对 Taiwan 路径写 21+、有效 Class B license、Taiwan consular verification、vision 和 knowledge test，而 DMV 015 表格写 foreign national 18+': [
+        NV_ADULT,
+        NV_RESIDENCY,
+        NV_WAIVER,
+      ],
+      '18 至 20 岁申请人应先向 DMV 确认是否可用 waiver': [
+        NV_ADULT,
+        NV_WAIVER,
+      ],
+      '中国大陆驾照不属于 DMV 015 的 South Korea/Taiwan 名单，不要把 China 与 Republic of China（Taiwan）混为同一 reciprocity 路径': [
+        NV_WAIVER,
+        NV_TESTING,
+      ],
+      'Class C knowledge test 有 25 道选择题，80% 通过，达到 20 题正确或 6 题错误时结束': [
+        NV_TESTING,
+      ],
+      'Online 与 office knowledge test 直接提供 English 和 Spanish': [NV_TESTING],
+      '需要其他语言的 non-commercial applicant 可按规则使用 interpreter': [
+        NV_TESTING,
+        NV_DAC,
+      ],
+      'Knowledge-test interpreter 要有政府机构、法院、教育机构或非营利倡导组织的 approval letter，每次提交 DLD 11，不得为家属口译，费用由申请人承担': [
+        NV_TESTING,
+        NV_DAC,
+      ],
+      'Skills test 不允许 interpreter 随车，考试车辆必须同级别、有效注册并投保，rental car 不能用于路考': [
+        NV_TESTING,
+        NV_ROAD,
+      ],
+      '18 岁及以上 beginning driver 的 instruction permit 可选': [NV_ADULT],
+      '不办 permit 时不能线上预约 road test，要在通过 knowledge test 后到 office 由工作人员安排': [
+        NV_ADULT,
+        NV_APPOINTMENTS,
+      ],
+      'Quick Cards 适用于多数 18+ 首次 license、ID、instruction permit 或 DAC 申请，但 under 18、seasonal resident、CDL、alternate/confidential address 以及 renewal、duplicate、address change 不适用': [
+        NV_QUICK,
+      ],
+      'Quick Cards 不是全线上签发，conditional approval 后仍须 office 核验原件、付款和拍照，之后先领 interim document，实体卡通常 7 至 14 个工作日邮寄': [
+        NV_QUICK,
+      ],
+      '普通 online renewal 面向 16 至 70 岁、过期不超过 364 天且无姓名变化、停吊销、医学或 testing 障碍等符合条件的 Nevada resident': [
+        NV_RENEW,
+      ],
+      'Instruction permit、CDL 与 DAC 必须到 office 续期，Limited Term resident 每次续期或变更姓名、生日等个人信息时要重新出示美国移民文件': [
+        NV_RENEW,
+        NV_DAC,
+      ],
+      '多数 65 岁以下 driver license 有效 8 年，65 岁及以上 license 与 DAC 通常有效 4 年': [
+        NV_RENEW,
+        NV_FEES,
+      ],
+      '使用 D/S 移民记录的 Limited Term credential 通常只签发 1 年': [
+        NV_RENEW,
+        NV_HANDBOOK,
+      ],
+      '普通驾照过期满 1 年要重新做 knowledge test，过期满 4 年还要做 skills test，现场逾期超过 30 天可能另收 $10 late fee': [
+        NV_RENEW,
+        NV_FEES,
+        NV_TESTING,
+      ],
+      '地址变化包括永久搬离 Nevada 时都应在 30 天内更新，driver credential 与 vehicle registration 地址不会自动一起变化': [
+        NV_ADDRESS,
+        NV_FAQ,
+      ],
+      '改名要先在 SSA 更新并至少等待 2 个工作日，再到 office 带当前 credential 和授权改名的原始法律文件': [
+        NV_ADDRESS,
+      ],
+      'updated Social Security card 本身不够': [NV_ADDRESS],
+      'MyDMV 可补发多数遗失、被盗或损坏的 license、ID、permit 或 DAC，但卡片不能在未来 60 天内到期，驾驶权限也不能 suspended/revoked': [
+        NV_DUPLICATE,
+        NV_DAC,
+      ],
+      '所有 Nevada license 和 ID 均邮寄，online renewal 通常 7 至 10 个工作日，office transaction 通常 7 至 14 个工作日': [
+        NV_RENEW,
+        NV_QUICK,
+        NV_ID,
+      ],
+      '30 天仍未收到应联系 DMV': [NV_RENEW, NV_ID],
+      'Nevada resident 不能同时持有任何州的 driver license 与 Nevada ID card': [
+        NV_ID,
+        NV_FAQ,
+      ],
+      '普通 Nevada ID 最低申请年龄为 10 岁': [NV_ID],
+      '先选卡种：要国内航班/联邦设施用 REAL ID，只需州内驾驶和一般 ID 可比较 Standard，无法满足 Standard identity/SSN 路径时再核对只用于驾驶的 DAC': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+        NV_DAC,
+      ],
+      'REAL ID identity 带一份有效原件或签发机关认证副本，不要用 hospital birth record、foreign driver license、military ID、consular ID 或普通 photocopy': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      'SSN 文件带 Social Security card、W-2、IRS 1099 或 printed pay stub 之一，确认显示当前法定姓名和完整 SSN': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '准备两份 Nevada residential-address 证明，常见账单/statement 检查是否在 60 天内，online account 要打印原始页面': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '姓名与 identity 或 SSN 不一致时，为每一次变化带 government-issued marriage certificate、divorce decree、adoption record 或 court order': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '非英文 identity/name 文件先从 Nevada DMV approved translator 名单找人，翻译必须完整打印并含日期、translator number、签名和规定声明': [
+        NV_TRANSLATORS,
+        NV_RESIDENCY,
+      ],
+      '以 immigration document 申请 REAL ID/Standard 时带当前 passport、I-94、I-766、I-797、I-20 或 DS-2019 等与本人 status 相符的组合，不照抄别人的清单': [
+        NV_RESIDENCY,
+        NV_RENEW,
+      ],
+      'DAC 申请人按官方三档 identity 方案准备一份主文件、一份指定军人/部落文件，或两份外州/外国政府文件，并另带两份 Nevada 地址证明': [
+        NV_DAC,
+        NV_RESIDENCY,
+      ],
+      '外州新居民带现有 state-issued license/permit/ID': [NV_NEW],
+      '申领 Nevada credential 时原外州卡会打孔 VOID 后退回': [
+        NV_DAC,
+        NV_FAQ,
+      ],
+      '外国驾照持有人同时准备 Nevada identity/residency 文件和考试材料，China 申请人按 vision、knowledge、skills 三项准备': [
+        NV_NEW,
+        NV_FIRST,
+        NV_TESTING,
+        NV_WAIVER,
+      ],
+      'Taiwan 或 South Korea 申请 drive-test waiver 时带有效原驾照、适用 verification、DMV 015 和其他身份地址材料，不能把 waiver 当作免 knowledge test': [
+        NV_WAIVER,
+        NV_RESIDENCY,
+        NV_ADULT,
+      ],
+      'Road test 带 permit 或 office 安排信息、同级别车辆、有效 registration 与 insurance，且不要使用 rental car': [
+        NV_TESTING,
+        NV_ROAD,
+      ],
+      '先判断用途：需要国内航班/联邦设施的带星 REAL ID，还是只需 Standard 驾照/ID': [
+        NV_REAL_ID,
+      ],
+      '无法满足 Standard identity 路径且只需驾驶时再核对 DAC': [
+        NV_DAC,
+        NV_RESIDENCY,
+      ],
+      '确认 residency 时间点：一旦成为 Nevada resident 且继续驾车，把 30 天换证期限写入日历，并同时安排车辆注册': [
+        NV_LAW,
+        NV_NEW,
+        NV_HANDBOOK,
+      ],
+      '选择 identity 路径：REAL ID、Standard 与 DAC 的清单不同，不把 DAC 可接受的 foreign birth certificate 或 consular ID 放进 REAL ID 文件组': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+        NV_DAC,
+      ],
+      'REAL ID 按 identity、完整 SSN、两份 Nevada residential address、name-change chain、translation 五组整理原件或认证副本': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '没有 SSN 时先区分从未符合资格、已经申请尚未收到和有合法身份但无号码三种情况，再按 Standard 或 DAC 官方说明选择': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+        NV_DAC,
+        NV_ADULT,
+      ],
+      '逐份检查地址材料日期：lease/utility/bank/pay stub 等常见项目按 60 天窗口，insurance/tax/mortgage 等使用最近签发版本': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '所有中文文件在预约前交给 Nevada DMV approved translator，核对翻译日期、translator number、姓名、签名、完整正文和规定声明': [
+        NV_TRANSLATORS,
+      ],
+      '新居民带现有外州 credential': [NV_NEW],
+      '21+ 的 U.S./territory/Canada 驾照持有人先核对是否只有 vision test，违规、DUI、停吊销或 restriction 则按触发项目准备考试': [
+        NV_NEW,
+        NV_FIRST,
+        NV_TESTING,
+      ],
+      '外国访客同时携带有效原驾照，IDP 只作翻译辅助': [NV_FAQ, NV_LAW],
+      '成为 resident 后改走 Nevada credential 与 30 天路径': [NV_LAW, NV_NEW],
+      '中国大陆驾照持有人按 vision、knowledge、skills tests 准备，不套用 Taiwan/South Korea 的 DMV 015 waiver': [
+        NV_WAIVER,
+        NV_TESTING,
+        NV_NEW,
+      ],
+      'Taiwan/South Korea 申请人先读 DMV 015': [NV_WAIVER],
+      'Taiwan 还核对网页列出的 21+、Class B 和 consular verification，年龄或文件有冲突时先联系 DMV': [
+        NV_RESIDENCY,
+        NV_ADULT,
+        NV_WAIVER,
+      ],
+      'Knowledge test 先选 English/Spanish online 或 office': [NV_TESTING],
+      '需要中文口译时提前找到合格非家属 interpreter，并准备 approval letter 与 DLD 11': [
+        NV_TESTING,
+      ],
+      '18+ 新手决定是否办 instruction permit': [NV_ADULT],
+      '要线上预约 road test 就先取得 permit，不办则通过笔试后到 office 安排': [
+        NV_ADULT,
+        NV_APPOINTMENTS,
+        NV_TESTING,
+      ],
+      'Road test 前核对同级别车辆、registration、insurance 和安全状况，不用 rental car，也不安排 interpreter 随车': [
+        NV_TESTING,
+        NV_ROAD,
+      ],
+      '符合 Quick Cards 条件时先在线申请和上传文件，conditional approval 后预约选定 office，现场仍带全部原件、付款并拍照': [
+        NV_QUICK,
+      ],
+      '办完保存 interim document 并注册 MyDMV 跟踪邮寄': [NV_QUICK, NV_RENEW],
+      '7 至 14 个工作日是常见窗口，30 天未收到立即联系 DMV': [
+        NV_QUICK,
+        NV_RENEW,
+        NV_ID,
+      ],
+      '续期先让 MyDMV 判断资格': [NV_RENEW],
+      '71+、DAC、CDL、Limited Term、姓名变化、过期超过 364 天或需考试时改走相应 office/mail 路径': [
+        NV_RENEW,
+      ],
+      '只改地址时同时检查 driver credential 与每辆车的 registration record，30 天内完成': [
+        NV_ADDRESS,
+      ],
+      '改名则先更新 SSA 并等待至少 2 个工作日': [NV_ADDRESS],
+      '遗失补证先确认卡片距到期超过 60 天且 privilege 正常，再决定 MyDMV 或 office': [
+        NV_DUPLICATE,
+      ],
+      '临近到期应走 renewal': [NV_DUPLICATE, NV_RENEW],
+      '把 Quick Cards 当作全线上 REAL ID，conditional approval 后没有预约 office 或没有带原件': [
+        NV_QUICK,
+      ],
+      '拿有效外州 REAL ID 直接要求 Nevada REAL ID，没有重新准备 foundational identity、SSN 和两份地址证明': [
+        NV_REAL_ID,
+      ],
+      '只带一份 Nevada address proof，或 60 天类账单已经过期、没有本人姓名或只写 P.O. Box': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '把 Standard license 当作 TSA 接受的 REAL ID，或把 DAC 当作身份证明': [
+        NV_REAL_ID,
+        NV_DAC,
+        TSA_IDENTIFICATION,
+      ],
+      '用 foreign driver license、military ID、hospital birth record 或 consular ID 代替 REAL ID identity 文件': [
+        NV_REAL_ID,
+      ],
+      '使用普通复印件、scan、手机照片或非签发机关认证的 copy 代替 identity/name 原件': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+        NV_DAC,
+      ],
+      '姓名有多次变化却只带最后一张 marriage certificate，或用 Social Security card 代替姓名变化链': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      'SSN 文件只显示后四位、使用旧姓名，或以为报出号码就一定满足 REAL ID 文件要求': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+      ],
+      '合法身份但没有 SSN 时直接改办 DAC，没有先核对 Standard license/ID 的 no-SSN 路径和 attestation 条件': [
+        NV_REAL_ID,
+        NV_RESIDENCY,
+        NV_DAC,
+        NV_ADULT,
+      ],
+      '把自行翻译、公证翻译或只翻摘要的中文文件带到窗口，没有使用 Nevada DMV approved translator': [
+        NV_TRANSLATORS,
+      ],
+      '把 China 与 Republic of China（Taiwan）混为一谈，误以为中国大陆驾照可以免 road test': [
+        NV_WAIVER,
+        NV_TESTING,
+      ],
+      'Taiwan 或 South Korea 申请人把 DMV 015 当成全面免试，漏掉 vision、knowledge 和其他材料': [
+        NV_WAIVER,
+        NV_ADULT,
+        NV_TESTING,
+      ],
+      '外国访客只携带 International Driver License/Permit 而没有原政府驾照': [
+        NV_FAQ,
+        NV_LAW,
+      ],
+      '已经成为 Nevada resident 仍按游客身份长期使用外国或外州驾照，忽略 30 天换证期限': [
+        NV_LAW,
+        NV_NEW,
+      ],
+      '18+ beginning driver 不办 instruction permit，却仍尝试在线预约 road test': [
+        NV_ADULT,
+      ],
+      '为 knowledge test 找家属口译，或没有 approval letter 和每次考试所需 DLD 11': [
+        NV_TESTING,
+        NV_DAC,
+      ],
+      '路考让 interpreter 随车、使用 rental car，或车辆 registration/insurance 无效': [
+        NV_TESTING,
+        NV_ROAD,
+      ],
+      '只看 KnowToDrive 的 $6.75，以为不会再收 DMV $25 initial testing fee': [
+        NV_TESTING,
+      ],
+      '71 岁以上、DAC、CDL、Limited Term 或有 testing requirement 的申请人直接假定可以 online renewal': [
+        NV_RENEW,
+        NV_DAC,
+      ],
+      'Limited Term 用户续期或改个人信息时没有带当前 immigration documents': [
+        NV_RENEW,
+        NV_RESIDENCY,
+      ],
+      '驾照过期超过 1 年仍按普通线上续期，未准备 knowledge test': [
+        NV_RENEW,
+        NV_TESTING,
+      ],
+      '超过 4 年又未准备 skills test': [NV_RENEW, NV_TESTING],
+      '搬家后只改 vehicle registration 或只改 driver credential，忽略另一套地址记录和 30 天期限': [
+        NV_ADDRESS,
+      ],
+      '先到 DMV 改名，没有先让 SSA 更新并等待至少 2 个工作日': [
+        NV_ADDRESS,
+      ],
+      '卡片将在 60 天内到期或驾驶权限 suspended/revoked 时仍尝试 online duplicate': [
+        NV_DUPLICATE,
+      ],
+      'office 交易后把 interim paper 当作 TSA 接受的正式 REAL ID，或 30 天未收到实体卡仍不联系 DMV': [
+        NV_QUICK,
+        NV_RENEW,
+        NV_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '同时保留外州 license/ID 与 Nevada credential，或同时保留 driver license 和 Nevada ID card': [
+        NV_REAL_ID,
+        NV_DAC,
+        NV_FAQ,
+        NV_ID,
       ],
     },
   },

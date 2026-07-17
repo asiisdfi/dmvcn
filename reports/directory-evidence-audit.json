@@ -1,31 +1,31 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T01:49:44.128Z",
+    "generatedAt": "2026-07-17T02:03:43.974Z",
     "pages": 5,
-    "claims": 502,
+    "claims": 511,
     "statesCovered": 49,
-    "aiAssisted": 269,
-    "automated": 233,
+    "aiAssisted": 287,
+    "automated": 224,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 69,
-        "states": 22
+        "claims": 73,
+        "states": 23
       },
       "deadlines": {
-        "claims": 58,
-        "states": 22
+        "claims": 60,
+        "states": 23
       },
       "document-rules": {
         "claims": 171,
         "states": 48
       },
       "foreign-license": {
-        "claims": 74,
+        "claims": 76,
         "states": 28
       },
       "identity-ssn": {
-        "claims": 130,
+        "claims": 131,
         "states": 40
       }
     }
@@ -993,6 +993,70 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "nevada",
+      "category": "费用",
+      "claim": "KnowToDrive online knowledge exam 另收每次 $6.75，DMV 的 $25 initial testing fee 仍会收取",
+      "sourceUrl": "https://dmv.nv.gov/dltesting.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Driver License Testing",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "nevada",
+      "category": "费用",
+      "claim": "首次 knowledge 与 skills testing fee 当前为 $25，之后每次 retest $10",
+      "sourceUrl": "https://dmv.nv.gov/dltesting.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Driver License Testing",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "nevada",
+      "category": "费用",
+      "claim": "Knowledge-test interpreter 要有政府机构、法院、教育机构或非营利倡导组织的 approval letter，每次提交 DLD 11，不得为家属口译，费用由申请人承担",
+      "sourceUrl": "https://dmv.nv.gov/dltesting.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Driver License Testing",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "nevada",
+      "category": "费用",
+      "claim": "普通驾照过期满 1 年要重新做 knowledge test，过期满 4 年还要做 skills test，现场逾期超过 30 天可能另收 $10 late fee",
+      "sourceUrl": "https://dmv.nv.gov/dlrenewal.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Driver License Renewal",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "kentucky",
       "category": "邮寄 / 卡片",
       "claim": "想升级 REAL ID 时，官方 renewal 页面说明不能在线或邮寄完成升级，必须到 Regional Office 并带额外材料",
@@ -1756,6 +1820,38 @@
       ],
       "failedThemes": [
         "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "nevada",
+      "category": "搬家 / 地址",
+      "claim": "确认 residency 时间点：一旦成为 Nevada resident 且继续驾车，把 30 天换证期限写入日历，并同时安排车辆注册",
+      "sourceUrl": "https://www.leg.state.nv.us/nrs/nrs-483.html",
+      "sourceLabel": "对应官方来源：Nevada Revised Statutes Chapter 483",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "nevada",
+      "category": "期限提醒",
+      "claim": "7 至 14 个工作日是常见窗口，30 天未收到立即联系 DMV",
+      "sourceUrl": "https://dmv.nv.gov/quickcards.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Quick Cards",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [
+        "processing-or-mail"
       ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
@@ -2877,60 +2973,60 @@
       "page": "document-rules",
       "stateId": "nevada",
       "category": "地址证明",
-      "claim": "两份 Nevada residential address 证明",
-      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
-      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
+      "claim": "DAC 申请人按官方三档 identity 方案准备一份主文件、一份指定军人/部落文件，或两份外州/外国政府文件，并另带两份 Nevada 地址证明",
+      "sourceUrl": "https://dmv.nv.gov/dac.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Driver Authorization Cards",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nevada",
+      "category": "地址证明",
+      "claim": "外国驾照持有人同时准备 Nevada identity/residency 文件和考试材料，China 申请人按 vision、knowledge、skills 三项准备",
+      "sourceUrl": "https://dmv.nv.gov/newresident.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV New Resident Guide",
+      "themes": [
+        "residency-documents",
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nevada",
+      "category": "地址证明",
+      "claim": "REAL ID 与 Standard 通常都要两份显示申请人姓名和 Nevada residential address 的证明，online account 的原始打印件可以接受",
+      "sourceUrl": "https://dmv.nv.gov/realid.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "nevada",
       "category": "地址证明",
-      "claim": "用 Nevada DMV Residency and Proof of Identity 页面整理身份、SSN、地址和姓名文件",
-      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
-      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
+      "claim": "REAL ID 卡面必须显示 physical address，Standard 与 DAC 可显示 physical 或 mailing address，但申请人仍要证明 Nevada residency",
+      "sourceUrl": "https://dmv.nv.gov/realid.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV REAL ID",
       "themes": [
-        "residency-documents",
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "nevada",
-      "category": "地址证明",
-      "claim": "新搬到 Nevada 的用户按 New Resident Guide 准备外州证件和两份 Nevada 地址证明",
-      "sourceUrl": "https://dmv.nv.gov/newresident.htm",
-      "sourceLabel": "对应官方来源：Nevada DMV New Resident Guide",
-      "themes": [
-        "residency-documents",
-        "new-resident"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "nevada",
-      "category": "地址证明",
-      "claim": "Nevada REAL ID 要围绕 identity、Social Security、Nevada residency 和姓名变更文件准备",
-      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
-      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
-      "themes": [
-        "residency-documents",
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -5193,31 +5289,62 @@
     {
       "page": "foreign-license",
       "stateId": "nevada",
-      "category": "外州 / 加拿大转入",
-      "claim": "新搬到 Nevada 的用户按 New Resident Guide 准备外州证件和两份 Nevada 地址证明",
+      "category": "外国 / 境外驾照",
+      "claim": "成为居民后，持 China 等非 Canada 外国驾照者通常要 vision、knowledge 和 skills tests",
       "sourceUrl": "https://dmv.nv.gov/newresident.htm",
       "sourceLabel": "对应官方来源：Nevada DMV New Resident Guide",
       "themes": [
-        "residency-documents",
-        "new-resident"
+        "foreign-license"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "nevada",
-      "category": "期限 / 居民身份",
-      "claim": "New Resident Guide：新搬到 Nevada 后换证和登记相关说明",
+      "category": "外国 / 境外驾照",
+      "claim": "DAC 申请人按官方三档 identity 方案准备一份主文件、一份指定军人/部落文件，或两份外州/外国政府文件，并另带两份 Nevada 地址证明",
+      "sourceUrl": "https://dmv.nv.gov/dac.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV Driver Authorization Cards",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "nevada",
+      "category": "外国 / 境外驾照",
+      "claim": "中国大陆驾照不在当前 DMV 015 reciprocity 名单中，成为 Nevada resident 后通常要按 foreign-country license 路径完成 vision、knowledge 和 skills tests",
+      "sourceUrl": "https://dmv.nv.gov/newresident.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV New Resident Guide",
+      "themes": [
+        "reciprocity"
+      ],
+      "failedThemes": [
+        "reciprocity"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "nevada",
+      "category": "外州 / 加拿大转入",
+      "claim": "有效美国州、美国领地或 Canada 驾照的 21+ 新居民通常只做 vision test，但证件遗失、年龄未满 21 岁、近年违规、DUI、停吊销或 restriction 可能触发 knowledge 或 skills test",
       "sourceUrl": "https://dmv.nv.gov/newresident.htm",
       "sourceLabel": "对应官方来源：Nevada DMV New Resident Guide",
       "themes": [
         "new-resident"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -6394,45 +6521,57 @@
       "page": "identity-ssn",
       "stateId": "nevada",
       "category": "SSN",
-      "claim": "Social Security Number 相关证明",
-      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
-      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
+      "claim": "Social Security card 不能代替姓名变更文件",
+      "sourceUrl": "https://dmv.nv.gov/realid.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV REAL ID",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "nevada",
       "category": "SSN",
-      "claim": "用 Nevada DMV Residency and Proof of Identity 页面整理身份、SSN、地址和姓名文件",
-      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
-      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
+      "claim": "SSN 证明可用 Social Security card、W-2、IRS 1099 或 printed pay stub，文件必须显示当前法定姓名和完整号码",
+      "sourceUrl": "https://dmv.nv.gov/realid.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV REAL ID",
       "themes": [
-        "residency-documents",
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "nevada",
-      "category": "SSN",
-      "claim": "Nevada REAL ID 要围绕 identity、Social Security、Nevada residency 和姓名变更文件准备",
-      "sourceUrl": "https://dmv.nv.gov/dlresidency.htm",
-      "sourceLabel": "对应官方来源：Nevada DMV Residency and Proof of Identity",
-      "themes": [
-        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "nevada",
+      "category": "SSN",
+      "claim": "SSN 文件带 Social Security card、W-2、IRS 1099 或 printed pay stub 之一，确认显示当前法定姓名和完整 SSN",
+      "sourceUrl": "https://dmv.nv.gov/realid.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "nevada",
+      "category": "SSN",
+      "claim": "姓名与 identity 或 SSN 不一致时，为每一次变化带 government-issued marriage certificate、divorce decree、adoption record 或 court order",
+      "sourceUrl": "https://dmv.nv.gov/realid.htm",
+      "sourceLabel": "对应官方来源：Nevada DMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

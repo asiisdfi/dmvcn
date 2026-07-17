@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T01:49:45.455Z",
+    "generatedAt": "2026-07-17T02:03:47.791Z",
     "threshold": 85,
     "strict": false,
     "pages": 164,
-    "passed": 45,
+    "passed": 47,
     "belowThreshold": 0,
     "evidenceReviewPending": 36,
-    "sourceMappedReviews": 66,
-    "aiAssistedReviews": 51,
+    "sourceMappedReviews": 64,
+    "aiAssistedReviews": 53,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 119,
+    "blockedPages": 117,
     "averageScore": 96
   },
   "pages": [
@@ -307,7 +307,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 182,
+        "sourceCount": 184,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -354,7 +354,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 254,
+        "sourceCount": 255,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -363,8 +363,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 69,
-        "directoryEvidenceLinks": 69,
+        "directoryEvidenceItems": 73,
+        "directoryEvidenceLinks": 73,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -401,7 +401,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 207,
+        "sourceCount": 208,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -410,8 +410,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 58,
-        "directoryEvidenceLinks": 58,
+        "directoryEvidenceItems": 60,
+        "directoryEvidenceLinks": 60,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -441,7 +441,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 487,
+        "sourceCount": 493,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -488,7 +488,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 177,
+        "sourceCount": 178,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -535,7 +535,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 147,
+        "sourceCount": 149,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -544,8 +544,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 74,
-        "directoryEvidenceLinks": 74,
+        "directoryEvidenceItems": 76,
+        "directoryEvidenceLinks": 76,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -582,7 +582,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 170,
+        "sourceCount": 173,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -591,8 +591,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 130,
-        "directoryEvidenceLinks": 130,
+        "directoryEvidenceItems": 131,
+        "directoryEvidenceLinks": 131,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -622,7 +622,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 207,
+        "sourceCount": 210,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -936,7 +936,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1136,
+        "sourceCount": 1152,
         "factCheckCount": 0,
         "visibleThreeDates": false,
         "authorLink": false,
@@ -3499,22 +3499,22 @@
       "route": "/states/nevada/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 90,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Nevada DMV 的 REAL ID、Standard、DAC、identity/residency、现行 NRS、2026 handbook、新居民、外国驾照、DMV 015、成人 permit、知识与路考、翻译、费用、续期、补证、改名改址、Quick Cards、预约、ID 和邮寄正文。",
+        "notes": "重写三类 credential 判断与办事路径，补齐 China/Taiwan/South Korea、无 SSN、Limited Term、口译和 current fee 边界，并公开标注 Taiwan waiver 年龄与 out-of-state REAL ID 模块的官方页面差异；仍待真实人工签字。"
       },
       "scores": {
-        "factsAndSources": 20,
-        "evidenceMapping": 13.5,
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
         "authorship": 10,
@@ -3523,14 +3523,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 9,
+        "sourceCount": 24,
+        "factCheckCount": 75,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 9,
-        "stateEvidenceLinks": 14,
+        "stateEvidenceItems": 75,
+        "stateEvidenceLinks": 148,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3538,9 +3538,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/nevada/real-id/",
@@ -3548,16 +3546,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Nevada DMV 的 REAL ID、Standard、DAC、identity/residency、现行 NRS、2026 handbook、新居民、外国驾照、DMV 015、成人 permit、知识与路考、翻译、费用、续期、补证、改名改址、Quick Cards、预约、ID 和邮寄正文。",
+        "notes": "重写三类 credential 判断与办事路径，补齐 China/Taiwan/South Korea、无 SSN、Limited Term、口译和 current fee 边界，并公开标注 Taiwan waiver 年龄与 out-of-state REAL ID 模块的官方页面差异；仍待真实人工签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3570,14 +3568,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 19,
+        "sourceCount": 24,
+        "factCheckCount": 72,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 19,
-        "stateEvidenceLinks": 26,
+        "stateEvidenceItems": 72,
+        "stateEvidenceLinks": 142,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3585,9 +3583,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/new-hampshire/",

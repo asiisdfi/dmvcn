@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-17',
+    title: '完成内华达州两页官方正文语义核对',
+    summary:
+      '逐条比对 Nevada DMV 的 REAL ID、Standard、Driver Authorization Card、identity/residency、现行 NRS、2026 handbook、费用、新居民、外国驾照、Taiwan/South Korea waiver、China 路径、考试口译、Quick Cards、续期补证、改名改址、ID 与邮寄；重写三类证件判断，并公开标注 Taiwan waiver 年龄和 out-of-state REAL ID 模块的官方页面差异。',
+    scope: ['内华达州办事总览', '内华达州 REAL ID', '三类 credential 与外国驾照分流', '144 条显式来源映射'],
+  },
+  {
+    date: '2026-07-17',
     title: '完成科罗拉多州两页官方正文语义核对',
     summary:
       '逐条比对 Colorado DMV 的 REAL ID、DR 2300A/B/C、CO-RCSA、2025 Standard 新规则、费用、新居民 30/90 天、外州与外国驾照、Taiwan/Japan 附加材料、知识考试语言、第三方路考、续期、改址改名、补证、ID 与邮寄；纠正 TLP、无证件居民和中国大陆驾照的办事分流。',
