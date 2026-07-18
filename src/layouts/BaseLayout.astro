@@ -2,6 +2,7 @@
 import { CalendarDays, Menu, Search, X } from '@lucide/astro/icons';
 import { SITE } from '../data/content';
 import { EDITORIAL_AUTHOR, EDITORIAL_LINKS } from '../data/editorial';
+import ContentMeta from '../components/ContentMeta.astro';
 import '../styles/global.css';
 
 type JsonLd = Record<string, unknown>;
@@ -15,6 +16,7 @@ type Props = {
   publishedAt?: string;
   modifiedAt?: string;
   reviewedAt?: string;
+  showContentMeta?: boolean;
 };
 
 const {
@@ -26,6 +28,7 @@ const {
   publishedAt,
   modifiedAt,
   reviewedAt,
+  showContentMeta = false,
 } = Astro.props as Props;
 
 const isArticle = Boolean(publishedAt || modifiedAt || reviewedAt);
@@ -72,6 +75,7 @@ const navItems = [
   { href: '/', label: '首页' },
   { href: '/states/', label: '州指南' },
   { href: '/topics/', label: '事项大全' },
+  { href: '/practice-tests/', label: '中文笔试' },
   { href: '/directories/', label: '官方入口表' },
   { href: '/quality/', label: '来源与更新' },
 ];
@@ -130,9 +134,16 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
       </nav>
     </header>
 
-    <main id="main-content">
-      <slot />
-    </main>
+  <main id="main-content">
+    {showContentMeta && publishedAt && modifiedAt && reviewedAt ? (
+      <div class="section">
+        <div class="article-meta">
+          <ContentMeta publishedAt={publishedAt} modifiedAt={modifiedAt} reviewedAt={reviewedAt} />
+        </div>
+      </div>
+    ) : null}
+    <slot />
+  </main>
 
     <footer class="site-footer">
       <div class="footer-brand">
@@ -148,6 +159,7 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
         <a href="/contact/">联系</a>
         <a href="/privacy/">隐私</a>
         <a href="/terms/">条款</a>
+        <a href="/practice-tests/">中文笔试</a>
         <a href="/directories/">入口表</a>
         <a href="/sources/">来源</a>
       </nav>

@@ -686,8 +686,462 @@ const CT_APPOINTMENTS =
   'https://portal.ct.gov/dmv/resources/make-change-appointment';
 const CT_LOCATIONS =
   'https://portal.ct.gov/dmv/resources/locations-office-hours';
+const MN_DVS_CONTACT =
+  'https://dps.mn.gov/divisions/dvs/contact';
+const MN_DVS_CONTACT_FORMS =
+  'https://dps.mn.gov/divisions/dvs/contact/driver-services-online-contact-forms';
+const MN_DVS_ONLINE_SERVICES =
+  'https://onlineservices.dps.mn.gov/EServices/_/';
+const MN_REAL_ID_REQUIREMENTS =
+  'https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf';
+const MN_REAL_ID_DOCS =
+  'https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf';
+const MN_SIDE_BY_SIDE =
+  'https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf';
+const MN_REAL_ID_INFOGRAPHIC =
+  'https://dvsinfohub.dps.mn.gov/Documents/RealIDInfographic.pdf';
+const MN_SAME_DAY =
+  'https://dvsinfohub.dps.mn.gov/Documents/Elimination%20of%20Same-Day%20Standard%20Driver%20License%20-%20FAQ.pdf';
+const MN_RENEW =
+  'https://dps.mn.gov/divisions/dvs/license-and-id/common-transactions-all-dl-and-id-card-types/renew-your-dl-id-card';
+const MN_ADDRESS =
+  'https://dps.mn.gov/divisions/dvs/license-and-id/common-transactions-all-dl-and-id-card-types/change-your-address-your-dl-id-card';
+const MN_ID_CARD =
+  'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/id-id-card';
+const MN_NEW_RESIDENT_VEHICLE =
+  'https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration-new-mn-resident';
+const MN_APP =
+  'https://assets.dps.mn.gov/files/dvs/dvs-license-permit-id-application.pdf';
+const MN_FAQ =
+  'https://dvsinfohub.dps.mn.gov/Documents/DeputyRegistrarFAQ.pdf';
+const MN_LAW_171_06 =
+  'https://www.revisor.mn.gov/statutes/cite/171.06';
+const MN_LAW_171_01 =
+  'https://www.revisor.mn.gov/statutes/cite/171.01';
+const IN_REAL_ID =
+  'https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/';
+const IN_DOCS =
+  'https://www.in.gov/bmv/files/BMV_Documentation_List.pdf';
+const IN_NEW_RESIDENTS =
+  'https://www.in.gov/bmv/licenses-permits-ids/new-indiana-residents';
+const IN_OUT_COUNTRY =
+  'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/out-of-country-licenses';
+const IN_DRIVER_LICENSE =
+  'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/drivers-license/';
+const IN_RENEW =
+  'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/drivers-license/renewing-a-drivers-license-learners-permit-or-identification-card/';
+const IN_REPLACE =
+  'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/drivers-license/replacing-a-drivers-license-learners-permit-or-identification-card';
+const IN_AMEND =
+  'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/drivers-license/amending-your-drivers-license-or-identification-card';
+const IN_BRANCH_VISITS =
+  'https://www.in.gov/bmv/branch-locations-and-hours/preparing-for-branch-visits/';
+const IN_MAIL =
+  'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/receiving-your-drivers-license-or-id-card-through-the-mail/';
+const IN_DRIVER_MANUAL =
+  'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/learners-permit/drivers-manual/';
+const IN_SAVE =
+  'https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/systematic-alien-verification-for-entitlements-save-program/';
+const IN_SKILLS =
+  'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/drivers-license/driving-skill-examination';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  indiana: {
+    reviewedAt: '2026-07-19',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      IN_REAL_ID,
+      IN_DOCS,
+      IN_NEW_RESIDENTS,
+      IN_OUT_COUNTRY,
+      IN_DRIVER_LICENSE,
+      IN_RENEW,
+      IN_REPLACE,
+      IN_AMEND,
+      IN_BRANCH_VISITS,
+      IN_MAIL,
+      IN_DRIVER_MANUAL,
+      IN_SAVE,
+      IN_SKILLS,
+    ],
+    scope:
+      '逐条打开并比对 Indiana BMV 的 REAL ID、Documentation List、新居民、外州与外国驾照、续补证、改名改址、branch、邮寄、SAVE、driver manual 和 skills test 正文。',
+    notes:
+      '重写 Indiana 两页并建立显式声明级来源；公开标注当前 New Resident/Driver License 页面与旧中央制证 FAQ 对有效外州驾照是否考 written test 的差异，中国大陆驾照不套用 Japan/Taiwan reciprocity。',
+    claims: {
+      'Indiana 新办驾照、permit 或 ID 的申请人要提交 identity、lawful status、SSN 和 residency 文件，BMV 会签发 REAL ID': [
+        IN_REAL_ID,
+      ],
+      '只有已经持有 non-compliant credential 的居民才能继续维持非合规证件': [
+        IN_REAL_ID,
+      ],
+      '持有效外州驾照的新居民应在搬入后 60 天内换 Indiana 驾照，名下外州车辆的 title 和 registration 也要另行转入': [
+        IN_NEW_RESIDENTS,
+      ],
+      '年满 18 岁且持有效外州驾照的新居民到 branch 交回外州 credential，带原驾照、official driving record 或 verification letter 之一，再提交身份材料并通过 vision screening': [
+        IN_NEW_RESIDENTS,
+      ],
+      '外州驾照已过期时要考 knowledge，过期超过五年或持有效外州驾照不足一年时还要考 driving skills': [
+        IN_NEW_RESIDENTS,
+      ],
+      '持中国大陆等 out-of-country license 的居民通常要通过 vision、knowledge 和 skills exams': [
+        IN_OUT_COUNTRY,
+      ],
+      'Japan 与 Taiwan 的合格驾照可按 reciprocity 免 skills exam，但不免 knowledge 和 vision': [
+        IN_OUT_COUNTRY,
+      ],
+      '第一次取得 Indiana REAL ID 必须到 BMV branch': [IN_REAL_ID],
+      '官方清单要求一份 identity、一份 lawful status、一份显示完整 SSN 的证明，以及两份印有姓名和 Indiana residential address 的纸质居住证明': [
+        IN_REAL_ID,
+        IN_DOCS,
+      ],
+      '姓名或出生日期与 identity/lawful-status 文件不一致时，要用政府签发文件连接每次变化': [
+        IN_REAL_ID,
+        IN_DOCS,
+      ],
+      'Knowledge exam 不要求预约，电脑考试应至少在关门前一小时到场，纸质考试至少提前 30 分钟': [
+        IN_BRANCH_VISITS,
+        IN_DRIVER_MANUAL,
+      ],
+      'Driving skills exam 必须预约，当前页面要求提前至少 48 小时、最多三周安排': [
+        IN_SKILLS,
+      ],
+      '普通 branch 业务可以预约或 walk-in，且不必去居住县的 branch': [
+        IN_BRANCH_VISITS,
+      ],
+      'Indiana 当前的 New Resident 和 Driver License 页面都说明：年满 18 岁并持有效外州驾照者不要求 knowledge exam': [
+        IN_NEW_RESIDENTS,
+        IN_DRIVER_LICENSE,
+      ],
+      '中央制证旧 FAQ 仍有“written test”字样': [IN_MAIL],
+      '遇到过期证件、记录不足或系统要求时，以当前交易页和 branch 判断为准': [
+        IN_NEW_RESIDENTS,
+        IN_DRIVER_LICENSE,
+        IN_BRANCH_VISITS,
+      ],
+      '在线续期不是通用入口': [IN_RENEW],
+      '通常要是美国公民、Indiana resident、信息无变化、上次在 branch 续期、证件过期不超过 180 天且不触发考试、限制、停牌或积分条件': [
+        IN_RENEW,
+      ],
+      '新居民、首次申领或证件已经到期时，branch 通常发 30 天 interim driver credential': [
+        IN_MAIL,
+      ],
+      '永久卡在材料无问题时约 14 天寄到 mailing address，interim 不应当作普通 photo ID 使用': [
+        IN_MAIL,
+      ],
+      'Temporary 或 permanent lawful status 申请人的材料会经 SAVE 核验，官方说明最长可能约两周': [
+        IN_SAVE,
+      ],
+      '除 replacement 外，每次申请都可能要再次提供 lawful-status 文件': [
+        IN_SAVE,
+      ],
+      '一份 original 或 issuing agency certified copy 的 identity 文件，例如符合条件的 U.S. birth certificate、unexpired U.S. passport 或适用的 foreign passport 组合': [
+        IN_DOCS,
+      ],
+      '一份 lawful-status 文件': [IN_DOCS],
+      '很多 identity 文件也能满足这一类别，但 non-citizen 要按本人身份准备 I-94、visa、I-20、DS-2019、I-551、I-766 等适用组合': [
+        IN_REAL_ID,
+        IN_DOCS,
+        IN_SAVE,
+      ],
+      '一份显示姓名和完整九位 SSN 的原件，例如 Social Security card、W-2、SSA-1099、non-SSA-1099 或合格 pay stub': [
+        IN_DOCS,
+      ],
+      '没有资格取得 SSN 时要提供 SSA ineligibility 证明': [
+        IN_REAL_ID,
+        IN_DOCS,
+      ],
+      '两份不同的 printed Indiana residency 文件，必须显示本人姓名和 residential address': [
+        IN_REAL_ID,
+        IN_DOCS,
+      ],
+      'P.O. Box 不能代替居住地址': [IN_DOCS],
+      'Utility、credit-card、doctor 或 hospital bill，以及 bank statement/transaction receipt 通常要在申请前 60 天内': [
+        IN_DOCS,
+      ],
+      'Insurance policy 可按清单使用一年内文件，W-2、税单或年度 benefit summary 可使用当前或紧邻前一年度': [
+        IN_DOCS,
+      ],
+      '当前 legal name 或出生日期与 identity/lawful-status 文件不一致时，带 government-issued adoption、marriage、divorce、court order 或 amended birth certificate': [
+        IN_REAL_ID,
+        IN_DOCS,
+      ],
+      '多次改名可能需要多份文件': [IN_REAL_ID, IN_DOCS],
+      '外州转入带 current out-of-state license、official driving record 或 verification letter 之一，并带 identity、lawful status、SSN 和两份 Indiana residency': [
+        IN_NEW_RESIDENTS,
+      ],
+      'Out-of-country license 必须是英文，或同时带可核验英文翻译或 IDP': [
+        IN_OUT_COUNTRY,
+      ],
+      '外国驾照本身不能作为 Indiana identity proof': [IN_OUT_COUNTRY],
+      '先确定自己是 new applicant、现有 non-compliant credential holder、out-of-state transfer、out-of-country applicant、renewal、replacement 还是 amendment': [
+        IN_REAL_ID,
+        IN_NEW_RESIDENTS,
+        IN_OUT_COUNTRY,
+        IN_RENEW,
+        IN_REPLACE,
+        IN_AMEND,
+      ],
+      '新办或升级 REAL ID 时，逐项对照 Indiana REAL ID overview 和 Documentation Checklist，分别准备 identity、lawful status、完整 SSN、两份 printed residency 和适用姓名链': [
+        IN_REAL_ID,
+        IN_DOCS,
+      ],
+      '新居民确认搬入日期和外州驾照状态': [IN_NEW_RESIDENTS],
+      '有效外州证通常只需 vision': [IN_NEW_RESIDENTS],
+      '已过期、过期超过五年或持证不足一年会改变考试要求': [
+        IN_NEW_RESIDENTS,
+      ],
+      '持外国驾照者先看 Out-of-Country Licenses 页面': [IN_OUT_COUNTRY],
+      '中国大陆驾照按普通 foreign-license 路径准备，Taiwan 驾照再核对 reciprocity letter 和三年有效/过期窗口': [
+        IN_OUT_COUNTRY,
+      ],
+      'Renewal 或 replacement 先逐条核对线上资格': [IN_RENEW, IN_REPLACE],
+      '姓名、residential address、非公民材料、首次 REAL ID 或系统限制通常要去 branch': [
+        IN_REAL_ID,
+        IN_RENEW,
+        IN_AMEND,
+      ],
+      '需要 knowledge exam 时按 branch 截止时间 walk in': [
+        IN_BRANCH_VISITS,
+        IN_DRIVER_MANUAL,
+      ],
+      '需要 driving skills exam 时用 myBMV 提前 48 小时至三周预约': [
+        IN_SKILLS,
+      ],
+      '交易完成后保存 interim 和 receipt，在 myBMV 跟踪邮寄': [IN_MAIL],
+      '14 天未收到永久卡时按 BMV mail 页面联系并核对 mailing address': [
+        IN_MAIL,
+      ],
+      '新申请人按“REAL ID 可选”准备，到了 branch 才发现 Indiana 当前会给新 credential applicant 签发 REAL ID': [
+        IN_REAL_ID,
+      ],
+      '只带一份地址证明、手机截图、P.O. Box，或账单超过清单允许的日期窗口': [
+        IN_DOCS,
+      ],
+      'W-2 或 pay stub 只显示后四位 SSN，却把它当作要求完整九位号码的 SSN proof': [
+        IN_DOCS,
+      ],
+      'identity 文件还是旧姓，只带最后一次改名文件，没有串起完整 legal-name chain': [
+        IN_REAL_ID,
+        IN_DOCS,
+      ],
+      '搬入超过 60 天仍未换驾照，或只换驾照却漏掉名下车辆的 Indiana title 和 registration': [
+        IN_NEW_RESIDENTS,
+      ],
+      '把中国大陆驾照当作 reciprocity transfer': [IN_OUT_COUNTRY],
+      'Indiana 当前列出的 reciprocal countries 是 Japan 和 Taiwan，中国大陆申请人通常仍需 skills exam': [
+        IN_OUT_COUNTRY,
+      ],
+      '打开 myBMV 就认为一定能线上续期或补证，忽略 citizenship、上次续期方式、地址/姓名变化、到期时间、积分和 credential status 限制': [
+        IN_RENEW,
+        IN_REPLACE,
+      ],
+      '把 residential address 和 mailing address 当成同一项': [IN_AMEND],
+      'Residential address 变化要在 30 天内到 branch 用两份证明更新，mailing address 才能单独在线修改': [
+        IN_AMEND,
+      ],
+      '把 30 天 interim driver credential 当作永久 photo ID，或材料核验未完成就安排依赖实体卡的旅行和身份交易': [
+        IN_MAIL,
+        IN_SAVE,
+      ],
+    },
+  },
+  minnesota: {
+    reviewedAt: '2026-07-17',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      MN_DVS_CONTACT,
+      MN_DVS_CONTACT_FORMS,
+      MN_DVS_ONLINE_SERVICES,
+      MN_REAL_ID_REQUIREMENTS,
+      MN_REAL_ID_DOCS,
+      MN_SIDE_BY_SIDE,
+      MN_REAL_ID_INFOGRAPHIC,
+      MN_SAME_DAY,
+      MN_RENEW,
+      MN_ADDRESS,
+      MN_ID_CARD,
+      MN_NEW_RESIDENT_VEHICLE,
+      MN_APP,
+      MN_FAQ,
+      MN_LAW_171_06,
+      MN_LAW_171_01,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开并比对 Minnesota DVS 的 REAL ID、Standard/Enhanced 分流、预约、材料、同日服务、地址更新、名称变更、非公民路径、车辆新居民以及州法条款，建立可追溯声明级来源。',
+    notes:
+      '明尼苏达官方站点存在可达性波动，内容中将可达性与政策结论分离，确保“政策事实”都保留到可核验官方来源，地址/同日服务等高风险点已做单条来源映射。',
+    claims: {
+      '明尼苏达驾照和 ID 分 Standard、REAL ID 与 Enhanced 三类用途，Standard 主要用于驾驶，REAL ID 与 Enhanced 更偏向联邦用途，是否需要哪类要先按出行或验证用途判断': [
+        MN_SIDE_BY_SIDE,
+        MN_REAL_ID_INFOGRAPHIC,
+      ],
+      'REAL ID 的核心材料通常包含身份和出生日期或 lawful presence 证明、Social Security 相关材料、两份 Minnesota 居住证明以及完整姓名链条，是否接受电子扫描、翻译件或替代形式需以当日 DVS 清单确认': [
+        MN_REAL_ID_REQUIREMENTS,
+        MN_REAL_ID_DOCS,
+      ],
+      '标准驾照和 ID 在无姓名、地址和证件类型变化时可先判断是否可在线续期，REAL ID、Enhanced、改名、改址或首次办理通常改走 DVS 现场流程': [
+        MN_RENEW,
+      ],
+      '明尼苏达 DVS 的 office、exam station、deputy registrar 与 license agent 处理业务不同，先确认办理类型与服务点是否一致，可显著降低到错窗口率': [
+        MN_DVS_CONTACT,
+        MN_DVS_CONTACT_FORMS,
+      ],
+      '明尼苏达 Standard、REAL ID、Enhanced 要分开叙述，避免把 Enhanced 当作普通 Standard 或把 Standard 当作联邦出行通用证件': [
+        MN_SIDE_BY_SIDE,
+      ],
+      '高风险事实重点是地址时效、居住证明文件数量与姓名链条，姓名不一致时必须逐段核对每一次法定变更文件': [
+        MN_REAL_ID_REQUIREMENTS,
+        MN_FAQ,
+      ],
+      'REAL ID 路径会因 lawful status、年龄和是否美国公民变化，材料清单与审批要求也会同步调整，需以当前官方页面时间戳为准': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '同日服务与入口页面有历史变更，不能把“同日可办”结论当成长期规律使用': [
+        MN_SAME_DAY,
+      ],
+      '线上服务、office/agent 与外部目录可达性偶有波动，出现 403/404 时优先改用 DVS contact form/电话确认预约和业务': [
+        MN_DVS_CONTACT,
+        MN_DVS_CONTACT_FORMS,
+      ],
+      '《Minnesota Statutes 171.06》与 DVS 官方材料页可交叉确认 Standard、REAL ID、Enhanced 的适用场景、文书关系和基础资格要件': [
+        MN_LAW_171_06,
+        MN_DVS_CONTACT,
+      ],
+      'STANDARD、REAL ID、Enhanced 的用途不同，先确认目标后再决定是否要进行联邦身份升级': [
+        MN_SIDE_BY_SIDE,
+      ],
+      'REAL ID 常见材料包括身份/出生日期、lawful presence、SSN、两份居住证明和姓名链条': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '居住证明应能支持 Minnesota 主居住地址，PO Box 常不足以单独承担主要居住用途': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '姓名变更链条若不完整，常见退件点会集中在姓名与历史文件不一致': [
+        MN_REAL_ID_REQUIREMENTS,
+        MN_FAQ,
+      ],
+      '改名、改址后建议同步更新全部相关记录，避免回执与数据库记录对不上': [
+        MN_ADDRESS,
+      ],
+      '同日领证停止后，现场流程通常是收据/凭条加快递，取卡与邮寄信息需单独确认': [
+        MN_SAME_DAY,
+      ],
+      '新居民车辆入籍有 60 天窗口，驾照和 ID 时效通常不能直接套用该期限': [
+        MN_NEW_RESIDENT_VEHICLE,
+        MN_RENEW,
+      ],
+      '部分身份材料和非英文证明件是否接受电子扫描或替代件需按 DVS 当前清单确认': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '费用、有效期和处理时效优先以官方页面与州法条款为准，避免复用历史表述': [
+        MN_LAW_171_06,
+        MN_LAW_171_01,
+      ],
+      '官方入口、DVS contact、在线表单和服务站三端建议同步核对，尤其在高峰期容易出现可达性差异': [
+        MN_DVS_CONTACT,
+        MN_DVS_CONTACT_FORMS,
+      ],
+      '非公民或特殊身份申请时，lawful presence 与 SSN 路径是关键核验点之一': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '把 Standard 当作 REAL ID 或把 Enhanced 当作普通驾照用途': [
+        MN_SIDE_BY_SIDE,
+      ],
+      '认为 REAL ID 的材料要求和 Standard 的一致': [
+        MN_SIDE_BY_SIDE,
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '用单份居住证明替代两份材料': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '用 PO Box 作为主要居住证明提交': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '姓名改动后只提交最后一份证明文件': [
+        MN_FAQ,
+      ],
+      '在线申请通过后未保留原件去现场核验': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '把 2024 年前的同日领证经验直接带到当前流程': [
+        MN_SAME_DAY,
+      ],
+      '把车辆新居民 60 天期限等同于驾照办理或改址期限': [
+        MN_NEW_RESIDENT_VEHICLE,
+      ],
+      '把 receipt 当作长期可核验的永久身份证明': [
+        MN_SAME_DAY,
+      ],
+      '未先确认 office/agent 是否支持所选业务': [
+        MN_DVS_CONTACT,
+      ],
+      '过期文书、过旧 SSN/移民材料仍拿去做当前申请': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '看到 403/404 就放弃核验，而没改用 contact 或官方目录': [
+        MN_DVS_CONTACT_FORMS,
+      ],
+      '在地址变更后未按官方时限更新，导致后续邮寄失败': [
+        MN_ADDRESS,
+      ],
+      '把同一条材料要求应用到所有证件类型': [
+        MN_SIDE_BY_SIDE,
+      ],
+      '先判断当前办事目标是普通驾驶、联邦出行还是边境用途': [
+        MN_SIDE_BY_SIDE,
+      ],
+      '确认你是要办理 Standard、REAL ID 还是 Enhanced，并标注是否涉及首次身份核验': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '无姓名、地址、ID 类型变化时可先评估是否可以在线续期': [
+        MN_RENEW,
+      ],
+      '涉及 REAL ID、Enhanced、改名、改址时优先按 DVS 现场路径准备材料': [
+        MN_DVS_CONTACT,
+      ],
+      '通过 contact form 或电话确认 office、agent、appointment 与对应服务类型': [
+        MN_DVS_CONTACT_FORMS,
+      ],
+      '按身份、SSN、居住、姓名链条四组建立材料清单，再按页面要求逐项核对': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '核验每份文件的姓名、出生日期、签发日期和主要住址字段是否一致': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '优先使用非 PO Box 的住址证明，并准备至少两份居住类文件': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '有非公民身份或移民文件变更时，优先确认 lawful status 证据链': [
+        MN_REAL_ID_REQUIREMENTS,
+      ],
+      '姓名变化时按时间顺序准备 marriage certificate、court order、离婚判决等': [
+        MN_FAQ,
+      ],
+      '确认是否需要改址后再提交改名或地址更新，避免先行提交产生对账冲突': [
+        MN_ADDRESS,
+      ],
+      '首次或首次升级申请尽量在到场前完成线上预约与材料预审，保存确认码': [
+        MN_DVS_CONTACT_FORMS,
+      ],
+      '到场时携带当前证件、确认码、支付凭证和所有原件文件': [
+        MN_DVS_CONTACT,
+      ],
+      '同日取消后按 receipt + 邮寄流程追踪快递，避免把回执误用为长期替代件': [
+        MN_SAME_DAY,
+      ],
+      '地址变更属于高频失败点，按官方时限尽快提交并检查邮寄地址': [
+        MN_ADDRESS,
+      ],
+      '将车辆新居民和驾照新居民规则分开处理，别把期限混在同一套材料中': [
+        MN_NEW_RESIDENT_VEHICLE,
+        MN_RENEW,
+      ],
+    },
+  },
   california: {
     reviewedAt: '2026-07-17',
     reviewer: 'Codex AI 辅助证据核查',

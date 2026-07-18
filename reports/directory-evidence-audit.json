@@ -1,31 +1,31 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T02:52:15.309Z",
+    "generatedAt": "2026-07-18T16:58:15.872Z",
     "pages": 5,
-    "claims": 544,
+    "claims": 549,
     "statesCovered": 49,
-    "aiAssisted": 321,
-    "automated": 223,
+    "aiAssisted": 341,
+    "automated": 208,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 81,
-        "states": 25
+        "claims": 83,
+        "states": 26
       },
       "deadlines": {
-        "claims": 66,
-        "states": 25
+        "claims": 68,
+        "states": 26
       },
       "document-rules": {
         "claims": 177,
         "states": 48
       },
       "foreign-license": {
-        "claims": 81,
-        "states": 29
+        "claims": 85,
+        "states": 30
       },
       "identity-ssn": {
-        "claims": 139,
+        "claims": 136,
         "states": 42
       }
     }
@@ -1174,6 +1174,34 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "indiana",
+      "category": "临时凭证",
+      "claim": "交易完成后保存 interim 和 receipt，在 myBMV 跟踪邮寄",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/receiving-your-drivers-license-or-id-card-through-the-mail/",
+      "sourceLabel": "对应官方来源：Indiana BMV Credential Mailing",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "indiana",
+      "category": "邮寄 / 卡片",
+      "claim": "永久卡在材料无问题时约 14 天寄到 mailing address，interim 不应当作普通 photo ID 使用",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/receiving-your-drivers-license-or-id-card-through-the-mail/",
+      "sourceLabel": "对应官方来源：Indiana BMV Credential Mailing",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "kentucky",
       "category": "邮寄 / 卡片",
       "claim": "想升级 REAL ID 时，官方 renewal 页面说明不能在线或邮寄完成升级，必须到 Regional Office 并带额外材料",
@@ -2060,6 +2088,34 @@
       "failedThemes": [
         "processing-or-mail"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "indiana",
+      "category": "搬家 / 地址",
+      "claim": "通常要是美国公民、Indiana resident、信息无变化、上次在 branch 续期、证件过期不超过 180 天且不触发考试、限制、停牌或积分条件",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/drivers-license/renewing-a-drivers-license-learners-permit-or-identification-card/",
+      "sourceLabel": "对应官方来源：Indiana BMV Credential Renewal",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "indiana",
+      "category": "处理 / 邮寄",
+      "claim": "永久卡在材料无问题时约 14 天寄到 mailing address，interim 不应当作普通 photo ID 使用",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/receiving-your-drivers-license-or-id-card-through-the-mail/",
+      "sourceLabel": "对应官方来源：Indiana BMV Credential Mailing",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -3354,78 +3410,79 @@
       "page": "document-rules",
       "stateId": "minnesota",
       "category": "地址证明",
-      "claim": "两份 Minnesota 居住地址证明，优先使用官方清单列出的账单、金融、租约、保险或政府文件类别",
-      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "claim": "REAL ID 常见材料包括身份/出生日期、lawful presence、SSN、两份居住证明和姓名链条",
+      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
       "themes": [
-        "residency-documents"
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "minnesota",
       "category": "地址证明",
-      "claim": "地址证明和姓名链条是高风险点",
-      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "claim": "居住证明应能支持 Minnesota 主居住地址，PO Box 常不足以单独承担主要居住用途",
+      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "minnesota",
       "category": "地址证明",
-      "claim": "打开 Minnesota DVS document requirements，按身份、SSN、地址和姓名文件整理材料",
-      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "claim": "高风险事实重点是地址时效、居住证明文件数量与姓名链条，姓名不一致时必须逐段核对每一次法定变更文件",
+      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
       "themes": [
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "minnesota",
       "category": "地址证明",
-      "claim": "Minnesota REAL ID 要围绕身份、SSN、居住地址和姓名一致性准备材料",
-      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "claim": "优先使用非 PO Box 的住址证明，并准备至少两份居住类文件",
+      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
       "themes": [
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "indiana",
       "category": "地址证明",
-      "claim": "两份 Indiana residency 证明，按 BMV 可接受文件清单准备",
-      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
-      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "claim": "两份不同的 printed Indiana residency 文件，必须显示本人姓名和 residential address",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/",
+      "sourceLabel": "对应官方来源：Indiana BMV REAL ID Overview",
       "themes": [
-        "residency-documents",
-        "document-checklist"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "indiana",
       "category": "地址证明",
-      "claim": "BMV Documentation List 要求 residency 文件显示姓名和 Indiana residential address，P.O. Box 不接受",
+      "claim": "P.O. Box 不能代替居住地址",
       "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
       "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
       "themes": [
@@ -3433,37 +3490,36 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "indiana",
       "category": "地址证明",
-      "claim": "打开 Indiana BMV REAL ID 页面和 Documentation List，按 identity、lawful status、full SSN、two residency、name change 分组",
-      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
-      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "claim": "永久卡在材料无问题时约 14 天寄到 mailing address，interim 不应当作普通 photo ID 使用",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/receiving-your-drivers-license-or-id-card-through-the-mail/",
+      "sourceLabel": "对应官方来源：Indiana BMV Credential Mailing",
       "themes": [
-        "residency-documents",
-        "ssn"
+        "processing-or-mail"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "indiana",
       "category": "地址证明",
-      "claim": "Indiana REAL ID 通常围绕身份、lawful status、SSN、Indiana residency 和姓名变更文件准备",
-      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
-      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "claim": "官方清单要求一份 identity、一份 lawful status、一份显示完整 SSN 的证明，以及两份印有姓名和 Indiana residential address 的纸质居住证明",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/",
+      "sourceLabel": "对应官方来源：Indiana BMV REAL ID Overview",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -5745,6 +5801,62 @@
     },
     {
       "page": "foreign-license",
+      "stateId": "indiana",
+      "category": "外国 / 境外驾照",
+      "claim": "外国驾照本身不能作为 Indiana identity proof",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/out-of-country-licenses",
+      "sourceLabel": "对应官方来源：Indiana BMV Out-of-Country Licenses",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "indiana",
+      "category": "外国 / 境外驾照",
+      "claim": "持中国大陆等 out-of-country license 的居民通常要通过 vision、knowledge 和 skills exams",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/out-of-country-licenses",
+      "sourceLabel": "对应官方来源：Indiana BMV Out-of-Country Licenses",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "indiana",
+      "category": "外国 / 境外驾照",
+      "claim": "中国大陆驾照按普通 foreign-license 路径准备，Taiwan 驾照再核对 reciprocity letter 和三年有效/过期窗口",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/out-of-country-licenses",
+      "sourceLabel": "对应官方来源：Indiana BMV Out-of-Country Licenses",
+      "themes": [
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "indiana",
+      "category": "互惠 / 免考",
+      "claim": "Japan 与 Taiwan 的合格驾照可按 reciprocity 免 skills exam，但不免 knowledge 和 vision",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/out-of-country-licenses",
+      "sourceLabel": "对应官方来源：Indiana BMV Out-of-Country Licenses",
+      "themes": [
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
       "stateId": "tennessee",
       "category": "外州 / 加拿大转入",
       "claim": "外州驾照转入时，准备现有外州驾照和新州地址证明",
@@ -7061,101 +7173,63 @@
       "page": "identity-ssn",
       "stateId": "minnesota",
       "category": "SSN",
-      "claim": "Social Security Number 相关证明或官方接受的替代路径",
-      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
+      "claim": "REAL ID 常见材料包括身份/出生日期、lawful presence、SSN、两份居住证明和姓名链条",
+      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
       "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "minnesota",
-      "category": "SSN",
-      "claim": "打开 Minnesota DVS document requirements，按身份、SSN、地址和姓名文件整理材料",
-      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
-      "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "minnesota",
-      "category": "SSN",
-      "claim": "Minnesota REAL ID 要围绕身份、SSN、居住地址和姓名一致性准备材料",
-      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
-      "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "minnesota",
-      "category": "lawful presence",
-      "claim": "身份证明和 lawful presence / identity 类文件",
-      "sourceUrl": "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota DVS Document Requirements PDF",
-      "themes": [
+        "residency-documents",
+        "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
-      "stateId": "indiana",
+      "stateId": "minnesota",
       "category": "SSN",
-      "claim": "Social Security Number 相关证明",
-      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
-      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "claim": "REAL ID 的核心材料通常包含身份和出生日期或 lawful presence 证明、Social Security 相关材料、两份 Minnesota 居住证明以及完整姓名链条，是否接受电子扫描、翻译件或替代形式需以当日 DVS 清单确认",
+      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
+      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
       "themes": [
-        "ssn"
+        "residency-documents",
+        "translation",
+        "ssn",
+        "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "indiana",
       "category": "SSN",
-      "claim": "打开 Indiana BMV REAL ID 页面和 Documentation List，按 identity、lawful status、full SSN、two residency、name change 分组",
-      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
-      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
-      "themes": [
-        "residency-documents",
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "indiana",
-      "category": "SSN",
-      "claim": "Indiana REAL ID 通常围绕身份、lawful status、SSN、Indiana residency 和姓名变更文件准备",
-      "sourceUrl": "https://www.in.gov/bmv/files/BMV_Documentation_List.pdf",
-      "sourceLabel": "对应官方来源：Indiana BMV Documentation List",
+      "claim": "官方清单要求一份 identity、一份 lawful status、一份显示完整 SSN 的证明，以及两份印有姓名和 Indiana residential address 的纸质居住证明",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/",
+      "sourceLabel": "对应官方来源：Indiana BMV REAL ID Overview",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "indiana",
+      "category": "lawful presence",
+      "claim": "Temporary 或 permanent lawful status 申请人的材料会经 SAVE 核验，官方说明最长可能约两周",
+      "sourceUrl": "https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/systematic-alien-verification-for-entitlements-save-program/",
+      "sourceLabel": "对应官方来源：Indiana BMV SAVE Program",
+      "themes": [
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

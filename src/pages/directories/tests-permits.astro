@@ -166,7 +166,9 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 笔试、路考和 learner permit 入口表" description="按州查找 learner permit、knowledge / written test、road / skills test、first license、GDL、practice test 和第三方考试入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE} schema={schema}>
+<BaseLayout title="DMV 笔试、路考和 learner permit 入口表" description="按州查找 learner permit、knowledge / written test、road / skills test、first license、GDL、practice test 和第三方考试入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE}
+  showContentMeta={true}
+   schema={schema}>
   <section class="page-hero">
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑">
@@ -207,6 +209,15 @@ const schema = {
         <strong>先看这一句</strong>
         <p>这张表不提供考试题答案，只整理官方入口和流程判断。考试语言、通过分数、等待期、第三方考点、预约规则和未成年 GDL 要求会变，办理前回官方页面确认。</p>
       </div>
+    </div>
+
+    <div class="practice-directory-link">
+      <div>
+        <span>新增 · 官方手册衍生练习</span>
+        <strong>佐治亚州 20 道中文笔试练习</strong>
+        <p>Road Rules 与 Road Signs 分开统计；答题后查看中文解释、易错点和 Georgia DDS 具体章节。</p>
+      </div>
+      <a class="button-link primary" href="/practice-tests/georgia/">开始练习 <ArrowRight size={15} aria-hidden="true" /></a>
     </div>
 
     <div class="quick-filter-board" aria-label="笔试路考和 permit 快速筛选">

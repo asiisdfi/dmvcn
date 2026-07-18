@@ -207,7 +207,9 @@ function scorePage(route, document) {
     document.classNames.has('service-finder') ||
     document.classNames.has('task-groups') ||
     document.classNames.has('directory-link-list') ||
-    document.classNames.has('directory-card-grid');
+    document.classNames.has('directory-card-grid') ||
+    document.classNames.has('practice-shell') ||
+    document.classNames.has('practice-test-list');
   const hasChecklist = document.classNames.has('check-list');
   const hasSteps = document.classNames.has('step-list');
   const hasFaq = document.classNames.has('faq-list');
@@ -468,6 +470,6 @@ console.log(`Blocked pages: ${summary.blockedPages}`);
 console.log('');
 console.log('Reports: reports/eeat-inventory.json, reports/eeat-inventory.csv');
 
-if (summary.criticalPages > 0 || (strict && summary.passed !== summary.pages)) {
+if (summary.criticalPages > 0 || (strict && (summary.passed !== summary.pages || summary.blockedPages > 0))) {
   process.exitCode = 1;
 }

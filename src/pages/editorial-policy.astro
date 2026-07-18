@@ -2,14 +2,19 @@
 import { AlertTriangle, ArrowRight, FileCheck2, RefreshCw, SearchCheck } from '@lucide/astro/icons';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentMeta from '../components/ContentMeta.astro';
-import { EDITORIAL_AUTHOR, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE } from '../data/editorial';
+import {
+  EDITORIAL_AUTHOR,
+  EDITORIAL_LINKS,
+  EDITORIAL_POLICY_DATE,
+  EDITORIAL_POLICY_MODIFIED_DATE,
+} from '../data/editorial';
 
 const schema = {
   '@type': 'Article',
   headline: 'DMV中文办事库编辑政策',
   description: '说明本站如何选题、核对官方来源、处理高风险事实、使用自动化工具和更新内容。',
   datePublished: EDITORIAL_POLICY_DATE,
-  dateModified: EDITORIAL_POLICY_DATE,
+  dateModified: EDITORIAL_POLICY_MODIFIED_DATE,
   author: {
     '@type': 'Organization',
     name: EDITORIAL_AUTHOR.name,
@@ -22,8 +27,8 @@ const schema = {
   title="编辑政策"
   description="DMV中文办事库编辑政策：选题、官方来源、事实核对、风险分级、更新和发布门禁。"
   publishedAt={EDITORIAL_POLICY_DATE}
-  modifiedAt={EDITORIAL_POLICY_DATE}
-  reviewedAt={EDITORIAL_POLICY_DATE}
+  modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE}
+  reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE}
   schema={schema}
 >
   <section class="page-hero">
@@ -33,7 +38,7 @@ const schema = {
       <h1>编辑政策</h1>
       <p class="lead">我们的目标不是重写 DMV 官网，而是帮助中文用户做出下一步判断，同时让每项重要要求都能回到官方来源核对。</p>
       <div class="article-meta">
-        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_DATE} reviewedAt={EDITORIAL_POLICY_DATE} />
+        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE} reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE} />
       </div>
     </div>
   </section>
@@ -63,6 +68,18 @@ const schema = {
           <li>区分联邦规则、州规则、一般方向和个案例外。</li>
           <li>避免“保证、一定、所有人、永久有效”等超过来源支持范围的表述。</li>
           <li>无法确认时明确标注不确定性，并把用户送回官方机构。</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="policy-heading"><FileCheck2 size={22} aria-hidden="true" /><h2>中文练习题</h2></div>
+        <p>州级驾照练习题按当前州主管机构资料独立编写，不汇编来历不明的“美国通用题库”。发布时遵循以下规则：</p>
+        <ul class="check-list">
+          <li>每题对应当前州 Driver Manual、考试说明或其他政府官方章节。</li>
+          <li>题干、选项和中文解释由本站重新组织，不复制旧中文站、论坛或第三方题库。</li>
+          <li>每题显示解释、易错点和官方入口，并记录最后事实核对日期。</li>
+          <li>练习页明确不是正式真题，不承诺出现原题或保证通过考试。</li>
+          <li>官方页面互相冲突时公开列出差异，不替政府猜测结论。</li>
         </ul>
       </section>
 

@@ -1,5 +1,6 @@
 export const SITE_LAUNCH_DATE = '2026-07-13';
 export const EDITORIAL_POLICY_DATE = '2026-07-17';
+export const EDITORIAL_POLICY_MODIFIED_DATE = '2026-07-19';
 export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-17';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
 
@@ -31,6 +32,27 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-19',
+    title: '完成 Indiana 两页官方正文语义核对',
+    summary:
+      '逐条比对 Indiana BMV 的 REAL ID、材料清单、新居民、外州与外国驾照、Japan/Taiwan reciprocity、知识与路考、线上续补证、地址、中央制证、SAVE 和 interim credential；补齐 63 条显式来源映射，并公开标注当前交易页与旧中央制证 FAQ 对有效外州驾照 written test 的差异。',
+    scope: ['印第安纳州办事总览', '印第安纳州 REAL ID', '63 条显式来源映射', '外州驾照考试冲突'],
+  },
+  {
+    date: '2026-07-19',
+    title: '发布 Georgia 官方手册衍生中文笔试练习',
+    summary:
+      '新增 20 道原创 Road Rules 与 Road Signs 练习，逐题提供中文解释、易错点和 Georgia DDS 官方章节；同时公开当前考试页与旧版 Driver Manual 对中文 Road Signs 的说明差异，并增加题库来源、结构、日期和旧站污染词自动审计。',
+    scope: ['佐治亚州中文笔试练习', '中文笔试题库索引', '题库发布门禁', '90 天扩州计划'],
+  },
+  {
+    date: '2026-07-17',
+    title: '完成明尼苏达州官方语义核对与高风险映射',
+    summary:
+      '逐条审查 Minnesota DMV/DVS 的 REAL ID、Standard、Enhanced 区分、材料链、同日服务取消、地址更新与可达性波动，补齐每条页面声明到官方来源的映射并同步更新州页日期、编辑说明与更新日志，避免以旧快照替代当前结论。',
+    scope: ['明尼苏达州办事总览', '明尼苏达州 REAL ID'],
+  },
   {
     date: '2026-07-17',
     title: '完成康涅狄格州两页官方正文语义核对',

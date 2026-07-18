@@ -1,0 +1,569 @@
+---
+import {
+  ArrowLeft,
+  ArrowRight,
+  BookOpenCheck,
+  CheckCircle2,
+  ExternalLink,
+  ListRestart,
+  RotateCcw,
+  ShieldAlert,
+  XCircle,
+} from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentMeta from '../../components/ContentMeta.astro';
+import EditorialDisclosure from '../../components/EditorialDisclosure.astro';
+import SourceList from '../../components/SourceList.astro';
+import { EDITORIAL_AUTHOR } from '../../data/editorial';
+import { SITE } from '../../data/content';
+import { georgiaPracticeTest, practiceSourceMap } from '../../data/practice-tests';
+
+const test = georgiaPracticeTest;
+const sourceById = practiceSourceMap(test);
+const rulesCount = test.questions.filter((question) => question.category === 'road-rules').length;
+const signsCount = test.questions.filter((question) => question.category === 'road-signs').length;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const officialSources = test.sources.map((source) => ({ label: source.label, url: source.url }));
+
+const faqs = [
+  {
+    question: '这些是 Georgia DDS 正式考试原题吗？',
+    answer:
+      '不是。本站没有 DDS 内部题库，也不声称题目会出现在正式考试中。题目由编辑部依据当前官方手册重新编写，用于检查规则理解。',
+  },
+  {
+    question: 'Georgia 知识考试目前可以选中文吗？',
+    answer:
+      '截至 2026-07-19，DDS 当前 Test and Exams Information 把 Road Rules 和 Road Signs 都列为可用中文的非商业知识考试；但在线手册旧章节仍写 Road Signs 只用英语，因此前往具体考点前应再次确认。',
+  },
+  {
+    question: '正式考试答对多少题才通过？',
+    answer:
+      'DDS 当前考试页写明 Road Rules 和 Road Signs 各 20 题，两部分分别至少答对 15 题。本站 20 题是短练习，不等同于完整正式考试。',
+  },
+];
+
+const schema = [
+  {
+    '@type': 'Article',
+    headline: test.title,
+    description: test.description,
+    mainEntityOfPage: pageUrl,
+    datePublished: test.publishedAt,
+    dateModified: test.modifiedAt,
+    inLanguage: 'zh-Hans',
+    isAccessibleForFree: true,
+    author: {
+      '@type': 'Organization',
+      name: EDITORIAL_AUTHOR.name,
+      url: new URL(EDITORIAL_AUTHOR.path, Astro.site).toString(),
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+      url: new URL('/', Astro.site).toString(),
+      logo: new URL('/assets/dmvcn-logo.png', Astro.site).toString(),
+    },
+    citation: test.sources.map((source) => source.url),
+    about: ['Georgia knowledge exam', 'Georgia Road Rules Test', 'Georgia Road Signs Test'],
+  },
+  {
+    '@type': 'LearningResource',
+    name: test.title,
+    description: test.description,
+    url: pageUrl,
+    inLanguage: 'zh-Hans',
+    educationalUse: 'practice',
+    learningResourceType: 'Practice quiz',
+    teaches: ['Georgia road rules', 'Georgia road signs'],
+    isBasedOn: test.sources.map((source) => source.url),
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: new URL('/', Astro.site).toString() },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: '中文笔试练习',
+        item: new URL('/practice-tests/', Astro.site).toString(),
+      },
+      { '@type': 'ListItem', position: 3, name: '佐治亚州', item: pageUrl },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={test.title}
+  description={test.description}
+  publishedAt={test.publishedAt}
+  modifiedAt={test.modifiedAt}
+  reviewedAt={test.reviewedAt}
+  schema={schema}
+>
+  <section class="page-hero practice-detail-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><a href="/practice-tests/">中文笔试练习</a><span>/</span><span>佐治亚州</span>
+      </nav>
+      <p class="eyebrow">Georgia · Class C Knowledge</p>
+      <h1>佐治亚州驾照中文笔试练习</h1>
+      <p class="lead">20 道短练习，分别覆盖 Road Rules 和 Road Signs。答题后立即查看中文解释、易错点和 Georgia DDS 官方章节。</p>
+      <div class="article-meta">
+        <ContentMeta publishedAt={test.publishedAt} modifiedAt={test.modifiedAt} reviewedAt={test.reviewedAt} />
+        <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
+      </div>
+      <div class="page-ledger" aria-label="Georgia 中文笔试练习概况">
+        <div><strong>{rulesCount} 题</strong><span>Road Rules</span></div>
+        <div><strong>{signsCount} 题</strong><span>Road Signs</span></div>
+        <div><strong>15 / 20</strong><span>正式考试每部分门槛</span></div>
+        <div><strong>{test.nextReviewAt}</strong><span>计划复核</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section compact-section">
+    <div class="exam-fact-strip">
+      <BookOpenCheck size={22} aria-hidden="true" />
+      <div>
+        <strong>先分清正式考试与本站练习</strong>
+        <p>{test.officialExam.summary}</p>
+      </div>
+      <a href="https://dds.georgia.gov/testing-and-training/test-and-exams-information" target="_blank" rel="noreferrer">
+        DDS 考试说明 <ExternalLink size={14} aria-hidden="true" />
+      </a>
+    </div>
+    <div class="notice warning-notice">
+      <ShieldAlert size={22} aria-hidden="true" />
+      <div>
+        <strong>中文考试信息存在官方页面差异</strong>
+        <p>{test.officialExam.languageNote} {test.officialExam.conflictNote}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="practice-workspace" aria-labelledby="practice-title">
+    <div class="section">
+      <div class="practice-shell is-loading" data-practice-app>
+        <div class="practice-start" data-practice-start>
+          <div class="practice-start-head">
+            <p class="eyebrow">选择练习范围</p>
+            <h2 id="practice-title">从哪一组开始？</h2>
+            <p>每次会随机排列题目。正式考试要求两部分分别通过，因此混合得分不能代替分项判断。</p>
+          </div>
+          <div class="practice-mode-control" role="radiogroup" aria-label="练习范围">
+            <button class="practice-mode is-selected" type="button" role="radio" aria-checked="true" data-practice-mode="all">
+              <strong>混合练习</strong><span>{test.questions.length} 题 · 两部分</span>
+            </button>
+            <button class="practice-mode" type="button" role="radio" aria-checked="false" data-practice-mode="road-rules">
+              <strong>Road Rules</strong><span>{rulesCount} 题 · 路规</span>
+            </button>
+            <button class="practice-mode" type="button" role="radio" aria-checked="false" data-practice-mode="road-signs">
+              <strong>Road Signs</strong><span>{signsCount} 题 · 路标</span>
+            </button>
+          </div>
+          <button class="button practice-start-button" type="button" data-practice-begin>
+            开始练习 <ArrowRight size={17} aria-hidden="true" />
+          </button>
+          <p class="practice-disclaimer">本站原创练习，不是 Georgia DDS 真题或考试预约系统。</p>
+        </div>
+
+        <div class="practice-runner" data-practice-runner hidden>
+          <div class="practice-toolbar">
+            <div>
+              <span data-practice-mode-label>混合练习</span>
+              <strong><span data-practice-position>1</span> / <span data-practice-total>{test.questions.length}</span></strong>
+            </div>
+            <div class="practice-progress" role="progressbar" aria-label="答题进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-practice-progress>
+              <span data-practice-progress-bar></span>
+            </div>
+            <button class="icon-button" type="button" title="重新选择题组" aria-label="重新选择题组" data-practice-exit>
+              <ArrowLeft size={19} aria-hidden="true" />
+            </button>
+          </div>
+
+          <div class="practice-question-stage" data-practice-stage>
+            {test.questions.map((question, index) => {
+              const source = sourceById.get(question.sourceId);
+              return (
+                <article
+                  class="practice-question"
+                  data-question
+                  data-question-id={question.id}
+                  data-category={question.category}
+                  data-correct-index={question.correctIndex}
+                  data-source-url={source?.url}
+                  data-source-label={source?.label}
+                  hidden={index !== 0}
+                >
+                  <div class="practice-question-heading">
+                    <span>{question.category === 'road-rules' ? 'Road Rules · 路规' : 'Road Signs · 路标'}</span>
+                    <h3>{question.prompt}</h3>
+                  </div>
+                  <div class="practice-options" role="group" aria-label={question.prompt}>
+                    {question.choices.map((choice, choiceIndex) => (
+                      <button type="button" class="practice-option" data-option-index={choiceIndex}>
+                        <span aria-hidden="true">{String.fromCharCode(65 + choiceIndex)}</span>
+                        <strong>{choice}</strong>
+                        <CheckCircle2 class="practice-option-correct" size={20} aria-hidden="true" />
+                        <XCircle class="practice-option-wrong" size={20} aria-hidden="true" />
+                      </button>
+                    ))}
+                  </div>
+                  <div class="practice-explanation" data-explanation hidden tabindex="-1">
+                    <div class="practice-answer-status" data-answer-status></div>
+                    <p><strong>为什么：</strong>{question.explanation}</p>
+                    <p class="practice-trap"><strong>易错点：</strong>{question.commonTrap}</p>
+                    {source && (
+                      <a href={source.url} target="_blank" rel="noreferrer">
+                        官方依据：{source.label} · {question.sourceSection}
+                        <ExternalLink size={14} aria-hidden="true" />
+                      </a>
+                    )}
+                    <button class="button-link primary practice-next" type="button" data-practice-next>
+                      <span data-practice-next-label>下一题</span>
+                      <ArrowRight size={16} aria-hidden="true" />
+                    </button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <p class="sr-only" aria-live="polite" data-practice-live></p>
+        </div>
+
+        <div class="practice-results" data-practice-results hidden tabindex="-1">
+          <p class="eyebrow">练习结果</p>
+          <div class="practice-score-line">
+            <strong><span data-result-score>0</span><small>%</small></strong>
+            <div>
+              <h2 data-result-title>完成</h2>
+              <p data-result-summary></p>
+            </div>
+          </div>
+          <div class="practice-breakdown">
+            <div><span>Road Rules</span><strong data-result-rules>--</strong></div>
+            <div><span>Road Signs</span><strong data-result-signs>--</strong></div>
+            <div><span>答对</span><strong data-result-correct>0 / 0</strong></div>
+          </div>
+          <div class="practice-wrong-review" data-wrong-review hidden>
+            <h3>建议回看的错题章节</h3>
+            <ol data-wrong-list></ol>
+          </div>
+          <div class="practice-result-actions">
+            <button class="button" type="button" data-retry-wrong>
+              <RotateCcw size={17} aria-hidden="true" /> 只练错题
+            </button>
+            <button class="button-link" type="button" data-practice-restart>
+              <ListRestart size={17} aria-hidden="true" /> 重新选题组
+            </button>
+          </div>
+        </div>
+
+        <noscript>
+          <style>.practice-question[hidden] { display: block !important; }</style>
+          <p class="notice">浏览器未启用 JavaScript；页面已列出全部题目，请使用官方手册自行核对。</p>
+        </noscript>
+      </div>
+    </div>
+  </section>
+
+  <section class="section practice-reading">
+    <div class="content-layout practice-content-layout">
+      <article class="article-stack">
+        <section class="panel">
+          <h2>这组练习覆盖什么</h2>
+          <div class="comparison-table" role="table" aria-label="Georgia 笔试练习覆盖范围">
+            <div class="comparison-row comparison-head" role="row">
+              <span role="columnheader">部分</span><span role="columnheader">本页覆盖</span><span role="columnheader">正式备考还要做什么</span>
+            </div>
+            <div class="comparison-row" role="row">
+              <strong role="cell">Road Rules</strong>
+              <p role="cell">Move Over、限速、校车、环岛、车灯、铁路道口、跟车和左道规则。</p>
+              <p role="cell">完整阅读 Driver Manual 的 Traffic Laws、Safety Guidelines 和 Sharing the Road。</p>
+            </div>
+            <div class="comparison-row" role="row">
+              <strong role="cell">Road Signs</strong>
+              <p role="cell">基本形状、信号灯、学校区域、铁路道口和禁止超车。</p>
+              <p role="cell">继续识别手册中的具体图形、颜色、路面标线和施工标志。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>常见问题</h2>
+          <div class="faq-list">
+            {faqs.map((faq) => (
+              <div class="faq-item"><h3>{faq.question}</h3><p>{faq.answer}</p></div>
+            ))}
+          </div>
+        </section>
+
+        <EditorialDisclosure />
+        <SourceList sources={officialSources} />
+      </article>
+
+      <aside class="sidebar" aria-label="Georgia 练习相关入口">
+        <div class="panel">
+          <h2>继续核对</h2>
+          <div class="quick-actions">
+            <a class="button-link primary" href="https://dds.georgia.gov/testing-and-training/practice-test" target="_blank" rel="noreferrer">
+              DDS 官方练习 <ExternalLink size={15} aria-hidden="true" />
+            </a>
+            <a class="button-link" href="/states/georgia/">Georgia 办事总览 <ArrowRight size={15} aria-hidden="true" /></a>
+            <a class="button-link" href="/directories/tests-permits/">50 州考试入口 <ArrowRight size={15} aria-hidden="true" /></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <script>
+    const app = document.querySelector<HTMLElement>('[data-practice-app]');
+
+    if (app) {
+      const start = app.querySelector<HTMLElement>('[data-practice-start]');
+      const runner = app.querySelector<HTMLElement>('[data-practice-runner]');
+      const results = app.querySelector<HTMLElement>('[data-practice-results]');
+      const questions = Array.from(app.querySelectorAll<HTMLElement>('[data-question]'));
+      const modeButtons = Array.from(app.querySelectorAll<HTMLButtonElement>('[data-practice-mode]'));
+      const beginButton = app.querySelector<HTMLButtonElement>('[data-practice-begin]');
+      const exitButton = app.querySelector<HTMLButtonElement>('[data-practice-exit]');
+      const restartButton = app.querySelector<HTMLButtonElement>('[data-practice-restart]');
+      const retryWrongButton = app.querySelector<HTMLButtonElement>('[data-retry-wrong]');
+      const position = app.querySelector<HTMLElement>('[data-practice-position]');
+      const total = app.querySelector<HTMLElement>('[data-practice-total]');
+      const modeLabel = app.querySelector<HTMLElement>('[data-practice-mode-label]');
+      const progress = app.querySelector<HTMLElement>('[data-practice-progress]');
+      const progressBar = app.querySelector<HTMLElement>('[data-practice-progress-bar]');
+      const live = app.querySelector<HTMLElement>('[data-practice-live]');
+      const resultScore = app.querySelector<HTMLElement>('[data-result-score]');
+      const resultTitle = app.querySelector<HTMLElement>('[data-result-title]');
+      const resultSummary = app.querySelector<HTMLElement>('[data-result-summary]');
+      const resultRules = app.querySelector<HTMLElement>('[data-result-rules]');
+      const resultSigns = app.querySelector<HTMLElement>('[data-result-signs]');
+      const resultCorrect = app.querySelector<HTMLElement>('[data-result-correct]');
+      const wrongReview = app.querySelector<HTMLElement>('[data-wrong-review]');
+      const wrongList = app.querySelector<HTMLOListElement>('[data-wrong-list]');
+
+      let selectedMode = 'all';
+      let activeQuestions: HTMLElement[] = [];
+      let cursor = 0;
+      let correct = 0;
+      let answered = false;
+      let wrongQuestions: HTMLElement[] = [];
+      let categoryScores = {
+        'road-rules': { correct: 0, total: 0 },
+        'road-signs': { correct: 0, total: 0 },
+      };
+
+      const shuffle = <T,>(items: T[]) => {
+        const copy = [...items];
+        for (let index = copy.length - 1; index > 0; index -= 1) {
+          const randomIndex = Math.floor(Math.random() * (index + 1));
+          [copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
+        }
+        return copy;
+      };
+
+      const setView = (view: 'start' | 'runner' | 'results') => {
+        if (start) start.hidden = view !== 'start';
+        if (runner) runner.hidden = view !== 'runner';
+        if (results) results.hidden = view !== 'results';
+      };
+
+      const resetQuestion = (question: HTMLElement) => {
+        question.hidden = true;
+        question.querySelectorAll<HTMLButtonElement>('[data-option-index]').forEach((option) => {
+          option.disabled = false;
+          option.classList.remove('is-correct', 'is-wrong', 'is-selected');
+          option.removeAttribute('aria-pressed');
+        });
+        const explanation = question.querySelector<HTMLElement>('[data-explanation]');
+        if (explanation) explanation.hidden = true;
+        const nextLabel = question.querySelector<HTMLElement>('[data-practice-next-label]');
+        if (nextLabel) nextLabel.textContent = '下一题';
+      };
+
+      const updateProgress = () => {
+        const value = activeQuestions.length ? Math.round((cursor / activeQuestions.length) * 100) : 0;
+        if (position) position.textContent = String(cursor + 1);
+        if (total) total.textContent = String(activeQuestions.length);
+        if (progress) progress.setAttribute('aria-valuenow', String(value));
+        if (progressBar) progressBar.style.width = `${value}%`;
+      };
+
+      const showQuestion = () => {
+        questions.forEach((question) => { question.hidden = true; });
+        const question = activeQuestions[cursor];
+        if (!question) return;
+        question.hidden = false;
+        answered = false;
+        updateProgress();
+        question.querySelector<HTMLButtonElement>('[data-option-index]')?.focus({ preventScroll: true });
+      };
+
+      const startRun = (questionSet: HTMLElement[], label: string) => {
+        activeQuestions = shuffle(questionSet);
+        cursor = 0;
+        correct = 0;
+        answered = false;
+        wrongQuestions = [];
+        categoryScores = {
+          'road-rules': { correct: 0, total: 0 },
+          'road-signs': { correct: 0, total: 0 },
+        };
+        questions.forEach(resetQuestion);
+        activeQuestions.forEach((question) => {
+          const category = question.dataset.category as 'road-rules' | 'road-signs';
+          categoryScores[category].total += 1;
+        });
+        if (modeLabel) modeLabel.textContent = label;
+        setView('runner');
+        showQuestion();
+        app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      const showResults = () => {
+        const score = activeQuestions.length ? Math.round((correct / activeQuestions.length) * 100) : 0;
+        if (resultScore) resultScore.textContent = String(score);
+        if (resultCorrect) resultCorrect.textContent = `${correct} / ${activeQuestions.length}`;
+        const formatCategory = (category: 'road-rules' | 'road-signs') => {
+          const item = categoryScores[category];
+          return item.total ? `${item.correct} / ${item.total}` : '--';
+        };
+        if (resultRules) resultRules.textContent = formatCategory('road-rules');
+        if (resultSigns) resultSigns.textContent = formatCategory('road-signs');
+
+        if (resultTitle) {
+          resultTitle.textContent = score >= 90 ? '基础很稳' : score >= 75 ? '接近正式门槛' : '先补薄弱章节';
+        }
+        if (resultSummary) {
+          resultSummary.textContent = score >= 75
+            ? '这组短练习表现不错。正式考试仍要让 Road Rules 和 Road Signs 两部分分别达到要求。'
+            : '先按下方错题章节回看官方手册，再重新练习。不要只记选项字母。';
+        }
+
+        if (wrongList) {
+          wrongList.replaceChildren();
+          wrongQuestions.forEach((question) => {
+            const item = document.createElement('li');
+            const title = question.querySelector('h3')?.textContent?.trim() || '错题';
+            const link = document.createElement('a');
+            link.href = question.dataset.sourceUrl || '#official-sources';
+            link.target = question.dataset.sourceUrl ? '_blank' : '';
+            link.rel = question.dataset.sourceUrl ? 'noreferrer' : '';
+            link.textContent = question.dataset.sourceLabel || '查看官方来源';
+            const text = document.createElement('span');
+            text.textContent = title;
+            item.append(text, link);
+            wrongList.append(item);
+          });
+        }
+        if (wrongReview) wrongReview.hidden = wrongQuestions.length === 0;
+        if (retryWrongButton) retryWrongButton.hidden = wrongQuestions.length === 0;
+        if (progress) progress.setAttribute('aria-valuenow', '100');
+        if (progressBar) progressBar.style.width = '100%';
+        setView('results');
+        results?.focus({ preventScroll: true });
+        app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      modeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          selectedMode = button.dataset.practiceMode || 'all';
+          modeButtons.forEach((candidate) => {
+            const selected = candidate === button;
+            candidate.classList.toggle('is-selected', selected);
+            candidate.setAttribute('aria-checked', String(selected));
+          });
+        });
+      });
+
+      beginButton?.addEventListener('click', () => {
+        const questionSet = selectedMode === 'all'
+          ? questions
+          : questions.filter((question) => question.dataset.category === selectedMode);
+        const label = selectedMode === 'road-rules' ? 'Road Rules' : selectedMode === 'road-signs' ? 'Road Signs' : '混合练习';
+        startRun(questionSet, label);
+      });
+
+      questions.forEach((question) => {
+        const options = Array.from(question.querySelectorAll<HTMLButtonElement>('[data-option-index]'));
+        const correctIndex = Number(question.dataset.correctIndex);
+        const explanation = question.querySelector<HTMLElement>('[data-explanation]');
+        const status = question.querySelector<HTMLElement>('[data-answer-status]');
+
+        options.forEach((option) => {
+          option.addEventListener('click', () => {
+            if (answered) return;
+            answered = true;
+            const selectedIndex = Number(option.dataset.optionIndex);
+            const isCorrect = selectedIndex === correctIndex;
+            const category = question.dataset.category as 'road-rules' | 'road-signs';
+
+            options.forEach((candidate, index) => {
+              candidate.disabled = true;
+              candidate.setAttribute('aria-pressed', String(candidate === option));
+              if (index === correctIndex) candidate.classList.add('is-correct');
+            });
+            option.classList.add('is-selected', isCorrect ? 'is-correct' : 'is-wrong');
+
+            if (isCorrect) {
+              correct += 1;
+              categoryScores[category].correct += 1;
+              if (status) status.innerHTML = '<strong>回答正确</strong><span>继续看解释，把规则记牢。</span>';
+              if (live) live.textContent = '回答正确';
+            } else {
+              wrongQuestions.push(question);
+              if (status) status.innerHTML = '<strong>这题答错了</strong><span>正确选项已经标出。</span>';
+              if (live) live.textContent = '回答错误，正确选项已标出';
+            }
+
+            if (explanation) {
+              explanation.hidden = false;
+              explanation.focus({ preventScroll: true });
+            }
+            const nextLabel = question.querySelector<HTMLElement>('[data-practice-next-label]');
+            if (nextLabel && cursor === activeQuestions.length - 1) nextLabel.textContent = '查看结果';
+          });
+        });
+
+        question.querySelector<HTMLButtonElement>('[data-practice-next]')?.addEventListener('click', () => {
+          if (!answered) return;
+          if (cursor >= activeQuestions.length - 1) {
+            showResults();
+            return;
+          }
+          cursor += 1;
+          showQuestion();
+        });
+      });
+
+      const returnToStart = () => {
+        questions.forEach(resetQuestion);
+        setView('start');
+        if (progressBar) progressBar.style.width = '0%';
+        app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      exitButton?.addEventListener('click', returnToStart);
+      restartButton?.addEventListener('click', returnToStart);
+      retryWrongButton?.addEventListener('click', () => {
+        if (wrongQuestions.length) startRun(wrongQuestions, '错题重练');
+      });
+
+      app.classList.remove('is-loading');
+      questions.forEach((question) => { question.hidden = true; });
+    }
+  </script>
+</BaseLayout>

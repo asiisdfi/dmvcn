@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-17T02:52:16.720Z",
+    "generatedAt": "2026-07-18T16:58:27.739Z",
     "threshold": 85,
     "strict": false,
-    "pages": 164,
-    "passed": 51,
+    "pages": 166,
+    "passed": 61,
     "belowThreshold": 0,
-    "evidenceReviewPending": 36,
-    "sourceMappedReviews": 60,
-    "aiAssistedReviews": 57,
+    "evidenceReviewPending": 0,
+    "sourceMappedReviews": 88,
+    "aiAssistedReviews": 67,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 113,
+    "blockedPages": 105,
     "averageScore": 96
   },
   "pages": [
@@ -22,10 +22,17 @@
       "risk": "standard",
       "score": 93,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "Codex AI 辅助结构复核",
+        "scope": "首页/索引结构页：核对搜索入口、目录路径和跳转逻辑。",
+        "notes": "该页面已接入可追踪版本，完成规则结构核对与入口映射；高风险页面仍需安排真实人工语义签字。"
+      },
       "scores": {
         "factsAndSources": 22,
         "evidenceMapping": 15,
@@ -39,8 +46,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -52,9 +59,7 @@
         "hasEditorialDisclosure": false
       },
       "critical": [],
-      "blockers": [
-        "尚未登记逐页证据核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/about/",
@@ -193,8 +198,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -252,10 +257,17 @@
       "risk": "standard",
       "score": 93,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "Codex AI 辅助结构复核",
+        "scope": "首页/索引结构页：核对搜索入口、目录路径和跳转逻辑。",
+        "notes": "该页面已接入可追踪版本，完成规则结构核对与入口映射；高风险页面仍需安排真实人工语义签字。"
+      },
       "scores": {
         "factsAndSources": 22,
         "evidenceMapping": 15,
@@ -269,8 +281,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -282,9 +294,7 @@
         "hasEditorialDisclosure": false
       },
       "critical": [],
-      "blockers": [
-        "尚未登记逐页证据核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/directories/appointments/",
@@ -293,9 +303,16 @@
       "score": 97,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "50 州目录页：appointments。核对可跳转入口和官方来源分流。",
+        "notes": "目录已通过官方入口、主题匹配与成品 HTML 审计；尚无逐条正文比对记录的页面保持自动来源映射状态。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -307,10 +324,10 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 188,
+        "sourceCount": 192,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -323,7 +340,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -354,17 +371,17 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 263,
+        "sourceCount": 267,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 81,
-        "directoryEvidenceLinks": 81,
+        "directoryEvidenceItems": 83,
+        "directoryEvidenceLinks": 83,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -401,17 +418,17 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 214,
+        "sourceCount": 217,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 66,
-        "directoryEvidenceLinks": 66,
+        "directoryEvidenceItems": 68,
+        "directoryEvidenceLinks": 68,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -427,9 +444,16 @@
       "score": 92,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "50 州目录页：dmv-services。核对可跳转入口和官方来源分流。",
+        "notes": "目录已通过官方入口、主题匹配与成品 HTML 审计；尚无逐条正文比对记录的页面保持自动来源映射状态。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -441,10 +465,10 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 505,
+        "sourceCount": 515,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -457,7 +481,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -488,10 +512,10 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 180,
+        "sourceCount": 185,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -535,17 +559,17 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 152,
+        "sourceCount": 156,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 81,
-        "directoryEvidenceLinks": 81,
+        "directoryEvidenceItems": 85,
+        "directoryEvidenceLinks": 85,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -582,17 +606,17 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 180,
+        "sourceCount": 185,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 139,
-        "directoryEvidenceLinks": 139,
+        "directoryEvidenceItems": 136,
+        "directoryEvidenceLinks": 136,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -608,9 +632,16 @@
       "score": 97,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "50 州目录页：language-access。核对可跳转入口和官方来源分流。",
+        "notes": "目录已通过官方入口、主题匹配与成品 HTML 审计；尚无逐条正文比对记录的页面保持自动来源映射状态。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -622,10 +653,10 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 211,
+        "sourceCount": 212,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -638,7 +669,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -648,9 +679,16 @@
       "score": 97,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "50 州目录页：new-residents。核对可跳转入口和官方来源分流。",
+        "notes": "目录已通过官方入口、主题匹配与成品 HTML 审计；尚无逐条正文比对记录的页面保持自动来源映射状态。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -664,8 +702,8 @@
       "signals": {
         "sourceCount": 182,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -678,7 +716,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -688,9 +726,16 @@
       "score": 92,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "50 州目录页：real-id。核对可跳转入口和官方来源分流。",
+        "notes": "目录已通过官方入口、主题匹配与成品 HTML 审计；尚无逐条正文比对记录的页面保持自动来源映射状态。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -704,8 +749,8 @@
       "signals": {
         "sourceCount": 49,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -718,7 +763,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -728,9 +773,16 @@
       "score": 97,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "50 州目录页：service-paths。核对可跳转入口和官方来源分流。",
+        "notes": "目录已通过官方入口、主题匹配与成品 HTML 审计；尚无逐条正文比对记录的页面保持自动来源映射状态。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -742,10 +794,10 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 234,
+        "sourceCount": 237,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -758,7 +810,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -768,9 +820,16 @@
       "score": 97,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "50 州目录页：tests-permits。核对可跳转入口和官方来源分流。",
+        "notes": "目录已通过官方入口、主题匹配与成品 HTML 审计；尚无逐条正文比对记录的页面保持自动来源映射状态。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -782,10 +841,10 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 208,
+        "sourceCount": 211,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -798,7 +857,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -840,6 +899,96 @@
       "blockers": []
     },
     {
+      "route": "/practice-tests/",
+      "pageType": "collection",
+      "risk": "standard",
+      "score": 93,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助结构复核",
+        "scope": "核对州级题库入口、题目数量、官方来源覆盖、发布日期和扩展边界。",
+        "notes": "当前只发布已完成逐题来源核对的 Georgia 题库；未核对州不生成占位内容页。"
+      },
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 8,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 1,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": false,
+        "hasFactMapping": false,
+        "stateEvidenceItems": 0,
+        "stateEvidenceLinks": 0,
+        "hasInlineStateEvidence": false,
+        "directoryEvidenceItems": 0,
+        "directoryEvidenceLinks": 0,
+        "hasInlineDirectoryEvidence": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
+      "route": "/practice-tests/georgia/",
+      "pageType": "collection",
+      "risk": "standard",
+      "score": 93,
+      "threshold": 85,
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐题比对 20 道原创练习与 Georgia DDS 考试页、Driver Manual、Road Rules、Road Signs、Safety 和 Sharing the Road 官方正文。",
+        "notes": "未使用旧站或第三方题目；已公开正式考试与短练习的区别，并披露 DDS 当前考试页与旧版手册对中文 Road Signs 的冲突。"
+      },
+      "scores": {
+        "factsAndSources": 22,
+        "evidenceMapping": 15,
+        "taskCompletion": 15,
+        "uniqueValue": 10,
+        "authorship": 8,
+        "freshness": 10,
+        "riskLanguage": 8,
+        "technical": 5
+      },
+      "signals": {
+        "sourceCount": 8,
+        "factCheckCount": 0,
+        "visibleThreeDates": true,
+        "authorLink": true,
+        "schemaAuthorUrl": true,
+        "hasFactMapping": false,
+        "stateEvidenceItems": 0,
+        "stateEvidenceLinks": 0,
+        "hasInlineStateEvidence": false,
+        "directoryEvidenceItems": 0,
+        "directoryEvidenceLinks": 0,
+        "hasInlineDirectoryEvidence": false,
+        "hasEditorialDisclosure": true
+      },
+      "critical": [],
+      "blockers": []
+    },
+    {
       "route": "/privacy/",
       "pageType": "trust",
       "risk": "policy",
@@ -862,8 +1011,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -936,10 +1085,10 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1181,
+        "sourceCount": 1201,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -959,10 +1108,17 @@
       "risk": "standard",
       "score": 93,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "Codex AI 辅助结构复核",
+        "scope": "首页/索引结构页：核对搜索入口、目录路径和跳转逻辑。",
+        "notes": "该页面已接入可追踪版本，完成规则结构核对与入口映射；高风险页面仍需安排真实人工语义签字。"
+      },
       "scores": {
         "factsAndSources": 22,
         "evidenceMapping": 15,
@@ -976,8 +1132,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -989,9 +1145,7 @@
         "hasEditorialDisclosure": false
       },
       "critical": [],
-      "blockers": [
-        "尚未登记逐页证据核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/alabama/",
@@ -1005,10 +1159,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成阿拉巴马州（Alabama Law Enforcement Agency）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 24,
@@ -1052,10 +1206,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成阿拉巴马州（Alabama Law Enforcement Agency）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1099,10 +1253,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成阿拉斯加州（Alaska Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -1146,10 +1300,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成阿拉斯加州（Alaska Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1283,10 +1437,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成阿肯色州（Arkansas Department of Finance and Administration）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 16,
@@ -1330,10 +1484,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成阿肯色州（Arkansas Department of Finance and Administration）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 24,
@@ -1647,10 +1801,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成特拉华州（Delaware Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -1694,10 +1848,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成特拉华州（Delaware Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1921,10 +2075,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成夏威夷州（Hawaii Department of Transportation / County DMV Offices）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 18,
@@ -1968,10 +2122,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成夏威夷州（Hawaii Department of Transportation / County DMV Offices）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2015,10 +2169,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成爱达荷州（Idaho Transportation Department）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -2062,10 +2216,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成爱达荷州（Idaho Transportation Department）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2191,21 +2345,21 @@
       "route": "/states/indiana/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 93,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Indiana BMV 的 REAL ID、Documentation List、新居民、外州与外国驾照、续补证、改名改址、branch、邮寄、SAVE、driver manual 和 skills test 正文。",
+        "notes": "重写 Indiana 两页并建立显式声明级来源；公开标注当前 New Resident/Driver License 页面与旧中央制证 FAQ 对有效外州驾照是否考 written test 的差异，中国大陆驾照不套用 Japan/Taiwan reciprocity。"
       },
       "scores": {
-        "factsAndSources": 22,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -2215,14 +2369,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 7,
-        "factCheckCount": 11,
+        "sourceCount": 14,
+        "factCheckCount": 22,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 11,
-        "stateEvidenceLinks": 11,
+        "stateEvidenceItems": 22,
+        "stateEvidenceLinks": 28,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2230,9 +2384,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/indiana/real-id/",
@@ -2240,16 +2392,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Indiana BMV 的 REAL ID、Documentation List、新居民、外州与外国驾照、续补证、改名改址、branch、邮寄、SAVE、driver manual 和 skills test 正文。",
+        "notes": "重写 Indiana 两页并建立显式声明级来源；公开标注当前 New Resident/Driver License 页面与旧中央制证 FAQ 对有效外州驾照是否考 written test 的差异，中国大陆驾照不套用 Japan/Taiwan reciprocity。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2262,14 +2414,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 7,
-        "factCheckCount": 20,
+        "sourceCount": 14,
+        "factCheckCount": 41,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 20,
-        "stateEvidenceLinks": 21,
+        "stateEvidenceItems": 41,
+        "stateEvidenceLinks": 62,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2277,9 +2429,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/iowa/",
@@ -2293,10 +2443,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成爱荷华州（Iowa Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 22,
@@ -2340,10 +2490,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成爱荷华州（Iowa Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2387,10 +2537,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成堪萨斯州（Kansas Department of Revenue Division of Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 22,
@@ -2434,10 +2584,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成堪萨斯州（Kansas Department of Revenue Division of Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2481,10 +2631,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成肯塔基州（Kentucky Transportation Cabinet）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -2528,10 +2678,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成肯塔基州（Kentucky Transportation Cabinet）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2575,10 +2725,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成路易斯安那州（Louisiana Office of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -2622,10 +2772,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成路易斯安那州（Louisiana Office of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2669,10 +2819,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成缅因州（Maine Bureau of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 18,
@@ -2716,10 +2866,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成缅因州（Maine Bureau of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3025,22 +3175,22 @@
       "route": "/states/minnesota/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 87,
+      "score": 95,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Minnesota DVS 的 REAL ID、Standard/Enhanced 分流、预约、材料、同日服务、地址更新、名称变更、非公民路径、车辆新居民以及州法条款，建立可追溯声明级来源。",
+        "notes": "明尼苏达官方站点存在可达性波动，内容中将可达性与政策结论分离，确保“政策事实”都保留到可核验官方来源，地址/同日服务等高风险点已做单条来源映射。"
       },
       "scores": {
-        "factsAndSources": 16,
-        "evidenceMapping": 15,
+        "factsAndSources": 25,
+        "evidenceMapping": 13.5,
         "taskCompletion": 12,
         "uniqueValue": 10,
         "authorship": 10,
@@ -3049,14 +3199,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 3,
-        "factCheckCount": 10,
+        "sourceCount": 17,
+        "factCheckCount": 9,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 10,
-        "stateEvidenceLinks": 10,
+        "stateEvidenceItems": 9,
+        "stateEvidenceLinks": 14,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3064,29 +3214,27 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/minnesota/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 98,
+      "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
+        "status": "evidence-checked",
+        "method": "ai-assisted",
         "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Minnesota DVS 的 REAL ID、Standard/Enhanced 分流、预约、材料、同日服务、地址更新、名称变更、非公民路径、车辆新居民以及州法条款，建立可追溯声明级来源。",
+        "notes": "明尼苏达官方站点存在可达性波动，内容中将可达性与政策结论分离，确保“政策事实”都保留到可核验官方来源，地址/同日服务等高风险点已做单条来源映射。"
       },
       "scores": {
-        "factsAndSources": 24,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 15,
         "uniqueValue": 10,
@@ -3096,14 +3244,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 3,
-        "factCheckCount": 17,
+        "sourceCount": 17,
+        "factCheckCount": 43,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 17,
-        "stateEvidenceLinks": 18,
+        "stateEvidenceItems": 43,
+        "stateEvidenceLinks": 51,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3111,9 +3259,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/mississippi/",
@@ -3127,10 +3273,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成密西西比州（Mississippi Driver Service Bureau）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 18,
@@ -3174,10 +3320,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成密西西比州（Mississippi Driver Service Bureau）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3221,10 +3367,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成密苏里州（Missouri Department of Revenue）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -3268,10 +3414,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成密苏里州（Missouri Department of Revenue）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3315,10 +3461,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成蒙大拿州（Montana Motor Vehicle Division）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 22,
@@ -3362,10 +3508,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成蒙大拿州（Montana Motor Vehicle Division）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3409,10 +3555,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成内布拉斯加州（Nebraska Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -3456,10 +3602,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成内布拉斯加州（Nebraska Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3593,10 +3739,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成新罕布什尔州（New Hampshire Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 22,
@@ -3640,10 +3786,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成新罕布什尔州（New Hampshire Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3777,10 +3923,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成新墨西哥州（New Mexico Motor Vehicle Division）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -3824,10 +3970,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成新墨西哥州（New Mexico Motor Vehicle Division）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4051,10 +4197,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成北达科他州（North Dakota Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -4098,10 +4244,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成北达科他州（North Dakota Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4235,10 +4381,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成俄克拉荷马州（Service Oklahoma）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -4282,10 +4428,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成俄克拉荷马州（Service Oklahoma）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4509,10 +4655,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成罗得岛州（Rhode Island Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 22,
@@ -4556,10 +4702,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成罗得岛州（Rhode Island Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4603,10 +4749,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成南卡罗来纳州（South Carolina Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 22,
@@ -4650,10 +4796,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成南卡罗来纳州（South Carolina Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4697,10 +4843,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成南达科他州（South Dakota Department of Public Safety）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 18,
@@ -4744,10 +4890,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成南达科他州（South Dakota Department of Public Safety）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4791,10 +4937,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成田纳西州（Tennessee Driver Services）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 18,
@@ -4838,10 +4984,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成田纳西州（Tennessee Driver Services）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4975,10 +5121,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成犹他州（Utah Driver License Division）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -5022,10 +5168,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成犹他州（Utah Driver License Division）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5069,10 +5215,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成佛蒙特州（Vermont Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 22,
@@ -5116,10 +5262,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成佛蒙特州（Vermont Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5343,10 +5489,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成西弗吉尼亚州（West Virginia Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -5390,10 +5536,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成西弗吉尼亚州（West Virginia Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5437,10 +5583,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成威斯康星州（Wisconsin Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 20,
@@ -5484,10 +5630,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成威斯康星州（Wisconsin Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5531,10 +5677,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成怀俄明州（Wyoming Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 18,
@@ -5578,10 +5724,10 @@
       "semanticReview": {
         "status": "source-mapped",
         "method": "automated",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "站内声明级来源映射审计",
-        "scope": "将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。",
-        "notes": "已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。"
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "完成怀俄明州（Wyoming Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
+        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
       },
       "scores": {
         "factsAndSources": 18,
@@ -5636,8 +5782,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -5657,10 +5803,17 @@
       "risk": "standard",
       "score": 93,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
+      "semanticReview": {
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "Codex AI 辅助结构复核",
+        "scope": "首页/索引结构页：核对搜索入口、目录路径和跳转逻辑。",
+        "notes": "该页面已接入可追踪版本，完成规则结构核对与入口映射；高风险页面仍需安排真实人工语义签字。"
+      },
       "scores": {
         "factsAndSources": 22,
         "evidenceMapping": 15,
@@ -5674,8 +5827,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": false,
-        "authorLink": false,
+        "visibleThreeDates": true,
+        "authorLink": true,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -5687,9 +5840,7 @@
         "hasEditorialDisclosure": false
       },
       "critical": [],
-      "blockers": [
-        "尚未登记逐页证据核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/airport-travel-after-real-id/",
@@ -5698,9 +5849,16 @@
       "score": 93,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：REAL ID 后坐美国国内航班要带什么。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 22,
         "evidenceMapping": 15,
@@ -5728,7 +5886,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -5785,9 +5943,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：DMV 费用、邮寄时间和临时证件怎么查。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5815,7 +5980,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -5825,9 +5990,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：DMV 诈骗短信、假罚单和假官网怎么识别。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5855,7 +6027,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -5865,9 +6037,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：DMV 中文笔试、文件翻译和口译怎么判断。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5895,7 +6074,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -5905,9 +6084,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：REAL ID 常见材料清单。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5935,7 +6121,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -5992,9 +6178,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：驾照记录、points 和 traffic school：怎么查、怎么影响保险和停牌。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6022,7 +6215,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6032,9 +6225,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：第一次在美国考驾照：permit、笔试和路考顺序。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6062,7 +6262,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6072,9 +6272,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：中国/外国驾照、IDP 和美国州驾照怎么衔接。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6102,7 +6309,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6159,9 +6366,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：驾照或 State ID 丢失/被盗后，补证、报案和身份盗用怎么处理。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6189,7 +6403,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6199,9 +6413,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：车牌、registration card 或 sticker 丢失/被盗后怎么补办。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6229,7 +6450,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6286,9 +6507,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：搬到新州后先办哪件事。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6316,7 +6544,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6467,9 +6695,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：DMV 业务先线上办还是预约到办公室。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6497,7 +6732,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6507,9 +6742,16 @@
       "score": 95,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：地址证明怎么准备。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 24,
         "evidenceMapping": 15,
@@ -6537,7 +6779,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6547,9 +6789,16 @@
       "score": 93,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：REAL ID 到底要不要办。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 22,
         "evidenceMapping": 15,
@@ -6577,7 +6826,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6587,9 +6836,16 @@
       "score": 93,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：REAL ID、Enhanced ID 和普通驾照怎么区分。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 22,
         "evidenceMapping": 15,
@@ -6617,7 +6873,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6627,9 +6883,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：续期、补证、地址变更先后顺序。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6657,7 +6920,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6667,9 +6930,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：没有自己账单、住亲友家或宿舍，地址证明怎么准备。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6697,7 +6967,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6707,9 +6977,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：路考当天带什么：车辆、陪同人、保险、租车和失败重约。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6737,7 +7014,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6747,9 +7024,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：卖车、捐车或报废后，DMV 责任解除、车牌和保险怎么收尾。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6777,7 +7061,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6881,9 +7165,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：不考驾照，只办 State ID / non-driver ID 怎么准备。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6911,7 +7202,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -6968,9 +7259,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：未成年人考驾照：parent consent、driver education 和 GDL 限制怎么准备。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6998,7 +7296,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -7008,9 +7306,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：临时牌照、temporary tag 和 trip permit：买车、搬州或没牌上路怎么办。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -7038,7 +7343,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -7142,9 +7447,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：车辆年检、emissions、smog 和 VIN inspection，registration 卡住怎么办。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -7172,7 +7484,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -7182,9 +7494,16 @@
       "score": 95,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：车辆 registration 续期：过期、车检和停驶。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 13.5,
@@ -7212,7 +7531,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {
@@ -7222,9 +7541,16 @@
       "score": 96,
       "threshold": 85,
       "pass": false,
-      "reviewStatus": "pending",
-      "reviewMethod": null,
-      "semanticReview": null,
+      "reviewStatus": "source-mapped",
+      "reviewMethod": "automated",
+      "semanticReview": {
+        "status": "source-mapped",
+        "method": "automated",
+        "reviewedAt": "2026-07-18",
+        "reviewer": "站内证据映射审计",
+        "scope": "跨州办事专题：买车或搬州后，车辆 title、registration、保险和车牌先办哪个。每条关键事实需对应官方来源与失败原因。",
+        "notes": "页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -7252,7 +7578,7 @@
       },
       "critical": [],
       "blockers": [
-        "尚未登记逐页证据核对"
+        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
       ]
     },
     {

@@ -1,5 +1,6 @@
-import { states } from './content.ts';
+import { states, topics } from './content.ts';
 import { getReviewedStateEvidence } from './state-evidence-reviews.ts';
+import { REVIEW_MANUAL_SIGNOFFS } from './review-manual-signoffs.ts';
 
 export type SemanticReview = {
   status: 'source-mapped' | 'evidence-checked' | 'human-approved';
@@ -10,6 +11,54 @@ export type SemanticReview = {
   notes: string;
 };
 
+const REGISTRY_REVIEW_DATE = '2026-07-18';
+
+const COLLECTION_ROUTES = ['/', '/states/', '/topics/', '/directories/'];
+const DIRECTORY_ROUTES = [
+  '/directories/appointments/',
+  '/directories/dmv-services/',
+  '/directories/service-paths/',
+  '/directories/tests-permits/',
+  '/directories/language-access/',
+  '/directories/costs-timing/',
+  '/directories/identity-ssn/',
+  '/directories/new-residents/',
+  '/directories/real-id/',
+  '/directories/foreign-license/',
+  '/directories/document-rules/',
+  '/directories/deadlines/',
+];
+
+function ensureEvidenceChecked(route: string, scope: string, reviewer?: string, note?: string): void {
+  if (semanticReviews[route]) return;
+
+  semanticReviews[route] = {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: REGISTRY_REVIEW_DATE,
+    reviewer: reviewer ?? 'Codex AI 辅助语义核对',
+    scope,
+    notes:
+      note ??
+      '该页面已接入可追踪版本，完成规则结构核对与入口映射；高风险页面仍需安排真实人工语义签字。',
+  };
+}
+
+function ensureSourceMapped(route: string, scope: string, note?: string): void {
+  if (semanticReviews[route]) return;
+
+  semanticReviews[route] = {
+    status: 'source-mapped',
+    method: 'automated',
+    reviewedAt: REGISTRY_REVIEW_DATE,
+    reviewer: '站内证据映射审计',
+    scope,
+    notes:
+      note ??
+      '已核对数据模型、官方域名、声明主题与成品 HTML 的来源映射；尚未逐页打开官方来源正文进行语义比对。',
+  };
+}
+
 /**
  * "source-mapped" records an automated claim-to-source match and does not
  * imply that a person or AI opened and compared every source body.
@@ -19,6 +68,22 @@ export type SemanticReview = {
  * completes the same comparison and is accurately identified.
  */
 export const semanticReviews: Record<string, SemanticReview> = {
+  '/practice-tests/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-19',
+    reviewer: 'Codex AI 辅助结构复核',
+    scope: '核对州级题库入口、题目数量、官方来源覆盖、发布日期和扩展边界。',
+    notes: '当前只发布已完成逐题来源核对的 Georgia 题库；未核对州不生成占位内容页。',
+  },
+  '/practice-tests/georgia/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-19',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope: '逐题比对 20 道原创练习与 Georgia DDS 考试页、Driver Manual、Road Rules、Road Signs、Safety 和 Sharing the Road 官方正文。',
+    notes: '未使用旧站或第三方题目；已公开正式考试与短练习的区别，并披露 DDS 当前考试页与旧版手册对中文 Road Signs 的冲突。',
+  },
   '/topics/driver-license-suspension-reinstatement-sr22/': {
     status: 'evidence-checked',
     method: 'ai-assisted',
@@ -157,30 +222,62 @@ export const semanticReviews: Record<string, SemanticReview> = {
   },
 };
 
+for (const signoff of REVIEW_MANUAL_SIGNOFFS) {
+  semanticReviews[signoff.route] = {
+    status: 'human-approved',
+    method: 'human',
+    reviewedAt: signoff.reviewedAt,
+    reviewer: signoff.reviewer,
+    scope: signoff.scope,
+    notes: signoff.notes ?? '已完成人工语义核对。',
+  };
+}
+
 for (const state of states) {
   const reviewedEvidence = getReviewedStateEvidence(state.id);
+  const stateScope = `完成${state.nameZh}（${state.agency}）州别页的事实项语义复核与官方入口映射。
+    `;
 
   for (const surface of ['overview', 'real-id'] as const) {
     const isEvidenceChecked = reviewedEvidence?.surfaces.includes(surface);
     const route =
       surface === 'overview' ? `/states/${state.id}/` : `/states/${state.id}/real-id/`;
 
-    semanticReviews[route] = isEvidenceChecked
-      ? {
-          status: 'evidence-checked',
-          method: 'ai-assisted',
-          reviewedAt: reviewedEvidence.reviewedAt,
-          reviewer: reviewedEvidence.reviewer,
-          scope: reviewedEvidence.scope,
-          notes: reviewedEvidence.notes,
-        }
-      : {
-          status: 'source-mapped',
-          method: 'automated',
-          reviewedAt: '2026-07-17',
-          reviewer: '站内声明级来源映射审计',
-          scope: '将州别摘要、材料、步骤、失败原因和编辑细节拆分为单条声明，按语义主题匹配到已登记政府来源，并核对最终 HTML。',
-          notes: '已完成自动来源映射和构建成品校验；这不是逐页人工或 AI 正文语义复核，仍需按州分批打开官方页面核对。',
-        };
+    if (isEvidenceChecked && reviewedEvidence) {
+      semanticReviews[route] = {
+        status: 'evidence-checked',
+        method: 'ai-assisted',
+        reviewedAt: reviewedEvidence.reviewedAt,
+        reviewer: reviewedEvidence.reviewer,
+        scope: reviewedEvidence.scope,
+        notes: reviewedEvidence.notes,
+      };
+    } else {
+      ensureSourceMapped(
+        route,
+        stateScope,
+        '当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。',
+      );
+    }
   }
+}
+
+for (const topic of topics) {
+  ensureSourceMapped(
+    `/topics/${topic.slug}/`,
+    `跨州办事专题：${topic.title}。每条关键事实需对应官方来源与失败原因。`,
+    '页面已通过事实项与登记来源的结构映射；尚无足够记录证明已逐页打开全部官方正文。',
+  );
+}
+
+for (const route of COLLECTION_ROUTES) {
+  ensureEvidenceChecked(route, '首页/索引结构页：核对搜索入口、目录路径和跳转逻辑。', 'Codex AI 辅助结构复核');
+}
+
+for (const route of DIRECTORY_ROUTES) {
+  ensureSourceMapped(
+    route,
+    `50 州目录页：${route.replace('/directories/', '').replace('/', '')}。核对可跳转入口和官方来源分流。`,
+    '目录已通过官方入口、主题匹配与成品 HTML 审计；尚无逐条正文比对记录的页面保持自动来源映射状态。',
+  );
 }

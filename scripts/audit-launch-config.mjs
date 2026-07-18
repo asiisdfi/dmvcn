@@ -118,7 +118,6 @@ if (!(await exists(distDir))) {
     'robots.txt',
     'llms.txt',
     'sitemap.xml',
-    'sitemap-index.xml',
   ]) {
     if (!(await exists(new URL(path, distDir)))) errors.push(`dist/${path} is missing.`);
   }
@@ -177,17 +176,22 @@ if (!(await exists(distDir))) {
     }
   }
 
-  if (await exists(new URL('sitemap-index.xml', distDir)) && siteUrl) {
-    const sitemapIndex = await readFile(new URL('sitemap-index.xml', distDir), 'utf8');
-    if (!sitemapIndex.includes(`${siteUrl}sitemap-0.xml`)) {
-      errors.push('Built sitemap index does not use PUBLIC_SITE_URL.');
-    }
-  }
-
   if (await exists(new URL('sitemap.xml', distDir)) && siteUrl) {
-    const sitemapAlias = await readFile(new URL('sitemap.xml', distDir), 'utf8');
-    if (!sitemapAlias.includes(`${siteUrl}sitemap-0.xml`)) {
-      errors.push('Built sitemap.xml does not use PUBLIC_SITE_URL.');
+    const sitemap = await readFile(new URL('sitemap.xml', distDir), 'utf8');
+    const sitemapUrls = [...sitemap.matchAll(/<loc>(https?:\/\/[^<]+)<\/loc>/g)].map(
+      (match) => match[1],
+    );
+    if (!/<urlset\b/.test(sitemap) || /<sitemapindex\b/.test(sitemap)) {
+      errors.push('Built sitemap.xml must directly contain a URL set.');
+    }
+    if (sitemap.includes('sitemap-0.xml')) {
+      errors.push('Built sitemap.xml still points through sitemap-0.xml.');
+    }
+    if (sitemapUrls.length < 160) {
+      errors.push(`Built sitemap.xml has only ${sitemapUrls.length} page URLs.`);
+    }
+    if (sitemapUrls.some((url) => !url.startsWith(siteUrl))) {
+      errors.push('Built sitemap.xml contains a URL outside PUBLIC_SITE_URL.');
     }
   }
 }

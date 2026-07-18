@@ -13,16 +13,20 @@
     "audit:content": "node --experimental-strip-types scripts/audit-content-quality.mjs",
     "audit:directory-evidence": "node --experimental-strip-types scripts/audit-directory-evidence.mjs",
     "audit:state-evidence": "node --experimental-strip-types scripts/audit-state-evidence.mjs",
+    "audit:practice": "node --experimental-strip-types scripts/audit-practice-tests.mjs",
     "audit:eeat": "node --experimental-strip-types scripts/audit-eeat.mjs",
     "audit:eeat:strict": "EEAT_STRICT=1 node --experimental-strip-types scripts/audit-eeat.mjs",
     "audit:site": "node scripts/audit-site-integrity.mjs",
     "audit:seo": "node scripts/audit-seo.mjs",
     "audit:launch": "node --env-file-if-exists=.env scripts/audit-launch-config.mjs",
-    "verify:launch": "npm run audit:content && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:site && npm run audit:seo && npm run audit:launch",
-    "astro": "astro"
+    "plan:quality": "node scripts/build-quality-workbook.mjs",
+    "plan:sc": "node scripts/build-search-console-plan.mjs",
+    "review:signoffs:import": "node scripts/import-review-signoffs.mjs",
+    "verify:launch": "npm run audit:content && npm run audit:practice && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:site && npm run audit:seo && npm run audit:launch",
+    "astro": "astro",
+    "plan:signoff": "node scripts/build-signoff-template.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
     "@lucide/astro": "^1.23.0",
     "astro": "^7.0.6"
   },

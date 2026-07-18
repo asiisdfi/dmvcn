@@ -1,0 +1,165 @@
+---
+import { ArrowRight, BookOpenCheck, ExternalLink, Languages, ShieldCheck } from '@lucide/astro/icons';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EditorialDisclosure from '../../components/EditorialDisclosure.astro';
+import ReviewBadge from '../../components/ReviewBadge.astro';
+import { EDITORIAL_AUTHOR } from '../../data/editorial';
+import { SITE } from '../../data/content';
+import { practiceTests } from '../../data/practice-tests';
+
+const publishedAt = '2026-07-19';
+const modifiedAt = '2026-07-19';
+const reviewedAt = '2026-07-19';
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const questionCount = practiceTests.reduce((total, test) => total + test.questions.length, 0);
+const sourceCount = new Set(practiceTests.flatMap((test) => test.sources.map((source) => source.url))).size;
+
+const schema = [
+  {
+    '@type': 'CollectionPage',
+    name: '美国驾照中文笔试练习',
+    description: '按州使用官方 Driver Manual 和考试说明编写的原创中文驾照笔试练习。',
+    url: pageUrl,
+    datePublished: publishedAt,
+    dateModified: modifiedAt,
+    inLanguage: 'zh-Hans',
+    author: {
+      '@type': 'Organization',
+      name: EDITORIAL_AUTHOR.name,
+      url: new URL(EDITORIAL_AUTHOR.path, Astro.site).toString(),
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+      url: new URL('/', Astro.site).toString(),
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: practiceTests.length,
+      itemListElement: practiceTests.map((test, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: test.title,
+        url: new URL(`/practice-tests/${test.slug}/`, Astro.site).toString(),
+      })),
+    },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: new URL('/', Astro.site).toString() },
+      { '@type': 'ListItem', position: 2, name: '中文笔试练习', item: pageUrl },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="美国驾照中文笔试练习"
+  description="按州使用官方 Driver Manual 和考试说明编写的原创中文驾照笔试练习，逐题提供解释、易错点和政府来源。"
+  publishedAt={publishedAt}
+  modifiedAt={modifiedAt}
+  reviewedAt={reviewedAt}
+  showContentMeta={true}
+  schema={schema}
+>
+  <section class="page-hero practice-hero">
+    <div class="section">
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><span>中文笔试练习</span>
+      </nav>
+      <p class="eyebrow">Practice Tests</p>
+      <h1>按州练，不背“美国通用题库”</h1>
+      <p class="lead">美国驾照知识考试由各州管理。这里的题目按州官方手册重新编写，每题都能回到对应政府章节核对。</p>
+      <ReviewBadge />
+      <div class="page-ledger" aria-label="中文笔试练习概况">
+        <div><strong>{practiceTests.length} 州</strong><span>已完成来源核对</span></div>
+        <div><strong>{questionCount} 题</strong><span>原创中文练习</span></div>
+        <div><strong>{sourceCount} 个</strong><span>当前官方来源</span></div>
+        <div><strong>逐题</strong><span>解释与章节入口</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section practice-library" aria-labelledby="available-tests">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">已上线</p>
+        <h2 id="available-tests">选择州题库</h2>
+      </div>
+      <p>先完成一个州的来源和交互质量，再扩州；不会用换州名的方式批量复制题目。</p>
+    </div>
+
+    <div class="practice-test-list">
+      {practiceTests.map((test) => (
+        <article class="practice-test-row">
+          <div class="practice-state-mark" aria-hidden="true">GA</div>
+          <div>
+            <p class="practice-test-kicker">{test.stateNameEn} · {test.questions.length} 题</p>
+            <h3>{test.title}</h3>
+            <p>{test.description}</p>
+            <div class="practice-test-meta">
+              <span><BookOpenCheck size={15} aria-hidden="true" /> Road Rules + Road Signs</span>
+              <span><Languages size={15} aria-hidden="true" /> 中文解释</span>
+              <span><ShieldCheck size={15} aria-hidden="true" /> 核对至 {test.reviewedAt}</span>
+            </div>
+          </div>
+          <a class="button-link primary" href={`/practice-tests/${test.slug}/`}>
+            开始练习 <ArrowRight size={16} aria-hidden="true" />
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="practice-method-band">
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">题目标准</p>
+          <h2>每道题必须回答三个问题</h2>
+        </div>
+        <a class="text-link" href="/editorial-policy/">查看编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
+      </div>
+      <div class="comparison-table practice-standard-table" role="table" aria-label="练习题质量标准">
+        <div class="comparison-row comparison-head" role="row">
+          <span role="columnheader">检查项</span>
+          <span role="columnheader">本页会给出</span>
+          <span role="columnheader">不会采用</span>
+        </div>
+        <div class="comparison-row" role="row">
+          <strong role="cell">依据是什么</strong>
+          <p role="cell">州 DMV/DDS 当前考试说明、Driver Manual 的具体章节。</p>
+          <p role="cell">“网络整理”、论坛答案或无法追溯的截图。</p>
+        </div>
+        <div class="comparison-row" role="row">
+          <strong role="cell">为什么这样答</strong>
+          <p role="cell">中文解释、适用条件和最容易混淆的错误选项。</p>
+          <p role="cell">只显示 A/B/C/D 答案，不解释州别规则。</p>
+        </div>
+        <div class="comparison-row" role="row">
+          <strong role="cell">何时再核对</strong>
+          <p role="cell">页面事实核对日期、下次复核日期和官方入口。</p>
+          <p role="cell">虚构发布日期，或把自动构建时间当成内容更新。</p>
+        </div>
+      </div>
+      <div class="notice">
+        <ShieldCheck size={22} aria-hidden="true" />
+        <div>
+          <strong>本站题目不是 DDS 真题，也不保证正式考试原题出现</strong>
+          <p>用途是理解官方手册中的规则并发现薄弱章节。正式考试的题目、语言和现场安排以州政府当天说明为准。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section compact-section">
+    <EditorialDisclosure />
+    <p class="practice-official-note">
+      想直接使用政府练习入口？打开
+      <a href="https://dds.georgia.gov/testing-and-training/practice-test" target="_blank" rel="noreferrer">
+        Georgia DDS Practice Test <ExternalLink size={14} aria-hidden="true" />
+      </a>。
+    </p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-07-18T00:00:00.000Z",
+  "source": "/Users/ozhb/Documents/Codex/2026-07-03/you/dmv-cn/reports/search-console-export.csv",
+  "totalRows": 0,
+  "includedRows": 0,
+  "actions": {
+    "improveAnswer": [],
+    "improveTitle": [],
+    "refreshRule": [],
+    "newTopics": []
+  },
+  "prioritized": [],
+  "warnings": [
+    "未找到 Search Console 导出文件：/Users/ozhb/Documents/Codex/2026-07-03/you/dmv-cn/reports/search-console-export.csv"
+  ],
+  "note": "请在每月首轮执行前上传 search-console-export.csv 后重新运行。"
+}

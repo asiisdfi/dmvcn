@@ -68,6 +68,16 @@ function isTopicContentPage(relative) {
   return /^topics\/(?!index\.html$)[^/]+\/index\.html$/.test(relative);
 }
 
+function isPracticeContentPage(relative) {
+  return /^practice-tests\/(?!index\.html$)[^/]+\/index\.html$/.test(relative);
+}
+
+function routeForHtml(relative) {
+  if (relative === 'index.html') return '/';
+  if (relative.endsWith('/index.html')) return `/${relative.slice(0, -'index.html'.length)}`;
+  return `/${relative}`;
+}
+
 const errors = [];
 
 if (!(await exists(distDir))) {
@@ -129,6 +139,27 @@ for (const file of htmlFiles) {
     errors.push(`${file.relative}: missing FAQPage schema`);
   }
 
+  if (isPracticeContentPage(file.relative)) {
+    const questionCount = (html.match(/\sdata-question(?:\s|>)/g) ?? []).length;
+    const sourceMappedQuestions = (html.match(/\sdata-source-url="https:\/\/[^\"]+\.gov[^\"]*"/g) ?? []).length;
+    if (questionCount < 20) errors.push(`${file.relative}: practice test has fewer than 20 rendered questions`);
+    if (sourceMappedQuestions !== questionCount) {
+      errors.push(`${file.relative}: every rendered practice question must carry its government source URL`);
+    }
+    if (!html.includes('data-practice-app') || !html.includes('practice-explanation')) {
+      errors.push(`${file.relative}: missing usable practice-test interaction or answer explanations`);
+    }
+    if (!html.includes('article:published_time') || !html.includes('article:modified_time') || !html.includes('content-review-date')) {
+      errors.push(`${file.relative}: missing publication, modification, or fact-check metadata`);
+    }
+    if (!html.includes('rel="author"') || !html.includes('content-meta')) {
+      errors.push(`${file.relative}: missing visible author or three-date metadata`);
+    }
+    if (!html.includes('"@type":"LearningResource"')) {
+      errors.push(`${file.relative}: missing LearningResource schema`);
+    }
+  }
+
   if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !/"author":\{"@type":"Organization","name":"DMV中文办事库编辑部","url":"https?:\/\//.test(html)) {
     errors.push(`${file.relative}: Article author must identify the editorial team and author URL`);
   }
@@ -140,36 +171,41 @@ if (homepage) {
   if (!html.includes('50 个州')) errors.push('index.html: homepage should show 50-state coverage');
 }
 
-if (!(await exists(new URL('sitemap-index.xml', distDir)))) {
-  errors.push('sitemap-index.xml is missing');
-}
-
 if (!(await exists(new URL('sitemap.xml', distDir)))) {
-  errors.push('sitemap.xml compatibility entry is missing');
+  errors.push('sitemap.xml is missing');
 }
 
 if (await exists(new URL('sitemap.xml', distDir))) {
-  const sitemapAlias = await readFile(new URL('sitemap.xml', distDir), 'utf8');
-  if (!/<sitemapindex\b/.test(sitemapAlias) || !sitemapAlias.includes('/sitemap-0.xml')) {
-    errors.push('sitemap.xml must be a valid sitemap index pointing to sitemap-0.xml');
-  }
-}
-
-if (await exists(new URL('sitemap-0.xml', distDir))) {
-  const sitemap = await readFile(new URL('sitemap-0.xml', distDir), 'utf8');
+  const sitemap = await readFile(new URL('sitemap.xml', distDir), 'utf8');
   const sitemapUrls = [...sitemap.matchAll(/<loc>(https?:\/\/[^<]+)<\/loc>/g)].map((match) => match[1]);
-  const expectedIndexablePages = htmlFiles.filter((file) => file.relative !== '404.html').length;
+  const indexableHtml = htmlFiles.filter((file) => file.relative !== '404.html');
+  const expectedIndexablePages = indexableHtml.length;
+  const expectedRoutes = new Set(indexableHtml.map((file) => routeForHtml(file.relative)));
+  const sitemapRoutes = new Set(sitemapUrls.map((url) => new URL(url).pathname));
 
+  if (!/<urlset\b/.test(sitemap) || /<sitemapindex\b/.test(sitemap)) {
+    errors.push('sitemap.xml must directly contain a standard urlset');
+  }
   if (sitemapUrls.length !== expectedIndexablePages) {
-    errors.push(`sitemap-0.xml has ${sitemapUrls.length} URLs; expected ${expectedIndexablePages}`);
+    errors.push(`sitemap.xml has ${sitemapUrls.length} URLs; expected ${expectedIndexablePages}`);
+  }
+  if (sitemapRoutes.size !== sitemapUrls.length) {
+    errors.push('sitemap.xml contains duplicate URL paths');
   }
   if (sitemapUrls.some((url) => url.includes('dmv-cn-guide.example.com'))) {
-    errors.push('sitemap-0.xml still contains the placeholder domain');
+    errors.push('sitemap.xml still contains the placeholder domain');
   }
-  for (const route of ['/', '/states/', '/topics/', '/directories/']) {
-    if (!sitemapUrls.some((url) => new URL(url).pathname === route)) {
-      errors.push(`sitemap-0.xml is missing ${route}`);
-    }
+  if (sitemap.includes('sitemap-0.xml')) {
+    errors.push('sitemap.xml still points through the generated sitemap-0.xml layer');
+  }
+  for (const route of expectedRoutes) {
+    if (!sitemapRoutes.has(route)) errors.push(`sitemap.xml is missing built route ${route}`);
+  }
+  for (const route of sitemapRoutes) {
+    if (!expectedRoutes.has(route)) errors.push(`sitemap.xml lists a route without built HTML: ${route}`);
+  }
+  for (const route of ['/', '/states/', '/topics/', '/directories/', '/practice-tests/', '/practice-tests/georgia/']) {
+    if (!sitemapRoutes.has(route)) errors.push(`sitemap.xml is missing ${route}`);
   }
 }
 

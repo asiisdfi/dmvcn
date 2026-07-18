@@ -1,47 +1,253 @@
 ---
-import { FileCheck2 } from '@lucide/astro/icons';
+import {
+  ArrowRight,
+  CalendarCheck2,
+  CircleAlert,
+  CircleCheck,
+  Flag,
+  FileCheck2,
+  Search,
+  ShieldCheck,
+  Target,
+  UserRoundCheck,
+} from '@lucide/astro/icons';
+import fs from 'node:fs/promises';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentMeta from '../components/ContentMeta.astro';
 import {
-  REVIEW_DATE,
-  federalSources,
-  getPublicEditorialNotes,
-  getStatePublicStatus,
-  states,
-  topics,
-} from '../data/content';
-import { EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
-import { buildStateEvidence } from '../data/state-evidence';
-import { reviewedStateEvidence } from '../data/state-evidence-reviews';
+  EDITORIAL_LINKS,
+  EDITORIAL_POLICY_DATE,
+  HIGH_RISK_TOPIC_SLUGS,
+  SITE_LAUNCH_DATE,
+} from '../data/editorial';
+import { REVIEW_DATE, federalSources, getStatePublicStatus, states, topics } from '../data/content';
 
-const statePages = states.length * 2;
-const reviewedStates = states.filter((state) => state.reviewedAt).length;
-const reviewedTopics = topics.filter((topic) => topic.reviewedAt).length;
-const factCheckedTopics = topics.filter((topic) => topic.factChecks?.length).length;
-const factChecks = topics.reduce((total, topic) => total + (topic.factChecks?.length ?? 0), 0);
-const stateEvidenceClaims = states.reduce(
-  (total, state) =>
-    total +
-    buildStateEvidence(state, 'overview', getPublicEditorialNotes(state.editorNotes)).length +
-    buildStateEvidence(state, 'real-id').length,
-  0,
+type ReviewStatus = 'human-approved' | 'ai-assisted' | 'source-mapped' | 'pending' | 'invalid' | 'not-required';
+type Risk = 'standard' | 'medium' | 'high' | 'policy';
+type PageType = 'state-overview' | 'state-real-id' | 'topic' | 'directory' | 'collection' | 'trust';
+
+type SemanticReview = {
+  reviewedAt?: string;
+  reviewer?: string;
+  scope?: string;
+  notes?: string;
+};
+
+type EeatPage = {
+  route: string;
+  pageType: PageType;
+  risk: Risk;
+  score: number;
+  threshold: number;
+  pass: boolean;
+  reviewStatus: ReviewStatus;
+  reviewMethod: 'ai-assisted' | 'human' | 'automated' | null;
+  semanticReview: SemanticReview | null;
+  signals: {
+    sourceCount: number;
+    factCheckCount: number;
+    hasFactMapping: boolean;
+    hasInlineStateEvidence: boolean;
+    hasInlineDirectoryEvidence: boolean;
+    hasEditorialDisclosure: boolean;
+    visibleThreeDates: boolean;
+    authorLink: boolean;
+    schemaAuthorUrl: boolean;
+    stateEvidenceItems: number;
+    directoryEvidenceItems: number;
+  };
+  critical: string[];
+  blockers: string[];
+};
+
+type EeatSummary = {
+  generatedAt: string;
+  pages: number;
+  passed: number;
+  blockedPages: number;
+  threshold: number;
+  highRiskHumanApprovalPending: number;
+  aiAssistedReviews: number;
+  humanApprovedReviews: number;
+  sourceMappedReviews: number;
+  evidenceReviewPending: number;
+  belowThreshold: number;
+  averageScore: number;
+  strict: boolean;
+  criticalPages: number;
+};
+
+type WorkbookTask = {
+  route: string;
+  risk: string;
+  score: number;
+  reviewStatus: string;
+  reviewDue?: string;
+  priority?: string;
+  action?: string;
+  actionMethod?: string;
+  expectedOutcome?: string;
+  blockersCount?: number;
+  criticalCount?: number;
+  reviewer?: string;
+  notes?: string;
+};
+
+type SearchConsoleAction = {
+  route: string;
+  action: string;
+  impressionsCurrent: number;
+  clicksCurrent: number;
+  ctrCurrent: number;
+  positionCurrent: number;
+  impressionsDelta: number;
+  reason: string;
+};
+
+type WorkbookReport = {
+  summary?: {
+    blockedPages?: number;
+    highRiskPending?: number;
+    pages?: number;
+    byType?: Record<string, number>;
+    byRisk?: Record<string, number>;
+  };
+  queues?: {
+    humanSignoff?: WorkbookTask[];
+    blocked?: WorkbookTask[];
+    intentFixes?: WorkbookTask[];
+  };
+  generatedAt?: string;
+};
+
+type SearchConsoleReport = {
+  prioritized?: SearchConsoleAction[];
+  actions?: {
+    improveTitle?: SearchConsoleAction[];
+    improveAnswer?: SearchConsoleAction[];
+    refreshRule?: SearchConsoleAction[];
+    newTopics?: SearchConsoleAction[];
+  };
+  totalRows?: number;
+  includedRows?: number;
+  source?: string;
+};
+
+type EeatReport = {
+  summary: EeatSummary;
+  pages: EeatPage[];
+};
+
+const today = '2026-07-19';
+const toIsoDate = (offsetDays: number) =>
+  new Date(Date.parse(today) + offsetDays * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+const stateById = new Map(states.map((state) => [state.id, state]));
+const topicBySlug = new Map(topics.map((topic) => [topic.slug, topic]));
+
+const defaultSummary: EeatSummary = {
+  generatedAt: '',
+  pages: 0,
+  passed: 0,
+  blockedPages: 0,
+  threshold: 85,
+  highRiskHumanApprovalPending: 0,
+  aiAssistedReviews: 0,
+  humanApprovedReviews: 0,
+  sourceMappedReviews: 0,
+  evidenceReviewPending: 0,
+  belowThreshold: 0,
+  averageScore: 0,
+  strict: false,
+  criticalPages: 0,
+};
+
+let report: EeatReport | null = null;
+let reportError = '';
+try {
+  const json = await fs.readFile(new URL('../../reports/eeat-inventory.json', import.meta.url), 'utf8');
+  report = JSON.parse(json) as EeatReport;
+} catch {
+  reportError = '尚未生成 eeat-inventory.json，请先运行 npm run build 后再执行 npm run audit:eeat。';
+}
+
+const inventory = report?.pages ?? [];
+const summary = report?.summary ?? defaultSummary;
+
+const pageTypeName: Record<PageType, string> = {
+  'state-overview': '州总览',
+  'state-real-id': '州 REAL ID',
+  topic: '专题',
+  directory: '目录',
+  collection: '索引',
+  trust: '信任页',
+};
+
+const pageStatusLabel: Record<ReviewStatus, string> = {
+  'human-approved': '已完成人工签字',
+  'ai-assisted': 'AI 辅助已核对',
+  'source-mapped': '仅来源映射',
+  pending: '待登记',
+  invalid: '异常状态',
+  'not-required': '无需审计',
+};
+
+const riskLabel: Record<Risk, string> = {
+  standard: '标准',
+  medium: '中等',
+  high: '高风险',
+  policy: '政策',
+};
+
+function formatTitle(page: EeatPage) {
+  if (page.pageType === 'state-overview' || page.pageType === 'state-real-id') {
+    const stateId = page.route.split('/')[2];
+    const state = stateById.get(stateId);
+    if (state) {
+      return `${state.nameZh} ${page.pageType === 'state-real-id' ? '州 REAL ID 页面' : '州办事页面'}`;
+    }
+  }
+
+  if (page.pageType === 'topic') {
+    const slug = page.route.split('/')[2];
+    const topic = topicBySlug.get(slug);
+    if (topic) return topic.title;
+  }
+
+  if (page.pageType === 'directory') {
+    return `/directories/ 下的 ${page.route.replace('/directories/', '').replace('/', '')}`;
+  }
+
+  if (page.route === '/') return '首页';
+  if (page.route === '/states/') return '州指南索引';
+  if (page.route === '/topics/') return '专题索引';
+  if (page.route === '/directories/') return '官方入口表索引';
+  if (page.route === '/about/') return '关于我们';
+  if (page.route === '/privacy/') return '隐私政策';
+  if (page.route === '/terms/') return '服务条款';
+  if (page.route === '/contact/') return '联系页';
+
+  return page.route;
+}
+
+const qualityChecks = [
+  '官方来源可追溯',
+  '三类日期完整显示',
+  '每个关键事实逐条映射官方来源',
+  '搜索意图对应用户决策行为',
+  '每篇有编辑说明与更新方法',
+  '高风险事实有风险边界',
+  '页面结构可抓取（h1、canonical、JSON-LD）',
+];
+
+const blockedPages = inventory.filter((page) => page.blockers.length > 0 || page.critical.length > 0);
+const highRiskPending = inventory.filter((page) => page.risk === 'high' && page.reviewStatus !== 'human-approved');
+const lowScorePages = inventory.filter((page) => page.score < 90);
+const weakIntentPages = inventory.filter(
+  (page) => (page.pageType === 'collection' || page.pageType === 'directory') && !page.signals.authorLink,
 );
-const aiAssistedStatePages = Object.values(reviewedStateEvidence).reduce(
-  (total, review) => total + review.surfaces.length,
-  0,
-);
-const aiAssistedStateClaims = states.reduce(
-  (total, state) =>
-    total +
-    buildStateEvidence(state, 'overview', getPublicEditorialNotes(state.editorNotes)).filter(
-      (item) => item.mappingMethod === 'ai-assisted',
-    ).length +
-    buildStateEvidence(state, 'real-id').filter(
-      (item) => item.mappingMethod === 'ai-assisted',
-    ).length,
-  0,
-);
-const officialUrls = new Set([
+
+const officialSourceCount = new Set([
   ...federalSources.map((source) => source.url),
   ...states.flatMap((state) => [
     state.agencyUrl,
@@ -49,43 +255,156 @@ const officialUrls = new Set([
     ...state.actionLinks.map((link) => link.url),
   ]),
   ...topics.flatMap((topic) => topic.sources.map((source) => source.url)),
-]);
-const browserCheckStates = states.filter((state) => ['watch', 'risk'].includes(getStatePublicStatus(state).tone));
-const sampleBrowserCheckStates = browserCheckStates.slice(0, 12);
-const qualitySteps = [
-  '先从官方 DMV/DPS/RMV/MVC/DDS、DHS、TSA 或 USA.gov 页面确认事实。',
-  '再写成中文路径、材料提醒、顺序和常见错误，不复制官方原文。',
-  '最后把官方入口放回页面，让读者回到官方系统办理。',
+]).size;
+
+const byType = Object.fromEntries(
+  ['collection', 'state-overview', 'state-real-id', 'topic', 'directory', 'trust'].map((type) => [type, 0]),
+);
+const byRisk = { standard: 0, medium: 0, high: 0, policy: 0 };
+for (const page of inventory) {
+  byType[page.pageType] += 1;
+  byRisk[page.risk] += 1;
+}
+
+const watchStates = states.filter((state) => ['watch', 'risk'].includes(getStatePublicStatus(state).tone));
+const highPriorityStates = watchStates.slice(0, 6);
+const weakStatePages = lowScorePages
+  .filter((page) => ['state-overview', 'state-real-id'].includes(page.pageType))
+  .slice(0, 10)
+  .map((page) => formatTitle(page));
+
+const plan = [
+  {
+    title: '第 1-2 周',
+    goal: '完成高风险页面的人工语义签字',
+    intent: '高风险专题 + 高风险目录：费用、身份、暂停、外国驾照',
+    sources: ['州官网正文', '专题官方来源页'],
+    scope: highRiskPending.map((page) => formatTitle(page)).slice(0, 12),
+    publish: toIsoDate(14),
+    reviewCycle: '每周复核 + 发布后 5 个工作日抽检',
+  },
+  {
+    title: '第 3-4 周',
+    goal: '补齐低分州页的“判定路径”',
+    intent: '州总览与 REAL ID 页面差异化决策清晰化',
+    sources: ['州官方主页、州DMV办理页、州文书说明页'],
+    scope: weakStatePages,
+    publish: toIsoDate(28),
+    reviewCycle: '每 2 周一轮人工复核',
+  },
+  {
+    title: '第 5-6 周',
+    goal: '建立月度“热门意图”专题扩展机制',
+    intent: '围绕高搜索意图专题补齐流程失败与禁忌',
+    sources: ['专题官方来源 + FAQ', '州入口页'],
+    scope: ['费用和时效', '外国驾照互惠', 'non citizen / lawful presence', '车辆登记 hold', '驾驶记录与扣分'],
+    publish: toIsoDate(42),
+    reviewCycle: '按 Search Console 流量与失败反馈复核',
+  },
+  {
+    title: '第 7-12 周',
+    goal: '月度更新机制落地',
+    intent: '把搜索需求×官方更新频率做优先级排序',
+    sources: ['Search Console 导出', '州政府官方更新提示页'],
+    scope: [
+      `优先州：${highPriorityStates.map((state) => state.nameZh).join('、')}`,
+      `高优先专题：${topics
+        .filter((topic) => HIGH_RISK_TOPIC_SLUGS.has(topic.slug))
+        .map((topic) => topic.title)
+        .slice(0, 10)
+        .join('、')}`,
+    ],
+    publish: toIsoDate(84),
+    reviewCycle: '月末复盘 + 下一月发布前签字',
+  },
 ];
+
+const qualityWorkflow = [
+  {
+    title: '来源优先',
+    text: '先抓取联邦和州官方页面，再做中文化决策路径落地。每条关键事实都保留可核对来源。',
+    Icon: ShieldCheck,
+  },
+  {
+    title: '事实映射',
+    text: '高风险事实逐条显示来源，不以页尾链接替代正文旁的来源承载；禁止“可疑来源”进入正文。',
+    Icon: Search,
+  },
+  {
+    title: '价值重写',
+    text: '每篇都要覆盖判断路径、材料清单、办理步骤、常见失败和官方入口，不是纯翻译或目录摘抄。',
+    Icon: Target,
+  },
+  {
+    title: '发布门禁',
+    text: '未具备三类日期、缺失作者、缺少源映射、高风险未人工签字，不进入可推送状态。',
+    Icon: Flag,
+  },
+];
+
+let qualityWorkbook: WorkbookReport | null = null;
+let qualityWorkbookError = '';
+try {
+  const workbookText = await fs.readFile(new URL('../../reports/quality-workbook.json', import.meta.url), 'utf8');
+  qualityWorkbook = JSON.parse(workbookText) as WorkbookReport;
+} catch {
+  qualityWorkbookError = '未生成 /reports/quality-workbook.json，先执行 npm run plan:quality。';
+}
+
+let searchConsolePlan: SearchConsoleReport | null = null;
+let searchConsolePlanError = '';
+try {
+  const planText = await fs.readFile(new URL('../../reports/search-console-priority.json', import.meta.url), 'utf8');
+  searchConsolePlan = JSON.parse(planText) as SearchConsoleReport;
+} catch {
+  searchConsolePlanError = '未生成 /reports/search-console-priority.json，先执行 npm run plan:sc。';
+}
+
+const reviewTaskList = qualityWorkbook?.queues?.humanSignoff ?? [];
+const blockedWorklist = qualityWorkbook?.queues?.blocked ?? [];
+
+const scActionList = searchConsolePlan?.prioritized ?? [];
+const scPlanList = [...scActionList].slice(0, 20);
+
+const scActionLabel: Record<string, string> = {
+  'improve-title': '补标题/描述',
+  'improve-answer': '补答案章节',
+  'refresh-rule-change': '规则变更复核',
+  'new-topic': '评估是否拆新专题',
+  observe: '观察',
+};
 ---
 
 <BaseLayout
-  title="来源与更新"
-  description="DMV中文办事库的来源、核对日期、官方链接、中文整理原则和上线后复核规则。"
+  title="E-E-A-T 内容台账"
+  description="把 50 州、37 个专题、目录页与信任页形成逐页可执行台账，支持 90 天更新计划与阻塞项管理。"
   publishedAt={SITE_LAUNCH_DATE}
   modifiedAt={EDITORIAL_POLICY_DATE}
   reviewedAt={REVIEW_DATE}
 >
   <section class="page-hero">
     <div class="section">
-      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>来源与更新</span></nav>
-      <p class="eyebrow">来源规则</p>
-      <h1>来源与更新</h1>
-      <p class="lead">本站按“官方来源、核对日期、中文整理、风险提醒”的顺序维护页面，重要办事页会定期复核。</p>
+      <nav class="breadcrumbs" aria-label="面包屑">
+        <a href="/">首页</a><span>/</span><span>来源与更新</span>
+      </nav>
+      <p class="eyebrow">质量与发布控制</p>
+      <h1>E-E-A-T 内容台账</h1>
+      <p class="lead">目标是让每个页面都能对应“可复核来源 + 真实决策价值 + 明确更新责任”。</p>
       <div class="article-meta">
         <ContentMeta publishedAt={SITE_LAUNCH_DATE} modifiedAt={EDITORIAL_POLICY_DATE} reviewedAt={REVIEW_DATE} />
       </div>
-      <div class="page-ledger" aria-label="当前维护台账">
+      {reportError ? <p class="status-chip ready" role="status">{reportError}</p> : null}
+      <div class="registry-summary">
         <div>
-          <strong>{states.length} 州</strong>
-          <span>覆盖范围</span>
+          <strong>{states.length}</strong>
+          <span>覆盖州</span>
         </div>
         <div>
-          <strong>{statePages + topics.length} 页</strong>
-          <span>核心内容页</span>
+          <strong>{topics.length}</strong>
+          <span>跨州专题</span>
         </div>
         <div>
-          <strong>{officialUrls.size}</strong>
+          <strong>{officialSourceCount}</strong>
           <span>官方 URL</span>
         </div>
       </div>
@@ -93,91 +412,273 @@ const qualitySteps = [
   </section>
 
   <section class="section">
-    <div class="registry-summary quality-summary" aria-label="内容复核状态">
-      <div>
-        <strong>{reviewedStates}/{states.length}</strong>
-        <span>州资料有核对日期</span>
-      </div>
-      <div>
-        <strong>{reviewedTopics}/{topics.length}</strong>
-        <span>专题有核对日期</span>
-      </div>
-      <div>
-        <strong>{stateEvidenceClaims} 条</strong>
-        <span>{statePages} 个州页声明级来源映射</span>
-      </div>
-      <div>
-        <strong>{factChecks} 条</strong>
-        <span>{factCheckedTopics} 个专题重点事实直连来源</span>
-      </div>
-    </div>
-
-    <div class="panel audit-strip">
-      <div>
-        <h2>来源映射不等于人工审核</h2>
-        <p>全部州页都通过自动拆分、来源白名单、主题匹配和最终 HTML 检查；其中 {aiAssistedStatePages} 页的 {aiAssistedStateClaims} 条声明已进一步逐条打开官方正文并登记为 AI 辅助核对。其余页面仍是 source-mapped，所有州页都尚未登记为真实人工审核。</p>
-      </div>
-    </div>
-
-    {browserCheckStates.length > 0 && (
-      <div class="panel audit-strip">
-        <div>
-          <h2>深层官方页面打不开时</h2>
-          <p>部分州政府深层页面可能受网络位置或安全验证影响。相关州页会保留原始官方 URL，并提供 USA.gov 或州级备用入口。</p>
+    {report ? (
+      <>
+        <div class="registry-summary eeat-summary" aria-label="台账总览">
+          <div>
+            <strong>{summary.pages}</strong>
+            <span>可索引页（当前版本）</span>
+          </div>
+          <div>
+            <strong>{summary.passed}</strong>
+            <span>当前通过</span>
+          </div>
+          <div>
+            <strong>{summary.averageScore}</strong>
+            <span>平均分</span>
+          </div>
+          <div>
+            <strong>{summary.highRiskHumanApprovalPending}</strong>
+            <span>高风险待人工签字</span>
+          </div>
+          <div>
+            <strong>{summary.blockedPages}</strong>
+            <span>阻塞项（门禁项）</span>
+          </div>
+          <div>
+            <strong>{(summary.passed / Math.max(summary.pages, 1) * 100).toFixed(1)}%</strong>
+            <span>通过率</span>
+          </div>
         </div>
-        <div class="state-chip-list" aria-label="提供备用官方入口的州样例">
-          {sampleBrowserCheckStates.map((state) => (
-            <a href={`/states/${state.id}/`}>{state.abbr}</a>
-          ))}
-          {browserCheckStates.length > sampleBrowserCheckStates.length && <span>+{browserCheckStates.length - sampleBrowserCheckStates.length}</span>}
+
+        <div class="grid two">
+          <article class="card">
+            <div class="card-top"><FileCheck2 size={22} aria-hidden="true" /><span class="small-badge">内容分布</span></div>
+            <h2>按页类型分布</h2>
+            <p>州总览 {byType['state-overview']} / REAL ID {byType['state-real-id']} / 专题 {byType.topic} / 目录 {byType.directory} / 索引 {byType.collection} / 信任页 {byType.trust}。</p>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><CircleCheck size={22} aria-hidden="true" /><span class="small-badge">签字状态</span></div>
+            <h2>人工签字与 AI 辅助</h2>
+            <p>人工签字 <strong>{summary.humanApprovedReviews}</strong>；AI 辅助核对 <strong>{summary.aiAssistedReviews}</strong>；待真人签字 <strong>{summary.highRiskHumanApprovalPending}</strong>。</p>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><UserRoundCheck size={22} aria-hidden="true" /><span class="small-badge">风险结构</span></div>
+            <h2>风险分层</h2>
+            <p>标准 {byRisk.standard} 页，中等 {byRisk.medium} 页，高风险 {byRisk.high} 页，政策页 {byRisk.policy} 页。</p>
+          </article>
+
+          <article class="card">
+            <div class="card-top"><CalendarCheck2 size={22} aria-hidden="true" /><span class="small-badge">复核机制</span></div>
+            <h2>三日期规则</h2>
+            <p>每篇必须显示“首次发布 / 内容更新 / 事实核对”。“内容更新”与“事实核对”不可混用。</p>
+          </article>
         </div>
-      </div>
+
+        <section class="panel">
+          <h2>质量核验清单（E-E-A-T 映射）</h2>
+          <ol class="step-list">
+            {qualityChecks.map((step) => <li>{step}</li>)}
+          </ol>
+        </section>
+
+        <section class="panel">
+          <h2>高风险待人工签字</h2>
+          <p>共 <strong>{highRiskPending.length}</strong> 页。建议按页逐条复核官方页面并更新签字记录。</p>
+          <div class="eeat-table-wrap">
+            <table class="eeat-table">
+              <thead>
+                <tr>
+                  <th>页面</th>
+                  <th>风险</th>
+                  <th>状态</th>
+                  <th>最近核对</th>
+                  <th>来源绑定</th>
+                </tr>
+              </thead>
+              <tbody>
+                {highRiskPending.map((page) => (
+                  <tr>
+                    <td>
+                      <a href={page.route}>{formatTitle(page)}</a>
+                    </td>
+                    <td><span class="status-chip warn">{riskLabel[page.risk]}</span></td>
+                    <td><span class="status-chip">{pageStatusLabel[page.reviewStatus]}</span></td>
+                    <td>{page.semanticReview?.reviewedAt ?? '—'}</td>
+                    <td>{page.signals.hasInlineStateEvidence || page.signals.hasInlineDirectoryEvidence ? '逐条映射' : '结构映射'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>人工签字与发布动作工单（自动生成）</h2>
+          <p>{qualityWorkbookError ? qualityWorkbookError : `已加载 ${qualityWorkbook?.generatedAt?.slice(0, 10) ?? 'N/A'} 的工作清单。`}</p>
+          <p class="small-note">
+            高风险页面默认阻塞发布。每轮执行前可运行 <code>npm run plan:signoff</code> 生成签字清单，再由真实审核人填充 <code>docs/review-manual-signoff-template.csv</code> 并执行
+            <code>SIGNOFF_CSV=docs/review-manual-signoff-template.csv npm run review:signoffs:import</code>。
+          </p>
+          <div class="eeat-table-wrap">
+            <table class="eeat-table">
+              <thead>
+                <tr>
+                  <th>页面</th>
+                  <th>优先级</th>
+                  <th>风险</th>
+                  <th>分数</th>
+                  <th>建议动作</th>
+                  <th>截止</th>
+                </tr>
+              </thead>
+              <tbody>
+                {reviewTaskList.length
+                  ? reviewTaskList.slice(0, 10).map((task) => (
+                      <tr>
+                        <td><a href={task.route}>{task.route}</a></td>
+                        <td>{task.priority}</td>
+                        <td><span class="status-chip warn">{riskLabel[(task.risk as Risk) ?? 'high']}</span></td>
+                        <td>{task.score}</td>
+                        <td>{task.actionMethod ?? task.action ?? '安排人工核对'}</td>
+                        <td>{task.reviewDue ?? '—'}</td>
+                      </tr>
+                    ))
+                  : <tr><td colspan="6">当前无待签字高风险项。</td></tr>}
+              </tbody>
+            </table>
+          </div>
+          <p class="small-note">
+            高风险发布前必须完成人工语义签字。
+          </p>
+        </section>
+
+        <div class="quality-grid-2">
+          <section class="panel">
+            <h2>低分页与重写优先项</h2>
+            <p>评分低于 90 的页面建议先补齐搜索意图、独特价值与来源映射的可读呈现。</p>
+            <div class="registry-table state-registry" role="list">
+              {lowScorePages.map((page) => (
+                <article class="registry-row" role="listitem">
+                  <a class="registry-main" href={page.route}>
+                    <span class={page.score >= 90 ? 'status-chip ready' : 'status-chip warn'}>{page.score}</span>
+                    <span>
+                      <strong>{formatTitle(page)}</strong>
+                      <small>{page.route}</small>
+                    </span>
+                  </a>
+                  <div class="registry-copy">
+                    <p>{page.critical.length ? page.critical[0] : '建议补充判定路径、材料与官方入口绑定。'}</p>
+                    <small>{pageTypeName[page.pageType]} · {riskLabel[page.risk]} · {pageStatusLabel[page.reviewStatus]}</small>
+                  </div>
+                  <div class="registry-status">
+                    <span class="status-chip ready">待优化</span>
+                  </div>
+                  <div class="registry-actions">
+                    <a href={EDITORIAL_LINKS.corrections}>复核</a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>搜索意图与内容重叠监控</h2>
+            <ul class="check-list">
+              {weakIntentPages.length > 0
+                ? weakIntentPages.map((page) => (
+                    <li>
+                      <a href={page.route}>{formatTitle(page)}</a>
+                      <small>建议判断是否与专题/目录形成独立意图；必要时考虑合并或设置 noindex。</small>
+                </li>
+                  ))
+                : <li>当前未发现明显重复意图冲突项。索引页与详情页分工清晰。</li>}
+            </ul>
+          </section>
+
+          <section class="panel">
+            <h2>Search Console 月度建议</h2>
+            <p>
+              {searchConsolePlanError
+                ? searchConsolePlanError
+                : `来源：${searchConsolePlan?.source ?? '未指定'}；已入库 ${searchConsolePlan?.includedRows ?? 0}/${searchConsolePlan?.totalRows ?? 0} 条。`}
+            </p>
+            <ul class="check-list">
+              {scPlanList.length > 0
+                ? scPlanList.slice(0, 10).map((item) => (
+                    <li>
+                      <a href={item.route}>{item.route}</a> · <strong>{scActionLabel[item.action] ?? item.action}</strong>
+                      <small>
+                        （展现 {item.impressionsCurrent} / 点击 {item.clicksCurrent} / 位置 {item.positionCurrent.toFixed(1)} / 展现变化
+                        {item.impressionsDelta.toFixed(1)}%）
+                      </small>
+                      <p>{item.reason}</p>
+                    </li>
+                  ))
+                : <li>请先执行 <code>npm run plan:sc</code>（配合 Search Console 导出）生成月度建议。</li>}
+            </ul>
+          </section>
+        </div>
+
+        <section class="panel">
+          <h2>90 天内容与复核计划</h2>
+          <div class="timeline">
+            {plan.map((phase) => (
+              <article class="timeline-step">
+                <h3><CircleAlert size={17} aria-hidden="true" /> {phase.title}</h3>
+                <p><strong>目标：</strong>{phase.goal}</p>
+                <p><strong>搜索意图：</strong>{phase.intent}</p>
+                <p><strong>官方来源：</strong>{phase.sources.join(' / ')}</p>
+                <p><strong>范围：</strong>{phase.scope.length ? phase.scope.join('；') : '按搜索需求动态补全'}</p>
+                <p><strong>目标上线：</strong>{phase.publish}；<strong>复核：</strong>{phase.reviewCycle}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>发布流程（可复用为编辑工作流）</h2>
+          <div class="grid two">
+            {qualityWorkflow.map((step) => (
+              <article class="card">
+                <div class="card-top"><step.Icon size={22} aria-hidden="true" /><span class="small-badge">流程</span></div>
+                <h2>{step.title}</h2>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+          <div class="policy-links">
+            <a href={EDITORIAL_LINKS.policy}>编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
+            <a href={EDITORIAL_LINKS.ai}>AI 使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
+            <a href={EDITORIAL_LINKS.corrections}>纠错政策 <ArrowRight size={15} aria-hidden="true" /></a>
+            <a href={EDITORIAL_LINKS.updates}>更新记录 <ArrowRight size={15} aria-hidden="true" /></a>
+            <a href="/sources/">来源清单 <ArrowRight size={15} aria-hidden="true" /></a>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>阻塞项快照</h2>
+          <div class="eeat-check-list">
+            {blockedPages.length > 0 ? (
+              blockedPages.map((page) => (
+                <article class="eeat-check-item">
+                  <h3><CircleCheck size={17} aria-hidden="true" /> {formatTitle(page)}</h3>
+                  <p><a href={page.route}>{page.route}</a></p>
+                  <ul>
+                    {page.blockers.concat(page.critical).map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))
+            ) : (
+              <p>当前无阻塞项。</p>
+            )}
+          </div>
+        </section>
+      </>
+    ) : (
+      <section class="panel">
+        <h2>当前无法展示审计清单</h2>
+        <p>请先在本地执行：</p>
+        <ol class="step-list">
+          <li>npm run build</li>
+          <li>npm run audit:eeat</li>
+        </ol>
+        <p>生成后返回 `/quality/` 即可看到逐页清单。</p>
+      </section>
     )}
-
-    <div class="grid two">
-      <article class="card">
-        <div class="card-top"><FileCheck2 size={22} aria-hidden="true" /><span class="small-badge">必须有</span></div>
-        <h2>官方来源</h2>
-        <p>优先 DHS、TSA、USA.gov 和州 DMV/DPS/RMV/MVC/DDS 官方页面。每个内容页都要列出来源。</p>
-      </article>
-      <article class="card">
-        <div class="card-top"><FileCheck2 size={22} aria-hidden="true" /><span class="small-badge">谨慎写</span></div>
-        <h2>易变信息</h2>
-        <p>费用、日期、资格、材料等容易变动的信息要谨慎表达，并引导用户回到官方页确认。</p>
-      </article>
-      <article class="card">
-        <div class="card-top"><FileCheck2 size={22} aria-hidden="true" /><span class="small-badge">不是改写</span></div>
-        <h2>整理价值</h2>
-        <p>页面必须有清单、步骤、常见错误、官方入口或对比说明，不能只是翻译/改写官网。</p>
-      </article>
-      <article class="card">
-        <div class="card-top"><FileCheck2 size={22} aria-hidden="true" /><span class="small-badge">复核</span></div>
-        <h2>逐页复核标准</h2>
-        <p>中文表达要清楚，标题要匹配搜索意图，敏感内容要有免责声明，页面不能误导为政府官方网站。</p>
-      </article>
-    </div>
-
-    <section class="panel quality-process">
-      <h2>一页内容怎么进库</h2>
-      <ol class="step-list">
-        {qualitySteps.map((step) => <li>{step}</li>)}
-      </ol>
-    </section>
-
-    <section class="panel">
-      <h2>日期不是同一件事</h2>
-      <dl class="definition-list">
-        <div><dt>首次发布</dt><dd>页面第一次公开提供的日期。</dd></div>
-        <div><dt>内容更新</dt><dd>正文、结论、结构或来源发生实质变化的日期。</dd></div>
-        <div><dt>事实核对</dt><dd>最后一次回到官方来源确认关键要求的日期。</dd></div>
-      </dl>
-    </section>
-
-    <nav class="policy-links" aria-label="质量与编辑政策">
-      <a href={EDITORIAL_LINKS.policy}>编辑政策</a>
-      <a href={EDITORIAL_LINKS.ai}>AI 使用说明</a>
-      <a href={EDITORIAL_LINKS.corrections}>纠错政策</a>
-      <a href={EDITORIAL_LINKS.updates}>更新记录</a>
-    </nav>
   </section>
 </BaseLayout>

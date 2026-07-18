@@ -14,7 +14,7 @@
 
 | 周次 | 日期 | 主要任务 | 目标搜索意图或页面 | 主要官方来源 | 交付与复核 |
 | --- | --- | --- | --- | --- | --- |
-| 1 | 07-17 至 07-23 | 建立作者、政策、日期、更新记录和 E-E-A-T 台账 | 全站信任信息 | Google Search Central 用于方法参考；本站事实仍以政府来源为准 | 完成基础设施、首次全站评分 |
+| 1 | 07-17 至 07-23 | 建立作者、政策、日期、更新记录和 E-E-A-T 台账；处理高风险签字清单；发布 Georgia 官方手册衍生练习原型 | 全站信任信息；“Georgia 驾照中文笔试练习” | Google Search Central 用于方法参考；Georgia DDS Test and Exams、Driver Manual | 完成基础设施、首次全站评分；输出高风险清单；20 题逐题来源审计 |
 | 2 | 07-24 至 07-30 | 深核驾照暂停、恢复、SR-22、罚单和 registration hold | “驾照被 suspend 怎么恢复”“交钱后为什么仍不能续期” | 州 DMV/DPS/RMV、法院、toll/parking、保险监管机构 | 逐条来源映射；60 天复核 |
 | 3 | 07-31 至 08-06 | 深核身份、SSN、非公民、学生和 standard license 路径 | “没有 SSN 能否办驾照”“留学生 DMV 材料” | SSA、USCIS、DHS、州 DMV | 区分身份类别和州别；60 天复核 |
 | 4 | 08-07 至 08-13 | 核验 CA、NY、TX、FL、NJ、MA、WA、IL、PA、GA 州总览 | 州名 + DMV / renewal / address / appointment | 各州主管机构、USA.gov 备用入口 | 每州关键事实映射；90 天复核 |
@@ -44,6 +44,20 @@
 第一优先：California、New York、Texas、Florida、New Jersey、Massachusetts、Washington、Illinois、Pennsylvania、Georgia。
 
 第二优先不预先写死。依据 Search Console 的州名查询、页面展示量、读者反馈和官方规则变化确定，避免按主观印象批量扩写。
+
+## 州级中文笔试练习轨道
+
+题库不按文章数量扩张。Georgia 原型通过交互和来源门禁后，才按以下顺序评估下一州：
+
+| 候选州 | 目标搜索意图 | 首选官方资料 | 最早评估周 | 发布门槛 | 复核周期 |
+| --- | --- | --- | --- | --- | ---: |
+| California | California DMV 中文笔试题、Class C practice test | California DMV 官方中文样题、Driver Handbook、Knowledge Test Preparation | 第 4 周 | 逐题确认当前官方中文样题与手册章节；不复制官方题干 | 60 天 |
+| New York | NY permit 中文练习、中文驾驶手册 | NY DMV Permit Test、Driver Manual、官方 practice quizzes | 第 5 周 | 先核验当前中文考试语言和在线/现场路径 | 60 天 |
+| Florida | Florida Class E 中文笔试练习 | FLHSMV Class E exam、Official Handbook、官方 practice test | 第 6 周 | 50 题/80% 等考试事实逐条对应当前官方页 | 60 天 |
+| Texas | Texas DPS permit test 中文解释 | Texas DPS Driver Handbook、Knowledge Test 与语言说明 | 第 7 周 | 只有找到当前官方语言与考试结构证据才发布 | 60 天 |
+| New Jersey | NJ MVC knowledge test 中文练习 | NJ MVC Driver Manual、Knowledge Test、语言/口译说明 | 第 8 周 | 官方资料完整且 Search Console 有稳定州名查询 | 60 天 |
+
+每个州先发布 20 至 30 道诊断题，观察 28 天的展示、开始练习率、完成率、错题分布和官方出口点击；没有搜索需求或来源不完整时不扩题。第三方外语题库只用于观察界面、查询词和常见误区，不进入题目证据层。
 
 ## 每篇内容任务模板
 
