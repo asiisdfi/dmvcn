@@ -95,7 +95,7 @@ export function GET({ site }: { site: URL }) {
     markdownLink(base, '全部官方来源', '/sources/', '查看站内引用的政府来源集合。'),
     markdownLink(base, '关于本站', '/about/', '了解站点定位和非政府声明。'),
     markdownLink(base, '联系方式', '/contact/', '联系站点维护者。'),
-    markdownLink(base, 'XML Sitemap', '/sitemap-index.xml', '发现站内全部可索引页面。'),
+    markdownLink(base, 'XML Sitemap', '/sitemap.xml', '发现站内全部可索引页面。'),
     '',
   ].join('\n');
 

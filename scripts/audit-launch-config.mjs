@@ -117,6 +117,7 @@ if (!(await exists(distDir))) {
     'updates/index.html',
     'robots.txt',
     'llms.txt',
+    'sitemap.xml',
     'sitemap-index.xml',
   ]) {
     if (!(await exists(new URL(path, distDir)))) errors.push(`dist/${path} is missing.`);
@@ -145,8 +146,8 @@ if (!(await exists(distDir))) {
   if (await exists(new URL('robots.txt', distDir))) {
     const robots = await readFile(new URL('robots.txt', distDir), 'utf8');
     if (!robots.includes('Sitemap:')) errors.push('robots.txt does not include a Sitemap line.');
-    if (siteUrl && !robots.includes(`Sitemap: ${siteUrl}sitemap-index.xml`)) {
-      errors.push('Built robots.txt does not point to the production sitemap index.');
+    if (siteUrl && !robots.includes(`Sitemap: ${siteUrl}sitemap.xml`)) {
+      errors.push('Built robots.txt does not point to the production sitemap entry.');
     }
   }
 
@@ -180,6 +181,13 @@ if (!(await exists(distDir))) {
     const sitemapIndex = await readFile(new URL('sitemap-index.xml', distDir), 'utf8');
     if (!sitemapIndex.includes(`${siteUrl}sitemap-0.xml`)) {
       errors.push('Built sitemap index does not use PUBLIC_SITE_URL.');
+    }
+  }
+
+  if (await exists(new URL('sitemap.xml', distDir)) && siteUrl) {
+    const sitemapAlias = await readFile(new URL('sitemap.xml', distDir), 'utf8');
+    if (!sitemapAlias.includes(`${siteUrl}sitemap-0.xml`)) {
+      errors.push('Built sitemap.xml does not use PUBLIC_SITE_URL.');
     }
   }
 }

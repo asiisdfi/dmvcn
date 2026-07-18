@@ -144,6 +144,35 @@ if (!(await exists(new URL('sitemap-index.xml', distDir)))) {
   errors.push('sitemap-index.xml is missing');
 }
 
+if (!(await exists(new URL('sitemap.xml', distDir)))) {
+  errors.push('sitemap.xml compatibility entry is missing');
+}
+
+if (await exists(new URL('sitemap.xml', distDir))) {
+  const sitemapAlias = await readFile(new URL('sitemap.xml', distDir), 'utf8');
+  if (!/<sitemapindex\b/.test(sitemapAlias) || !sitemapAlias.includes('/sitemap-0.xml')) {
+    errors.push('sitemap.xml must be a valid sitemap index pointing to sitemap-0.xml');
+  }
+}
+
+if (await exists(new URL('sitemap-0.xml', distDir))) {
+  const sitemap = await readFile(new URL('sitemap-0.xml', distDir), 'utf8');
+  const sitemapUrls = [...sitemap.matchAll(/<loc>(https?:\/\/[^<]+)<\/loc>/g)].map((match) => match[1]);
+  const expectedIndexablePages = htmlFiles.filter((file) => file.relative !== '404.html').length;
+
+  if (sitemapUrls.length !== expectedIndexablePages) {
+    errors.push(`sitemap-0.xml has ${sitemapUrls.length} URLs; expected ${expectedIndexablePages}`);
+  }
+  if (sitemapUrls.some((url) => url.includes('dmv-cn-guide.example.com'))) {
+    errors.push('sitemap-0.xml still contains the placeholder domain');
+  }
+  for (const route of ['/', '/states/', '/topics/', '/directories/']) {
+    if (!sitemapUrls.some((url) => new URL(url).pathname === route)) {
+      errors.push(`sitemap-0.xml is missing ${route}`);
+    }
+  }
+}
+
 const stateContentPages = htmlFiles.filter((file) => isStateContentPage(file.relative));
 const topicContentPages = htmlFiles.filter((file) => isTopicContentPage(file.relative));
 
