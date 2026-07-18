@@ -6,7 +6,18 @@ const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const reportPath = path.join(projectRoot, 'reports', 'eeat-inventory.json');
 const outputDir = path.join(projectRoot, 'reports');
 
-const today = (process.env.WORKBOOK_DATE || new Date().toISOString()).slice(0, 10);
+function currentCalendarDate() {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: process.env.REPORT_TIME_ZONE || 'Asia/Shanghai',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+const today = (process.env.WORKBOOK_DATE || currentCalendarDate()).slice(0, 10);
 const reviewCycle = {
   high: 60,
   medium: 90,

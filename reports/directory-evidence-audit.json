@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-07-18T16:58:15.872Z",
+    "generatedAt": "2026-07-18T17:45:49.184Z",
     "pages": 5,
-    "claims": 549,
+    "claims": 563,
     "statesCovered": 49,
-    "aiAssisted": 341,
-    "automated": 208,
+    "aiAssisted": 359,
+    "automated": 204,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 83,
-        "states": 26
+        "claims": 87,
+        "states": 27
       },
       "deadlines": {
-        "claims": 68,
-        "states": 26
+        "claims": 71,
+        "states": 27
       },
       "document-rules": {
-        "claims": 177,
+        "claims": 178,
         "states": 48
       },
       "foreign-license": {
-        "claims": 85,
+        "claims": 87,
         "states": 30
       },
       "identity-ssn": {
-        "claims": 136,
-        "states": 42
+        "claims": 140,
+        "states": 43
       }
     }
   },
@@ -1202,6 +1202,66 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "tennessee",
+      "category": "费用",
+      "claim": "当前费用表列 Regular Class D 八年证件总费用为 28 美元，第一张普通 duplicate 为 8 美元、之后通常为 12 美元",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/helpful-information/fees.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "tennessee",
+      "category": "费用",
+      "claim": "付款前仍应打开当前费用表确认",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/helpful-information/fees.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "tennessee",
+      "category": "临时凭证",
+      "claim": "Types of Issued Licenses 和现行手册仍列出 Temporary Driver License，Identification License 页也保留 temporary legal presence 文件和 XID 说明",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/helpful-information/dlinfo.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services Types of Issued Licenses",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [
+        "lawful-presence"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "tennessee",
+      "category": "临时凭证",
+      "claim": "持联邦授权 temporary legal presence 的申请人应核对 Types of Issued Licenses、Identification License 和现行手册中的 Temporary Driver License / XID 说明，不应套用只面向 Regular Class D 的资格段落",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/helpful-information/dlinfo.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services Types of Issued Licenses",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [
+        "lawful-presence"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "kentucky",
       "category": "邮寄 / 卡片",
       "claim": "想升级 REAL ID 时，官方 renewal 页面说明不能在线或邮寄完成升级，必须到 Regional Office 并带额外材料",
@@ -2114,6 +2174,48 @@
       "sourceLabel": "对应官方来源：Indiana BMV Credential Mailing",
       "themes": [
         "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "tennessee",
+      "category": "搬家 / 地址",
+      "claim": "官方 New Residents 页面把“current”通常定义为最近 4 个月内，另有明确期限的文件按各自期限",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Resident Driver License Requirements",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "tennessee",
+      "category": "材料时效",
+      "claim": "Lease 只能作为一份居住证明，还要附最近 30 天内的 landlord letter，并另外准备第二份合格 residency 文件",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Resident Driver License Requirements",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "tennessee",
+      "category": "搬家 / 地址",
+      "claim": "所有外州新居民准备 vision screening，驾照过期超过 6 个月再准备 knowledge 与 road tests",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Resident Driver License Requirements",
+      "themes": [
+        "new-resident"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
@@ -3525,44 +3627,61 @@
       "page": "document-rules",
       "stateId": "tennessee",
       "category": "地址证明",
-      "claim": "两份 Tennessee residency 证明，按 TN.gov 官方清单确认",
-      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
-      "sourceLabel": "对应官方来源：Tennessee Driver Services New Residents",
+      "claim": "两份 Tennessee residency 证明",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/helpful-information/real-id.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "tennessee",
       "category": "地址证明",
-      "claim": "外州驾照转入时，准备现有外州驾照和新州地址证明",
+      "claim": "Lease 只能作为一份居住证明，还要附最近 30 天内的 landlord letter，并另外准备第二份合格 residency 文件",
       "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
-      "sourceLabel": "对应官方来源：Tennessee Driver Services New Residents",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Resident Driver License Requirements",
       "themes": [
-        "residency-documents",
-        "out-of-state"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "tennessee",
-      "category": "清单入口",
-      "claim": "Tennessee 的 Class D first license、new resident transfer 和 REAL ID 是不同流程，先按当前业务选择入口",
-      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
-      "sourceLabel": "对应官方来源：Tennessee Driver Services New Residents",
+      "category": "地址证明",
+      "claim": "P.O. Box 不能作为 residential address",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/helpful-information/address-change.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services Address Change",
       "themes": [
-        "new-resident"
+        "residency-documents"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "residency-documents"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "tennessee",
+      "category": "地址证明",
+      "claim": "没有 DD number 不能在线补证，改名必须现场，地址变化要在 10 天内通知",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/helpful-information/dlduplicate.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services Credential Replacement",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [
+        "address-change"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -5859,24 +5978,52 @@
       "page": "foreign-license",
       "stateId": "tennessee",
       "category": "外州 / 加拿大转入",
-      "claim": "外州驾照转入时，准备现有外州驾照和新州地址证明",
+      "claim": "新居民申请时要交回外州驾照，或在适用情形提交 driving record",
       "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
-      "sourceLabel": "对应官方来源：Tennessee Driver Services New Residents",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Resident Driver License Requirements",
       "themes": [
-        "residency-documents",
+        "new-resident",
         "out-of-state"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "tennessee",
-      "category": "期限 / 居民身份",
-      "claim": "Tennessee 的 Class D first license、new resident transfer 和 REAL ID 是不同流程，先按当前业务选择入口",
+      "category": "外州 / 加拿大转入",
+      "claim": "所有外州新居民准备 vision screening，驾照过期超过 6 个月再准备 knowledge 与 road tests",
       "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
-      "sourceLabel": "对应官方来源：Tennessee Driver Services New Residents",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Resident Driver License Requirements",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "tennessee",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州新居民确认驾照到期状态和 MVR 要求",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Resident Driver License Requirements",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "tennessee",
+      "category": "测试判断",
+      "claim": "Tennessee New Residents：30 天换证期限、材料、MVR 和考试条件",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/classd/dlnew.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services New Resident Driver License Requirements",
       "themes": [
         "new-resident"
       ],
@@ -7228,6 +7375,66 @@
         "immigration-verification"
       ],
       "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "tennessee",
+      "category": "SSN",
+      "claim": "一份显示姓名和完整 SSN 的文件，例如 Social Security card、最近 12 个月的 W-2/1099 或 payroll stub",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/helpful-information/real-id.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "tennessee",
+      "category": "lawful presence",
+      "claim": "Types of Issued Licenses 和现行手册仍列出 Temporary Driver License，Identification License 页也保留 temporary legal presence 文件和 XID 说明",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/helpful-information/dlinfo.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services Types of Issued Licenses",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [
+        "lawful-presence"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "tennessee",
+      "category": "lawful presence",
+      "claim": "Temporary legal presence 常见组合包括有效 foreign passport、visa 和 I-94",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/idonly.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services Identification License and Temporary Legal Presence",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "tennessee",
+      "category": "lawful presence",
+      "claim": "temporary legal presence 申请人核对 Types of Issued Licenses、Identification License 和现行手册中的 XD/XID 材料",
+      "sourceUrl": "https://www.tn.gov/safety/driver-services/helpful-information/dlinfo.html",
+      "sourceLabel": "对应官方来源：Tennessee Driver Services Types of Issued Licenses",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [
+        "lawful-presence"
+      ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },

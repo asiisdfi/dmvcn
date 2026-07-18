@@ -744,8 +744,260 @@ const IN_SAVE =
   'https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/systematic-alien-verification-for-entitlements-save-program/';
 const IN_SKILLS =
   'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/drivers-license/driving-skill-examination';
+const TN_REAL_ID =
+  'https://www.tn.gov/safety/driver-services/helpful-information/real-id.html';
+const TN_NEW_RESIDENTS =
+  'https://www.tn.gov/safety/driver-services/classd/dlnew.html';
+const TN_ADULT_FIRST =
+  'https://www.tn.gov/safety/driver-services/classd/new-drivers.html';
+const TN_TYPES =
+  'https://www.tn.gov/safety/driver-services/helpful-information/dlinfo.html';
+const TN_ID_ONLY = 'https://www.tn.gov/safety/driver-services/idonly.html';
+const TN_REGULAR = 'https://www.tn.gov/safety/driver-services/classd.html';
+const TN_RENEW =
+  'https://www.tn.gov/safety/driver-services/helpful-information/dlrenew.html';
+const TN_REPLACE =
+  'https://www.tn.gov/safety/driver-services/helpful-information/dlduplicate.html';
+const TN_ADDRESS =
+  'https://www.tn.gov/safety/driver-services/helpful-information/address-change.html';
+const TN_RESIDENCY =
+  'https://www.tn.gov/safety/driver-services/helpful-information/tnresidency.html';
+const TN_NAME =
+  'https://www.tn.gov/safety/driver-services/helpful-information/dlnamechange.html';
+const TN_FEES =
+  'https://www.tn.gov/safety/driver-services/helpful-information/fees.html';
+const TN_MVR =
+  'https://www.tn.gov/safety/driver-services/helpful-information/mvrverification.html';
+const TN_LOCATIONS = 'https://www.tn.gov/safety/driver-services/locations.html';
+const TN_MANUAL =
+  'https://www.tn.gov/content/dam/tn/safety/documents/DL_Manual.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  tennessee: {
+    reviewedAt: '2026-07-19',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      TN_REAL_ID,
+      TN_NEW_RESIDENTS,
+      TN_ADULT_FIRST,
+      TN_TYPES,
+      TN_ID_ONLY,
+      TN_REGULAR,
+      TN_RENEW,
+      TN_REPLACE,
+      TN_ADDRESS,
+      TN_RESIDENCY,
+      TN_NAME,
+      TN_FEES,
+      TN_MVR,
+      TN_LOCATIONS,
+      TN_MANUAL,
+    ],
+    scope:
+      '逐条打开并比对 Tennessee Driver Services 的 REAL ID、新居民、成人首证、Regular 与 Temporary credential、证件类型、ID、居住证明、续补证、改名改址、费用、MVR、地点和现行驾驶手册正文。',
+    notes:
+      '重写 Tennessee 两页并建立显式声明级来源；移除返回 404 的旧 Temporary 页面，改用现行证件类型、Identification License、续期和手册入口；同时公开标注 New Residents 和 MVR Verification 对 Kentucky 是否需要 MVR 的当前页面差异。',
+    claims: {
+      '搬到 Tennessee 并持外州驾照的新居民，应在建立州内居住后 30 天内到 full-service Driver Services Center 换证': [
+        TN_NEW_RESIDENTS,
+      ],
+      '申请前可以在 e-Services 上传材料预审，官方要求为预审预留最多 5 个工作日': [
+        TN_NEW_RESIDENTS,
+        TN_ADULT_FIRST,
+      ],
+      '到场时仍必须带原件或签发机构认证副本': [TN_NEW_RESIDENTS, TN_ADULT_FIRST],
+      '新居民申请时要交回外州驾照，或在适用情形提交 driving record': [
+        TN_NEW_RESIDENTS,
+        TN_MVR,
+      ],
+      '外国驾照可以保留': [TN_NEW_RESIDENTS],
+      '所有新居民都要做 vision screening，外州驾照过期超过 6 个月或持外国驾照的人还要通过 Tennessee knowledge 和 road skills tests': [
+        TN_NEW_RESIDENTS,
+      ],
+      '持联邦授权 temporary legal presence 的申请人应核对 Types of Issued Licenses、Identification License 和现行手册中的 Temporary Driver License / XID 说明，不应套用只面向 Regular Class D 的资格段落': [
+        TN_TYPES,
+        TN_ID_ONLY,
+        TN_MANUAL,
+        TN_REGULAR,
+      ],
+      'Tennessee REAL ID 是可选证件': [TN_REAL_ID],
+      '第一次申请必须本人到场': [TN_REAL_ID],
+      '已有 Tennessee 驾照或 ID 的人可去 Driver Services Center 或参与办理的 County Clerk，没有 Tennessee credential 的人要去 full-service Driver Services Center': [
+        TN_REAL_ID,
+        TN_LOCATIONS,
+      ],
+      '核心组合是一份 U.S. citizenship 或 legal presence、一份显示完整 SSN 的证明或从未获发 SSN 时的宣誓书、两份 Tennessee residency，以及连接到身份文件原始姓名的完整改名链': [
+        TN_REAL_ID,
+        TN_NEW_RESIDENTS,
+      ],
+      '预约并非每个 Driver Services Center、每种业务都有': [TN_LOCATIONS],
+      '当前 locations 页面要求预约者提前 15 分钟到场，迟到可能被取消并改按 walk-in': [
+        TN_LOCATIONS,
+      ],
+      '新居民、首次申领、考试和首次 REAL ID 还要确认地点是否为 full-service center': [
+        TN_LOCATIONS,
+        TN_NEW_RESIDENTS,
+        TN_ADULT_FIRST,
+        TN_REAL_ID,
+      ],
+      'Tennessee 两个当前官方入口对 Kentucky 的 MVR 要求显示不一致：New Residents 说明列出 California、Connecticut、Illinois、Nevada 和 West Virginia，MVR Verification 的州别请求链接另含 Kentucky': [
+        TN_NEW_RESIDENTS,
+        TN_MVR,
+      ],
+      '来自这些州的申请人应在预约前打开 MVR Verification 入口确认': [
+        TN_NEW_RESIDENTS,
+        TN_MVR,
+      ],
+      '该入口要求记录在申请前 30 天内签发': [TN_MVR],
+      'Regular Driver License 页把 regular credential 限定给 U.S. citizen 或 lawful permanent resident': [
+        TN_REGULAR,
+      ],
+      'Types of Issued Licenses 和现行手册仍列出 Temporary Driver License，Identification License 页也保留 temporary legal presence 文件和 XID 说明': [
+        TN_TYPES,
+        TN_ID_ONLY,
+        TN_MANUAL,
+      ],
+      '两条路径不是同一种 credential': [TN_REGULAR, TN_TYPES, TN_ID_ONLY, TN_MANUAL],
+      '21 岁及以上 Tennessee 驾照或 ID 通常自签发日起有效 8 年': [TN_RENEW],
+      '线上续期不是保证资格：每隔一个续期周期需要现场拍新照片，Temporary credential 和 CDL 续期也必须到场': [
+        TN_RENEW,
+      ],
+      '地址变化后 10 天内要通知 Driver Services，通知 USPS 不能代替州记录更新': [
+        TN_ADDRESS,
+      ],
+      '只更新档案不收费，也不会自动寄新卡': [TN_ADDRESS],
+      'P.O. Box 不能作为 residential address': [TN_ADDRESS],
+      '当前费用表列 Regular Class D 八年证件总费用为 28 美元，第一张普通 duplicate 为 8 美元、之后通常为 12 美元': [
+        TN_FEES,
+        TN_REPLACE,
+      ],
+      'County Clerk partner 对其提供的服务另收 4 美元行政费': [TN_FEES],
+      '付款前仍应打开当前费用表确认': [TN_FEES],
+      'U.S. citizenship、permanent resident 或适用 temporary legal presence 文件必须是原件或 certified copy，photocopy 不接受': [
+        TN_REAL_ID,
+        TN_NEW_RESIDENTS,
+        TN_ID_ONLY,
+      ],
+      'Temporary legal presence 常见组合包括有效 foreign passport、visa 和 I-94': [
+        TN_ID_ONLY,
+      ],
+      'F-1/F-2/M-1/M-2 还要带有效 I-20，J-1/J-2 还要带 DS-2019': [TN_ID_ONLY],
+      '一份显示姓名和完整 SSN 的文件，例如 Social Security card、最近 12 个月的 W-2/1099 或 payroll stub': [
+        TN_REAL_ID,
+        TN_NEW_RESIDENTS,
+      ],
+      '从未获发 SSN 时可用在 examiner 或 notary 面前签署的 sworn affidavit': [
+        TN_REAL_ID,
+        TN_NEW_RESIDENTS,
+        TN_ID_ONLY,
+      ],
+      '两份 Tennessee residency 证明': [TN_REAL_ID, TN_NEW_RESIDENTS, TN_RESIDENCY],
+      '官方 New Residents 页面把“current”通常定义为最近 4 个月内，另有明确期限的文件按各自期限': [
+        TN_NEW_RESIDENTS,
+        TN_RESIDENCY,
+      ],
+      'Lease 只能作为一份居住证明，还要附最近 30 天内的 landlord letter，并另外准备第二份合格 residency 文件': [
+        TN_NEW_RESIDENTS,
+        TN_RESIDENCY,
+      ],
+      'Utility bill、bank statement、employer letter、含住宅地址的 pay stub、合格保险单、Tennessee registration/title 等可按当前清单使用': [
+        TN_NEW_RESIDENTS,
+        TN_RESIDENCY,
+      ],
+      'checks、checkbook、insurance wallet card 不接受': [TN_NEW_RESIDENTS, TN_RESIDENCY],
+      '身份或 legal-presence 文件仍是旧姓名时，要带能从原始姓名连接到当前姓名的全部 marriage certificate、divorce decree 或 court order': [
+        TN_REAL_ID,
+        TN_NEW_RESIDENTS,
+        TN_NAME,
+      ],
+      '外州换证带现有外州驾照': [TN_NEW_RESIDENTS],
+      '若来自 MVR Verification 当前列出的州，还要按该页取得申请前 30 天内签发的 Motor Vehicle Record': [
+        TN_NEW_RESIDENTS,
+        TN_MVR,
+      ],
+      '先判断自己是 new resident、adult first-time driver、foreign-license holder、temporary-legal-presence applicant、REAL ID upgrade、renewal、duplicate、name change 还是 address-only update': [
+        TN_NEW_RESIDENTS,
+        TN_ADULT_FIRST,
+        TN_ID_ONLY,
+        TN_REAL_ID,
+        TN_RENEW,
+        TN_REPLACE,
+      ],
+      '新居民或首次申请人可先在 e-Services 上传材料预审，至少给系统预留 5 个工作日': [
+        TN_NEW_RESIDENTS,
+        TN_ADULT_FIRST,
+      ],
+      '预审通过也要把原件或 certified copies 带到 full-service center': [
+        TN_NEW_RESIDENTS,
+        TN_ADULT_FIRST,
+      ],
+      '申请 REAL ID 时按四组准备：citizenship/legal presence、完整 SSN 或适用 affidavit、两份 residency、完整姓名变更链': [
+        TN_REAL_ID,
+      ],
+      '外州新居民确认驾照到期状态和 MVR 要求': [TN_NEW_RESIDENTS, TN_MVR],
+      '所有外州新居民准备 vision screening，驾照过期超过 6 个月再准备 knowledge 与 road tests': [
+        TN_NEW_RESIDENTS,
+      ],
+      '外国驾照持有人按 foreign new resident 路径准备三项考试': [TN_NEW_RESIDENTS],
+      'temporary legal presence 申请人核对 Types of Issued Licenses、Identification License 和现行手册中的 XD/XID 材料': [
+        TN_TYPES,
+        TN_ID_ONLY,
+        TN_MANUAL,
+      ],
+      '续期、补证、改名和改址分别打开对应页面': [
+        TN_RENEW,
+        TN_REPLACE,
+        TN_NAME,
+        TN_ADDRESS,
+      ],
+      '没有 DD number 不能在线补证，改名必须现场，地址变化要在 10 天内通知': [
+        TN_REPLACE,
+        TN_NAME,
+        TN_ADDRESS,
+      ],
+      '在 locations 页面按服务筛选 full-service center，再查看是否有对应 appointment': [
+        TN_LOCATIONS,
+      ],
+      '预约者提前 15 分钟到场': [TN_LOCATIONS],
+      '交易完成后保存 paper interim 和回执': [TN_REAL_ID],
+      '需要用 REAL ID 出行时，为 10 至 20 天的实体卡邮寄时间留余量': [TN_REAL_ID],
+      '建立 Tennessee residency 超过 30 天仍没有走 new-resident transfer': [
+        TN_NEW_RESIDENTS,
+      ],
+      '材料已经线上预审，就不再携带原件或 certified copies': [
+        TN_NEW_RESIDENTS,
+        TN_ADULT_FIRST,
+      ],
+      '只带一份地址证明，或把超过 4 个月且无特殊期限的账单当作 current document': [
+        TN_NEW_RESIDENTS,
+      ],
+      '只带 lease，没有最近 30 天 landlord letter，也没有第二份不同的 residency proof': [
+        TN_NEW_RESIDENTS,
+      ],
+      '身份文件是旧姓，却只带最后一次改名文件，没有连接完整姓名链': [
+        TN_REAL_ID,
+        TN_NAME,
+      ],
+      '持中国等外国驾照就认为可免考': [TN_NEW_RESIDENTS],
+      'Tennessee 当前页面要求外国新居民通过 vision、knowledge 和 road skills tests': [
+        TN_NEW_RESIDENTS,
+      ],
+      '外州驾照过期超过 6 个月，却没有为 knowledge 和 road skills tests 做准备': [
+        TN_NEW_RESIDENTS,
+      ],
+      '以为首次 REAL ID 可以完全在线完成，或已有外州 REAL ID 就不用重新提交 Tennessee 所需材料': [
+        TN_REAL_ID,
+      ],
+      '临近出行才办 REAL ID': [TN_REAL_ID],
+      '现场先发 paper interim，官方预计 hard copy 需要 10 至 20 天，paper credential 可能不被 TSA 接受': [
+        TN_REAL_ID,
+      ],
+      '只向 USPS 更新地址，却没有在 10 天内通知 Tennessee Driver Services': [
+        TN_ADDRESS,
+      ],
+    },
+  },
   indiana: {
     reviewedAt: '2026-07-19',
     reviewer: 'Codex AI 辅助证据核查',

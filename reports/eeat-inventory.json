@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-18T16:58:27.739Z",
+    "generatedAt": "2026-07-18T17:46:03.472Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 61,
+    "passed": 63,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 88,
-    "aiAssistedReviews": 67,
+    "sourceMappedReviews": 86,
+    "aiAssistedReviews": 69,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 105,
+    "blockedPages": 103,
     "averageScore": 96
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 192,
+        "sourceCount": 193,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 267,
+        "sourceCount": 271,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 83,
-        "directoryEvidenceLinks": 83,
+        "directoryEvidenceItems": 87,
+        "directoryEvidenceLinks": 87,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 68,
-        "directoryEvidenceLinks": 68,
+        "directoryEvidenceItems": 71,
+        "directoryEvidenceLinks": 71,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 515,
+        "sourceCount": 520,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 185,
+        "sourceCount": 187,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -521,8 +521,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 177,
-        "directoryEvidenceLinks": 177,
+        "directoryEvidenceItems": 178,
+        "directoryEvidenceLinks": 178,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 156,
+        "sourceCount": 157,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 85,
-        "directoryEvidenceLinks": 85,
+        "directoryEvidenceItems": 87,
+        "directoryEvidenceLinks": 87,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 185,
+        "sourceCount": 189,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 136,
-        "directoryEvidenceLinks": 136,
+        "directoryEvidenceItems": 140,
+        "directoryEvidenceLinks": 140,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 212,
+        "sourceCount": 211,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -794,7 +794,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 237,
+        "sourceCount": 238,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 211,
+        "sourceCount": 210,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1201,
+        "sourceCount": 1212,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -4929,21 +4929,21 @@
       "route": "/states/tennessee/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 89,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成田纳西州（Tennessee Driver Services）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Tennessee Driver Services 的 REAL ID、新居民、成人首证、Regular 与 Temporary credential、证件类型、ID、居住证明、续补证、改名改址、费用、MVR、地点和现行驾驶手册正文。",
+        "notes": "重写 Tennessee 两页并建立显式声明级来源；移除返回 404 的旧 Temporary 页面，改用现行证件类型、Identification License、续期和手册入口；同时公开标注 New Residents 和 MVR Verification 对 Kentucky 是否需要 MVR 的当前页面差异。"
       },
       "scores": {
-        "factsAndSources": 18,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -4953,14 +4953,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 11,
+        "sourceCount": 16,
+        "factCheckCount": 28,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 11,
-        "stateEvidenceLinks": 17,
+        "stateEvidenceItems": 28,
+        "stateEvidenceLinks": 47,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4968,9 +4968,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/tennessee/real-id/",
@@ -4978,16 +4976,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成田纳西州（Tennessee Driver Services）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Tennessee Driver Services 的 REAL ID、新居民、成人首证、Regular 与 Temporary credential、证件类型、ID、居住证明、续补证、改名改址、费用、MVR、地点和现行驾驶手册正文。",
+        "notes": "重写 Tennessee 两页并建立显式声明级来源；移除返回 404 的旧 Temporary 页面，改用现行证件类型、Identification License、续期和手册入口；同时公开标注 New Residents 和 MVR Verification 对 Kentucky 是否需要 MVR 的当前页面差异。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5000,14 +4998,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 17,
+        "sourceCount": 16,
+        "factCheckCount": 43,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 17,
-        "stateEvidenceLinks": 18,
+        "stateEvidenceItems": 43,
+        "stateEvidenceLinks": 76,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5015,9 +5013,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/texas/",

@@ -34,6 +34,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-19',
+    title: '完成 Tennessee 两页官方正文语义核对',
+    summary:
+      '逐条比对 Tennessee Driver Services 的 REAL ID、新居民、成人首证、Regular 与 Temporary credential、续补证、改名改址、费用、MVR、地点和驾驶手册；补齐 71 条页面级显式来源映射，移除已返回 404 的旧 Temporary 入口，并公开标注 New Residents 与 MVR Verification 对 Kentucky 是否需要 MVR 的当前入口差异。',
+    scope: ['田纳西州办事总览', '田纳西州 REAL ID', '71 条显式来源映射', '失效入口替换与 MVR 差异'],
+  },
+  {
+    date: '2026-07-19',
     title: '完成 Indiana 两页官方正文语义核对',
     summary:
       '逐条比对 Indiana BMV 的 REAL ID、材料清单、新居民、外州与外国驾照、Japan/Taiwan reciprocity、知识与路考、线上续补证、地址、中央制证、SAVE 和 interim credential；补齐 63 条显式来源映射，并公开标注当前交易页与旧中央制证 FAQ 对有效外州驾照 written test 的差异。',
