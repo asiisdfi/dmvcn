@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-18T18:34:25.990Z",
+    "generatedAt": "2026-07-18T19:03:08.306Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 67,
+    "passed": 69,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 82,
-    "aiAssistedReviews": 73,
+    "sourceMappedReviews": 80,
+    "aiAssistedReviews": 75,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 99,
+    "blockedPages": 97,
     "averageScore": 96
   },
   "pages": [
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 90,
-        "directoryEvidenceLinks": 90,
+        "directoryEvidenceItems": 94,
+        "directoryEvidenceLinks": 94,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 144,
-        "directoryEvidenceLinks": 144,
+        "directoryEvidenceItems": 147,
+        "directoryEvidenceLinks": 147,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -5657,21 +5657,21 @@
       "route": "/states/wyoming/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 89,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成怀俄明州（Wyoming Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 WYDOT 的新居民与首次驾照、REAL ID 当前公告、R03/25 公民与非公民材料表、Testing、Lost / Renewal、Add / Change、oneWYO、FAQ/费用、当前材料入口、manuals、exam station locations 和地址表。",
+        "notes": "重写 Wyoming 两页并建立显式声明级来源；纠正当前证件不存在 standard/REAL ID 二选一，补齐新居民五州/CDL 例外、中国大陆驾照无公开互惠清单、英文考试与口译、45 天且不同来源的住址材料、非公民每次服务、10 天改址改名、续补证限制、寄送和现行费用。"
       },
       "scores": {
-        "factsAndSources": 18,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -5681,14 +5681,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 13,
+        "sourceCount": 14,
+        "factCheckCount": 35,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 13,
-        "stateEvidenceLinks": 13,
+        "stateEvidenceItems": 35,
+        "stateEvidenceLinks": 46,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5696,29 +5696,27 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/wyoming/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 92,
+      "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成怀俄明州（Wyoming Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 WYDOT 的新居民与首次驾照、REAL ID 当前公告、R03/25 公民与非公民材料表、Testing、Lost / Renewal、Add / Change、oneWYO、FAQ/费用、当前材料入口、manuals、exam station locations 和地址表。",
+        "notes": "重写 Wyoming 两页并建立显式声明级来源；纠正当前证件不存在 standard/REAL ID 二选一，补齐新居民五州/CDL 例外、中国大陆驾照无公开互惠清单、英文考试与口译、45 天且不同来源的住址材料、非公民每次服务、10 天改址改名、续补证限制、寄送和现行费用。"
       },
       "scores": {
-        "factsAndSources": 18,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 15,
         "uniqueValue": 10,
@@ -5728,14 +5726,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 18,
+        "sourceCount": 14,
+        "factCheckCount": 43,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 18,
-        "stateEvidenceLinks": 18,
+        "stateEvidenceItems": 43,
+        "stateEvidenceLinks": 73,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5743,9 +5741,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/terms/",

@@ -42,6 +42,7 @@ export type StateGuide = {
   realIdSummary: string;
   licenseSummary: string;
   appointmentNote: string;
+  allCredentialsRealId?: boolean;
   documentHighlights: string[];
   commonMistakes: string[];
   recommendedSteps: string[];
@@ -9003,56 +9004,114 @@ export const states: StateGuide[] = [
     agency: 'Wyoming Department of Transportation',
     agencyUrl: 'https://www.dot.state.wy.us/driverservices',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-09',
+    modifiedAt: '2026-07-19',
+    reviewedAt: '2026-07-19',
+    allCredentialsRealId: true,
     summary:
-      '怀俄明州驾照、REAL ID、续期、地址变化和 oneWYO 线上服务由 Wyoming DOT Driver Services 处理。Driver License、Lost / Renewal、Add / Change Information、General Forms 和 Driver Services 是核心入口。',
+      '搬到 Wyoming 后，新居民必须本人申请州驾照；通常自建立 residency 起有一年取得证件。若现持 Georgia、Massachusetts、Michigan、Tennessee、Wisconsin 驾照，或持 CDL，建立 residency 后就应申请。首次 Wyoming 驾照或已过期的 Wyoming 驾照可先在 oneWYO 开始，但仍要到 exam station，交回外州驾照、拍照并做 vision screening；实体卡预计签发后 4-6 周寄到。',
     realIdSummary:
-      'Wyoming 自 2011 年起签发的 driver license / ID 规则已符合 REAL ID。续期时如果之前未提供 REAL ID documents，需要带 valid U.S. passport、state-certified birth certificate 或 immigration documents、两份 45 天内 Wyoming residency、以及姓名变化文件。',
+      'Wyoming Driver Services 当前签发的所有 driver license 和 ID card 都是 REAL ID compliant；州方自 2011 年起按 REAL ID 标准签发，不提供普通版与 REAL ID 二选一。当前卡右上角有星标，2019 年由金色改为黑色，两者都合规；2010 年 1 月 1 日前签发、仍在流通的旧 ID card 应考虑续期。',
     licenseSummary:
-      'Wyoming 新居民通常在建立 residency 后一年内取得 Wyoming license；但若持有某些州 license 或 CDL，建立 residency 后要申请 Wyoming license。每 10 年必须本人到场续期一次并拍照、做 vision screening。',
+      'Wyoming 笔试和驾驶手册只有英文；非商业笔试可使用 interpreter，自动考试系统也可通过电话朗读题目。WYDOT 的 Driver License、Testing 和 manuals 页面未发布外国驾照互惠或中国大陆驾照免考清单；中国大陆驾照用户不应自行假定可免笔试或路考，应先向 Driver Services 确认并按可能考试准备。',
     appointmentNote:
-      'oneWYO 可以处理部分续期、duplicate、地址更新、driving record 和医疗/视力表上传。地址变化表只更新 driving record；如果要新地址出现在 driver license / ID card 上，需要申请新 credential。',
+      'oneWYO 可处理符合资格的续期、补证、地址更新、driving record 和医疗/视力表上传；首次 Wyoming 驾照或已过期续期仍需到 exam station。Office hours and availability 按地点和日期变化，许多 skills test 要提前安排；先查官方 locations，再决定线上或到场。',
     editorNotes: [
-      'Wyoming 的“一年内换证”和“某些州/CDL 例外”很独特，要写得谨慎。',
-      'Residency proof no more than 45 days old 是非常具体的要求。',
-      'Address change form does not print a new card，是常见误区。',
+      'Wyoming 州法要求驾照或 ID 持有人在姓名、mailing address 或 residence 改变后 10 天内通知 Driver Services；只更新数据库不会自动寄新卡。',
+      '要让新地址显示在卡面，需按 renewal 路径本人申请并支付标准续期费；新驾照有效 5 年、ID card 有效 8 年，官方称约 4 周寄到。',
+      '改名必须本人到场、交回现证并提交法律文件；应先在 SSA 完成姓名更新，卡片约 4-6 周寄到。',
+      '驾照每 10 年只能使用 mail 或 online renewal 一次，也就是 every other renewal；每 10 年至少有一次需本人更新照片和通过 vision screening。',
+      '普通驾照可提前一年续期；mail renewal 应预留 30 天处理，续期后再预留 4-6 周收卡。',
+      '补证始终可本人办理；oneWYO 或 mail 只适用于上一张证件不是 mail/online renewal 的情况，沿用旧照片并需完成 vision section。',
+      '临时在外、要求寄往当前 mailing address 之外时要提交 Forwarding Request；state mail 不会由 USPS 自动转寄。',
+      '非美国公民只有在 Wyoming 当前记录中被归类为 Permanent Resident 时才可 mail/online renewal；移民文件仍需在每次服务时出示。',
+      '当前费用表列出首次 Class C / permit $45、续期 Class C / permit $35、duplicate driver license $25、ID card $10；现金、check 和 money order 可用，部分 exam station 收卡但另有手续费。',
     ],
     documentHighlights: [
-      'Valid U.S. passport、state-certified birth certificate 或 immigration documents。',
-      '两份 current Wyoming residency，通常 no more than 45 days old。',
-      '姓名变化时带 marriage certificate、divorce decree、court order 等文件。',
-      '非美国公民每次 renewal 或服务通常要出示 USCIS / immigration documents。',
-      '地址变化表只更新记录；想要卡面显示新地址需办理新 license / ID。',
+      '如果以前未提交过材料，美国公民按现行清单准备一份 legal presence 与一份 identity 证明；可选 state-certified birth certificate、valid unexpired U.S. passport / passport card、citizenship / naturalization certificate，以及州 DL/ID 等组合。',
+      '非美国公民每次服务都要带 immigration documents；identity 至少一份未过期 I-551、I-766 或 foreign passport，并带齐显示当前 legal presence 的适用文件，例如 visa、I-94、I-797、DS-2019 或 I-20。',
+      '准备两份 Wyoming residency document，必须显示本人姓名和 current physical residential address，不能只写 P.O. Box、PMB 或 mail drop；文件不得超过 45 天，而且不能来自同一 entity。',
+      '基础身份文件与当前全名不一致时带完整 name chain；新改名应先更新 SSA，marriage certificate 只能用于改变 last name，其他改名需要 court order。',
+      'SSN 必须填写在申请表上，但 SSN proof 是 recommended、not required；可带 Social Security card、W-2 或含姓名和完整 SSN 的政府文件。',
+      '现行材料表要求未篡改的 certified original、certified amended original 或签发机构认证 true copy，并写明 photocopy、notarized document 和 online printout 不接受；电子账单或网上下载件应在到场前向 Driver Services 确认。',
+      '官方材料表说明清单不是穷尽列表，Driver Services 可为核定年龄、identity 和 authorized presence 要求补充材料。',
     ],
     commonMistakes: [
-      '用超过 45 天的地址证明去办 Wyoming REAL ID renewal。',
-      '更新 address record 后，以为卡面地址也自动改变。',
-      '十年内必须本人续期一次，却一直尝试 mail / online renewal。',
-      '新居民持特殊州 license 或 CDL 时没有及时转 Wyoming license。',
+      '把 Wyoming 当成可选 standard 或 REAL ID 的州；当前 Driver Services 签发的驾照和 ID 都是 REAL ID compliant。',
+      '两份地址证明超过 45 天、来自同一 entity，或只显示 P.O. Box / PMB / mail drop。',
+      '持中国大陆驾照就假定能直接换证或免考；WYDOT 当前公开页面没有给出这项互惠。',
+      '非美国公民只在首次申请时带移民文件；现行材料表要求 immigration documents 每次服务都出示。',
+      '更新 address record 后以为卡面地址也自动改变，或错过姓名/地址变化后的 10 天通知期。',
+      '上一张证件已 mail/online renewal，这次仍直接尝试 oneWYO 或 mail 补证/续期。',
+      '临时在州外却没有交 Forwarding Request；Wyoming state mail 不会由 USPS 自动转寄。',
+      '新居民持 Georgia、Massachusetts、Michigan、Tennessee、Wisconsin 驾照或 CDL，却仍按普通一年期限等待。',
+      '直接带 photocopy、notarized document 或 online printout，未按现行清单准备 certified document 或先确认电子账单。',
+      '只看 2021 Class C manual 判断当前要求；WYDOT 的 manuals 页面明确提醒手册内容可能已过时。',
     ],
     recommendedSteps: [
-      '先看 Wyoming Driver License 页面，确认新居民、续期还是 oneWYO 在线服务。',
-      '续期前看 Lost / Renewal 页面，确认是否需要重新提交 REAL ID documents。',
-      '准备 identity/immigration、two Wyoming residency within 45 days、name change documents。',
-      '地址变化先看 Add / Change Information 和 Notice of Change of Address form。',
-      '需要线上办理时用 oneWYO；需要首次或过期 renewal 时安排 local driver exam station。',
+      '先分清本次是新居民首证、续期、补证、改址还是改名；first-time 或 expired Wyoming license 仍按 exam station 路径准备。',
+      '新居民先核对期限：通常是一年，但 Georgia、Massachusetts、Michigan、Tennessee、Wisconsin 驾照和 CDL 持有人在建立 residency 后就应申请。',
+      '按公民身份打开 2025 年现行 U.S. citizen 或 non-U.S. citizen materials PDF，不用旧博客清单替代。',
+      '把材料分成 identity/legal presence、name chain、two residency within 45 days from different entities、SSN information 四组，并准备 certified documents。',
+      '中国大陆驾照用户先联系 Driver Services 确认考试处理；笔试只有英文，但 non-commercial written test 可用 interpreter 和语音朗读。',
+      '续期或补证先看上一张证件是否已走 mail/online，确认本次 oneWYO 资格、vision section 和是否需要本人更新照片。',
+      '查看具体 exam station 的开放日和 skills-test 安排，并按业务准备 $45 首证、$35 续期、$25 duplicate 或 $10 ID 的当前费用。',
+      '提交后按约 4-6 周收实体卡；寄往申请表地址之外时同时交 Forwarding Request，不依赖 USPS 转寄。',
     ],
     actionLinks: [
       {
         label: 'Wyoming Driver License',
         url: 'https://www.dot.state.wy.us/home/driver_license_records/driver-license.html',
-        description: 'Wyoming license、新居民、oneWYO 和 REAL ID 说明。',
+        description: '新居民期限、本人申请、外州证件交回、视力筛查和 4-6 周寄卡。',
+      },
+      {
+        label: 'Wyoming REAL ID Current Notice',
+        url: 'https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant',
+        description: '当前证件全部合规、2011 年起签发及黑色/金色星标说明。',
+      },
+      {
+        label: 'U.S. Citizen Documents PDF',
+        url: 'https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf',
+        description: 'R03/25 公民材料表：identity、legal presence、姓名、两份住址和 SSN。',
+      },
+      {
+        label: 'Non-U.S. Citizen Documents PDF',
+        url: 'https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf',
+        description: 'R03/25 非公民材料表：每次服务的移民文件和 legal presence 分支。',
+      },
+      {
+        label: 'Wyoming Testing',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html',
+        description: '英文笔试、interpreter、语音朗读、路考车辆和预约规则。',
       },
       {
         label: 'Lost / Renewal',
         url: 'https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html',
-        description: '续期、REAL ID documents、10 年本人到场和 vision screening。',
+        description: '续期、补证、10 年到场、非公民限制和 Forwarding Request。',
       },
       {
         label: 'Add / Change Information',
         url: 'https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html',
-        description: 'oneWYO、地址和信息变化说明。',
+        description: '姓名/地址 10 天通知、卡面更新、SSA 和新证寄送说明。',
+      },
+      {
+        label: 'oneWYO Information',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/onewyo.html',
+        description: 'Wyoming Driver Services 官方线上门户说明和 Login.gov 入口。',
+      },
+      {
+        label: 'Driver Services FAQ and Fees',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/frequently-asked-questions.default.html',
+        description: '当前费用、付款方式、office availability 和常见业务入口。',
+      },
+      {
+        label: 'Current Document Requirements Hub',
+        url: 'https://www.dot.state.wy.us/DS-documents-1',
+        description: 'WYDOT 当前 U.S. citizen 与 non-U.S. citizen 材料表入口。',
+      },
+      {
+        label: 'Wyoming Exam Station Locations',
+        url: 'https://wydot.maps.arcgis.com/apps/Shortlist/index.html?appid=f7834c5fa12c4090b07172d159dbfafd',
+        description: '各 exam station 的地点、开放安排和服务信息。',
       },
       {
         label: 'Notice of Change of Address PDF',
@@ -9071,12 +9130,49 @@ export const states: StateGuide[] = [
         url: 'https://www.dot.state.wy.us/home/driver_license_records/driver-license.html',
       },
       {
-        label: 'Wyoming Lost / Renewal',
+        label: 'Wyoming REAL ID Compliance Notice',
+        url: 'https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant',
+      },
+      {
+        label: 'Wyoming U.S. Citizen Document Requirements R03/25',
+        url: 'https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf',
+      },
+      {
+        label: 'Wyoming Non-U.S. Citizen Document Requirements R03/25',
+        url: 'https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf',
+      },
+      {
+        label: 'Wyoming Testing Requirements',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html',
+      },
+      {
+        label: 'Wyoming Lost and Renewal',
         url: 'https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html',
       },
       {
         label: 'Wyoming Add / Change Information',
         url: 'https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html',
+      },
+      {
+        label: 'Wyoming oneWYO Information',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/onewyo.html',
+      },
+      {
+        label: 'Wyoming Driver Services FAQ and Fees',
+        url: 'https://www.dot.state.wy.us/home/driver_license_records/frequently-asked-questions.default.html',
+      },
+      {
+        label: 'Wyoming Current Document Requirements Hub',
+        url: 'https://www.dot.state.wy.us/DS-documents-1',
+      },
+      {
+        label: 'Wyoming Driver Manuals',
+        url: 'https://dot.state.wy.us/home/driver_license_records/formsapplications/driver-manuals.html',
+        note: 'WYDOT 提醒手册可能因出版年份而过时，当前办事要求优先看 live pages 和 R03/25 材料表。',
+      },
+      {
+        label: 'Wyoming Exam Station Locations',
+        url: 'https://wydot.maps.arcgis.com/apps/Shortlist/index.html?appid=f7834c5fa12c4090b07172d159dbfafd',
       },
       {
         label: 'Wyoming Notice of Change of Address',
@@ -9087,7 +9183,17 @@ export const states: StateGuide[] = [
         url: 'https://www.dot.state.wy.us/driverservices',
       },
     ],
-    relatedTopicSlugs: ['renewal-replacement-address', 'moving-to-new-state', 'proof-of-residency'],
+    relatedTopicSlugs: [
+      'real-id-basics',
+      'document-checklist',
+      'moving-to-new-state',
+      'foreign-license-idp-transfer',
+      'non-citizen-license-id',
+      'dmv-test-language-translation-interpreter',
+      'name-change-chain',
+      'renewal-replacement-address',
+      'proof-of-residency',
+    ],
   },
 ];
 

@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-18T18:34:23.873Z",
+    "generatedAt": "2026-07-18T19:03:03.690Z",
     "pages": 100,
     "states": 50,
-    "claims": 2885,
-    "links": 4502,
-    "aiAssistedClaims": 2168,
-    "aiAssistedPages": 50,
+    "claims": 2932,
+    "links": 4590,
+    "aiAssistedClaims": 2246,
+    "aiAssistedPages": 52,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1330,
-        "links": 2076,
+        "claims": 1352,
+        "links": 2109,
         "states": 50
       },
       "real-id": {
-        "claims": 1555,
-        "links": 2426,
+        "claims": 1580,
+        "links": 2481,
         "states": 50
       }
     }
@@ -59683,58 +59683,16 @@
       "stateId": "wyoming",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "怀俄明州驾照、REAL ID、续期、地址变化和 oneWYO 线上服务由 Wyoming DOT Driver Services 处理",
+      "context": "license",
+      "claim": "搬到 Wyoming 后，新居民必须本人申请州驾照",
       "sourceUrls": [
         "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
       ],
       "sourceLabels": [
         "对应官方来源：Wyoming Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "address-change",
-        "renewal",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "wyoming",
-      "surface": "overview",
-      "field": "summary",
-      "context": "license",
-      "claim": "Driver License、Lost / Renewal、Add / Change Information、General Forms 和 Driver Services 是核心入口",
-      "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "wyoming",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "document",
-      "claim": "Wyoming 新居民通常在建立 residency 后一年内取得 Wyoming license",
-      "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof",
         "transfer"
       ],
       "uncoveredThemes": [],
@@ -59743,18 +59701,79 @@
     {
       "stateId": "wyoming",
       "surface": "overview",
-      "field": "licenseSummary",
+      "field": "summary",
       "context": "document",
-      "claim": "但若持有某些州 license 或 CDL，建立 residency 后要申请 Wyoming license",
+      "claim": "通常自建立 residency 起有一年取得证件",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "summary",
+      "context": "document",
+      "claim": "若现持 Georgia、Massachusetts、Michigan、Tennessee、Wisconsin 驾照，或持 CDL，建立 residency 后就应申请",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "summary",
+      "context": "license",
+      "claim": "首次 Wyoming 驾照或已过期的 Wyoming 驾照可先在 oneWYO 开始，但仍要到 exam station，交回外州驾照、拍照并做 vision screening",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "summary",
+      "context": "overview",
+      "claim": "实体卡预计签发后 4-6 周寄到",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -59764,16 +59783,82 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "license",
-      "claim": "每 10 年必须本人到场续期一次并拍照、做 vision screening",
+      "claim": "Wyoming 笔试和驾驶手册只有英文",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming Testing Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "非商业笔试可使用 interpreter，自动考试系统也可通过电话朗读题目",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Testing Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "WYDOT 的 Driver License、Testing 和 manuals 页面未发布外国驾照互惠或中国大陆驾照免考清单",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html",
+        "https://dot.state.wy.us/home/driver_license_records/formsapplications/driver-manuals.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License",
+        "对应官方来源：Wyoming Testing Requirements",
+        "对应官方来源：Wyoming Driver Manuals"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "中国大陆驾照用户不应自行假定可免笔试或路考，应先向 Driver Services 确认并按可能考试准备",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html",
+        "https://dot.state.wy.us/home/driver_license_records/formsapplications/driver-manuals.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License",
+        "对应官方来源：Wyoming Testing Requirements",
+        "对应官方来源：Wyoming Driver Manuals"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "test"
       ],
       "uncoveredThemes": [],
@@ -59784,14 +59869,14 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Wyoming 自 2011 年起签发的 driver license / ID 规则已符合 REAL ID",
+      "claim": "Wyoming Driver Services 当前签发的所有 driver license 和 ID card 都是 REAL ID compliant",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
+        "https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Driver License"
+        "对应官方来源：Wyoming REAL ID Compliance Notice"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -59803,20 +59888,53 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "续期时如果之前未提供 REAL ID documents，需要带 valid U.S. passport、state-certified birth certificate 或 immigration documents、两份 45 天内 Wyoming residency、以及姓名变化文件",
+      "claim": "州方自 2011 年起按 REAL ID 标准签发，不提供普通版与 REAL ID 二选一",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming REAL ID Compliance Notice"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document",
-        "residency-proof",
-        "name-change",
-        "lawful-presence",
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "当前卡右上角有星标，2019 年由金色改为黑色，两者都合规",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming REAL ID Compliance Notice"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "license",
+      "claim": "2010 年 1 月 1 日前签发、仍在流通的旧 ID card 应考虑续期",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming REAL ID Compliance Notice"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "renewal"
       ],
       "uncoveredThemes": [],
@@ -59827,18 +59945,42 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "license",
-      "claim": "oneWYO 可以处理部分续期、duplicate、地址更新、driving record 和医疗/视力表上传",
+      "claim": "oneWYO 可处理符合资格的续期、补证、地址更新、driving record 和医疗/视力表上传",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/onewyo.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming oneWYO Information",
+        "对应官方来源：Wyoming Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "renewal",
+        "replacement",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "address-change"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "license",
+      "claim": "首次 Wyoming 驾照或已过期续期仍需到 exam station",
       "sourceUrls": [
         "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
       ],
       "sourceLabels": [
         "对应官方来源：Wyoming Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
         "renewal",
-        "replacement",
         "test"
       ],
       "uncoveredThemes": [],
@@ -59849,16 +59991,18 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "地址变化表只更新 driving record",
+      "claim": "Office hours and availability 按地点和日期变化，许多 skills test 要提前安排",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/home/driver_license_records/frequently-asked-questions.default.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming Driver Services FAQ and Fees",
+        "对应官方来源：Wyoming Testing Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -59867,15 +60011,62 @@
       "stateId": "wyoming",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "license",
-      "claim": "如果要新地址出现在 driver license / ID card 上，需要申请新 credential",
+      "context": "appointment",
+      "claim": "先查官方 locations，再决定线上或到场",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
+        "https://www.dot.state.wy.us/home/driver_license_records/frequently-asked-questions.default.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html",
+        "https://wydot.maps.arcgis.com/apps/Shortlist/index.html?appid=f7834c5fa12c4090b07172d159dbfafd"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Driver License"
+        "对应官方来源：Wyoming Driver Services FAQ and Fees",
+        "对应官方来源：Wyoming Testing Requirements",
+        "对应官方来源：Wyoming Exam Station Locations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Wyoming 州法要求驾照或 ID 持有人在姓名、mailing address 或 residence 改变后 10 天内通知 Driver Services",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Add / Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "只更新数据库不会自动寄新卡",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Address%20Change%2020190715.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Add / Change Information",
+        "对应官方来源：Wyoming Notice of Change of Address"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -59884,15 +60075,236 @@
       "stateId": "wyoming",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "Wyoming 的“一年内换证”和“某些州/CDL 例外”很独特，要写得谨慎",
+      "context": "license",
+      "claim": "要让新地址显示在卡面，需按 renewal 路径本人申请并支付标准续期费",
       "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Add / Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "新驾照有效 5 年、ID card 有效 8 年，官方称约 4 周寄到",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Add / Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "改名必须本人到场、交回现证并提交法律文件",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Add / Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "应先在 SSA 完成姓名更新，卡片约 4-6 周寄到",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Add / Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "驾照每 10 年只能使用 mail 或 online renewal 一次，也就是 every other renewal",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "每 10 年至少有一次需本人更新照片和通过 vision screening",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通驾照可提前一年续期",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "mail renewal 应预留 30 天处理，续期后再预留 4-6 周收卡",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "补证始终可本人办理",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "oneWYO 或 mail 只适用于上一张证件不是 mail/online renewal 的情况，沿用旧照片并需完成 vision section",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "临时在外、要求寄往当前 mailing address 之外时要提交 Forwarding Request",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html",
         "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
       ],
       "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal",
         "对应官方来源：Wyoming Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "state mail 不会由 USPS 自动转寄",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -59902,16 +60314,60 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "document",
-      "claim": "Residency proof no more than 45 days old 是非常具体的要求",
+      "claim": "非美国公民只有在 Wyoming 当前记录中被归类为 Permanent Resident 时才可 mail/online renewal",
       "sourceUrls": [
         "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming Lost and Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "移民文件仍需在每次服务时出示",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "当前费用表列出首次 Class C / permit $45、续期 Class C / permit $35、duplicate driver license $25、ID card $10",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/frequently-asked-questions.default.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver Services FAQ and Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -59921,16 +60377,16 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "detail",
-      "claim": "Address change form does not print a new card，是常见误区",
+      "claim": "现金、check 和 money order 可用，部分 exam station 收卡但另有手续费",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Address%20Change%2020190715.pdf"
+        "https://www.dot.state.wy.us/home/driver_license_records/frequently-asked-questions.default.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Notice of Change of Address"
+        "对应官方来源：Wyoming Driver Services FAQ and Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -59940,14 +60396,14 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Wyoming 自 2011 年起签发的 driver license / ID 规则已符合 REAL ID",
+      "claim": "Wyoming Driver Services 当前签发的所有 driver license 和 ID card 都是 REAL ID compliant",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
+        "https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Driver License"
+        "对应官方来源：Wyoming REAL ID Compliance Notice"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -59959,20 +60415,53 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "续期时如果之前未提供 REAL ID documents，需要带 valid U.S. passport、state-certified birth certificate 或 immigration documents、两份 45 天内 Wyoming residency、以及姓名变化文件",
+      "claim": "州方自 2011 年起按 REAL ID 标准签发，不提供普通版与 REAL ID 二选一",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming REAL ID Compliance Notice"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document",
-        "residency-proof",
-        "name-change",
-        "lawful-presence",
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "当前卡右上角有星标，2019 年由金色改为黑色，两者都合规",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming REAL ID Compliance Notice"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "license",
+      "claim": "2010 年 1 月 1 日前签发、仍在流通的旧 ID card 应考虑续期",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming REAL ID Compliance Notice"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "renewal"
       ],
       "uncoveredThemes": [],
@@ -59983,14 +60472,52 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Valid U.S. passport、state-certified birth certificate 或 immigration documents",
+      "claim": "如果以前未提交过材料，美国公民按现行清单准备一份 legal presence 与一份 identity 证明",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "可选 state-certified birth certificate、valid unexpired U.S. passport / passport card、citizenship / naturalization certificate，以及州 DL/ID 等组合",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "非美国公民每次服务都要带 immigration documents",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "lawful-presence"
@@ -60003,15 +60530,37 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 current Wyoming residency，通常 no more than 45 days old",
+      "claim": "identity 至少一份未过期 I-551、I-766 或 foreign passport，并带齐显示当前 legal presence 的适用文件，例如 visa、I-94、I-797、DS-2019 或 I-20",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "准备两份 Wyoming residency document，必须显示本人姓名和 current physical residential address，不能只写 P.O. Box、PMB 或 mail drop",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -60022,16 +60571,63 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名变化时带 marriage certificate、divorce decree、court order 等文件",
+      "claim": "文件不得超过 45 天，而且不能来自同一 entity",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "基础身份文件与当前全名不一致时带完整 name chain",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "新改名应先更新 SSA，marriage certificate 只能用于改变 last name，其他改名需要 court order",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf",
+        "https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Add / Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
+        "ssn",
         "name-change"
       ],
       "uncoveredThemes": [],
@@ -60042,18 +60638,18 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "非美国公民每次 renewal 或服务通常要出示 USCIS / immigration documents",
+      "claim": "SSN 必须填写在申请表上，但 SSN proof 是 recommended、not required",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "lawful-presence",
-        "renewal"
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -60063,16 +60659,19 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "地址变化表只更新记录",
+      "claim": "可带 Social Security card、W-2 或含姓名和完整 SSN 的政府文件",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change"
+        "document",
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -60082,112 +60681,18 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "想要卡面显示新地址需办理新 license / ID",
+      "claim": "现行材料表要求未篡改的 certified original、certified amended original 或签发机构认证 true copy，并写明 photocopy、notarized document 和 online printout 不接受",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "wyoming",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "license",
-      "claim": "先看 Wyoming Driver License 页面，确认新居民、续期还是 oneWYO 在线服务",
-      "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Wyoming Driver License"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "wyoming",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "续期前看 Lost / Renewal 页面，确认是否需要重新提交 REAL ID documents",
-      "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "wyoming",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "准备 identity/immigration、two Wyoming residency within 45 days、name change documents",
-      "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "wyoming",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "地址变化先看 Add / Change Information 和 Notice of Change of Address form",
-      "sourceUrls": [
-        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Address%20Change%2020190715.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Wyoming Notice of Change of Address"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "wyoming",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "需要线上办理时用 oneWYO",
-      "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Wyoming Driver License"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
         "online-service"
       ],
       "uncoveredThemes": [],
@@ -60196,18 +60701,86 @@
     {
       "stateId": "wyoming",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "license",
-      "claim": "需要首次或过期 renewal 时安排 local driver exam station",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "电子账单或网上下载件应在到场前向 Driver Services 确认",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "residency-proof",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "官方材料表说明清单不是穷尽列表，Driver Services 可为核定年龄、identity 和 authorized presence 要求补充材料",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "先分清本次是新居民首证、续期、补证、改址还是改名",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License",
+        "对应官方来源：Wyoming Lost and Renewal",
+        "对应官方来源：Wyoming Add / Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change",
         "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "first-time 或 expired Wyoming license 仍按 exam station 路径准备",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "test"
       ],
       "uncoveredThemes": [],
@@ -60216,20 +60789,65 @@
     {
       "stateId": "wyoming",
       "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "用超过 45 天的地址证明去办 Wyoming REAL ID renewal",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "新居民先核对期限：通常是一年，但 Georgia、Massachusetts、Michigan、Tennessee、Wisconsin 驾照和 CDL 持有人在建立 residency 后就应申请",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "residency-proof",
-        "renewal"
+        "transfer"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "按公民身份打开 2025 年现行 U.S. citizen 或 non-U.S. citizen materials PDF，不用旧博客清单替代",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/DS-documents-1",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Current Document Requirements Hub",
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "把材料分成 identity/legal presence、name chain、two residency within 45 days from different entities、SSN information 四组，并准备 certified documents",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -60237,16 +60855,130 @@
     {
       "stateId": "wyoming",
       "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "detail",
-      "claim": "更新 address record 后，以为卡面地址也自动改变",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "中国大陆驾照用户先联系 Driver Services 确认考试处理",
       "sourceUrls": [
-        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Address%20Change%2020190715.pdf"
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html",
+        "https://dot.state.wy.us/home/driver_license_records/formsapplications/driver-manuals.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Notice of Change of Address"
+        "对应官方来源：Wyoming Driver License",
+        "对应官方来源：Wyoming Testing Requirements",
+        "对应官方来源：Wyoming Driver Manuals"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "笔试只有英文，但 non-commercial written test 可用 interpreter 和语音朗读",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Testing Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期或补证先看上一张证件是否已走 mail/online，确认本次 oneWYO 资格、vision section 和是否需要本人更新照片",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "查看具体 exam station 的开放日和 skills-test 安排，并按业务准备 $45 首证、$35 续期、$25 duplicate 或 $10 ID 的当前费用",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/frequently-asked-questions.default.html",
+        "https://wydot.maps.arcgis.com/apps/Shortlist/index.html?appid=f7834c5fa12c4090b07172d159dbfafd"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Testing Requirements",
+        "对应官方来源：Wyoming Driver Services FAQ and Fees",
+        "对应官方来源：Wyoming Exam Station Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "提交后按约 4-6 周收实体卡",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License",
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "寄往申请表地址之外时同时交 Forwarding Request，不依赖 USPS 转寄",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License",
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -60255,17 +60987,184 @@
       "stateId": "wyoming",
       "surface": "real-id",
       "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "把 Wyoming 当成可选 standard 或 REAL ID 的州",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming REAL ID Compliance Notice"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "当前 Driver Services 签发的驾照和 ID 都是 REAL ID compliant",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming REAL ID Compliance Notice"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "两份地址证明超过 45 天、来自同一 entity，或只显示 P.O. Box / PMB / mail drop",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
       "context": "license",
-      "claim": "十年内必须本人续期一次，却一直尝试 mail / online renewal",
+      "claim": "持中国大陆驾照就假定能直接换证或免考",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html",
+        "https://dot.state.wy.us/home/driver_license_records/formsapplications/driver-manuals.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License",
+        "对应官方来源：Wyoming Testing Requirements",
+        "对应官方来源：Wyoming Driver Manuals"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "WYDOT 当前公开页面没有给出这项互惠",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html",
+        "https://dot.state.wy.us/home/driver_license_records/formsapplications/driver-manuals.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver License",
+        "对应官方来源：Wyoming Testing Requirements",
+        "对应官方来源：Wyoming Driver Manuals"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "非美国公民只在首次申请时带移民文件",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "现行材料表要求 immigration documents 每次服务都出示",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf",
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "更新 address record 后以为卡面地址也自动改变，或错过姓名/地址变化后的 10 天通知期",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Address%20Change%2020190715.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Add / Change Information",
+        "对应官方来源：Wyoming Notice of Change of Address"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "上一张证件已 mail/online renewal，这次仍直接尝试 oneWYO 或 mail 补证/续期",
       "sourceUrls": [
         "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Wyoming Lost / Renewal"
+        "对应官方来源：Wyoming Lost and Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
+        "replacement",
         "online-service"
       ],
       "uncoveredThemes": [],
@@ -60276,14 +61175,105 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "detail",
-      "claim": "新居民持特殊州 license 或 CDL 时没有及时转 Wyoming license",
+      "claim": "临时在州外却没有交 Forwarding Request",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "Wyoming state mail 不会由 USPS 自动转寄",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Lost and Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "新居民持 Georgia、Massachusetts、Michigan、Tennessee、Wisconsin 驾照或 CDL，却仍按普通一年期限等待",
       "sourceUrls": [
         "https://www.dot.state.wy.us/home/driver_license_records/driver-license.html"
       ],
       "sourceLabels": [
         "对应官方来源：Wyoming Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "直接带 photocopy、notarized document 或 online printout，未按现行清单准备 certified document 或先确认电子账单",
+      "sourceUrls": [
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf",
+        "https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming U.S. Citizen Document Requirements R03/25",
+        "对应官方来源：Wyoming Non-U.S. Citizen Document Requirements R03/25"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "只看 2021 Class C manual 判断当前要求",
+      "sourceUrls": [
+        "https://dot.state.wy.us/home/driver_license_records/formsapplications/driver-manuals.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver Manuals"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "wyoming",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "WYDOT 的 manuals 页面明确提醒手册内容可能已过时",
+      "sourceUrls": [
+        "https://dot.state.wy.us/home/driver_license_records/formsapplications/driver-manuals.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Wyoming Driver Manuals"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true

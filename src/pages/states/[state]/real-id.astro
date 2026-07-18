@@ -27,7 +27,10 @@ export function getStaticPaths() {
 
 const { state } = Astro.props as { state: StateGuide };
 const relatedTopics = topics.filter((topic) => state.relatedTopicSlugs.includes(topic.slug));
-const realIdSource = state.actionLinks[0];
+const allCredentialsRealId = Boolean(state.allCredentialsRealId);
+const realIdSource =
+  state.actionLinks.find((link) => /real\s*id/i.test(`${link.label} ${link.description}`)) ??
+  state.actionLinks[0]!;
 const accessStatus = state.accessStatus ? getStatePublicStatus(state) : undefined;
 const title = `${state.nameZh} REAL ID 中文材料清单`;
 const description = `${state.nameZh} REAL ID 中文清单：材料类别、办理顺序、常见错误和官方来源。`;
@@ -42,10 +45,12 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const realIdDecisions = [
   {
     number: '01',
-    title: '先判断是否需要',
-    text: '如果你有有效护照或其他 TSA 接受证件，国内航班不一定必须急着升级州证件。',
-    href: '/topics/airport-travel-after-real-id/',
-    action: '看机场证件',
+    title: allCredentialsRealId ? '先看现有证件' : '先判断是否需要',
+    text: allCredentialsRealId
+      ? `${state.nameZh} 当前签发的驾照和 ID 已全部合规；先看卡面星标和签发年代。`
+      : '如果你有有效护照或其他 TSA 接受证件，国内航班不一定必须急着升级州证件。',
+    href: allCredentialsRealId ? '#real-id-evidence-heading' : '/topics/airport-travel-after-real-id/',
+    action: allCredentialsRealId ? '看本州判断' : '看机场证件',
     external: false,
   },
   {
@@ -67,28 +72,63 @@ const realIdDecisions = [
     external: true,
   },
 ];
-const credentialComparisonRows = [
-  {
-    label: 'REAL ID 州驾照 / ID',
-    use: '适合想用州证件处理国内航班安检或部分联邦设施身份用途的人。',
-    material: `按 ${state.agency} 官方清单准备身份、SSN、地址、姓名变更和 lawful presence 等材料。`,
-  },
-  {
-    label: '标准驾照 / ID',
-    use: '通常仍可用于驾驶或普通州内身份用途，但不能当作 REAL ID 联邦用途证件。',
-    material: '看本州普通驾照 / ID、续期、补证或地址变更入口；不要把标准证件当作 REAL ID 使用。',
-  },
-  {
-    label: '护照或 TSA 接受证件',
-    use: '适合已经有有效护照，且只是为了国内航班身份核验的人。',
-    material: '先查 TSA 接受证件列表；旅行证件规则以 TSA 官方页面为准。',
-  },
-];
+const realIdAudience = allCredentialsRealId
+  ? [
+      '你持有当前的 Wyoming 驾照或 ID，想确认星标和联邦用途。',
+      '你持有 2010 年 1 月 1 日前签发的旧 ID card，需要判断是否续期。',
+      '你准备首次申请、续期或补证，需要按当前材料表整理文件。',
+    ]
+  : [
+      '你的驾照或 ID 没有 REAL ID 合规标记，且你想用州证件坐国内航班。',
+      '你没有护照，或不想每次国内旅行都带护照。',
+      '你准备续期、补证或搬州换证，想顺便判断是否升级 REAL ID。',
+    ];
+const credentialComparisonTitle = allCredentialsRealId
+  ? `${state.nameZh} 当前证件和护照怎么判断`
+  : 'REAL ID、标准证件和护照怎么选';
+const credentialComparisonRows = allCredentialsRealId
+  ? [
+      {
+        label: '当前 Wyoming 驾照 / ID',
+        use: 'Driver Services 当前签发的证件已全部符合 REAL ID，卡面右上角有星标。',
+        material: '首次、续期或补证时仍按当前公民或非公民材料表准备，不存在另选 standard credential 的路线。',
+      },
+      {
+        label: '2010 年前旧 ID card',
+        use: '少量 2010 年 1 月 1 日前签发的 ID card 仍可能流通，州方建议续期确认合规。',
+        material: '先看 Lost / Renewal 和当前材料表，再到 Driver Services 办理更新。',
+      },
+      {
+        label: '护照或 TSA 接受证件',
+        use: '有效护照等证件仍可用于 TSA 身份核验，不需要因为登机再取得第二张 Wyoming REAL ID。',
+        material: '旅行证件接受范围以 TSA 官方清单为准；Wyoming 驾照业务仍按 WYDOT 要求办理。',
+      },
+    ]
+  : [
+      {
+        label: 'REAL ID 州驾照 / ID',
+        use: '适合想用州证件处理国内航班安检或部分联邦设施身份用途的人。',
+        material: `按 ${state.agency} 官方清单准备身份、SSN、地址、姓名变更和 lawful presence 等材料。`,
+      },
+      {
+        label: '标准驾照 / ID',
+        use: '通常仍可用于驾驶或普通州内身份用途，但不能当作 REAL ID 联邦用途证件。',
+        material: '看本州普通驾照 / ID、续期、补证或地址变更入口；不要把标准证件当作 REAL ID 使用。',
+      },
+      {
+        label: '护照或 TSA 接受证件',
+        use: '适合已经有有效护照，且只是为了国内航班身份核验的人。',
+        material: '先查 TSA 接受证件列表；旅行证件规则以 TSA 官方页面为准。',
+      },
+    ];
 const realIdFaqs = [
   {
-    question: `有护照还需要办 ${state.nameZh} REAL ID 吗？`,
-    answer:
-      '不一定。有效护照等 TSA 接受证件也可用于国内航班身份核验；是否升级州证件，取决于你是否想用驾照或州 ID 处理这些用途。',
+    question: allCredentialsRealId
+      ? `${state.nameZh} 还需要单独升级 REAL ID 吗？`
+      : `有护照还需要办 ${state.nameZh} REAL ID 吗？`,
+    answer: allCredentialsRealId
+      ? '不需要另选升级路线。Wyoming Driver Services 当前签发的驾照和 ID 已全部合规；持 2010 年前旧 ID card 的人应按州方提示考虑续期。'
+      : '不一定。有效护照等 TSA 接受证件也可用于国内航班身份核验；是否升级州证件，取决于你是否想用驾照或州 ID 处理这些用途。',
   },
   {
     question: 'REAL ID 材料可以只带复印件或手机照片吗？',
@@ -99,6 +139,12 @@ const realIdFaqs = [
     answer: `以 ${state.agency} 官方页面和现场要求为准。本站用于中文理解和路径整理，不替代官方要求。`,
   },
 ];
+const leadingSteps = [
+  allCredentialsRealId
+    ? '先确认现有 Wyoming card 是否为当前星标证件；2010 年前旧 ID card 按州方提示考虑续期。'
+    : '先判断 REAL ID 是否必要：有效护照等 TSA 接受证件也可用于国内航班身份核验。',
+];
+const officialActionLabel = allCredentialsRealId ? '查看官方 REAL ID 公告' : '打开官方 REAL ID';
 const schema = [
   {
     '@type': 'Article',
@@ -216,9 +262,7 @@ const schema = [
       <section class="panel">
         <h2>适合先看这页的人</h2>
         <ul class="check-list">
-          <li>你的驾照或 ID 没有 REAL ID 合规标记，且你想用州证件坐国内航班。</li>
-          <li>你没有护照，或不想每次国内旅行都带护照。</li>
-          <li>你准备续期、补证或搬州换证，想顺便判断是否升级 REAL ID。</li>
+          {realIdAudience.map((item) => <li>{item}</li>)}
         </ul>
       </section>
 
@@ -228,8 +272,8 @@ const schema = [
       </section>
 
       <section class="panel">
-        <h2>REAL ID、标准证件和护照怎么选</h2>
-        <div class="comparison-table" role="table" aria-label={`${state.nameZh} REAL ID 证件选择对比`}>
+        <h2>{credentialComparisonTitle}</h2>
+        <div class="comparison-table" role="table" aria-label={`${state.nameZh} REAL ID 证件判断对比`}>
           <div class="comparison-row comparison-head" role="row">
             <span role="columnheader">证件路径</span>
             <span role="columnheader">适合情况</span>
@@ -271,7 +315,7 @@ const schema = [
           items={stepEvidence}
           ordered
           className="step-list"
-          leadingItems={['先判断 REAL ID 是否必要：有效护照等 TSA 接受证件也可用于国内航班身份核验。']}
+          leadingItems={leadingSteps}
         />
       </section>
 
@@ -287,7 +331,7 @@ const schema = [
             <strong>{realIdSource.label}</strong>
             <p>{realIdSource.description}</p>
           </div>
-          <OfficialLinkButton href={realIdSource.url} label="打开官方 REAL ID" variant="primary" />
+          <OfficialLinkButton href={realIdSource.url} label={officialActionLabel} variant="primary" />
         </div>
       </section>
 

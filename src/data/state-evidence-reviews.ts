@@ -795,6 +795,31 @@ const AR_EXAM =
   'https://dps.arkansas.gov/law-enforcement/arkansas-state-police/services-programs/driver-examination/';
 const AR_MANUAL =
   'https://dps.arkansas.gov/wp-content/uploads/Arkansas-DL-Manual-English.pdf';
+const WY_DRIVER =
+  'https://www.dot.state.wy.us/home/driver_license_records/driver-license.html';
+const WY_REAL_ID =
+  'https://www.dot.state.wy.us/news/wyoming-driver-licenses-id-cards-are-real-id-compliant';
+const WY_US_DOCS =
+  'https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20US%2020250922.pdf';
+const WY_NON_US_DOCS =
+  'https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Documents%20Required%20non-US%2020250922.pdf';
+const WY_TESTING =
+  'https://www.dot.state.wy.us/home/driver_license_records/driver-license/testing.html';
+const WY_RENEW =
+  'https://www.dot.state.wy.us/home/driver_license_records/driver-license/lost--renewal.html';
+const WY_CHANGE =
+  'https://www.dot.state.wy.us/home/driver_license_records/add_or_change_information.html';
+const WY_ONEWYO =
+  'https://www.dot.state.wy.us/home/driver_license_records/onewyo.html';
+const WY_FAQ =
+  'https://www.dot.state.wy.us/home/driver_license_records/frequently-asked-questions.default.html';
+const WY_DOC_HUB = 'https://www.dot.state.wy.us/DS-documents-1';
+const WY_MANUALS =
+  'https://dot.state.wy.us/home/driver_license_records/formsapplications/driver-manuals.html';
+const WY_LOCATIONS =
+  'https://wydot.maps.arcgis.com/apps/Shortlist/index.html?appid=f7834c5fa12c4090b07172d159dbfafd';
+const WY_ADDRESS =
+  'https://www.dot.state.wy.us/files/live/sites/wydot/files/shared/Driver_Services/Forms/Address%20Change%2020190715.pdf';
 const TN_REAL_ID =
   'https://www.tn.gov/safety/driver-services/helpful-information/real-id.html';
 const TN_NEW_RESIDENTS =
@@ -824,6 +849,220 @@ const TN_MANUAL =
   'https://www.tn.gov/content/dam/tn/safety/documents/DL_Manual.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  wyoming: {
+    reviewedAt: '2026-07-19',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      WY_DRIVER,
+      WY_REAL_ID,
+      WY_US_DOCS,
+      WY_NON_US_DOCS,
+      WY_TESTING,
+      WY_RENEW,
+      WY_CHANGE,
+      WY_ONEWYO,
+      WY_FAQ,
+      WY_DOC_HUB,
+      WY_MANUALS,
+      WY_LOCATIONS,
+      WY_ADDRESS,
+    ],
+    scope:
+      '逐条打开并比对 WYDOT 的新居民与首次驾照、REAL ID 当前公告、R03/25 公民与非公民材料表、Testing、Lost / Renewal、Add / Change、oneWYO、FAQ/费用、当前材料入口、manuals、exam station locations 和地址表。',
+    notes:
+      '重写 Wyoming 两页并建立显式声明级来源；纠正当前证件不存在 standard/REAL ID 二选一，补齐新居民五州/CDL 例外、中国大陆驾照无公开互惠清单、英文考试与口译、45 天且不同来源的住址材料、非公民每次服务、10 天改址改名、续补证限制、寄送和现行费用。',
+    claims: {
+      '搬到 Wyoming 后，新居民必须本人申请州驾照': [WY_DRIVER],
+      '通常自建立 residency 起有一年取得证件': [WY_DRIVER],
+      '若现持 Georgia、Massachusetts、Michigan、Tennessee、Wisconsin 驾照，或持 CDL，建立 residency 后就应申请': [
+        WY_DRIVER,
+      ],
+      '首次 Wyoming 驾照或已过期的 Wyoming 驾照可先在 oneWYO 开始，但仍要到 exam station，交回外州驾照、拍照并做 vision screening': [
+        WY_DRIVER,
+      ],
+      '实体卡预计签发后 4-6 周寄到': [WY_DRIVER],
+      'Wyoming 笔试和驾驶手册只有英文': [WY_TESTING],
+      '非商业笔试可使用 interpreter，自动考试系统也可通过电话朗读题目': [
+        WY_TESTING,
+      ],
+      'WYDOT 的 Driver License、Testing 和 manuals 页面未发布外国驾照互惠或中国大陆驾照免考清单': [
+        WY_DRIVER,
+        WY_TESTING,
+        WY_MANUALS,
+      ],
+      '中国大陆驾照用户不应自行假定可免笔试或路考，应先向 Driver Services 确认并按可能考试准备': [
+        WY_DRIVER,
+        WY_TESTING,
+        WY_MANUALS,
+      ],
+      'Wyoming Driver Services 当前签发的所有 driver license 和 ID card 都是 REAL ID compliant': [
+        WY_REAL_ID,
+      ],
+      '州方自 2011 年起按 REAL ID 标准签发，不提供普通版与 REAL ID 二选一': [
+        WY_REAL_ID,
+      ],
+      '当前卡右上角有星标，2019 年由金色改为黑色，两者都合规': [WY_REAL_ID],
+      '2010 年 1 月 1 日前签发、仍在流通的旧 ID card 应考虑续期': [WY_REAL_ID],
+      'oneWYO 可处理符合资格的续期、补证、地址更新、driving record 和医疗/视力表上传': [
+        WY_ONEWYO,
+        WY_DRIVER,
+      ],
+      '首次 Wyoming 驾照或已过期续期仍需到 exam station': [WY_DRIVER],
+      'Office hours and availability 按地点和日期变化，许多 skills test 要提前安排': [
+        WY_FAQ,
+        WY_TESTING,
+      ],
+      '先查官方 locations，再决定线上或到场': [WY_FAQ, WY_TESTING, WY_LOCATIONS],
+      'Wyoming 州法要求驾照或 ID 持有人在姓名、mailing address 或 residence 改变后 10 天内通知 Driver Services': [
+        WY_CHANGE,
+      ],
+      '只更新数据库不会自动寄新卡': [WY_CHANGE, WY_ADDRESS],
+      '要让新地址显示在卡面，需按 renewal 路径本人申请并支付标准续期费': [
+        WY_CHANGE,
+      ],
+      '新驾照有效 5 年、ID card 有效 8 年，官方称约 4 周寄到': [WY_CHANGE],
+      '改名必须本人到场、交回现证并提交法律文件': [WY_CHANGE],
+      '应先在 SSA 完成姓名更新，卡片约 4-6 周寄到': [WY_CHANGE],
+      '驾照每 10 年只能使用 mail 或 online renewal 一次，也就是 every other renewal': [
+        WY_RENEW,
+      ],
+      '每 10 年至少有一次需本人更新照片和通过 vision screening': [WY_RENEW],
+      '普通驾照可提前一年续期': [WY_RENEW],
+      'mail renewal 应预留 30 天处理，续期后再预留 4-6 周收卡': [WY_RENEW],
+      '补证始终可本人办理': [WY_RENEW],
+      'oneWYO 或 mail 只适用于上一张证件不是 mail/online renewal 的情况，沿用旧照片并需完成 vision section': [
+        WY_RENEW,
+      ],
+      '临时在外、要求寄往当前 mailing address 之外时要提交 Forwarding Request': [
+        WY_RENEW,
+        WY_DRIVER,
+      ],
+      'state mail 不会由 USPS 自动转寄': [WY_RENEW],
+      '非美国公民只有在 Wyoming 当前记录中被归类为 Permanent Resident 时才可 mail/online renewal': [
+        WY_RENEW,
+      ],
+      '移民文件仍需在每次服务时出示': [WY_NON_US_DOCS, WY_RENEW],
+      '当前费用表列出首次 Class C / permit $45、续期 Class C / permit $35、duplicate driver license $25、ID card $10': [
+        WY_FAQ,
+      ],
+      '现金、check 和 money order 可用，部分 exam station 收卡但另有手续费': [WY_FAQ],
+      '如果以前未提交过材料，美国公民按现行清单准备一份 legal presence 与一份 identity 证明': [
+        WY_US_DOCS,
+      ],
+      '可选 state-certified birth certificate、valid unexpired U.S. passport / passport card、citizenship / naturalization certificate，以及州 DL/ID 等组合': [
+        WY_US_DOCS,
+      ],
+      '非美国公民每次服务都要带 immigration documents': [WY_NON_US_DOCS],
+      'identity 至少一份未过期 I-551、I-766 或 foreign passport，并带齐显示当前 legal presence 的适用文件，例如 visa、I-94、I-797、DS-2019 或 I-20': [
+        WY_NON_US_DOCS,
+      ],
+      '准备两份 Wyoming residency document，必须显示本人姓名和 current physical residential address，不能只写 P.O. Box、PMB 或 mail drop': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '文件不得超过 45 天，而且不能来自同一 entity': [WY_US_DOCS, WY_NON_US_DOCS],
+      '基础身份文件与当前全名不一致时带完整 name chain': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '新改名应先更新 SSA，marriage certificate 只能用于改变 last name，其他改名需要 court order': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+        WY_CHANGE,
+      ],
+      'SSN 必须填写在申请表上，但 SSN proof 是 recommended、not required': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '可带 Social Security card、W-2 或含姓名和完整 SSN 的政府文件': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '现行材料表要求未篡改的 certified original、certified amended original 或签发机构认证 true copy，并写明 photocopy、notarized document 和 online printout 不接受': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '电子账单或网上下载件应在到场前向 Driver Services 确认': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '官方材料表说明清单不是穷尽列表，Driver Services 可为核定年龄、identity 和 authorized presence 要求补充材料': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '先分清本次是新居民首证、续期、补证、改址还是改名': [
+        WY_DRIVER,
+        WY_RENEW,
+        WY_CHANGE,
+      ],
+      'first-time 或 expired Wyoming license 仍按 exam station 路径准备': [WY_DRIVER],
+      '新居民先核对期限：通常是一年，但 Georgia、Massachusetts、Michigan、Tennessee、Wisconsin 驾照和 CDL 持有人在建立 residency 后就应申请': [
+        WY_DRIVER,
+      ],
+      '按公民身份打开 2025 年现行 U.S. citizen 或 non-U.S. citizen materials PDF，不用旧博客清单替代': [
+        WY_DOC_HUB,
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '把材料分成 identity/legal presence、name chain、two residency within 45 days from different entities、SSN information 四组，并准备 certified documents': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '中国大陆驾照用户先联系 Driver Services 确认考试处理': [
+        WY_DRIVER,
+        WY_TESTING,
+        WY_MANUALS,
+      ],
+      '笔试只有英文，但 non-commercial written test 可用 interpreter 和语音朗读': [
+        WY_TESTING,
+      ],
+      '续期或补证先看上一张证件是否已走 mail/online，确认本次 oneWYO 资格、vision section 和是否需要本人更新照片': [
+        WY_RENEW,
+      ],
+      '查看具体 exam station 的开放日和 skills-test 安排，并按业务准备 $45 首证、$35 续期、$25 duplicate 或 $10 ID 的当前费用': [
+        WY_TESTING,
+        WY_FAQ,
+        WY_LOCATIONS,
+      ],
+      '提交后按约 4-6 周收实体卡': [WY_DRIVER, WY_RENEW],
+      '寄往申请表地址之外时同时交 Forwarding Request，不依赖 USPS 转寄': [
+        WY_DRIVER,
+        WY_RENEW,
+      ],
+      '把 Wyoming 当成可选 standard 或 REAL ID 的州': [WY_REAL_ID],
+      '当前 Driver Services 签发的驾照和 ID 都是 REAL ID compliant': [WY_REAL_ID],
+      '两份地址证明超过 45 天、来自同一 entity，或只显示 P.O. Box / PMB / mail drop': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '持中国大陆驾照就假定能直接换证或免考': [WY_DRIVER, WY_TESTING, WY_MANUALS],
+      'WYDOT 当前公开页面没有给出这项互惠': [WY_DRIVER, WY_TESTING, WY_MANUALS],
+      '非美国公民只在首次申请时带移民文件': [WY_NON_US_DOCS, WY_RENEW],
+      '现行材料表要求 immigration documents 每次服务都出示': [
+        WY_NON_US_DOCS,
+        WY_RENEW,
+      ],
+      '更新 address record 后以为卡面地址也自动改变，或错过姓名/地址变化后的 10 天通知期': [
+        WY_CHANGE,
+        WY_ADDRESS,
+      ],
+      '上一张证件已 mail/online renewal，这次仍直接尝试 oneWYO 或 mail 补证/续期': [
+        WY_RENEW,
+      ],
+      '临时在州外却没有交 Forwarding Request': [WY_RENEW],
+      'Wyoming state mail 不会由 USPS 自动转寄': [WY_RENEW],
+      '新居民持 Georgia、Massachusetts、Michigan、Tennessee、Wisconsin 驾照或 CDL，却仍按普通一年期限等待': [
+        WY_DRIVER,
+      ],
+      '直接带 photocopy、notarized document 或 online printout，未按现行清单准备 certified document 或先确认电子账单': [
+        WY_US_DOCS,
+        WY_NON_US_DOCS,
+      ],
+      '只看 2021 Class C manual 判断当前要求': [WY_MANUALS],
+      'WYDOT 的 manuals 页面明确提醒手册内容可能已过时': [WY_MANUALS],
+    },
+  },
   alaska: {
     reviewedAt: '2026-07-19',
     reviewer: 'Codex AI 辅助证据核查',

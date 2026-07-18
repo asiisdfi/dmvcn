@@ -34,6 +34,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-19',
+    title: '完成 Wyoming 两页官方正文语义核对',
+    summary:
+      '逐条比对 WYDOT 的新居民与首次驾照、REAL ID 当前公告、R03/25 公民与非公民材料表、考试、续补证、改名改址、oneWYO、费用、地点和地址表；补齐 78 条页面级显式来源映射，纠正当前证件不存在 standard/REAL ID 二选一，并明确中国大陆驾照、英文考试、45 天住址文件和非公民每次服务的边界。',
+    scope: ['怀俄明州办事总览', '怀俄明州 REAL ID', '78 条显式来源映射', '外国驾照与续补证边界'],
+  },
+  {
+    date: '2026-07-19',
     title: '完成 Alaska 两页官方正文语义核对',
     summary:
       '逐条比对 Alaska DMV 的新居民/访客说明、REAL ID 与 standard 打印清单、非公民和外国驾照、续补证、改名改址、费用、办公地点、business partners、Rural Outreach 及 Off-Highway 指南；补齐 62 条页面级显式来源映射，并明确中国大陆驾照、外文翻译和偏远社区办理边界。',
