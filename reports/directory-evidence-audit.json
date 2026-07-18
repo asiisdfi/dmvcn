@@ -1,23 +1,23 @@
 {
   "summary": {
-    "generatedAt": "2026-07-18T17:45:49.184Z",
+    "generatedAt": "2026-07-18T18:18:18.115Z",
     "pages": 5,
-    "claims": 563,
+    "claims": 568,
     "statesCovered": 49,
-    "aiAssisted": 359,
-    "automated": 204,
+    "aiAssisted": 367,
+    "automated": 201,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 87,
-        "states": 27
+        "claims": 86,
+        "states": 26
       },
       "deadlines": {
         "claims": 71,
         "states": 27
       },
       "document-rules": {
-        "claims": 178,
+        "claims": 180,
         "states": 48
       },
       "foreign-license": {
@@ -25,8 +25,8 @@
         "states": 30
       },
       "identity-ssn": {
-        "claims": 140,
-        "states": 43
+        "claims": 144,
+        "states": 44
       }
     }
   },
@@ -1273,20 +1273,6 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "costs-timing",
-      "stateId": "arkansas",
-      "category": "付款",
-      "claim": "两份 Arkansas residency，例如水电燃气账单、六个月内 pay stub、六个月内银行账单、当前税表或房屋/租客/机动车保险",
-      "sourceUrl": "https://www.dfa.arkansas.gov/online-services/drivers/",
-      "sourceLabel": "对应官方来源：Arkansas DFA Online Driver Services",
-      "themes": [
-        "residency-documents"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
       "mappingMethod": "automated"
     },
     {
@@ -4179,26 +4165,58 @@
     {
       "page": "document-rules",
       "stateId": "arkansas",
-      "category": "清单入口",
-      "claim": "DFA REAL ID 页面写明 must be provided",
-      "sourceUrl": "https://www.dfa.arkansas.gov/real-id/",
-      "sourceLabel": "对应官方来源：Arkansas DFA Real ID",
-      "themes": [],
+      "category": "地址证明",
+      "claim": "若该 identity 文件显示住宅地址，可同时算一份 residency proof",
+      "sourceUrl": "https://www.dfa.arkansas.gov/wp-content/uploads/Proof_ofLegalPresence_08142025.pdf",
+      "sourceLabel": "对应官方来源：Arkansas DFA REAL ID Printable Document Checklist",
+      "themes": [
+        "residency-documents"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "arkansas",
-      "category": "清单入口",
-      "claim": "先打开 Arkansas REAL ID 页面或 Real ID Quiz，确认自己需要的材料组合",
-      "sourceUrl": "https://www.dfa.arkansas.gov/real-id/",
-      "sourceLabel": "对应官方来源：Arkansas DFA Real ID",
-      "themes": [],
+      "category": "地址证明",
+      "claim": "Arkansas residency 带两份",
+      "sourceUrl": "https://www.dfa.arkansas.gov/wp-content/uploads/Proof_ofLegalPresence_08142025.pdf",
+      "sourceLabel": "对应官方来源：Arkansas DFA REAL ID Printable Document Checklist",
+      "themes": [
+        "residency-documents"
+      ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "arkansas",
+      "category": "地址证明",
+      "claim": "P.O. Box 或 business address 不接受为住宅地址",
+      "sourceUrl": "https://www.dfa.arkansas.gov/wp-content/uploads/Proof_ofLegalPresence_08142025.pdf",
+      "sourceLabel": "对应官方来源：Arkansas DFA REAL ID Printable Document Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "arkansas",
+      "category": "地址证明",
+      "claim": "未成年人可使用父母的 residency documents 并附 birth certificate",
+      "sourceUrl": "https://www.dfa.arkansas.gov/wp-content/uploads/Proof_ofLegalPresence_08142025.pdf",
+      "sourceLabel": "对应官方来源：Arkansas DFA REAL ID Printable Document Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -7816,6 +7834,62 @@
       "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "automated"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "arkansas",
+      "category": "SSN",
+      "claim": "Arkansas REAL ID 官方简介要求 Social Security Card",
+      "sourceUrl": "https://www.dfa.arkansas.gov/real-id/",
+      "sourceLabel": "对应官方来源：Arkansas DFA REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "arkansas",
+      "category": "SSN",
+      "claim": "SSN 组按当前打印清单带 Social Security Card 或 DD214",
+      "sourceUrl": "https://www.dfa.arkansas.gov/wp-content/uploads/Proof_ofLegalPresence_08142025.pdf",
+      "sourceLabel": "对应官方来源：Arkansas DFA REAL ID Printable Document Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "arkansas",
+      "category": "SSN",
+      "claim": "REAL ID 简介仍只写 Social Security Card，因此使用 DD214 时不要只看简介，先向办理办公室确认",
+      "sourceUrl": "https://www.dfa.arkansas.gov/real-id/",
+      "sourceLabel": "对应官方来源：Arkansas DFA REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "arkansas",
+      "category": "SSN",
+      "claim": "姓名、出生日期或 SSN 有变化时，要用 court order、marriage certificate、divorce decree、adoption document 等连接旧信息与新信息",
+      "sourceUrl": "https://www.dfa.arkansas.gov/wp-content/uploads/Proof_ofLegalPresence_08142025.pdf",
+      "sourceLabel": "对应官方来源：Arkansas DFA REAL ID Printable Document Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

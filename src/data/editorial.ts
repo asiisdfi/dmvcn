@@ -34,6 +34,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-19',
+    title: '完成 Arkansas 两页官方正文语义核对',
+    summary:
+      '逐条比对 Arkansas DFA 的 REAL ID、当前打印材料表、首次与续期到场清单、Class D 费用、FAQ、线上服务、改名改址表，以及 Arkansas State Police 的考试入口和 June 2026 Driver License Study Guide；补齐 79 条页面级显式来源映射，拆开考试与签发两套流程，并公开标注 REAL ID 简介与打印清单/FAQ 对 Social Security Card 和 DD214 的当前表述差异。',
+    scope: ['阿肯色州办事总览', '阿肯色州 REAL ID', '79 条显式来源映射', 'SSN 材料与预约边界'],
+  },
+  {
+    date: '2026-07-19',
     title: '完成 Tennessee 两页官方正文语义核对',
     summary:
       '逐条比对 Tennessee Driver Services 的 REAL ID、新居民、成人首证、Regular 与 Temporary credential、续补证、改名改址、费用、MVR、地点和驾驶手册；补齐 71 条页面级显式来源映射，移除已返回 404 的旧 Temporary 入口，并公开标注 New Residents 与 MVR Verification 对 Kentucky 是否需要 MVR 的当前入口差异。',

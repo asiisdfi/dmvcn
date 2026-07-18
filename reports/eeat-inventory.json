@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-18T17:46:03.472Z",
+    "generatedAt": "2026-07-18T18:18:26.018Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 63,
+    "passed": 65,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 86,
-    "aiAssistedReviews": 69,
+    "sourceMappedReviews": 84,
+    "aiAssistedReviews": 71,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 103,
+    "blockedPages": 101,
     "averageScore": 96
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 193,
+        "sourceCount": 195,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 271,
+        "sourceCount": 273,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 87,
-        "directoryEvidenceLinks": 87,
+        "directoryEvidenceItems": 86,
+        "directoryEvidenceLinks": 86,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 217,
+        "sourceCount": 219,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 520,
+        "sourceCount": 527,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 187,
+        "sourceCount": 188,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -521,8 +521,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 178,
-        "directoryEvidenceLinks": 178,
+        "directoryEvidenceItems": 180,
+        "directoryEvidenceLinks": 180,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 157,
+        "sourceCount": 155,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 189,
+        "sourceCount": 191,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 140,
-        "directoryEvidenceLinks": 140,
+        "directoryEvidenceItems": 144,
+        "directoryEvidenceLinks": 144,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 211,
+        "sourceCount": 213,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -700,7 +700,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 182,
+        "sourceCount": 185,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -794,7 +794,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 238,
+        "sourceCount": 240,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1212,
+        "sourceCount": 1223,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1429,21 +1429,21 @@
       "route": "/states/arkansas/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 87,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成阿肯色州（Arkansas Department of Finance and Administration）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Arkansas DFA 的 REAL ID、当前打印材料表、首次与续期到场清单、Class D 费用、FAQ、线上服务、改名改址表，以及 Arkansas State Police 的考试入口和 June 2026 Driver License Study Guide。",
+        "notes": "重写 Arkansas 两页并建立显式声明级来源；拆开 State Police 考试与 DFA Revenue Office 签发流程，补齐新居民 30 天、外国驾照互惠、续补证和地址路径；公开标注 REAL ID 简介与当前打印清单/FAQ 对 Social Security Card 和 DD214 的表述差异，并移除由旧 Saturday 活动推导出的长期 walk-in 结论。"
       },
       "scores": {
-        "factsAndSources": 16,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -1453,14 +1453,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 4,
-        "factCheckCount": 11,
+        "sourceCount": 14,
+        "factCheckCount": 33,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 11,
-        "stateEvidenceLinks": 14,
+        "stateEvidenceItems": 33,
+        "stateEvidenceLinks": 50,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1468,29 +1468,27 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/arkansas/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 98,
+      "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成阿肯色州（Arkansas Department of Finance and Administration）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Arkansas DFA 的 REAL ID、当前打印材料表、首次与续期到场清单、Class D 费用、FAQ、线上服务、改名改址表，以及 Arkansas State Police 的考试入口和 June 2026 Driver License Study Guide。",
+        "notes": "重写 Arkansas 两页并建立显式声明级来源；拆开 State Police 考试与 DFA Revenue Office 签发流程，补齐新居民 30 天、外国驾照互惠、续补证和地址路径；公开标注 REAL ID 简介与当前打印清单/FAQ 对 Social Security Card 和 DD214 的表述差异，并移除由旧 Saturday 活动推导出的长期 walk-in 结论。"
       },
       "scores": {
-        "factsAndSources": 24,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 15,
         "uniqueValue": 10,
@@ -1500,14 +1498,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 4,
-        "factCheckCount": 18,
+        "sourceCount": 14,
+        "factCheckCount": 46,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 18,
-        "stateEvidenceLinks": 18,
+        "stateEvidenceItems": 46,
+        "stateEvidenceLinks": 76,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1515,9 +1513,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/california/",

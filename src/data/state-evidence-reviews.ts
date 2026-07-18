@@ -744,6 +744,28 @@ const IN_SAVE =
   'https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/systematic-alien-verification-for-entitlements-save-program/';
 const IN_SKILLS =
   'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/drivers-license/driving-skill-examination';
+const AR_REAL_ID = 'https://www.dfa.arkansas.gov/real-id/';
+const AR_REAL_ID_DOCS =
+  'https://www.dfa.arkansas.gov/wp-content/uploads/Proof_ofLegalPresence_08142025.pdf';
+const AR_WHAT_YOU_NEED = 'https://www.dfa.arkansas.gov/do-you-have-what-you-need/';
+const AR_DRIVER_SERVICES = 'https://www.dfa.arkansas.gov/office/driver-services/';
+const AR_NCL =
+  'https://www.dfa.arkansas.gov/office/driver-services/licenses-ids-permits/non-commercial-information-ncl/';
+const AR_FAQ =
+  'https://www.dfa.arkansas.gov/office/motor-vehicle/faqs-for-dsmv/';
+const AR_ONLINE = 'https://www.dfa.arkansas.gov/online-services/drivers/';
+const AR_LOCATIONS =
+  'https://www.dfa.arkansas.gov/all-county-offices/?_sft_office-location-category=revenue-office';
+const AR_FORMS =
+  'https://www.dfa.arkansas.gov/office/driver-services/driver-services-forms/';
+const AR_ADDRESS =
+  'https://www.dfa.arkansas.gov/wp-content/uploads/Address_Change_with_Voter_Information.pdf';
+const AR_NAME_AFFIDAVIT =
+  'https://www.dfa.arkansas.gov/wp-content/uploads/Affidavit_of_Legal_Name_Change_2019.pdf';
+const AR_EXAM =
+  'https://dps.arkansas.gov/law-enforcement/arkansas-state-police/services-programs/driver-examination/';
+const AR_MANUAL =
+  'https://dps.arkansas.gov/wp-content/uploads/Arkansas-DL-Manual-English.pdf';
 const TN_REAL_ID =
   'https://www.tn.gov/safety/driver-services/helpful-information/real-id.html';
 const TN_NEW_RESIDENTS =
@@ -773,6 +795,226 @@ const TN_MANUAL =
   'https://www.tn.gov/content/dam/tn/safety/documents/DL_Manual.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  arkansas: {
+    reviewedAt: '2026-07-19',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      AR_REAL_ID,
+      AR_REAL_ID_DOCS,
+      AR_WHAT_YOU_NEED,
+      AR_DRIVER_SERVICES,
+      AR_NCL,
+      AR_FAQ,
+      AR_ONLINE,
+      AR_LOCATIONS,
+      AR_FORMS,
+      AR_ADDRESS,
+      AR_NAME_AFFIDAVIT,
+      AR_EXAM,
+      AR_MANUAL,
+    ],
+    scope:
+      '逐条打开并比对 Arkansas DFA 的 REAL ID、当前打印材料表、首次与续期到场清单、Class D 费用、FAQ、线上服务、改名改址表，以及 Arkansas State Police 的考试入口和 June 2026 Driver License Study Guide。',
+    notes:
+      '重写 Arkansas 两页并建立显式声明级来源；拆开 State Police 考试与 DFA Revenue Office 签发流程，补齐新居民 30 天、外国驾照互惠、续补证和地址路径；公开标注 REAL ID 简介与当前打印清单/FAQ 对 Social Security Card 和 DD214 的表述差异，并移除由旧 Saturday 活动推导出的长期 walk-in 结论。',
+    claims: {
+      'Arkansas 驾照流程分成两站：Arkansas State Police 负责 knowledge / skills test，Department of Finance and Administration 的 Revenue Office 负责签发驾照或 ID': [
+        AR_EXAM,
+        AR_DRIVER_SERVICES,
+      ],
+      '成为 Arkansas 居民后仍要在州内开车的人，应在 30 个日历日内取得 Arkansas 驾照': [
+        AR_MANUAL,
+      ],
+      '只是非居民但已在州内实际停留 6 个月的人也进入州驾照要求': [AR_MANUAL],
+      '新居民转入时要带有效 hard-copy 外州驾照，现行手册要求其过期不得超过 30 个日历日': [
+        AR_MANUAL,
+      ],
+      '签发 Arkansas 驾照或 ID 会取消其他州签发的驾照或 ID': [AR_REAL_ID_DOCS],
+      '持外国驾照的人不要默认可以直接换证：2026 Arkansas Driver License Study Guide 只列 Manitoba、Germany、France、Taiwan 和 South Korea 为免试互惠地区，中国大陆不在清单中': [
+        AR_MANUAL,
+      ],
+      '首次申请或不在互惠清单内的外国驾照持有人，应先按 State Police 流程准备考试，再到 Revenue Office 完成签发': [
+        AR_MANUAL,
+        AR_EXAM,
+        AR_DRIVER_SERVICES,
+      ],
+      'Arkansas REAL ID 可以签发为 driver license、state ID 或 CDL，DFA 说明升级按同类证件费用办理': [
+        AR_REAL_ID,
+        AR_WHAT_YOU_NEED,
+      ],
+      '当前打印清单要求一份 legal presence、一份 identity、一份 SSN 证明和两份 Arkansas residency': [
+        AR_REAL_ID_DOCS,
+        AR_REAL_ID,
+      ],
+      '大多数居住文件须在 6 个月内，但清单对税表、选民登记等另有期限': [
+        AR_REAL_ID_DOCS,
+      ],
+      'SSN 证明存在官方表述差异：REAL ID 简介写 Social Security Card must be provided，当前打印清单和 DSMV FAQ 同时接受 DD214': [
+        AR_REAL_ID,
+        AR_REAL_ID_DOCS,
+        AR_FAQ,
+      ],
+      '使用 DD214 的申请人应携带打印清单并在到场前向 Revenue Office 确认': [
+        AR_REAL_ID,
+        AR_REAL_ID_DOCS,
+        AR_FAQ,
+      ],
+      'State Police 考试预约和 DFA Revenue Office 办事预约不是同一个系统': [
+        AR_EXAM,
+        AR_ONLINE,
+      ],
+      'State Police 表示考试预约可保证日期和时间': [AR_EXAM],
+      '非美国公民持移民文件预约考试时应选择对应 appointment type，而且并非每个考点都提供该加长时段': [
+        AR_MANUAL,
+        AR_EXAM,
+      ],
+      'DFA 的 REAL ID 简介里“recommended, not required”只对应旧的 April 26 Saturday 活动，不能据此推定所有办公室、所有日期都长期接受 walk-in': [
+        AR_REAL_ID,
+      ],
+      'Arkansas State Police 现行手册要求新居民在成为 resident 后 30 个日历日内换证，并把非居民实际停留 6 个月列为另一条触发线': [
+        AR_MANUAL,
+      ],
+      '全日制或交换学生只有在学费规则下仍被视为 nonresident 时才属于手册列出的学生例外': [
+        AR_MANUAL,
+      ],
+      '首次笔试申请人不能只拿 DFA 的签发材料去考场': [
+        AR_MANUAL,
+        AR_WHAT_YOU_NEED,
+      ],
+      'State Police 的 18 岁以上 1-2-3 checklist 要求 two primary documents，或 one primary plus one secondary document，姓名不一致时还要带 marriage license、adoption decree、divorce decree 等连接文件': [
+        AR_MANUAL,
+      ],
+      'State Police 当前说明称全州各县都有 driver license testing，预约可以保证考试日期和时间': [
+        AR_EXAM,
+      ],
+      '2026 手册还提醒并非每个考点都提供 immigration-documents appointment feature': [
+        AR_MANUAL,
+      ],
+      '21 岁及以上 Class D 当前费用为 40 美元、有效 8 年，可从到期前 90 天开始续期': [
+        AR_NCL,
+      ],
+      '70 岁申请人可选 20 美元四年或 40 美元八年': [AR_NCL],
+      '普通续期如不改名且不升级 REAL ID，DFA 的到场清单称无需额外材料，但仍要做 vision exam 和拍照': [
+        AR_WHAT_YOU_NEED,
+      ],
+      'DFA FAQ 表示过期 Class D 续期不需要重新考试': [AR_FAQ],
+      '这一结论不应套用到 CDL 或其他特殊资格': [AR_FAQ],
+      '线上地址更新免费且不会自动签发新卡': [AR_ONLINE, AR_ADDRESS],
+      '需要显示新地址的 replacement，可在线购买或到 Revenue Office 办理': [
+        AR_ONLINE,
+        AR_ADDRESS,
+      ],
+      'DFA 线上服务预计 replacement 通过邮寄在 3 至 5 个工作日收到': [AR_ONLINE],
+      'Arkansas REAL ID 官方简介要求 Social Security Card': [AR_REAL_ID],
+      '当前打印清单和 DSMV FAQ 同时列出 DD214': [AR_REAL_ID_DOCS, AR_FAQ],
+      '两项当前官方材料有差异，使用 DD214 时应先向具体 Revenue Office 确认': [
+        AR_REAL_ID,
+        AR_REAL_ID_DOCS,
+        AR_FAQ,
+      ],
+      'Legal presence 带一份原件或 certified document，例如 U.S. passport / passport card、U.S. birth certificate、naturalization / citizenship certificate，或适用的 foreign passport + valid U.S. visa + I-94、I-551、I-766': [
+        AR_REAL_ID_DOCS,
+      ],
+      'birth card 和 hospital birth certificate 不接受': [AR_REAL_ID_DOCS],
+      'Identity 带一份当前清单接受的文件，例如 current DL/ID、school ID、court order、近一年 tax return、marriage certificate、military ID、certified school record、Arkansas title / registration 或政府签发 ID': [
+        AR_REAL_ID_DOCS,
+      ],
+      '若该 identity 文件显示住宅地址，可同时算一份 residency proof': [AR_REAL_ID_DOCS],
+      'SSN 组按当前打印清单带 Social Security Card 或 DD214': [
+        AR_REAL_ID_DOCS,
+        AR_FAQ,
+      ],
+      'REAL ID 简介仍只写 Social Security Card，因此使用 DD214 时不要只看简介，先向办理办公室确认': [
+        AR_REAL_ID,
+        AR_REAL_ID_DOCS,
+        AR_FAQ,
+      ],
+      'Arkansas residency 带两份': [AR_REAL_ID_DOCS, AR_REAL_ID],
+      '通常须在 6 个月内，可用 utility bill、lease / mortgage、bank statement、telephone / cable / internet bill、current insurance、pay slip、medical bill 等，税表须少于一年，voter registration 须少于四年': [
+        AR_REAL_ID_DOCS,
+      ],
+      'P.O. Box 或 business address 不接受为住宅地址': [AR_REAL_ID_DOCS, AR_ADDRESS],
+      'DFA 清单说明从 online account 打印的文件可能接受，但最终仍须符合文件类型和日期要求': [
+        AR_REAL_ID_DOCS,
+      ],
+      '未成年人可使用父母的 residency documents 并附 birth certificate': [AR_REAL_ID_DOCS],
+      '配偶可使用另一方的 residency documents 并附 marriage certificate': [
+        AR_REAL_ID_DOCS,
+      ],
+      '姓名、出生日期或 SSN 有变化时，要用 court order、marriage certificate、divorce decree、adoption document 等连接旧信息与新信息': [
+        AR_REAL_ID_DOCS,
+        AR_NAME_AFFIDAVIT,
+      ],
+      'Affidavit of Legal Name Change 只标注用于 linking documents 缺失的情况': [
+        AR_NAME_AFFIDAVIT,
+      ],
+      '外州转入还要带 hard-copy 外州驾照或 ID': [AR_MANUAL, AR_REAL_ID_DOCS],
+      'Arkansas 签发新驾照或 ID 后，其他州签发的同类证件会被取消': [
+        AR_REAL_ID_DOCS,
+      ],
+      '先判断业务属于首次考试、新居民转入、外国驾照、普通续期、REAL ID 升级、replacement、name change 还是 address-only update': [
+        AR_EXAM,
+        AR_MANUAL,
+        AR_NCL,
+        AR_REAL_ID,
+        AR_ONLINE,
+        AR_FORMS,
+      ],
+      '新居民在成为 Arkansas resident 后 30 个日历日内开始换证': [AR_MANUAL],
+      '带 hard-copy 外州驾照，并确认其是否已过期超过 30 天': [AR_MANUAL],
+      '需要考试时先打开 State Police Driver Examination，下载 June 2026 Study Guide 和对应 1-2-3 checklist，再预约 knowledge / skills test': [
+        AR_EXAM,
+        AR_MANUAL,
+      ],
+      '非美国公民选择 immigration-documents appointment type': [AR_MANUAL, AR_EXAM],
+      '申请 REAL ID 时按 legal presence、identity、SSN、two residency proofs 四组整理，并使用当前打印清单逐项核对日期和原件要求': [
+        AR_REAL_ID_DOCS,
+      ],
+      '有姓名差异时带完整 linking documents': [AR_REAL_ID_DOCS],
+      '如果确实缺失，再查看 DFA 的 Affidavit of Legal Name Change 是否适用': [
+        AR_NAME_AFFIDAVIT,
+      ],
+      '在 Revenue Office locations 查具体地点和服务，再通过 DFA appointment 系统确认可约时段': [
+        AR_LOCATIONS,
+        AR_ONLINE,
+      ],
+      '不要依赖旧 Saturday 活动的 walk-in 说明': [AR_REAL_ID],
+      'replacement、address update 或 application pre-registration 先看 DFA Online Driver Services': [
+        AR_ONLINE,
+      ],
+      '地址更新免费但不发新卡，线上 replacement 预计邮寄 3 至 5 个工作日': [
+        AR_ONLINE,
+        AR_ADDRESS,
+      ],
+      '普通续期先核对 NCL 的费用、有效期和 90 天窗口': [AR_NCL],
+      '不改名且不升级 REAL ID 时，按 DFA 当前到场清单准备 vision exam 和拍照': [
+        AR_WHAT_YOU_NEED,
+      ],
+      '把 State Police 考试点和 DFA Revenue Office 当成同一个地方，到了 Revenue Office 才发现首次申请还没完成考试': [
+        AR_EXAM,
+        AR_DRIVER_SERVICES,
+        AR_WHAT_YOU_NEED,
+      ],
+      '只按旧搜索摘要准备 SSN 文件': [AR_REAL_ID, AR_REAL_ID_DOCS, AR_FAQ],
+      '当前打印清单列 Social Security Card 或 DD214，没有列 W-2、1099 或 pay stub': [
+        AR_REAL_ID_DOCS,
+      ],
+      '只带一份 residency proof，或带超过当前期限的账单': [AR_REAL_ID_DOCS],
+      '用 P.O. Box 或 business address 当住宅地址': [AR_REAL_ID_DOCS, AR_ADDRESS],
+      '持中国大陆驾照就认为可以直接换证': [AR_MANUAL],
+      '2026 互惠免试清单没有列 China mainland': [AR_MANUAL],
+      '把旧 April 26 Saturday REAL ID 活动的“预约建议但非必需”当成永久、全州、所有业务通用规则': [
+        AR_REAL_ID,
+      ],
+      '线上免费更新地址后，以为 DFA 会自动寄新卡': [AR_ONLINE, AR_ADDRESS],
+      '免费服务只更新记录，需要新卡还要另办 replacement': [AR_ONLINE, AR_ADDRESS],
+      '身份、SSN 或外州驾照上的姓名不同，却没有携带完整姓名连接文件': [
+        AR_REAL_ID_DOCS,
+        AR_NAME_AFFIDAVIT,
+      ],
+    },
+  },
   tennessee: {
     reviewedAt: '2026-07-19',
     reviewer: 'Codex AI 辅助证据核查',
