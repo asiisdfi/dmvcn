@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-18T18:18:21.958Z",
+    "generatedAt": "2026-07-18T18:34:23.873Z",
     "pages": 100,
     "states": 50,
-    "claims": 2848,
-    "links": 4437,
-    "aiAssistedClaims": 2106,
-    "aiAssistedPages": 48,
+    "claims": 2885,
+    "links": 4502,
+    "aiAssistedClaims": 2168,
+    "aiAssistedPages": 50,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1311,
-        "links": 2047,
+        "claims": 1330,
+        "links": 2076,
         "states": 50
       },
       "real-id": {
-        "claims": 1537,
-        "links": 2390,
+        "claims": 1555,
+        "links": 2426,
         "states": 50
       }
     }
@@ -53971,19 +53971,17 @@
       "stateId": "alaska",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "阿拉斯加州驾照、REAL ID、续期、补证和身份信息变化由 Alaska DMV 处理",
+      "context": "license",
+      "claim": "搬到 Alaska 后，普通驾照应在成为居民后 90 天内转入，CDL 是 30 天",
       "sourceUrls": [
-        "https://dmv.alaska.gov/credential-services/realidupdate/"
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Update"
+        "对应官方来源：Alaska DMV Visiting or New to Alaska"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "renewal",
-        "replacement"
+        "transfer"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53992,19 +53990,55 @@
       "stateId": "alaska",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "最实用的入口是 REAL ID Update、REAL ID Checklist、Credential Services、Changing Identification Details 和 Online DMV",
+      "context": "license",
+      "claim": "转入普通驾照要通过 Alaska knowledge test 和 vision test",
       "sourceUrls": [
-        "https://dmv.alaska.gov/credential-services/realidupdate/"
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Update"
+        "对应官方来源：Alaska DMV Visiting or New to Alaska"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "online-service"
+        "transfer",
+        "test"
       ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "summary",
+      "context": "license",
+      "claim": "只有最近 5 年持有美国州/领地、Canada 或 South Korea 驾照的人可免 road test",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Visiting or New to Alaska"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "summary",
+      "context": "license",
+      "claim": "中国大陆驾照不在这份免试清单",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Visiting or New to Alaska"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -54012,25 +54046,66 @@
       "stateId": "alaska",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "普通续期、补证和地址更新很多可以从 Online DMV 开始，但 REAL ID 材料核验、姓名变化、法定身份变化和多次姓名变化链条通常要按 DMV 页面准备原件或 certified copy",
+      "context": "license",
+      "claim": "访客可持有效外州或外国驾照在 Alaska 驾驶最多 90 天",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist",
-        "https://dmv.alaska.gov/credential-services/realidupdate/"
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/",
+        "https://dmv.alaska.gov/credential-services/international-driving-permit/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist",
-        "对应官方来源：Alaska DMV REAL ID Update"
+        "对应官方来源：Alaska DMV Visiting or New to Alaska",
+        "对应官方来源：Alaska DMV International Driving Permit"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document",
-        "address-change",
-        "name-change",
-        "renewal",
-        "replacement",
-        "online-service"
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "外国驾照不是英文时，DMV 要求随身携带由使领馆提供的官方翻译，Alaska 不签发也不强制 IDP",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/international-driving-permit/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV International Driving Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "foreign-license",
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "成为居民后不能继续按访客路线，外国驾照用户应按 first Alaska credential 准备笔试、视力和可能的路考",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/",
+        "https://dmv.alaska.gov/credential-services/new-to-alaska-from-another-country/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Visiting or New to Alaska",
+        "对应官方来源：Alaska DMV New to Alaska from Another Country"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -54040,38 +54115,19 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Alaska REAL ID 需要 proof of U.S. citizenship / permanent residency / lawful status、适用时的 name change documents、两份 Alaska residency、Social Security Number",
+      "claim": "Alaska 标准 DL/ID 与 REAL ID 都要求 identity / lawful status、完整 SSN 或近 90 天的 SSA ineligibility letter，以及适用的姓名连接文件",
       "sourceUrls": [
-        "https://dmv.alaska.gov/credential-services/realidupdate/"
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf",
+        "https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Update"
+        "对应官方来源：Alaska REAL ID Checklist PDF",
+        "对应官方来源：Alaska Standard Credential Checklist PDF"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
-        "residency-proof",
-        "ssn",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "alaska",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "没有 SSN 时要 SSA ineligibility letter",
-      "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -54080,18 +54136,103 @@
     {
       "stateId": "alaska",
       "surface": "overview",
-      "field": "appointmentNote",
-      "context": "document",
-      "claim": "Alaska DMV 对姓名和地址变化有 30 天通知要求",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "主要差别是标准证件要一份 Alaska residence document，REAL ID 要两份",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf",
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska Standard Credential Checklist PDF",
+        "对应官方来源：Alaska REAL ID Checklist PDF"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change"
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "当前费用表中非商用驾照为标准 $20、REAL ID $40",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/license-fees/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "Alaska 州办公室、contract agent 与私人 business partner 的服务不同",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/locations/state-dmv-office-locations/",
+        "https://dmv.alaska.gov/locations/business-partners/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV State Office and Contract Agent Locations",
+        "对应官方来源：Alaska DMV Business Partners"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "business partner 可能处理 credential、考试和路考，但会另收服务费",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/locations/business-partners/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Business Partners"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [
+        "test"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "州办公室的路考日期和截止考试时间按地点变化，应先查具体 location 再约",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/locations/state-dmv-office-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV State Office and Contract Agent Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -54100,16 +54241,36 @@
       "stateId": "alaska",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "document",
-      "claim": "Changing Identification Details 页面明确 name-change 文件必须是 original certified copy，photocopies 和 fax copies 不接受",
+      "context": "license",
+      "claim": "偏远社区还可能适用 Mobile DMV 或 Off-Highway Driver License，不应直接套用 Anchorage 办事路径",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/general-information/rural-outreach/",
+        "https://dmv.alaska.gov/credential-services/guide-to-rural-driving-information/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska DMV Rural Outreach",
+        "对应官方来源：Alaska DMV Guide to Rural Driving"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "首次 Alaska REAL ID 必须本人到场，即使以前已向 DMV 提交过 source documents 也要重新出示",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/realidupdate/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV REAL ID Update"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "real-id",
         "document"
       ],
       "uncoveredThemes": [],
@@ -54120,18 +54281,248 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "Alaska 的 REAL ID 页面把 SSN 和 SSA ineligibility letter 分开写，适合提醒没有 SSN 的非公民用户不要空着不处理",
+      "claim": "标准证件与 REAL ID 都需要 identity / lawful status 和 SSN 路径，差别不是“有无身份材料”，而是居住证明数量、费用和联邦用途",
       "sourceUrls": [
-        "https://dmv.alaska.gov/credential-services/realidupdate/"
+        "https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf",
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf",
+        "https://dmv.alaska.gov/credential-services/realidupdate/",
+        "https://dmv.alaska.gov/credential-services/license-fees/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Update"
+        "对应官方来源：Alaska Standard Credential Checklist PDF",
+        "对应官方来源：Alaska REAL ID Checklist PDF",
+        "对应官方来源：Alaska DMV REAL ID Update",
+        "对应官方来源：Alaska DMV License Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "document",
+        "residency-proof",
         "ssn",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "所有清单文件要未篡改的认证原件、认证修订原件或签发机构认证的 true copy，并且当前有效",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf",
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska Standard Credential Checklist PDF",
+        "对应官方来源：Alaska REAL ID Checklist PDF"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "外文身份文件要有认证英文翻译",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf",
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska Standard Credential Checklist PDF",
+        "对应官方来源：Alaska REAL ID Checklist PDF"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Alaska DMV 提供 Certificate of Accuracy of Translation 表格",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/nn3cydgn/translationpdf.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Certificate of Accuracy of Translation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "非公民首次申请或续期要携带有效未过期的 USCIS/DHS 文件和适用的 I-797 / I-94",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/new-to-alaska-from-another-country/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV New to Alaska from Another Country"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "renewal"
+      ],
+      "uncoveredThemes": [
+        "document",
         "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "SAVE 若转人工 secondary verification，DMV 说明约可需两个月",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/new-to-alaska-from-another-country/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV New to Alaska from Another Country"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通驾照可从到期前一年开始续期，但线上续期只在 21 岁生日后可用",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/renew-your-alaska-driver-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Renew Your Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "21 岁证件在生日后 90 天到期，换水平版证件要完成 alcohol awareness test",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/renew-your-alaska-driver-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Renew Your Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "线上补证可向州外申请人发电子临时证件，DMV 标注处理时间为 1 至 2 个工作日",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/duplicate-alaska-driver-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Duplicate Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "online-service",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "姓名或地址变化要在 30 天内通知 DMV",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/changing-identification-details/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Changing Identification Details"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "线上更新地址不会收到确认通知，需要显示新地址的实体证件时还要另办 replacement",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/changing-identification-details/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Changing Identification Details"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Off-Highway Class D 只适用于不连接公路系统、无法使用 DMV 服务，且每年至少一次都没有 skills test 的社区居民",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/guide-to-rural-driving-information/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Guide to Rural Driving"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -54141,20 +54532,20 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Alaska REAL ID 需要 proof of U.S. citizenship / permanent residency / lawful status、适用时的 name change documents、两份 Alaska residency、Social Security Number",
+      "claim": "Alaska 标准 DL/ID 与 REAL ID 都要求 identity / lawful status、完整 SSN 或近 90 天的 SSA ineligibility letter，以及适用的姓名连接文件",
       "sourceUrls": [
-        "https://dmv.alaska.gov/credential-services/realidupdate/"
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf",
+        "https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Update"
+        "对应官方来源：Alaska REAL ID Checklist PDF",
+        "对应官方来源：Alaska Standard Credential Checklist PDF"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
-        "residency-proof",
-        "ssn",
-        "name-change"
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -54163,35 +54554,20 @@
       "stateId": "alaska",
       "surface": "real-id",
       "field": "realIdSummary",
-      "context": "document",
-      "claim": "没有 SSN 时要 SSA ineligibility letter",
+      "context": "real-id",
+      "claim": "主要差别是标准证件要一份 Alaska residence document，REAL ID 要两份",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf",
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska Standard Credential Checklist PDF",
+        "对应官方来源：Alaska REAL ID Checklist PDF"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "alaska",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Proof of U.S. citizenship、permanent residency 或 lawful status",
-      "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
+        "real-id",
+        "document",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -54200,16 +54576,59 @@
     {
       "stateId": "alaska",
       "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Social Security Number",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "当前费用表中非商用驾照为标准 $20、REAL ID $40",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/credential-services/license-fees/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska DMV License Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Identity / lawful status 带一份当前清单文件，例如有效 U.S. passport、认证 U.S. birth certificate、Certificate of Naturalization / Citizenship、有效 I-551 / I-766，或 foreign passport + valid U.S. visa + approved I-94",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf",
+        "https://online.dmv.alaska.gov/RealIDChecklist/Home/Checklist"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska REAL ID Checklist PDF",
+        "对应官方来源：Alaska DMV REAL ID Interactive Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "在申请表填写完整 SSN",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska REAL ID Checklist PDF"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -54221,14 +54640,14 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "没有 SSN 时提供 Social Security Administration 的 ineligibility letter",
+      "claim": "不符合 SSN 资格的申请人要带 SSA 在近 90 天签发的验证信",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska REAL ID Checklist PDF"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -54239,16 +54658,19 @@
       "stateId": "alaska",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "document",
-      "claim": "两份 Alaska residency 文件",
+      "context": "real-id",
+      "claim": "标准 DL/ID 带一份 Alaska residence document，REAL ID 带两份",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf",
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska Standard Credential Checklist PDF",
+        "对应官方来源：Alaska REAL ID Checklist PDF"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "real-id",
         "document",
         "residency-proof"
       ],
@@ -54260,17 +54682,19 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名变化时提供 marriage certificate、divorce decree、court order、naturalization certificate 等 original certified copy",
+      "claim": "文件要显示本人姓名和 current residence address，不能只有 P.O. Box 或 mail cache",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf",
+        "https://dmv.alaska.gov/credential-services/new-to-alaska-from-another-country/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska REAL ID Checklist PDF",
+        "对应官方来源：Alaska DMV New to Alaska from Another Country"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "name-change"
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -54279,18 +54703,186 @@
       "stateId": "alaska",
       "surface": "real-id",
       "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 的两份居住文件可用 lease、utility bill、employment / insurance document、bank statement、voter confirmation、USPS change confirmation 等",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska REAL ID Checklist PDF"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "同一来源在同一月或 billing cycle 签发的文件不能算两份",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska REAL ID Checklist PDF"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "外国文件要有认证英文翻译，并随原始身份文件和 Certificate of Accuracy of Translation 一起准备",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf",
+        "https://dmv.alaska.gov/media/nn3cydgn/translationpdf.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska REAL ID Checklist PDF",
+        "对应官方来源：Alaska DMV Certificate of Accuracy of Translation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "姓名不同时带完整连接链，可用认证 adoption document、marriage certificate、court order、divorce / dissolution document、amended birth certificate 或 naturalization / name-change certificate",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf",
+        "https://dmv.alaska.gov/credential-services/changing-identification-details/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska REAL ID Checklist PDF",
+        "对应官方来源：Alaska DMV Changing Identification Details"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "非公民要带有效未过期的 USCIS/DHS 文件，延期通知 I-797 和需要时从 CBP 打印的 I-94 也要一起准备",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/new-to-alaska-from-another-country/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV New to Alaska from Another Country"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "先判断自己是 visitor 还是已成为 Alaska resident",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Visiting or New to Alaska"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
       "context": "license",
-      "claim": "地址或身份信息变化时准备 Form D1，并确认是否需要 vision test 或 replacement credential fee",
+      "claim": "访客外国驾照和居民换证是两条不同路线",
       "sourceUrls": [
-        "https://dmv.alaska.gov/credential-services/realidupdate/"
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/",
+        "https://dmv.alaska.gov/credential-services/international-driving-permit/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Update"
+        "对应官方来源：Alaska DMV Visiting or New to Alaska",
+        "对应官方来源：Alaska DMV International Driving Permit"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "replacement",
-        "test",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "新居民按普通 90 天、CDL 30 天安排转入，并准备 knowledge test、vision test 和适用的 road test",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Visiting or New to Alaska"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "选 standard 还是 REAL ID：不需要用 Alaska 证件登机或进联邦设施时，可先比较标准证件、护照等替代证件和 $20 升级价差",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/realidupdate/",
+        "https://dmv.alaska.gov/credential-services/license-fees/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV REAL ID Update",
+        "对应官方来源：Alaska DMV License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
         "fee"
       ],
       "uncoveredThemes": [],
@@ -54300,18 +54892,21 @@
       "stateId": "alaska",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "先用 Alaska REAL ID Checklist 判断材料组合",
+      "context": "document",
+      "claim": "按 identity / lawful status、complete SSN 或近 90 天 SSA letter、one/two residency、name chain 四组整理认证原件",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf",
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska Standard Credential Checklist PDF",
+        "对应官方来源：Alaska REAL ID Checklist PDF"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document"
+        "document",
+        "residency-proof",
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -54321,19 +54916,19 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "按 lawful status、SSN、two Alaska residency、name change 四组整理原件或 certified copy",
+      "claim": "有外文文件时先完成 certified English translation",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf",
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska Standard Credential Checklist PDF",
+        "对应官方来源：Alaska REAL ID Checklist PDF"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof",
-        "ssn",
-        "name-change"
+        "language"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -54342,16 +54937,109 @@
       "stateId": "alaska",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "license",
-      "claim": "普通续期或补证先看 Online DMV，确认能否线上处理",
+      "context": "detail",
+      "claim": "非公民再加入当前有效的 USCIS/DHS、I-797 和需要的 I-94",
       "sourceUrls": [
-        "https://dmv.alaska.gov/credential-services/realidupdate/"
+        "https://dmv.alaska.gov/credential-services/new-to-alaska-from-another-country/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Update"
+        "对应官方来源：Alaska DMV New to Alaska from Another Country"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "查 State DMV Office / Contract Agent Locations 的当日服务和考试截止时间",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/locations/state-dmv-office-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV State Office and Contract Agent Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "选 business partner 时同时确认它是否办 credential / test 以及额外费用",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/locations/business-partners/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Business Partners"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "test",
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "不通公路的社区居民先查 Rural Outreach 和 Guide to Rural Driving，再确认 Mobile DMV、document pre-screening 或 Off-Highway Class D 是否适用",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/general-information/rural-outreach/",
+        "https://dmv.alaska.gov/credential-services/guide-to-rural-driving-information/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Rural Outreach",
+        "对应官方来源：Alaska DMV Guide to Rural Driving"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期、补证、地址更新先用 Online DMV 判断线上资格",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/credential-services/renew-your-alaska-driver-license/",
+        "https://dmv.alaska.gov/credential-services/duplicate-alaska-driver-license/",
+        "https://dmv.alaska.gov/credential-services/changing-identification-details/",
+        "https://online.dmv.alaska.gov/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Renew Your Driver License",
+        "对应官方来源：Alaska DMV Duplicate Driver License",
+        "对应官方来源：Alaska DMV Changing Identification Details",
+        "对应官方来源：Alaska Online DMV"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
         "renewal",
         "replacement",
         "online-service"
@@ -54364,14 +55052,132 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "姓名、地址、SSN、出生日期或性别等信息变化时看 Changing Identification Details",
+      "claim": "姓名或地址改变不要超过 30 天通知期",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/credential-services/changing-identification-details/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska DMV Changing Identification Details"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "持中国大陆驾照就认为转入 Alaska 可免路考",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Visiting or New to Alaska"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "当前近五年免试列表只写美国州/领地、Canada 和 South Korea",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Visiting or New to Alaska"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把游客可用外国驾照 90 天误解为成为 Alaska 居民后也能继续等 90 天以外",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska DMV Visiting or New to Alaska"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "申请 REAL ID 时两份地址文件来自同一来源、同一 billing cycle，或只显示 P.O. Box",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf",
+        "https://dmv.alaska.gov/credential-services/new-to-alaska-from-another-country/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska REAL ID Checklist PDF",
+        "对应官方来源：Alaska DMV New to Alaska from Another Country"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "带普通复印件、手机截图或未认证的外文翻译",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf",
+        "https://dmv.alaska.gov/media/nn3cydgn/translationpdf.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska REAL ID Checklist PDF",
+        "对应官方来源：Alaska DMV Certificate of Accuracy of Translation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "alaska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "没有 SSN 时什么都不带，或 SSA ineligibility letter 已超过 90 天",
+      "sourceUrls": [
+        "https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Alaska REAL ID Checklist PDF"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -54381,38 +55187,20 @@
     {
       "stateId": "alaska",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "appointment",
-      "claim": "需要现场办理时再用 DMV locations / appointment 入口安排时间",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "以为线上续期或补证入口可以完成首次 REAL ID",
       "sourceUrls": [
         "https://dmv.alaska.gov/credential-services/realidupdate/"
       ],
       "sourceLabels": [
         "对应官方来源：Alaska DMV REAL ID Update"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "alaska",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "以为 Online DMV 能完成首次 REAL ID 材料核验",
-      "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
+        "renewal",
+        "replacement",
         "online-service"
       ],
       "uncoveredThemes": [],
@@ -54423,16 +55211,16 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "姓名变化带普通复印件或传真件",
+      "claim": "首次升级要本人出示 source documents",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/credential-services/realidupdate/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska DMV REAL ID Update"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "name-change"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -54442,36 +55230,38 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "detail",
-      "claim": "搬家或改名超过 30 天才通知 DMV",
+      "claim": "去私人 business partner 前没核对服务图标和额外费用",
       "sourceUrls": [
-        "https://dmv.alaska.gov/credential-services/realidupdate/"
+        "https://dmv.alaska.gov/locations/business-partners/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Update"
+        "对应官方来源：Alaska DMV Business Partners"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "name-change"
+        "fee"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "fee"
+      ],
       "valid": true
     },
     {
       "stateId": "alaska",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "没有 SSN 时没准备 SSA ineligibility letter",
+      "context": "detail",
+      "claim": "居住在不通公路的偏远社区，却没先查 Mobile DMV、rural guide 或 Off-Highway 资格",
       "sourceUrls": [
-        "https://online.dmv.alaska.gov/REALIdChecklist"
+        "https://dmv.alaska.gov/general-information/rural-outreach/",
+        "https://dmv.alaska.gov/credential-services/guide-to-rural-driving-information/"
       ],
       "sourceLabels": [
-        "对应官方来源：Alaska DMV REAL ID Checklist"
+        "对应官方来源：Alaska DMV Rural Outreach",
+        "对应官方来源：Alaska DMV Guide to Rural Driving"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "ssn"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },

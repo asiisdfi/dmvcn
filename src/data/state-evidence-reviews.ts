@@ -744,6 +744,35 @@ const IN_SAVE =
   'https://www.in.gov/bmv/licenses-permits-ids/real-id-overview/systematic-alien-verification-for-entitlements-save-program/';
 const IN_SKILLS =
   'https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/drivers-license/driving-skill-examination';
+const AK_NEW = 'https://dmv.alaska.gov/general-information/visiting-or-new-to-alaska/';
+const AK_REAL_ID = 'https://dmv.alaska.gov/credential-services/realidupdate/';
+const AK_REAL_ID_DOCS =
+  'https://dmv.alaska.gov/media/ozwhxz3e/ak-real-id-checklist.pdf';
+const AK_STANDARD_DOCS =
+  'https://dmv.alaska.gov/media/1eyni4yh/standard-alaska-checklist.pdf';
+const AK_REAL_ID_TOOL =
+  'https://online.dmv.alaska.gov/RealIDChecklist/Home/Checklist';
+const AK_FOREIGN =
+  'https://dmv.alaska.gov/credential-services/new-to-alaska-from-another-country/';
+const AK_IDP =
+  'https://dmv.alaska.gov/credential-services/international-driving-permit/';
+const AK_RENEW =
+  'https://dmv.alaska.gov/credential-services/renew-your-alaska-driver-license/';
+const AK_DUPLICATE =
+  'https://dmv.alaska.gov/credential-services/duplicate-alaska-driver-license/';
+const AK_CHANGE =
+  'https://dmv.alaska.gov/credential-services/changing-identification-details/';
+const AK_FEES = 'https://dmv.alaska.gov/credential-services/license-fees/';
+const AK_LOCATIONS =
+  'https://dmv.alaska.gov/locations/state-dmv-office-locations/';
+const AK_PARTNERS = 'https://dmv.alaska.gov/locations/business-partners/';
+const AK_RURAL =
+  'https://dmv.alaska.gov/credential-services/guide-to-rural-driving-information/';
+const AK_OUTREACH = 'https://dmv.alaska.gov/general-information/rural-outreach/';
+const AK_TRANSLATION =
+  'https://dmv.alaska.gov/media/nn3cydgn/translationpdf.pdf';
+const AK_MANUAL = 'https://dmv.alaska.gov/media/t5ef5vi2/dlman.pdf';
+const AK_ONLINE = 'https://online.dmv.alaska.gov/';
 const AR_REAL_ID = 'https://www.dfa.arkansas.gov/real-id/';
 const AR_REAL_ID_DOCS =
   'https://www.dfa.arkansas.gov/wp-content/uploads/Proof_ofLegalPresence_08142025.pdf';
@@ -795,6 +824,198 @@ const TN_MANUAL =
   'https://www.tn.gov/content/dam/tn/safety/documents/DL_Manual.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  alaska: {
+    reviewedAt: '2026-07-19',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      AK_NEW,
+      AK_REAL_ID,
+      AK_REAL_ID_DOCS,
+      AK_STANDARD_DOCS,
+      AK_REAL_ID_TOOL,
+      AK_FOREIGN,
+      AK_IDP,
+      AK_RENEW,
+      AK_DUPLICATE,
+      AK_CHANGE,
+      AK_FEES,
+      AK_LOCATIONS,
+      AK_PARTNERS,
+      AK_RURAL,
+      AK_OUTREACH,
+      AK_TRANSLATION,
+      AK_MANUAL,
+      AK_ONLINE,
+    ],
+    scope:
+      '逐条打开并比对 Alaska DMV 的新居民/访客说明、REAL ID 与 standard 打印清单、非公民与外国驾照、续补证、改名改址、费用、办公地点、business partners、Rural Outreach、Off-Highway 指南及官方驾驶手册。',
+    notes:
+      '重写 Alaska 两页并建立显式声明级来源；补齐普通/CDL 转入期限、中国大陆驾照的路考边界、standard 与 REAL ID 材料/费用差异、外文翻译、SAVE 二次核验、州外补证、私人 partner 费用和偏远社区专用路径。',
+    claims: {
+      '搬到 Alaska 后，普通驾照应在成为居民后 90 天内转入，CDL 是 30 天': [
+        AK_NEW,
+      ],
+      '转入普通驾照要通过 Alaska knowledge test 和 vision test': [AK_NEW],
+      '只有最近 5 年持有美国州/领地、Canada 或 South Korea 驾照的人可免 road test': [
+        AK_NEW,
+      ],
+      '中国大陆驾照不在这份免试清单': [AK_NEW],
+      '访客可持有效外州或外国驾照在 Alaska 驾驶最多 90 天': [AK_NEW, AK_IDP],
+      '外国驾照不是英文时，DMV 要求随身携带由使领馆提供的官方翻译，Alaska 不签发也不强制 IDP': [
+        AK_IDP,
+      ],
+      '成为居民后不能继续按访客路线，外国驾照用户应按 first Alaska credential 准备笔试、视力和可能的路考': [
+        AK_NEW,
+        AK_FOREIGN,
+      ],
+      'Alaska 标准 DL/ID 与 REAL ID 都要求 identity / lawful status、完整 SSN 或近 90 天的 SSA ineligibility letter，以及适用的姓名连接文件': [
+        AK_REAL_ID_DOCS,
+        AK_STANDARD_DOCS,
+      ],
+      '主要差别是标准证件要一份 Alaska residence document，REAL ID 要两份': [
+        AK_STANDARD_DOCS,
+        AK_REAL_ID_DOCS,
+      ],
+      '当前费用表中非商用驾照为标准 $20、REAL ID $40': [AK_FEES],
+      'Alaska 州办公室、contract agent 与私人 business partner 的服务不同': [
+        AK_LOCATIONS,
+        AK_PARTNERS,
+      ],
+      'business partner 可能处理 credential、考试和路考，但会另收服务费': [
+        AK_PARTNERS,
+      ],
+      '州办公室的路考日期和截止考试时间按地点变化，应先查具体 location 再约': [
+        AK_LOCATIONS,
+      ],
+      '偏远社区还可能适用 Mobile DMV 或 Off-Highway Driver License，不应直接套用 Anchorage 办事路径': [
+        AK_OUTREACH,
+        AK_RURAL,
+      ],
+      '首次 Alaska REAL ID 必须本人到场，即使以前已向 DMV 提交过 source documents 也要重新出示': [
+        AK_REAL_ID,
+      ],
+      '标准证件与 REAL ID 都需要 identity / lawful status 和 SSN 路径，差别不是“有无身份材料”，而是居住证明数量、费用和联邦用途': [
+        AK_STANDARD_DOCS,
+        AK_REAL_ID_DOCS,
+        AK_REAL_ID,
+        AK_FEES,
+      ],
+      '所有清单文件要未篡改的认证原件、认证修订原件或签发机构认证的 true copy，并且当前有效': [
+        AK_STANDARD_DOCS,
+        AK_REAL_ID_DOCS,
+      ],
+      '外文身份文件要有认证英文翻译': [AK_STANDARD_DOCS, AK_REAL_ID_DOCS],
+      'Alaska DMV 提供 Certificate of Accuracy of Translation 表格': [AK_TRANSLATION],
+      '非公民首次申请或续期要携带有效未过期的 USCIS/DHS 文件和适用的 I-797 / I-94': [
+        AK_FOREIGN,
+      ],
+      'SAVE 若转人工 secondary verification，DMV 说明约可需两个月': [AK_FOREIGN],
+      '普通驾照可从到期前一年开始续期，但线上续期只在 21 岁生日后可用': [
+        AK_RENEW,
+      ],
+      '21 岁证件在生日后 90 天到期，换水平版证件要完成 alcohol awareness test': [
+        AK_RENEW,
+      ],
+      '线上补证可向州外申请人发电子临时证件，DMV 标注处理时间为 1 至 2 个工作日': [
+        AK_DUPLICATE,
+      ],
+      '姓名或地址变化要在 30 天内通知 DMV': [AK_CHANGE],
+      '线上更新地址不会收到确认通知，需要显示新地址的实体证件时还要另办 replacement': [
+        AK_CHANGE,
+      ],
+      'Off-Highway Class D 只适用于不连接公路系统、无法使用 DMV 服务，且每年至少一次都没有 skills test 的社区居民': [
+        AK_RURAL,
+      ],
+      'Identity / lawful status 带一份当前清单文件，例如有效 U.S. passport、认证 U.S. birth certificate、Certificate of Naturalization / Citizenship、有效 I-551 / I-766，或 foreign passport + valid U.S. visa + approved I-94': [
+        AK_REAL_ID_DOCS,
+        AK_REAL_ID_TOOL,
+      ],
+      '在申请表填写完整 SSN': [AK_REAL_ID_DOCS],
+      '不符合 SSN 资格的申请人要带 SSA 在近 90 天签发的验证信': [
+        AK_REAL_ID_DOCS,
+      ],
+      '标准 DL/ID 带一份 Alaska residence document，REAL ID 带两份': [
+        AK_STANDARD_DOCS,
+        AK_REAL_ID_DOCS,
+      ],
+      '文件要显示本人姓名和 current residence address，不能只有 P.O. Box 或 mail cache': [
+        AK_REAL_ID_DOCS,
+        AK_FOREIGN,
+      ],
+      'REAL ID 的两份居住文件可用 lease、utility bill、employment / insurance document、bank statement、voter confirmation、USPS change confirmation 等': [
+        AK_REAL_ID_DOCS,
+      ],
+      '同一来源在同一月或 billing cycle 签发的文件不能算两份': [
+        AK_REAL_ID_DOCS,
+      ],
+      '外国文件要有认证英文翻译，并随原始身份文件和 Certificate of Accuracy of Translation 一起准备': [
+        AK_REAL_ID_DOCS,
+        AK_TRANSLATION,
+      ],
+      '姓名不同时带完整连接链，可用认证 adoption document、marriage certificate、court order、divorce / dissolution document、amended birth certificate 或 naturalization / name-change certificate': [
+        AK_REAL_ID_DOCS,
+        AK_CHANGE,
+      ],
+      '非公民要带有效未过期的 USCIS/DHS 文件，延期通知 I-797 和需要时从 CBP 打印的 I-94 也要一起准备': [
+        AK_FOREIGN,
+      ],
+      '先判断自己是 visitor 还是已成为 Alaska resident': [AK_NEW],
+      '访客外国驾照和居民换证是两条不同路线': [AK_NEW, AK_IDP],
+      '新居民按普通 90 天、CDL 30 天安排转入，并准备 knowledge test、vision test 和适用的 road test': [
+        AK_NEW,
+      ],
+      '选 standard 还是 REAL ID：不需要用 Alaska 证件登机或进联邦设施时，可先比较标准证件、护照等替代证件和 $20 升级价差': [
+        AK_REAL_ID,
+        AK_FEES,
+      ],
+      '按 identity / lawful status、complete SSN 或近 90 天 SSA letter、one/two residency、name chain 四组整理认证原件': [
+        AK_STANDARD_DOCS,
+        AK_REAL_ID_DOCS,
+      ],
+      '有外文文件时先完成 certified English translation': [
+        AK_STANDARD_DOCS,
+        AK_REAL_ID_DOCS,
+      ],
+      '非公民再加入当前有效的 USCIS/DHS、I-797 和需要的 I-94': [AK_FOREIGN],
+      '查 State DMV Office / Contract Agent Locations 的当日服务和考试截止时间': [
+        AK_LOCATIONS,
+      ],
+      '选 business partner 时同时确认它是否办 credential / test 以及额外费用': [
+        AK_PARTNERS,
+      ],
+      '不通公路的社区居民先查 Rural Outreach 和 Guide to Rural Driving，再确认 Mobile DMV、document pre-screening 或 Off-Highway Class D 是否适用': [
+        AK_OUTREACH,
+        AK_RURAL,
+      ],
+      '续期、补证、地址更新先用 Online DMV 判断线上资格': [
+        AK_RENEW,
+        AK_DUPLICATE,
+        AK_CHANGE,
+        AK_ONLINE,
+      ],
+      '姓名或地址改变不要超过 30 天通知期': [AK_CHANGE],
+      '持中国大陆驾照就认为转入 Alaska 可免路考': [AK_NEW],
+      '当前近五年免试列表只写美国州/领地、Canada 和 South Korea': [AK_NEW],
+      '把游客可用外国驾照 90 天误解为成为 Alaska 居民后也能继续等 90 天以外': [AK_NEW],
+      '申请 REAL ID 时两份地址文件来自同一来源、同一 billing cycle，或只显示 P.O. Box': [
+        AK_REAL_ID_DOCS,
+        AK_FOREIGN,
+      ],
+      '带普通复印件、手机截图或未认证的外文翻译': [
+        AK_REAL_ID_DOCS,
+        AK_TRANSLATION,
+      ],
+      '没有 SSN 时什么都不带，或 SSA ineligibility letter 已超过 90 天': [AK_REAL_ID_DOCS],
+      '以为线上续期或补证入口可以完成首次 REAL ID': [AK_REAL_ID],
+      '首次升级要本人出示 source documents': [AK_REAL_ID],
+      '去私人 business partner 前没核对服务图标和额外费用': [AK_PARTNERS],
+      '居住在不通公路的偏远社区，却没先查 Mobile DMV、rural guide 或 Off-Highway 资格': [
+        AK_OUTREACH,
+        AK_RURAL,
+      ],
+    },
+  },
   arkansas: {
     reviewedAt: '2026-07-19',
     reviewer: 'Codex AI 辅助证据核查',

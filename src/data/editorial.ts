@@ -34,6 +34,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-19',
+    title: '完成 Alaska 两页官方正文语义核对',
+    summary:
+      '逐条比对 Alaska DMV 的新居民/访客说明、REAL ID 与 standard 打印清单、非公民和外国驾照、续补证、改名改址、费用、办公地点、business partners、Rural Outreach 及 Off-Highway 指南；补齐 62 条页面级显式来源映射，并明确中国大陆驾照、外文翻译和偏远社区办理边界。',
+    scope: ['阿拉斯加州办事总览', '阿拉斯加州 REAL ID', '62 条显式来源映射', '外国驾照与偏远社区'],
+  },
+  {
+    date: '2026-07-19',
     title: '完成 Arkansas 两页官方正文语义核对',
     summary:
       '逐条比对 Arkansas DFA 的 REAL ID、当前打印材料表、首次与续期到场清单、Class D 费用、FAQ、线上服务、改名改址表，以及 Arkansas State Police 的考试入口和 June 2026 Driver License Study Guide；补齐 79 条页面级显式来源映射，拆开考试与签发两套流程，并公开标注 REAL ID 简介与打印清单/FAQ 对 Social Security Card 和 DD214 的当前表述差异。',

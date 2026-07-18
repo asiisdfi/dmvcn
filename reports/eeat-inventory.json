@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-18T18:18:26.018Z",
+    "generatedAt": "2026-07-18T18:34:25.990Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 65,
+    "passed": 67,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 84,
-    "aiAssistedReviews": 71,
+    "sourceMappedReviews": 82,
+    "aiAssistedReviews": 73,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 101,
+    "blockedPages": 99,
     "averageScore": 96
   },
   "pages": [
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 273,
+        "sourceCount": 276,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 86,
-        "directoryEvidenceLinks": 86,
+        "directoryEvidenceItems": 90,
+        "directoryEvidenceLinks": 90,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 219,
+        "sourceCount": 222,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 71,
-        "directoryEvidenceLinks": 71,
+        "directoryEvidenceItems": 74,
+        "directoryEvidenceLinks": 74,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 527,
+        "sourceCount": 532,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 155,
+        "sourceCount": 154,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 87,
-        "directoryEvidenceLinks": 87,
+        "directoryEvidenceItems": 91,
+        "directoryEvidenceLinks": 91,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 191,
+        "sourceCount": 192,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 213,
+        "sourceCount": 210,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -700,7 +700,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 185,
+        "sourceCount": 187,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 210,
+        "sourceCount": 209,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1223,
+        "sourceCount": 1236,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1245,22 +1245,22 @@
       "route": "/states/alaska/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 88,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成阿拉斯加州（Alaska Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Alaska DMV 的新居民/访客说明、REAL ID 与 standard 打印清单、非公民与外国驾照、续补证、改名改址、费用、办公地点、business partners、Rural Outreach、Off-Highway 指南及官方驾驶手册。",
+        "notes": "重写 Alaska 两页并建立显式声明级来源；补齐普通/CDL 转入期限、中国大陆驾照的路考边界、standard 与 REAL ID 材料/费用差异、外文翻译、SAVE 二次核验、州外补证、私人 partner 费用和偏远社区专用路径。"
       },
       "scores": {
-        "factsAndSources": 20,
-        "evidenceMapping": 12,
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
         "authorship": 10,
@@ -1269,14 +1269,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 8,
+        "sourceCount": 19,
+        "factCheckCount": 27,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 8,
-        "stateEvidenceLinks": 9,
+        "stateEvidenceItems": 27,
+        "stateEvidenceLinks": 38,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1284,9 +1284,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/alaska/real-id/",
@@ -1294,16 +1292,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成阿拉斯加州（Alaska Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Alaska DMV 的新居民/访客说明、REAL ID 与 standard 打印清单、非公民与外国驾照、续补证、改名改址、费用、办公地点、business partners、Rural Outreach、Off-Highway 指南及官方驾驶手册。",
+        "notes": "重写 Alaska 两页并建立显式声明级来源；补齐普通/CDL 转入期限、中国大陆驾照的路考边界、standard 与 REAL ID 材料/费用差异、外文翻译、SAVE 二次核验、州外补证、私人 partner 费用和偏远社区专用路径。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1316,14 +1314,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 17,
+        "sourceCount": 19,
+        "factCheckCount": 35,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 17,
-        "stateEvidenceLinks": 17,
+        "stateEvidenceItems": 35,
+        "stateEvidenceLinks": 53,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1331,9 +1329,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/arizona/",

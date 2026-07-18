@@ -2,8 +2,8 @@
 
 - 页面数：166
 - 高风险待人工签字：17
-- 待逐页官方正文语义核对：84
-- 阻塞项：101
+- 待逐页官方正文语义核对：82
+- 阻塞项：99
 - 弱意图待处理：0
 
 ## 人工签字队列（高风险）
@@ -40,7 +40,6 @@
 | /directories/service-paths/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /directories/tests-permits/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/alabama/ | state-overview | 95 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/alaska/ | state-overview | 88 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/delaware/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/hawaii/ | state-overview | 89 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/idaho/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -66,12 +65,13 @@
 | /states/wisconsin/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/wyoming/ | state-overview | 89 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/alabama/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/alaska/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/delaware/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/hawaii/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/idaho/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/iowa/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/kansas/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /states/kentucky/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /states/louisiana/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 
 ## 阻塞项优先处理
 
@@ -91,8 +91,6 @@
 | /directories/tests-permits/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/alabama/ | medium | 95 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/alabama/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/alaska/ | medium | 88 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/alaska/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/delaware/ | medium | 91 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/delaware/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/hawaii/ | medium | 89 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
@@ -107,6 +105,8 @@
 | /states/kentucky/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/louisiana/ | medium | 91 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/louisiana/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /states/maine/ | medium | 89 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /states/maine/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 
 ## 执行节奏
 1. **第1-2周**：完成高风险人工签字，目标产出 8 条，检查点：未签字的高风险页不得用于新内容发布
