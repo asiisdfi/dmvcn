@@ -27,7 +27,10 @@ export function getStaticPaths() {
 
 const { state } = Astro.props as { state: StateGuide };
 const relatedTopics = topics.filter((topic) => state.relatedTopicSlugs.includes(topic.slug));
-const allCredentialsRealId = Boolean(state.allCredentialsRealId);
+const realIdCredentialMode =
+  state.realIdCredentialMode ?? (state.allCredentialsRealId ? 'all-current-real-id' : undefined);
+const allCredentialsRealId = realIdCredentialMode === 'all-current-real-id';
+const singleCompliantCard = realIdCredentialMode === 'single-compliant-card';
 const realIdSource =
   state.actionLinks.find((link) => /real\s*id/i.test(`${link.label} ${link.description}`)) ??
   state.actionLinks[0]!;
@@ -45,12 +48,26 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const realIdDecisions = [
   {
     number: '01',
-    title: allCredentialsRealId ? '先看现有证件' : '先判断是否需要',
+    title: allCredentialsRealId
+      ? '先看现有证件'
+      : singleCompliantCard
+        ? '先选哪张证件'
+        : '先判断是否需要',
     text: allCredentialsRealId
       ? `${state.nameZh} 当前签发的驾照和 ID 已全部合规；先看卡面星标和签发年代。`
-      : '如果你有有效护照或其他 TSA 接受证件，国内航班不一定必须急着升级州证件。',
-    href: allCredentialsRealId ? '#real-id-evidence-heading' : '/topics/airport-travel-after-real-id/',
-    action: allCredentialsRealId ? '看本州判断' : '看机场证件',
+      : singleCompliantCard
+        ? `${state.nameZh} 只允许一张 REAL ID-compliant credential；先决定星标放在 driver license 还是 State ID 上。`
+        : '如果你有有效护照或其他 TSA 接受证件，国内航班不一定必须急着升级州证件。',
+    href: allCredentialsRealId
+      ? '#real-id-evidence-heading'
+      : singleCompliantCard
+        ? '#credential-comparison'
+        : '/topics/airport-travel-after-real-id/',
+    action: allCredentialsRealId
+      ? '看本州判断'
+      : singleCompliantCard
+        ? '比较两条路线'
+        : '看机场证件',
     external: false,
   },
   {
@@ -78,14 +95,22 @@ const realIdAudience = allCredentialsRealId
       '你持有 2010 年 1 月 1 日前签发的旧 ID card，需要判断是否续期。',
       '你准备首次申请、续期或补证，需要按当前材料表整理文件。',
     ]
-  : [
-      '你的驾照或 ID 没有 REAL ID 合规标记，且你想用州证件坐国内航班。',
-      '你没有护照，或不想每次国内旅行都带护照。',
-      '你准备续期、补证或搬州换证，想顺便判断是否升级 REAL ID。',
-    ];
+  : singleCompliantCard
+    ? [
+        `你同时考虑 ${state.nameZh} driver license 和 State ID，需要决定哪一张作为唯一星标证件。`,
+        '你已经持有星标 State ID，但还需要驾驶，想判断 Limited Purpose Driver License 是否适用。',
+        '你准备首证、续期或补证，需要按当前材料表和所在县的 transaction page 整理文件。',
+      ]
+    : [
+        '你的驾照或 ID 没有 REAL ID 合规标记，且你想用州证件坐国内航班。',
+        '你没有护照，或不想每次国内旅行都带护照。',
+        '你准备续期、补证或搬州换证，想顺便判断是否升级 REAL ID。',
+      ];
 const credentialComparisonTitle = allCredentialsRealId
   ? `${state.nameZh} 当前证件和护照怎么判断`
-  : 'REAL ID、标准证件和护照怎么选';
+  : singleCompliantCard
+    ? '唯一 REAL ID credential 放在哪张证件上'
+    : 'REAL ID、标准证件和护照怎么选';
 const credentialComparisonRows = allCredentialsRealId
   ? [
       {
@@ -104,31 +129,53 @@ const credentialComparisonRows = allCredentialsRealId
         material: '旅行证件接受范围以 TSA 官方清单为准；Wyoming 驾照业务仍按 WYDOT 要求办理。',
       },
     ]
-  : [
-      {
-        label: 'REAL ID 州驾照 / ID',
-        use: '适合想用州证件处理国内航班安检或部分联邦设施身份用途的人。',
-        material: `按 ${state.agency} 官方清单准备身份、SSN、地址、姓名变更和 lawful presence 等材料。`,
-      },
-      {
-        label: '标准驾照 / ID',
-        use: '通常仍可用于驾驶或普通州内身份用途，但不能当作 REAL ID 联邦用途证件。',
-        material: '看本州普通驾照 / ID、续期、补证或地址变更入口；不要把标准证件当作 REAL ID 使用。',
-      },
-      {
-        label: '护照或 TSA 接受证件',
-        use: '适合已经有有效护照，且只是为了国内航班身份核验的人。',
-        material: '先查 TSA 接受证件列表；旅行证件规则以 TSA 官方页面为准。',
-      },
-    ];
+  : singleCompliantCard
+    ? [
+        {
+          label: `星标 ${state.nameEn} driver license`,
+          use: '同时承担驾驶证件和 REAL ID 联邦身份用途；取得时要交回星标 Hawaii State ID。',
+          material: `按 ${state.agency} 当前 REAL ID 材料表和所在县 transaction page 准备。`,
+        },
+        {
+          label: '星标 State ID + Limited Purpose DL',
+          use: '把 State ID 保留为唯一 REAL ID credential，再用 Limited Purpose Driver License 驾驶；后者不能用于登机或其他联邦身份用途。',
+          material: 'Limited Purpose 路径不等同于普通 REAL ID 材料路线，申请前要打开所在县的专页核对身份与地址文件。',
+        },
+        {
+          label: '护照或其他 TSA 接受证件',
+          use: '已有有效旅行证件、只为国内航班核验时，不必为了旅行同时持有两张星标州证件。',
+          material: '先查 TSA 接受证件清单；Hawaii 驾照或 State ID 业务仍按县级材料和预约要求办理。',
+        },
+      ]
+    : [
+        {
+          label: 'REAL ID 州驾照 / ID',
+          use: '适合想用州证件处理国内航班安检或部分联邦设施身份用途的人。',
+          material: `按 ${state.agency} 官方清单准备身份、SSN、地址、姓名变更和 lawful presence 等材料。`,
+        },
+        {
+          label: '标准驾照 / ID',
+          use: '通常仍可用于驾驶或普通州内身份用途，但不能当作 REAL ID 联邦用途证件。',
+          material: '看本州普通驾照 / ID、续期、补证或地址变更入口；不要把标准证件当作 REAL ID 使用。',
+        },
+        {
+          label: '护照或 TSA 接受证件',
+          use: '适合已经有有效护照，且只是为了国内航班身份核验的人。',
+          material: '先查 TSA 接受证件列表；旅行证件规则以 TSA 官方页面为准。',
+        },
+      ];
 const realIdFaqs = [
   {
     question: allCredentialsRealId
       ? `${state.nameZh} 还需要单独升级 REAL ID 吗？`
-      : `有护照还需要办 ${state.nameZh} REAL ID 吗？`,
+      : singleCompliantCard
+        ? `${state.nameZh} driver license 和 State ID 能同时带星标吗？`
+        : `有护照还需要办 ${state.nameZh} REAL ID 吗？`,
     answer: allCredentialsRealId
       ? '不需要另选升级路线。Wyoming Driver Services 当前签发的驾照和 ID 已全部合规；持 2010 年前旧 ID card 的人应按州方提示考虑续期。'
-      : '不一定。有效护照等 TSA 接受证件也可用于国内航班身份核验；是否升级州证件，取决于你是否想用驾照或州 ID 处理这些用途。',
+      : singleCompliantCard
+        ? '不能。Hawaii 只允许一张 REAL ID-compliant credential；选择星标 driver license 时要交回星标 State ID，选择星标 State ID 时可另查 Limited Purpose Driver License。'
+        : '不一定。有效护照等 TSA 接受证件也可用于国内航班身份核验；是否升级州证件，取决于你是否想用驾照或州 ID 处理这些用途。',
   },
   {
     question: 'REAL ID 材料可以只带复印件或手机照片吗？',
@@ -142,9 +189,15 @@ const realIdFaqs = [
 const leadingSteps = [
   allCredentialsRealId
     ? '先确认现有 Wyoming card 是否为当前星标证件；2010 年前旧 ID card 按州方提示考虑续期。'
-    : '先判断 REAL ID 是否必要：有效护照等 TSA 接受证件也可用于国内航班身份核验。',
+    : singleCompliantCard
+      ? '先决定把唯一 REAL ID credential 放在 driver license 还是 State ID；不要同时申请两张星标证件。'
+      : '先判断 REAL ID 是否必要：有效护照等 TSA 接受证件也可用于国内航班身份核验。',
 ];
-const officialActionLabel = allCredentialsRealId ? '查看官方 REAL ID 公告' : '打开官方 REAL ID';
+const officialActionLabel = allCredentialsRealId
+  ? '查看官方 REAL ID 公告'
+  : singleCompliantCard
+    ? '打开官方 REAL ID 与驾照规则'
+    : '打开官方 REAL ID';
 const schema = [
   {
     '@type': 'Article',
@@ -271,7 +324,7 @@ const schema = [
         <StateEvidenceList items={realIdEvidence} ordered />
       </section>
 
-      <section class="panel">
+      <section class="panel" id="credential-comparison">
         <h2>{credentialComparisonTitle}</h2>
         <div class="comparison-table" role="table" aria-label={`${state.nameZh} REAL ID 证件判断对比`}>
           <div class="comparison-row comparison-head" role="row">

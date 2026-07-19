@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-18T19:03:08.306Z",
+    "generatedAt": "2026-07-19T08:17:14.855Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 69,
+    "passed": 71,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 80,
-    "aiAssistedReviews": 75,
+    "sourceMappedReviews": 78,
+    "aiAssistedReviews": 77,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 97,
+    "blockedPages": 95,
     "averageScore": 96
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 195,
+        "sourceCount": 196,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 276,
+        "sourceCount": 277,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 94,
-        "directoryEvidenceLinks": 94,
+        "directoryEvidenceItems": 98,
+        "directoryEvidenceLinks": 98,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 74,
-        "directoryEvidenceLinks": 74,
+        "directoryEvidenceItems": 75,
+        "directoryEvidenceLinks": 75,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 532,
+        "sourceCount": 535,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 188,
+        "sourceCount": 189,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 91,
-        "directoryEvidenceLinks": 91,
+        "directoryEvidenceItems": 95,
+        "directoryEvidenceLinks": 95,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 192,
+        "sourceCount": 195,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 210,
+        "sourceCount": 209,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 209,
+        "sourceCount": 208,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1236,
+        "sourceCount": 1250,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -2059,21 +2059,21 @@
       "route": "/states/hawaii/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 89,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成夏威夷州（Hawaii Department of Transportation / County DMV Offices）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 HIDOT 州级 Driver License FAQ、Rev. 3/13/2024 acceptable-documents PDF，以及 Honolulu、Maui County、Hawaii County、Kauai County 的 REAL ID、驾照、外州/外国驾照、续期、考试、预约、office 和费用入口。",
+        "notes": "重写 Hawaii 两页并建立显式声明级来源；拆开州级规则与四县办理，更新失效 Honolulu/Hawaii County 入口，增加唯一 REAL ID credential 专属判断，并公开 SSN 统一材料表与县级 transfer 页面、China/Taiwan reciprocity、oral exam 和 6-8 周邮寄边界。"
       },
       "scores": {
-        "factsAndSources": 18,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -2083,14 +2083,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 13,
+        "sourceCount": 19,
+        "factCheckCount": 47,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 13,
-        "stateEvidenceLinks": 13,
+        "stateEvidenceItems": 47,
+        "stateEvidenceLinks": 105,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2098,9 +2098,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/hawaii/real-id/",
@@ -2108,16 +2106,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成夏威夷州（Hawaii Department of Transportation / County DMV Offices）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-19",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 HIDOT 州级 Driver License FAQ、Rev. 3/13/2024 acceptable-documents PDF，以及 Honolulu、Maui County、Hawaii County、Kauai County 的 REAL ID、驾照、外州/外国驾照、续期、考试、预约、office 和费用入口。",
+        "notes": "重写 Hawaii 两页并建立显式声明级来源；拆开州级规则与四县办理，更新失效 Honolulu/Hawaii County 入口，增加唯一 REAL ID credential 专属判断，并公开 SSN 统一材料表与县级 transfer 页面、China/Taiwan reciprocity、oral exam 和 6-8 周邮寄边界。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2130,14 +2128,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 20,
+        "sourceCount": 19,
+        "factCheckCount": 43,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 20,
-        "stateEvidenceLinks": 21,
+        "stateEvidenceItems": 43,
+        "stateEvidenceLinks": 103,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2145,9 +2143,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/idaho/",

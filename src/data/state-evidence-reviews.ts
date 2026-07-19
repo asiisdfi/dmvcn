@@ -795,6 +795,50 @@ const AR_EXAM =
   'https://dps.arkansas.gov/law-enforcement/arkansas-state-police/services-programs/driver-examination/';
 const AR_MANUAL =
   'https://dps.arkansas.gov/wp-content/uploads/Arkansas-DL-Manual-English.pdf';
+const HI_HIDOT = 'https://hidot.hawaii.gov/driverslicense/';
+const HI_DOCS_2024 =
+  'https://www.honolulu.gov/csd/wp-content/uploads/sites/6/2024/03/Acceptable-Documents-for-a-REAL-ID-Compliant-Star-DL-SID-Print-Button-2024-03-13.pdf';
+const HI_HON_REAL_ID = 'https://www.honolulu.gov/csd/real-id/';
+const HI_HON_PROCEDURES =
+  'https://www.honolulu.gov/csd/drivers-license-procedures/';
+const HI_HON_FOREIGN =
+  'https://www.honolulu.gov/csd/foreign-drivers-license/';
+const HI_HON_REQUIREMENTS =
+  'https://www.honolulu.gov/csd/drivers-license-requirements/';
+const HI_HON_FAQ = 'https://www.honolulu.gov/csd/drivers-license-faq/';
+const HI_HON_LOCATIONS =
+  'https://www.honolulu.gov/csd/services-and-locations/';
+const HI_MAUI_DMV = 'https://www.mauicounty.gov/1328/DMV';
+const HI_MAUI_APPOINTMENTS = 'https://www.mauicounty.gov/2145';
+const HI_MAUI_OFFICES = 'https://www.mauicounty.gov/2125/DMV-Wait-Times';
+const HI_HAWAII_COUNTY_DRIVER =
+  'https://www.vrl.hawaiicounty.gov/driver-s-licensing';
+const HI_HAWAII_COUNTY_APPOINTMENTS =
+  'https://www.vrl.hawaiicounty.gov/other-services/all-appointment-page';
+const HI_HAWAII_COUNTY_TRANSFER =
+  'https://www.vrl.hawaiicounty.gov/driver-s-licensing/out-of-state-transfers';
+const HI_HAWAII_COUNTY_REAL_ID =
+  'https://www.vrl.hawaiicounty.gov/driver-s-licensing/real-id-requirements';
+const HI_KAUAI_DMV =
+  'https://www.kauai.gov/Government/Departments-Agencies/Finance/Drivers-Licensing-and-Motor-Vehicles';
+const HI_KAUAI_REAL_ID =
+  'https://www.kauai.gov/Government/Departments-Agencies/Finance/Drivers-Licensing-and-Motor-Vehicles/REAL-ID';
+const HI_KAUAI_TRANSFER =
+  'https://www.kauai.gov/Government/Departments-Agencies/Finance/Drivers-Licensing-and-Motor-Vehicles/Out-of-State-License-Transfers';
+const HI_KAUAI_RENEW =
+  'https://www.kauai.gov/Government/Departments-Agencies/Finance/Drivers-Licensing-and-Motor-Vehicles/Hawaii-Drivers-License-Renewals';
+const HI_COUNTY_HUBS = [
+  HI_HON_LOCATIONS,
+  HI_MAUI_DMV,
+  HI_HAWAII_COUNTY_DRIVER,
+  HI_KAUAI_DMV,
+];
+const HI_COUNTY_APPOINTMENTS = [
+  HI_HON_LOCATIONS,
+  HI_MAUI_APPOINTMENTS,
+  HI_HAWAII_COUNTY_APPOINTMENTS,
+  HI_KAUAI_DMV,
+];
 const WY_DRIVER =
   'https://www.dot.state.wy.us/home/driver_license_records/driver-license.html';
 const WY_REAL_ID =
@@ -849,6 +893,347 @@ const TN_MANUAL =
   'https://www.tn.gov/content/dam/tn/safety/documents/DL_Manual.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  hawaii: {
+    reviewedAt: '2026-07-19',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      HI_HIDOT,
+      HI_DOCS_2024,
+      HI_HON_REAL_ID,
+      HI_HON_PROCEDURES,
+      HI_HON_FOREIGN,
+      HI_HON_REQUIREMENTS,
+      HI_HON_FAQ,
+      HI_HON_LOCATIONS,
+      HI_MAUI_DMV,
+      HI_MAUI_APPOINTMENTS,
+      HI_MAUI_OFFICES,
+      HI_HAWAII_COUNTY_DRIVER,
+      HI_HAWAII_COUNTY_APPOINTMENTS,
+      HI_HAWAII_COUNTY_TRANSFER,
+      HI_HAWAII_COUNTY_REAL_ID,
+      HI_KAUAI_DMV,
+      HI_KAUAI_REAL_ID,
+      HI_KAUAI_TRANSFER,
+      HI_KAUAI_RENEW,
+    ],
+    scope:
+      '逐条打开并比对 HIDOT 州级 Driver License FAQ、Rev. 3/13/2024 acceptable-documents PDF，以及 Honolulu、Maui County、Hawaii County、Kauai County 的 REAL ID、驾照、外州/外国驾照、续期、考试、预约、office 和费用入口。',
+    notes:
+      '重写 Hawaii 两页并建立显式声明级来源；拆开州级规则与四县办理，更新失效 Honolulu/Hawaii County 入口，增加唯一 REAL ID credential 专属判断，并公开 SSN 统一材料表与县级 transfer 页面、China/Taiwan reciprocity、oral exam 和 6-8 周邮寄边界。',
+    claims: {
+      'Hawaii DOT 发布全州通用的 REAL ID、legal presence 和材料规则，但没有一个统一办理全州业务的 DMV 柜台': [
+        HI_HIDOT,
+      ],
+      '预约、地点、费用、考试、续期和补证由四个县分别处理：Oahu 看 Honolulu，Maui、Molokai、Lanai 看 Maui County，Hawaii Island 看 Hawaii County，Kauai 看 Kauai County': [
+        HI_HIDOT,
+        ...HI_COUNTY_HUBS,
+      ],
+      '第一步不是先找“州 DMV”，而是先确认自己所在的县': [HI_HIDOT],
+      'Oahu 的外州换证页把有效美国州、领地和 Canada 驾照列为 transfer 路径': [
+        HI_HON_PROCEDURES,
+        HI_HON_FAQ,
+      ],
+      'Honolulu 另与 Japan、Korea、Taiwan 设有附条件 reciprocity，符合条件者可免 written 和 road test': [
+        HI_HON_FOREIGN,
+      ],
+      '中国大陆驾照不在该三地名单中，不能自行套用 Taiwan 路线': [
+        HI_HON_FOREIGN,
+      ],
+      '应按所在县确认 instruction permit、knowledge test 和 road test': [
+        HI_HON_PROCEDURES,
+        HI_HON_FAQ,
+        ...HI_COUNTY_HUBS,
+      ],
+      'Hawaii 只允许一人持有一张 REAL ID-compliant credential': [
+        HI_HIDOT,
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_REAL_ID,
+      ],
+      '选择星标 driver license 时，要交回星标 Hawaii State ID': [
+        HI_HIDOT,
+        HI_HON_REAL_ID,
+      ],
+      '选择星标 State ID 时，可以另行申请不具联邦用途的 Limited Purpose Driver License': [
+        HI_HIDOT,
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_REAL_ID,
+      ],
+      '2024 年 3 月 13 日材料表把首证分为 legal presence / legal name / date of birth、SSN 和 Hawaii principal residence address，并要求两份地址文件来自不同实体': [
+        HI_DOCS_2024,
+      ],
+      '四县预约系统不同': HI_COUNTY_APPOINTMENTS,
+      'Oahu 的到场业务使用 AlohaQ，且只在材料已在档、资料完全不变时提供驾照或 permit 的 online exact duplicate': [
+        HI_HON_REAL_ID,
+        HI_HON_PROCEDURES,
+      ],
+      'Maui County 使用自己的 Qmatic 入口，Class 3 road test 要按县页电话预约': [
+        HI_MAUI_DMV,
+        HI_MAUI_APPOINTMENTS,
+      ],
+      'Hawaii County 每个 appointment 只办一项业务且 walk-in 名额有限': [
+        HI_HAWAII_COUNTY_APPOINTMENTS,
+      ],
+      'Kauai 的预约客户优先，Lihue walk-in ticket 会提前停止发放': [
+        HI_KAUAI_DMV,
+      ],
+      'HIDOT 页面列出的县级分工是办理起点：Honolulu 处理 Oahu，Maui County 处理 Maui、Molokai、Lanai，Hawaii County 处理 Hawaii Island，Kauai County 处理 Kauai': [
+        HI_HIDOT,
+        ...HI_COUNTY_HUBS,
+      ],
+      '一人只能持有一张 REAL ID-compliant credential': [
+        HI_HIDOT,
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_REAL_ID,
+      ],
+      '以 driver license 作为星标证件时要交回星标 State ID': [
+        HI_HIDOT,
+        HI_HON_REAL_ID,
+      ],
+      '以 State ID 作为星标证件时，可申请 Limited Purpose Driver License 用于驾驶，但它不能用于 REAL ID 联邦用途': [
+        HI_HIDOT,
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_REAL_ID,
+      ],
+      '最新核对到的统一材料表修订日期是 2024 年 3 月 13 日': [
+        HI_DOCS_2024,
+      ],
+      '地址要求明确为两份文件来自不同 entities，不应写成“不同 entities 或 accounts”': [
+        HI_DOCS_2024,
+      ],
+      '2024 统一材料表写明自 2021 年 6 月 18 日起，出示 SSN documentation 是 optional': [
+        HI_DOCS_2024,
+      ],
+      '但 Hawaii County 和 Kauai 的当前外州转入页仍列出 original Social Security card 或 SSN proof': [
+        HI_HAWAII_COUNTY_TRANSFER,
+        HI_KAUAI_TRANSFER,
+      ],
+      '办理人应以本县具体业务页和预约确认单为准，有卡时带上，不要只凭统一 PDF 推断柜台一定不看': [
+        HI_DOCS_2024,
+        HI_HAWAII_COUNTY_TRANSFER,
+        HI_KAUAI_TRANSFER,
+        HI_HON_LOCATIONS,
+        HI_MAUI_APPOINTMENTS,
+        HI_HAWAII_COUNTY_APPOINTMENTS,
+      ],
+      '首证文件必须是有效、未过期的原件或 issuing entity 签发的 certified copy': [
+        HI_DOCS_2024,
+      ],
+      'notarized copy、fax 和普通复印件不等于 certified copy': [
+        HI_HIDOT,
+        HI_DOCS_2024,
+      ],
+      'U.S. citizen 或 permanent resident 以前已完成五类材料核验、且资料没变时，HIDOT 说明续期通常不必全部重交': [
+        HI_HIDOT,
+        HI_DOCS_2024,
+        HI_HON_PROCEDURES,
+      ],
+      'temporary legal presence 申请人续期或补证要本人出示 continued legal presence，也不能走 mail renewal': [
+        HI_HIDOT,
+      ],
+      'Hawaii 驾照最早可在到期前六个月续期': [
+        HI_HIDOT,
+        HI_HON_FAQ,
+        HI_KAUAI_RENEW,
+      ],
+      '过期后已经不能合法驾驶': [HI_HON_FAQ, HI_KAUAI_RENEW],
+      'Kauai 与 Honolulu 页面都说明 90 天内仍可续期，超过 90 天会产生 reactivation fee，超过一年通常按新申请处理': [
+        HI_HON_FAQ,
+        HI_KAUAI_RENEW,
+      ],
+      'Honolulu 的 Japan、Korea、Taiwan reciprocity 只适用于符合条件的有效驾照，并要求相应领事机构出具 notarized、translated、sealed verification letter': [
+        HI_HON_FOREIGN,
+      ],
+      '过期外国驾照不能按该 transfer 路径免 written 和 road test': [
+        HI_HON_FOREIGN,
+      ],
+      '中国大陆驾照不在 Honolulu 公布的 Japan、Korea、Taiwan reciprocity 名单中': [
+        HI_HON_FOREIGN,
+      ],
+      '不要把 China 与 Taiwan 混写': [HI_HON_FOREIGN],
+      '应按普通 foreign-license applicant 准备英文翻译、instruction permit、general knowledge test 和可能的 road test': [
+        HI_HON_PROCEDURES,
+        HI_HON_FAQ,
+        HI_HON_FOREIGN,
+      ],
+      '访客能否用外国驾照驾驶不是“有外国驾照就行”': [HI_HON_FAQ],
+      'Honolulu 只写明 1949 Geneva Convention 缔约地的有效驾照可配合 passport 使用，驾驶人须至少 18 岁，并建议携带 IDP': [
+        HI_HON_FAQ,
+      ],
+      '具体国别资格和停留期限应在出发前向所在县确认': [
+        HI_HON_FAQ,
+        ...HI_COUNTY_HUBS,
+      ],
+      'Oahu 对无法读写英文的申请人提供受限制的 oral examination 安排：Kapalama 可人工安排 phone translation 或 English oral classroom test，并另收 oral test fee': [
+        HI_HON_PROCEDURES,
+        HI_HON_FAQ,
+        HI_HON_REQUIREMENTS,
+      ],
+      '页面没有承诺任意日期都提供普通话': [HI_HON_FAQ],
+      '临时卡或现场给的 temporary document 不能作为 REAL ID 旅行证件': [
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_REAL_ID,
+      ],
+      'Honolulu 提醒永久卡通常需 6-8 周，Hawaii County 写明最多预留 8 周': [
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_DRIVER,
+      ],
+      '有近期出行计划应带护照等 TSA 接受证件': [HI_HON_REAL_ID],
+      '费用、付款方式、笔试截止时间和 walk-in 规则由县决定': [
+        HI_HON_REQUIREMENTS,
+        HI_MAUI_OFFICES,
+        HI_HAWAII_COUNTY_APPOINTMENTS,
+        HI_KAUAI_DMV,
+      ],
+      'Honolulu 的 fee table、Maui 的 fee PDF、Hawaii County 的 License Fees 与 Kauai fee chart 不能互相替代': [
+        HI_HON_REQUIREMENTS,
+        HI_MAUI_DMV,
+        HI_HAWAII_COUNTY_DRIVER,
+        HI_KAUAI_DMV,
+      ],
+      'Legal presence、legal name 和 date of birth 用一份合格文件，例如认证 U.S. birth certificate、有效 U.S. passport、Certificate of Naturalization / Citizenship，或当前清单列出的 Permanent Resident Card、EAD、foreign passport + visa + approved I-94': [
+        HI_DOCS_2024,
+      ],
+      'SSN 仍是首证核验类别，但 2024 统一清单把“出示 SSN documentation”标为 optional': [
+        HI_DOCS_2024,
+      ],
+      '县级 transaction page 可能仍要求 original Social Security card、W-2、1099 或 pay stub，因此要再核对本县清单': [
+        HI_DOCS_2024,
+        HI_HAWAII_COUNTY_TRANSFER,
+        HI_KAUAI_TRANSFER,
+      ],
+      '准备两份 Hawaii principal residence address 文件，必须来自不同 entities，并显示申请人的 full first and last name 与 Hawaii address': [
+        HI_DOCS_2024,
+      ],
+      'P.O. Box 通常不能代替 principal residence，除非当地没有分配可投递的 street address': [
+        HI_DOCS_2024,
+      ],
+      'utility bill、financial statement 或政府/医疗邮件通常要在两个月内': [
+        HI_DOCS_2024,
+      ],
+      'payroll check / stub 可在六个月内': [HI_DOCS_2024],
+      'lease 通常要覆盖六个月或以上，其他材料的日期窗口按 2024 清单逐项核对': [
+        HI_DOCS_2024,
+      ],
+      '本人没有地址文件时，可向 county DMV 询问 Hawaii principal residence affidavit': [
+        HI_DOCS_2024,
+      ],
+      '该表通常由同住者提供地址材料，并在公证员前签署或由柜台人员见证': [
+        HI_DOCS_2024,
+      ],
+      '姓名不一致时准备完整 connecting chain，可用政府签发的 marriage / civil union certificate、带 court seal 的 adoption / divorce / name-change order、naturalization certificate 或 Hawaii Lieutenant Governor 的 certified name-change decree': [
+        HI_DOCS_2024,
+      ],
+      '所有身份材料带有效原件或 issuing entity certified copy': [HI_DOCS_2024],
+      '外国申请材料按 Honolulu 指引准备 English translation，并把译文与原文件一起带到现场': [
+        HI_HON_PROCEDURES,
+        HI_HON_FAQ,
+      ],
+      '先按岛屿确定办理县：Oahu、Maui County、Hawaii County 或 Kauai County': [
+        HI_HIDOT,
+        ...HI_COUNTY_HUBS,
+      ],
+      '不要先在其他县的系统里抢 appointment': HI_COUNTY_APPOINTMENTS,
+      '决定唯一 REAL ID credential 放在 driver license 还是 State ID 上': [
+        HI_HIDOT,
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_REAL_ID,
+      ],
+      '需要同时驾驶与保留星标 State ID 时，再核对 Limited Purpose Driver License': [
+        HI_HIDOT,
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_REAL_ID,
+      ],
+      '打开 Rev. 3/13/2024 acceptable documents list，按 identity / legal presence、SSN category、two residence documents、name chain 四组整理': [
+        HI_DOCS_2024,
+      ],
+      '把两份地址材料按“不同 entities”重新检查，并确认 full first / last name、Hawaii physical address 和文件日期都符合清单': [
+        HI_DOCS_2024,
+      ],
+      '再打开本县具体 transaction page': HI_COUNTY_HUBS,
+      '若县页和统一材料表在 SSN、renewal documents 或 office 服务上表述不同，先联系本县 office 并保留回复或预约确认': [
+        HI_DOCS_2024,
+        HI_HAWAII_COUNTY_TRANSFER,
+        HI_KAUAI_TRANSFER,
+        HI_HON_LOCATIONS,
+        HI_MAUI_APPOINTMENTS,
+        HI_HAWAII_COUNTY_APPOINTMENTS,
+      ],
+      '外州有效驾照按本县 transfer 路径准备 surrender 与 vision screening': [
+        HI_HON_PROCEDURES,
+        HI_HON_FAQ,
+        HI_HAWAII_COUNTY_TRANSFER,
+        HI_KAUAI_TRANSFER,
+      ],
+      'Japan、Korea、Taiwan 驾照另看 Honolulu reciprocity 条件': [
+        HI_HON_FOREIGN,
+      ],
+      '中国大陆驾照按可能需要 permit、笔试和路考准备': [
+        HI_HON_PROCEDURES,
+        HI_HON_FAQ,
+        HI_HON_FOREIGN,
+      ],
+      '有外文材料时先完成 English translation': [
+        HI_HON_PROCEDURES,
+        HI_HON_FAQ,
+      ],
+      'temporary legal presence 申请人把当前 USCIS / DHS 文件和 continued legal presence 一并带到现场': [
+        HI_HIDOT,
+        HI_DOCS_2024,
+        HI_HON_PROCEDURES,
+      ],
+      '按县预约：Oahu 用 AlohaQ，Maui、Hawaii County、Kauai 使用各自系统': HI_COUNTY_APPOINTMENTS,
+      'road test、普通柜台和 online duplicate 不是同一个入口': [
+        HI_HON_REAL_ID,
+        HI_HON_PROCEDURES,
+        ...HI_COUNTY_APPOINTMENTS,
+      ],
+      '有六至八周内的出行计划时，不依赖 temporary document，随身准备有效护照或其他 TSA 接受证件': [
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_DRIVER,
+      ],
+      '把 HIDOT 当成统一柜台，或住在 Maui、Hawaii Island、Kauai 却只按 Honolulu 的预约、费用和 office 准备': [
+        HI_HIDOT,
+        ...HI_COUNTY_HUBS,
+      ],
+      '同时保留星标 driver license 和星标 State ID，或者取得 Limited Purpose Driver License 后仍把它当作联邦用途证件': [
+        HI_HIDOT,
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_REAL_ID,
+      ],
+      '把同一实体的不同 accounts 当成两份地址证明': [HI_DOCS_2024],
+      '2024 表要求 different entities': [HI_DOCS_2024],
+      '看到 SSN documentation optional 就什么都不带，没有注意县级 transfer 页面仍可能要求 Social Security card 或其他 SSN proof': [
+        HI_DOCS_2024,
+        HI_HAWAII_COUNTY_TRANSFER,
+        HI_KAUAI_TRANSFER,
+      ],
+      '把 notarized copy、fax、手机照片或普通复印件当作 issuing entity certified copy': [
+        HI_HIDOT,
+        HI_DOCS_2024,
+        HI_HAWAII_COUNTY_REAL_ID,
+      ],
+      '把中国大陆驾照当作 Taiwan reciprocity，或拿过期 Japan、Korea、Taiwan 驾照期待免笔试和路考': [
+        HI_HON_FOREIGN,
+        HI_HON_PROCEDURES,
+        HI_HON_FAQ,
+      ],
+      '把 exact duplicate online service 当成首次 REAL ID、续期、改名或改地址入口': [
+        HI_HON_REAL_ID,
+        HI_HON_PROCEDURES,
+      ],
+      '资料有变化时通常要走另一条路径': [
+        HI_HIDOT,
+        HI_HON_REAL_ID,
+        HI_HON_PROCEDURES,
+      ],
+      '拿 temporary card 去机场，或在六周内出行却没有准备护照等备用证件': [
+        HI_HON_REAL_ID,
+        HI_HAWAII_COUNTY_DRIVER,
+      ],
+    },
+  },
   wyoming: {
     reviewedAt: '2026-07-19',
     reviewer: 'Codex AI 辅助证据核查',

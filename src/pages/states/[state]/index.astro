@@ -39,6 +39,7 @@ const title = `${state.nameZh} DMV / 驾照 / REAL ID 办事总览`;
 const description = `${state.nameZh} DMV 中文办事总览：官方入口、REAL ID、驾照、地址变更、预约和常见材料提醒。`;
 const officialSources = uniqueSources(state.sources);
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const isCountyRouted = state.id === 'hawaii';
 const linkLabel = (link: StateGuide['actionLinks'][number]) => link.label.toLowerCase();
 const findActionLink = (patterns: RegExp[]) =>
   patterns.map((pattern) => state.actionLinks.find((link) => pattern.test(linkLabel(link)))).find(Boolean);
@@ -72,22 +73,26 @@ const routeCards = [
   {
     number: '02',
     title: '我刚搬到这个州',
-    text: newResidentLink
+    text: isCountyRouted
+      ? '先按岛屿确认 Honolulu、Maui、Hawaii County 或 Kauai，再查看该县的 transfer 规则。'
+      : newResidentLink
       ? `从 ${newResidentLink.label} 开始，先确认外州证件、地址证明和是否要预约。`
       : '先看搬州专题，再回到本州 DMV 页面确认 new resident 要求。',
-    href: newResidentLink?.url ?? '/topics/moving-to-new-state/',
-    action: newResidentLink ? '打开官方入口' : '看搬州专题',
-    external: Boolean(newResidentLink),
+    href: isCountyRouted ? '#official-entry' : newResidentLink?.url ?? '/topics/moving-to-new-state/',
+    action: isCountyRouted ? '选择所在县' : newResidentLink ? '打开官方入口' : '看搬州专题',
+    external: isCountyRouted ? false : Boolean(newResidentLink),
   },
   {
     number: '03',
     title: '我要续期、补证或改地址',
-    text: serviceLink
+    text: isCountyRouted
+      ? '这些业务和预约都由所在县处理，先从四县入口表选择自己的办理地。'
+      : serviceLink
       ? `先处理地址和线上资格，再从 ${serviceLink.label} 进入对应业务。`
       : '先确认地址、证件状态和线上资格，再决定是否需要预约。',
-    href: serviceLink?.url ?? '/topics/renewal-replacement-address/',
-    action: serviceLink ? '打开办理入口' : '看顺序说明',
-    external: Boolean(serviceLink),
+    href: isCountyRouted ? '#official-entry' : serviceLink?.url ?? '/topics/renewal-replacement-address/',
+    action: isCountyRouted ? '选择所在县' : serviceLink ? '打开办理入口' : '看顺序说明',
+    external: isCountyRouted ? false : Boolean(serviceLink),
   },
 ];
 const serviceComparisonRows = [
@@ -104,7 +109,11 @@ const serviceComparisonRows = [
   {
     label: '续期 / 补证 / 地址 / 预约',
     use: state.appointmentNote,
-    next: serviceLink ? `${serviceLink.label}：${serviceLink.description}` : '先确认地址、证件状态和线上资格，再看州官方服务入口。',
+    next: isCountyRouted
+      ? '先按岛屿选择 Honolulu、Maui、Hawaii County 或 Kauai 的县级业务入口。'
+      : serviceLink
+        ? `${serviceLink.label}：${serviceLink.description}`
+        : '先确认地址、证件状态和线上资格，再看州官方服务入口。',
   },
 ];
 const overviewFaqs = [
@@ -294,7 +303,7 @@ const schema = [
         </ul>
       </section>
 
-      <section class="panel">
+      <section class="panel" id="official-entry">
         <h2>官方入口</h2>
         <div class="link-table">
           {state.actionLinks.map((link, index) => (

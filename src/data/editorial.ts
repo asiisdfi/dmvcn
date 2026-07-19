@@ -34,6 +34,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-19',
+    title: '完成 Hawaii 两页官方正文语义核对',
+    summary:
+      '逐条比对 HIDOT 州级 Driver License FAQ、Rev. 3/13/2024 材料表，以及 Honolulu、Maui County、Hawaii County、Kauai County 的 REAL ID、驾照、外州/外国驾照、续期、考试、预约和 office 正文；补齐 90 条页面级显式来源映射，更新失效县级入口，并公开标注唯一 REAL ID credential、SSN 页面差异及 China/Taiwan reciprocity 边界。',
+    scope: ['夏威夷州办事总览', '夏威夷州 REAL ID', '90 条显式来源映射', '四县办理与外国驾照边界'],
+  },
+  {
+    date: '2026-07-19',
     title: '完成 Wyoming 两页官方正文语义核对',
     summary:
       '逐条比对 WYDOT 的新居民与首次驾照、REAL ID 当前公告、R03/25 公民与非公民材料表、考试、续补证、改名改址、oneWYO、费用、地点和地址表；补齐 78 条页面级显式来源映射，纠正当前证件不存在 standard/REAL ID 二选一，并明确中国大陆驾照、英文考试、45 天住址文件和非公民每次服务的边界。',
