@@ -34,6 +34,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 South Dakota 两页官方正文语义核对',
+    summary:
+      '逐条比对 South Dakota 当前 Required Documents、online / in-person renewal、duplicate / address、testing、FAQ、fees、full-time traveler、locations、appointment、2025 application、Residency Affidavit 与现行州法；登记 93 条独立声明的显式来源，更新为当前 $38 / $20 fee，并公开标注旧费用、3–4 / 4–6 周寄送差异、外国驾照和考试语言边界。',
+    scope: ['南达科他州办事总览', '南达科他州 REAL ID', '93 条独立声明显式核对', '费用、寄送与外国驾照边界'],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Mississippi 两页官方正文语义核对',
     summary:
       '逐条比对 Mississippi DSB 的 Class R、2025 Driver Manual 与申请表、Required Documents、续期、线上续补证与改址、State ID、non-citizen / SAVE、learner permit、interpreter oath、2026 driver-education update、费用、地点、预约和 FAQ 正文；登记 96 条独立声明的显式来源，并公开标注过期外州驾照考试门槛冲突和 FAQ 内已经失效的 2023 REAL ID deadline。',

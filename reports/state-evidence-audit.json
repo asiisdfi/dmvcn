@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T21:17:37.456Z",
+    "generatedAt": "2026-07-20T21:30:35.769Z",
     "pages": 100,
     "states": 50,
-    "claims": 3132,
-    "links": 5061,
-    "aiAssistedClaims": 2538,
-    "aiAssistedPages": 58,
+    "claims": 3201,
+    "links": 5224,
+    "aiAssistedClaims": 2634,
+    "aiAssistedPages": 60,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1463,
-        "links": 2350,
+        "claims": 1496,
+        "links": 2426,
         "states": 50
       },
       "real-id": {
-        "claims": 1669,
-        "links": 2711,
+        "claims": 1705,
+        "links": 2798,
         "states": 50
       }
     }
@@ -62422,21 +62422,49 @@
       "stateId": "south-dakota",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "南达科他州驾照、REAL ID、续期、补证、地址更新和预约由 South Dakota DPS / SD.gov 处理",
+      "context": "overview",
+      "claim": "South Dakota 首次申请、新居民转入、non-U.S. citizen 和需要考试的业务应走 Driver Licensing location",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0010315"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Renew In Person",
+        "对应官方来源：South Dakota Driver License Locations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "address-change",
+        "transfer",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "summary",
+      "context": "license",
+      "claim": "只有符合条件的现有 Gold Star credential 持有人才考虑 online / mail renewal 或 duplicate",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043549"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Duplicate / Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "renewal",
         "replacement",
-        "appointment"
+        "online-service"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -62446,22 +62474,40 @@
       "surface": "overview",
       "field": "summary",
       "context": "document",
-      "claim": "Required Documents、Renew or Replace Online、Appointment Information 和 Applications and Forms 是核心入口",
+      "claim": "州法把已在 South Dakota 居住 90 天的人视为驾照目的下的 resident，不能长期把外州或外国证件当作免换路线",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043707"
+        "https://sdlegislature.gov/Statutes/32-12-26.1",
+        "https://sdlegislature.gov/Statutes/32-12-24",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents",
-        "对应官方来源：South Dakota Applications and Forms"
+        "对应官方来源：South Dakota 90-Day Licensing Residency Law",
+        "对应官方来源：South Dakota Nonresident Foreign-License Law",
+        "对应官方来源：South Dakota Current Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "当前费用表写明普通 driver license / renewal / non-driver ID 为 $38，duplicate / replacement 或 name / address change 为 $20",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043708"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Fees"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
+        "address-change",
         "renewal",
         "replacement",
-        "appointment",
-        "online-service"
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -62470,21 +62516,21 @@
       "stateId": "south-dakota",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "document",
-      "claim": "在线 renew / replace 要满足条件：通常要 U.S. citizen 或 permanent resident、当前持有未过期 federally compliant card、提供 DL/ID number、DOB、SSN 后四位，并提交两份姓名和 physical address 文件",
+      "context": "license",
+      "claim": "普通驾照通常有效五年、最早到期前 180 天续期",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043747",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
+        "对应官方来源：South Dakota Driver Licensing FAQ",
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Renew In Person"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "residency-proof",
-        "ssn",
-        "renewal",
-        "replacement"
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -62493,17 +62539,43 @@
       "stateId": "south-dakota",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "document",
-      "claim": "姓名变化、十年内未现场办理、测试要求等要去 exam station",
+      "context": "license",
+      "claim": "过期超过 30 天要到 exam station 通过 knowledge test",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043747",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
+        "对应官方来源：South Dakota Driver Licensing FAQ",
+        "对应官方来源：South Dakota Renew In Person",
+        "对应官方来源：South Dakota Driver License Testing"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "name-change",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "首次领证还要 vision、80% knowledge 和 80% drive test",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043747",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043708"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Driver Licensing FAQ",
+        "对应官方来源：South Dakota Current Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "test"
       ],
       "uncoveredThemes": [],
@@ -62514,36 +62586,18 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "South Dakota required documents 页面把申请人分为三类：new drivers / new residents、out-of-state transfers with REAL ID compliant licenses、current South Dakota REAL ID holders",
+      "claim": "South Dakota 的 printable checklist 分三路：Section 1 是 first-time / new resident 且没有外州 REAL ID，准备 identity、完整 SSN 和两份地址",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Current Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "south-dakota",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "新申请或新居民通常要 identity、SSN、两份 South Dakota physical address",
-      "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
-      ],
-      "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof",
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -62554,16 +62608,33 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "多次姓名变化要每一次都能追溯",
+      "claim": "Section 2 是持外州 Gold Star card 转入，仍要该卡、另一份 identity 和两份地址",
       "sourceUrls": [
         "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
       ],
       "sourceLabels": [
         "对应官方来源：South Dakota Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "Section 3 是现有 South Dakota Gold Star card 续补证，通常带原卡和两份地址，卡丢失则按 Section 2 补 identity",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "name-change"
+        "replacement"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -62572,15 +62643,64 @@
       "stateId": "south-dakota",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "document",
-      "claim": "South Dakota 对 full-time traveler / personal mailbox 用户有特殊材料要求：需要过去一年在 South Dakota overnight stay receipt、PMB 地址邮件或收据，以及 Residency Affidavit",
+      "context": "appointment",
+      "claim": "Walk-in 可按容量接待，但任何 knowledge / drive test 都必须预约",
       "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261",
+        "https://432201.waitwell.us/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Renew In Person",
+        "对应官方来源：South Dakota Appointment Scheduler"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "non-U.S. citizen 必须去 state Driver Licensing location",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0010315"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Driver License Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "document",
+      "claim": "full-time traveler / PMB 路线另需 notarized Residency Affidavit、过去一年内 South Dakota 一晚住宿收据和 PMB 文件，virtual address 不接受",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552",
+        "https://www.sd.gov/sys_attachment.do?sys_id=49c27bd087a26250b81f0f280cbb3563",
         "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
       ],
       "sourceLabels": [
+        "对应官方来源：South Dakota Full-Time Travelers",
+        "对应官方来源：South Dakota Residency Affidavit (2024)",
         "对应官方来源：South Dakota Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "residency-proof"
@@ -62591,16 +62711,190 @@
     {
       "stateId": "south-dakota",
       "surface": "overview",
-      "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "virtual address 不接受",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "当前 SD.gov Fees 和 FAQ 已把普通 driver license / renewal 调整为 $38、duplicate / address change 调整为 $20",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043548"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043708",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043747"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Appointment Information"
+        "对应官方来源：South Dakota Current Fees",
+        "对应官方来源：South Dakota Driver Licensing FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "旧版 dps.sd.gov Driving Tests 与 Replacement 页面仍残留 $28 / $15，不应继续采用旧金额",
+      "sourceUrls": [
+        "https://dps.sd.gov/driver-licensing/south-dakota-licensing-information/driving-tests",
+        "https://dps.sd.gov/driver-licensing/renew-and-duplicate/replacement-or-duplicate",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043708"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Legacy Driving Tests (fee conflict)",
+        "对应官方来源：South Dakota Legacy Replacement Page (fee conflict)",
+        "对应官方来源：South Dakota Current Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "两个当前知识库入口对寄送时间也不完全一致：online renew / replace 写 4–6 周，duplicate / address change 写 3–4 周",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043549"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Duplicate / Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "renewal",
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "需要邮寄时按 4–6 周或更久规划，不承诺固定到证日",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043549"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Duplicate / Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "South Dakota Codified Law 32-12-26.1 写明，已经在州内居住 90 天的人被视为驾照目的下的 resident",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-26.1"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota 90-Day Licensing Residency Law"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "这是居民身份门槛，不等于允许在第 90 天之后继续只用外州证件",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-26.1",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota 90-Day Licensing Residency Law",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Section 1 适用于 first-time / new resident 且没有外州 REAL ID，Section 2 适用于持外州 Gold Star credential 的转入，Section 3 适用于现有 South Dakota Gold Star credential 的续期或补证",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "new applicant、non-U.S. citizen 和 out-of-state transfer 都要提交 lawful-status identity",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "non-U.S. citizen 不能去 county / city issuance point，必须到 state Driver Licensing location",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0010315"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Driver License Locations"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -62610,18 +62904,1093 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "Online renewal 页面有很多排除项：十年内未 in-person、name change、class/endorsement change、USCIS status 更新等",
+      "claim": "首次普通驾照要 vision、knowledge 和 drive test，knowledge 与 drive 都要求 80%",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043747"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Driver Licensing FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "road test 要自备车辆，测试车内不能带乘客或宠物",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "现行 SDCL 32-12-126 只提供 English / Spanish application 和 written knowledge test",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-126"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Test Language / Interpreter Law"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "road-test instructions 使用 English，其他母语申请人可自行找到并付费使用经 DPS 批准的 interpreter 参加 driving test",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-126"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Test Language / Interpreter Law"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "online renewal / replacement 要求 U.S. citizen 或 permanent resident、未过期 Gold Star card、DL/ID number、DOB、SSN 后四位和两份一年内 physical-address documents",
+      "sourceUrls": [
         "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents",
         "对应官方来源：South Dakota Renew or Replace Online"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "name-change",
+        "document",
+        "ssn",
+        "renewal",
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "ssn"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "十年内没有 in-person、改姓名或 class / endorsement、需要 drive test、使用 bioptic lenses 或更新过 USCIS status，都要现场办理",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Renew In Person"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "后来又取得其他州 credential 时，原 South Dakota card 会 inactive，不能 online renewal",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/sys_attachment.do?sys_id=38a03980471eba50237fbd51026d4356"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "65 岁及以上通过 online 或 mail 续驾照，要交由 eye doctor 填写且不超过一年的 Vision Statement",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043707"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Applications and Forms"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "bioptic-lens driver 不符合远程续期资格",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Renew In Person"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "driver license 过期超过 30 天必须现场考 knowledge",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043747"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Renew In Person",
+        "对应官方来源：South Dakota Driver Licensing FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "Class 2 motorcycle endorsement 还要 operator 与 motorcycle 两项 knowledge tests，所有 testing visit 都要预约",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://432201.waitwell.us/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Appointment Scheduler"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Residency Affidavit 不只是地址表：签字人声明 South Dakota 是居住州、没有在其他州维持 residence，并接受 perjury 条款",
+      "sourceUrls": [
+        "https://www.sd.gov/sys_attachment.do?sys_id=49c27bd087a26250b81f0f280cbb3563"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Residency Affidavit (2024)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "表格还提示取得 South Dakota DL / ID 可能带来州内 jury-duty 义务",
+      "sourceUrls": [
+        "https://www.sd.gov/sys_attachment.do?sys_id=49c27bd087a26250b81f0f280cbb3563"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Residency Affidavit (2024)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "full-time traveler 首次领证必须现场",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Full-Time Travelers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "使用 mail forwarding 时要 notarized affidavit、过去一年内一晚住宿收据和一年内 PMB 文件，virtual-only mailbox 不符合要求",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552",
+        "https://www.sd.gov/sys_attachment.do?sys_id=49c27bd087a26250b81f0f280cbb3563"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Full-Time Travelers",
+        "对应官方来源：South Dakota Residency Affidavit (2024)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "state driver exam station 可在到访当天发实体 credential",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0010315"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Full-Time Travelers",
+        "对应官方来源：South Dakota Driver License Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "full-time traveler 专页说明 county / city issuance location 当天只给 paper temporary，实体卡通常邮寄 4–6 周",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Full-Time Travelers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "processing-or-mail"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "现行申请表要求披露其他州或国家的 driver license / ID",
+      "sourceUrls": [
+        "https://www.sd.gov/sys_attachment.do?sys_id=38a03980471eba50237fbd51026d4356"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "South Dakota 签发后，其他州已签发的 credential 会被取消",
+      "sourceUrls": [
+        "https://www.sd.gov/sys_attachment.do?sys_id=38a03980471eba50237fbd51026d4356",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License / ID Application (2025)",
+        "对应官方来源：South Dakota Full-Time Travelers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "州法允许 16 岁及以上 nonresident 随身持有效 home-state 或 home-country license 驾车，但 DPS 的 Gold Star transfer checklist 只写 another state",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-24",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Nonresident Foreign-License Law",
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "中国或其他外国驾照不能自行套用 Section 2 或假定免考",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-24",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Nonresident Foreign-License Law",
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Driver License Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "South Dakota 的 printable checklist 分三路：Section 1 是 first-time / new resident 且没有外州 REAL ID，准备 identity、完整 SSN 和两份地址",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "Section 2 是持外州 Gold Star card 转入，仍要该卡、另一份 identity 和两份地址",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "Section 3 是现有 South Dakota Gold Star card 续补证，通常带原卡和两份地址，卡丢失则按 Section 2 补 identity",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Section 1 identity：state / county certified U.S. birth certificate、未过期 U.S. passport / passport card、Consular Report of Birth Abroad、Certificate of Citizenship / Naturalization，或适用的 non-citizen 原件",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "hospital certificate 和 photocopy 不接受",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Section 1 SSN：Social Security Card、W-2、1099 或 pay stub，必须显示姓名和完整 SSN",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "普通复印件不接受",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "所有申请人准备两份一年内的 South Dakota physical / residential address 文件，显示本人 full name",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "handwritten mail / address 和 photocopy 不接受",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "姓名与 lawful-status document 不同时，用政府签发的 certified marriage certificate、divorce decree 或 court order 串起从出生姓名到当前姓名的每一步",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "Section 2 要带外州 REAL ID compliant driver license / ID（valid 或 expired）、另一份公民或移民 identity 原件，以及两份 South Dakota physical-address documents",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Section 3 的 U.S. citizen 可用现有 South Dakota Gold Star driver license / ID（valid 或 expired）作 identity，再加两份地址",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "卡丢失则按 Section 2 的 identity 清单",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "PO Box 最多出现在其中一份续期地址文件上，另一份必须显示 physical / residential address",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Renew In Person"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "18 岁以下可使用 parent / guardian mail",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043549"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Duplicate / Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "non-U.S. citizen 按身份准备 unexpired Permanent Resident Card、Employment Authorization Card，或 I-94 加未过期 foreign passport / visa",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/sys_attachment.do?sys_id=38a03980471eba50237fbd51026d4356"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "最终以当前 lawful status 和 DPS 核验为准",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/sys_attachment.do?sys_id=38a03980471eba50237fbd51026d4356"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "online / mail renewal 还要未过期 Gold Star card",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "online 要 DL/ID number、DOB、SSN 后四位，两份地址文件可 upload、email、fax 或 mail",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "ssn"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "full-time traveler / PMB 再加 notarized Residency Affidavit、一年内本人 South Dakota overnight-stay receipt，以及一年内显示姓名与 PMB address 的非手写文件",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552",
+        "https://www.sd.gov/sys_attachment.do?sys_id=49c27bd087a26250b81f0f280cbb3563"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Full-Time Travelers",
+        "对应官方来源：South Dakota Residency Affidavit (2024)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "65 岁及以上 online / mail 续驾照再交一年内由 eye doctor 填写的官方 Vision Statement",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043707"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Applications and Forms"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "只续 non-driver ID 的人不要套用驾照视力规则",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "先定路线：first license、out-of-state Gold Star transfer、现有 South Dakota Gold Star renewal / duplicate、non-U.S. citizen、expired over 30 days 或 full-time traveler",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Full-Time Travelers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "新居民记录开始在 South Dakota 居住的日期",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-26.1"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota 90-Day Licensing Residency Law"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [
+        "transfer"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "接近 90 天居民门槛前完成材料核对和地点安排",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-26.1",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0010315"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota 90-Day Licensing Residency Law",
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Driver License Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "按对应 Section 整理 original identity、适用的 full-SSN proof、two recent physical-address documents 和完整 legal-name chain",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "持中国或其他外国驾照者按 new applicant / lawful-status 路线准备，不自行主张 another-state Gold Star transfer",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://sdlegislature.gov/Statutes/32-12-24"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Nonresident Foreign-License Law"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "预约前向 DPS 确认考试项目",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://432201.waitwell.us/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Appointment Scheduler"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "需要考试时先预约",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://432201.waitwell.us/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Appointment Scheduler"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "written test 按 English / Spanish 备考，driving test 需要其他语言帮助时提前确认 approved interpreter，并自备合格车辆",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-126",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Test Language / Interpreter Law",
+        "对应官方来源：South Dakota Driver License Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期先核对 180-day window、卡是否未过期、上次是否 online / mail、十年内是否现场、是否有 name / class / USCIS 变化和 bioptic lens",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Renew In Person",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "lawful-presence",
         "renewal",
         "online-service"
@@ -62632,19 +64001,20 @@
     {
       "stateId": "south-dakota",
       "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "South Dakota required documents 页面把申请人分为三类：new drivers / new residents、out-of-state transfers with REAL ID compliant licenses、current South Dakota REAL ID holders",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "65 岁及以上远程续驾照先让 eye doctor 完成一年内 Vision Statement",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043707"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Applications and Forms"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -62652,19 +64022,20 @@
     {
       "stateId": "south-dakota",
       "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "新申请或新居民通常要 identity、SSN、两份 South Dakota physical address",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "证件已过期超过 30 天则改走现场 knowledge-test 路线",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Renew In Person"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof",
-        "ssn"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -62672,186 +64043,43 @@
     {
       "stateId": "south-dakota",
       "surface": "real-id",
-      "field": "realIdSummary",
+      "field": "recommendedSteps",
       "context": "document",
-      "claim": "多次姓名变化要每一次都能追溯",
+      "claim": "full-time traveler 仔细阅读 Residency Affidavit 后再公证，并准备 overnight stay 与 PMB 文件",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552",
+        "https://www.sd.gov/sys_attachment.do?sys_id=49c27bd087a26250b81f0f280cbb3563"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
+        "对应官方来源：South Dakota Full-Time Travelers",
+        "对应官方来源：South Dakota Residency Affidavit (2024)"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "south-dakota",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "新申请/新居民：one identity document、one Social Security document、two proofs of South Dakota physical address",
-      "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
-      ],
-      "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "south-dakota",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "多次姓名变化时，要提供每一次 name change 文件，让 DMV 能从 birth certificate 追到当前姓名",
-      "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
-      ],
-      "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "south-dakota",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "当前 South Dakota REAL ID 持有人续期或补证：通常也要 identity document 和两份 address proofs",
-      "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
-      ],
-      "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "renewal",
-        "replacement"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "south-dakota",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Online renewal / replacement：两份地址文件要显示姓名和 physical address，通常要 less than one year old",
-      "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275"
-      ],
-      "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents",
-        "对应官方来源：South Dakota Renew or Replace Online"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "residency-proof",
-        "renewal",
-        "replacement",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "south-dakota",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Full-time traveler / PMB 用户还要 overnight stay receipt、PMB address proof 和 Residency Affidavit",
-      "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
-      ],
-      "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
         "residency-proof"
       ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "south-dakota",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "先用 Required Documents 页面判断你属于 Section 1、Section 2 还是 Section 3",
-      "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
-      ],
-      "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
+      "uncoveredThemes": [
         "document"
       ],
-      "uncoveredThemes": [],
       "valid": true
     },
     {
       "stateId": "south-dakota",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "document",
-      "claim": "按 identity、SSN、two physical address、name change chain 准备材料",
+      "context": "detail",
+      "claim": "朋友或家人地址另用 Consent for Use of Address",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043707"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
+        "对应官方来源：South Dakota Full-Time Travelers",
+        "对应官方来源：South Dakota Applications and Forms"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "residency-proof",
-        "ssn",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "south-dakota",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "如果是 full-time traveler 或 PMB 用户，先准备 overnight stay receipt 和 Residency Affidavit",
-      "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
-      ],
-      "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -62860,20 +64088,46 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "license",
-      "claim": "续期或补证先看 Renew / Replace Online，确认是否符合线上资格",
+      "claim": "付款前核对当前 Fees：普通首证 / 续期 $38，duplicate / address change $20，online 或现场刷卡另有 administrative fee",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043708"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents",
-        "对应官方来源：South Dakota Renew or Replace Online"
+        "对应官方来源：South Dakota Current Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "address-change",
         "renewal",
         "replacement",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [
         "online-service"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "最后确认是 state exam station 还是 county / city issuance point、预约编号和交付方式",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0010315",
+        "https://432201.waitwell.us/locations",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Locations",
+        "对应官方来源：South Dakota Appointment Scheduler",
+        "对应官方来源：South Dakota Full-Time Travelers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -62882,15 +64136,213 @@
       "stateId": "south-dakota",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "appointment",
-      "claim": "需要现场办理时看 Appointment Information，预约或选择 Driver License Exam Location",
+      "context": "detail",
+      "claim": "需要邮寄时按至少 4–6 周留出余量",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043548"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043549"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Appointment Information"
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Full-Time Travelers",
+        "对应官方来源：South Dakota Duplicate / Address Change"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "继续引用旧 DPS 内容里的 $28 首证 / $15 duplicate，而没有核对当前 $38 / $20 fee table",
+      "sourceUrls": [
+        "https://dps.sd.gov/driver-licensing/south-dakota-licensing-information/driving-tests",
+        "https://dps.sd.gov/driver-licensing/renew-and-duplicate/replacement-or-duplicate",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043708"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Legacy Driving Tests (fee conflict)",
+        "对应官方来源：South Dakota Legacy Replacement Page (fee conflict)",
+        "对应官方来源：South Dakota Current Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "持外州 Gold Star card 就只带这一张",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "Section 2 仍要求另一份 identity 和两份 South Dakota address documents",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把中国或其他外国驾照当作 another-state Gold Star transfer，直接假定进入 Section 2 或免除考试",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-24",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Nonresident Foreign-License Law",
+        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Driver License Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "在 South Dakota 已居住满 90 天后仍把自己当临时 nonresident，不启动本州申请",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-26.1",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota 90-Day Licensing Residency Law",
+        "对应官方来源：South Dakota Current Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "地址文件超过一年、使用 handwritten mail / virtual address，或两份都只显示 PO Box",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Full-Time Travelers",
+        "对应官方来源：South Dakota Renew In Person"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "多次改名只带最后一张 marriage certificate，无法从 birth document 追到当前姓名",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Current Required Documents",
+        "对应官方来源：South Dakota Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "不是 U.S. citizen / permanent resident、卡已过期、上次已远程办理或后来取得外州 credential，仍直接提交 online renewal",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/sys_attachment.do?sys_id=38a03980471eba50237fbd51026d4356"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "驾照过期超过 30 天却没有预约 knowledge test",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261",
+        "https://432201.waitwell.us/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Renew In Person",
+        "对应官方来源：South Dakota Appointment Scheduler"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment",
         "test"
@@ -62902,15 +64354,78 @@
       "stateId": "south-dakota",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "用 virtual address 或普通 PMB 当作完整居住证明",
+      "context": "detail",
+      "claim": "testing visit 不接受仅靠普通 walk-in 保证",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
+        "对应官方来源：South Dakota Driver License Testing",
+        "对应官方来源：South Dakota Renew In Person"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "为 written knowledge test 寻找中文口译",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-126"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Test Language / Interpreter Law"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "现行规则只列 English / Spanish，其他语言 interpreter 路线针对 driving test 且需 DPS 批准",
+      "sourceUrls": [
+        "https://sdlegislature.gov/Statutes/32-12-126"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Test Language / Interpreter Law"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "south-dakota",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "把 PMB 当普通地址捷径，使用 virtual-only service 或在 Residency Affidavit 中忽略 residence、perjury 和 jury-duty 提示",
+      "sourceUrls": [
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552",
+        "https://www.sd.gov/sys_attachment.do?sys_id=49c27bd087a26250b81f0f280cbb3563"
+      ],
+      "sourceLabels": [
+        "对应官方来源：South Dakota Full-Time Travelers",
+        "对应官方来源：South Dakota Residency Affidavit (2024)"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -62921,42 +64436,18 @@
       "stateId": "south-dakota",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "在线续期时没准备两份地址文件",
+      "context": "detail",
+      "claim": "把 3–4 周寄送说明当作保证",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395"
-      ],
-      "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "south-dakota",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "document",
-      "claim": "姓名变化后仍尝试 online renewal",
-      "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043549",
         "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Required Documents",
+        "对应官方来源：South Dakota Duplicate / Address Change",
         "对应官方来源：South Dakota Renew or Replace Online"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "name-change",
-        "renewal",
-        "online-service"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -62964,19 +64455,24 @@
       "stateId": "south-dakota",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "detail",
-      "claim": "license 过期超过 30 天，还以为可以不用 knowledge test 或现场办理",
+      "context": "document",
+      "claim": "另一个当前入口写 4–6 周，邮寄材料还可能更久",
       "sourceUrls": [
-        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043548"
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275",
+        "https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043549"
       ],
       "sourceLabels": [
-        "对应官方来源：South Dakota Appointment Information"
+        "对应官方来源：South Dakota Renew or Replace Online",
+        "对应官方来源：South Dakota Duplicate / Address Change"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "test"
+        "document",
+        "processing-or-mail"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document"
+      ],
       "valid": true
     },
     {

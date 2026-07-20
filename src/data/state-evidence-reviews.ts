@@ -919,6 +919,44 @@ const ME_FEES =
 const ME_BRANCHES =
   'https://www.maine.gov/sos/bmv/visit-your-bmv-branch/find-your-local-branch';
 const ME_APPOINTMENTS = 'https://mainebmvappt.cxmflow.com/';
+const SD_HOME = 'https://www.sd.gov/dps';
+const SD_REQUIRED_PRINT =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395';
+const SD_REQUIRED =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043703';
+const SD_ONLINE =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043275';
+const SD_IN_PERSON =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044261';
+const SD_REPLACE_ADDRESS =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043549';
+const SD_TESTING =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043731';
+const SD_FAQ =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043747';
+const SD_FEES =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043708';
+const SD_FULL_TIME =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043552';
+const SD_LOCATIONS =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0010315';
+const SD_APPOINTMENT = 'https://432201.waitwell.us/locations';
+const SD_FORMS =
+  'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0043707';
+const SD_APPLICATION =
+  'https://www.sd.gov/sys_attachment.do?sys_id=38a03980471eba50237fbd51026d4356';
+const SD_RESIDENCY_AFFIDAVIT =
+  'https://www.sd.gov/sys_attachment.do?sys_id=49c27bd087a26250b81f0f280cbb3563';
+const SD_RESIDENCY_LAW =
+  'https://sdlegislature.gov/Statutes/32-12-26.1';
+const SD_FOREIGN_LICENSE_LAW =
+  'https://sdlegislature.gov/Statutes/32-12-24';
+const SD_LANGUAGE_LAW =
+  'https://sdlegislature.gov/Statutes/32-12-126';
+const SD_LEGACY_TESTING =
+  'https://dps.sd.gov/driver-licensing/south-dakota-licensing-information/driving-tests';
+const SD_LEGACY_REPLACEMENT =
+  'https://dps.sd.gov/driver-licensing/renew-and-duplicate/replacement-or-duplicate';
 const MS_HOME = 'https://www.driverservicebureau.dps.ms.gov/';
 const MS_REQUIRED = 'https://www.driverservicebureau.dps.ms.gov/node/303';
 const MS_CLASS_R =
@@ -956,6 +994,132 @@ const MS_FAQ =
   'https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  'south-dakota': {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      SD_HOME,
+      SD_REQUIRED_PRINT,
+      SD_REQUIRED,
+      SD_ONLINE,
+      SD_IN_PERSON,
+      SD_REPLACE_ADDRESS,
+      SD_TESTING,
+      SD_FAQ,
+      SD_FEES,
+      SD_FULL_TIME,
+      SD_LOCATIONS,
+      SD_APPOINTMENT,
+      SD_FORMS,
+      SD_APPLICATION,
+      SD_RESIDENCY_AFFIDAVIT,
+      SD_RESIDENCY_LAW,
+      SD_FOREIGN_LICENSE_LAW,
+      SD_LANGUAGE_LAW,
+      SD_LEGACY_TESTING,
+      SD_LEGACY_REPLACEMENT,
+    ],
+    scope:
+      '逐条打开并比对 South Dakota 当前 Required Documents / printable checklist、online / in-person renewal、duplicate / address、testing、FAQ、fees、full-time traveler、locations、appointment、forms、2025 application、2024 Residency Affidavit，以及现行 residency、foreign-license、test-language statutes；旧 dps.sd.gov 页面只用于识别费用冲突。',
+    notes:
+      '重写 South Dakota 两页并登记显式声明级来源；拆分 Section 1 / 2 / 3、首证 / 转入 / 续补证 / non-citizen / testing / full-time traveler 路线，采用当前 $38 / $20 fee，并公开标记旧费用与 3–4 / 4–6 周寄送时间冲突。',
+    claims: {
+      'South Dakota 首次申请、新居民转入、non-U.S. citizen 和需要考试的业务应走 Driver Licensing location': [SD_REQUIRED, SD_TESTING, SD_IN_PERSON, SD_LOCATIONS],
+      '只有符合条件的现有 Gold Star credential 持有人才考虑 online / mail renewal 或 duplicate': [SD_ONLINE, SD_REQUIRED, SD_REPLACE_ADDRESS],
+      '州法把已在 South Dakota 居住 90 天的人视为驾照目的下的 resident，不能长期把外州或外国证件当作免换路线': [SD_RESIDENCY_LAW, SD_FOREIGN_LICENSE_LAW, SD_REQUIRED],
+      '当前费用表写明普通 driver license / renewal / non-driver ID 为 $38，duplicate / replacement 或 name / address change 为 $20': [SD_FEES],
+      '普通驾照通常有效五年、最早到期前 180 天续期': [SD_FAQ, SD_REQUIRED, SD_IN_PERSON],
+      '过期超过 30 天要到 exam station 通过 knowledge test': [SD_FAQ, SD_IN_PERSON, SD_TESTING],
+      '首次领证还要 vision、80% knowledge 和 80% drive test': [SD_TESTING, SD_FAQ, SD_FEES],
+      'South Dakota 的 printable checklist 分三路：Section 1 是 first-time / new resident 且没有外州 REAL ID，准备 identity、完整 SSN 和两份地址': [SD_REQUIRED_PRINT, SD_REQUIRED],
+      'Section 2 是持外州 Gold Star card 转入，仍要该卡、另一份 identity 和两份地址': [SD_REQUIRED_PRINT],
+      'Section 3 是现有 South Dakota Gold Star card 续补证，通常带原卡和两份地址，卡丢失则按 Section 2 补 identity': [SD_REQUIRED_PRINT],
+      'Walk-in 可按容量接待，但任何 knowledge / drive test 都必须预约': [SD_TESTING, SD_IN_PERSON, SD_APPOINTMENT],
+      'non-U.S. citizen 必须去 state Driver Licensing location': [SD_TESTING, SD_REQUIRED, SD_LOCATIONS],
+      'full-time traveler / PMB 路线另需 notarized Residency Affidavit、过去一年内 South Dakota 一晚住宿收据和 PMB 文件，virtual address 不接受': [SD_FULL_TIME, SD_RESIDENCY_AFFIDAVIT, SD_REQUIRED_PRINT],
+      '当前 SD.gov Fees 和 FAQ 已把普通 driver license / renewal 调整为 $38、duplicate / address change 调整为 $20': [SD_FEES, SD_FAQ],
+      '旧版 dps.sd.gov Driving Tests 与 Replacement 页面仍残留 $28 / $15，不应继续采用旧金额': [SD_LEGACY_TESTING, SD_LEGACY_REPLACEMENT, SD_FEES],
+      '两个当前知识库入口对寄送时间也不完全一致：online renew / replace 写 4–6 周，duplicate / address change 写 3–4 周': [SD_ONLINE, SD_REPLACE_ADDRESS],
+      '需要邮寄时按 4–6 周或更久规划，不承诺固定到证日': [SD_ONLINE, SD_REPLACE_ADDRESS],
+      'South Dakota Codified Law 32-12-26.1 写明，已经在州内居住 90 天的人被视为驾照目的下的 resident': [SD_RESIDENCY_LAW],
+      '这是居民身份门槛，不等于允许在第 90 天之后继续只用外州证件': [SD_RESIDENCY_LAW, SD_REQUIRED],
+      'Section 1 适用于 first-time / new resident 且没有外州 REAL ID，Section 2 适用于持外州 Gold Star credential 的转入，Section 3 适用于现有 South Dakota Gold Star credential 的续期或补证': [SD_REQUIRED_PRINT],
+      'new applicant、non-U.S. citizen 和 out-of-state transfer 都要提交 lawful-status identity': [SD_REQUIRED, SD_REQUIRED_PRINT],
+      'non-U.S. citizen 不能去 county / city issuance point，必须到 state Driver Licensing location': [SD_TESTING, SD_REQUIRED, SD_LOCATIONS],
+      '首次普通驾照要 vision、knowledge 和 drive test，knowledge 与 drive 都要求 80%': [SD_TESTING, SD_FAQ],
+      'road test 要自备车辆，测试车内不能带乘客或宠物': [SD_TESTING],
+      '现行 SDCL 32-12-126 只提供 English / Spanish application 和 written knowledge test': [SD_LANGUAGE_LAW],
+      'road-test instructions 使用 English，其他母语申请人可自行找到并付费使用经 DPS 批准的 interpreter 参加 driving test': [SD_LANGUAGE_LAW],
+      'online renewal / replacement 要求 U.S. citizen 或 permanent resident、未过期 Gold Star card、DL/ID number、DOB、SSN 后四位和两份一年内 physical-address documents': [SD_ONLINE],
+      '十年内没有 in-person、改姓名或 class / endorsement、需要 drive test、使用 bioptic lenses 或更新过 USCIS status，都要现场办理': [SD_ONLINE, SD_IN_PERSON],
+      '后来又取得其他州 credential 时，原 South Dakota card 会 inactive，不能 online renewal': [SD_ONLINE, SD_APPLICATION],
+      '65 岁及以上通过 online 或 mail 续驾照，要交由 eye doctor 填写且不超过一年的 Vision Statement': [SD_ONLINE, SD_FORMS],
+      'bioptic-lens driver 不符合远程续期资格': [SD_ONLINE, SD_IN_PERSON],
+      'driver license 过期超过 30 天必须现场考 knowledge': [SD_TESTING, SD_IN_PERSON, SD_FAQ],
+      'Class 2 motorcycle endorsement 还要 operator 与 motorcycle 两项 knowledge tests，所有 testing visit 都要预约': [SD_TESTING, SD_ONLINE, SD_APPOINTMENT],
+      'Residency Affidavit 不只是地址表：签字人声明 South Dakota 是居住州、没有在其他州维持 residence，并接受 perjury 条款': [SD_RESIDENCY_AFFIDAVIT],
+      '表格还提示取得 South Dakota DL / ID 可能带来州内 jury-duty 义务': [SD_RESIDENCY_AFFIDAVIT],
+      'full-time traveler 首次领证必须现场': [SD_FULL_TIME],
+      '使用 mail forwarding 时要 notarized affidavit、过去一年内一晚住宿收据和一年内 PMB 文件，virtual-only mailbox 不符合要求': [SD_FULL_TIME, SD_RESIDENCY_AFFIDAVIT],
+      'state driver exam station 可在到访当天发实体 credential': [SD_FULL_TIME, SD_LOCATIONS],
+      'full-time traveler 专页说明 county / city issuance location 当天只给 paper temporary，实体卡通常邮寄 4–6 周': [SD_FULL_TIME],
+      '现行申请表要求披露其他州或国家的 driver license / ID': [SD_APPLICATION],
+      'South Dakota 签发后，其他州已签发的 credential 会被取消': [SD_APPLICATION, SD_FULL_TIME],
+      '州法允许 16 岁及以上 nonresident 随身持有效 home-state 或 home-country license 驾车，但 DPS 的 Gold Star transfer checklist 只写 another state': [SD_FOREIGN_LICENSE_LAW, SD_REQUIRED_PRINT, SD_REQUIRED],
+      '中国或其他外国驾照不能自行套用 Section 2 或假定免考': [SD_FOREIGN_LICENSE_LAW, SD_REQUIRED_PRINT, SD_TESTING],
+      'Section 1 identity：state / county certified U.S. birth certificate、未过期 U.S. passport / passport card、Consular Report of Birth Abroad、Certificate of Citizenship / Naturalization，或适用的 non-citizen 原件': [SD_REQUIRED_PRINT, SD_REQUIRED],
+      'hospital certificate 和 photocopy 不接受': [SD_REQUIRED_PRINT, SD_REQUIRED],
+      'Section 1 SSN：Social Security Card、W-2、1099 或 pay stub，必须显示姓名和完整 SSN': [SD_REQUIRED_PRINT, SD_REQUIRED],
+      '普通复印件不接受': [SD_REQUIRED_PRINT, SD_REQUIRED],
+      '所有申请人准备两份一年内的 South Dakota physical / residential address 文件，显示本人 full name': [SD_REQUIRED, SD_REQUIRED_PRINT],
+      'handwritten mail / address 和 photocopy 不接受': [SD_REQUIRED, SD_REQUIRED_PRINT],
+      '姓名与 lawful-status document 不同时，用政府签发的 certified marriage certificate、divorce decree 或 court order 串起从出生姓名到当前姓名的每一步': [SD_REQUIRED, SD_REQUIRED_PRINT],
+      'Section 2 要带外州 REAL ID compliant driver license / ID（valid 或 expired）、另一份公民或移民 identity 原件，以及两份 South Dakota physical-address documents': [SD_REQUIRED_PRINT],
+      'Section 3 的 U.S. citizen 可用现有 South Dakota Gold Star driver license / ID（valid 或 expired）作 identity，再加两份地址': [SD_REQUIRED_PRINT],
+      '卡丢失则按 Section 2 的 identity 清单': [SD_REQUIRED_PRINT],
+      'PO Box 最多出现在其中一份续期地址文件上，另一份必须显示 physical / residential address': [SD_REQUIRED, SD_IN_PERSON],
+      '18 岁以下可使用 parent / guardian mail': [SD_REQUIRED, SD_ONLINE, SD_REPLACE_ADDRESS],
+      'non-U.S. citizen 按身份准备 unexpired Permanent Resident Card、Employment Authorization Card，或 I-94 加未过期 foreign passport / visa': [SD_REQUIRED_PRINT, SD_REQUIRED, SD_APPLICATION],
+      '最终以当前 lawful status 和 DPS 核验为准': [SD_REQUIRED, SD_APPLICATION],
+      'online / mail renewal 还要未过期 Gold Star card': [SD_ONLINE, SD_REQUIRED],
+      'online 要 DL/ID number、DOB、SSN 后四位，两份地址文件可 upload、email、fax 或 mail': [SD_ONLINE],
+      'full-time traveler / PMB 再加 notarized Residency Affidavit、一年内本人 South Dakota overnight-stay receipt，以及一年内显示姓名与 PMB address 的非手写文件': [SD_FULL_TIME, SD_RESIDENCY_AFFIDAVIT],
+      '65 岁及以上 online / mail 续驾照再交一年内由 eye doctor 填写的官方 Vision Statement': [SD_ONLINE, SD_FORMS],
+      '只续 non-driver ID 的人不要套用驾照视力规则': [SD_ONLINE],
+      '先定路线：first license、out-of-state Gold Star transfer、现有 South Dakota Gold Star renewal / duplicate、non-U.S. citizen、expired over 30 days 或 full-time traveler': [SD_REQUIRED, SD_REQUIRED_PRINT, SD_ONLINE, SD_TESTING, SD_FULL_TIME],
+      '新居民记录开始在 South Dakota 居住的日期': [SD_RESIDENCY_LAW],
+      '接近 90 天居民门槛前完成材料核对和地点安排': [SD_RESIDENCY_LAW, SD_REQUIRED, SD_LOCATIONS],
+      '按对应 Section 整理 original identity、适用的 full-SSN proof、two recent physical-address documents 和完整 legal-name chain': [SD_REQUIRED_PRINT, SD_REQUIRED],
+      '持中国或其他外国驾照者按 new applicant / lawful-status 路线准备，不自行主张 another-state Gold Star transfer': [SD_REQUIRED, SD_REQUIRED_PRINT, SD_FOREIGN_LICENSE_LAW],
+      '预约前向 DPS 确认考试项目': [SD_TESTING, SD_APPOINTMENT],
+      '需要考试时先预约': [SD_TESTING, SD_APPOINTMENT],
+      'written test 按 English / Spanish 备考，driving test 需要其他语言帮助时提前确认 approved interpreter，并自备合格车辆': [SD_LANGUAGE_LAW, SD_TESTING],
+      '续期先核对 180-day window、卡是否未过期、上次是否 online / mail、十年内是否现场、是否有 name / class / USCIS 变化和 bioptic lens': [SD_ONLINE, SD_IN_PERSON, SD_REQUIRED],
+      '65 岁及以上远程续驾照先让 eye doctor 完成一年内 Vision Statement': [SD_ONLINE, SD_FORMS],
+      '证件已过期超过 30 天则改走现场 knowledge-test 路线': [SD_TESTING, SD_IN_PERSON],
+      'full-time traveler 仔细阅读 Residency Affidavit 后再公证，并准备 overnight stay 与 PMB 文件': [SD_FULL_TIME, SD_RESIDENCY_AFFIDAVIT],
+      '朋友或家人地址另用 Consent for Use of Address': [SD_FULL_TIME, SD_FORMS],
+      '付款前核对当前 Fees：普通首证 / 续期 $38，duplicate / address change $20，online 或现场刷卡另有 administrative fee': [SD_FEES],
+      '最后确认是 state exam station 还是 county / city issuance point、预约编号和交付方式': [SD_LOCATIONS, SD_APPOINTMENT, SD_FULL_TIME],
+      '需要邮寄时按至少 4–6 周留出余量': [SD_ONLINE, SD_FULL_TIME, SD_REPLACE_ADDRESS],
+      '继续引用旧 DPS 内容里的 $28 首证 / $15 duplicate，而没有核对当前 $38 / $20 fee table': [SD_LEGACY_TESTING, SD_LEGACY_REPLACEMENT, SD_FEES],
+      '持外州 Gold Star card 就只带这一张': [SD_REQUIRED_PRINT],
+      'Section 2 仍要求另一份 identity 和两份 South Dakota address documents': [SD_REQUIRED_PRINT],
+      '把中国或其他外国驾照当作 another-state Gold Star transfer，直接假定进入 Section 2 或免除考试': [SD_FOREIGN_LICENSE_LAW, SD_REQUIRED_PRINT, SD_TESTING],
+      '在 South Dakota 已居住满 90 天后仍把自己当临时 nonresident，不启动本州申请': [SD_RESIDENCY_LAW, SD_REQUIRED],
+      '地址文件超过一年、使用 handwritten mail / virtual address，或两份都只显示 PO Box': [SD_REQUIRED, SD_FULL_TIME, SD_IN_PERSON],
+      '多次改名只带最后一张 marriage certificate，无法从 birth document 追到当前姓名': [SD_REQUIRED, SD_REQUIRED_PRINT],
+      '不是 U.S. citizen / permanent resident、卡已过期、上次已远程办理或后来取得外州 credential，仍直接提交 online renewal': [SD_ONLINE, SD_APPLICATION],
+      '驾照过期超过 30 天却没有预约 knowledge test': [SD_TESTING, SD_IN_PERSON, SD_APPOINTMENT],
+      'testing visit 不接受仅靠普通 walk-in 保证': [SD_TESTING, SD_IN_PERSON],
+      '为 written knowledge test 寻找中文口译': [SD_LANGUAGE_LAW],
+      '现行规则只列 English / Spanish，其他语言 interpreter 路线针对 driving test 且需 DPS 批准': [SD_LANGUAGE_LAW],
+      '把 PMB 当普通地址捷径，使用 virtual-only service 或在 Residency Affidavit 中忽略 residence、perjury 和 jury-duty 提示': [SD_FULL_TIME, SD_RESIDENCY_AFFIDAVIT],
+      '把 3–4 周寄送说明当作保证': [SD_REPLACE_ADDRESS, SD_ONLINE],
+      '另一个当前入口写 4–6 周，邮寄材料还可能更久': [SD_ONLINE, SD_REPLACE_ADDRESS],
+    },
+  },
   mississippi: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',
