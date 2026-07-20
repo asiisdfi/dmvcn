@@ -2,8 +2,8 @@
 
 - 页面数：166
 - 高风险待人工签字：17
-- 待逐页官方正文语义核对：70
-- 阻塞项：87
+- 待逐页官方正文语义核对：68
+- 阻塞项：85
 - 弱意图待处理：0
 
 ## 人工签字队列（高风险）
@@ -45,7 +45,6 @@
 | /states/iowa/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/kentucky/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/louisiana/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/missouri/ | state-overview | 90 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/montana/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/nebraska/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/new-hampshire/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -64,7 +63,6 @@
 | /states/iowa/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/kentucky/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/louisiana/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/missouri/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/montana/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/nebraska/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/new-hampshire/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -72,6 +70,8 @@
 | /states/north-dakota/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/oklahoma/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/rhode-island/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /states/south-carolina/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /states/utah/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 
 ## 阻塞项优先处理
 
@@ -101,12 +101,12 @@
 | /states/kentucky/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/louisiana/ | medium | 91 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/louisiana/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/missouri/ | medium | 90 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/missouri/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/montana/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/montana/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/nebraska/ | medium | 91 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/nebraska/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /states/new-hampshire/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /states/new-hampshire/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 
 ## 执行节奏
 1. **第1-2周**：完成高风险人工签字，目标产出 8 条，检查点：未签字的高风险页不得用于新内容发布

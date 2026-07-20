@@ -1,20 +1,20 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T21:53:08.703Z",
+    "generatedAt": "2026-07-20T22:15:19.539Z",
     "pages": 5,
-    "claims": 641,
+    "claims": 650,
     "statesCovered": 50,
-    "aiAssisted": 481,
-    "automated": 160,
+    "aiAssisted": 496,
+    "automated": 154,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 114,
-        "states": 33
+        "claims": 118,
+        "states": 34
       },
       "deadlines": {
-        "claims": 80,
-        "states": 32
+        "claims": 83,
+        "states": 33
       },
       "document-rules": {
         "claims": 184,
@@ -25,7 +25,7 @@
         "states": 36
       },
       "identity-ssn": {
-        "claims": 154,
+        "claims": 156,
         "states": 45
       }
     }
@@ -1256,6 +1256,66 @@
       ],
       "failedThemes": [
         "lawful-presence"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "missouri",
+      "category": "费用",
+      "claim": "当前费用表列出 Class F 三年证件 $16.50、六年证件 $33，三年 duplicate $16.50、六年 duplicate $25.50",
+      "sourceUrl": "https://dor.mo.gov/driver-license/resources/license.html",
+      "sourceLabel": "对应官方来源：Missouri Driver License and Nondriver ID",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "missouri",
+      "category": "费用",
+      "claim": "license office 还会按证件期限收取 $9 或 $18 processing fee",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/real-id/",
+      "sourceLabel": "对应官方来源：Missouri DOR REAL ID",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "missouri",
+      "category": "费用",
+      "claim": "信用卡或借记卡付款另有 2% 加 $0.25 的 convenience fee，实际总额应在付款前由办理处确认",
+      "sourceUrl": "https://dor.mo.gov/driver-license/resources/license.html",
+      "sourceLabel": "对应官方来源：Missouri Driver License and Nondriver ID",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "missouri",
+      "category": "费用",
+      "claim": "从未获发 Missouri REAL ID 的人提前办理 initial REAL ID 时，可能获得一次 duplicate transaction fee waiver，但 $9 或 $18 processing fee 不免，增加 class、endorsement 或 restriction 也不适用该 waiver",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/real-id/",
+      "sourceLabel": "对应官方来源：Missouri DOR REAL ID",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
       ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
@@ -2632,6 +2692,48 @@
       "sourceLabel": "对应官方来源：Tennessee Driver Services New Resident Driver License Requirements",
       "themes": [
         "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "missouri",
+      "category": "材料时效",
+      "claim": "现场办理后保存 45 天 temporary document，并按 10 至 15 个工作日规划实体卡",
+      "sourceUrl": "https://dor.mo.gov/faq/driver-license/new-look.html",
+      "sourceLabel": "对应官方来源：Missouri New Credential FAQ",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "missouri",
+      "category": "处理 / 邮寄",
+      "claim": "达到寄出 25 个工作日且仍在申请后 90 天内，可按 DOR 规则到 office 处理 replacement",
+      "sourceUrl": "https://dor.mo.gov/faq/driver-license/new-look.html",
+      "sourceLabel": "对应官方来源：Missouri New Credential FAQ",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "missouri",
+      "category": "续期 / 到期",
+      "claim": "远程续期还要求在申请前 12 个月内完成视力检查，credential 必须仍有效或过期不超过 184 天",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
+      "themes": [
+        "renewal"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
@@ -4355,59 +4457,57 @@
       "page": "document-rules",
       "stateId": "missouri",
       "category": "地址证明",
-      "claim": "两份 Missouri residential address 证明",
-      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
-      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
+      "claim": "非 REAL ID 通常要一份 Missouri residential address 文件",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/id-requirements.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Identity and Address Requirements",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "missouri",
       "category": "地址证明",
-      "claim": "REAL ID 和部分 CDL/CLP 情况尤其要注意两份地址文件",
-      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
-      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
+      "claim": "REAL ID 要两份来自不同来源、显示本人姓名和当前 residential address 的文件",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/real-id/",
+      "sourceLabel": "对应官方来源：Missouri DOR REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "missouri",
       "category": "地址证明",
-      "claim": "用 required documents checklist 按 renewal、duplicate、新申请或地址/姓名变化整理文件",
-      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
-      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
+      "claim": "P.O. Box 不能代替 residential address",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/id-requirements.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Identity and Address Requirements",
       "themes": [
-        "document-checklist",
-        "renewal"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "missouri",
-      "category": "地址证明",
-      "claim": "Missouri REAL ID 要在 license office 现场申请，材料围绕身份、lawful status、SSN、两份 Missouri residential address 和姓名变更文件",
-      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
-      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
-      "themes": [
-        "residency-documents",
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "missouri",
+      "category": "地址证明",
+      "claim": "如果另设 alternate mailing address，还要额外证明该邮寄地址",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/id-requirements.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Identity and Address Requirements",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -8522,7 +8622,21 @@
       "page": "identity-ssn",
       "stateId": "missouri",
       "category": "SSN",
-      "claim": "Social Security Number 文件，文件上通常要显示完整 SSN",
+      "claim": "SSN 证明要显示姓名和号码",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/id-requirements.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Identity and Address Requirements",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "missouri",
+      "category": "SSN",
+      "claim": "首次驾驶人除了 identity、lawful status、SSN 和地址材料，还要带 MSHP 测试通过后签发的 Driver Examination Record Form 100",
       "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
       "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
       "themes": [
@@ -8530,22 +8644,37 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "missouri",
       "category": "SSN",
-      "claim": "Missouri REAL ID 要在 license office 现场申请，材料围绕身份、lawful status、SSN、两份 Missouri residential address 和姓名变更文件",
-      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/real-id/documents/RID.pdf",
-      "sourceLabel": "对应官方来源：Missouri DOR REAL ID Acceptable Documents PDF",
+      "claim": "续期通常仍要核对 identity、lawful status、SSN 和 Missouri address",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
+      "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
+      "themes": [
+        "renewal",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "missouri",
+      "category": "SSN",
+      "claim": "需要 REAL ID 时，到 license office 提交身份、lawful status、SSN、两份来自不同来源的 Missouri residential address 文件和适用的姓名变更链",
+      "sourceUrl": "https://dor.mo.gov/driver-license/issuance/real-id/",
+      "sourceLabel": "对应官方来源：Missouri DOR REAL ID",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

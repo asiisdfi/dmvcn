@@ -1,19 +1,19 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T21:53:10.345Z",
+    "generatedAt": "2026-07-20T22:15:21.196Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 79,
+    "passed": 81,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 70,
-    "aiAssistedReviews": 85,
+    "sourceMappedReviews": 68,
+    "aiAssistedReviews": 87,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 87,
-    "averageScore": 96
+    "blockedPages": 85,
+    "averageScore": 97
   },
   "pages": [
     {
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 203,
+        "sourceCount": 206,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 286,
+        "sourceCount": 288,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 114,
-        "directoryEvidenceLinks": 114,
+        "directoryEvidenceItems": 118,
+        "directoryEvidenceLinks": 118,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 230,
+        "sourceCount": 231,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 80,
-        "directoryEvidenceLinks": 80,
+        "directoryEvidenceItems": 83,
+        "directoryEvidenceLinks": 83,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 570,
+        "sourceCount": 577,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 197,
+        "sourceCount": 199,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 148,
+        "sourceCount": 144,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 206,
+        "sourceCount": 208,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 154,
-        "directoryEvidenceLinks": 154,
+        "directoryEvidenceItems": 156,
+        "directoryEvidenceLinks": 156,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 210,
+        "sourceCount": 211,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -794,7 +794,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 242,
+        "sourceCount": 243,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1304,
+        "sourceCount": 1316,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -3335,22 +3335,22 @@
       "route": "/states/missouri/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 90,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成密苏里州（Missouri Department of Revenue）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Missouri DOR 的 driver-license hub、required-documents checklist、identity / address requirements、REAL ID / interactive guide / RID、license terms / fees、general / new-card FAQ、2025 law changes，以及 MSHP 的考试 FAQ、DOR-FUSION、Class F language list、exam locator 与 TSA 当前身份证件正文。",
+        "notes": "重写 Missouri 总览与 REAL ID 页面，明确 DOR 签发 / MSHP 考试双入口、美国外州 184 天免试边界、外国驾照完整考试路线、中文 Class F 笔试、remote renewal / duplicate、SAVE、same-address self-certification、费用与 temporary credential 限制；所有 105 条独立陈述均登记到已核对官方正文。"
       },
       "scores": {
-        "factsAndSources": 20,
-        "evidenceMapping": 13.5,
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
         "authorship": 10,
@@ -3359,14 +3359,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 4,
-        "factCheckCount": 9,
+        "sourceCount": 17,
+        "factCheckCount": 49,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 9,
-        "stateEvidenceLinks": 9,
+        "stateEvidenceItems": 49,
+        "stateEvidenceLinks": 85,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3374,9 +3374,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/missouri/real-id/",
@@ -3384,16 +3382,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成密苏里州（Missouri Department of Revenue）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Missouri DOR 的 driver-license hub、required-documents checklist、identity / address requirements、REAL ID / interactive guide / RID、license terms / fees、general / new-card FAQ、2025 law changes，以及 MSHP 的考试 FAQ、DOR-FUSION、Class F language list、exam locator 与 TSA 当前身份证件正文。",
+        "notes": "重写 Missouri 总览与 REAL ID 页面，明确 DOR 签发 / MSHP 考试双入口、美国外州 184 天免试边界、外国驾照完整考试路线、中文 Class F 笔试、remote renewal / duplicate、SAVE、same-address self-certification、费用与 temporary credential 限制；所有 105 条独立陈述均登记到已核对官方正文。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3406,14 +3404,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 4,
-        "factCheckCount": 17,
+        "sourceCount": 17,
+        "factCheckCount": 60,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 17,
-        "stateEvidenceLinks": 17,
+        "stateEvidenceItems": 60,
+        "stateEvidenceLinks": 110,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3421,9 +3419,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/montana/",

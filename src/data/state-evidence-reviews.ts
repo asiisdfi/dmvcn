@@ -919,6 +919,28 @@ const ME_FEES =
 const ME_BRANCHES =
   'https://www.maine.gov/sos/bmv/visit-your-bmv-branch/find-your-local-branch';
 const ME_APPOINTMENTS = 'https://mainebmvappt.cxmflow.com/';
+const MO_HOME = 'https://dor.mo.gov/driver-license/';
+const MO_CHECKLIST =
+  'https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html';
+const MO_ID_REQUIREMENTS =
+  'https://dor.mo.gov/driver-license/issuance/id-requirements.html';
+const MO_REAL_ID = 'https://dor.mo.gov/driver-license/issuance/real-id/';
+const MO_REAL_ID_DOCS = 'https://dor.mo.gov/driver-license/documents/RID.pdf';
+const MO_REAL_ID_GUIDE =
+  'https://dor.mo.gov/driver-license/issuance/real-id/interactive-guide.html';
+const MO_LICENSE = 'https://dor.mo.gov/driver-license/resources/license.html';
+const MO_FAQ = 'https://dor.mo.gov/faq/driver-license/general.html';
+const MO_NEW_LOOK = 'https://dor.mo.gov/faq/driver-license/new-look.html';
+const MO_FEES = 'https://dor.mo.gov/driver-license/documents/feechart.pdf';
+const MO_LAW_CHANGES = 'https://dor.mo.gov/driver-license/law-changes/';
+const MO_MSHP_FAQ =
+  'https://apps.mshp.dps.mo.gov/MSHPWeb/PatrolDivisions/DVSD/DE/faqs.html';
+const MO_MSHP_FUSION =
+  'https://apps.mshp.dps.mo.gov/MSHPWeb/PatrolDivisions/DVSD/DE/DOR_FUSION.html';
+const MO_LANGUAGES =
+  'https://apps.mshp.dps.mo.gov/MSHPWeb/PatrolDivisions/DVSD/DE/documents/Languages_ClassF.pdf';
+const MO_EXAM_LOCATIONS = 'https://apps.mshp.dps.mo.gov/HP32DES/DESMap.jsp';
+const MO_LICENSE_OFFICES = 'https://dor.mo.gov/license-office-locator/';
 const KS_HOME = 'https://www.ksrevenue.gov/dovindex.html';
 const KS_LICENSES = 'https://www.ksrevenue.gov/dovlicenses.html';
 const KS_REQUIRED = 'https://www.ksrevenue.gov/dovtelegovreq.html';
@@ -1013,6 +1035,171 @@ const MS_FAQ =
   'https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  missouri: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      MO_HOME,
+      MO_CHECKLIST,
+      MO_ID_REQUIREMENTS,
+      MO_REAL_ID,
+      MO_REAL_ID_DOCS,
+      MO_REAL_ID_GUIDE,
+      MO_LICENSE,
+      MO_FAQ,
+      MO_NEW_LOOK,
+      MO_FEES,
+      MO_LAW_CHANGES,
+      MO_MSHP_FAQ,
+      MO_MSHP_FUSION,
+      MO_LANGUAGES,
+      MO_EXAM_LOCATIONS,
+      MO_LICENSE_OFFICES,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开并比对 Missouri DOR 的 driver-license hub、required-documents checklist、identity / address requirements、REAL ID / interactive guide / RID、license terms / fees、general / new-card FAQ、2025 law changes，以及 MSHP 的考试 FAQ、DOR-FUSION、Class F language list、exam locator 与 TSA 当前身份证件正文。',
+    notes:
+      '重写 Missouri 总览与 REAL ID 页面，明确 DOR 签发 / MSHP 考试双入口、美国外州 184 天免试边界、外国驾照完整考试路线、中文 Class F 笔试、remote renewal / duplicate、SAVE、same-address self-certification、费用与 temporary credential 限制；所有 105 条独立陈述均登记到已核对官方正文。',
+    claims: {
+      'Missouri 驾照、permit 和 nondriver ID 由 Department of Revenue 通过当地 contract license office 签发，知识、视力、路标和驾驶考试则由 Missouri State Highway Patrol 负责': [
+        MO_HOME,
+        MO_LICENSE_OFFICES,
+        MO_MSHP_FAQ,
+      ],
+      '先区分首次申请、美国外州转入、外国驾照、续期、补证或 REAL ID，再分别去考试站或签发办公室': [
+        MO_CHECKLIST,
+        MO_REAL_ID,
+        MO_MSHP_FAQ,
+        MO_LICENSE_OFFICES,
+      ],
+      '建立 Missouri residency 后应尽快申请本州驾照': [MO_FAQ],
+      '交回有效或过期不超过 184 天的美国外州驾照时，通常可免 Missouri 知识与驾驶考试，但仍要通过路标识别和视力检查': [
+        MO_CHECKLIST,
+        MO_FAQ,
+      ],
+      '这项豁免没有把中国等外国驾照列入，因此外国驾照持有人应按首次申请和完整考试路线准备，并向 MSHP 确认个案': [
+        MO_CHECKLIST,
+        MO_FAQ,
+        MO_MSHP_FAQ,
+      ],
+      'Missouri 州法不强制办理 REAL ID': [MO_REAL_ID],
+      '普通驾照仍可驾驶、投票和用于州内一般用途': [MO_REAL_ID],
+      '需要 REAL ID 时，到 license office 提交身份、lawful status、SSN、两份来自不同来源的 Missouri residential address 文件和适用的姓名变更链': [
+        MO_REAL_ID,
+        MO_ID_REQUIREMENTS,
+        MO_REAL_ID_DOCS,
+      ],
+      '永久卡通常在 10 到 15 个工作日内邮寄': [MO_REAL_ID, MO_NEW_LOOK],
+      '考试与领证不是同一个地点体系：MSHP exam station 做考试，DOR contract license office 收材料、收费并签发': [
+        MO_LICENSE_OFFICES,
+        MO_MSHP_FAQ,
+      ],
+      '非 CDL 知识与驾驶考试通常不要求预约，但部分地点提供并建议预约 skills test': [MO_MSHP_FAQ],
+      'CDL skills test 必须预约，出发前还要核对具体地点的测试日、截止时间和天气限制': [
+        MO_LICENSE_OFFICES,
+        MO_MSHP_FAQ,
+        MO_EXAM_LOCATIONS,
+      ],
+      'Missouri 州法不强制居民持有 REAL ID': [MO_REAL_ID],
+      '非 REAL ID 驾照或 ID 仍可用于驾驶、投票、州内用途和年龄验证': [MO_REAL_ID],
+      '自 2025-05-07 起，国内航班和受 REAL ID 规则约束的联邦设施需要 REAL ID 或 TSA 接受的其他身份证件': [MO_REAL_ID, TSA_IDENTIFICATION],
+      '有效美国护照或 passport card 可作为替代': [MO_REAL_ID, TSA_IDENTIFICATION],
+      '美国外州驾照有效或过期不超过 184 天时，可在符合其他资格后豁免 Missouri 知识和驾驶考试，但所有申请人仍要通过路标识别和视力检查': [
+        MO_CHECKLIST,
+        MO_FAQ,
+      ],
+      'DOR 公布的免试转入规则只列美国 jurisdiction 和特定美国 territories，没有把中国驾照列入': [MO_CHECKLIST, MO_FAQ],
+      '中国驾照持有人不要预设可以直接换证': [MO_CHECKLIST, MO_FAQ],
+      'MSHP 负责考试，DOR contract license office 负责收件、收费和签发': [MO_LICENSE_OFFICES, MO_MSHP_FAQ],
+      '通过考试取得的分数记录本身不是驾驶许可': [MO_MSHP_FAQ],
+      '非 CDL 知识与驾驶考试通常无需预约，部分地点提供并建议预约 skills test': [MO_MSHP_FAQ],
+      'CDL skills test 必须预约': [MO_LICENSE_OFFICES, MO_MSHP_FAQ],
+      'Class F 知识考试为 25 题，答对 20 题即 80% 才通过': [MO_FAQ, MO_MSHP_FAQ],
+      '同一种笔试每天最多尝试两次': [MO_MSHP_FAQ],
+      '驾驶考试每天最多一次，过去 12 个月通常最多三次，继续考试需 DOR 特别许可': [MO_MSHP_FAQ],
+      '非 CDL 知识和驾驶考试本身不收费': [MO_MSHP_FAQ],
+      'MSHP 当前说明 Class F 笔试提供 20 种语言，所链接的官方语言清单包含 Chinese': [MO_MSHP_FUSION, MO_LANGUAGES],
+      '具体站点、设备和当日语言可用性仍应提前确认': [MO_MSHP_FAQ, MO_EXAM_LOCATIONS, MO_LANGUAGES],
+      '远程续期只面向 21 至 49 岁、档案中有美国公民身份核验标记且满足驾驶记录等条件的人': [MO_CHECKLIST],
+      '上一次申请必须本人办理，连续两次远程续期不允许': [MO_CHECKLIST],
+      '使用 USCIS 移民文件的申请人不能走远程续期或远程补证，必须本人提交文件并接受 SAVE 核验': [MO_CHECKLIST],
+      '远程续期还要求在申请前 12 个月内完成视力检查，credential 必须仍有效或过期不超过 184 天': [MO_CHECKLIST],
+      '地址未变并且先前核验文件已扫描保存时，部分现有持证人可以 self-certify 地址': [MO_CHECKLIST, MO_ID_REQUIREMENTS],
+      '地址或 mailing address 已变时仍要提交当前证明': [MO_CHECKLIST, MO_ID_REQUIREMENTS],
+      '当前 Missouri 记录中 SSN 已核验的人可能可以口头提供号码': [MO_CHECKLIST, MO_ID_REQUIREMENTS],
+      '电子核验失败时仍须出示实体证明或向 SSA 处理': [MO_CHECKLIST],
+      '21 至 69 岁的普通驾照通常为 6 年，18 至 20 岁和 70 岁以上通常为 3 年': [MO_LICENSE, MO_FAQ],
+      '非公民证件可能随 lawful-status 文件提前到期': [MO_LICENSE],
+      '当前费用表列出 Class F 三年证件 $16.50、六年证件 $33，三年 duplicate $16.50、六年 duplicate $25.50': [MO_LICENSE, MO_FEES],
+      'license office 还会按证件期限收取 $9 或 $18 processing fee': [MO_REAL_ID, MO_LAW_CHANGES],
+      '信用卡或借记卡付款另有 2% 加 $0.25 的 convenience fee，实际总额应在付款前由办理处确认': [MO_LICENSE, MO_LAW_CHANGES],
+      '正常制卡邮寄通常为 10 至 15 个工作日，现场纸质 temporary document 通常有效 45 天，但不属于 REAL ID，不能作为国内航班的 REAL ID 身份件': [MO_REAL_ID, MO_NEW_LOOK, TSA_IDENTIFICATION],
+      '从未获发 Missouri REAL ID 的人提前办理 initial REAL ID 时，可能获得一次 duplicate transaction fee waiver，但 $9 或 $18 processing fee 不免，增加 class、endorsement 或 restriction 也不适用该 waiver': [MO_REAL_ID, MO_LAW_CHANGES],
+      '实体卡寄出至少 25 个工作日仍未收到、且申请未超过 90 天时，可到 office 申请 replacement': [MO_NEW_LOOK],
+      '没有地址或其他资料变化时可能免交易费': [MO_NEW_LOOK],
+      'Missouri 原则上只允许同时保留一种有效 driver license 或 nondriver ID': [MO_CHECKLIST],
+      '申请 Missouri credential 时，先前外州 credential 会被作废或通知原州取消': [MO_CHECKLIST, MO_REAL_ID],
+      'Missouri 驾照过期不超过 184 天通常仍可续期而无需重新考试，但过期期间不能合法驾驶': [MO_FAQ],
+      '身份与 lawful status 文件应有效且未过期': [MO_ID_REQUIREMENTS, MO_REAL_ID_DOCS],
+      '美国出生证应为 vital records agency 签发、带印章的 original certified document，医院出生证明不接受': [MO_ID_REQUIREMENTS, MO_REAL_ID_DOCS],
+      'SSN 证明要显示姓名和号码': [MO_ID_REQUIREMENTS, MO_REAL_ID_DOCS],
+      '18 岁以上申请人的 Social Security card 应签名且不能覆膜，未获分配 SSN 时带 SSA status letter': [MO_ID_REQUIREMENTS, MO_REAL_ID_DOCS],
+      '非 REAL ID 通常要一份 Missouri residential address 文件': [MO_ID_REQUIREMENTS],
+      'REAL ID 要两份来自不同来源、显示本人姓名和当前 residential address 的文件': [MO_REAL_ID, MO_ID_REQUIREMENTS, MO_REAL_ID_DOCS],
+      'P.O. Box 不能代替 residential address': [MO_ID_REQUIREMENTS],
+      '如果另设 alternate mailing address，还要额外证明该邮寄地址': [MO_ID_REQUIREMENTS],
+      '当前姓名不同于 identity 或 lawful-status 文件时，用 certified marriage license、divorce decree、court order、adoption papers 或 amended birth certificate 串起每次变化': [MO_ID_REQUIREMENTS, MO_REAL_ID_DOCS],
+      '多次改名可能需要完整文件链': [MO_ID_REQUIREMENTS],
+      '普通 photocopy 和 fax 不接受，境外结婚文件还可能要先在 Missouri county Recorder of Deeds 登记': [MO_ID_REQUIREMENTS],
+      '美国外州转入带原 credential': [MO_CHECKLIST, MO_FAQ],
+      '若遗失、被盗或毁损，可准备签发州当前 Clearance Letter 或包含号码、class、endorsement 和 restriction 的 affidavit': [MO_CHECKLIST],
+      '首次驾驶人除了 identity、lawful status、SSN 和地址材料，还要带 MSHP 测试通过后签发的 Driver Examination Record Form 100': [MO_CHECKLIST],
+      '使用 USCIS 文件的申请人准备当前 immigration documents，并为现场 SAVE 核验和可能的额外审核预留时间': [MO_CHECKLIST, MO_ID_REQUIREMENTS],
+      '续期通常仍要核对 identity、lawful status、SSN 和 Missouri address': [MO_CHECKLIST],
+      'REAL ID renewal 需要两份地址文件，除非符合 same-address self-certification': [MO_CHECKLIST, MO_ID_REQUIREMENTS],
+      '参加驾驶考试要自备 street-legal vehicle，并准备当前 registration 和 insurance 证明': [MO_FAQ, MO_MSHP_FAQ],
+      '现场办理后保存 temporary paper credential 和收据，并确认 DOR 使用的 residential 或 mailing address 可以可靠收件': [MO_ID_REQUIREMENTS, MO_NEW_LOOK],
+      '先确定业务是 first-time、U.S. out-of-state transfer、foreign-license application、renewal、duplicate、name / address change，还是 initial REAL ID': [MO_CHECKLIST, MO_REAL_ID, MO_FAQ],
+      '按用途比较 REAL ID 与 passport 等 TSA 接受证件': [MO_REAL_ID, TSA_IDENTIFICATION],
+      '只用于驾驶、投票或州内一般用途时，不必自动升级': [MO_REAL_ID],
+      '打开 DOR Driver Licensing Checklist，按 identity、lawful status、SSN、residential address 和 legal-name chain 分组准备材料': [MO_CHECKLIST, MO_ID_REQUIREMENTS],
+      'REAL ID 准备两份不同来源的 Missouri address 文件': [MO_REAL_ID, MO_ID_REQUIREMENTS, MO_REAL_ID_DOCS],
+      'non-REAL ID 通常准备一份，并另行处理 alternate mailing address': [MO_ID_REQUIREMENTS],
+      '美国外州证件有效或过期不超过 184 天时，带原卡或合格 clearance document': [MO_CHECKLIST, MO_FAQ],
+      '仍要准备路标和视力检查': [MO_FAQ],
+      '中国或其他外国驾照持有人按 first-time driver 路线联系 MSHP，准备知识、视力、路标和驾驶考试，不要依赖未经公布的 reciprocity': [MO_CHECKLIST, MO_FAQ, MO_MSHP_FAQ],
+      '需要考试时先用 MSHP locator 核对地点、时间和服务': [MO_MSHP_FAQ, MO_EXAM_LOCATIONS],
+      '非 CDL skills test 有预约选项时优先预约': [MO_MSHP_FAQ],
+      '需要中文笔试时，带上官方 20-language 清单信息并提前向具体 exam station 确认 Chinese 是否可用': [MO_MSHP_FUSION, MO_LANGUAGES, MO_EXAM_LOCATIONS],
+      '通过考试后保存 Form 100，再去任一合适的 Missouri license office 提交材料和付费': [MO_CHECKLIST, MO_MSHP_FAQ, MO_LICENSE_OFFICES],
+      '续期或补证先检查 MyDMV eligibility': [MO_CHECKLIST],
+      '使用 USCIS 文件、姓名或地址变化、首次 REAL ID 等情况按现场路线': [MO_CHECKLIST, MO_ID_REQUIREMENTS, MO_REAL_ID],
+      '付款前同时核对 credential transaction fee、office processing fee 和刷卡 convenience fee': [MO_LICENSE, MO_FEES, MO_LAW_CHANGES],
+      '现场办理后保存 45 天 temporary document，并按 10 至 15 个工作日规划实体卡': [MO_NEW_LOOK],
+      '航空出行另备 TSA 接受证件': [MO_REAL_ID, MO_NEW_LOOK, TSA_IDENTIFICATION],
+      '实体卡长期未到时先核对地址': [MO_NEW_LOOK],
+      '达到寄出 25 个工作日且仍在申请后 90 天内，可按 DOR 规则到 office 处理 replacement': [MO_NEW_LOOK],
+      '把 REAL ID 当作驾驶必需，或以为普通 Missouri 驾照自 2025-05-07 起已经不能开车': [MO_REAL_ID],
+      '拿 temporary paper credential 直接去机场，忽略它明确不是 REAL ID': [MO_NEW_LOOK, TSA_IDENTIFICATION],
+      '只去 license office 才发现首次申请要先在 MSHP exam station 完成考试并取得 Form 100': [MO_CHECKLIST, MO_MSHP_FAQ],
+      '只去 exam station 通过测试，却没有再到 DOR license office 付费取得 permit 或 license': [MO_CHECKLIST, MO_MSHP_FAQ],
+      '把中国驾照套用美国外州证件的 184 天免试规则，未准备知识和驾驶考试': [MO_CHECKLIST, MO_FAQ, MO_MSHP_FAQ],
+      '外州驾照过期超过 184 天，仍按免知识与驾驶考试路线准备': [MO_CHECKLIST, MO_FAQ],
+      'REAL ID 只带一份地址证明，或两份地址文件来自同一来源': [MO_REAL_ID, MO_ID_REQUIREMENTS, MO_REAL_ID_DOCS],
+      '用 P.O. Box 代替 residential address，导致证件地址和邮寄都无法完成核验': [MO_ID_REQUIREMENTS, MO_NEW_LOOK],
+      '带医院出生纸、普通复印件、传真件、覆膜 SSN card 或不完整的改名文件链': [MO_ID_REQUIREMENTS, MO_REAL_ID_DOCS],
+      '看到 MyDMV 入口就默认自己可远程续期，忽略年龄、公民核验标记、上次办理方式、视力检查和驾驶记录限制': [MO_CHECKLIST],
+      '使用 USCIS 文件仍尝试远程续期或远程补证，没有安排本人到场做 SAVE 核验': [MO_CHECKLIST],
+      '地址已变却继续使用 same-address self-certification，或只改邮寄地址而没有准备对应证明': [MO_CHECKLIST, MO_ID_REQUIREMENTS],
+      '只看 credential transaction fee，漏算 $9 / $18 office processing fee 和刷卡 convenience fee': [MO_LICENSE, MO_FEES, MO_LAW_CHANGES],
+      '临近航班才办 REAL ID，没有为 10 至 15 个工作日制卡邮寄和潜在审核留出时间': [MO_REAL_ID, MO_NEW_LOOK],
+      '误以为过期不超过 184 天仍能开车': [MO_FAQ],
+      '该期限只可能保留续期或转入资格，不延长驾驶权限': [MO_FAQ],
+      '没有核对 exam station 的测试日、截止时间、预约选项和天气状态，到了现场才发现无法路考': [MO_MSHP_FAQ, MO_EXAM_LOCATIONS],
+    },
+  },
   kansas: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

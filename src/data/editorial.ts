@@ -34,6 +34,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Missouri 两页官方正文语义核对',
+    summary:
+      '逐条比对 Missouri DOR 的 Driver Licensing Checklist、identity / address requirements、REAL ID、license terms / fees、general / new-card FAQ、law changes，以及 MSHP 的考试 FAQ、DOR-FUSION、Class F language list、exam locator 与 TSA 当前身份证件正文；登记 105 条独立声明的显式来源，并补齐 DOR 签发 / MSHP 考试双入口、美国外州 184 天免试边界、中国驾照完整考试路线、中文笔试、remote renewal、SAVE、费用和 temporary credential 限制。',
+    scope: ['密苏里州办事总览', '密苏里州 REAL ID', '105 条独立声明显式核对', '考试、中文与远程办理边界'],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Kansas 两页官方正文语义核对',
     summary:
       '逐条比对 Kansas DOR 的 Licensing hub、Required Documents、DE-56A、REAL ID / FAQ、proof of identity、首次与外州转入、driver FAQ、续期、iKan、改址、预约、地点、South Korea reciprocity、forms、fee chart 与 TSA 当前身份证件正文；登记 81 条独立声明的显式来源，并公开标注 90 天转入、Taiwan / South Korea 互惠、中国大陆考试路线、非公民 SAVE、邮寄和 address-change $8 / $10 官方差异。',
