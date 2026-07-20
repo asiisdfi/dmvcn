@@ -1034,7 +1034,325 @@ const MS_APPOINTMENTS = 'https://telegov.egov.com/dps';
 const MS_FAQ =
   'https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions';
 
+const NM_REAL_ID = 'https://realid.mvd.newmexico.gov/';
+const NM_REAL_ID_DOCS =
+  'https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf';
+const NM_STANDARD_DOCS =
+  'https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf';
+const NM_DRIVER_LICENSES =
+  'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/';
+const NM_APPLY =
+  'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/';
+const NM_NONCOMMERCIAL =
+  'https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/';
+const NM_TESTS =
+  'https://www.mvd.newmexico.gov/chapter-11-road-and-written-test-requirements/';
+const NM_KNOWLEDGE =
+  'https://www.mvd.newmexico.gov/knowledge-written-examination-changes/';
+const NM_RENEW =
+  'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/renew-a-driving-credential/';
+const NM_REPLACE =
+  'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/replace-a-lost-or-stolen-driving-credential/';
+const NM_ADDRESS =
+  'https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/change-your-address/';
+const NM_NAME =
+  'https://www.mvd.newmexico.gov/how-do-i-change-the-name-on-my-driver-license/';
+const NM_FEES =
+  'https://www.mvd.newmexico.gov/how-much-does-a-driver-license-cost/';
+const NM_APPOINTMENTS =
+  'https://www.mvd.newmexico.gov/https-www-mvd-newmexico-gov-mvd-direct-appointments/';
+const NM_CLOSINGS =
+  'https://www.mvd.newmexico.gov/location-events-and-closings/';
+const NM_LOCATIONS = 'https://www.mvd.newmexico.gov/maps-and-locations/';
+const NM_ONLINE = 'https://eservices.mvd.newmexico.gov/eTapestry/';
+const NM_WHERE = 'https://www.mvd.newmexico.gov/where-is-my-license/';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  'new-mexico': {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      NM_REAL_ID,
+      NM_REAL_ID_DOCS,
+      NM_STANDARD_DOCS,
+      NM_DRIVER_LICENSES,
+      NM_APPLY,
+      NM_NONCOMMERCIAL,
+      NM_TESTS,
+      NM_KNOWLEDGE,
+      NM_RENEW,
+      NM_REPLACE,
+      NM_ADDRESS,
+      NM_NAME,
+      NM_FEES,
+      NM_APPOINTMENTS,
+      NM_CLOSINGS,
+      NM_LOCATIONS,
+      NM_ONLINE,
+      NM_WHERE,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 New Mexico MVD 的 Driver Licenses、new credential、REAL ID microsite / checklist、Standard checklist、non-commercial / testing procedures、knowledge updates、renewal、replacement、address、name、fees、appointments、closings、locations、online services、card-status 与 TSA 当前身份证件正文。',
+    notes:
+      '重写 New Mexico 总览与 REAL ID 页面，拆开 Standard / REAL ID、美国外州 / 外国驾照、首次 / 续补证路线；补齐中文笔试、None for the Road、费用、45 天 temporary credential、10 天改址和 municipal fee，并公开标注现行 MVD 页面对过期一年或五年重考门槛的冲突。',
+    claims: {
+      '新墨西哥州 MVD 提供带金色星标的 REAL ID 和 Standard Driver License / ID':
+        [NM_REAL_ID],
+      '先按用途选证件，再区分首次申领、美国外州转入、外国驾照、续期、补证或资料变更':
+        [NM_DRIVER_LICENSES, NM_REAL_ID, NM_RENEW, NM_REPLACE, NM_ADDRESS],
+      '首次签发与首次升级 REAL ID 按现场路线准备': [
+        NM_DRIVER_LICENSES,
+        NM_REAL_ID,
+      ],
+      'Standard Driver License / ID 的基础文件路径是一份 identity and age 与两份 New Mexico residency，MVD 明确说明不需要 SSN 或指纹':
+        [NM_REAL_ID, NM_STANDARD_DOCS, NM_DRIVER_LICENSES],
+      '无法证明 lawful status 的申请人只能申请 Standard': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+      ],
+      '两类驾照都能用于驾驶，但 Standard 不能作为 REAL ID 联邦身份证件': [
+        NM_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      'New Mexico REAL ID 要各准备一份 Lawful Identity and Age、Identification Number，以及两份 New Mexico Residency 证明':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      材料须为原件或签发机关认证副本: [NM_REAL_ID, NM_REAL_ID_DOCS],
+      '普通复印件、公证复印件和非认证副本不接受，法律身份和识别号码还要通过电子核验':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      '州营 MVD field office 当前要求所有业务预约，municipal office 则可能接受 walk-in、预约或两者兼有，并可能另收 $5 至 $50 的本地 transaction fee':
+        [NM_CLOSINGS, NM_APPOINTMENTS],
+      先查具体地点和停业公告: [NM_LOCATIONS, NM_CLOSINGS],
+      '符合资格的续期或补证再从 MyMVD Online Services 开始': [
+        NM_REAL_ID,
+        NM_RENEW,
+        NM_ONLINE,
+      ],
+      '建立 New Mexico residency 后，MVD 要求交回其他州驾照并申请本州证件': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+      ],
+      官方没有在该说明中给出统一的换证天数: [NM_DRIVER_LICENSES, NM_APPLY],
+      '当前有效美国外州驾照可免 written 和 road test，但仍要通过 eye exam': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+      ],
+      '外州转入另收一次性 $15 DWI records check fee': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+        NM_FEES,
+      ],
+      '持当前外国驾照也要通过 eye exam，且所有 out-of-country license 申请人都要参加 written test':
+        [NM_DRIVER_LICENSES, NM_APPLY, NM_TESTS],
+      'MVD 程序手册只在可核验外文驾照或提供 certified translation 的条件下留下免 road test 的可能，因此中国驾照持有人不要预设路考必然免除':
+        [NM_TESTS, NM_NONCOMMERCIAL],
+      '非商业知识考试提供 English、Spanish、Tagalog、Italian、German、French、Vietnamese 和 Chinese，Class D / M 笔试达到 70% 才通过':
+        [NM_TESTS],
+      '知识考试每周最多两次，可以同一天考两次': [
+        NM_KNOWLEDGE,
+        NM_NONCOMMERCIAL,
+      ],
+      '第三次未通过后，MVD 程序说明要求从首次考试日起等待六个月': [
+        NM_KNOWLEDGE,
+        NM_NONCOMMERCIAL,
+      ],
+      'MVD 当前 Driver Licenses 页面写驾照过期一年或以上要笔试，而 Apply for a New Driving Credential 页面和程序手册写五年或以上':
+        [NM_DRIVER_LICENSES, NM_APPLY, NM_NONCOMMERCIAL],
+      '临界情况应在预约前向具体 field office 确认': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+        NM_LOCATIONS,
+      ],
+      '首次 New Mexico licensee 年龄 18 至 24 岁须提交 None for the Road DWI awareness class 完成证明':
+        [NM_DRIVER_LICENSES, NM_APPLY, NM_NONCOMMERCIAL],
+      '25 岁以上且曾有 DWI conviction 的首次申请人也要提交合格课程证明': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+        NM_NONCOMMERCIAL,
+      ],
+      '首次驾照、续期和补证都会先签发 temporary license，永久卡中央制作后寄到申请时登记的 mailing address':
+        [NM_DRIVER_LICENSES, NM_WHERE],
+      '已有外州驾照或 New Mexico ID 会打孔，与 temporary license 一起使用时最多可作为 45 天的身份证明':
+        [NM_DRIVER_LICENSES],
+      '普通驾照费用当前为四年 $18、八年 $34': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+        NM_FEES,
+      ],
+      '79 岁及以上每年续期但免 renewal fee，76 至 78 岁的期限和费用可能按到 79 岁前剩余年数调整':
+        [NM_DRIVER_LICENSES, NM_FEES, NM_NONCOMMERCIAL],
+      '续期最早可在到期前 90 天办理，MVD 还允许在过期后最多两年内通过线上续期流程':
+        [NM_RENEW],
+      '提前超过 90 天办理会按 replacement 而不是 renewal 处理': [NM_RENEW],
+      '地址变化后 10 天内要通知 MVD': [NM_ADDRESS],
+      '只更新系统记录可在线、传真或邮寄，若要把新地址印到卡上则须到 field office 拍新照片并支付 license fee':
+        [NM_ADDRESS],
+      'REAL ID 的两份 residency 文件必须显示 New Mexico physical residential address，HC 和 P.O. Box 不接受':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      '同一类别可以，但不能由同一实体出具': [NM_STANDARD_DOCS],
+      'utility bill、bank / credit-card statement、pay stub 和学校文件通常须在 60 天内，insurance bill / card / binder 须在六个月内':
+        [NM_REAL_ID, NM_REAL_ID_DOCS, NM_STANDARD_DOCS],
+      '租约、购房协议和政府居住证明须保持当前有效': [
+        NM_REAL_ID,
+        NM_REAL_ID_DOCS,
+        NM_STANDARD_DOCS,
+      ],
+      非英文材料要附完整英文翻译并由译者认证: [NM_REAL_ID, NM_DRIVER_LICENSES],
+      '只做 abstract translation 不够，翻译件还要覆盖除印章本身外的全部文字': [
+        NM_DRIVER_LICENSES,
+      ],
+      '用于 REAL ID 的 lawful status 与 identification number 会分别通过 SAVE、USPVS 或 SSOLV 等系统核验，现场提交文件不代表一定能当场通过':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      '姓名与 identity 文件不一致时，要用 marriage certificate、divorce decree、adoption record 或 court order 串起每一次变化':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      改名业务本身也要求原件或认证副本: [NM_NAME],
+      '路考由申请人自备与申请 class 相符、已登记、已投保且车况合格的车辆，并携带 registration 与 current insurance proof':
+        [NM_TESTS],
+      '州营 office 采用预约制，预约最多可提前 30 天': [
+        NM_CLOSINGS,
+        NM_APPOINTMENTS,
+      ],
+      '不同地点并非都提供相同 appointment type，迟到超过 10 分钟可能被取消': [
+        NM_APPOINTMENTS,
+        NM_LOCATIONS,
+      ],
+      'Lawful Identity and Age 准备一份，例如未过期 U.S. passport / passport card、签发机关认证的出生证、Permanent Resident Card、Employment Authorization Document，或符合清单组合要求的 foreign passport 与移民文件':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      'Identification Number 准备一份，例如 SSN card、W-2、1099、显示当前法定姓名和完整 SSN 的 pay stub，或清单允许的 foreign passport、visa 与 I-94 组合':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      'Identification Number 文件必须显示完整号码': [NM_REAL_ID_DOCS],
+      '只露出末四位的工资单或税表不符合 REAL ID 清单': [NM_REAL_ID_DOCS],
+      'New Mexico residency 准备两份，均须显示本人姓名与相同的 current physical residential address':
+        [NM_REAL_ID, NM_REAL_ID_DOCS, NM_STANDARD_DOCS],
+      'HC 和 P.O. Box 不能替代实体住址': [NM_REAL_ID_DOCS],
+      '两份居住材料可以属于同一类别，但不能来自同一 entity，例如同一家公司的连续两个月账单不能算两份独立证明':
+        [NM_STANDARD_DOCS],
+      'utility、bank / credit-card statement、pay stub 与学校文件通常限 60 天内，insurance bill / card / binder 限六个月内':
+        [NM_REAL_ID, NM_REAL_ID_DOCS, NM_STANDARD_DOCS],
+      '租约、购房协议及政府文件要保持当前有效': [
+        NM_REAL_ID,
+        NM_REAL_ID_DOCS,
+        NM_STANDARD_DOCS,
+      ],
+      '全部 REAL ID 文件须为原件或签发机关认证副本': [
+        NM_REAL_ID,
+        NM_REAL_ID_DOCS,
+      ],
+      'photocopy、notarized photocopy 和 non-certified copy 不接受': [
+        NM_REAL_ID,
+        NM_REAL_ID_DOCS,
+      ],
+      '当前姓名与 identity document 不一致时，准备 marriage、divorce、adoption 或 court records 形成连续 linking-document chain':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      非英文文件须附译者认证的完整英文翻译: [NM_REAL_ID, NM_DRIVER_LICENSES],
+      '印章的位置和存在应标注，除印章本身外的文字都要翻译': [
+        NM_DRIVER_LICENSES,
+      ],
+      'MVD 会电子核验 lawful status、美国护照和 identification number，可能分别使用 SAVE、USPVS 与 SSOLV':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      'Standard credential 使用另一份材料表：一般是一份 identity and age 加两份 New Mexico residency，且不要求 SSN 或 fingerprints':
+        [NM_REAL_ID, NM_STANDARD_DOCS],
+      '无法提供 lawful-status proof 时只能申请 Standard license 或 Standard ID，不能把 Standard 的材料路径用于 REAL ID':
+        [NM_DRIVER_LICENSES, NM_APPLY, NM_REAL_ID],
+      '先判断是否需要用 New Mexico DL / ID 处理国内航班或其他 REAL ID 联邦用途':
+        [NM_REAL_ID, TSA_IDENTIFICATION],
+      '已有 TSA 接受的护照等证件时，也可以继续选择 Standard': [
+        NM_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '选择 REAL ID 时，用 REAL ID Companion 与 acceptable-documents PDF 分别核对 identity / lawful status、identification number、两份 residency 和 name-change chain':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      '选择 Standard 时改用 Standard acceptable-documents PDF，不要把两套清单混用':
+        [NM_STANDARD_DOCS, NM_REAL_ID_DOCS],
+      '无法证明 lawful status 的申请人按 Standard 路线准备': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+      ],
+      '检查每份 residency proof 的姓名、相同 physical address、出具 entity 和日期窗口，淘汰 P.O. Box、同一机构的重复账单与过期文件':
+        [NM_REAL_ID_DOCS, NM_STANDARD_DOCS],
+      '把中文或其他非英文材料做完整 certified English translation，并同时带原件或认证副本及翻译件':
+        [NM_REAL_ID, NM_DRIVER_LICENSES, NM_REAL_ID_DOCS],
+      '外州转入带当前实体驾照并预算一次性 $15 record-check fee': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+        NM_FEES,
+      ],
+      '中国或其他外国驾照持有人至少准备 eye exam 与 written test，并向办理点确认是否还要 road test':
+        [NM_DRIVER_LICENSES, NM_APPLY, NM_TESTS],
+      '首次申请年龄 18 至 24 岁先完成 None for the Road': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+        NM_NONCOMMERCIAL,
+      ],
+      '需要路考时准备合格车辆、registration 和 current insurance proof': [
+        NM_TESTS,
+      ],
+      '从 Maps & Locations 核对地点、服务类型与临时停业信息': [
+        NM_LOCATIONS,
+        NM_CLOSINGS,
+      ],
+      '州营 office 预约，municipal office 另查 walk-in 政策和附加费': [
+        NM_CLOSINGS,
+        NM_APPOINTMENTS,
+      ],
+      '符合资格的 renewal / replacement 先试 MyMVD': [
+        NM_REAL_ID,
+        NM_RENEW,
+        NM_ONLINE,
+      ],
+      '首次申领、首次 REAL ID、需要文件核验或要把新地址印到卡上时按现场路线': [
+        NM_DRIVER_LICENSES,
+        NM_REAL_ID,
+        NM_ADDRESS,
+      ],
+      '预约临界过期证件业务前，先询问该 office 采用一年还是五年的 written-test 门槛，并保存答复或预约说明':
+        [NM_DRIVER_LICENSES, NM_APPLY, NM_NONCOMMERCIAL, NM_LOCATIONS],
+      '办理后核对 mailing address、保存 temporary credential，并用 Where Is My License 查询中央制卡状态':
+        [NM_DRIVER_LICENSES, NM_WHERE],
+      '把 Standard license 当作国内航班或受 REAL ID 规则约束的联邦设施身份证件':
+        [NM_REAL_ID, TSA_IDENTIFICATION],
+      驾驶资格与联邦身份用途是两件事: [NM_REAL_ID, TSA_IDENTIFICATION],
+      '只带一份 residency proof，或两份材料由同一银行、utility company 或其他 entity 出具':
+        [NM_REAL_ID_DOCS, NM_STANDARD_DOCS],
+      '用 P.O. Box 或 HC address 代替 New Mexico physical residential address':
+        [NM_REAL_ID_DOCS],
+      '带普通复印件、手机照片或 notarized photocopy 代替 original / certified copy':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      'Identification Number 文件只显示 SSN 末四位，没有完整号码': [
+        NM_REAL_ID_DOCS,
+      ],
+      '中文出生、婚姻或法院文件没有完整 certified English translation，或只准备摘要翻译':
+        [NM_REAL_ID, NM_DRIVER_LICENSES],
+      '当前姓名与 identity 文件不同，却没有带齐每一次 legal-name change 的 linking documents':
+        [NM_REAL_ID, NM_REAL_ID_DOCS],
+      '无法证明 lawful status 时仍按 REAL ID 材料路线预约，没有改选 Standard credential':
+        [NM_DRIVER_LICENSES, NM_APPLY, NM_REAL_ID],
+      '首次申请或首次升级 REAL ID 只进入在线续补证系统，没有安排 office 文件核验':
+        [NM_DRIVER_LICENSES, NM_REAL_ID, NM_ONLINE],
+      '持中国驾照就预设 written 或 road test 都可免除': [
+        NM_DRIVER_LICENSES,
+        NM_TESTS,
+      ],
+      'MVD 明确要求 out-of-country license 申请人参加 written test，路考豁免还受文件核验和翻译影响':
+        [NM_DRIVER_LICENSES, NM_TESTS],
+      '临近下班才去参加 written test': [NM_DRIVER_LICENSES, NM_APPLY],
+      'MVD 说明州营 office 通常在下午 3 点后不再开始该考试': [
+        NM_DRIVER_LICENSES,
+        NM_APPLY,
+      ],
+      '只预算州定 $18 / $34 license fee，忽略外州转入的 $15 record-check fee 或 municipal office 可能另收的 transaction fee':
+        [NM_DRIVER_LICENSES, NM_FEES, NM_CLOSINGS],
+      '把 temporary license 单独当作有效身份证件': [NM_DRIVER_LICENSES],
+      '官方说明原外州 license 或 prior New Mexico ID 被打孔后，要与 temporary license 一起出示才可在最多 45 天内用于身份用途':
+        [NM_DRIVER_LICENSES],
+      '搬家超过 10 天仍未通知 MVD，或以为在线改记录会自动寄来印有新地址的卡': [
+        NM_ADDRESS,
+      ],
+      '18 至 24 岁首次申请时没有先完成 None for the Road，或曾有 DWI conviction 的 25 岁以上首次申请人没有准备合格课程证明':
+        [NM_DRIVER_LICENSES, NM_APPLY, NM_NONCOMMERCIAL],
+    },
+  },
   missouri: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

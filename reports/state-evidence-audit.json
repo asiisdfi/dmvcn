@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T22:15:20.309Z",
+    "generatedAt": "2026-07-20T22:36:34.210Z",
     "pages": 100,
     "states": 50,
-    "claims": 3344,
-    "links": 5557,
-    "aiAssistedClaims": 2827,
-    "aiAssistedPages": 64,
+    "claims": 3413,
+    "links": 5736,
+    "aiAssistedClaims": 2928,
+    "aiAssistedPages": 66,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1566,
-        "links": 2570,
+        "claims": 1599,
+        "links": 2652,
         "states": 50
       },
       "real-id": {
-        "claims": 1778,
-        "links": 2987,
+        "claims": 1814,
+        "links": 3084,
         "states": 50
       }
     }
@@ -53448,14 +53448,14 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "新墨西哥州 MVD 同时提供 REAL ID 和 Standard Driver License / ID",
+      "claim": "新墨西哥州 MVD 提供带金色星标的 REAL ID 和 Standard Driver License / ID",
       "sourceUrls": [
         "https://realid.mvd.newmexico.gov/"
       ],
       "sourceLabels": [
         "对应官方来源：New Mexico REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -53466,15 +53466,47 @@
       "stateId": "new-mexico",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "中文用户最需要先判断：自己要的是可用于联邦用途的 REAL ID，还是只用于驾驶和州内一般身份用途的 Standard credential",
+      "context": "license",
+      "claim": "先按用途选证件，再区分首次申领、美国外州转入、外国驾照、续期、补证或资料变更",
       "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/renew-a-driving-credential/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/replace-a-lost-or-stolen-driving-credential/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/change-your-address/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico MVD Renewal",
+        "对应官方来源：New Mexico MVD Lost or Stolen Credential",
+        "对应官方来源：New Mexico MVD Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "summary",
+      "context": "real-id",
+      "claim": "首次签发与首次升级 REAL ID 按现场路线准备",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
         "https://realid.mvd.newmexico.gov/"
       ],
       "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
         "对应官方来源：New Mexico REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -53486,15 +53518,20 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "document",
-      "claim": "Standard Driver License / ID 只需要一份 identity and age 与两份 New Mexico residency，不需要 fingerprints，也不需要 Social Security number",
+      "claim": "Standard Driver License / ID 的基础文件路径是一份 identity and age 与两份 New Mexico residency，MVD 明确说明不需要 SSN 或指纹",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10",
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "document",
         "residency-proof",
         "ssn"
       ],
@@ -53505,15 +53542,36 @@
       "stateId": "new-mexico",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "两类 license 都可用于驾驶，但 Standard 不能用于 REAL ID 联邦身份用途",
+      "context": "license",
+      "claim": "无法证明 lawful status 的申请人只能申请 Standard",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "real-id",
+      "claim": "两类驾照都能用于驾驶，但 Standard 不能作为 REAL ID 联邦身份证件",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -53525,14 +53583,16 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "New Mexico REAL ID 要证明 Lawful Identity and Age、Identification Number 和 New Mexico Residency",
+      "claim": "New Mexico REAL ID 要各准备一份 Lawful Identity and Age、Identification Number，以及两份 New Mexico Residency 证明",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "residency-proof"
@@ -53544,15 +53604,17 @@
       "stateId": "new-mexico",
       "surface": "overview",
       "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "MVD 明确要求 original 或 certified copy",
+      "context": "document",
+      "claim": "材料须为原件或签发机关认证副本",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -53564,33 +53626,17 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "photocopies、notarized photocopies 和 non-certified copies 不接受，且法律身份和识别号码会做电子核验",
+      "claim": "普通复印件、公证复印件和非认证副本不接受，法律身份和识别号码还要通过电子核验",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-mexico",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "REAL ID 通常需要到 MVD office 完成文件核验",
-      "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "document"
       ],
       "uncoveredThemes": [],
@@ -53600,15 +53646,62 @@
       "stateId": "new-mexico",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "license",
-      "claim": "部分 Standard renewal / replacement 可能符合线上资格",
+      "context": "appointment",
+      "claim": "州营 MVD field office 当前要求所有业务预约，municipal office 则可能接受 walk-in、预约或两者兼有，并可能另收 $5 至 $50 的本地 transaction fee",
       "sourceUrls": [
-        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/"
+        "https://www.mvd.newmexico.gov/location-events-and-closings/",
+        "https://www.mvd.newmexico.gov/https-www-mvd-newmexico-gov-mvd-direct-appointments/"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico MVD Licenses and IDs"
+        "对应官方来源：New Mexico MVD Location Events and Closings",
+        "对应官方来源：New Mexico MVD Appointment Rules"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "先查具体地点和停业公告",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/maps-and-locations/",
+        "https://www.mvd.newmexico.gov/location-events-and-closings/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Maps and Locations",
+        "对应官方来源：New Mexico MVD Location Events and Closings"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "license",
+      "claim": "符合资格的续期或补证再从 MyMVD Online Services 开始",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/renew-a-driving-credential/",
+        "https://eservices.mvd.newmexico.gov/eTapestry/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico MVD Renewal",
+        "对应官方来源：New Mexico MVD Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "replacement",
@@ -53620,19 +53713,62 @@
     {
       "stateId": "new-mexico",
       "surface": "overview",
-      "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "材料准备优先查看 REAL ID microsite 和 acceptable documents PDF",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "建立 New Mexico residency 后，MVD 要求交回其他州驾照并申请本州证件",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document"
+        "residency-proof"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "官方没有在该说明中给出统一的换证天数",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "当前有效美国外州驾照可免 written 和 road test，但仍要通过 eye exam",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53641,15 +53777,536 @@
       "stateId": "new-mexico",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "real-id",
-      "claim": "REAL ID 页面明确 original or certified copy，且会通过 VLS/SAVE、USPVS、SSOLV 等系统核验，适合提醒用户不要带普通扫描件",
+      "context": "license",
+      "claim": "外州转入另收一次性 $15 DWI records check fee",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/how-much-does-a-driver-license-cost/"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Driver License Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "持当前外国驾照也要通过 eye exam，且所有 out-of-country license 申请人都要参加 written test",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/chapter-11-road-and-written-test-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Road and Written Test Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "MVD 程序手册只在可核验外文驾照或提供 certified translation 的条件下留下免 road test 的可能，因此中国驾照持有人不要预设路考必然免除",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/chapter-11-road-and-written-test-requirements/",
+        "https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Road and Written Test Requirements",
+        "对应官方来源：New Mexico MVD Non-Commercial License Procedures"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "非商业知识考试提供 English、Spanish、Tagalog、Italian、German、French、Vietnamese 和 Chinese，Class D / M 笔试达到 70% 才通过",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/chapter-11-road-and-written-test-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Road and Written Test Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "知识考试每周最多两次，可以同一天考两次",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/knowledge-written-examination-changes/",
+        "https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Knowledge Examination Changes",
+        "对应官方来源：New Mexico MVD Non-Commercial License Procedures"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "第三次未通过后，MVD 程序说明要求从首次考试日起等待六个月",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/knowledge-written-examination-changes/",
+        "https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Knowledge Examination Changes",
+        "对应官方来源：New Mexico MVD Non-Commercial License Procedures"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "MVD 当前 Driver Licenses 页面写驾照过期一年或以上要笔试，而 Apply for a New Driving Credential 页面和程序手册写五年或以上",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Non-Commercial License Procedures"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "临界情况应在预约前向具体 field office 确认",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/maps-and-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Maps and Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "首次 New Mexico licensee 年龄 18 至 24 岁须提交 None for the Road DWI awareness class 完成证明",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Non-Commercial License Procedures"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "25 岁以上且曾有 DWI conviction 的首次申请人也要提交合格课程证明",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Non-Commercial License Procedures"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "首次驾照、续期和补证都会先签发 temporary license，永久卡中央制作后寄到申请时登记的 mailing address",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/where-is-my-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Where Is My License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "已有外州驾照或 New Mexico ID 会打孔，与 temporary license 一起使用时最多可作为 45 天的身份证明",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通驾照费用当前为四年 $18、八年 $34",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/how-much-does-a-driver-license-cost/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "79 岁及以上每年续期但免 renewal fee，76 至 78 岁的期限和费用可能按到 79 岁前剩余年数调整",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/how-much-does-a-driver-license-cost/",
+        "https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Driver License Fees",
+        "对应官方来源：New Mexico MVD Non-Commercial License Procedures"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "续期最早可在到期前 90 天办理，MVD 还允许在过期后最多两年内通过线上续期流程",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/renew-a-driving-credential/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "提前超过 90 天办理会按 replacement 而不是 renewal 处理",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/renew-a-driving-credential/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "地址变化后 10 天内要通知 MVD",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/change-your-address/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "只更新系统记录可在线、传真或邮寄，若要把新地址印到卡上则须到 field office 拍新照片并支付 license fee",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/change-your-address/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 的两份 residency 文件必须显示 New Mexico physical residential address，HC 和 P.O. Box 不接受",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "同一类别可以，但不能由同一实体出具",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "utility bill、bank / credit-card statement、pay stub 和学校文件通常须在 60 天内，insurance bill / card / binder 须在六个月内",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents",
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "租约、购房协议和政府居住证明须保持当前有效",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents",
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "非英文材料要附完整英文翻译并由译者认证",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "只做 abstract translation 不够，翻译件还要覆盖除印章本身外的全部文字",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "用于 REAL ID 的 lawful status 与 identification number 会分别通过 SAVE、USPVS 或 SSOLV 等系统核验，现场提交文件不代表一定能当场通过",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -53662,17 +54319,101 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "document",
-      "claim": "非英文文件必须有完整 certified translation，对中文出生、婚姻或法院文件用户很关键",
+      "claim": "姓名与 identity 文件不一致时，要用 marriage certificate、divorce decree、adoption record 或 court order 串起每一次变化",
       "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
         "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
         "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "改名业务本身也要求原件或认证副本",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/how-do-i-change-the-name-on-my-driver-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Name Change"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "language"
+        "name-change"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "路考由申请人自备与申请 class 相符、已登记、已投保且车况合格的车辆，并携带 registration 与 current insurance proof",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/chapter-11-road-and-written-test-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Road and Written Test Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "州营 office 采用预约制，预约最多可提前 30 天",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/location-events-and-closings/",
+        "https://www.mvd.newmexico.gov/https-www-mvd-newmexico-gov-mvd-direct-appointments/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Location Events and Closings",
+        "对应官方来源：New Mexico MVD Appointment Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "不同地点并非都提供相同 appointment type，迟到超过 10 分钟可能被取消",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/https-www-mvd-newmexico-gov-mvd-direct-appointments/",
+        "https://www.mvd.newmexico.gov/maps-and-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Appointment Rules",
+        "对应官方来源：New Mexico MVD Maps and Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53682,14 +54423,16 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "New Mexico REAL ID 要证明 Lawful Identity and Age、Identification Number 和 New Mexico Residency",
+      "claim": "New Mexico REAL ID 要各准备一份 Lawful Identity and Age、Identification Number，以及两份 New Mexico Residency 证明",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "residency-proof"
@@ -53701,15 +54444,17 @@
       "stateId": "new-mexico",
       "surface": "real-id",
       "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "MVD 明确要求 original 或 certified copy",
+      "context": "document",
+      "claim": "材料须为原件或签发机关认证副本",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -53721,15 +54466,19 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "photocopies、notarized photocopies 和 non-certified copies 不接受，且法律身份和识别号码会做电子核验",
+      "claim": "普通复印件、公证复印件和非认证副本不接受，法律身份和识别号码还要通过电子核验",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -53737,17 +54486,18 @@
       "stateId": "new-mexico",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "REAL ID: Lawful Identity and Age，例如 U.S. passport、birth certificate 或符合条件的移民文件",
+      "context": "document",
+      "claim": "Lawful Identity and Age 准备一份，例如未过期 U.S. passport / passport card、签发机关认证的出生证、Permanent Resident Card、Employment Authorization Document，或符合清单组合要求的 foreign passport 与移民文件",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "document",
         "lawful-presence"
       ],
@@ -53758,17 +54508,19 @@
       "stateId": "new-mexico",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "REAL ID: Identification Number，例如 SSN card、W-2、1099 或带完整 SSN 的 pay stub",
+      "context": "document",
+      "claim": "Identification Number 准备一份，例如 SSN card、W-2、1099、显示当前法定姓名和完整 SSN 的 pay stub，或清单允许的 foreign passport、visa 与 I-94 组合",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
+        "document",
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -53778,17 +54530,96 @@
       "stateId": "new-mexico",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "real-id",
-      "claim": "REAL ID: New Mexico residency，按官方清单准备两份，并注意账单或文件日期限制",
+      "context": "document",
+      "claim": "Identification Number 文件必须显示完整号码",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "只露出末四位的工资单或税表不符合 REAL ID 清单",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "New Mexico residency 准备两份，均须显示本人姓名与相同的 current physical residential address",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents",
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "HC 和 P.O. Box 不能替代实体住址",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两份居住材料可以属于同一类别，但不能来自同一 entity，例如同一家公司的连续两个月账单不能算两份独立证明",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document",
         "residency-proof"
       ],
@@ -53800,16 +54631,20 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Standard license / ID: 一份 identity and age 加两份 New Mexico residency",
+      "claim": "utility、bank / credit-card statement、pay stub 与学校文件通常限 60 天内，insurance bill / card / binder 限六个月内",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents",
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53819,16 +54654,42 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "不需要 SSN，也不需要 fingerprints",
+      "claim": "租约、购房协议及政府文件要保持当前有效",
       "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents",
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "全部 REAL ID 文件须为原件或签发机关认证副本",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
         "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
         "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "ssn"
+        "real-id",
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53838,14 +54699,58 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "非英文文件要配完整 certified English translation",
+      "claim": "photocopy、notarized photocopy 和 non-certified copy 不接受",
       "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
         "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
         "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "当前姓名与 identity document 不一致时，准备 marriage、divorce、adoption 或 court records 形成连续 linking-document chain",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "非英文文件须附译者认证的完整英文翻译",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "language"
@@ -53858,17 +54763,86 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名变化要提供清晰的 linking documents",
+      "claim": "印章的位置和存在应标注，除印章本身外的文字都要翻译",
       "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "MVD 会电子核验 lawful status、美国护照和 identification number，可能分别使用 SAVE、USPVS 与 SSOLV",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
         "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
         "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Standard credential 使用另一份材料表：一般是一份 identity and age 加两份 New Mexico residency，且不要求 SSN 或 fingerprints",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "name-change"
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "无法提供 lawful-status proof 时只能申请 Standard license 或 Standard ID，不能把 Standard 的材料路径用于 REAL ID",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://realid.mvd.newmexico.gov/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53878,14 +54852,16 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "先决定要 REAL ID 还是 Standard credential：只开车和州内一般用途时，Standard 可能够用",
+      "claim": "先判断是否需要用 New Mexico DL / ID 处理国内航班或其他 REAL ID 联邦用途",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -53896,15 +54872,301 @@
       "stateId": "new-mexico",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "如果要 REAL ID，用 New Mexico REAL ID Companion 或 acceptable documents PDF 核对三类材料",
+      "context": "detail",
+      "claim": "已有 TSA 接受的护照等证件时，也可以继续选择 Standard",
       "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "选择 REAL ID 时，用 REAL ID Companion 与 acceptable-documents PDF 分别核对 identity / lawful status、identification number、两份 residency 和 name-change chain",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
         "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
         "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "选择 Standard 时改用 Standard acceptable-documents PDF，不要把两套清单混用",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "无法证明 lawful status 的申请人按 Standard 路线准备",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "检查每份 residency proof 的姓名、相同 physical address、出具 entity 和日期窗口，淘汰 P.O. Box、同一机构的重复账单与过期文件",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID Acceptable Documents",
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "把中文或其他非英文材料做完整 certified English translation，并同时带原件或认证副本及翻译件",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "外州转入带当前实体驾照并预算一次性 $15 record-check fee",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/how-much-does-a-driver-license-cost/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "中国或其他外国驾照持有人至少准备 eye exam 与 written test，并向办理点确认是否还要 road test",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/chapter-11-road-and-written-test-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Road and Written Test Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "首次申请年龄 18 至 24 岁先完成 None for the Road",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Non-Commercial License Procedures"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "需要路考时准备合格车辆、registration 和 current insurance proof",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/chapter-11-road-and-written-test-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Road and Written Test Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "从 Maps & Locations 核对地点、服务类型与临时停业信息",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/maps-and-locations/",
+        "https://www.mvd.newmexico.gov/location-events-and-closings/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Maps and Locations",
+        "对应官方来源：New Mexico MVD Location Events and Closings"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "州营 office 预约，municipal office 另查 walk-in 政策和附加费",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/location-events-and-closings/",
+        "https://www.mvd.newmexico.gov/https-www-mvd-newmexico-gov-mvd-direct-appointments/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Location Events and Closings",
+        "对应官方来源：New Mexico MVD Appointment Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "符合资格的 renewal / replacement 先试 MyMVD",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/renew-a-driving-credential/",
+        "https://eservices.mvd.newmexico.gov/eTapestry/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico MVD Renewal",
+        "对应官方来源：New Mexico MVD Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "首次申领、首次 REAL ID、需要文件核验或要把新地址印到卡上时按现场路线",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/change-your-address/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico MVD Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -53916,19 +55178,24 @@
       "stateId": "new-mexico",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "document",
-      "claim": "把非英文文件送做 certified translation，并整理姓名变化链条",
+      "context": "appointment",
+      "claim": "预约临界过期证件业务前，先询问该 office 采用一年还是五年的 written-test 门槛，并保存答复或预约说明",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/",
+        "https://www.mvd.newmexico.gov/maps-and-locations/"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Non-Commercial License Procedures",
+        "对应官方来源：New Mexico MVD Maps and Locations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "name-change",
-        "language"
+        "appointment",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53937,57 +55204,20 @@
       "stateId": "new-mexico",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "document",
-      "claim": "确认居住证明的日期和 physical residential address 要求，避免 PO Box 或过期账单",
+      "context": "detail",
+      "claim": "办理后核对 mailing address、保存 temporary credential，并用 Where Is My License 查询中央制卡状态",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/where-is-my-license/"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Where Is My License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-mexico",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "需要文件核验时安排 MVD office",
-      "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID Acceptable Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-mexico",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "license",
-      "claim": "只做 renewal / replacement 时再看是否符合线上资格",
-      "sourceUrls": [
-        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：New Mexico MVD Licenses and IDs"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "renewal",
-        "replacement",
-        "online-service"
+        "processing-or-mail",
+        "temporary-credential"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53997,14 +55227,16 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "把 Standard license 当作 REAL ID 去机场或联邦设施使用",
+      "claim": "把 Standard license 当作国内航班或受 REAL ID 规则约束的联邦设施身份证件",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -54016,14 +55248,76 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "detail",
-      "claim": "带普通复印件、拍照件或 notarized photocopy 代替 original / certified copy",
+      "claim": "驾驶资格与联邦身份用途是两件事",
       "sourceUrls": [
-        "https://realid.mvd.newmexico.gov/"
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：New Mexico REAL ID"
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只带一份 residency proof，或两份材料由同一银行、utility company 或其他 entity 出具",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
+        "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID Acceptable Documents",
+        "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "用 P.O. Box 或 HC address 代替 New Mexico physical residential address",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "带普通复印件、手机照片或 notarized photocopy 代替 original / certified copy",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico REAL ID Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -54035,14 +55329,36 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "中文文件没有准备 certified English translation",
+      "claim": "Identification Number 文件只显示 SSN 末四位，没有完整号码",
       "sourceUrls": [
         "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "中文出生、婚姻或法院文件没有完整 certified English translation，或只准备摘要翻译",
+      "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "language"
@@ -54055,17 +55371,256 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "只带当前姓名文件，没带从出生姓名到当前 legal name 的完整变化链",
+      "claim": "当前姓名与 identity 文件不同，却没有带齐每一次 legal-name change 的 linking documents",
       "sourceUrls": [
+        "https://realid.mvd.newmexico.gov/",
         "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf"
       ],
       "sourceLabels": [
+        "对应官方来源：New Mexico REAL ID",
         "对应官方来源：New Mexico REAL ID Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "document",
+        "name-change"
       ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "无法证明 lawful status 时仍按 REAL ID 材料路线预约，没有改选 Standard credential",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://realid.mvd.newmexico.gov/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "首次申请或首次升级 REAL ID 只进入在线续补证系统，没有安排 office 文件核验",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://realid.mvd.newmexico.gov/",
+        "https://eservices.mvd.newmexico.gov/eTapestry/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico REAL ID",
+        "对应官方来源：New Mexico MVD Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "持中国驾照就预设 written 或 road test 都可免除",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/chapter-11-road-and-written-test-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Road and Written Test Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "MVD 明确要求 out-of-country license 申请人参加 written test，路考豁免还受文件核验和翻译影响",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/chapter-11-road-and-written-test-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Road and Written Test Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "foreign-license",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "临近下班才去参加 written test",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "MVD 说明州营 office 通常在下午 3 点后不再开始该考试",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "只预算州定 $18 / $34 license fee，忽略外州转入的 $15 record-check fee 或 municipal office 可能另收的 transaction fee",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/how-much-does-a-driver-license-cost/",
+        "https://www.mvd.newmexico.gov/location-events-and-closings/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Driver License Fees",
+        "对应官方来源：New Mexico MVD Location Events and Closings"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "把 temporary license 单独当作有效身份证件",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "官方说明原外州 license 或 prior New Mexico ID 被打孔后，要与 temporary license 一起出示才可在最多 45 天内用于身份用途",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "搬家超过 10 天仍未通知 MVD，或以为在线改记录会自动寄来印有新地址的卡",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/change-your-address/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-mexico",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "18 至 24 岁首次申请时没有先完成 None for the Road，或曾有 DWI conviction 的 25 岁以上首次申请人没有准备合格课程证明",
+      "sourceUrls": [
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+        "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/apply-for-a-new-driving-credential/",
+        "https://www.mvd.newmexico.gov/chapter-2-non-commercial-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+        "对应官方来源：New Mexico MVD Apply for a New Driving Credential",
+        "对应官方来源：New Mexico MVD Non-Commercial License Procedures"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },

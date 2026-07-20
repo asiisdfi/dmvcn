@@ -1,20 +1,20 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T22:15:19.539Z",
+    "generatedAt": "2026-07-20T22:36:33.375Z",
     "pages": 5,
-    "claims": 650,
+    "claims": 655,
     "statesCovered": 50,
-    "aiAssisted": 496,
-    "automated": 154,
+    "aiAssisted": 509,
+    "automated": 146,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 118,
-        "states": 34
+        "claims": 120,
+        "states": 35
       },
       "deadlines": {
-        "claims": 83,
-        "states": 33
+        "claims": 86,
+        "states": 34
       },
       "document-rules": {
         "claims": 184,
@@ -1400,6 +1400,36 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "new-mexico",
+      "category": "费用",
+      "claim": "普通驾照费用当前为四年 $18、八年 $34",
+      "sourceUrl": "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+      "sourceLabel": "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-mexico",
+      "category": "临时凭证",
+      "claim": "办理后核对 mailing address、保存 temporary credential，并用 Where Is My License 查询中央制卡状态",
+      "sourceUrl": "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+      "sourceLabel": "对应官方来源：New Mexico MVD Driver Licenses and IDs",
+      "themes": [
+        "temporary-credential"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "rhode-island",
       "category": "邮寄 / 卡片",
       "claim": "续期先看 License Renewal，确认是否能 online / mail / AAA，或是否需要 DMV branch",
@@ -2769,6 +2799,48 @@
       "failedThemes": [
         "address-change"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-mexico",
+      "category": "续期 / 到期",
+      "claim": "续期最早可在到期前 90 天办理，MVD 还允许在过期后最多两年内通过线上续期流程",
+      "sourceUrl": "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/renew-a-driving-credential/",
+      "sourceLabel": "对应官方来源：New Mexico MVD Renewal",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-mexico",
+      "category": "续期 / 到期",
+      "claim": "提前超过 90 天办理会按 replacement 而不是 renewal 处理",
+      "sourceUrl": "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/renew-a-driving-credential/",
+      "sourceLabel": "对应官方来源：New Mexico MVD Renewal",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-mexico",
+      "category": "搬家 / 地址",
+      "claim": "地址变化后 10 天内要通知 MVD",
+      "sourceUrl": "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/change-your-address/",
+      "sourceLabel": "对应官方来源：New Mexico MVD Address Change",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -4885,21 +4957,21 @@
       "page": "document-rules",
       "stateId": "new-mexico",
       "category": "地址证明",
-      "claim": "REAL ID: New Mexico residency，按官方清单准备两份，并注意账单或文件日期限制",
-      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
-      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "claim": "New Mexico residency 准备两份，均须显示本人姓名与相同的 current physical residential address",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-mexico",
       "category": "地址证明",
-      "claim": "Standard license / ID: 一份 identity and age 加两份 New Mexico residency",
+      "claim": "HC 和 P.O. Box 不能替代实体住址",
       "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
       "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
       "themes": [
@@ -4907,35 +4979,36 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-mexico",
       "category": "地址证明",
-      "claim": "确认居住证明的日期和 physical residential address 要求，避免 PO Box 或过期账单",
-      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
-      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "claim": "两份居住材料可以属于同一类别，但不能来自同一 entity，例如同一家公司的连续两个月账单不能算两份独立证明",
+      "sourceUrl": "https://www.mvd.newmexico.gov/wp-content/uploads/2023/05/RevisedStandardacceptabledocs3.10.23.pdf",
+      "sourceLabel": "对应官方来源：New Mexico Standard Acceptable Documents, revised 2023-03-10",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-mexico",
       "category": "地址证明",
-      "claim": "New Mexico REAL ID 要证明 Lawful Identity and Age、Identification Number 和 New Mexico Residency",
-      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
-      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "claim": "Standard credential 使用另一份材料表：一般是一份 identity and age 加两份 New Mexico residency，且不要求 SSN 或 fingerprints",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID",
       "themes": [
-        "residency-documents"
+        "residency-documents",
+        "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -8984,58 +9057,61 @@
       "page": "identity-ssn",
       "stateId": "new-mexico",
       "category": "SSN",
-      "claim": "REAL ID: Identification Number，例如 SSN card、W-2、1099 或带完整 SSN 的 pay stub",
-      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
-      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "claim": "Identification Number 准备一份，例如 SSN card、W-2、1099、显示当前法定姓名和完整 SSN 的 pay stub，或清单允许的 foreign passport、visa 与 I-94 组合",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "new-mexico",
       "category": "SSN",
-      "claim": "不需要 SSN，也不需要 fingerprints",
-      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
-      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
-      "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "new-mexico",
-      "category": "SSN",
-      "claim": "Standard Driver License / ID 只需要一份 identity and age 与两份 New Mexico residency，不需要 fingerprints，也不需要 Social Security number",
-      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
-      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "claim": "Standard credential 使用另一份材料表：一般是一份 identity and age 加两份 New Mexico residency，且不要求 SSN 或 fingerprints",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-mexico",
+      "category": "SSN",
+      "claim": "Standard Driver License / ID 的基础文件路径是一份 identity and age 与两份 New Mexico residency，MVD 明确说明不需要 SSN 或指纹",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "new-mexico",
       "category": "lawful presence",
-      "claim": "REAL ID: Lawful Identity and Age，例如 U.S. passport、birth certificate 或符合条件的移民文件",
-      "sourceUrl": "https://realid.mvd.newmexico.gov/REALID-acceptable-docs.pdf",
-      "sourceLabel": "对应官方来源：New Mexico REAL ID Acceptable Documents",
+      "claim": "用于 REAL ID 的 lawful status 与 identification number 会分别通过 SAVE、USPVS 或 SSOLV 等系统核验，现场提交文件不代表一定能当场通过",
+      "sourceUrl": "https://realid.mvd.newmexico.gov/",
+      "sourceLabel": "对应官方来源：New Mexico REAL ID",
       "themes": [
         "immigration-verification"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "immigration-verification"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

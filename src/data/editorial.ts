@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 New Mexico 两页官方正文语义核对',
+    summary:
+      '逐条比对 New Mexico MVD 的 Driver Licenses、new credential、REAL ID / Standard 材料表、non-commercial / testing procedures、knowledge updates、续补证、改名改址、费用、预约、地点、线上服务、制卡状态与 TSA 当前身份证件正文；登记 98 条独立声明的显式来源，并补齐无 SSN 的 Standard 路径、中文笔试、外国驾照考试边界、None for the Road、10 天改址、45 天 temporary credential、费用和预约差异。',
+    scope: [
+      '新墨西哥州办事总览',
+      '新墨西哥州 REAL ID',
+      '98 条独立声明显式核对',
+      '考试门槛冲突与 Standard 路径',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Missouri 两页官方正文语义核对',
     summary:
       '逐条比对 Missouri DOR 的 Driver Licensing Checklist、identity / address requirements、REAL ID、license terms / fees、general / new-card FAQ、law changes，以及 MSHP 的考试 FAQ、DOR-FUSION、Class F language list、exam locator 与 TSA 当前身份证件正文；登记 105 条独立声明的显式来源，并补齐 DOR 签发 / MSHP 考试双入口、美国外州 184 天免试边界、中国驾照完整考试路线、中文笔试、remote renewal、SAVE、费用和 temporary credential 限制。',

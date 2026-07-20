@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T22:15:21.196Z",
+    "generatedAt": "2026-07-20T22:36:35.167Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 81,
+    "passed": 83,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 68,
-    "aiAssistedReviews": 87,
+    "sourceMappedReviews": 66,
+    "aiAssistedReviews": 89,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 85,
+    "blockedPages": 83,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 206,
+        "sourceCount": 208,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 118,
-        "directoryEvidenceLinks": 118,
+        "directoryEvidenceItems": 120,
+        "directoryEvidenceLinks": 120,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 231,
+        "sourceCount": 233,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 83,
-        "directoryEvidenceLinks": 83,
+        "directoryEvidenceItems": 86,
+        "directoryEvidenceLinks": 86,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 577,
+        "sourceCount": 582,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 208,
+        "sourceCount": 209,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 211,
+        "sourceCount": 207,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1316,
+        "sourceCount": 1329,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -3887,21 +3887,21 @@
       "route": "/states/new-mexico/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 91,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成新墨西哥州（New Mexico Motor Vehicle Division）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 New Mexico MVD 的 Driver Licenses、new credential、REAL ID microsite / checklist、Standard checklist、non-commercial / testing procedures、knowledge updates、renewal、replacement、address、name、fees、appointments、closings、locations、online services、card-status 与 TSA 当前身份证件正文。",
+        "notes": "重写 New Mexico 总览与 REAL ID 页面，拆开 Standard / REAL ID、美国外州 / 外国驾照、首次 / 续补证路线；补齐中文笔试、None for the Road、费用、45 天 temporary credential、10 天改址和 municipal fee，并公开标注现行 MVD 页面对过期一年或五年重考门槛的冲突。"
       },
       "scores": {
-        "factsAndSources": 20,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -3911,14 +3911,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 12,
+        "sourceCount": 19,
+        "factCheckCount": 45,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 12,
-        "stateEvidenceLinks": 12,
+        "stateEvidenceItems": 45,
+        "stateEvidenceLinks": 94,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3926,9 +3926,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/new-mexico/real-id/",
@@ -3936,16 +3934,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成新墨西哥州（New Mexico Motor Vehicle Division）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 New Mexico MVD 的 Driver Licenses、new credential、REAL ID microsite / checklist、Standard checklist、non-commercial / testing procedures、knowledge updates、renewal、replacement、address、name、fees、appointments、closings、locations、online services、card-status 与 TSA 当前身份证件正文。",
+        "notes": "重写 New Mexico 总览与 REAL ID 页面，拆开 Standard / REAL ID、美国外州 / 外国驾照、首次 / 续补证路线；补齐中文笔试、None for the Road、费用、45 天 temporary credential、10 天改址和 municipal fee，并公开标注现行 MVD 页面对过期一年或五年重考门槛的冲突。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3958,14 +3956,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 20,
+        "sourceCount": 19,
+        "factCheckCount": 56,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 20,
-        "stateEvidenceLinks": 20,
+        "stateEvidenceItems": 56,
+        "stateEvidenceLinks": 117,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3973,9 +3971,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/new-york/",
