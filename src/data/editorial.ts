@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Oklahoma 两页官方正文语义核对',
+    summary:
+      '逐条比对 Service Oklahoma 的 REAL ID、required documents、首次成人、Learner Permit、written / road tests、美国外州与外国驾照转入、续补证、State ID、改址、locations、公开业务 SOP、Oklahoma 州法与 TSA 当前正文；登记 86 条独立声明的显式来源，并补齐中国大陆与 Taiwan 路线、online English-only written test、English-only road test、SAVE、4 / 8 年费用、10 天改名改址和 temporary credential 邮寄风险。',
+    scope: [
+      '俄克拉荷马州办事总览',
+      '俄克拉荷马州 REAL ID',
+      '86 条独立声明显式核对',
+      '外国驾照、考试语言与线上资格边界',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Louisiana 两页官方正文语义核对',
     summary:
       '逐条比对 Louisiana OMV 的 REAL ID、identification、residency、immigrant / non-immigrant、foreign reciprocity、new license / TIP、permits、driver education、knowledge / road tests、车辆检查、续补证、姓名与 SSN、费用、预约、线上服务、地点与 TSA 当前正文；登记 145 条独立声明的显式来源，并补齐中国大陆与 Taiwan 路线、Cantonese / interpreter 边界、30 天外州转入、Limited-Term、线上资格、2026 fee policy 和邮寄处理。',

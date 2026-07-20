@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T23:26:47.487Z",
+    "generatedAt": "2026-07-20T23:44:28.412Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 89,
+    "passed": 91,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 60,
-    "aiAssistedReviews": 95,
+    "sourceMappedReviews": 58,
+    "aiAssistedReviews": 97,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 77,
+    "blockedPages": 75,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 210,
+        "sourceCount": 212,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 293,
+        "sourceCount": 294,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 132,
-        "directoryEvidenceLinks": 132,
+        "directoryEvidenceItems": 135,
+        "directoryEvidenceLinks": 135,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 240,
+        "sourceCount": 243,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 95,
-        "directoryEvidenceLinks": 95,
+        "directoryEvidenceItems": 98,
+        "directoryEvidenceLinks": 98,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 596,
+        "sourceCount": 601,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 208,
+        "sourceCount": 210,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 150,
+        "sourceCount": 151,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 114,
-        "directoryEvidenceLinks": 114,
+        "directoryEvidenceItems": 113,
+        "directoryEvidenceLinks": 113,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 221,
+        "sourceCount": 224,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 157,
-        "directoryEvidenceLinks": 157,
+        "directoryEvidenceItems": 158,
+        "directoryEvidenceLinks": 158,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 205,
+        "sourceCount": 204,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -700,7 +700,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 191,
+        "sourceCount": 192,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -794,7 +794,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 244,
+        "sourceCount": 245,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 208,
+        "sourceCount": 206,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1375,
+        "sourceCount": 1389,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -4337,21 +4337,21 @@
       "route": "/states/oklahoma/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 91,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成俄克拉荷马州（Service Oklahoma）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Service Oklahoma 当前驾照、REAL ID、材料、首次成人、Learner Permit、written test、road test、外州与外国转入、续补证、State ID、改址、Locations 页面、公开业务 SOP、Oklahoma 现行州法和 TSA 页面，核对两个成品页的材料、期限、资格、考试语言、费用、线上办理和邮寄边界。",
+        "notes": "本轮明确区分美国外州转入、中国大陆非互惠路线、Taiwan reciprocity、临时访客、成人首次申请、online written test、English-only road test、非公民 SAVE 核验、首次与既有 REAL ID、4 / 8 年费用和 10 天改名改址义务。状态为 AI 辅助证据核查，不冒充人工或专业审核。"
       },
       "scores": {
-        "factsAndSources": 20,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -4361,14 +4361,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 10,
+        "sourceCount": 21,
+        "factCheckCount": 36,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 10,
-        "stateEvidenceLinks": 12,
+        "stateEvidenceItems": 36,
+        "stateEvidenceLinks": 78,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4376,9 +4376,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/oklahoma/real-id/",
@@ -4386,16 +4384,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成俄克拉荷马州（Service Oklahoma）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Service Oklahoma 当前驾照、REAL ID、材料、首次成人、Learner Permit、written test、road test、外州与外国转入、续补证、State ID、改址、Locations 页面、公开业务 SOP、Oklahoma 现行州法和 TSA 页面，核对两个成品页的材料、期限、资格、考试语言、费用、线上办理和邮寄边界。",
+        "notes": "本轮明确区分美国外州转入、中国大陆非互惠路线、Taiwan reciprocity、临时访客、成人首次申请、online written test、English-only road test、非公民 SAVE 核验、首次与既有 REAL ID、4 / 8 年费用和 10 天改名改址义务。状态为 AI 辅助证据核查，不冒充人工或专业审核。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4408,14 +4406,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 18,
+        "sourceCount": 21,
+        "factCheckCount": 53,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 18,
-        "stateEvidenceLinks": 20,
+        "stateEvidenceItems": 53,
+        "stateEvidenceLinks": 114,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4423,9 +4421,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/oregon/",

@@ -1,31 +1,31 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T23:26:45.714Z",
+    "generatedAt": "2026-07-20T23:44:26.781Z",
     "pages": 5,
-    "claims": 682,
+    "claims": 688,
     "statesCovered": 50,
-    "aiAssisted": 561,
-    "automated": 121,
+    "aiAssisted": 576,
+    "automated": 112,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 132,
-        "states": 38
+        "claims": 135,
+        "states": 39
       },
       "deadlines": {
-        "claims": 95,
-        "states": 37
+        "claims": 98,
+        "states": 38
       },
       "document-rules": {
         "claims": 184,
         "states": 49
       },
       "foreign-license": {
-        "claims": 114,
+        "claims": 113,
         "states": 37
       },
       "identity-ssn": {
-        "claims": 157,
+        "claims": 158,
         "states": 45
       }
     }
@@ -1580,6 +1580,52 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "oklahoma",
+      "category": "临时凭证",
+      "claim": "办结后保存 temporary credential 和交易编号，30 天未收到实体卡时用 Navigate 查状态并联系 Service Oklahoma",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
+      "themes": [
+        "temporary-credential"
+      ],
+      "failedThemes": [
+        "temporary-credential"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "oklahoma",
+      "category": "邮寄 / 卡片",
+      "claim": "实体卡通常在 30 天内寄达，现场或线上签发的 temporary paper credential 不能作为 TSA 登机身份证件",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
+      "themes": [
+        "temporary-credential"
+      ],
+      "failedThemes": [
+        "temporary-credential"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "oklahoma",
+      "category": "邮寄 / 卡片",
+      "claim": "两份 REAL ID residency 文件要显示 Oklahoma residential address，P.O. Box 只能作 mailing address，不能替代卡面 residence address，ACP 参与者例外",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "new-mexico",
       "category": "费用",
       "claim": "普通驾照费用当前为四年 $18、八年 $34",
@@ -3111,6 +3157,54 @@
       "claim": "补证先看证件是否仍有效、是否在 90 / 180 天续期窗口内以及地址是否正确",
       "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/duplicate-replacement-reconstructed-cards/",
       "sourceLabel": "对应官方来源：Louisiana OMV Duplicate / Replacement Cards",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "oklahoma",
+      "category": "期限提醒",
+      "claim": "办结后保存 temporary credential 和交易编号，30 天未收到实体卡时用 Navigate 查状态并联系 Service Oklahoma",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
+      "themes": [
+        "temporary-credential"
+      ],
+      "failedThemes": [
+        "temporary-credential"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "oklahoma",
+      "category": "期限提醒",
+      "claim": "Taiwan 免试转入要求近 60 天内的英文 driving record，并仍要满足 lawful presence、SAVE 核验和 vision test",
+      "sourceUrl": "https://oklahoma.gov/content/dam/service-oklahoma/intranet/job-resources/sops/a--driver-license/A.02%20-%20Class%20D%20Transfers.pdf",
+      "sourceLabel": "对应官方来源：Service Oklahoma Class D Transfers SOP",
+      "themes": [
+        "lawful-presence",
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "lawful-presence",
+        "immigration-verification"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "oklahoma",
+      "category": "续期 / 到期",
+      "claim": "证件过期超过 3 年要重新参加 written 和 drive exams，普通续期可提前一年办理",
+      "sourceUrl": "https://oklahoma.gov/service/all-pages/renew-and-replace-driver-online.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma Renew or Replace Driver License",
       "themes": [
         "renewal"
       ],
@@ -5108,59 +5202,73 @@
       "page": "document-rules",
       "stateId": "oklahoma",
       "category": "地址证明",
-      "claim": "两份 Oklahoma residency，REAL ID 场景通常按两份准备",
+      "claim": "REAL ID 按类别准备一份 identity / lawful-presence 文件、两份显示本人姓名和 Oklahoma residential address 的 residency 文件、SSN，以及适用的姓名变化与移民文件",
       "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
-      "themes": [
-        "residency-documents"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "oklahoma",
-      "category": "地址证明",
-      "claim": "Oklahoma REAL ID 需要一份 identity、两份 Oklahoma residency、SSN 信息、所有自出生以来姓名变化文件，以及适用时的 immigration / legal presence 文件",
-      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
       "themes": [
         "residency-documents",
         "ssn",
-        "lawful-presence"
+        "immigration-verification"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "immigration-verification"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "oklahoma",
       "category": "地址证明",
-      "claim": "如果同时办 REAL ID，居住证明数量会按 REAL ID 标准增加到两份",
+      "claim": "两份 REAL ID residency 文件要显示 Oklahoma residential address，P.O. Box 只能作 mailing address，不能替代卡面 residence address，ACP 参与者例外",
       "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "oklahoma",
-      "category": "SSN",
-      "claim": "Social Security number",
-      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "category": "地址证明",
+      "claim": "首次成人申请带一份 identity、一份 lawful presence、一份 Oklahoma residency，办 REAL ID 时把 residency 增至两份，并准备 SSN 与适用的 driver-education、姓名和移民文件",
+      "sourceUrl": "https://oklahoma.gov/service/all-pages/new-dl.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma New Driver License 18+",
       "themes": [
-        "ssn"
+        "residency-documents",
+        "ssn",
+        "lawful-presence",
+        "immigration-verification"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence",
+        "immigration-verification"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "oklahoma",
+      "category": "地址证明",
+      "claim": "Taiwan 免试转入要求近 60 天内的英文 driving record，并仍要满足 lawful presence、SAVE 核验和 vision test",
+      "sourceUrl": "https://oklahoma.gov/content/dam/service-oklahoma/intranet/job-resources/sops/a--driver-license/A.02%20-%20Class%20D%20Transfers.pdf",
+      "sourceLabel": "对应官方来源：Service Oklahoma Class D Transfers SOP",
+      "themes": [
+        "lawful-presence",
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "lawful-presence",
+        "immigration-verification"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -7385,31 +7493,18 @@
     {
       "page": "foreign-license",
       "stateId": "oklahoma",
-      "category": "外州 / 加拿大转入",
-      "claim": "Transfer a Driver License：外州驾照转入 Oklahoma 的材料和流程",
-      "sourceUrl": "https://oklahoma.gov/service/all-pages/out-of-state-transfers-dl.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma Out-of-State Transfer",
+      "category": "外国 / 境外驾照",
+      "claim": "外国驾照免试转入只覆盖官方列出的 Canada、France、Germany、South Korea 和 Taiwan 等路线，中国大陆驾照不在名单内，应按首次申请与考试路线确认",
+      "sourceUrl": "https://oklahoma.gov/content/dam/service-oklahoma/intranet/job-resources/sops/a--driver-license/A.02%20-%20Class%20D%20Transfers.pdf",
+      "sourceLabel": "对应官方来源：Service Oklahoma Class D Transfers SOP",
       "themes": [
-        "out-of-state"
+        "foreign-license"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "foreign-license"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "oklahoma",
-      "category": "外州 / 加拿大转入",
-      "claim": "如果是外州搬入，先看 Out-of-State Transfer 页面，再决定是否同步升级 REAL ID",
-      "sourceUrl": "https://oklahoma.gov/service/all-pages/out-of-state-transfers-dl.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma Out-of-State Transfer",
-      "themes": [
-        "new-resident",
-        "out-of-state"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -9344,38 +9439,28 @@
     {
       "page": "identity-ssn",
       "stateId": "oklahoma",
-      "category": "SSN",
-      "claim": "Social Security number",
+      "category": "无 SSN / SSA",
+      "claim": "首次申请必须本人到 Service Oklahoma Licensing Office 或 Licensed Operator，提交一份 identity / lawful-presence 文件、两份 Oklahoma residency、可由 SSA 核验的 SSN，以及适用的完整姓名变化和移民文件",
       "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
       "themes": [
-        "ssn"
+        "residency-documents",
+        "ssn",
+        "immigration-verification"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "immigration-verification"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "oklahoma",
       "category": "SSN",
-      "claim": "实体 SSN card 不强制，但号码要能核验",
+      "claim": "REAL ID 需要一份 identity / lawful presence、两份 Oklahoma residency、SSN 和适用的姓名变化文件",
       "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
-      "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "oklahoma",
-      "category": "SSN",
-      "claim": "Oklahoma REAL ID 需要一份 identity、两份 Oklahoma residency、SSN 信息、所有自出生以来姓名变化文件，以及适用时的 immigration / legal presence 文件",
-      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID Checklist",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
       "themes": [
         "residency-documents",
         "ssn",
@@ -9383,7 +9468,47 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "oklahoma",
+      "category": "SSN",
+      "claim": "REAL ID 按类别准备一份 identity / lawful-presence 文件、两份显示本人姓名和 Oklahoma residential address 的 residency 文件、SSN，以及适用的姓名变化与移民文件",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "immigration-verification"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "oklahoma",
+      "category": "SSN",
+      "claim": "首次成人申请带一份 identity、一份 lawful presence、一份 Oklahoma residency，办 REAL ID 时把 residency 增至两份，并准备 SSN 与适用的 driver-education、姓名和移民文件",
+      "sourceUrl": "https://oklahoma.gov/service/all-pages/new-dl.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma New Driver License 18+",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence",
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence",
+        "immigration-verification"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

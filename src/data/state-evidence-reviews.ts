@@ -8,6 +8,15 @@ export type ReviewedStateEvidence = {
   claims: Record<string, string[]>;
 };
 
+function normalizeReviewedClaims(claims: Record<string, string[]>) {
+  return Object.fromEntries(
+    Object.entries(claims).map(([claim, sources]) => [
+      claim.replace(/[；;。]+$/u, '').trim(),
+      sources,
+    ]),
+  );
+}
+
 const CA_REAL_ID =
   'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/';
 const CA_WHAT_IS_REAL_ID =
@@ -1146,6 +1155,45 @@ const LA_APPOINTMENT =
 const LA_ONLINE = 'https://expresslane.la.gov/omv/online-services/';
 const LA_OFFICES = 'https://offices.omv.la.gov/';
 
+const OK_SERVICES =
+  'https://oklahoma.gov/service/all-services/driving-and-automobiles.html';
+const OK_REAL_ID =
+  'https://oklahoma.gov/service/popular-services/real-id-checklist.html';
+const OK_DOCUMENTS =
+  'https://oklahoma.gov/service/all-pages/required-documents.html';
+const OK_NEW_HUB =
+  'https://oklahoma.gov/service/popular-services/new-dl.html';
+const OK_NEW_ADULT = 'https://oklahoma.gov/service/all-pages/new-dl.html';
+const OK_LEARNER =
+  'https://oklahoma.gov/service/all-pages/learner-permit.html';
+const OK_WRITTEN =
+  'https://oklahoma.gov/service/popular-services/written-test.html';
+const OK_STUDY =
+  'https://oklahoma.gov/service/all-pages/driver-study-hub.html';
+const OK_MANUAL =
+  'https://oklahoma.gov/service/all-pages/driver-manual.html';
+const OK_DRIVE_TEST =
+  'https://oklahoma.gov/service/popular-services/drive-test-center.html';
+const OK_ROAD_TEST_SOP =
+  'https://oklahoma.gov/content/dam/service-oklahoma/intranet/job-resources/sops/d--driver-license---testing/D.03%20-%20Class%20D%20Skills%20Test.pdf';
+const OK_TRANSFER =
+  'https://oklahoma.gov/service/all-pages/out-of-state-transfers-dl.html';
+const OK_TRANSFER_SOP =
+  'https://oklahoma.gov/content/dam/service-oklahoma/intranet/job-resources/sops/a--driver-license/A.02%20-%20Class%20D%20Transfers.pdf';
+const OK_ORIGINAL_SOP =
+  'https://oklahoma.gov/content/dam/service-oklahoma/intranet/job-resources/sops/a--driver-license/A.01%20-%20Original%20Issuance%20-%20Class%20D%20and%20State%20ID.pdf';
+const OK_REAL_ID_SOP =
+  'https://oklahoma.gov/content/dam/service-oklahoma/intranet/job-resources/sops/c--driver-license---other-transactions/C.03%20-%20REAL%20ID.pdf';
+const OK_RENEW =
+  'https://oklahoma.gov/service/all-pages/renew-and-replace-driver-online.html';
+const OK_STATE_ID =
+  'https://oklahoma.gov/service/all-pages/new-state-id.html';
+const OK_ADDRESS =
+  'https://oklahoma.gov/service/popular-services/address-update.html';
+const OK_ADDRESS_STATUTE =
+  'https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os47.pdf';
+const OK_LOCATIONS = 'https://oklahoma.gov/service/locations.html';
+
 const WI_REAL_ID =
   'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/realid.aspx';
 const WI_DOCUMENTATION =
@@ -1388,6 +1436,126 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
     },
   },
 
+  oklahoma: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      OK_SERVICES,
+      OK_REAL_ID,
+      OK_DOCUMENTS,
+      OK_NEW_HUB,
+      OK_NEW_ADULT,
+      OK_LEARNER,
+      OK_WRITTEN,
+      OK_STUDY,
+      OK_MANUAL,
+      OK_DRIVE_TEST,
+      OK_ROAD_TEST_SOP,
+      OK_TRANSFER,
+      OK_TRANSFER_SOP,
+      OK_ORIGINAL_SOP,
+      OK_REAL_ID_SOP,
+      OK_RENEW,
+      OK_STATE_ID,
+      OK_ADDRESS,
+      OK_ADDRESS_STATUTE,
+      OK_LOCATIONS,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开 Service Oklahoma 当前驾照、REAL ID、材料、首次成人、Learner Permit、written test、road test、外州与外国转入、续补证、State ID、改址、Locations 页面、公开业务 SOP、Oklahoma 现行州法和 TSA 页面，核对两个成品页的材料、期限、资格、考试语言、费用、线上办理和邮寄边界。',
+    notes:
+      '本轮明确区分美国外州转入、中国大陆非互惠路线、Taiwan reciprocity、临时访客、成人首次申请、online written test、English-only road test、非公民 SAVE 核验、首次与既有 REAL ID、4 / 8 年费用和 10 天改名改址义务。状态为 AI 辅助证据核查，不冒充人工或专业审核。',
+    claims: normalizeReviewedClaims({
+      'Oklahoma 驾照和 State ID 由 Service Oklahoma 管理，现场服务还可能由 Licensed Operator（原 tag agency）提供': [OK_SERVICES, OK_LOCATIONS],
+      '首次成人申请、美国外州转入、外国驾照、续期补证、改名改址和 REAL ID 的资格与办理点不同，出发前要在 Locations 中按具体业务筛选': [OK_SERVICES, OK_LOCATIONS, OK_NEW_HUB, OK_TRANSFER, OK_RENEW, OK_REAL_ID],
+      'Oklahoma REAL ID 是可选项': [OK_REAL_ID],
+      '首次申请必须本人到 Service Oklahoma Licensing Office 或 Licensed Operator，提交一份 identity / lawful-presence 文件、两份 Oklahoma residency、可由 SSA 核验的 SSN，以及适用的完整姓名变化和移民文件': [OK_REAL_ID, OK_REAL_ID_SOP, OK_DOCUMENTS],
+      '实体 Social Security card 本身不是硬性材料': [OK_REAL_ID, OK_REAL_ID_SOP],
+      '有效或过期不超过 6 个月的美国外州 Class D 驾照，满足记录要求时通常可免 written 和 skills tests，但仍要通过 vision test': [OK_TRANSFER, OK_TRANSFER_SOP],
+      '外国驾照免试转入只覆盖官方列出的 Canada、France、Germany、South Korea 和 Taiwan 等路线，中国大陆驾照不在名单内，应按首次申请与考试路线确认': [OK_TRANSFER_SOP, OK_ORIGINAL_SOP, OK_NEW_ADULT],
+      'Locations 页面会区分 Service Oklahoma Licensing Office 与 Licensed Operator，并显示具体地点提供的业务': [OK_LOCATIONS],
+      '知识考试、路考、首次 REAL ID、非公民文件核验和普通签发的办理点可能不同，先选业务再看 appointment、walk-in 或 waitlist，不能只按离家距离选点': [OK_LOCATIONS, OK_WRITTEN, OK_DRIVE_TEST, OK_REAL_ID, OK_MANUAL],
+      'Oklahoma 同一时间只允许一张 primary credential，不能同时保留普通 State ID 和 driver license，Commercial Learner Permit 例外。': [OK_NEW_HUB, OK_STATE_ID],
+      '首次 Oklahoma 成人 Class D 路线包含 written、vision 和 drive tests，18 岁及以上不强制先办 Learner Permit。': [OK_NEW_ADULT, OK_WRITTEN],
+      '18 岁及以上若为了练习自愿取得 Learner Permit，必须持有至少 30 天后再申请 unrestricted license。': [OK_NEW_ADULT, OK_LEARNER],
+      '有效或过期不超过 6 个月的美国外州 Class D 驾照可在记录合格时免 written 和 skills tests，但仍要通过 vision test。': [OK_TRANSFER, OK_TRANSFER_SOP],
+      '美国外州转入要带原州驾照、另一份 primary identity / lawful-presence 文件、Oklahoma residency、SSN 和适用的姓名变化或移民文件。': [OK_TRANSFER, OK_TRANSFER_SOP, OK_DOCUMENTS],
+      '外州驾照同时升级 REAL ID 时要交两份 Oklahoma residency，不能把原州卡面的星标当作自动延续。': [OK_TRANSFER, OK_REAL_ID, OK_REAL_ID_SOP],
+      'Service Oklahoma 的外国转入 SOP 只列 Canada、France、Germany、South Korea 和 Taiwan 等符合条件的免试路线。': [OK_TRANSFER_SOP],
+      'Taiwan 免试转入要求近 60 天内的英文 driving record，并仍要满足 lawful presence、SAVE 核验和 vision test。': [OK_TRANSFER_SOP],
+      '中国大陆驾照不在当前外国免试转入名单内，不应套用 Taiwan 路线，应先向 Service Oklahoma 确认资格并按首次申请和考试路线准备。': [OK_TRANSFER_SOP, OK_ORIGINAL_SOP, OK_NEW_ADULT],
+      'Service Oklahoma FAQ 接受临时旅行者持有效且当前的 international Driver Permit 或 license 驾驶，但打算在 Oklahoma 居住的人应申请 Oklahoma license。': [OK_NEW_HUB],
+      '线上 written test 目前只有 English，考试为 20 题、60 分钟，答对 15 题通过。': [OK_WRITTEN],
+      '线上 written test 最多失败两次，之后要到现场继续考试，每次失败会在签发时增加 $4。': [OK_WRITTEN],
+      'Oklahoma Class D road test 的指令和沟通只能使用 English，普通口译员不能随车代为翻译。': [OK_ROAD_TEST_SOP],
+      '路考车辆要通过安全检查，registration 和 insurance 必须有效，申请人不能被保险列为 excluded driver。': [OK_NEW_ADULT, OK_DRIVE_TEST],
+      '首次 REAL ID 不能通过 online renewal 获得，已有 REAL ID 且符合续期资格时可以在线保留 REAL ID 标记。': [OK_REAL_ID, OK_RENEW],
+      'REAL ID 需要一份 identity / lawful presence、两份 Oklahoma residency、SSN 和适用的姓名变化文件。': [OK_REAL_ID, OK_REAL_ID_SOP],
+      '实体 Social Security card 不强制，但号码必须提供并通过 SSA 核验，资料不匹配时不能签发 REAL ID。': [OK_REAL_ID_SOP, OK_DOCUMENTS],
+      'REAL ID 姓名与源文件不一致时，要用原件或 certified copy 串起从源文件姓名到当前姓名的每一次变化。': [OK_DOCUMENTS, OK_REAL_ID_SOP],
+      '非公民可在 lawful presence 符合条件时申请 REAL ID，移民文件会通过 SAVE 核验，并可能按身份要求追加 I-20、DS-2019 等文件。': [OK_REAL_ID, OK_DOCUMENTS, OK_REAL_ID_SOP],
+      '使用移民文件办理的非公民通常要在每次 original、renewal 或 replacement 时再次出示文件，证件期限会与移民文件期限衔接。': [OK_MANUAL, OK_RENEW, OK_DOCUMENTS],
+      'Oklahoma 驾照和 State ID 可选 4 年或 8 年，当前 Class D renewal 为 $38.50 或 $77，replacement 均为 $25。': [OK_RENEW, OK_REAL_ID],
+      '当前首次或外州转入 Class D 的 4 年费用为 $42.50，8 年费用为 $81，65 岁及以上 Oklahoma 居民的非 CDL credential 免费。': [OK_REAL_ID, OK_NEW_ADULT, OK_TRANSFER],
+      '线上续补证要求美国公民、有效 Oklahoma 地址、证件未 suspended 且过期不超过 3 年，并排除首次 REAL ID、姓名等资料变化和持移民文件者。': [OK_RENEW],
+      '证件过期超过 3 年要重新参加 written 和 drive exams，普通续期可提前一年办理。': [OK_RENEW, OK_MANUAL],
+      'Oklahoma 法律要求姓名、mailing address、卡面 residence address 或 county 改变后 10 天内申请 replacement。': [OK_ADDRESS_STATUTE, OK_MANUAL],
+      'Service Oklahoma 地址更新不会同步更新 USPS，更新记录后仍要分别处理邮政地址。': [OK_ADDRESS],
+      '实体卡通常在 30 天内寄达，现场或线上签发的 temporary paper credential 不能作为 TSA 登机身份证件。': [OK_REAL_ID, OK_RENEW, TSA_IDENTIFICATION],
+      'REAL ID 按类别准备一份 identity / lawful-presence 文件、两份显示本人姓名和 Oklahoma residential address 的 residency 文件、SSN，以及适用的姓名变化与移民文件。': [OK_REAL_ID, OK_REAL_ID_SOP, OK_DOCUMENTS],
+      'identity 和 lawful-presence 文件必须是 original 或 certified copy，普通 photocopy 和 notarized document 不接受。': [OK_DOCUMENTS],
+      '常见 identity / lawful-presence 文件包括有效美国 passport、州 vital records 签发的 birth certificate、I-551、I-766，或有效外国护照加 visa 和 I-94。': [OK_DOCUMENTS, OK_REAL_ID_SOP],
+      '实体 Social Security card 不要求，申请人必须知道号码，并确保姓名、出生日期和 SSN 能通过 SSA 核验。': [OK_DOCUMENTS, OK_REAL_ID_SOP],
+      '两份 REAL ID residency 文件要显示 Oklahoma residential address，P.O. Box 只能作 mailing address，不能替代卡面 residence address，ACP 参与者例外。': [OK_REAL_ID, OK_REAL_ID_SOP],
+      '18 岁及以上共享住址申请人至少准备一份本人名下邮件，另一份可用同住者文件并配 Affirmation of Shared Residence。': [OK_REAL_ID_SOP],
+      '姓名变化时逐次准备 government-issued marriage certificate、divorce decree、court order 或其他合格文件，移民文件姓名变化还要能在 USCIS 或 SAVE 中核验。': [OK_DOCUMENTS, OK_REAL_ID_SOP],
+      '美国外州转入带当前原州驾照和另一份 primary identity / lawful-presence 文件，原州 Class D 卡过期不得超过 6 个月。': [OK_TRANSFER, OK_TRANSFER_SOP],
+      'Taiwan 互惠路线准备有效台湾驾照和近 60 天内的英文 driving record，并另带 lawful-presence、residency、SSN 与姓名变化材料。': [OK_TRANSFER_SOP, OK_DOCUMENTS],
+      '中国大陆等非互惠外国驾照路线带有效外国驾照、passport、lawful-presence / immigration 文件和 Oklahoma residency，并预留 written、vision 与 drive tests。': [OK_TRANSFER_SOP, OK_ORIGINAL_SOP, OK_NEW_ADULT],
+      '首次成人申请带一份 identity、一份 lawful presence、一份 Oklahoma residency，办 REAL ID 时把 residency 增至两份，并准备 SSN 与适用的 driver-education、姓名和移民文件。': [OK_NEW_ADULT, OK_REAL_ID, OK_DOCUMENTS],
+      'road test 带有效 registration 和当前 insurance，确认车辆安全项目合格且保单没有把申请人列为 excluded driver。': [OK_NEW_ADULT, OK_DRIVE_TEST],
+      '现场续期或补证带一份 identity，改地址时带 Oklahoma residency，改名时带 legal name-change record，非公民每次另带当前 immigration documents。': [OK_RENEW, OK_DOCUMENTS, OK_MANUAL],
+      '线上续补证准备现有实体驾照、driver license number、SSN、付款卡和有效 Oklahoma 地址，遗失实体卡或需要改名时改走现场。': [OK_RENEW],
+      '把原州 REAL ID 星标当作自动转入，没有重新准备两份 Oklahoma residency 和其他 REAL ID 材料。': [OK_TRANSFER, OK_REAL_ID, OK_REAL_ID_SOP],
+      '把中国大陆驾照按 Taiwan reciprocity 办理，误以为可以免 written 和 drive tests。': [OK_TRANSFER_SOP, OK_NEW_ADULT],
+      '短期访客看到 international permit FAQ 后继续套用到已建立 Oklahoma residency 的情形。': [OK_NEW_HUB],
+      '外州驾照过期超过 6 个月仍按免试 transfer 准备，漏掉重新考试风险。': [OK_TRANSFER, OK_TRANSFER_SOP],
+      '第一次成人申请只预约 drive test，没有先完成 written 和 vision 要求。': [OK_NEW_ADULT, OK_WRITTEN],
+      '需要中文笔试却直接进入 online written test，忽略线上当前只提供 English。': [OK_WRITTEN],
+      '计划在 Class D road test 让亲友或口译员随车翻译，忽略考试全程只能用 English 指令。': [OK_ROAD_TEST_SOP],
+      '路考车辆 registration 或 insurance 过期，申请人被列为 excluded driver，或车辆安全检查不合格。': [OK_NEW_ADULT, OK_DRIVE_TEST],
+      '只带一份 Oklahoma 地址证明去办 REAL ID，或把 P.O. Box 当作 residential address。': [OK_REAL_ID, OK_REAL_ID_SOP],
+      '把 identity、lawful presence 和 residency 文件带成普通 photocopy 或 notarized copy。': [OK_DOCUMENTS],
+      '没有实体 Social Security card 就放弃办理，或号码、姓名和出生日期与 SSA 记录不一致。': [OK_DOCUMENTS, OK_REAL_ID_SOP],
+      '只带最近一次 marriage certificate，没有把源文件姓名到当前姓名的每一次变化串起来。': [OK_DOCUMENTS, OK_REAL_ID_SOP],
+      '持移民文件的申请人进入普通在线续期，忽略每次现场出示与 SAVE 核验要求。': [OK_RENEW, OK_DOCUMENTS, OK_MANUAL],
+      '首次加 REAL ID 时选择 online renewal，或误以为 non-compliant credential 不能继续用于合法驾驶。': [OK_REAL_ID, OK_RENEW],
+      '证件过期超过 3 年仍按普通 renewal 准备，没有预留 written 和 drive exams。': [OK_RENEW, OK_MANUAL],
+      '搬家后只向 USPS 改址，没有在 10 天内向 Service Oklahoma 申请 replacement。': [OK_ADDRESS_STATUTE, OK_ADDRESS, OK_MANUAL],
+      '只更新 Service Oklahoma 地址，误以为 USPS 的投递地址会自动同步。': [OK_ADDRESS],
+      '拿 temporary paper credential 去机场，或离出行不足 4 周才首次申请 REAL ID。': [OK_REAL_ID, TSA_IDENTIFICATION],
+      '同时保留 Oklahoma driver license 和 State ID，忽略 primary credential 只能有一张。': [OK_NEW_HUB, OK_STATE_ID],
+      '先判断自己属于首次成人、美国外州转入、外国驾照、Learner Permit、renewal、replacement、name / address change、State ID 还是 first-time REAL ID。': [OK_SERVICES, OK_NEW_HUB, OK_TRANSFER, OK_RENEW, OK_ADDRESS, OK_REAL_ID],
+      '使用 Locations 按业务筛选办理点，确认是 Service Oklahoma Licensing Office 还是 Licensed Operator，并查看 appointment、walk-in、waitlist 和付款方式。': [OK_LOCATIONS],
+      '美国外州转入先核对原卡是否有效或过期不超过 6 个月，再准备原卡、primary identity / lawful presence、residency、SSN 和适用的姓名或移民文件。': [OK_TRANSFER, OK_TRANSFER_SOP, OK_DOCUMENTS],
+      '中国大陆或其他非互惠外国驾照持有人先联系 Service Oklahoma 确认资格，再按首次成人路线准备 written、vision 和 drive tests。': [OK_TRANSFER_SOP, OK_ORIGINAL_SOP, OK_NEW_ADULT],
+      'Taiwan、South Korea、France、Germany 或 Canada 驾照持有人先核对国家专属 driving-record、翻译、交回原卡和年龄条件，再使用 reciprocity 路线。': [OK_TRANSFER_SOP],
+      '首次成人申请先读 Oklahoma Driver Manual，完成 written 与 vision，再用安全、已注册且有有效保险的车辆参加 drive test。': [OK_MANUAL, OK_NEW_ADULT, OK_DRIVE_TEST],
+      '需要线上 written test 时确认可用 English 完成 20 题考试，并准备电脑、摄像头、麦克风和安静环境。': [OK_WRITTEN],
+      '需要中文辅助时不要假设线上考试或 road test 可翻译，先向具体地点询问现场 written-test accommodation，并预先练习 English 路考指令。': [OK_WRITTEN, OK_ROAD_TEST_SOP, OK_LOCATIONS],
+      '先决定是否需要 REAL ID，已有 passport 等 TSA 接受证件且只需州内驾驶时可比较 non-compliant credential。': [OK_REAL_ID, TSA_IDENTIFICATION],
+      '首次 REAL ID 按 identity / lawful presence、SSN、two Oklahoma residency 和完整 name-change chain 分组，只带 original 或 certified copy。': [OK_REAL_ID, OK_DOCUMENTS, OK_REAL_ID_SOP],
+      '共享住址时提前准备本人名下一份地址材料、同住者第二份材料和 Affirmation of Shared Residence，不到柜台才临时解释。': [OK_REAL_ID_SOP],
+      '非公民按当前身份准备 foreign passport、visa、I-94、I-551、I-766、I-20 或 DS-2019 等适用组合，并为 SAVE 额外核验预留时间。': [OK_DOCUMENTS, OK_REAL_ID_SOP, OK_ORIGINAL_SOP],
+      '续补证先检查美国公民身份、Oklahoma 地址、suspension、过期年限、资料变化和是否首次 REAL ID，再决定 online 或 in-person。': [OK_RENEW],
+      '姓名或地址变化后在 10 天内申请 replacement，地址还要分别在 Service Oklahoma 和 USPS 更新。': [OK_ADDRESS_STATUTE, OK_ADDRESS, OK_MANUAL],
+      '付款前核对 4 年或 8 年选项、renewal / original / replacement 类型、失败次数和 65 岁以上免费资格。': [OK_REAL_ID, OK_RENEW, OK_NEW_ADULT, OK_WRITTEN],
+      '办结后保存 temporary credential 和交易编号，30 天未收到实体卡时用 Navigate 查状态并联系 Service Oklahoma。': [OK_REAL_ID, OK_RENEW, OK_NEW_HUB],
+      '有近期航班时至少提前 4 周申请 REAL ID，并另备 passport 等 TSA 接受证件，不依赖 temporary paper credential。': [OK_REAL_ID, TSA_IDENTIFICATION],
+    }),
+  },
   wisconsin: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

@@ -2,8 +2,8 @@
 
 - 页面数：166
 - 高风险待人工签字：17
-- 待逐页官方正文语义核对：60
-- 阻塞项：77
+- 待逐页官方正文语义核对：58
+- 阻塞项：75
 - 弱意图待处理：0
 
 ## 人工签字队列（高风险）
@@ -48,7 +48,6 @@
 | /states/nebraska/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/new-hampshire/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/north-dakota/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/oklahoma/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/rhode-island/ | state-overview | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/south-carolina/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/vermont/ | state-overview | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -62,7 +61,6 @@
 | /states/nebraska/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/new-hampshire/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/north-dakota/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/oklahoma/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/rhode-island/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/south-carolina/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/vermont/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -72,6 +70,8 @@
 | /topics/dmv-scam-text-fake-ticket-toll-real-id-phishing/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/dmv-test-language-translation-interpreter/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/document-checklist/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /topics/driving-record-points-traffic-school/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /topics/first-driver-license-road-test/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 
 ## 阻塞项优先处理
 
