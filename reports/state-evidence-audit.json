@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T22:36:34.210Z",
+    "generatedAt": "2026-07-20T22:48:27.665Z",
     "pages": 100,
     "states": 50,
-    "claims": 3413,
-    "links": 5736,
-    "aiAssistedClaims": 2928,
-    "aiAssistedPages": 66,
+    "claims": 3503,
+    "links": 5947,
+    "aiAssistedClaims": 3045,
+    "aiAssistedPages": 68,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1599,
-        "links": 2652,
+        "claims": 1643,
+        "links": 2755,
         "states": 50
       },
       "real-id": {
-        "claims": 1814,
-        "links": 3084,
+        "claims": 1860,
+        "links": 3192,
         "states": 50
       }
     }
@@ -43647,14 +43647,16 @@
       "surface": "overview",
       "field": "summary",
       "context": "license",
-      "claim": "犹他驾照和 ID 由 Utah Driver License Division 管理",
+      "claim": "Utah Driver License Division 按移民身份签发三类驾驶证件：美国公民、美国国民或永久居民走 Regular",
       "sourceUrls": [
-        "https://dld.utah.gov/regular-renewal/"
+        "https://dld.utah.gov/what-is-a-regular-driver-license/",
+        "https://dld.utah.gov/wp-content/uploads/Driver-Handbook-REV-3.2026.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Regular Renewal"
+        "对应官方来源：What Is a Regular Driver License",
+        "对应官方来源：Utah Driver Handbook March 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test"
       ],
@@ -43666,18 +43668,18 @@
       "surface": "overview",
       "field": "summary",
       "context": "document",
-      "claim": "Utah 的驾照/ID 材料页把身份、合法身份、SSN、Utah 地址和姓名变更分成清单，适合先按材料类别整理",
+      "claim": "有合法居留文件的非公民走 Limited-Term",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
+        "https://dld.utah.gov/what-is-a-limited-term-driver-license/",
+        "https://dld.utah.gov/wp-content/uploads/Driver-Handbook-REV-3.2026.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：What Is a Limited-Term Driver License",
+        "对应官方来源：Utah Driver Handbook March 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "ssn",
-        "name-change",
         "lawful-presence"
       ],
       "uncoveredThemes": [],
@@ -43686,25 +43688,55 @@
     {
       "stateId": "utah",
       "surface": "overview",
-      "field": "licenseSummary",
-      "context": "license",
-      "claim": "续期、地址变更、补证和外州转入不应混在一起",
+      "field": "summary",
+      "context": "real-id",
+      "claim": "无法取得 REAL ID 的部分 parolee 或 undocumented immigrant 可申请 Driving Privilege Card",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/",
-        "https://dld.utah.gov/address-change-regular/",
-        "https://dld.utah.gov/regular-renewal/"
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/",
+        "https://dld.utah.gov/parolee-or-undocumented-immigrant/",
+        "https://dld.utah.gov/wp-content/uploads/Driver-Handbook-REV-3.2026.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation",
-        "对应官方来源：Utah DLD Address Change",
-        "对应官方来源：Utah DLD Regular Renewal"
+        "对应官方来源：What Is a Driving Privilege Card",
+        "对应官方来源：Parolee or Undocumented Immigrant Documents",
+        "对应官方来源：Utah Driver Handbook March 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "summary",
+      "context": "license",
+      "claim": "先选对证件类型，再判断是首次申请、美国外州转入、外国驾照、续期或补证",
+      "sourceUrls": [
+        "https://dld.utah.gov/driver-licensing-services/",
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/regular-renewal/",
+        "https://dld.utah.gov/regular-replacement/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Driver Licensing Services",
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：Regular Driver License Renewal",
+        "对应官方来源：Regular Driver License Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "renewal",
         "replacement",
-        "transfer"
+        "transfer",
+        "foreign-license"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -43714,20 +43746,72 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "license",
-      "claim": "Utah DLD 提供 online renewal、address change 和 adult original / out-of-state 相关入口，系统会按资格分流",
+      "claim": "持有效美国外州或外国驾照申请 Utah 驾照时，通常参加 25 题 open-book knowledge test",
       "sourceUrls": [
-        "https://dld.utah.gov/address-change-regular/",
-        "https://dld.utah.gov/regular-renewal/"
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/written-knowledge-test/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Address Change",
-        "对应官方来源：Utah DLD Regular Renewal"
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：Written Knowledge Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "renewal",
-        "online-service"
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "从未持证者参加 50 题 closed-book test，并完成 Traffic Safety and Trends exam 与驾驶技能考试",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/driving-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "DLD 可接受有效外国驾照作为既往驾驶资格证明，但仍可能要求路考，不应理解为中国驾照可以直接免试换证",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -43737,18 +43821,23 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Utah REAL ID / identification requirements 要围绕身份、lawful status、SSN、Utah residency 和姓名一致性准备",
+      "claim": "Utah 的 Regular 和符合条件的 Limited-Term credential 按 REAL ID 文件路径核验",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
+        "https://dld.utah.gov/what-is-a-regular-driver-license/",
+        "https://dld.utah.gov/what-is-a-limited-term-driver-license/",
+        "https://dld.utah.gov/required-documents/",
+        "https://dld.utah.gov/wp-content/uploads/Driver-Handbook-REV-3.2026.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：What Is a Regular Driver License",
+        "对应官方来源：What Is a Limited-Term Driver License",
+        "对应官方来源：Utah DLD Required Documents Hub",
+        "对应官方来源：Utah Driver Handbook March 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "residency-proof",
-        "ssn"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -43758,17 +43847,63 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "首次办证、外州转入或升级时，应从 DLD required documents 页面开始",
+      "claim": "申请人通常要提交身份与出生日期、SSN、合法身份和两份 90 天内的 Utah 住址证明",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
+        "https://dld.utah.gov/required-documents-for-us-citizen/",
+        "https://dld.utah.gov/required-documents-non-us-citizen/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：Required Documents for U.S. Citizens",
+        "对应官方来源：Required Documents for Non-U.S. Citizens"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "transfer"
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Driving Privilege Card 不是 Utah 政府身份证件，也不能代替 REAL ID 登机",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Driving Privilege Card",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "license",
+      "claim": "首次申请、外州或外国驾照转入和 DPC 首次申请都走现场路线",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -43778,16 +43913,18 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "Utah DLD 办事处和 online services 的可办事项不同",
+      "claim": "先在 Driver Licensing Services 选择准确业务，再从对应服务页预约并核对办理地点",
       "sourceUrls": [
-        "https://dld.utah.gov/driver-licensing-services/"
+        "https://dld.utah.gov/driver-licensing-services/",
+        "https://dld.utah.gov/office-locations/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Driver Licensing Services"
+        "对应官方来源：Utah DLD Driver Licensing Services",
+        "对应官方来源：Utah DLD Office Locations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "online-service"
+        "appointment"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -43796,23 +43933,224 @@
       "stateId": "utah",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "首次申请、REAL ID 材料核验、姓名变化或外州转入时，先看 required documents，再预约或进入对应业务入口",
+      "context": "document",
+      "claim": "Limited-Term 申请人要先在预审 portal 上传移民文件并等待 DLD 通知，再预约到场",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/",
-        "https://dld.utah.gov/driver-licensing-services/"
+        "https://dld.utah.gov/limited-term-portal/",
+        "https://dld.utah.gov/limited-term-original/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation",
-        "对应官方来源：Utah DLD Driver Licensing Services"
+        "对应官方来源：Limited-Term Prequalification Portal",
+        "对应官方来源：Limited-Term Original Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "document",
-        "name-change",
+        "lawful-presence",
         "appointment",
-        "transfer"
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Regular Class D 面向美国公民、美国国民和 lawful permanent resident",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-regular-driver-license/",
+        "https://dld.utah.gov/regular-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Regular Driver License",
+        "对应官方来源：Regular Original Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "成年人的证件通常有效 8 年，未成年人通常为 5 年",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-regular-driver-license/",
+        "https://dld.utah.gov/regular-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Regular Driver License",
+        "对应官方来源：Regular Original Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Limited-Term Class D 面向有 lawful presence 的非公民",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-limited-term-driver-license/",
+        "https://dld.utah.gov/limited-term-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Limited-Term Driver License",
+        "对应官方来源：Limited-Term Original Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "到期日取移民文件到期日或 5 年中较早者，文件没有到期日时通常只签发 1 年",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-limited-term-driver-license/",
+        "https://dld.utah.gov/limited-term-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Limited-Term Driver License",
+        "对应官方来源：Limited-Term Original Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Driving Privilege Card 是 Class D 驾驶用途证件，不是 Utah 政府身份证件，也不能用于 CDL、motorcycle endorsement 或申请 Utah ID card",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/",
+        "https://dld.utah.gov/wp-content/uploads/Driver-Handbook-REV-3.2026.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Driving Privilege Card",
+        "对应官方来源：Utah Driver Handbook March 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "它通常在签发后的第一个生日到期",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Driving Privilege Card",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "没有 SSN 的 DPC 申请人要提供 ITIN 或相应 IRS 文件",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/",
+        "https://dld.utah.gov/parolee-or-undocumented-immigrant/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Driving Privilege Card",
+        "对应官方来源：Parolee or Undocumented Immigrant Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "首次 DPC 还要提交获准机构制作并传送的 fingerprint card 和照片",
+      "sourceUrls": [
+        "https://dld.utah.gov/parolee-or-undocumented-immigrant/",
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/dpc-fingerprint-vendors/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Parolee or Undocumented Immigrant Documents",
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：DPC Fingerprint Vendors"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Utah 居民通常包括把 Utah 作为住所、一个日历年居住六个月以上、在州内就业或取得居民待遇等情形",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-regular-driver-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Regular Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "个案仍应以 DLD 的 residency 定义为准",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-regular-driver-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Regular Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -43822,18 +44160,320 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "地址变更和 renewal 是不同业务",
+      "claim": "持有效美国外州或外国驾照的访客通常可在 Utah 驾驶不超过六个月，但外州 learner permit 不能在 Utah 使用",
       "sourceUrls": [
-        "https://dld.utah.gov/regular-renewal/",
-        "https://dld.utah.gov/required-documents/"
+        "https://dld.utah.gov/wp-content/uploads/Driver-Handbook-REV-3.2026.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Regular Renewal",
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：Utah Driver Handbook March 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "成为居民后应按本州申请路径办理",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-regular-driver-license/",
+        "https://dld.utah.gov/driver-licensing-services/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Regular Driver License",
+        "对应官方来源：Utah DLD Driver Licensing Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "首次申领且从未持证者参加 50 题 closed-book test",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/written-knowledge-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：Written Knowledge Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "持有效美国外州或外国驾照者通常参加 25 题 open-book test",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/written-knowledge-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：Written Knowledge Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "DLD 可把有效外国驾照当作既往驾驶资格证明，但申请人仍要参加对应笔试，且可能被要求路考",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "中国驾照不存在页面承诺的直接换证或全面免试",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Regular 和 Limited-Term 笔试在可用时可选择 Mandarin Chinese 文字与音频",
+      "sourceUrls": [
+        "https://dld.utah.gov/written-knowledge-test/",
+        "https://dld.utah.gov/in-person-interpreter/",
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Written Knowledge Test",
+        "对应官方来源：In-Person Interpreter",
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "若所需语言不可用，可使用 DLD 批准的口译员",
+      "sourceUrls": [
+        "https://dld.utah.gov/written-knowledge-test/",
+        "https://dld.utah.gov/in-person-interpreter/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Written Knowledge Test",
+        "对应官方来源：In-Person Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "DPC 的首次申请和续期笔试只能使用英语，翻译材料也不允许带入",
+      "sourceUrls": [
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/dpc-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：DPC Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "renewal",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "首次驾驶人除 50 题笔试外，还要完成 Traffic Safety and Trends exam 并通过 skills test",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/driving-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "DLD 路考要自备已注册、符合法律和安全要求且安全带正常的车辆",
+      "sourceUrls": [
+        "https://dld.utah.gov/driving-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "同一天最多参加两次 knowledge test",
+      "sourceUrls": [
+        "https://dld.utah.gov/written-knowledge-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Written Knowledge Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "累计三次未通过后要重新付费",
+      "sourceUrls": [
+        "https://dld.utah.gov/written-knowledge-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Written Knowledge Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "skills test 也应在申请后六个月内完成，三次失败后要再付费",
+      "sourceUrls": [
+        "https://dld.utah.gov/driving-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通驾照可在到期前六个月续期",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Driver License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "renewal"
       ],
       "uncoveredThemes": [],
@@ -43844,19 +44484,17 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "license",
-      "claim": "搬家后先确保 Utah DLD 记录地址正确，再做补证或续期更稳妥",
+      "claim": "online renewal 只向符合资格且收到 PIN 的申请人开放，上次已在线续期、证件过期超过一年、存在驾驶记录或医疗限制等情况要现场办理",
       "sourceUrls": [
-        "https://dld.utah.gov/address-change-regular/",
         "https://dld.utah.gov/regular-renewal/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Address Change",
-        "对应官方来源：Utah DLD Regular Renewal"
+        "对应官方来源：Regular Driver License Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
-        "replacement"
+        "online-service"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -43865,20 +44503,339 @@
       "stateId": "utah",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "document",
-      "claim": "外州转入、非公民身份、姓名不一致时，线上路径可能不足以完成核验",
+      "context": "license",
+      "claim": "DPC 可以提前六个月续期，但不能在线续期",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/",
+        "https://dld.utah.gov/dpc-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：DPC Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "DPC 过期超过六个月、存在 suspension 或多于一次 citation 时可能要重考 25 题英语笔试",
+      "sourceUrls": [
+        "https://dld.utah.gov/dpc-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：DPC Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Utah 地址变化后应在 10 天内在线更新 DLD 记录",
+      "sourceUrls": [
+        "https://dld.utah.gov/address-change-regular/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "USPS 地址变更不会同步到 DLD，想把新地址印在卡上还要办理 renewal 或 replacement",
+      "sourceUrls": [
+        "https://dld.utah.gov/address-change-regular/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [
+        "renewal"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "原件丢失、损坏或资料变化且距离到期超过六个月时走 replacement",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-replacement/",
+        "https://dld.utah.gov/dpc-replacement/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Driver License Replacement",
+        "对应官方来源：DPC Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "replacement"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "距离到期六个月内通常应走 renewal",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-replacement/",
+        "https://dld.utah.gov/dpc-replacement/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Driver License Replacement",
+        "对应官方来源：DPC Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "当前费用表列出成年 Regular original $52、Limited-Term original $32、DPC original $32",
+      "sourceUrls": [
+        "https://dld.utah.gov/fees/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Fee Schedule"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "首次 DPC 另收 $30 fingerprint fee",
+      "sourceUrls": [
+        "https://dld.utah.gov/fees/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Fee Schedule",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Regular 现场续期 $52、符合资格的 online renewal $42，65 岁以上分别为 $27 和 $22",
+      "sourceUrls": [
+        "https://dld.utah.gov/fees/",
         "https://dld.utah.gov/regular-renewal/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation",
-        "对应官方来源：Utah DLD Regular Renewal"
+        "对应官方来源：Utah DLD Fee Schedule",
+        "对应官方来源：Regular Driver License Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "lawful-presence",
-        "online-service"
+        "renewal",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "DPC renewal 与各类 replacement 当前均为 $23",
+      "sourceUrls": [
+        "https://dld.utah.gov/fees/",
+        "https://dld.utah.gov/dpc-renewal/",
+        "https://dld.utah.gov/regular-replacement/",
+        "https://dld.utah.gov/dpc-replacement/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Fee Schedule",
+        "对应官方来源：DPC Renewal",
+        "对应官方来源：Regular Driver License Replacement",
+        "对应官方来源：DPC Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "现场完成 Regular 或 Limited-Term 后通常会取得 temporary license，实体卡约 4 至 6 周寄到",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/regular-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Regular Driver License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "DPC 首次或续期现场只给 no-privilege receipt，不能据此驾驶",
+      "sourceUrls": [
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/dpc-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：DPC Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "申请人不能同时保留两张 REAL ID-compliant credential，例如 Utah driver license 与另一州 ID",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/wp-content/uploads/Driver-Handbook-REV-3.2026.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Utah Driver Handbook March 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "办理前要准备交回或处理现有证件",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 不是搭乘美国国内航班的唯一选择",
+      "sourceUrls": [
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "没有合格 REAL ID 时，应改用 TSA 当前接受的 passport 等身份证件",
+      "sourceUrls": [
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -43888,18 +44845,23 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Utah REAL ID / identification requirements 要围绕身份、lawful status、SSN、Utah residency 和姓名一致性准备",
+      "claim": "Utah 的 Regular 和符合条件的 Limited-Term credential 按 REAL ID 文件路径核验",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
+        "https://dld.utah.gov/what-is-a-regular-driver-license/",
+        "https://dld.utah.gov/what-is-a-limited-term-driver-license/",
+        "https://dld.utah.gov/required-documents/",
+        "https://dld.utah.gov/wp-content/uploads/Driver-Handbook-REV-3.2026.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：What Is a Regular Driver License",
+        "对应官方来源：What Is a Limited-Term Driver License",
+        "对应官方来源：Utah DLD Required Documents Hub",
+        "对应官方来源：Utah Driver Handbook March 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "residency-proof",
-        "ssn"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -43909,36 +44871,18 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "首次办证、外州转入或升级时，应从 DLD required documents 页面开始",
+      "claim": "申请人通常要提交身份与出生日期、SSN、合法身份和两份 90 天内的 Utah 住址证明",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
+        "https://dld.utah.gov/required-documents-for-us-citizen/",
+        "https://dld.utah.gov/required-documents-non-us-citizen/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：Required Documents for U.S. Citizens",
+        "对应官方来源：Required Documents for Non-U.S. Citizens"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "transfer"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "utah",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "identity / lawful presence 文件",
-      "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
+        "ssn",
         "lawful-presence"
       ],
       "uncoveredThemes": [],
@@ -43947,16 +44891,230 @@
     {
       "stateId": "utah",
       "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Driving Privilege Card 不是 Utah 政府身份证件，也不能代替 REAL ID 登机",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Driving Privilege Card",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Social Security Number 相关证明",
+      "claim": "美国公民、美国国民或永久居民准备一份 identity and date of birth、一份 SSN 证明和两份显示当前 Utah 地址、日期在 90 天内的文件",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents-for-us-citizen/",
+        "https://dld.utah.gov/regular-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Required Documents for U.S. Citizens",
+        "对应官方来源：Regular Original Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "有 lawful presence 的非公民还要准备当前移民文件，并按 Limited-Term portal 提前上传",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents-non-us-citizen/",
+        "https://dld.utah.gov/limited-term-portal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Required Documents for Non-U.S. Citizens",
+        "对应官方来源：Limited-Term Prequalification Portal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "DLD 会通过 SAVE 核验身份状态",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents-non-us-citizen/",
+        "https://dld.utah.gov/limited-term-portal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Required Documents for Non-U.S. Citizens",
+        "对应官方来源：Limited-Term Prequalification Portal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "DPC 首次申请要分别准备 primary identity、secondary identity、SSN 或 ITIN / IRS 文件、两份 90 天内的 Utah 地址证明，以及 fingerprint card 和照片",
+      "sourceUrls": [
+        "https://dld.utah.gov/parolee-or-undocumented-immigrant/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Parolee or Undocumented Immigrant Documents",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "身份证明通常须为原件或有签发机关 seal、stamp 或 signature 的 certified copy",
       "sourceUrls": [
         "https://dld.utah.gov/required-documents/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：Utah DLD Required Documents Hub"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "普通复印件、传真件、覆膜出生证和医院出生证明不接受",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Required Documents Hub"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "外国文件要附 certified translation",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents/",
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Required Documents Hub",
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "不能只带自己翻译的中文说明",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Required Documents Hub"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "当前姓名与 identity 文件不一致时，带 certified marriage certificate、divorce decree、court order 或其他能串起每次变化的文件",
+      "sourceUrls": [
+        "https://dld.utah.gov/name-change-regular-license/",
+        "https://dld.utah.gov/required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Name Change",
+        "对应官方来源：Utah DLD Required Documents Hub"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "SSN 替代证明必须显示完整号码",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents-for-us-citizen/",
+        "https://dld.utah.gov/required-documents-non-us-citizen/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Required Documents for U.S. Citizens",
+        "对应官方来源：Required Documents for Non-U.S. Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -43968,16 +45126,38 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 Utah residency 证明，按 DLD required documents 页面确认",
+      "claim": "没有资格取得 SSN 的 lawful-presence 申请人按清单准备 SSA ineligibility letter",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
+        "https://dld.utah.gov/required-documents-non-us-citizen/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：Required Documents for Non-U.S. Citizens"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两份 Utah residency 证明都要显示本人姓名和当前 residential address",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents-for-us-citizen/",
+        "https://dld.utah.gov/required-documents-non-us-citizen/",
+        "https://dld.utah.gov/parolee-or-undocumented-immigrant/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Required Documents for U.S. Citizens",
+        "对应官方来源：Required Documents for Non-U.S. Citizens",
+        "对应官方来源：Parolee or Undocumented Immigrant Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -43988,17 +45168,39 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名变化时，准备能连接当前 legal name 的文件",
+      "claim": "未成年人的地址文件可按 DLD 规则使用寄给父母或 legal guardian 的邮件",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
+        "https://dld.utah.gov/required-documents-for-us-citizen/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：Required Documents for U.S. Citizens"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "name-change"
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "外州或外国驾照申请人带当前驾照",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -44008,37 +45210,42 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "外州转入或首次办证时，带现有证件、身份文件和 Utah 地址材料",
+      "claim": "美国外州证件通常需要交回，外国驾照和外国材料的处理以现场核验为准",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "transfer"
+        "foreign-license"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document"
+      ],
       "valid": true
     },
     {
       "stateId": "utah",
       "surface": "real-id",
-      "field": "recommendedSteps",
+      "field": "documentHighlights",
       "context": "document",
-      "claim": "先打开 Utah DLD required documents 页面，按身份、SSN、地址、姓名四组材料整理",
+      "claim": "参加 DLD skills test 时带自己的车辆，并准备有效 registration",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
+        "https://dld.utah.gov/driving-test/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：Driving Skills Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "ssn"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -44046,16 +45253,100 @@
     {
       "stateId": "utah",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "如果刚搬到 Utah，先看 adult original / out-of-state license 路径",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "车辆要符合法律和安全要求且安全带可用",
+      "sourceUrls": [
+        "https://dld.utah.gov/driving-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "补证时带当前证件",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-replacement/",
+        "https://dld.utah.gov/dpc-replacement/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Driver License Replacement",
+        "对应官方来源：DPC Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "证件遗失时重新准备 identity 文件，地址已变则准备两份地址证明或先在线更新",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-replacement/",
+        "https://dld.utah.gov/dpc-replacement/",
+        "https://dld.utah.gov/address-change-regular/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Driver License Replacement",
+        "对应官方来源：DPC Replacement",
+        "对应官方来源：Utah DLD Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "所有原始材料可能被扫描并安全保存后退还",
       "sourceUrls": [
         "https://dld.utah.gov/required-documents/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
+        "对应官方来源：Utah DLD Required Documents Hub"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "电子核验或额外审批可能超过一天并需要再次到场",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Required Documents Hub"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -44065,14 +45356,367 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "地址变化时先使用 DLD address change 页面更新记录",
+      "claim": "先按移民身份确认 Regular、Limited-Term 或 DPC",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-regular-driver-license/",
+        "https://dld.utah.gov/what-is-a-limited-term-driver-license/",
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Regular Driver License",
+        "对应官方来源：What Is a Limited-Term Driver License",
+        "对应官方来源：What Is a Driving Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要的是驾驶许可还是仅 ID card 也要分开",
+      "sourceUrls": [
+        "https://dld.utah.gov/driver-licensing-services/",
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Driver Licensing Services",
+        "对应官方来源：What Is a Driving Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "再选择 original、U.S. out-of-state、foreign license、renewal、replacement、name change 或 address change，避免进入错误服务",
+      "sourceUrls": [
+        "https://dld.utah.gov/driver-licensing-services/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Driver Licensing Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "name-change",
+        "renewal",
+        "replacement",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "address-change",
+        "name-change",
+        "renewal",
+        "replacement",
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "打开对应 Required Documents 清单，按 identity / date of birth、lawful presence、SSN 或 ITIN、Utah residency 和 name-change chain 分组",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents/",
+        "https://dld.utah.gov/required-documents-for-us-citizen/",
+        "https://dld.utah.gov/required-documents-non-us-citizen/",
+        "https://dld.utah.gov/parolee-or-undocumented-immigrant/",
+        "https://dld.utah.gov/name-change-regular-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Required Documents Hub",
+        "对应官方来源：Required Documents for U.S. Citizens",
+        "对应官方来源：Required Documents for Non-U.S. Citizens",
+        "对应官方来源：Parolee or Undocumented Immigrant Documents",
+        "对应官方来源：Utah DLD Name Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "Limited-Term 申请人先在 prequalification portal 上传移民文件，等待 DLD 的 email 或 text 通知后再预约",
+      "sourceUrls": [
+        "https://dld.utah.gov/limited-term-portal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Limited-Term Prequalification Portal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "appointment",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "首次 DPC 申请人先联系 approved fingerprint vendor 或 law-enforcement agency，完成 fingerprint card 与照片",
+      "sourceUrls": [
+        "https://dld.utah.gov/dpc-fingerprint-vendors/",
+        "https://dld.utah.gov/parolee-or-undocumented-immigrant/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：DPC Fingerprint Vendors",
+        "对应官方来源：Parolee or Undocumented Immigrant Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "外国驾照持有人带有效原证和 certified translation，按 25 题 open-book test 准备，同时为 DLD 可能要求的 skills test 留出时间",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "Regular / Limited-Term 需要中文笔试时，预约前向具体 office 确认 Mandarin Chinese 文字或音频可用性",
+      "sourceUrls": [
+        "https://dld.utah.gov/written-knowledge-test/",
+        "https://dld.utah.gov/in-person-interpreter/",
+        "https://dld.utah.gov/office-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Written Knowledge Test",
+        "对应官方来源：In-Person Interpreter",
+        "对应官方来源：Utah DLD Office Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "DPC 则按全英语考试准备",
+      "sourceUrls": [
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/dpc-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：DPC Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "从未持证者学习当前 Utah Driver Handbook，准备 50 题 closed-book test、Traffic Safety and Trends exam 与 skills test",
+      "sourceUrls": [
+        "https://dld.utah.gov/wp-content/uploads/Driver-Handbook-REV-3.2026.pdf",
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah Driver Handbook March 2026",
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要路考时确认车辆 registration、安全状态和安全带",
+      "sourceUrls": [
+        "https://dld.utah.gov/driving-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "可选择 DLD 或获准 third-party tester",
+      "sourceUrls": [
+        "https://dld.utah.gov/driving-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "在 Driver Licensing Services 中选业务并预约合适 office",
+      "sourceUrls": [
+        "https://dld.utah.gov/driver-licensing-services/",
+        "https://dld.utah.gov/office-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Driver Licensing Services",
+        "对应官方来源：Utah DLD Office Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "不同 office 的服务和营业安排应在出发前复核",
+      "sourceUrls": [
+        "https://dld.utah.gov/office-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Office Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期先检查是否收到 online PIN 及所有 eligibility 条件",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Driver License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "DPC renewal、身份或姓名核验等情形直接按现场路线",
+      "sourceUrls": [
+        "https://dld.utah.gov/dpc-renewal/",
+        "https://dld.utah.gov/name-change-regular-license/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：DPC Renewal",
+        "对应官方来源：Utah DLD Name Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "搬家后先在 10 天内在线更新 DLD 地址",
       "sourceUrls": [
         "https://dld.utah.gov/address-change-regular/"
       ],
       "sourceLabels": [
         "对应官方来源：Utah DLD Address Change"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "address-change"
       ],
@@ -44084,17 +45728,90 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "license",
-      "claim": "续期先看 regular renewal / online renewal 资格，再决定线上或现场",
+      "claim": "需要新地址印卡时再选择 renewal 或 replacement",
       "sourceUrls": [
-        "https://dld.utah.gov/regular-renewal/"
+        "https://dld.utah.gov/address-change-regular/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Regular Renewal"
+        "对应官方来源：Utah DLD Address Change"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
-        "online-service"
+        "replacement"
+      ],
+      "uncoveredThemes": [
+        "renewal"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "付款前在 fee page 核对当前基础费用、首次 DPC fingerprint fee 和可能的再次考试费用",
+      "sourceUrls": [
+        "https://dld.utah.gov/fees/",
+        "https://dld.utah.gov/written-knowledge-test/",
+        "https://dld.utah.gov/driving-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Fee Schedule",
+        "对应官方来源：Written Knowledge Test",
+        "对应官方来源：Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "办结后确认拿到的是可驾驶的 temporary license 还是 DPC no-privilege receipt，并用可靠地址等待 4 至 6 周实体卡",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/dpc-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：DPC Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "近期搭乘国内航班时不要依赖尚未寄到的卡或 DPC",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Driving Privilege Card",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -44104,22 +45821,16 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "到场前再次核对预约、原件、付款方式和是否需要额外身份文件",
+      "claim": "提前准备 TSA 接受的 passport 等替代身份证件",
       "sourceUrls": [
-        "https://dld.utah.gov/required-documents/",
-        "https://dld.utah.gov/regular-renewal/",
-        "https://dld.utah.gov/driver-licensing-services/"
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation",
-        "对应官方来源：Utah DLD Regular Renewal",
-        "对应官方来源：Utah DLD Driver Licensing Services"
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "appointment",
-        "fee"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -44129,14 +45840,250 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "license",
-      "claim": "先点 online renewal，却没有确认本人是否符合线上资格",
+      "claim": "只按“是否有驾照”选路线，没有先区分 Regular、Limited-Term 和 DPC 的身份资格",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-regular-driver-license/",
+        "https://dld.utah.gov/what-is-a-limited-term-driver-license/",
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Regular Driver License",
+        "对应官方来源：What Is a Limited-Term Driver License",
+        "对应官方来源：What Is a Driving Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "把 DPC 当作 Utah 政府 ID、REAL ID 或国内航班身份证件使用",
+      "sourceUrls": [
+        "https://dld.utah.gov/what-is-a-driving-privilege-card/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：What Is a Driving Privilege Card",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把中国驾照理解为可以直接换 Utah 驾照，没有准备 25 题笔试和可能的 skills test",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "DPC 申请人按普通驾照的 Mandarin Chinese 语言选项准备，到了现场才发现 DPC test 只能用英语",
+      "sourceUrls": [
+        "https://dld.utah.gov/written-knowledge-test/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Written Knowledge Test",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "DPC 首次申请只有 ITIN 和地址材料，却缺 primary / secondary identity、fingerprint card 或照片",
+      "sourceUrls": [
+        "https://dld.utah.gov/parolee-or-undocumented-immigrant/",
+        "https://dld.utah.gov/dpc-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Parolee or Undocumented Immigrant Documents",
+        "对应官方来源：Driving Privilege Card Original"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "Limited-Term 申请人未先走 prequalification portal，直接预约到场后才开始 SAVE 核验",
+      "sourceUrls": [
+        "https://dld.utah.gov/limited-term-portal/",
+        "https://dld.utah.gov/required-documents-non-us-citizen/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Limited-Term Prequalification Portal",
+        "对应官方来源：Required Documents for Non-U.S. Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只带一份 Utah 地址文件，或文件日期超过 90 天而没有预先向 DLD 确认可接受性",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents-for-us-citizen/",
+        "https://dld.utah.gov/required-documents-non-us-citizen/",
+        "https://dld.utah.gov/parolee-or-undocumented-immigrant/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Required Documents for U.S. Citizens",
+        "对应官方来源：Required Documents for Non-U.S. Citizens",
+        "对应官方来源：Parolee or Undocumented Immigrant Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "提交普通复印件、传真件、覆膜出生证、医院出生证明或未经认证的外国文件翻译",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Required Documents Hub"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "姓名已经变化，却没有用 certified records 串起 identity 文件到当前姓名",
+      "sourceUrls": [
+        "https://dld.utah.gov/name-change-regular-license/",
+        "https://dld.utah.gov/required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Name Change",
+        "对应官方来源：Utah DLD Required Documents Hub"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "从未持证却只准备 25 题 open-book test，漏掉 50 题 closed-book test、Traffic Safety and Trends exam 和 skills test",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/driving-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "参加路考时没有符合要求的车辆、registration 或正常安全带",
+      "sourceUrls": [
+        "https://dld.utah.gov/driving-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Driving Skills Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "看到 renewal 页面就默认可以线上办，忽略 PIN、上次续期方式、过期时长、medical condition 和驾驶记录限制",
       "sourceUrls": [
         "https://dld.utah.gov/regular-renewal/"
       ],
       "sourceLabels": [
-        "对应官方来源：Utah DLD Regular Renewal"
+        "对应官方来源：Regular Driver License Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "online-service"
@@ -44148,59 +46095,90 @@
       "stateId": "utah",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "license",
-      "claim": "搬家后没有先改 Utah DLD 记录地址，就申请补证或续期",
-      "sourceUrls": [
-        "https://dld.utah.gov/address-change-regular/",
-        "https://dld.utah.gov/regular-renewal/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Utah DLD Address Change",
-        "对应官方来源：Utah DLD Regular Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "renewal",
-        "replacement"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "utah",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "document",
-      "claim": "把一份地址文件当成两份 residency proof",
-      "sourceUrls": [
-        "https://dld.utah.gov/required-documents/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Utah DLD Required Documentation"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "utah",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "license",
-      "claim": "外州转入时没有准备 current Utah address 证明",
+      "context": "detail",
+      "claim": "搬家后只向 USPS 改地址，没有在 10 天内更新 DLD 记录",
       "sourceUrls": [
         "https://dld.utah.gov/address-change-regular/"
       ],
       "sourceLabels": [
         "对应官方来源：Utah DLD Address Change"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "拿 DPC 申请现场取得的 no-privilege receipt 开车，误把它当 temporary license",
+      "sourceUrls": [
+        "https://dld.utah.gov/dpc-original/",
+        "https://dld.utah.gov/dpc-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Driving Privilege Card Original",
+        "对应官方来源：DPC Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [
+        "temporary-credential"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "临近航班才申请 REAL ID，没有为额外文件核验和 4 至 6 周实体卡邮寄预留时间",
+      "sourceUrls": [
+        "https://dld.utah.gov/required-documents/",
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Utah DLD Required Documents Hub",
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "utah",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "同时保留另一州 REAL ID-compliant ID，忽略 Utah 不允许同时持有多张 REAL ID credential 的限制",
+      "sourceUrls": [
+        "https://dld.utah.gov/regular-original/",
+        "https://dld.utah.gov/limited-term-original/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Regular Original Driver License",
+        "对应官方来源：Limited-Term Original Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
       "valid": true
     },
     {

@@ -1067,7 +1067,479 @@ const NM_LOCATIONS = 'https://www.mvd.newmexico.gov/maps-and-locations/';
 const NM_ONLINE = 'https://eservices.mvd.newmexico.gov/eTapestry/';
 const NM_WHERE = 'https://www.mvd.newmexico.gov/where-is-my-license/';
 
+const UT_REQUIRED = 'https://dld.utah.gov/required-documents/';
+const UT_US_DOCS =
+  'https://dld.utah.gov/required-documents-for-us-citizen/';
+const UT_NONCITIZEN_DOCS =
+  'https://dld.utah.gov/required-documents-non-us-citizen/';
+const UT_DPC_DOCS =
+  'https://dld.utah.gov/parolee-or-undocumented-immigrant/';
+const UT_REGULAR = 'https://dld.utah.gov/what-is-a-regular-driver-license/';
+const UT_LIMITED =
+  'https://dld.utah.gov/what-is-a-limited-term-driver-license/';
+const UT_DPC = 'https://dld.utah.gov/what-is-a-driving-privilege-card/';
+const UT_REGULAR_ORIGINAL = 'https://dld.utah.gov/regular-original/';
+const UT_LIMITED_ORIGINAL = 'https://dld.utah.gov/limited-term-original/';
+const UT_DPC_ORIGINAL = 'https://dld.utah.gov/dpc-original/';
+const UT_WRITTEN = 'https://dld.utah.gov/written-knowledge-test/';
+const UT_INTERPRETER = 'https://dld.utah.gov/in-person-interpreter/';
+const UT_DRIVING = 'https://dld.utah.gov/driving-test/';
+const UT_HANDBOOK =
+  'https://dld.utah.gov/wp-content/uploads/Driver-Handbook-REV-3.2026.pdf';
+const UT_RENEW = 'https://dld.utah.gov/regular-renewal/';
+const UT_DPC_RENEW = 'https://dld.utah.gov/dpc-renewal/';
+const UT_REPLACEMENT = 'https://dld.utah.gov/regular-replacement/';
+const UT_DPC_REPLACEMENT = 'https://dld.utah.gov/dpc-replacement/';
+const UT_ADDRESS = 'https://dld.utah.gov/address-change-regular/';
+const UT_NAME = 'https://dld.utah.gov/name-change-regular-license/';
+const UT_FEES = 'https://dld.utah.gov/fees/';
+const UT_LIMITED_PORTAL = 'https://dld.utah.gov/limited-term-portal/';
+const UT_FINGERPRINTS = 'https://dld.utah.gov/dpc-fingerprint-vendors/';
+const UT_SERVICES = 'https://dld.utah.gov/driver-licensing-services/';
+const UT_LOCATIONS = 'https://dld.utah.gov/office-locations/';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  utah: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      UT_REQUIRED,
+      UT_US_DOCS,
+      UT_NONCITIZEN_DOCS,
+      UT_DPC_DOCS,
+      UT_REGULAR,
+      UT_LIMITED,
+      UT_DPC,
+      UT_REGULAR_ORIGINAL,
+      UT_LIMITED_ORIGINAL,
+      UT_DPC_ORIGINAL,
+      UT_WRITTEN,
+      UT_INTERPRETER,
+      UT_DRIVING,
+      UT_HANDBOOK,
+      UT_RENEW,
+      UT_DPC_RENEW,
+      UT_REPLACEMENT,
+      UT_DPC_REPLACEMENT,
+      UT_ADDRESS,
+      UT_NAME,
+      UT_FEES,
+      UT_LIMITED_PORTAL,
+      UT_FINGERPRINTS,
+      UT_SERVICES,
+      UT_LOCATIONS,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Utah DLD 的 required documents、公民 / 非公民 / DPC 材料、Regular / Limited-Term / DPC 证件定义、original / transfer、知识与驾驶考试、现行 2026 handbook、renewal、replacement、address、name、fees、limited-term prequalification、fingerprint、services、office locations 与 TSA 当前身份证件正文。',
+    notes:
+      '重写 Utah 总览与 REAL ID 页面，拆开 Regular、Limited-Term 与 DPC 三条身份路径；补齐外国驾照、50 / 25 题测试、Mandarin Chinese 与 DPC English-only 边界、SAVE / fingerprint、费用、10 天改址、online renewal、temporary license 与 DPC no-privilege receipt。',
+    claims: {
+      'Utah Driver License Division 按移民身份签发三类驾驶证件：美国公民、美国国民或永久居民走 Regular': [
+        UT_REGULAR,
+        UT_HANDBOOK,
+      ],
+      '有合法居留文件的非公民走 Limited-Term': [UT_LIMITED, UT_HANDBOOK],
+      '无法取得 REAL ID 的部分 parolee 或 undocumented immigrant 可申请 Driving Privilege Card': [
+        UT_DPC,
+        UT_DPC_DOCS,
+        UT_HANDBOOK,
+      ],
+      '先选对证件类型，再判断是首次申请、美国外州转入、外国驾照、续期或补证': [
+        UT_SERVICES,
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+        UT_RENEW,
+        UT_REPLACEMENT,
+      ],
+      '持有效美国外州或外国驾照申请 Utah 驾照时，通常参加 25 题 open-book knowledge test': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+        UT_WRITTEN,
+      ],
+      '从未持证者参加 50 题 closed-book test，并完成 Traffic Safety and Trends exam 与驾驶技能考试': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+        UT_DRIVING,
+      ],
+      'DLD 可接受有效外国驾照作为既往驾驶资格证明，但仍可能要求路考，不应理解为中国驾照可以直接免试换证': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+      ],
+      'Utah 的 Regular 和符合条件的 Limited-Term credential 按 REAL ID 文件路径核验': [
+        UT_REGULAR,
+        UT_LIMITED,
+        UT_REQUIRED,
+        UT_HANDBOOK,
+      ],
+      '申请人通常要提交身份与出生日期、SSN、合法身份和两份 90 天内的 Utah 住址证明': [
+        UT_US_DOCS,
+        UT_NONCITIZEN_DOCS,
+      ],
+      'Driving Privilege Card 不是 Utah 政府身份证件，也不能代替 REAL ID 登机': [
+        UT_DPC,
+        TSA_IDENTIFICATION,
+      ],
+      '首次申请、外州或外国驾照转入和 DPC 首次申请都走现场路线': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+      ],
+      '先在 Driver Licensing Services 选择准确业务，再从对应服务页预约并核对办理地点': [
+        UT_SERVICES,
+        UT_LOCATIONS,
+      ],
+      'Limited-Term 申请人要先在预审 portal 上传移民文件并等待 DLD 通知，再预约到场': [
+        UT_LIMITED_PORTAL,
+        UT_LIMITED_ORIGINAL,
+      ],
+      'Regular Class D 面向美国公民、美国国民和 lawful permanent resident': [
+        UT_REGULAR,
+        UT_REGULAR_ORIGINAL,
+      ],
+      '成年人的证件通常有效 8 年，未成年人通常为 5 年': [
+        UT_REGULAR,
+        UT_REGULAR_ORIGINAL,
+      ],
+      'Limited-Term Class D 面向有 lawful presence 的非公民': [
+        UT_LIMITED,
+        UT_LIMITED_ORIGINAL,
+      ],
+      '到期日取移民文件到期日或 5 年中较早者，文件没有到期日时通常只签发 1 年': [
+        UT_LIMITED,
+        UT_LIMITED_ORIGINAL,
+      ],
+      'Driving Privilege Card 是 Class D 驾驶用途证件，不是 Utah 政府身份证件，也不能用于 CDL、motorcycle endorsement 或申请 Utah ID card': [
+        UT_DPC,
+        UT_HANDBOOK,
+      ],
+      '它通常在签发后的第一个生日到期': [UT_DPC, UT_DPC_ORIGINAL],
+      '没有 SSN 的 DPC 申请人要提供 ITIN 或相应 IRS 文件': [
+        UT_DPC,
+        UT_DPC_DOCS,
+      ],
+      '首次 DPC 还要提交获准机构制作并传送的 fingerprint card 和照片': [
+        UT_DPC_DOCS,
+        UT_DPC_ORIGINAL,
+        UT_FINGERPRINTS,
+      ],
+      'Utah 居民通常包括把 Utah 作为住所、一个日历年居住六个月以上、在州内就业或取得居民待遇等情形': [
+        UT_REGULAR,
+      ],
+      '个案仍应以 DLD 的 residency 定义为准': [UT_REGULAR],
+      '持有效美国外州或外国驾照的访客通常可在 Utah 驾驶不超过六个月，但外州 learner permit 不能在 Utah 使用': [
+        UT_HANDBOOK,
+      ],
+      '成为居民后应按本州申请路径办理': [UT_REGULAR, UT_SERVICES],
+      '首次申领且从未持证者参加 50 题 closed-book test': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+        UT_WRITTEN,
+      ],
+      '持有效美国外州或外国驾照者通常参加 25 题 open-book test': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+        UT_WRITTEN,
+      ],
+      'DLD 可把有效外国驾照当作既往驾驶资格证明，但申请人仍要参加对应笔试，且可能被要求路考': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+      ],
+      '中国驾照不存在页面承诺的直接换证或全面免试': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+      ],
+      'Regular 和 Limited-Term 笔试在可用时可选择 Mandarin Chinese 文字与音频': [
+        UT_WRITTEN,
+        UT_INTERPRETER,
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+      ],
+      '若所需语言不可用，可使用 DLD 批准的口译员': [
+        UT_WRITTEN,
+        UT_INTERPRETER,
+      ],
+      'DPC 的首次申请和续期笔试只能使用英语，翻译材料也不允许带入': [
+        UT_DPC_ORIGINAL,
+        UT_DPC_RENEW,
+      ],
+      '首次驾驶人除 50 题笔试外，还要完成 Traffic Safety and Trends exam 并通过 skills test': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+        UT_DRIVING,
+      ],
+      'DLD 路考要自备已注册、符合法律和安全要求且安全带正常的车辆': [
+        UT_DRIVING,
+      ],
+      '同一天最多参加两次 knowledge test': [UT_WRITTEN],
+      '累计三次未通过后要重新付费': [UT_WRITTEN],
+      'skills test 也应在申请后六个月内完成，三次失败后要再付费': [
+        UT_DRIVING,
+      ],
+      '普通驾照可在到期前六个月续期': [UT_RENEW],
+      'online renewal 只向符合资格且收到 PIN 的申请人开放，上次已在线续期、证件过期超过一年、存在驾驶记录或医疗限制等情况要现场办理': [
+        UT_RENEW,
+      ],
+      'DPC 可以提前六个月续期，但不能在线续期': [UT_DPC_RENEW],
+      'DPC 过期超过六个月、存在 suspension 或多于一次 citation 时可能要重考 25 题英语笔试': [
+        UT_DPC_RENEW,
+      ],
+      'Utah 地址变化后应在 10 天内在线更新 DLD 记录': [UT_ADDRESS],
+      'USPS 地址变更不会同步到 DLD，想把新地址印在卡上还要办理 renewal 或 replacement': [
+        UT_ADDRESS,
+      ],
+      '原件丢失、损坏或资料变化且距离到期超过六个月时走 replacement': [
+        UT_REPLACEMENT,
+        UT_DPC_REPLACEMENT,
+      ],
+      '距离到期六个月内通常应走 renewal': [
+        UT_REPLACEMENT,
+        UT_DPC_REPLACEMENT,
+      ],
+      '当前费用表列出成年 Regular original $52、Limited-Term original $32、DPC original $32': [
+        UT_FEES,
+      ],
+      '首次 DPC 另收 $30 fingerprint fee': [UT_FEES, UT_DPC_ORIGINAL],
+      'Regular 现场续期 $52、符合资格的 online renewal $42，65 岁以上分别为 $27 和 $22': [
+        UT_FEES,
+        UT_RENEW,
+      ],
+      'DPC renewal 与各类 replacement 当前均为 $23': [
+        UT_FEES,
+        UT_DPC_RENEW,
+        UT_REPLACEMENT,
+        UT_DPC_REPLACEMENT,
+      ],
+      '现场完成 Regular 或 Limited-Term 后通常会取得 temporary license，实体卡约 4 至 6 周寄到': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_RENEW,
+      ],
+      'DPC 首次或续期现场只给 no-privilege receipt，不能据此驾驶': [
+        UT_DPC_ORIGINAL,
+        UT_DPC_RENEW,
+      ],
+      '申请人不能同时保留两张 REAL ID-compliant credential，例如 Utah driver license 与另一州 ID': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_HANDBOOK,
+      ],
+      '办理前要准备交回或处理现有证件': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+      ],
+      'REAL ID 不是搭乘美国国内航班的唯一选择': [TSA_IDENTIFICATION],
+      '没有合格 REAL ID 时，应改用 TSA 当前接受的 passport 等身份证件': [
+        TSA_IDENTIFICATION,
+      ],
+      '美国公民、美国国民或永久居民准备一份 identity and date of birth、一份 SSN 证明和两份显示当前 Utah 地址、日期在 90 天内的文件': [
+        UT_US_DOCS,
+        UT_REGULAR_ORIGINAL,
+      ],
+      '有 lawful presence 的非公民还要准备当前移民文件，并按 Limited-Term portal 提前上传': [
+        UT_NONCITIZEN_DOCS,
+        UT_LIMITED_PORTAL,
+      ],
+      'DLD 会通过 SAVE 核验身份状态': [
+        UT_NONCITIZEN_DOCS,
+        UT_LIMITED_PORTAL,
+      ],
+      'DPC 首次申请要分别准备 primary identity、secondary identity、SSN 或 ITIN / IRS 文件、两份 90 天内的 Utah 地址证明，以及 fingerprint card 和照片': [
+        UT_DPC_DOCS,
+        UT_DPC_ORIGINAL,
+      ],
+      '身份证明通常须为原件或有签发机关 seal、stamp 或 signature 的 certified copy': [
+        UT_REQUIRED,
+      ],
+      '普通复印件、传真件、覆膜出生证和医院出生证明不接受': [UT_REQUIRED],
+      '外国文件要附 certified translation': [
+        UT_REQUIRED,
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+      ],
+      '不能只带自己翻译的中文说明': [UT_REQUIRED],
+      '当前姓名与 identity 文件不一致时，带 certified marriage certificate、divorce decree、court order 或其他能串起每次变化的文件': [
+        UT_NAME,
+        UT_REQUIRED,
+      ],
+      'SSN 替代证明必须显示完整号码': [UT_US_DOCS, UT_NONCITIZEN_DOCS],
+      '没有资格取得 SSN 的 lawful-presence 申请人按清单准备 SSA ineligibility letter': [
+        UT_NONCITIZEN_DOCS,
+      ],
+      '两份 Utah residency 证明都要显示本人姓名和当前 residential address': [
+        UT_US_DOCS,
+        UT_NONCITIZEN_DOCS,
+        UT_DPC_DOCS,
+      ],
+      '未成年人的地址文件可按 DLD 规则使用寄给父母或 legal guardian 的邮件': [
+        UT_US_DOCS,
+      ],
+      '外州或外国驾照申请人带当前驾照': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+      ],
+      '美国外州证件通常需要交回，外国驾照和外国材料的处理以现场核验为准': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+      ],
+      '参加 DLD skills test 时带自己的车辆，并准备有效 registration': [
+        UT_DRIVING,
+      ],
+      '车辆要符合法律和安全要求且安全带可用': [UT_DRIVING],
+      '补证时带当前证件': [UT_REPLACEMENT, UT_DPC_REPLACEMENT],
+      '证件遗失时重新准备 identity 文件，地址已变则准备两份地址证明或先在线更新': [
+        UT_REPLACEMENT,
+        UT_DPC_REPLACEMENT,
+        UT_ADDRESS,
+      ],
+      '所有原始材料可能被扫描并安全保存后退还': [UT_REQUIRED],
+      '电子核验或额外审批可能超过一天并需要再次到场': [UT_REQUIRED],
+      '先按移民身份确认 Regular、Limited-Term 或 DPC': [
+        UT_REGULAR,
+        UT_LIMITED,
+        UT_DPC,
+      ],
+      '需要的是驾驶许可还是仅 ID card 也要分开': [UT_SERVICES, UT_DPC],
+      '再选择 original、U.S. out-of-state、foreign license、renewal、replacement、name change 或 address change，避免进入错误服务': [
+        UT_SERVICES,
+      ],
+      '打开对应 Required Documents 清单，按 identity / date of birth、lawful presence、SSN 或 ITIN、Utah residency 和 name-change chain 分组': [
+        UT_REQUIRED,
+        UT_US_DOCS,
+        UT_NONCITIZEN_DOCS,
+        UT_DPC_DOCS,
+        UT_NAME,
+      ],
+      'Limited-Term 申请人先在 prequalification portal 上传移民文件，等待 DLD 的 email 或 text 通知后再预约': [
+        UT_LIMITED_PORTAL,
+      ],
+      '首次 DPC 申请人先联系 approved fingerprint vendor 或 law-enforcement agency，完成 fingerprint card 与照片': [
+        UT_FINGERPRINTS,
+        UT_DPC_DOCS,
+      ],
+      '外国驾照持有人带有效原证和 certified translation，按 25 题 open-book test 准备，同时为 DLD 可能要求的 skills test 留出时间': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+      ],
+      'Regular / Limited-Term 需要中文笔试时，预约前向具体 office 确认 Mandarin Chinese 文字或音频可用性': [
+        UT_WRITTEN,
+        UT_INTERPRETER,
+        UT_LOCATIONS,
+      ],
+      'DPC 则按全英语考试准备': [UT_DPC_ORIGINAL, UT_DPC_RENEW],
+      '从未持证者学习当前 Utah Driver Handbook，准备 50 题 closed-book test、Traffic Safety and Trends exam 与 skills test': [
+        UT_HANDBOOK,
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+      ],
+      '需要路考时确认车辆 registration、安全状态和安全带': [UT_DRIVING],
+      '可选择 DLD 或获准 third-party tester': [UT_DRIVING],
+      '在 Driver Licensing Services 中选业务并预约合适 office': [
+        UT_SERVICES,
+        UT_LOCATIONS,
+      ],
+      '不同 office 的服务和营业安排应在出发前复核': [UT_LOCATIONS],
+      '续期先检查是否收到 online PIN 及所有 eligibility 条件': [UT_RENEW],
+      'DPC renewal、身份或姓名核验等情形直接按现场路线': [
+        UT_DPC_RENEW,
+        UT_NAME,
+      ],
+      '搬家后先在 10 天内在线更新 DLD 地址': [UT_ADDRESS],
+      '需要新地址印卡时再选择 renewal 或 replacement': [UT_ADDRESS],
+      '付款前在 fee page 核对当前基础费用、首次 DPC fingerprint fee 和可能的再次考试费用': [
+        UT_FEES,
+        UT_WRITTEN,
+        UT_DRIVING,
+      ],
+      '办结后确认拿到的是可驾驶的 temporary license 还是 DPC no-privilege receipt，并用可靠地址等待 4 至 6 周实体卡': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+        UT_DPC_RENEW,
+      ],
+      '近期搭乘国内航班时不要依赖尚未寄到的卡或 DPC': [
+        UT_DPC,
+        TSA_IDENTIFICATION,
+      ],
+      '提前准备 TSA 接受的 passport 等替代身份证件': [TSA_IDENTIFICATION],
+      '只按“是否有驾照”选路线，没有先区分 Regular、Limited-Term 和 DPC 的身份资格': [
+        UT_REGULAR,
+        UT_LIMITED,
+        UT_DPC,
+      ],
+      '把 DPC 当作 Utah 政府 ID、REAL ID 或国内航班身份证件使用': [
+        UT_DPC,
+        TSA_IDENTIFICATION,
+      ],
+      '把中国驾照理解为可以直接换 Utah 驾照，没有准备 25 题笔试和可能的 skills test': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+      ],
+      'DPC 申请人按普通驾照的 Mandarin Chinese 语言选项准备，到了现场才发现 DPC test 只能用英语': [
+        UT_WRITTEN,
+        UT_DPC_ORIGINAL,
+      ],
+      'DPC 首次申请只有 ITIN 和地址材料，却缺 primary / secondary identity、fingerprint card 或照片': [
+        UT_DPC_DOCS,
+        UT_DPC_ORIGINAL,
+      ],
+      'Limited-Term 申请人未先走 prequalification portal，直接预约到场后才开始 SAVE 核验': [
+        UT_LIMITED_PORTAL,
+        UT_NONCITIZEN_DOCS,
+      ],
+      '只带一份 Utah 地址文件，或文件日期超过 90 天而没有预先向 DLD 确认可接受性': [
+        UT_US_DOCS,
+        UT_NONCITIZEN_DOCS,
+        UT_DPC_DOCS,
+      ],
+      '提交普通复印件、传真件、覆膜出生证、医院出生证明或未经认证的外国文件翻译': [
+        UT_REQUIRED,
+      ],
+      '姓名已经变化，却没有用 certified records 串起 identity 文件到当前姓名': [
+        UT_NAME,
+        UT_REQUIRED,
+      ],
+      '从未持证却只准备 25 题 open-book test，漏掉 50 题 closed-book test、Traffic Safety and Trends exam 和 skills test': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        UT_DPC_ORIGINAL,
+        UT_DRIVING,
+      ],
+      '参加路考时没有符合要求的车辆、registration 或正常安全带': [UT_DRIVING],
+      '看到 renewal 页面就默认可以线上办，忽略 PIN、上次续期方式、过期时长、medical condition 和驾驶记录限制': [
+        UT_RENEW,
+      ],
+      '搬家后只向 USPS 改地址，没有在 10 天内更新 DLD 记录': [UT_ADDRESS],
+      '拿 DPC 申请现场取得的 no-privilege receipt 开车，误把它当 temporary license': [
+        UT_DPC_ORIGINAL,
+        UT_DPC_RENEW,
+      ],
+      '临近航班才申请 REAL ID，没有为额外文件核验和 4 至 6 周实体卡邮寄预留时间': [
+        UT_REQUIRED,
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+        TSA_IDENTIFICATION,
+      ],
+      '同时保留另一州 REAL ID-compliant ID，忽略 Utah 不允许同时持有多张 REAL ID credential 的限制': [
+        UT_REGULAR_ORIGINAL,
+        UT_LIMITED_ORIGINAL,
+      ],
+    },
+  },
   'new-mexico': {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

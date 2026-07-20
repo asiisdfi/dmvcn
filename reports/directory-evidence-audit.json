@@ -1,27 +1,27 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T22:36:33.375Z",
+    "generatedAt": "2026-07-20T22:48:26.865Z",
     "pages": 5,
-    "claims": 655,
+    "claims": 661,
     "statesCovered": 50,
-    "aiAssisted": 509,
-    "automated": 146,
+    "aiAssisted": 525,
+    "automated": 136,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 120,
-        "states": 35
+        "claims": 124,
+        "states": 36
       },
       "deadlines": {
-        "claims": 86,
-        "states": 34
+        "claims": 89,
+        "states": 35
       },
       "document-rules": {
         "claims": 184,
         "states": 49
       },
       "foreign-license": {
-        "claims": 109,
+        "claims": 108,
         "states": 36
       },
       "identity-ssn": {
@@ -1257,6 +1257,64 @@
       "failedThemes": [
         "lawful-presence"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "utah",
+      "category": "费用",
+      "claim": "当前费用表列出成年 Regular original $52、Limited-Term original $32、DPC original $32",
+      "sourceUrl": "https://dld.utah.gov/fees/",
+      "sourceLabel": "对应官方来源：Utah DLD Fee Schedule",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "utah",
+      "category": "费用",
+      "claim": "首次 DPC 另收 $30 fingerprint fee",
+      "sourceUrl": "https://dld.utah.gov/fees/",
+      "sourceLabel": "对应官方来源：Utah DLD Fee Schedule",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "utah",
+      "category": "费用",
+      "claim": "Regular 现场续期 $52、符合资格的 online renewal $42，65 岁以上分别为 $27 和 $22",
+      "sourceUrl": "https://dld.utah.gov/fees/",
+      "sourceLabel": "对应官方来源：Utah DLD Fee Schedule",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "utah",
+      "category": "费用",
+      "claim": "DPC renewal 与各类 replacement 当前均为 $23",
+      "sourceUrl": "https://dld.utah.gov/fees/",
+      "sourceLabel": "对应官方来源：Utah DLD Fee Schedule",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -2722,6 +2780,50 @@
       "sourceLabel": "对应官方来源：Tennessee Driver Services New Resident Driver License Requirements",
       "themes": [
         "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "utah",
+      "category": "搬家 / 地址",
+      "claim": "美国公民、美国国民或永久居民准备一份 identity and date of birth、一份 SSN 证明和两份显示当前 Utah 地址、日期在 90 天内的文件",
+      "sourceUrl": "https://dld.utah.gov/required-documents-for-us-citizen/",
+      "sourceLabel": "对应官方来源：Required Documents for U.S. Citizens",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "utah",
+      "category": "材料时效",
+      "claim": "DPC 首次申请要分别准备 primary identity、secondary identity、SSN 或 ITIN / IRS 文件、两份 90 天内的 Utah 地址证明，以及 fingerprint card 和照片",
+      "sourceUrl": "https://dld.utah.gov/parolee-or-undocumented-immigrant/",
+      "sourceLabel": "对应官方来源：Parolee or Undocumented Immigrant Documents",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "utah",
+      "category": "搬家 / 地址",
+      "claim": "搬家后先在 10 天内在线更新 DLD 地址",
+      "sourceUrl": "https://dld.utah.gov/address-change-regular/",
+      "sourceLabel": "对应官方来源：Utah DLD Address Change",
+      "themes": [
+        "address-change"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
@@ -4471,59 +4573,61 @@
       "page": "document-rules",
       "stateId": "utah",
       "category": "地址证明",
-      "claim": "先打开 Utah DLD required documents 页面，按身份、SSN、地址、姓名四组材料整理",
-      "sourceUrl": "https://dld.utah.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
-      "themes": [
-        "document-checklist",
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "utah",
-      "category": "地址证明",
-      "claim": "Utah REAL ID / identification requirements 要围绕身份、lawful status、SSN、Utah residency 和姓名一致性准备",
-      "sourceUrl": "https://dld.utah.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "claim": "美国公民、美国国民或永久居民准备一份 identity and date of birth、一份 SSN 证明和两份显示当前 Utah 地址、日期在 90 天内的文件",
+      "sourceUrl": "https://dld.utah.gov/required-documents-for-us-citizen/",
+      "sourceLabel": "对应官方来源：Required Documents for U.S. Citizens",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "utah",
-      "category": "SSN",
-      "claim": "Social Security Number 相关证明",
-      "sourceUrl": "https://dld.utah.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "category": "地址证明",
+      "claim": "DPC 首次申请要分别准备 primary identity、secondary identity、SSN 或 ITIN / IRS 文件、两份 90 天内的 Utah 地址证明，以及 fingerprint card 和照片",
+      "sourceUrl": "https://dld.utah.gov/parolee-or-undocumented-immigrant/",
+      "sourceLabel": "对应官方来源：Parolee or Undocumented Immigrant Documents",
       "themes": [
+        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "utah",
-      "category": "非公民材料",
-      "claim": "identity / lawful presence 文件",
-      "sourceUrl": "https://dld.utah.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "category": "地址证明",
+      "claim": "两份 Utah residency 证明都要显示本人姓名和当前 residential address",
+      "sourceUrl": "https://dld.utah.gov/required-documents-for-us-citizen/",
+      "sourceLabel": "对应官方来源：Required Documents for U.S. Citizens",
       "themes": [
-        "lawful-presence"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "utah",
+      "category": "地址证明",
+      "claim": "证件遗失时重新准备 identity 文件，地址已变则准备两份地址证明或先在线更新",
+      "sourceUrl": "https://dld.utah.gov/regular-replacement/",
+      "sourceLabel": "对应官方来源：Regular Driver License Replacement",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -6849,30 +6953,16 @@
     {
       "page": "foreign-license",
       "stateId": "utah",
-      "category": "外州 / 加拿大转入",
-      "claim": "Adult Original / Out-of-State：首次 Utah 驾照或外州转入相关路径",
-      "sourceUrl": "https://dld.utah.gov/regular-original/",
-      "sourceLabel": "对应官方来源：Utah DLD Adult Original",
+      "category": "翻译要求",
+      "claim": "外国文件要附 certified translation",
+      "sourceUrl": "https://dld.utah.gov/required-documents/",
+      "sourceLabel": "对应官方来源：Utah DLD Required Documents Hub",
       "themes": [
-        "out-of-state"
+        "translation"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "utah",
-      "category": "外州 / 加拿大转入",
-      "claim": "外州转入或首次办证时，带现有证件、身份文件和 Utah 地址材料",
-      "sourceUrl": "https://dld.utah.gov/regular-original/",
-      "sourceLabel": "对应官方来源：Utah DLD Adult Original",
-      "themes": [
-        "out-of-state"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -8636,60 +8726,64 @@
     {
       "page": "identity-ssn",
       "stateId": "utah",
-      "category": "SSN",
-      "claim": "Social Security Number 相关证明",
-      "sourceUrl": "https://dld.utah.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "category": "无 SSN / SSA",
+      "claim": "没有资格取得 SSN 的 lawful-presence 申请人按清单准备 SSA ineligibility letter",
+      "sourceUrl": "https://dld.utah.gov/required-documents-non-us-citizen/",
+      "sourceLabel": "对应官方来源：Required Documents for Non-U.S. Citizens",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "utah",
-      "category": "SSN",
-      "claim": "先打开 Utah DLD required documents 页面，按身份、SSN、地址、姓名四组材料整理",
-      "sourceUrl": "https://dld.utah.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "category": "ITIN / affidavit",
+      "claim": "没有 SSN 的 DPC 申请人要提供 ITIN 或相应 IRS 文件",
+      "sourceUrl": "https://dld.utah.gov/what-is-a-driving-privilege-card/",
+      "sourceLabel": "对应官方来源：What Is a Driving Privilege Card",
       "themes": [
-        "document-checklist",
         "ssn"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "failedThemes": [
+        "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "utah",
-      "category": "SSN",
-      "claim": "Utah REAL ID / identification requirements 要围绕身份、lawful status、SSN、Utah residency 和姓名一致性准备",
-      "sourceUrl": "https://dld.utah.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "category": "ITIN / affidavit",
+      "claim": "DPC 首次申请要分别准备 primary identity、secondary identity、SSN 或 ITIN / IRS 文件、两份 90 天内的 Utah 地址证明，以及 fingerprint card 和照片",
+      "sourceUrl": "https://dld.utah.gov/parolee-or-undocumented-immigrant/",
+      "sourceLabel": "对应官方来源：Parolee or Undocumented Immigrant Documents",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "utah",
-      "category": "lawful presence",
-      "claim": "identity / lawful presence 文件",
+      "category": "ITIN / affidavit",
+      "claim": "打开对应 Required Documents 清单，按 identity / date of birth、lawful presence、SSN 或 ITIN、Utah residency 和 name-change chain 分组",
       "sourceUrl": "https://dld.utah.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Utah DLD Required Documentation",
+      "sourceLabel": "对应官方来源：Utah DLD Required Documents Hub",
       "themes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
