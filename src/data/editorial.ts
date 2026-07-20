@@ -34,6 +34,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Kansas 两页官方正文语义核对',
+    summary:
+      '逐条比对 Kansas DOR 的 Licensing hub、Required Documents、DE-56A、REAL ID / FAQ、proof of identity、首次与外州转入、driver FAQ、续期、iKan、改址、预约、地点、South Korea reciprocity、forms、fee chart 与 TSA 当前身份证件正文；登记 81 条独立声明的显式来源，并公开标注 90 天转入、Taiwan / South Korea 互惠、中国大陆考试路线、非公民 SAVE、邮寄和 address-change $8 / $10 官方差异。',
+    scope: ['堪萨斯州办事总览', '堪萨斯州 REAL ID', '81 条独立声明显式核对', '互惠、邮寄与费用冲突'],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 South Dakota 两页官方正文语义核对',
     summary:
       '逐条比对 South Dakota 当前 Required Documents、online / in-person renewal、duplicate / address、testing、FAQ、fees、full-time traveler、locations、appointment、2025 application、Residency Affidavit 与现行州法；登记 93 条独立声明的显式来源，更新为当前 $38 / $20 fee，并公开标注旧费用、3–4 / 4–6 周寄送差异、外国驾照和考试语言边界。',

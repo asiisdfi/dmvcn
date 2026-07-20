@@ -919,6 +919,25 @@ const ME_FEES =
 const ME_BRANCHES =
   'https://www.maine.gov/sos/bmv/visit-your-bmv-branch/find-your-local-branch';
 const ME_APPOINTMENTS = 'https://mainebmvappt.cxmflow.com/';
+const KS_HOME = 'https://www.ksrevenue.gov/dovindex.html';
+const KS_LICENSES = 'https://www.ksrevenue.gov/dovlicenses.html';
+const KS_REQUIRED = 'https://www.ksrevenue.gov/dovtelegovreq.html';
+const KS_CHECKLIST = 'https://www.ksrevenue.gov/pdf/de56a.pdf';
+const KS_REAL_ID = 'https://www.ksrevenue.gov/dovrealid.html';
+const KS_REAL_ID_FAQ = 'https://www.ksrevenue.gov/dovrealidfaq.html';
+const KS_PROOF = 'https://www.ksrevenue.gov/dovproof.html';
+const KS_OBTAIN = 'https://www.ksrevenue.gov/dovobtainingdl.html';
+const KS_FAQ = 'https://www.ksrevenue.gov/dovdlfaq.html';
+const KS_RENEW = 'https://www.ksrevenue.gov/dovrenewingdl.html';
+const KS_ONLINE = 'https://www.ksrevenue.gov/dovonlineservices.html';
+const KS_IKAN = 'https://www.ksrevenue.gov/dovaboutikan.html';
+const KS_ADDRESS = 'https://www.ksrevenue.gov/dladdresschange/';
+const KS_SUSPENSION_FAQ = 'https://www.ksrevenue.gov/dovsuspendedfaq.html';
+const KS_APPOINTMENT = 'https://www.ksrevenue.gov/DOVAppointmentInfo/';
+const KS_STATIONS = 'https://www.ksrevenue.gov/dovstations.html';
+const KS_RECIPROCITY = 'https://www.ksrevenue.gov/dovreciprocity.html';
+const KS_FORMS = 'https://www.ksrevenue.gov/dovforms.html';
+const KS_FEES = 'https://www.ksrevenue.gov/pdf/dmvlicfees.pdf';
 const SD_HOME = 'https://www.sd.gov/dps';
 const SD_REQUIRED_PRINT =
   'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395';
@@ -994,6 +1013,120 @@ const MS_FAQ =
   'https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  kansas: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      KS_HOME,
+      KS_LICENSES,
+      KS_REQUIRED,
+      KS_CHECKLIST,
+      KS_REAL_ID,
+      KS_REAL_ID_FAQ,
+      KS_PROOF,
+      KS_OBTAIN,
+      KS_FAQ,
+      KS_RENEW,
+      KS_ONLINE,
+      KS_IKAN,
+      KS_ADDRESS,
+      KS_SUSPENSION_FAQ,
+      KS_APPOINTMENT,
+      KS_STATIONS,
+      KS_RECIPROCITY,
+      KS_FORMS,
+      KS_FEES,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Kansas DOR 的 Licensing hub、Required Documents、DE-56A、REAL ID / FAQ、proof of identity、first / out-of-state license、driver FAQ、renewal、online services / iKan、address、appointment、stations、South Korea reciprocity、forms、fee chart 与 TSA 当前身份证件正文。',
+    notes:
+      '重写 Kansas 总览与 REAL ID 页面，拆分首次 / 外州 / 外国驾照 / non-citizen / renewal / address / REAL ID 路线；补齐 90 天、SAVE、Taiwan / South Korea reciprocity、邮寄和地点限制，并公开标记 address-change $8 / $10 官方差异与中文考试未确认边界。',
+    claims: {
+      'Kansas 驾照和 ID 由 Department of Revenue Division of Vehicles 管理': [KS_HOME, KS_LICENSES],
+      '首次申请、外州转入、REAL ID 文件核验和非公民业务先按现场路线准备': [KS_REQUIRED, KS_REAL_ID, KS_PROOF],
+      '符合条件的续期、地址变更、状态查询和知识考试可从官方线上入口开始': [KS_ONLINE, KS_IKAN, KS_FAQ],
+      '新居民在建立 Kansas residency 后有 90 天换领本州驾照': [KS_FAQ],
+      '有效外州驾照转入通常只需视力检查，过期外州驾照则要完成视力、知识和驾驶考试，外州 permit 也不能直接转入': [KS_OBTAIN, KS_FAQ, KS_REQUIRED],
+      'KDOR 当前另列台湾和韩国互惠路线': [KS_FAQ, KS_RECIPROCITY],
+      '中国大陆及其他未列入互惠的外国驾照应按 vision、written 和 driving exam 路线准备': [KS_FAQ, KS_RECIPROCITY, KS_OBTAIN],
+      'Kansas REAL ID 需要一份 lawful-presence 文件、一份 SSN 证明、两份近期 Kansas physical residential address 证明和适用的 legal-name-change 文件': [KS_REAL_ID, KS_REQUIRED, KS_CHECKLIST],
+      '材料须用原件或签发机关认证件，普通复印件、公证复印件和覆膜文件不接受': [KS_REAL_ID_FAQ, KS_REQUIRED, KS_CHECKLIST],
+      '即使交回的是外州 REAL ID，也要重新提交 Kansas 所需材料': [KS_REAL_ID_FAQ],
+      'Kansas 每个 county 都提供某些驾照或 ID 服务，但部分办公室服务有限': [KS_HOME, KS_STATIONS],
+      '预约不是所有业务的绝对前提，不过有预约的申请人优先': [KS_APPOINTMENT, KS_STATIONS],
+      '先在地点页确认该 office 是否办理首次申请、考试、REAL ID、non-citizen 或 CDL 业务': [KS_STATIONS, KS_APPOINTMENT, KS_REQUIRED],
+      '从 2025 年 5 月 7 日起，TSA 不再把非 REAL ID 的州驾照或 ID 当作机场安检的合规身份证件': [TSA_IDENTIFICATION],
+      '有效护照等 TSA 接受证件仍可替代': [TSA_IDENTIFICATION, KS_REAL_ID_FAQ],
+      '标有 NOT FOR FEDERAL ID 的 Kansas 证件仍可用于驾驶和多数日常州内身份用途，但不能按 REAL ID 规划国内航班安检': [KS_REAL_ID_FAQ, TSA_IDENTIFICATION],
+      '首次增加 REAL ID 要本人提交 lawful presence、SSN、两份 Kansas physical address 和姓名变更材料，不能只在 iKan 上传后等待寄卡': [KS_REAL_ID, KS_REQUIRED, KS_REAL_ID_FAQ],
+      'REAL ID 核验通常只做一次，但从外州 REAL ID 转入 Kansas 时仍须重新出示 Kansas 要求的全部材料': [KS_REAL_ID_FAQ],
+      '建立 Kansas residency 后应在 90 天内换领 Kansas 驾照': [KS_FAQ],
+      '外州证件有效时通常免知识与驾驶考试': [KS_FAQ, KS_OBTAIN],
+      '证件已过期、只有 permit 或存在其他州 hold 时，考试或签发资格会改变': [KS_FAQ, KS_REQUIRED, KS_OBTAIN],
+      '非美国公民每次签发都要带当前 immigration documents，并由 Kansas 使用 SAVE 核验': [KS_REQUIRED, KS_PROOF],
+      '非工作授权身份且从未取得 SSN 的外国学生或家属可不提交 SSN 证明，但仍要满足 lawful-presence 和其他材料要求': [KS_REQUIRED, KS_CHECKLIST, KS_PROOF],
+      'KDOR 当前分别公布台湾与韩国互惠信息': [KS_FAQ, KS_RECIPROCITY],
+      '中国大陆驾照未列入这两条免试路径': [KS_FAQ, KS_RECIPROCITY],
+      'KDOR 提供在家完成 non-commercial Class C knowledge exam 的官方入口，但考试语言和当次服务费应在进入考试前再次确认': [KS_FAQ, KS_ONLINE, KS_HOME],
+      '普通续期可最早提前一年办理': [KS_RENEW],
+      '现场续期仍要身份、SSN、Kansas principal residence address、视力检查、照片和签名': [KS_RENEW],
+      'iKan 的驾照续期入口面向符合资格的 21 至 64 岁申请人，法定限制或个人记录可能要求改为现场办理': [KS_APPOINTMENT, KS_IKAN],
+      'Kansas 法律要求地址变化后 10 天内通知 Division of Vehicles': [KS_SUSPENSION_FAQ],
+      '只更新记录可以免费，要求印有新地址的卡片则走付费入口': [KS_ONLINE, KS_ADDRESS],
+      '实体 credential 多数在 14 至 20 天寄到，但官方要求最多预留 45 天': [KS_FAQ, KS_LICENSES],
+      '邮件没有 tracking，也不会自动 forward 到新地址': [KS_FAQ],
+      '当前 Online Services 写新地址卡收费 $10，而 2023 年 fee chart 仍写 address change $8': [KS_ONLINE, KS_FEES],
+      '付款前应以当前交易报价为准': [KS_ONLINE, KS_FEES],
+      'KDOR 当前 Forms 页面列出英文与西班牙文 handbook，没有给出中文考试保证': [KS_FORMS, KS_FAQ, KS_ONLINE],
+      '需要中文帮助时应提前向办理 office 确认': [KS_FORMS, KS_STATIONS],
+      '每个 Kansas county 都有某种 driver license 或 ID 服务，但不能据此假定每个地点都能完成考试、non-citizen、REAL ID 或 CDL': [KS_HOME, KS_STATIONS, KS_APPOINTMENT],
+      '一份 lawful-presence 文件，例如签发机关认证的出生证、未过期美国护照、Permanent Resident Card、Employment Authorization Card 或适用的移民文件': [KS_REQUIRED, KS_CHECKLIST, KS_PROOF, KS_REAL_ID],
+      '一份显示完整号码的 SSN 证明，例如 Social Security Card、当前 W-2 / 1099 或当前 pay stub': [KS_REQUIRED, KS_CHECKLIST, KS_PROOF, KS_REAL_ID],
+      '非工作授权身份且从未获发 SSN 的外国学生或家属可按 KDOR 例外处理，不要自行伪造或填写不存在的号码': [KS_REQUIRED, KS_CHECKLIST, KS_PROOF],
+      '两份近期 Kansas residential address 文件，必须显示本人姓名和 physical address，不能只给 mailing address 或 P.O. Box': [KS_REQUIRED, KS_CHECKLIST, KS_PROOF],
+      '姓名不同于 lawful-presence 文件时，用政府签发的 marriage certificate、恢复姓名的 divorce decree、adoption order 或 legal-name-change court order 衔接': [KS_REQUIRED, KS_CHECKLIST, KS_PROOF],
+      '外州转入另带有效实体 license / ID': [KS_REQUIRED, KS_PROOF, KS_FAQ],
+      '只有 temporary credential 或原卡遗失时，准备签发州 30 天内的 MVR 或 clearance letter': [KS_PROOF, KS_FAQ, KS_REQUIRED],
+      '外国学生通常还要带 I-20，交流访问身份通常还要带 DS-2019，并配合有效 passport、I-94 或相应身份文件': [KS_PROOF, KS_REQUIRED, KS_CHECKLIST],
+      'REAL ID 和首次申请材料使用原件或签发机关认证件': [KS_REAL_ID_FAQ, KS_REQUIRED, KS_CHECKLIST],
+      '普通 photocopy、手机图片、自行公证件和 laminated document 不接受': [KS_REAL_ID_FAQ, KS_REQUIRED, KS_CHECKLIST],
+      '续期通常带 Kansas credential 和一封显示当前 residential address 的邮件，现场还要完成视力检查、照片和签名': [KS_RENEW, KS_REQUIRED],
+      '补证通常需要两份可接受 identity 文件和一封显示本人姓名与 Kansas residential address 的邮件': [KS_REQUIRED, KS_CHECKLIST],
+      'SSN card 不能当作 replacement 的 identity 文件': [KS_REQUIRED],
+      '使用 DE-56A portable checklist 按自己的 first-time、transfer、renewal、replacement、name change 或 REAL ID 路线逐项打勾': [KS_CHECKLIST, KS_REQUIRED],
+      '先确定业务是 first-time、out-of-state transfer、foreign-license application、renewal、replacement、name / address change，还是 adding REAL ID': [KS_LICENSES, KS_REQUIRED, KS_FAQ],
+      '新居民记录建立 Kansas residency 的日期，并在 90 天期限内安排换证': [KS_FAQ],
+      '只为国内航班或联邦用途需要新证件时，先比较 Kansas REAL ID 与现有 passport 等 TSA 接受证件': [KS_REAL_ID_FAQ, TSA_IDENTIFICATION],
+      '打开 Required Documents 和 DE-56A checklist，准备 lawful presence、完整 SSN、两份 physical-address 文件和完整 legal-name chain': [KS_REQUIRED, KS_CHECKLIST],
+      '非公民按当前身份准备 passport、I-94、Permanent Resident Card、EAD、I-20 或 DS-2019，并为 SAVE 核验预留时间': [KS_PROOF, KS_REQUIRED, KS_CHECKLIST],
+      '持外国驾照时先核对 Taiwan / South Korea reciprocity': [KS_FAQ, KS_RECIPROCITY],
+      '中国大陆或其他未列入互惠的证件按 vision、written 和 driving exams 准备': [KS_FAQ, KS_RECIPROCITY, KS_OBTAIN],
+      '续期或改址先看 iKan 与 Online Services 的个人资格': [KS_IKAN, KS_ONLINE, KS_ADDRESS],
+      '首次 REAL ID、身份核验和非公民业务按现场路线': [KS_REAL_ID, KS_REQUIRED, KS_PROOF],
+      '在 station finder 核对 office 的具体服务，再预约': [KS_STATIONS, KS_APPOINTMENT],
+      '有预约的申请人会优先': [KS_APPOINTMENT],
+      '需要知识考试时先读当前 handbook，并从 KDOR Online Services 进入官方线上考试': [KS_FORMS, KS_ONLINE, KS_FAQ],
+      '需要中文帮助先联系 office': [KS_FORMS, KS_STATIONS],
+      '付款前打开 fee chart 并核对实际交易报价，尤其注意 address change 的 $8 / $10 官方差异': [KS_FEES, KS_ONLINE],
+      '交易完成后保存 temporary credential 和收据，确认邮箱能接收本人姓名邮件，并按最多 45 天规划实体卡': [KS_FAQ, KS_LICENSES],
+      '45 天仍未收到时，带 temporary credential 和当前地址证明到 driver license office 处理，不要假设邮局会转寄': [KS_FAQ],
+      'REAL ID 或首次申请只带一份 Kansas 地址证明，或两份文件只显示 P.O. Box': [KS_REQUIRED, KS_CHECKLIST, KS_PROOF],
+      '把医院纪念出生纸当作签发机关认证 birth certificate': [KS_FAQ],
+      '携带 photocopy、手机照片、公证复印件或 laminated document，误以为等同于原件或 certified copy': [KS_REAL_ID_FAQ, KS_REQUIRED, KS_CHECKLIST],
+      '姓名变化后未先在 SSA 更新并至少等待 24 小时，或没有带 legal-name-change document': [KS_FAQ, KS_REQUIRED],
+      '拿外州 temporary license 直接转入，没有准备签发州的 MVR 或 clearance letter': [KS_FAQ, KS_PROOF, KS_REQUIRED],
+      '外州驾照已过期仍按免试转入准备，漏掉 vision、written 和 driving exams': [KS_FAQ, KS_OBTAIN],
+      '把中国大陆驾照套用台湾或韩国 reciprocity，默认可以免知识和驾驶考试': [KS_FAQ, KS_RECIPROCITY],
+      '只在 iKan 尝试首次 REAL ID、首次证件、non-citizen 或复杂姓名变更，不准备本人到场': [KS_REQUIRED, KS_REAL_ID, KS_PROOF, KS_ONLINE],
+      '搬家后只向 USPS 设置转寄，没有在 10 天内更新 Kansas 驾照记录': [KS_SUSPENSION_FAQ, KS_ADDRESS],
+      '申请实体卡后立刻搬家，误以为 credential 会被 USPS 转寄或能用 tracking 找到': [KS_FAQ],
+      '把旧 fee chart 的 $8 address change 当作当前固定报价，忽略 Online Services 已显示 $10': [KS_FEES, KS_ONLINE],
+      '看到西班牙文 handbook 就推断现场或线上知识考试一定提供中文，没有先向 office 核实': [KS_FORMS, KS_ONLINE, KS_STATIONS],
+      '只看 county 名称就前往，未确认该地点是否提供考试、首次申请、non-citizen、REAL ID 或 CDL 服务': [KS_HOME, KS_STATIONS, KS_APPOINTMENT],
+    },
+  },
   'south-dakota': {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

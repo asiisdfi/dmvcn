@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T21:30:35.769Z",
+    "generatedAt": "2026-07-20T21:53:09.463Z",
     "pages": 100,
     "states": 50,
-    "claims": 3201,
-    "links": 5224,
-    "aiAssistedClaims": 2634,
-    "aiAssistedPages": 60,
+    "claims": 3261,
+    "links": 5388,
+    "aiAssistedClaims": 2718,
+    "aiAssistedPages": 62,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1496,
-        "links": 2426,
+        "claims": 1526,
+        "links": 2494,
         "states": 50
       },
       "real-id": {
-        "claims": 1705,
-        "links": 2798,
+        "claims": 1735,
+        "links": 2894,
         "states": 50
       }
     }
@@ -45243,14 +45243,16 @@
       "surface": "overview",
       "field": "summary",
       "context": "license",
-      "claim": "堪萨斯驾照和 ID 由 Kansas Department of Revenue Division of Vehicles 管理",
+      "claim": "Kansas 驾照和 ID 由 Department of Revenue Division of Vehicles 管理",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovdrlic.html"
+        "https://www.ksrevenue.gov/dovindex.html",
+        "https://www.ksrevenue.gov/dovlicenses.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Driver License Information"
+        "对应官方来源：Kansas Division of Vehicles Home",
+        "对应官方来源：Kansas Licensing and Identification Cards"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "test"
       ],
@@ -45262,73 +45264,21 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "REAL ID、required documents、renewal、address change、iKan online services 和 appointment 都要分路径处理",
+      "claim": "首次申请、外州转入、REAL ID 文件核验和非公民业务先按现场路线准备",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html",
-        "https://www.ksrevenue.gov/dovdrlic.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment",
-        "对应官方来源：Kansas KDOR Driver License Information"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "address-change",
-        "renewal",
-        "appointment",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "kansas",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "Kansas 的 renewal、address change 和部分 online services 可从 KDOR 或 iKan 入口开始，但第一次 REAL ID、身份核验、姓名变化或复杂身份材料仍应按官方清单到场准备",
-      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
         "https://www.ksrevenue.gov/dovrealid.html",
-        "https://www.ksrevenue.gov/dovqflowreq.html",
-        "https://www.ksrevenue.gov/dovdrlic.html"
+        "https://www.ksrevenue.gov/dovproof.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR REAL ID",
         "对应官方来源：Kansas KDOR Required Documents and Appointment",
-        "对应官方来源：Kansas KDOR Driver License Information"
+        "对应官方来源：Kansas KDOR REAL ID",
+        "对应官方来源：Kansas Driver License Proof of Identity"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
-        "address-change",
-        "name-change",
-        "renewal",
-        "online-service"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "kansas",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "Kansas REAL ID 要准备 lawful presence、SSN、两份当前 Kansas residential address 证明和必要的 legal name change 文件",
-      "sourceUrls": [
-        "https://www.ksrevenue.gov/dovrealid.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Kansas KDOR REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "ssn",
-        "name-change",
         "lawful-presence"
       ],
       "uncoveredThemes": [],
@@ -45337,19 +45287,183 @@
     {
       "stateId": "kansas",
       "surface": "overview",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "KDOR 页面说明地址证明要在有效时间范围内，junk mail 或 personal letters 不适合作为地址证明",
+      "field": "summary",
+      "context": "license",
+      "claim": "符合条件的续期、地址变更、状态查询和知识考试可从官方线上入口开始",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovonlineservices.html",
+        "https://www.ksrevenue.gov/dovaboutikan.html",
+        "https://www.ksrevenue.gov/dovdlfaq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：Kansas KDOR Online Services",
+        "对应官方来源：Kansas About iKan",
+        "对应官方来源：Kansas Driver License FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "address-change",
+        "renewal",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "summary",
+      "context": "document",
+      "claim": "新居民在建立 Kansas residency 后有 90 天换领本州驾照",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "transfer"
+      ],
+      "uncoveredThemes": [
         "residency-proof"
       ],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "有效外州驾照转入通常只需视力检查，过期外州驾照则要完成视力、知识和驾驶考试，外州 permit 也不能直接转入",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovobtainingdl.html",
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Getting a Driver License",
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "KDOR 当前另列台湾和韩国互惠路线",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovreciprocity.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas South Korean Reciprocity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "中国大陆及其他未列入互惠的外国驾照应按 vision、written 和 driving exam 路线准备",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovreciprocity.html",
+        "https://www.ksrevenue.gov/dovobtainingdl.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas South Korean Reciprocity",
+        "对应官方来源：Kansas Getting a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Kansas REAL ID 需要一份 lawful-presence 文件、一份 SSN 证明、两份近期 Kansas physical residential address 证明和适用的 legal-name-change 文件",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealid.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "材料须用原件或签发机关认证件，普通复印件、公证复印件和覆膜文件不接受",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealidfaq.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID FAQ",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "即使交回的是外州 REAL ID，也要重新提交 Kansas 所需材料",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealidfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -45357,17 +45471,37 @@
       "stateId": "kansas",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "document",
-      "claim": "Kansas KDOR appointment / required documents 页面会按业务列出材料和地点要求",
+      "context": "license",
+      "claim": "Kansas 每个 county 都提供某些驾照或 ID 服务，但部分办公室服务有限",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovindex.html",
+        "https://www.ksrevenue.gov/dovstations.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：Kansas Division of Vehicles Home",
+        "对应官方来源：Kansas Driver License Stations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "预约不是所有业务的绝对前提，不过有预约的申请人优先",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/DOVAppointmentInfo/",
+        "https://www.ksrevenue.gov/dovstations.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Appointment Information",
+        "对应官方来源：Kansas Driver License Stations"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
         "appointment"
       ],
       "uncoveredThemes": [],
@@ -45377,18 +45511,22 @@
       "stateId": "kansas",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "document",
-      "claim": "预约前先确认办公室类型、服务项目和需要携带的文件",
+      "context": "real-id",
+      "claim": "先在地点页确认该 office 是否办理首次申请、考试、REAL ID、non-citizen 或 CDL 业务",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovstations.html",
+        "https://www.ksrevenue.gov/DOVAppointmentInfo/",
+        "https://www.ksrevenue.gov/dovtelegovreq.html"
       ],
       "sourceLabels": [
+        "对应官方来源：Kansas Driver License Stations",
+        "对应官方来源：Kansas Appointment Information",
         "对应官方来源：Kansas KDOR Required Documents and Appointment"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "appointment"
+        "real-id",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -45398,40 +45536,83 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "iKan 可做部分线上服务，但 REAL ID 文件核验和姓名/身份问题不能默认线上完成",
+      "claim": "从 2025 年 5 月 7 日起，TSA 不再把非 REAL ID 的州驾照或 ID 当作机场安检的合规身份证件",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovrealid.html",
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR REAL ID",
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document",
-        "online-service"
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
     },
     {
       "stateId": "kansas",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "Kansas REAL ID 要准备 lawful presence、SSN、两份当前 Kansas residential address 证明和必要的 legal name change 文件",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "有效护照等 TSA 接受证件仍可替代",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovrealid.html"
+        "https://www.tsa.gov/travel/security-screening/identification",
+        "https://www.ksrevenue.gov/dovrealidfaq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR REAL ID"
+        "对应官方来源：TSA Acceptable Identification",
+        "对应官方来源：Kansas KDOR REAL ID FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "标有 NOT FOR FEDERAL ID 的 Kansas 证件仍可用于驾驶和多数日常州内身份用途，但不能按 REAL ID 规划国内航班安检",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealidfaq.html",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID FAQ",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "首次增加 REAL ID 要本人提交 lawful presence、SSN、两份 Kansas physical address 和姓名变更材料，不能只在 iKan 上传后等待寄卡",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealid.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/dovrealidfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas KDOR REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
+        "residency-proof",
         "ssn",
         "name-change",
         "lawful-presence"
@@ -45441,19 +45622,521 @@
     },
     {
       "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 核验通常只做一次，但从外州 REAL ID 转入 Kansas 时仍须重新出示 Kansas 要求的全部材料",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealidfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "建立 Kansas residency 后应在 90 天内换领 Kansas 驾照",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "外州证件有效时通常免知识与驾驶考试",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovobtainingdl.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas Getting a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "证件已过期、只有 permit 或存在其他州 hold 时，考试或签发资格会改变",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/dovobtainingdl.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas Getting a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "非美国公民每次签发都要带当前 immigration documents，并由 Kansas 使用 SAVE 核验",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/dovproof.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas Driver License Proof of Identity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "非工作授权身份且从未取得 SSN 的外国学生或家属可不提交 SSN 证明，但仍要满足 lawful-presence 和其他材料要求",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf",
+        "https://www.ksrevenue.gov/dovproof.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist",
+        "对应官方来源：Kansas Driver License Proof of Identity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "KDOR 当前分别公布台湾与韩国互惠信息",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovreciprocity.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas South Korean Reciprocity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "中国大陆驾照未列入这两条免试路径",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovreciprocity.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas South Korean Reciprocity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "KDOR 提供在家完成 non-commercial Class C knowledge exam 的官方入口，但考试语言和当次服务费应在进入考试前再次确认",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovonlineservices.html",
+        "https://www.ksrevenue.gov/dovindex.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas KDOR Online Services",
+        "对应官方来源：Kansas Division of Vehicles Home"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通续期可最早提前一年办理",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrenewingdl.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Renewing Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "现场续期仍要身份、SSN、Kansas principal residence address、视力检查、照片和签名",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrenewingdl.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Renewing Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "ssn",
+        "renewal",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "residency-proof",
+        "ssn"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "iKan 的驾照续期入口面向符合资格的 21 至 64 岁申请人，法定限制或个人记录可能要求改为现场办理",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/DOVAppointmentInfo/",
+        "https://www.ksrevenue.gov/dovaboutikan.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Appointment Information",
+        "对应官方来源：Kansas About iKan"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Kansas 法律要求地址变化后 10 天内通知 Division of Vehicles",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovsuspendedfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Suspension FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "address-change",
+        "test"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "只更新记录可以免费，要求印有新地址的卡片则走付费入口",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovonlineservices.html",
+        "https://www.ksrevenue.gov/dladdresschange/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Online Services",
+        "对应官方来源：Kansas Online Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "实体 credential 多数在 14 至 20 天寄到，但官方要求最多预留 45 天",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovlicenses.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas Licensing and Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "邮件没有 tracking，也不会自动 forward 到新地址",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "当前 Online Services 写新地址卡收费 $10，而 2023 年 fee chart 仍写 address change $8",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovonlineservices.html",
+        "https://www.ksrevenue.gov/pdf/dmvlicfees.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Online Services",
+        "对应官方来源：Kansas Driver License Fee Chart"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "付款前应以当前交易报价为准",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovonlineservices.html",
+        "https://www.ksrevenue.gov/pdf/dmvlicfees.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Online Services",
+        "对应官方来源：Kansas Driver License Fee Chart"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "KDOR 当前 Forms 页面列出英文与西班牙文 handbook，没有给出中文考试保证",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovforms.html",
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovonlineservices.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Forms and Publications",
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas KDOR Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "需要中文帮助时应提前向办理 office 确认",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovforms.html",
+        "https://www.ksrevenue.gov/dovstations.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Forms and Publications",
+        "对应官方来源：Kansas Driver License Stations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "每个 Kansas county 都有某种 driver license 或 ID 服务，但不能据此假定每个地点都能完成考试、non-citizen、REAL ID 或 CDL",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovindex.html",
+        "https://www.ksrevenue.gov/dovstations.html",
+        "https://www.ksrevenue.gov/DOVAppointmentInfo/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Division of Vehicles Home",
+        "对应官方来源：Kansas Driver License Stations",
+        "对应官方来源：Kansas Appointment Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Kansas REAL ID 需要一份 lawful-presence 文件、一份 SSN 证明、两份近期 Kansas physical residential address 证明和适用的 legal-name-change 文件",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealid.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "KDOR 页面说明地址证明要在有效时间范围内，junk mail 或 personal letters 不适合作为地址证明",
+      "claim": "材料须用原件或签发机关认证件，普通复印件、公证复印件和覆膜文件不接受",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovrealidfaq.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：Kansas KDOR REAL ID FAQ",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "即使交回的是外州 REAL ID，也要重新提交 Kansas 所需材料",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealidfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -45463,14 +46146,20 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "lawful presence / identity 文件",
+      "claim": "一份 lawful-presence 文件，例如签发机关认证的出生证、未过期美国护照、Permanent Resident Card、Employment Authorization Card 或适用的移民文件",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf",
+        "https://www.ksrevenue.gov/dovproof.html",
+        "https://www.ksrevenue.gov/dovrealid.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist",
+        "对应官方来源：Kansas Driver License Proof of Identity",
+        "对应官方来源：Kansas KDOR REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "lawful-presence"
@@ -45483,14 +46172,20 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Social Security Number 证明",
+      "claim": "一份显示完整号码的 SSN 证明，例如 Social Security Card、当前 W-2 / 1099 或当前 pay stub",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf",
+        "https://www.ksrevenue.gov/dovproof.html",
+        "https://www.ksrevenue.gov/dovrealid.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist",
+        "对应官方来源：Kansas Driver License Proof of Identity",
+        "对应官方来源：Kansas KDOR REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -45502,34 +46197,20 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 Kansas residential address 证明，通常要是近期、当前地址，不能用 junk mail 或 personal letters",
+      "claim": "非工作授权身份且从未获发 SSN 的外国学生或家属可按 KDOR 例外处理，不要自行伪造或填写不存在的号码",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf",
+        "https://www.ksrevenue.gov/dovproof.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist",
+        "对应官方来源：Kansas Driver License Proof of Identity"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "kansas",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "姓名不一致时准备 certified legal name change 文件",
-      "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "name-change"
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -45539,17 +46220,250 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "预约或到场前核对 KDOR required documents 页面列出的当前版本",
+      "claim": "两份近期 Kansas residential address 文件，必须显示本人姓名和 physical address，不能只给 mailing address 或 P.O. Box",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf",
+        "https://www.ksrevenue.gov/dovproof.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist",
+        "对应官方来源：Kansas Driver License Proof of Identity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "姓名不同于 lawful-presence 文件时，用政府签发的 marriage certificate、恢复姓名的 divorce decree、adoption order 或 legal-name-change court order 衔接",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf",
+        "https://www.ksrevenue.gov/dovproof.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist",
+        "对应官方来源：Kansas Driver License Proof of Identity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "外州转入另带有效实体 license / ID",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/dovproof.html",
+        "https://www.ksrevenue.gov/dovdlfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas Driver License Proof of Identity",
+        "对应官方来源：Kansas Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "只有 temporary credential 或原卡遗失时，准备签发州 30 天内的 MVR 或 clearance letter",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovproof.html",
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License Proof of Identity",
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "外国学生通常还要带 I-20，交流访问身份通常还要带 DS-2019，并配合有效 passport、I-94 或相应身份文件",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovproof.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License Proof of Identity",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 和首次申请材料使用原件或签发机关认证件",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealidfaq.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID FAQ",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "普通 photocopy、手机图片、自行公证件和 laminated document 不接受",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealidfaq.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID FAQ",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "续期通常带 Kansas credential 和一封显示当前 residential address 的邮件，现场还要完成视力检查、照片和签名",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrenewingdl.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Renewing Driver License",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "补证通常需要两份可接受 identity 文件和一封显示本人姓名与 Kansas residential address 的邮件",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "SSN card 不能当作 replacement 的 identity 文件",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovtelegovreq.html"
       ],
       "sourceLabels": [
         "对应官方来源：Kansas KDOR Required Documents and Appointment"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "appointment"
+        "ssn",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "使用 DE-56A portable checklist 按自己的 first-time、transfer、renewal、replacement、name change 或 REAL ID 路线逐项打勾",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/pdf/de56a.pdf",
+        "https://www.ksrevenue.gov/dovtelegovreq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas DE-56A Portable Checklist",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "name-change",
+        "renewal",
+        "replacement"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -45559,14 +46473,65 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "先打开 Kansas REAL ID 页面，确认自己是否需要 REAL ID 或可用护照替代",
+      "claim": "先确定业务是 first-time、out-of-state transfer、foreign-license application、renewal、replacement、name / address change，还是 adding REAL ID",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovrealid.html"
+        "https://www.ksrevenue.gov/dovlicenses.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/dovdlfaq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR REAL ID"
+        "对应官方来源：Kansas Licensing and Identification Cards",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas Driver License FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "address-change",
+        "renewal",
+        "replacement",
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "新居民记录建立 Kansas residency 的日期，并在 90 天期限内安排换证",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "transfer"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "只为国内航班或联邦用途需要新证件时，先比较 Kansas REAL ID 与现有 passport 等 TSA 接受证件",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovrealidfaq.html",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR REAL ID FAQ",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -45579,20 +46544,44 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "用 required documents / appointment 页面核对 lawful presence、SSN、两份地址证明和姓名文件",
+      "claim": "打开 Required Documents 和 DE-56A checklist，准备 lawful presence、完整 SSN、两份 physical-address 文件和完整 legal-name chain",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof",
         "ssn",
-        "lawful-presence",
-        "appointment"
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "非公民按当前身份准备 passport、I-94、Permanent Resident Card、EAD、I-20 或 DS-2019，并为 SAVE 核验预留时间",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovproof.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License Proof of Identity",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -45602,16 +46591,63 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "license",
-      "claim": "只是地址变化或 renewal 时，再看 KDOR online services / iKan 是否可办",
+      "claim": "持外国驾照时先核对 Taiwan / South Korea reciprocity",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovdrlic.html"
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovreciprocity.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Driver License Information"
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas South Korean Reciprocity"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "中国大陆或其他未列入互惠的证件按 vision、written 和 driving exams 准备",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovreciprocity.html",
+        "https://www.ksrevenue.gov/dovobtainingdl.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas South Korean Reciprocity",
+        "对应官方来源：Kansas Getting a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期或改址先看 iKan 与 Online Services 的个人资格",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovaboutikan.html",
+        "https://www.ksrevenue.gov/dovonlineservices.html",
+        "https://www.ksrevenue.gov/dladdresschange/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas About iKan",
+        "对应官方来源：Kansas KDOR Online Services",
+        "对应官方来源：Kansas Online Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "renewal",
         "online-service"
       ],
@@ -45622,15 +46658,60 @@
       "stateId": "kansas",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "appointment",
-      "claim": "需要现场时使用 appointment 信息确认 office 和服务类型",
+      "context": "real-id",
+      "claim": "首次 REAL ID、身份核验和非公民业务按现场路线",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovrealid.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/dovproof.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：Kansas KDOR REAL ID",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas Driver License Proof of Identity"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "在 station finder 核对 office 的具体服务，再预约",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovstations.html",
+        "https://www.ksrevenue.gov/DOVAppointmentInfo/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License Stations",
+        "对应官方来源：Kansas Appointment Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "有预约的申请人会优先",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/DOVAppointmentInfo/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Appointment Information"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment"
       ],
@@ -45642,15 +46723,20 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "如果 KDOR 页面打不开，从 USA.gov 官方目录进入 Kansas Division of Vehicles",
+      "claim": "需要知识考试时先读当前 handbook，并从 KDOR Online Services 进入官方线上考试",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovrealid.html"
+        "https://www.ksrevenue.gov/dovforms.html",
+        "https://www.ksrevenue.gov/dovonlineservices.html",
+        "https://www.ksrevenue.gov/dovdlfaq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR REAL ID"
+        "对应官方来源：Kansas Forms and Publications",
+        "对应官方来源：Kansas KDOR Online Services",
+        "对应官方来源：Kansas Driver License FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "online-service",
         "test"
       ],
       "uncoveredThemes": [],
@@ -45659,17 +46745,108 @@
     {
       "stateId": "kansas",
       "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "document",
-      "claim": "只带一份 Kansas 地址证明",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要中文帮助先联系 office",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovforms.html",
+        "https://www.ksrevenue.gov/dovstations.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：Kansas Forms and Publications",
+        "对应官方来源：Kansas Driver License Stations"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "付款前打开 fee chart 并核对实际交易报价，尤其注意 address change 的 $8 / $10 官方差异",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/pdf/dmvlicfees.pdf",
+        "https://www.ksrevenue.gov/dovonlineservices.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License Fee Chart",
+        "对应官方来源：Kansas KDOR Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "address-change",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "交易完成后保存 temporary credential 和收据，确认邮箱能接收本人姓名邮件，并按最多 45 天规划实体卡",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovlicenses.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas Licensing and Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "45 天仍未收到时，带 temporary credential 和当前地址证明到 driver license office 处理，不要假设邮局会转寄",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "REAL ID 或首次申请只带一份 Kansas 地址证明，或两份文件只显示 P.O. Box",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf",
+        "https://www.ksrevenue.gov/dovproof.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist",
+        "对应官方来源：Kansas Driver License Proof of Identity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -45680,35 +46857,40 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "用私人信件、广告邮件或过旧文件证明地址",
+      "claim": "把医院纪念出生纸当作签发机关认证 birth certificate",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovdlfaq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+        "对应官方来源：Kansas Driver License FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document"
+      ],
       "valid": true
     },
     {
       "stateId": "kansas",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "以为 iKan 能处理第一次 REAL ID 文件核验",
+      "context": "document",
+      "claim": "携带 photocopy、手机照片、公证复印件或 laminated document，误以为等同于原件或 certified copy",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovrealid.html"
+        "https://www.ksrevenue.gov/dovrealidfaq.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/pdf/de56a.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Kansas KDOR REAL ID"
+        "对应官方来源：Kansas KDOR REAL ID FAQ",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas DE-56A Portable Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "document"
       ],
       "uncoveredThemes": [],
@@ -45719,18 +46901,220 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "姓名和 SSN/身份文件不一致却没有准备 legal name change 文件",
+      "claim": "姓名变化后未先在 SSA 更新并至少等待 24 小时，或没有带 legal-name-change document",
       "sourceUrls": [
-        "https://www.ksrevenue.gov/dovqflowreq.html"
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html"
       ],
       "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
         "对应官方来源：Kansas KDOR Required Documents and Appointment"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "ssn",
         "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "拿外州 temporary license 直接转入，没有准备签发州的 MVR 或 clearance letter",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovproof.html",
+        "https://www.ksrevenue.gov/dovtelegovreq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas Driver License Proof of Identity",
+        "对应官方来源：Kansas KDOR Required Documents and Appointment"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "外州驾照已过期仍按免试转入准备，漏掉 vision、written 和 driving exams",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovobtainingdl.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas Getting a Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把中国大陆驾照套用台湾或韩国 reciprocity，默认可以免知识和驾驶考试",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html",
+        "https://www.ksrevenue.gov/dovreciprocity.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ",
+        "对应官方来源：Kansas South Korean Reciprocity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "只在 iKan 尝试首次 REAL ID、首次证件、non-citizen 或复杂姓名变更，不准备本人到场",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovtelegovreq.html",
+        "https://www.ksrevenue.gov/dovrealid.html",
+        "https://www.ksrevenue.gov/dovproof.html",
+        "https://www.ksrevenue.gov/dovonlineservices.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas KDOR Required Documents and Appointment",
+        "对应官方来源：Kansas KDOR REAL ID",
+        "对应官方来源：Kansas Driver License Proof of Identity",
+        "对应官方来源：Kansas KDOR Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "搬家后只向 USPS 设置转寄，没有在 10 天内更新 Kansas 驾照记录",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovsuspendedfaq.html",
+        "https://www.ksrevenue.gov/dladdresschange/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Suspension FAQ",
+        "对应官方来源：Kansas Online Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "申请实体卡后立刻搬家，误以为 credential 会被 USPS 转寄或能用 tracking 找到",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovdlfaq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "把旧 fee chart 的 $8 address change 当作当前固定报价，忽略 Online Services 已显示 $10",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/pdf/dmvlicfees.pdf",
+        "https://www.ksrevenue.gov/dovonlineservices.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Driver License Fee Chart",
+        "对应官方来源：Kansas KDOR Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "看到西班牙文 handbook 就推断现场或线上知识考试一定提供中文，没有先向 office 核实",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovforms.html",
+        "https://www.ksrevenue.gov/dovonlineservices.html",
+        "https://www.ksrevenue.gov/dovstations.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Forms and Publications",
+        "对应官方来源：Kansas KDOR Online Services",
+        "对应官方来源：Kansas Driver License Stations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kansas",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "只看 county 名称就前往，未确认该地点是否提供考试、首次申请、non-citizen、REAL ID 或 CDL 服务",
+      "sourceUrls": [
+        "https://www.ksrevenue.gov/dovindex.html",
+        "https://www.ksrevenue.gov/dovstations.html",
+        "https://www.ksrevenue.gov/DOVAppointmentInfo/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kansas Division of Vehicles Home",
+        "对应官方来源：Kansas Driver License Stations",
+        "对应官方来源：Kansas Appointment Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
