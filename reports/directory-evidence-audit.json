@@ -1,31 +1,31 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T22:48:26.865Z",
+    "generatedAt": "2026-07-20T23:04:24.567Z",
     "pages": 5,
-    "claims": 661,
+    "claims": 673,
     "statesCovered": 50,
-    "aiAssisted": 525,
-    "automated": 136,
+    "aiAssisted": 543,
+    "automated": 130,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 124,
-        "states": 36
+        "claims": 128,
+        "states": 37
       },
       "deadlines": {
-        "claims": 89,
-        "states": 35
+        "claims": 92,
+        "states": 36
       },
       "document-rules": {
         "claims": 184,
         "states": 49
       },
       "foreign-license": {
-        "claims": 108,
-        "states": 36
+        "claims": 112,
+        "states": 37
       },
       "identity-ssn": {
-        "claims": 156,
+        "claims": 157,
         "states": 45
       }
     }
@@ -1257,6 +1257,68 @@
       "failedThemes": [
         "lawful-presence"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "wisconsin",
+      "category": "费用",
+      "claim": "仍要做 vision exam、提交 MV3001、材料和费用",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/dl-reciprocity.aspx",
+      "sourceLabel": "对应官方来源：Foreign Driver License Reciprocity",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "wisconsin",
+      "category": "费用",
+      "claim": "15 至 17 岁青少年的 online Class D test 当前仅有 English 和 Spanish，每次 $10",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/teen-driver/teen-hw-aply/knowledge.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin Knowledge Tests",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "wisconsin",
+      "category": "费用",
+      "claim": "当前费用表列出 regular Class D original 和 8-year renewal 均为 $42.50、probationary original $28、duplicate $14，逾期续期另加 $5 late fee",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/vehicles/title-plates/dmv-fees.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV Fee Schedule",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "wisconsin",
+      "category": "费用",
+      "claim": "付款前核对 current license fee、skills exam、duplicate 和 late fee，避免把 REAL ID 免费升级误解为整笔 renewal 免费",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/vehicles/title-plates/dmv-fees.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV Fee Schedule",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -2782,6 +2844,54 @@
         "new-resident"
       ],
       "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "wisconsin",
+      "category": "材料时效",
+      "claim": "建立 residency 后按 regular 60 天或 CDL 30 天安排办理",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/get-lic.aspx",
+      "sourceLabel": "对应官方来源：How to Get a Wisconsin Driver License",
+      "themes": [
+        "residency-documents",
+        "new-resident"
+      ],
+      "failedThemes": [
+        "new-resident"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "wisconsin",
+      "category": "搬家 / 地址",
+      "claim": "搬家后 10 天内在线或邮寄更新 DMV address",
+      "sourceUrl": "https://wisconsindot.gov/Pages/online-srvcs/change-addy/default.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV Address Change",
+      "themes": [
+        "processing-or-mail",
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "wisconsin",
+      "category": "搬家 / 地址",
+      "claim": "办结后保存 45 天 driving receipt，确认申请地址能收 USPS 邮件，并在 10 个工作日后仍未收到时使用 card-status / Driver Eligibility Unit 路径",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/rnew-and-chge/license-renewal.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin Driver License Renewal",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [
+        "processing-or-mail"
+      ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -4514,7 +4624,39 @@
       "page": "document-rules",
       "stateId": "wisconsin",
       "category": "地址证明",
-      "claim": "Wisconsin residency 证明",
+      "claim": "REAL ID 按类别准备一份 name and date of birth、一份 legal presence、一份 identity、SSN，以及两份 Wisconsin residency 证明",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/realid.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV REAL ID",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "wisconsin",
+      "category": "地址证明",
+      "claim": "non-compliant card 可接受的 name / date-of-birth 文件范围更宽，但仍要求 lawful presence、identity、Wisconsin residency 和适用的 SSN 核验",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/proof-name-dob.aspx",
+      "sourceLabel": "对应官方来源：Proof of Name and Date of Birth",
+      "themes": [
+        "residency-documents",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "wisconsin",
+      "category": "地址证明",
+      "claim": "P.O. Box 或 commercial receiving agency 不能代替居住地址",
       "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/residency.aspx",
       "sourceLabel": "对应官方来源：Wisconsin DMV Proof of Residency",
       "themes": [
@@ -4522,52 +4664,21 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "wisconsin",
       "category": "地址证明",
-      "claim": "WisDOT residency 页面说明 utility bill、paystub 等电子文件 printouts 可接受",
+      "claim": "lease / rental agreement 在当前租期内可以使用，residency 清单对该类文件允许 photocopy",
       "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/residency.aspx",
       "sourceLabel": "对应官方来源：Wisconsin DMV Proof of Residency",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "wisconsin",
-      "category": "地址证明",
-      "claim": "打开 Wisconsin DMV REAL ID 页面，按官方材料清单准备 identity、SSN、residency 和姓名文件",
-      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/residency.aspx",
-      "sourceLabel": "对应官方来源：Wisconsin DMV Proof of Residency",
-      "themes": [
-        "residency-documents",
-        "document-checklist",
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "wisconsin",
-      "category": "地址证明",
-      "claim": "Wisconsin REAL ID 要准备身份、lawful status、SSN、Wisconsin residency 和姓名变更材料",
-      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx",
-      "sourceLabel": "对应官方来源：Wisconsin DMV Driver License Documentation",
-      "themes": [
-        "residency-documents",
-        "ssn"
-      ],
-      "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -6952,6 +7063,70 @@
     },
     {
       "page": "foreign-license",
+      "stateId": "wisconsin",
+      "category": "外国 / 境外驾照",
+      "claim": "外国驾照 knowledge / skills test 互惠当前只适用于 France、Germany、South Korea 和 Taiwan，并要求至少 21 岁、至少 3 年驾驶经验且外国驾照未过期",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/dl-reciprocity.aspx",
+      "sourceLabel": "对应官方来源：Foreign Driver License Reciprocity",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "wisconsin",
+      "category": "外国 / 境外驾照",
+      "claim": "Foreign License Reciprocity：核对 France、Germany、South Korea 与 Taiwan 的免试条件和专属材料",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/dl-reciprocity.aspx",
+      "sourceLabel": "对应官方来源：Foreign Driver License Reciprocity",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "wisconsin",
+      "category": "外国 / 境外驾照",
+      "claim": "外国驾照另走外国驾驶人与 reciprocity 路径：当前免 knowledge / skills tests 的互惠国家仅列 France、Germany、South Korea 和 Taiwan，中国大陆驾照不在名单内",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/foreign.aspx",
+      "sourceLabel": "对应官方来源：Driving with a Foreign Driver License",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [
+        "reciprocity"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "wisconsin",
+      "category": "外国 / 境外驾照",
+      "claim": "中国大陆或其他非互惠外国驾照持有人联系 Wisconsin DMV 确认访问期间资格，并按 knowledge、signs 和 skills tests 路线准备",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/foreign.aspx",
+      "sourceLabel": "对应官方来源：Driving with a Foreign Driver License",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [
+        "reciprocity"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
       "stateId": "utah",
       "category": "翻译要求",
       "claim": "外国文件要附 certified translation",
@@ -8683,45 +8858,60 @@
     {
       "page": "identity-ssn",
       "stateId": "wisconsin",
-      "category": "SSN",
-      "claim": "Social Security Number 相关证明",
-      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx",
-      "sourceLabel": "对应官方来源：Wisconsin DMV Driver License Documentation",
+      "category": "无 SSN / SSA",
+      "claim": "姓名、出生日期和 SSN 应与 SSA 记录一致，SSOLV 失败时 DMV 可能要求实体证明和额外核验",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/socialsecuritynumber.aspx",
+      "sourceLabel": "对应官方来源：Provide Social Security Number",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "wisconsin",
       "category": "SSN",
-      "claim": "Wisconsin REAL ID 要准备身份、lawful status、SSN、Wisconsin residency 和姓名变更材料",
-      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx",
-      "sourceLabel": "对应官方来源：Wisconsin DMV Driver License Documentation",
+      "claim": "有 SSN 的申请人必须提供号码，DMV 会通过 SSOLV 核对姓名、出生日期和号码",
+      "sourceUrl": "https://wisconsindot.gov/Documents/formdocs/mv3001.pdf",
+      "sourceLabel": "对应官方来源：Wisconsin Driver License Application MV3001",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "wisconsin",
+      "category": "SSN",
+      "claim": "无法在线核验或没有可核验 SSN 记录时应按现场文件核验路线办理",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/socialsecuritynumber.aspx",
+      "sourceLabel": "对应官方来源：Provide Social Security Number",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "wisconsin",
+      "category": "SSN",
+      "claim": "REAL ID 按类别准备一份 name and date of birth、一份 legal presence、一份 identity、SSN，以及两份 Wisconsin residency 证明",
+      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/realid.aspx",
+      "sourceLabel": "对应官方来源：Wisconsin DMV REAL ID",
       "themes": [
         "residency-documents",
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "wisconsin",
-      "category": "lawful presence",
-      "claim": "proof of legal presence 或公民/身份文件",
-      "sourceUrl": "https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx",
-      "sourceLabel": "对应官方来源：Wisconsin DMV Driver License Documentation",
-      "themes": [
+        "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

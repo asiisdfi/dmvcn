@@ -1098,7 +1098,516 @@ const UT_FINGERPRINTS = 'https://dld.utah.gov/dpc-fingerprint-vendors/';
 const UT_SERVICES = 'https://dld.utah.gov/driver-licensing-services/';
 const UT_LOCATIONS = 'https://dld.utah.gov/office-locations/';
 
+const WI_REAL_ID =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/realid.aspx';
+const WI_DOCUMENTATION =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/documentation.aspx';
+const WI_BDS316 =
+  'https://wisconsindot.gov/Documents/dmv/shared/bds316-english.pdf';
+const WI_NAME_DOB =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/proof-name-dob.aspx';
+const WI_IDENTITY =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/identity.aspx';
+const WI_LEGAL =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/citizen-leg-pres.aspx';
+const WI_RESIDENCY =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/residency.aspx';
+const WI_SSN =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/socialsecuritynumber.aspx';
+const WI_SSN_VERIFY =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/ssnverification.aspx';
+const WI_GET_LICENSE =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/get-lic.aspx';
+const WI_OUT_OF_STATE =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/ooslicense.aspx';
+const WI_NEW_RESIDENT =
+  'https://wisconsindot.gov/Pages/dmv/vehicles/title-plates/new-res-default.aspx';
+const WI_FOREIGN =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/foreign.aspx';
+const WI_RECIPROCITY =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/dl-reciprocity.aspx';
+const WI_KNOWLEDGE =
+  'https://wisconsindot.gov/Pages/dmv/teen-driver/teen-hw-aply/knowledge.aspx';
+const WI_ROAD_TEST =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/roadtestgeneral.aspx';
+const WI_HANDBOOK =
+  'https://wisconsindot.gov/Documents/dmv/shared/bds126-motorists-handbook.pdf';
+const WI_RENEW =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/rnew-and-chge/license-renewal.aspx';
+const WI_DUPLICATE =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/lst-or-stoln/duplicate-id.aspx';
+const WI_ADDRESS =
+  'https://wisconsindot.gov/Pages/online-srvcs/change-addy/default.aspx';
+const WI_NAME_CHANGE =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/rnew-and-chge/name-change.aspx';
+const WI_FEES =
+  'https://wisconsindot.gov/Pages/dmv/vehicles/title-plates/dmv-fees.aspx';
+const WI_ID_CARD =
+  'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/id-card.aspx';
+const WI_WHERE_CARD =
+  'https://wisconsindot.gov/Pages/online-srvcs/other-servs/where-is-dl-id.aspx';
+const WI_ONLINE =
+  'https://wisconsindot.gov/Pages/online-srvcs/external/dmv.aspx';
+const WI_LOCATIONS =
+  'https://wisconsindot.gov/Pages/online-srvcs/find-dmv/default.aspx';
+const WI_MV3001 =
+  'https://wisconsindot.gov/Documents/formdocs/mv3001.pdf';
+
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  wisconsin: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      WI_REAL_ID,
+      WI_DOCUMENTATION,
+      WI_BDS316,
+      WI_NAME_DOB,
+      WI_IDENTITY,
+      WI_LEGAL,
+      WI_RESIDENCY,
+      WI_SSN,
+      WI_SSN_VERIFY,
+      WI_GET_LICENSE,
+      WI_OUT_OF_STATE,
+      WI_NEW_RESIDENT,
+      WI_FOREIGN,
+      WI_RECIPROCITY,
+      WI_KNOWLEDGE,
+      WI_ROAD_TEST,
+      WI_HANDBOOK,
+      WI_RENEW,
+      WI_DUPLICATE,
+      WI_ADDRESS,
+      WI_NAME_CHANGE,
+      WI_FEES,
+      WI_ID_CARD,
+      WI_WHERE_CARD,
+      WI_ONLINE,
+      WI_LOCATIONS,
+      WI_MV3001,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Wisconsin DMV 的 REAL ID、documentation、BDS316、name / DOB、identity、legal presence、residency、SSN / SSOLV、new resident / out-of-state、foreign license / reciprocity、knowledge / road tests、Motorists Handbook、renewal、duplicate、address、name、fees、ID card、card status、online services、locations、MV3001 与 TSA 当前身份证件正文。',
+    notes:
+      '重写 Wisconsin 总览与 REAL ID 页面，拆开美国外州、外国驾照和首次驾驶人路线；补齐 60 / 30 天转入、8 年考试门槛、probationary、China / Taiwan 边界、Chinese 现场笔试、teen online test、REAL ID / non-compliant、SSOLV、费用、10 天改址、45 天 receipt 和 10 个工作日寄卡。',
+    claims: {
+      'Wisconsin 驾照和 ID 由 WisDOT Division of Motor Vehicles 管理': [
+        WI_ONLINE,
+        WI_GET_LICENSE,
+      ],
+      '建立 Wisconsin residency 后，普通驾照应在 60 天内、CDL 应在 30 天内办理': [
+        WI_GET_LICENSE,
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+      ],
+      '首次 Wisconsin 驾照或 ID 必须本人到 DMV service center': [
+        WI_OUT_OF_STATE,
+        WI_ID_CARD,
+      ],
+      '先区分美国外州转入、外国驾照、首次驾驶人、续期、补证和 REAL ID': [
+        WI_GET_LICENSE,
+        WI_OUT_OF_STATE,
+        WI_FOREIGN,
+        WI_RENEW,
+        WI_DUPLICATE,
+        WI_REAL_ID,
+      ],
+      '有效或过期不满 8 年的美国外州驾照通常可走转入路线并接受视力检查': [
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+      ],
+      '超过 8 年则要重新参加 knowledge、highway signs 和 road test': [
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+        WI_KNOWLEDGE,
+        WI_ROAD_TEST,
+      ],
+      '外国驾照另走外国驾驶人与 reciprocity 路径：当前免 knowledge / skills tests 的互惠国家仅列 France、Germany、South Korea 和 Taiwan，中国大陆驾照不在名单内': [
+        WI_FOREIGN,
+        WI_RECIPROCITY,
+      ],
+      'Wisconsin 同时签发带星标的 REAL ID-compliant card 和标有 “NOT FOR FEDERAL PURPOSES” 的 non-compliant card': [
+        WI_REAL_ID,
+      ],
+      'REAL ID 是可选项，不影响普通驾照的州内驾驶效力': [
+        WI_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '首次 REAL ID 要本人到场，按 name and date of birth、legal presence、identity、SSN、姓名变化和两份 Wisconsin 地址证明逐类交原件或 certified copy': [
+        WI_REAL_ID,
+        WI_RENEW,
+        WI_DOCUMENTATION,
+        WI_BDS316,
+      ],
+      '首次 Wisconsin credential、外州转入、首次 REAL ID 和需要文件核验的业务要到 service center': [
+        WI_OUT_OF_STATE,
+        WI_ID_CARD,
+        WI_REAL_ID,
+        WI_RENEW,
+      ],
+      'appointment 推荐但并非普遍强制': [WI_NEW_RESIDENT, WI_OUT_OF_STATE],
+      'Class D knowledge / signs tests 按 walk-in 办理且不接受预约，road test 则要单独预约': [
+        WI_KNOWLEDGE,
+        WI_ROAD_TEST,
+      ],
+      '出发前要核对具体地点是否提供考试和当天营业时间': [
+        WI_KNOWLEDGE,
+        WI_ROAD_TEST,
+        WI_LOCATIONS,
+      ],
+      'Wisconsin 同一时间只能持有 driver license 或 ID card，不能两者都保留': [
+        WI_GET_LICENSE,
+        WI_ID_CARD,
+      ],
+      '把驾照换成 ID card 会放弃驾驶资格': [WI_ID_CARD],
+      '建立 Wisconsin residency 后，regular license 应在 60 天内申请，CDL 应在 30 天内申请': [
+        WI_GET_LICENSE,
+        WI_OUT_OF_STATE,
+      ],
+      'principal residence、在州内报 income tax 或登记投票都可能构成 residency': [
+        WI_GET_LICENSE,
+        WI_OUT_OF_STATE,
+      ],
+      '外州 REAL ID 不会自动转换成 Wisconsin REAL ID': [
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+      ],
+      '转入时仍要重新提交 Wisconsin 要求的全部 REAL ID 材料': [
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+        WI_REAL_ID,
+      ],
+      '有效或过期不满 8 年的美国外州驾照可申请 Wisconsin 驾照': [
+        WI_OUT_OF_STATE,
+      ],
+      '超过 8 年要重考 knowledge、highway signs 和 road test': [
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+      ],
+      '外州驾照过期超过 6 个月、申请人未满 21 岁，或持证驾驶经验不足 3 年时，可能签发 probationary license': [
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+      ],
+      '遗失外州驾照时要提供其他 identity 文件和原州驾照号码': [
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+      ],
+      '手机照片或普通 photocopy 不能代替外州原卡': [WI_NEW_RESIDENT],
+      '外州驾照会被加盖或打印 “VOID” 后退还': [WI_NEW_RESIDENT],
+      '申请人还必须在所有 50 州保持有效驾驶资格，存在 suspension 时不能转入': [
+        WI_NEW_RESIDENT,
+        WI_OUT_OF_STATE,
+      ],
+      'WisDOT 的外国访客说明只把来自 1943 / 1949 conventions 缔约国家、符合条件的 tourist 或 student 纳入最长一年规则，并建议同时携带本国有效驾照和 IDP 或英文翻译': [
+        WI_FOREIGN,
+      ],
+      'International Driving Permit 只是与本国有效驾照配合使用的翻译文件，不能单独产生驾驶资格': [
+        WI_FOREIGN,
+      ],
+      'WisDOT 当前 convention list 列出 Taiwan，但没有列出 mainland China': [
+        WI_FOREIGN,
+      ],
+      '中国大陆驾照持有人不应预设享有最长一年访客驾驶规则，应在驾驶前向 DMV 确认': [
+        WI_FOREIGN,
+      ],
+      '外国驾照 knowledge / skills test 互惠当前只适用于 France、Germany、South Korea 和 Taiwan，并要求至少 21 岁、至少 3 年驾驶经验且外国驾照未过期': [
+        WI_RECIPROCITY,
+      ],
+      'Taiwan reciprocity 路线要求有效台湾驾照，并提交 IDP 或由 Taipei Economic and Cultural Office in Chicago 出具的 notarized translation': [
+        WI_RECIPROCITY,
+      ],
+      '仍要做 vision exam、提交 MV3001、材料和费用': [WI_RECIPROCITY],
+      '中国大陆驾照不在当前 reciprocity 名单内，应按需要参加 knowledge、signs 和 skills tests 的路线准备，而不是套用 Taiwan 规则': [
+        WI_RECIPROCITY,
+        WI_KNOWLEDGE,
+        WI_ROAD_TEST,
+      ],
+      'Class D knowledge 和 signs tests 在 DMV 现场提供 Chinese 的电脑或书面版本，也可按需申请 audio assist': [
+        WI_KNOWLEDGE,
+      ],
+      '15 至 17 岁青少年的 online Class D test 当前仅有 English 和 Spanish，每次 $10': [
+        WI_KNOWLEDGE,
+      ],
+      'Chinese 选项在现场测试，不能从线上入口取得': [WI_KNOWLEDGE],
+      '现场 Class D knowledge / signs tests 当前不收费、无需预约，未通过后最早次日重考': [
+        WI_KNOWLEDGE,
+        WI_FEES,
+      ],
+      '同一种考试一年最多五次，之后需要 DMV 特别许可': [WI_KNOWLEDGE],
+      'road test 要自备符合申请 class、状态安全且 registration 有效的车辆': [
+        WI_ROAD_TEST,
+      ],
+      'interpreter 不能随车，但 examiner 会尽合理努力建立基本沟通': [
+        WI_ROAD_TEST,
+      ],
+      'Class D skills exam 当前每次预约收费 $15，未提前至少 24 小时取消也收费': [
+        WI_FEES,
+        WI_ROAD_TEST,
+      ],
+      '未通过后的等待期由系统按结果计算，通常为 1 至 14 天': [WI_ROAD_TEST],
+      '当前费用表列出 regular Class D original 和 8-year renewal 均为 $42.50、probationary original $28、duplicate $14，逾期续期另加 $5 late fee': [
+        WI_FEES,
+      ],
+      'regular license 可提前一年续期，probationary license 可提前 90 天': [
+        WI_RENEW,
+      ],
+      'renewal reminder 通常在到期年份生日之前 45 至 60 天发到档案地址': [
+        WI_RENEW,
+      ],
+      'online renewal 主要面向 18 至 64 岁美国公民、Class D / DM、证件未过期或过期不满一年且符合其他条件的人': [
+        WI_RENEW,
+      ],
+      '首次 REAL ID、姓名或照片等资料变化、非公民和 CDL 不能按普通线上路线完成': [
+        WI_RENEW,
+      ],
+      '第一次在 renewal 同时升级 REAL ID 不另收升级费': [WI_REAL_ID, WI_RENEW],
+      '续期后再升级则按 duplicate 收费，而且首次 REAL ID 必须本人到 service center': [
+        WI_REAL_ID,
+        WI_RENEW,
+      ],
+      '非美国公民每次申请 driver license、instruction permit 或 ID card 都要出示 legal presence 文件': [
+        WI_LEGAL,
+        WI_BDS316,
+      ],
+      'lawful temporary visitor 的卡会标 “limited term”，到期日随合法居留文件且最长不超过 8 年周期': [
+        WI_LEGAL,
+      ],
+      '有 SSN 的申请人必须提供号码，DMV 会通过 SSOLV 核对姓名、出生日期和号码': [
+        WI_MV3001,
+        WI_SSN,
+        WI_SSN_VERIFY,
+      ],
+      '无法在线核验或没有可核验 SSN 记录时应按现场文件核验路线办理': [
+        WI_SSN,
+        WI_DUPLICATE,
+        WI_ID_CARD,
+      ],
+      '搬家后应在 10 天内更新 DMV 的 residence / mailing address': [WI_ADDRESS],
+      '只更新记录不会寄新卡，需要新地址印在卡上时另办 replacement 并付费': [
+        WI_ADDRESS,
+      ],
+      '所有实体驾照和 ID 集中制卡邮寄': [WI_RENEW],
+      '现场通常给 45 天 photo receipt，可在实体卡到达前作为驾照或 ID，正常约 10 个工作日收到且 USPS 不会转寄到申请表以外地址': [
+        WI_RENEW,
+        WI_WHERE_CARD,
+      ],
+      'REAL ID 不是国内航班唯一身份证件': [WI_REAL_ID, TSA_IDENTIFICATION],
+      '有效 passport 等 TSA 接受证件可以替代，而国际旅行仍需要 passport': [
+        WI_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      'REAL ID 按类别准备一份 name and date of birth、一份 legal presence、一份 identity、SSN，以及两份 Wisconsin residency 证明': [
+        WI_REAL_ID,
+        WI_DOCUMENTATION,
+        WI_BDS316,
+      ],
+      '同一文件只有在规则允许时才能覆盖多个类别': [WI_REAL_ID],
+      'REAL ID 材料须为 original 或 issuing agency certified copy': [WI_REAL_ID],
+      '普通 photocopy、fax 和 scan 不接受，出生登记摘要和医院出生证明也不属于合格 certified birth certificate': [
+        WI_REAL_ID,
+        WI_BDS316,
+        WI_LEGAL,
+      ],
+      'non-compliant card 可接受的 name / date-of-birth 文件范围更宽，但仍要求 lawful presence、identity、Wisconsin residency 和适用的 SSN 核验': [
+        WI_NAME_DOB,
+        WI_LEGAL,
+        WI_IDENTITY,
+        WI_RESIDENCY,
+        WI_MV3001,
+      ],
+      '所有地址文件必须显示本人姓名和当前 Wisconsin residence street address': [
+        WI_RESIDENCY,
+        WI_BDS316,
+      ],
+      'P.O. Box 或 commercial receiving agency 不能代替居住地址': [WI_RESIDENCY],
+      'utility bill、paystub、bank statement 等电子文件的 printout 可接受': [
+        WI_RESIDENCY,
+      ],
+      'lease / rental agreement 在当前租期内可以使用，residency 清单对该类文件允许 photocopy': [
+        WI_RESIDENCY,
+      ],
+      '姓名与出生或 legal-presence 文件不一致时，要提交每一次 name change 的 certified marriage certificate、divorce record、court order 或其他合格文件': [
+        WI_REAL_ID,
+        WI_DOCUMENTATION,
+        WI_NAME_CHANGE,
+      ],
+      '改名时先向 Social Security Administration 更新，至少等待 48 小时，再本人到 DMV 办 replacement 并交回当前卡': [
+        WI_NAME_CHANGE,
+      ],
+      '非美国公民准备当前 legal-presence 文件，并预期每次 original、renewal、replacement 或 permit / ID 申请都要再次出示': [
+        WI_LEGAL,
+        WI_RENEW,
+        WI_DUPLICATE,
+      ],
+      '有 SSN 时在 MV3001 提供号码': [WI_MV3001, WI_SSN],
+      '姓名、出生日期和 SSN 应与 SSA 记录一致，SSOLV 失败时 DMV 可能要求实体证明和额外核验': [
+        WI_SSN,
+        WI_SSN_VERIFY,
+      ],
+      '美国外州转入带原驾照': [WI_OUT_OF_STATE],
+      '原卡遗失时带其他 identity 文件并提供完整的原州驾照号码': [
+        WI_NEW_RESIDENT,
+        WI_OUT_OF_STATE,
+      ],
+      '外国驾照路线带本国有效驾照和 IDP 或合格英文翻译': [WI_FOREIGN],
+      'South Korea 与 Taiwan 互惠对翻译文件另有领事机构要求': [
+        WI_RECIPROCITY,
+      ],
+      '参加 road test 要自备适合申请 class 的车辆，确保车辆安全、控制装置可用并带有效 registration': [
+        WI_ROAD_TEST,
+      ],
+      '现场续期带当前驾照或其他 identity 文件': [WI_RENEW],
+      '非公民另带 legal status，姓名变化另带 certified name-change record': [
+        WI_RENEW,
+        WI_NAME_CHANGE,
+      ],
+      '线上申请前先更新 DMV 地址，并确认邮箱、打印设备和付款方式': [
+        WI_ADDRESS,
+        WI_RENEW,
+        WI_DUPLICATE,
+      ],
+      '线上使用的 live photo 只做身份核验，不会替换档案中的证件照片': [
+        WI_RENEW,
+        WI_DUPLICATE,
+      ],
+      '先判断自己属于美国外州转入、外国驾照、从未持证、returning Wisconsin resident、renewal、duplicate、name / address change 或 first-time REAL ID': [
+        WI_OUT_OF_STATE,
+        WI_FOREIGN,
+        WI_RENEW,
+        WI_DUPLICATE,
+        WI_ADDRESS,
+        WI_REAL_ID,
+      ],
+      '建立 residency 后按 regular 60 天或 CDL 30 天安排办理': [
+        WI_GET_LICENSE,
+        WI_OUT_OF_STATE,
+      ],
+      '第一次 Wisconsin credential 预留本人到场时间': [WI_OUT_OF_STATE, WI_ID_CARD],
+      '先比较 REAL ID 与 passport 等 TSA 替代证件': [WI_REAL_ID, TSA_IDENTIFICATION],
+      '只需驾驶时可选择 non-compliant card，但仍要满足 Wisconsin 的身份和合法居留要求': [
+        WI_REAL_ID,
+        WI_DOCUMENTATION,
+        WI_LEGAL,
+      ],
+      '使用 Interactive Driver License Guide 预填 MV3001、取得个人材料清单，并按需要预约 service center': [
+        WI_DOCUMENTATION,
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+      ],
+      '把 name / date of birth、legal presence、identity、SSN、两份 residency 和完整 name-change chain 分组，逐项核对 original / certified copy 要求': [
+        WI_REAL_ID,
+        WI_DOCUMENTATION,
+        WI_BDS316,
+      ],
+      '美国外州驾照持有人确认过期时间': [WI_OUT_OF_STATE],
+      '超过 8 年按全套知识、路标和路考准备，遗失原卡则先找齐号码和替代 identity': [
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+      ],
+      '中国大陆或其他非互惠外国驾照持有人联系 Wisconsin DMV 确认访问期间资格，并按 knowledge、signs 和 skills tests 路线准备': [
+        WI_FOREIGN,
+        WI_RECIPROCITY,
+        WI_KNOWLEDGE,
+        WI_ROAD_TEST,
+      ],
+      'Taiwan、South Korea、Germany 或 France 驾照持有人先核对 21 岁、3 年经验、有效期和该国专属翻译 / 验证文件，再使用 reciprocity 路线': [
+        WI_RECIPROCITY,
+      ],
+      '需要中文 Class D 笔试时选择现场 knowledge / signs test，并向具体 center 确认 Chinese 设备或书面版本': [
+        WI_KNOWLEDGE,
+        WI_LOCATIONS,
+      ],
+      '不使用仅 English / Spanish 的 teen online test': [WI_KNOWLEDGE],
+      'knowledge test 按 walk-in 安排并预留至少约 45 分钟': [WI_KNOWLEDGE],
+      'road test 另行预约，自备安全且 registration 有效的车辆': [WI_ROAD_TEST],
+      '续期先检查 online eligibility': [WI_RENEW],
+      '首次 REAL ID、非公民、姓名 / 照片 / restriction 变化和 CDL 直接按现场路线准备': [
+        WI_RENEW,
+      ],
+      '搬家后 10 天内在线或邮寄更新 DMV address': [WI_ADDRESS],
+      '需要新地址印卡时再申请 replacement': [WI_ADDRESS, WI_DUPLICATE],
+      '付款前核对 current license fee、skills exam、duplicate 和 late fee，避免把 REAL ID 免费升级误解为整笔 renewal 免费': [
+        WI_FEES,
+        WI_REAL_ID,
+        WI_RENEW,
+      ],
+      '办结后保存 45 天 driving receipt，确认申请地址能收 USPS 邮件，并在 10 个工作日后仍未收到时使用 card-status / Driver Eligibility Unit 路径': [
+        WI_RENEW,
+        WI_WHERE_CARD,
+      ],
+      '近期搭乘国内航班时另备 TSA 接受的 passport 等身份证件，不依赖尚未寄到的 REAL ID 或未确认用途的临时文件': [
+        WI_REAL_ID,
+        TSA_IDENTIFICATION,
+      ],
+      '建立 residency 后继续等外州驾照到期，错过 regular 60 天或 CDL 30 天的 Wisconsin 申请期限': [
+        WI_GET_LICENSE,
+        WI_OUT_OF_STATE,
+      ],
+      '以为原州 REAL ID 星标会自动转移，没有重新准备 Wisconsin 的完整 REAL ID 文件': [
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+        WI_REAL_ID,
+      ],
+      '把中国大陆驾照按 Taiwan reciprocity 办理，预设可以免 knowledge 和 skills tests': [
+        WI_RECIPROCITY,
+      ],
+      '把 IDP 当成独立驾照，或在本国驾照无效时仍依赖 IDP 驾驶': [WI_FOREIGN],
+      '看到外国 visitor 最长一年规则就直接套用到中国大陆驾照，没有核对 WisDOT 当前 convention list': [
+        WI_FOREIGN,
+      ],
+      '需要 Chinese 笔试却进入青少年 online test，忽略线上目前只有 English / Spanish 且每次收费': [
+        WI_KNOWLEDGE,
+      ],
+      '为现场 knowledge test 预约，却没有注意该考试按 walk-in 办理，也没有为约 45 分钟测试预留关门前时间': [
+        WI_KNOWLEDGE,
+      ],
+      '外州驾照过期超过 8 年仍按免试转入准备，漏掉 knowledge、signs 和 road test': [
+        WI_OUT_OF_STATE,
+        WI_NEW_RESIDENT,
+      ],
+      '外州原卡遗失后只展示手机照片，没有提供其他 identity 文件和原州驾照号码': [
+        WI_NEW_RESIDENT,
+      ],
+      '只带一份 Wisconsin 地址证明，或用 P.O. Box、commercial mailbox 代替 residence street address': [
+        WI_REAL_ID,
+        WI_RESIDENCY,
+      ],
+      '把所有 REAL ID 材料都带成普通 photocopy 或手机 scan，忽略 original / certified copy 要求': [
+        WI_REAL_ID,
+      ],
+      '姓名已变化但只带最后一次 marriage certificate，没有串起每一次 legal name change': [
+        WI_REAL_ID,
+        WI_NAME_CHANGE,
+      ],
+      'SSA 姓名还未更新或刚更新未满 48 小时就到 DMV，导致 SSOLV 姓名核验失败': [
+        WI_NAME_CHANGE,
+        WI_SSN_VERIFY,
+      ],
+      '默认 online renewal 人人可用，忽略年龄、公民身份、证件期限、class、首次 REAL ID 和资料变化限制': [
+        WI_RENEW,
+      ],
+      '搬家后只改 USPS 地址，没有在 10 天内更新 DMV record，或以为改记录会自动寄新卡': [
+        WI_ADDRESS,
+      ],
+      '参加 road test 时车辆 registration 无效、车辆有安全问题，或计划让 interpreter 随车': [
+        WI_ROAD_TEST,
+      ],
+      '只看 license fee，漏算每次 $15 skills exam、未提前 24 小时取消的费用或 $5 renewal late fee': [
+        WI_FEES,
+        WI_ROAD_TEST,
+      ],
+      '实体卡未到却没有保留 45 天 photo receipt，或邮寄地址不能收件却指望 USPS 自动转寄': [
+        WI_RENEW,
+        WI_WHERE_CARD,
+      ],
+      '同时申请 Wisconsin driver license 和 ID card，忽略本州只能二选一': [
+        WI_GET_LICENSE,
+        WI_ID_CARD,
+      ],
+    },
+  },
   utah: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

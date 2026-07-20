@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T22:48:28.632Z",
+    "generatedAt": "2026-07-20T23:04:26.288Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 85,
+    "passed": 87,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 64,
-    "aiAssistedReviews": 91,
+    "sourceMappedReviews": 62,
+    "aiAssistedReviews": 93,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 81,
+    "blockedPages": 79,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 209,
+        "sourceCount": 208,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 291,
+        "sourceCount": 293,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 124,
-        "directoryEvidenceLinks": 124,
+        "directoryEvidenceItems": 128,
+        "directoryEvidenceLinks": 128,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 235,
+        "sourceCount": 238,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 89,
-        "directoryEvidenceLinks": 89,
+        "directoryEvidenceItems": 92,
+        "directoryEvidenceLinks": 92,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 587,
+        "sourceCount": 592,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 204,
+        "sourceCount": 207,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 146,
+        "sourceCount": 149,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 108,
-        "directoryEvidenceLinks": 108,
+        "directoryEvidenceItems": 112,
+        "directoryEvidenceLinks": 112,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 215,
+        "sourceCount": 219,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 156,
-        "directoryEvidenceLinks": 156,
+        "directoryEvidenceItems": 157,
+        "directoryEvidenceLinks": 157,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 209,
+        "sourceCount": 211,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1348,
+        "sourceCount": 1369,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -5531,21 +5531,21 @@
       "route": "/states/wisconsin/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 91,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成威斯康星州（Wisconsin Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Wisconsin DMV 的 REAL ID、documentation、BDS316、name / DOB、identity、legal presence、residency、SSN / SSOLV、new resident / out-of-state、foreign license / reciprocity、knowledge / road tests、Motorists Handbook、renewal、duplicate、address、name、fees、ID card、card status、online services、locations、MV3001 与 TSA 当前身份证件正文。",
+        "notes": "重写 Wisconsin 总览与 REAL ID 页面，拆开美国外州、外国驾照和首次驾驶人路线；补齐 60 / 30 天转入、8 年考试门槛、probationary、China / Taiwan 边界、Chinese 现场笔试、teen online test、REAL ID / non-compliant、SSOLV、费用、10 天改址、45 天 receipt 和 10 个工作日寄卡。"
       },
       "scores": {
-        "factsAndSources": 20,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -5555,14 +5555,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 12,
+        "sourceCount": 28,
+        "factCheckCount": 61,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 12,
-        "stateEvidenceLinks": 15,
+        "stateEvidenceItems": 61,
+        "stateEvidenceLinks": 110,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5570,9 +5570,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/wisconsin/real-id/",
@@ -5580,16 +5578,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成威斯康星州（Wisconsin Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Wisconsin DMV 的 REAL ID、documentation、BDS316、name / DOB、identity、legal presence、residency、SSN / SSOLV、new resident / out-of-state、foreign license / reciprocity、knowledge / road tests、Motorists Handbook、renewal、duplicate、address、name、fees、ID card、card status、online services、locations、MV3001 与 TSA 当前身份证件正文。",
+        "notes": "重写 Wisconsin 总览与 REAL ID 页面，拆开美国外州、外国驾照和首次驾驶人路线；补齐 60 / 30 天转入、8 年考试门槛、probationary、China / Taiwan 边界、Chinese 现场笔试、teen online test、REAL ID / non-compliant、SSOLV、费用、10 天改址、45 天 receipt 和 10 个工作日寄卡。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5602,14 +5600,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 21,
+        "sourceCount": 28,
+        "factCheckCount": 67,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 21,
-        "stateEvidenceLinks": 22,
+        "stateEvidenceItems": 67,
+        "stateEvidenceLinks": 125,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5617,9 +5615,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/wyoming/",

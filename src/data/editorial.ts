@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Wisconsin 两页官方正文语义核对',
+    summary:
+      '逐条比对 Wisconsin DMV 的 REAL ID、documentation、BDS316、name / DOB、identity、legal presence、residency、SSN / SSOLV、new resident / out-of-state、foreign license / reciprocity、knowledge / road tests、Motorists Handbook、续补证、改名改址、费用、ID、制卡状态、线上服务、MV3001 与 TSA 当前正文；登记 125 条独立声明的显式来源，并补齐 China / Taiwan 边界、Chinese 现场笔试、teen online test、60 / 30 天转入、8 年考试门槛、费用和邮寄流程。',
+    scope: [
+      '威斯康星州办事总览',
+      '威斯康星州 REAL ID',
+      '125 条独立声明显式核对',
+      '外国驾照、中文考试与转入边界',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Utah 两页官方正文语义核对',
     summary:
       '逐条比对 Utah DLD 的 required documents、公民 / 非公民 / DPC 材料、Regular / Limited-Term / DPC 定义、original / transfer、知识与驾驶考试、2026 handbook、续补证、改名改址、费用、limited-term prequalification、fingerprint、services、locations 与 TSA 当前身份证件正文；登记 114 条独立声明的显式来源，并补齐中国驾照考试路线、Mandarin Chinese 与 DPC English-only 边界、SAVE、ITIN、10 天改址、费用、temporary license 和 no-privilege receipt。',
