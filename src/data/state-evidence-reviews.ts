@@ -891,8 +891,167 @@ const TN_MVR =
 const TN_LOCATIONS = 'https://www.tn.gov/safety/driver-services/locations.html';
 const TN_MANUAL =
   'https://www.tn.gov/content/dam/tn/safety/documents/DL_Manual.pdf';
+const ME_REAL_ID =
+  'https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id';
+const ME_REAL_ID_PDF =
+  'https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/MVL-9Checklist-20Brochure-20Revised-207-2022.pdf';
+const ME_HOME = 'https://www.maine.gov/sos/bmv';
+const ME_ONLINE = 'https://apps1.web.maine.gov/online/bmv/dlr_v2/';
+const ME_ONLINE_FAQ = 'https://www.maine.gov/online/bmv/dlr/faq.html';
+const ME_NEW_RESIDENT =
+  'https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state';
+const ME_RENEW =
+  'https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/renew-my-license';
+const ME_UPDATE =
+  'https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license';
+const ME_DUPLICATE =
+  'https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/replacement-duplicate-license-identification-card';
+const ME_EXAM =
+  'https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam';
+const ME_RESIDENCY =
+  'https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency';
+const ME_NONCITIZEN =
+  'https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-legal-presence-for-a-non-united-states-citizen';
+const ME_CITIZEN =
+  'https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-united-states-citizenship';
+const ME_FEES =
+  'https://www.maine.gov/sos/bmv/driver-licenses-and-ids/drivers-license-and-examination-fees';
+const ME_BRANCHES =
+  'https://www.maine.gov/sos/bmv/visit-your-bmv-branch/find-your-local-branch';
+const ME_APPOINTMENTS = 'https://mainebmvappt.cxmflow.com/';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  maine: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      ME_REAL_ID,
+      ME_REAL_ID_PDF,
+      ME_HOME,
+      ME_ONLINE,
+      ME_ONLINE_FAQ,
+      ME_NEW_RESIDENT,
+      ME_RENEW,
+      ME_UPDATE,
+      ME_DUPLICATE,
+      ME_EXAM,
+      ME_RESIDENCY,
+      ME_NONCITIZEN,
+      ME_CITIZEN,
+      ME_FEES,
+      ME_BRANCHES,
+      ME_APPOINTMENTS,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开并比对 Maine BMV 当前 REAL ID、online transaction、renewal、update、duplicate、new-resident、residency、citizen / non-citizen legal-presence、exam / interpreter、fees、branch、appointment 与 TSA 身份证件页面，并把 2022 brochure 和旧 online FAQ 的冲突表述单独标记。',
+    notes:
+      '重写 Maine 两页并建立显式声明级来源；重点区分首次 / 升级 REAL ID、已有 REAL ID online / AAA、外州 transfer、非公民、地址变更、duplicate 和 interpreter 路线，旧文档只用于解释历史冲突，不作为当前渠道依据。',
+    claims: {
+      'Maine BMV 的办理路线在 2025 年 11 月后发生了重要变化：首次申请或从 standard credential 升级 REAL ID 仍要去 branch office 或 mobile unit': [ME_REAL_ID],
+      '已经持有 Maine REAL ID 的部分 U.S. citizen 可按条件 online renewal / duplicate，或到 local AAA branch 续期': [ME_REAL_ID, ME_ONLINE],
+      '外州新居民则要在成为 Maine resident 后 30 天内到 BMV 转证，不能把 online renewal 当成 transfer': [ME_NEW_RESIDENT, ME_ONLINE],
+      'Maine REAL ID 只能作为 driver license 或 State ID 中的一张合规证件': [ME_REAL_ID],
+      '首次申请要本人到 branch office 或 mobile unit，准备 identity / date of birth / lawful status、SSN 或不符合 SSN 资格证明、两份带 physical address 的 Maine residence，以及完整 name-change trail': [ME_REAL_ID, ME_RESIDENCY],
+      'P.O. Box 不接受，文件要用未改动的原件或 issuing agency certified copy': [ME_REAL_ID, ME_RESIDENCY],
+      '持美国州或加拿大省签发、当前有效或过期不超过五年的普通外州驾照者，可在 BMV office 申请 Maine Class C': [ME_NEW_RESIDENT],
+      '要核对 legal presence、Maine residency、SSN、vision 和姓名连接文件，即使原证已经是 REAL ID 也仍有 Maine 附加材料': [ME_NEW_RESIDENT, ME_REAL_ID, ME_RESIDENCY],
+      '自 2026 年 2 月 1 日起，Class C 笔试可免费申请 professional interpreter': [ME_EXAM],
+      '中文不在八种数字考试语言名单内，预约翻译可能要四周或更久': [ME_EXAM],
+      'BMV 当前提醒部分 branch 在高峰期 walk-in 等候可能超过三小时、达到容量后会限流，并可能在下午 4 点提前停止接待': [ME_HOME],
+      'appointments 每日释放': [ME_HOME, ME_APPOINTMENTS],
+      '现行 online service 不能修改证件资料且只寄到 BMV 在档地址，改地址先电话、邮件或 Contact Us，改姓名、需要 vision / medical review、非 U.S. citizen、CDL、外州证件或首次 REAL ID 都应走 office 路线': [ME_ONLINE, ME_UPDATE],
+      'Maine 当前 REAL ID 页面写明：首次申请必须本人到 BMV branch office 或 mobile unit': [ME_REAL_ID],
+      '从 2025 年 11 月 13 日起，已有 REAL ID 的部分申请人可 online renewal，或到 local AAA branch 续期': [ME_REAL_ID, ME_ONLINE],
+      'Maine 仍在线的 2022 REAL ID brochure 写着 online renewal 和 AAA 都不可用，这一渠道信息已经过时': [ME_REAL_ID_PDF, ME_REAL_ID, ME_ONLINE],
+      '材料类别仍可参考，但办理地点和线上资格应以当前 REAL ID 页面与 transaction portal 为准': [ME_REAL_ID_PDF, ME_REAL_ID, ME_ONLINE],
+      '现行 online REAL ID renewal / duplicate 只面向 U.S. citizen、non-commercial driver license 或 State ID、无需 vision screening、不更改资料且当前照片年龄符合 federal guidelines 的申请人': [ME_ONLINE],
+      '现行 online service 明确排除首次 REAL ID、外州驾照、CDL、name change、新增或变化的 medical condition、取消 corrective-lens restriction、非 U.S. citizen 和需要 vision screening 的申请人': [ME_ONLINE],
+      '地址渠道存在新旧页面冲突：较旧 online FAQ 仍写可更新部分资料，但当前 transaction portal 和 BMV Update My Current License 页面都写明不能在线改地址': [ME_ONLINE_FAQ, ME_ONLINE, ME_UPDATE],
+      '应先通过 207-624-9000 x 52114、BMV 邮箱或 Contact Us 更新，再订 duplicate / renewal': [ME_UPDATE, ME_DUPLICATE],
+      '成为 Maine resident 后 30 天内要换证': [ME_NEW_RESIDENT],
+      '美国州或加拿大省签发、当前有效或过期不超过五年的驾照可走 Class C conversion': [ME_NEW_RESIDENT],
+      '要带原外州证件，遗失时用出具未满 30 天的 certified driving record': [ME_NEW_RESIDENT],
+      '外州换证要核对 legal presence、Maine residency、SSN、vision 和费用': [ME_NEW_RESIDENT, ME_RESIDENCY, ME_FEES],
+      'written / road test 可能豁免，但不是自动保证': [ME_NEW_RESIDENT, ME_EXAM],
+      '原外州证即使已经是 REAL ID，申请 Maine REAL ID 仍要补 Maine 的附加材料': [ME_NEW_RESIDENT, ME_REAL_ID],
+      'Maine 只允许一人持有一张 REAL ID-compliant credential，即 driver license 或 identification card 二选一': [ME_REAL_ID],
+      '已有有效 passport 等 TSA 接受证件的人，不一定需要为了旅行升级': [ME_REAL_ID, TSA_IDENTIFICATION],
+      '首次 REAL ID 要提供 SSN 或不符合 SSN 资格的证据': [ME_REAL_ID],
+      'BMV 明确不要求出示实体 Social Security card': [ME_REAL_ID],
+      '续期时 SSN 要在档，不能取得 SSN 者按 BMV 页面准备有效 immigration document 或 SSA written statement': [ME_RENEW],
+      '非 U.S. citizen 申请或续期 Maine driver license / State ID 都要证明 legal presence': [ME_NONCITIZEN, ME_RENEW],
+      '常见移民文件必须清晰、有效且未过期，证件有效期可能短于普通州证件': [ME_NONCITIZEN],
+      '非 U.S. citizen 不能使用当前 online renewal portal': [ME_ONLINE],
+      '首次 REAL ID 文件会被验证、扫描并保存': [ME_REAL_ID],
+      '个人身份资料或 immigration status 没有变化时，后续现场续期通常只带将到期的 REAL ID，name change 或 status change 时要补相应文件': [ME_REAL_ID],
+      '当前费用页把 Class C 分为：65 岁以下 standard 6 年 $30、REAL ID 6 年 $55': [ME_FEES, ME_REAL_ID],
+      '65 岁及以上 standard 4 年 $20、REAL ID 4 年 $40': [ME_FEES, ME_REAL_ID],
+      'REAL ID State ID original / renewal 和所有 REAL ID duplicate 均为 $30': [ME_REAL_ID, ME_DUPLICATE],
+      'non-compliant duplicate 为 $5': [ME_DUPLICATE],
+      'duplicate 有 online、branch/mobile unit、mail 三条路线': [ME_DUPLICATE],
+      '现场补证要两份 identification，其中一份显示 date of birth、另一份带 written signature': [ME_DUPLICATE],
+      'online 前要先把地址更新到 BMV record': [ME_DUPLICATE, ME_UPDATE, ME_ONLINE],
+      '自 2026 年 2 月 1 日起，Maine 为 Class C basic knowledge test 提供免费 professional interpreter': [ME_EXAM],
+      '数字系统只有 Arabic、Canadian French、English、French、Portuguese、Somali、Spanish、Swahili': [ME_EXAM],
+      '普通话不在列表时可申请翻译，但官方提示安排可能需四周或更久': [ME_EXAM],
+      'Class C knowledge test 共 30 题，至少答对 24 题': [ME_EXAM],
+      '首次驾照还包括 vision screening 和 road test': [ME_EXAM],
+      '外州有效驾照转入时 written / road test 可能被免除，应由 BMV 柜台确认': [ME_NEW_RESIDENT, ME_EXAM],
+      'BMV 首页当前提醒 REAL ID 需求导致 branch 高客流，部分地点 walk-in 可能等候超过三小时、达到容量后限流或下午 4 点提前停止接待': [ME_HOME],
+      'appointments 每日释放，近期旅行者被建议约提前两个月办理': [ME_HOME, ME_APPOINTMENTS],
+      'Identity / lawful status 准备一份或相应组合的合格文件，例如有效 U.S. passport、issuing agency certified birth certificate、Certificate of Naturalization / Citizenship、Permanent Resident Card，或与 I-94、I-797、I-20、DS-2019 等配套的有效移民文件': [ME_REAL_ID, ME_CITIZEN, ME_NONCITIZEN],
+      '提供 Social Security Number': [ME_REAL_ID],
+      '实体 Social Security card 不是 Maine REAL ID 的必带件': [ME_REAL_ID],
+      '不符合 SSN 资格者要准备 BMV 接受的 ineligibility evidence': [ME_REAL_ID, ME_RENEW],
+      'REAL ID 准备两份写有姓名和 Maine physical residential address 的文件': [ME_REAL_ID, ME_RESIDENCY],
+      'standard non-REAL ID 通常只需一份': [ME_RESIDENCY],
+      'P.O. Box 不能代替 physical address': [ME_REAL_ID, ME_RESIDENCY],
+      '常见 residence 文件包括 Maine vehicle registration、pay stub、tax bill / return、W-2、utility bill、insurance、financial statement、lease / lien 或政府文件': [ME_RESIDENCY],
+      '以 current BMV list 为准': [ME_RESIDENCY],
+      '没有常规地址文件时，可使用两名了解本人 Maine residence 的人分别签署 BMV residency affidavit': [ME_RESIDENCY],
+      '未满 18 岁由 parent / guardian 签署时只需一份': [ME_RESIDENCY],
+      '姓名变化要用 marriage license、divorce decree 或 court order 形成从 identity document 到当前姓名的完整 clear trail': [ME_REAL_ID],
+      '外州转入带 current out-of-state license': [ME_NEW_RESIDENT],
+      '证件遗失时，准备出具日期未满 30 天、能验证原驾照信息的 certified driving record': [ME_NEW_RESIDENT],
+      '线上续期 / 补证准备 SSN、有效信用卡和 printer': [ME_ONLINE],
+      '成品只寄到 BMV 当前在档地址': [ME_ONLINE],
+      '旧地址先单独联系 BMV 更新，不要指望 transaction portal 在提交时改': [ME_UPDATE, ME_ONLINE],
+      '现场续期已有 REAL ID 且姓名未变时，BMV FAQ 通常只要求带将到期的 credential': [ME_REAL_ID],
+      'name、SSN 或 immigration status 改变时要补对应官方文件': [ME_REAL_ID, ME_RENEW],
+      '第一次申请或从 standard credential 升级 Maine REAL ID 时尝试完全在线办理': [ME_REAL_ID, ME_ONLINE],
+      '继续照 2022 brochure 判断“REAL ID 不能 online / AAA”，没有看到 2025 年 11 月后的 current page 更新': [ME_REAL_ID_PDF, ME_REAL_ID, ME_ONLINE],
+      '以为外州 REAL ID 可以原样转入，忽略 Maine 仍要求本州 residence、legal presence、SSN 和其他附加材料': [ME_NEW_RESIDENT, ME_REAL_ID, ME_RESIDENCY],
+      '在需要 vision、medical review、name change、非 U.S. citizen、CDL 或外州 transfer 时继续尝试 online service': [ME_ONLINE],
+      '相信旧 online FAQ 可以直接改地址': [ME_ONLINE_FAQ, ME_UPDATE],
+      '现行 portal 只寄到在档地址，地址应先通过 BMV 更新': [ME_ONLINE, ME_UPDATE],
+      '以为必须带实体 Social Security card，或反过来以为没有 SSN 也不需要准备 ineligibility evidence': [ME_REAL_ID, ME_RENEW],
+      '只带一份地址文件申请 REAL ID，或者用 P.O. Box 代替 Maine physical residence': [ME_REAL_ID, ME_RESIDENCY],
+      '身份文件与当前姓名不一致，却没有带完整 marriage / divorce / court-order chain': [ME_REAL_ID],
+      '把普通话当成数字考试内置语言，没有提前申请 free interpreter 并预留四周以上排期': [ME_EXAM],
+      '直接 walk in 而不看 specific branch 状态': [ME_HOME, ME_BRANCHES],
+      '高峰期可能限流、等候超过三小时或提前停止接待': [ME_HOME],
+      '先选业务：首次 / 升级 REAL ID、已有 REAL ID renewal、standard renewal / duplicate、外州 transfer、首次考试或资料变更': [ME_REAL_ID, ME_ONLINE, ME_NEW_RESIDENT, ME_RENEW, ME_DUPLICATE, ME_EXAM],
+      '不要从付款入口反推资格': [ME_REAL_ID, ME_ONLINE, ME_NEW_RESIDENT],
+      '只为旅行时先查 TSA 接受证件': [TSA_IDENTIFICATION],
+      '已有有效 passport 或其他替代证件，不必把临行前升级 REAL ID 当成唯一方案': [ME_REAL_ID, TSA_IDENTIFICATION],
+      '首次或升级 REAL ID 按 identity / lawful status、SSN / ineligibility、two physical-residence documents、name-change trail 四组整理未改动原件或 certified copies': [ME_REAL_ID, ME_RESIDENCY],
+      '已有 REAL ID 想线上续期时，逐项确认 U.S. citizen、non-commercial、无需 vision、不改资料、照片年龄合规': [ME_ONLINE],
+      '任一项不符就转 office': [ME_ONLINE, ME_BRANCHES],
+      '需要改地址时先电话、邮件或 Contact Us 更新 BMV record': [ME_UPDATE],
+      'name change、medical condition 或 corrective-lens restriction 变化直接安排 office': [ME_ONLINE, ME_BRANCHES],
+      '外州新居民在 30 天内去 BMV，带外州证件或未满 30 天 certified driving record，并准备 Maine residence、legal presence、SSN、vision 和费用': [ME_NEW_RESIDENT, ME_RESIDENCY, ME_FEES],
+      '非 U.S. citizen 先打开 BMV legal-presence page 检查当前 immigration documents': [ME_NONCITIZEN],
+      '不要使用 online renewal，疑难 status 在到场前联系 License Information': [ME_ONLINE, ME_NONCITIZEN],
+      '需要中文笔试翻译时在 Class C exam application 上写明语言需求，并按至少四周排期准备': [ME_EXAM],
+      '同时使用 Maine Motorist Handbook 学习': [ME_EXAM],
+      '查看 specific branch 状态并预约': [ME_BRANCHES, ME_APPOINTMENTS],
+      '有近期旅行时按 BMV 提示约提前两个月办理，同时携带 passport 等备用 TSA 证件': [ME_HOME, TSA_IDENTIFICATION],
+      '线上办理后保存 receipt 和 temporary credential': [ME_ONLINE, ME_ONLINE_FAQ],
+      '官方 FAQ 写明 temporary credential 有效 60 天，成品最多可能三周寄达': [ME_ONLINE_FAQ],
+    },
+  },
   hawaii: {
     reviewedAt: '2026-07-19',
     reviewer: 'Codex AI 辅助证据核查',

@@ -1,4 +1,4 @@
-# Search Console 月度行动建议 (2026-07-19)
+# Search Console 月度行动建议 (2026-07-21)
 
 - 数据源：/Users/ozhb/Documents/Codex/2026-07-03/you/dmv-cn/reports/search-console-export.csv
 - 当前未检测到数据文件。

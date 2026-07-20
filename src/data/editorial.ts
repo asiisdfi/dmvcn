@@ -33,6 +33,13 @@ export type EditorialUpdate = {
 
 export const editorialUpdates: EditorialUpdate[] = [
   {
+    date: '2026-07-21',
+    title: '完成 Maine 两页官方正文语义核对',
+    summary:
+      '逐条比对 Maine BMV 的当前 REAL ID、online transaction、new-resident、续期、改址、补证、legal presence、residency、考试口译、费用、branch 与 appointment 正文；补齐 104 条页面级显式来源映射，并公开标注 2022 brochure、旧 online FAQ 与当前办理渠道之间的冲突。',
+    scope: ['缅因州办事总览', '缅因州 REAL ID', '104 条显式来源映射', '旧文档与当前渠道冲突'],
+  },
+  {
     date: '2026-07-19',
     title: '完成 Hawaii 两页官方正文语义核对',
     summary:

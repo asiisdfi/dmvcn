@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-19T08:17:14.855Z",
+    "generatedAt": "2026-07-20T20:48:06.120Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 71,
+    "passed": 73,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 78,
-    "aiAssistedReviews": 77,
+    "sourceMappedReviews": 76,
+    "aiAssistedReviews": 79,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 95,
+    "blockedPages": 93,
     "averageScore": 96
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 196,
+        "sourceCount": 197,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 277,
+        "sourceCount": 279,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 98,
-        "directoryEvidenceLinks": 98,
+        "directoryEvidenceItems": 102,
+        "directoryEvidenceLinks": 102,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 222,
+        "sourceCount": 224,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 75,
-        "directoryEvidenceLinks": 75,
+        "directoryEvidenceItems": 77,
+        "directoryEvidenceLinks": 77,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 535,
+        "sourceCount": 543,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 189,
+        "sourceCount": 192,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -521,8 +521,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 180,
-        "directoryEvidenceLinks": 180,
+        "directoryEvidenceItems": 184,
+        "directoryEvidenceLinks": 184,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 154,
+        "sourceCount": 153,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 95,
-        "directoryEvidenceLinks": 95,
+        "directoryEvidenceItems": 99,
+        "directoryEvidenceLinks": 99,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 195,
+        "sourceCount": 198,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 147,
-        "directoryEvidenceLinks": 147,
+        "directoryEvidenceItems": 151,
+        "directoryEvidenceLinks": 151,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 209,
+        "sourceCount": 208,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -700,7 +700,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 187,
+        "sourceCount": 188,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -794,7 +794,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 240,
+        "sourceCount": 241,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 208,
+        "sourceCount": 207,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1250,
+        "sourceCount": 1261,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -2799,21 +2799,21 @@
       "route": "/states/maine/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 89,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成缅因州（Maine Bureau of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Maine BMV 当前 REAL ID、online transaction、renewal、update、duplicate、new-resident、residency、citizen / non-citizen legal-presence、exam / interpreter、fees、branch、appointment 与 TSA 身份证件页面，并把 2022 brochure 和旧 online FAQ 的冲突表述单独标记。",
+        "notes": "重写 Maine 两页并建立显式声明级来源；重点区分首次 / 升级 REAL ID、已有 REAL ID online / AAA、外州 transfer、非公民、地址变更、duplicate 和 interpreter 路线，旧文档只用于解释历史冲突，不作为当前渠道依据。"
       },
       "scores": {
-        "factsAndSources": 18,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -2823,14 +2823,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 13,
+        "sourceCount": 17,
+        "factCheckCount": 52,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 13,
-        "stateEvidenceLinks": 13,
+        "stateEvidenceItems": 52,
+        "stateEvidenceLinks": 81,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2838,9 +2838,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/maine/real-id/",
@@ -2848,16 +2846,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成缅因州（Maine Bureau of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Maine BMV 当前 REAL ID、online transaction、renewal、update、duplicate、new-resident、residency、citizen / non-citizen legal-presence、exam / interpreter、fees、branch、appointment 与 TSA 身份证件页面，并把 2022 brochure 和旧 online FAQ 的冲突表述单独标记。",
+        "notes": "重写 Maine 两页并建立显式声明级来源；重点区分首次 / 升级 REAL ID、已有 REAL ID online / AAA、外州 transfer、非公民、地址变更、duplicate 和 interpreter 路线，旧文档只用于解释历史冲突，不作为当前渠道依据。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2870,14 +2868,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 20,
+        "sourceCount": 17,
+        "factCheckCount": 52,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 20,
-        "stateEvidenceLinks": 20,
+        "stateEvidenceItems": 52,
+        "stateEvidenceLinks": 88,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2885,9 +2883,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/maryland/",

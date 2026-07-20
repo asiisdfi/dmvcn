@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-19T08:17:11.363Z",
+    "generatedAt": "2026-07-20T20:48:04.285Z",
     "pages": 100,
     "states": 50,
-    "claims": 2989,
-    "links": 4764,
-    "aiAssistedClaims": 2336,
-    "aiAssistedPages": 54,
+    "claims": 3060,
+    "links": 4900,
+    "aiAssistedClaims": 2440,
+    "aiAssistedPages": 56,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1386,
-        "links": 2201,
+        "claims": 1425,
+        "links": 2269,
         "states": 50
       },
       "real-id": {
-        "claims": 1603,
-        "links": 2563,
+        "claims": 1635,
+        "links": 2631,
         "states": 50
       }
     }
@@ -52668,18 +52668,16 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "缅因州驾照、REAL ID、续期、补证和地址/姓名更新由 Maine Bureau of Motor Vehicles 管理",
+      "claim": "Maine BMV 的办理路线在 2025 年 11 月后发生了重要变化：首次申请或从 standard credential 升级 REAL ID 仍要去 branch office 或 mobile unit",
       "sourceUrls": [
         "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Maine BMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "renewal",
-        "replacement"
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -52689,20 +52687,44 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "BMV 官网现在把 REAL ID、branch appointment、online renewal / replacement 和 online REAL ID renewal 放在同一组高频入口里",
+      "claim": "已经持有 Maine REAL ID 的部分 U.S. citizen 可按条件 online renewal / duplicate，或到 local AAA branch 续期",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Online Renewal / Replacement"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal",
         "replacement",
-        "appointment",
         "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "summary",
+      "context": "document",
+      "claim": "外州新居民则要在成为 Maine resident 后 30 天内到 BMV 转证，不能把 online renewal 当成 transfer",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine New Resident / Out-of-State Transfer",
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service",
+        "transfer"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -52712,19 +52734,15 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "license",
-      "claim": "Maine online renewal / replacement 可用于部分 active non-commercial license、motorcycle license、motor driven cycle restricted license 或 Maine ID",
+      "claim": "持美国州或加拿大省签发、当前有效或过期不超过五年的普通外州驾照者，可在 BMV office 申请 Maine Class C",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine New Resident / Out-of-State Transfer"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "renewal",
-        "replacement",
-        "online-service"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -52733,19 +52751,68 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "real-id",
-      "claim": "已有 REAL ID 的用户在满足 U.S. citizen、non-commercial、无需 vision screening、不改资料、照片符合 federal guidelines 等条件时，可能可以在线 renewal / duplicate",
+      "claim": "要核对 legal presence、Maine residency、SSN、vision 和姓名连接文件，即使原证已经是 REAL ID 也仍有 Maine 附加材料",
       "sourceUrls": [
-        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine Online Renewal / Replacement"
+        "对应官方来源：Maine New Resident / Out-of-State Transfer",
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "renewal",
-        "replacement",
+        "document",
+        "residency-proof",
+        "ssn",
         "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "自 2026 年 2 月 1 日起，Class C 笔试可免费申请 professional interpreter",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "appointment",
+      "claim": "中文不在八种数字考试语言名单内，预约翻译可能要四周或更久",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test",
+        "language"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -52755,14 +52822,14 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Maine REAL ID 初次申请必须到 BMV branch office 或 mobile unit",
+      "claim": "Maine REAL ID 只能作为 driver license 或 State ID 中的一张合规证件",
       "sourceUrls": [
         "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Maine BMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -52774,16 +52841,17 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "需要一份 identity / date of birth / lawful status 文件、Social Security Number 或不符合 SSN 资格证明、两份 Maine residence",
+      "claim": "首次申请要本人到 branch office 或 mobile unit，准备 identity / date of birth / lawful status、SSN 或不符合 SSN 资格证明、两份带 physical address 的 Maine residence，以及完整 name-change trail",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
         "residency-proof",
         "ssn"
       ],
@@ -52794,55 +52862,20 @@
       "stateId": "maine",
       "surface": "overview",
       "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "P.O. Box 不接受",
-      "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "maine",
-      "surface": "overview",
-      "field": "realIdSummary",
       "context": "document",
-      "claim": "文件必须是 original 或 issuing agency certified",
+      "claim": "P.O. Box 不接受，文件要用未改动的原件或 issuing agency certified copy",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "maine",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "初次 REAL ID 仍要去 BMV branch 或 mobile unit",
-      "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
+        "document",
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -52852,17 +52885,15 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "线上服务不能改 license / ID 当前信息",
+      "claim": "BMV 当前提醒部分 branch 在高峰期 walk-in 等候可能超过三小时、达到容量后会限流，并可能在下午 4 点提前停止接待",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine BMV Home / Service Capacity"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "online-service"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -52870,18 +52901,41 @@
       "stateId": "maine",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "document",
-      "claim": "如果要改地址、姓名或其他资料，BMV online renewal 页面要求联系 207-624-9000 x 52114 或去 office",
+      "context": "appointment",
+      "claim": "appointments 每日释放",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv",
+        "https://mainebmvappt.cxmflow.com/"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine BMV Home / Service Capacity",
+        "对应官方来源：Maine BMV Appointment System"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "real-id",
+      "claim": "现行 online service 不能修改证件资料且只寄到 BMV 在档地址，改地址先电话、邮件或 Contact Us，改姓名、需要 vision / medical review、非 U.S. citizen、CDL、外州证件或首次 REAL ID 都应走 office 路线",
+      "sourceUrls": [
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal / Replacement",
+        "对应官方来源：Maine Update Current License"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal",
-        "online-service"
+        "real-id",
+        "online-service",
+        "test",
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -52891,14 +52945,35 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "Maine 2025 后的变化很重要：已有 REAL ID 的部分用户可以 online renewal，但初次 REAL ID 仍是现场",
+      "claim": "Maine 当前 REAL ID 页面写明：首次申请必须本人到 BMV branch office 或 mobile unit",
       "sourceUrls": [
         "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Maine BMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "从 2025 年 11 月 13 日起，已有 REAL ID 的部分申请人可 online renewal，或到 local AAA branch 续期",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal",
@@ -52912,14 +52987,314 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "Maine REAL ID FAQ 明确 SSN card 不必带，但要能提供号码，这和 Arkansas 等州不同",
+      "claim": "Maine 仍在线的 2022 REAL ID brochure 写着 online renewal 和 AAA 都不可用，这一渠道信息已经过时",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/MVL-9Checklist-20Brochure-20Revised-207-2022.pdf",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine 2022 REAL ID Brochure（渠道信息已过时）",
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "材料类别仍可参考，但办理地点和线上资格应以当前 REAL ID 页面与 transaction portal 为准",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/MVL-9Checklist-20Brochure-20Revised-207-2022.pdf",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine 2022 REAL ID Brochure（渠道信息已过时）",
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "现行 online REAL ID renewal / duplicate 只面向 U.S. citizen、non-commercial driver license 或 State ID、无需 vision screening、不更改资料且当前照片年龄符合 federal guidelines 的申请人",
+      "sourceUrls": [
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "现行 online service 明确排除首次 REAL ID、外州驾照、CDL、name change、新增或变化的 medical condition、取消 corrective-lens restriction、非 U.S. citizen 和需要 vision screening 的申请人",
+      "sourceUrls": [
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "name-change",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "地址渠道存在新旧页面冲突：较旧 online FAQ 仍写可更新部分资料，但当前 transaction portal 和 BMV Update My Current License 页面都写明不能在线改地址",
+      "sourceUrls": [
+        "https://www.maine.gov/online/bmv/dlr/faq.html",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal FAQ",
+        "对应官方来源：Maine Online Renewal / Replacement",
+        "对应官方来源：Maine Update Current License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "应先通过 207-624-9000 x 52114、BMV 邮箱或 Contact Us 更新，再订 duplicate / renewal",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/replacement-duplicate-license-identification-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Update Current License",
+        "对应官方来源：Maine Replacement / Duplicate"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "成为 Maine resident 后 30 天内要换证",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine New Resident / Out-of-State Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "美国州或加拿大省签发、当前有效或过期不超过五年的驾照可走 Class C conversion",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine New Resident / Out-of-State Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "要带原外州证件，遗失时用出具未满 30 天的 certified driving record",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine New Resident / Out-of-State Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "外州换证要核对 legal presence、Maine residency、SSN、vision 和费用",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/drivers-license-and-examination-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine New Resident / Out-of-State Transfer",
+        "对应官方来源：Maine Residency Documents",
+        "对应官方来源：Maine Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "ssn",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "written / road test 可能豁免，但不是自动保证",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine New Resident / Out-of-State Transfer",
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "原外州证即使已经是 REAL ID，申请 Maine REAL ID 仍要补 Maine 的附加材料",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine New Resident / Out-of-State Transfer",
+        "对应官方来源：Maine BMV REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Maine 只允许一人持有一张 REAL ID-compliant credential，即 driver license 或 identification card 二选一",
       "sourceUrls": [
         "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Maine BMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "已有有效 passport 等 TSA 接受证件的人，不一定需要为了旅行升级",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "首次 REAL ID 要提供 SSN 或不符合 SSN 资格的证据",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "ssn"
@@ -52929,17 +53304,474 @@
     },
     {
       "stateId": "maine",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "Maine REAL ID 初次申请必须到 BMV branch office 或 mobile unit",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "BMV 明确不要求出示实体 Social Security card",
       "sourceUrls": [
         "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Maine BMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "续期时 SSN 要在档，不能取得 SSN 者按 BMV 页面准备有效 immigration document 或 SSA written statement",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/renew-my-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Renew My License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "lawful-presence",
+        "renewal"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "非 U.S. citizen 申请或续期 Maine driver license / State ID 都要证明 legal presence",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-legal-presence-for-a-non-united-states-citizen",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/renew-my-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Non-Citizen Legal Presence",
+        "对应官方来源：Maine Renew My License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "常见移民文件必须清晰、有效且未过期，证件有效期可能短于普通州证件",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-legal-presence-for-a-non-united-states-citizen"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Non-Citizen Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "非 U.S. citizen 不能使用当前 online renewal portal",
+      "sourceUrls": [
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "首次 REAL ID 文件会被验证、扫描并保存",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "个人身份资料或 immigration status 没有变化时，后续现场续期通常只带将到期的 REAL ID，name change 或 status change 时要补相应文件",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "name-change",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "当前费用页把 Class C 分为：65 岁以下 standard 6 年 $30、REAL ID 6 年 $55",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/drivers-license-and-examination-fees",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Fees",
+        "对应官方来源：Maine BMV REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "65 岁及以上 standard 4 年 $20、REAL ID 4 年 $40",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/drivers-license-and-examination-fees",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Fees",
+        "对应官方来源：Maine BMV REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID State ID original / renewal 和所有 REAL ID duplicate 均为 $30",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/replacement-duplicate-license-identification-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Replacement / Duplicate"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "non-compliant duplicate 为 $5",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/replacement-duplicate-license-identification-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Replacement / Duplicate"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "duplicate 有 online、branch/mobile unit、mail 三条路线",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/replacement-duplicate-license-identification-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Replacement / Duplicate"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "现场补证要两份 identification，其中一份显示 date of birth、另一份带 written signature",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/replacement-duplicate-license-identification-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Replacement / Duplicate"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "online 前要先把地址更新到 BMV record",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/replacement-duplicate-license-identification-card",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Replacement / Duplicate",
+        "对应官方来源：Maine Update Current License",
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "自 2026 年 2 月 1 日起，Maine 为 Class C basic knowledge test 提供免费 professional interpreter",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "数字系统只有 Arabic、Canadian French、English、French、Portuguese、Somali、Spanish、Swahili",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "普通话不在列表时可申请翻译，但官方提示安排可能需四周或更久",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Class C knowledge test 共 30 题，至少答对 24 题",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "首次驾照还包括 vision screening 和 road test",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "外州有效驾照转入时 written / road test 可能被免除，应由 BMV 柜台确认",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine New Resident / Out-of-State Transfer",
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "BMV 首页当前提醒 REAL ID 需求导致 branch 高客流，部分地点 walk-in 可能等候超过三小时、达到容量后限流或下午 4 点提前停止接待",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV Home / Service Capacity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "appointments 每日释放，近期旅行者被建议约提前两个月办理",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv",
+        "https://mainebmvappt.cxmflow.com/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV Home / Service Capacity",
+        "对应官方来源：Maine BMV Appointment System"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Maine REAL ID 只能作为 driver license 或 State ID 中的一张合规证件",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -52951,16 +53783,17 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "需要一份 identity / date of birth / lawful status 文件、Social Security Number 或不符合 SSN 资格证明、两份 Maine residence",
+      "claim": "首次申请要本人到 branch office 或 mobile unit，准备 identity / date of birth / lawful status、SSN 或不符合 SSN 资格证明、两份带 physical address 的 Maine residence，以及完整 name-change trail",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
         "residency-proof",
         "ssn"
       ],
@@ -52971,36 +53804,20 @@
       "stateId": "maine",
       "surface": "real-id",
       "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "P.O. Box 不接受",
-      "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "maine",
-      "surface": "real-id",
-      "field": "realIdSummary",
       "context": "document",
-      "claim": "文件必须是 original 或 issuing agency certified",
+      "claim": "P.O. Box 不接受，文件要用未改动的原件或 issuing agency certified copy",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "document",
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53010,14 +53827,18 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "一份 identity、date of birth 和 lawful status 文件，例如 birth certificate、passport 或合格移民文件",
+      "claim": "Identity / lawful status 准备一份或相应组合的合格文件，例如有效 U.S. passport、issuing agency certified birth certificate、Certificate of Naturalization / Citizenship、Permanent Resident Card，或与 I-94、I-797、I-20、DS-2019 等配套的有效移民文件",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-united-states-citizenship",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-legal-presence-for-a-non-united-states-citizen"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine U.S. Citizen Legal Presence",
+        "对应官方来源：Maine Non-Citizen Legal Presence"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "lawful-presence"
@@ -53030,14 +53851,14 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Social Security Number",
+      "claim": "提供 Social Security Number",
       "sourceUrls": [
         "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Maine BMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -53049,14 +53870,14 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "real-id",
-      "claim": "REAL ID FAQ 说明不需要带 Social Security Card，但要能提供号码",
+      "claim": "实体 Social Security card 不是 Maine REAL ID 的必带件",
       "sourceUrls": [
         "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Maine BMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "ssn"
@@ -53069,14 +53890,78 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 Maine residence，P.O. Box 不接受",
+      "claim": "不符合 SSN 资格者要准备 BMV 接受的 ineligibility evidence",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/renew-my-license"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Renew My License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 准备两份写有姓名和 Maine physical residential address 的文件",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "standard non-REAL ID 通常只需一份",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "P.O. Box 不能代替 physical address",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -53088,14 +53973,88 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名变化时提供 marriage license、divorce decree 或 court order，并显示从身份文件姓名到当前姓名的 clear trail",
+      "claim": "常见 residence 文件包括 Maine vehicle registration、pay stub、tax bill / return、W-2、utility bill、insurance、financial statement、lease / lien 或政府文件",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "以 current BMV list 为准",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "没有常规地址文件时，可使用两名了解本人 Maine residence 的人分别签署 BMV residency affidavit",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "未满 18 岁由 parent / guardian 签署时只需一份",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "姓名变化要用 marriage license、divorce decree 或 court order 形成从 identity document 到当前姓名的完整 clear trail",
       "sourceUrls": [
         "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Maine BMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "name-change"
@@ -53107,18 +54066,53 @@
       "stateId": "maine",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "document",
-      "claim": "线上续期时准备 SSN、信用卡和打印条件",
+      "context": "license",
+      "claim": "外州转入带 current out-of-state license",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine New Resident / Out-of-State Transfer"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "证件遗失时，准备出具日期未满 30 天、能验证原驾照信息的 certified driving record",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine New Resident / Out-of-State Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "线上续期 / 补证准备 SSN、有效信用卡和 printer",
+      "sourceUrls": [
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn",
         "renewal",
+        "replacement",
         "online-service"
       ],
       "uncoveredThemes": [],
@@ -53129,16 +54123,16 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "如系统提示缺 legal presence 或 Maine residence，要按 BMV 指示电话或去 office",
+      "claim": "成品只寄到 BMV 当前在档地址",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine Online Renewal / Replacement"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53146,16 +54140,37 @@
     {
       "stateId": "maine",
       "surface": "real-id",
-      "field": "recommendedSteps",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "旧地址先单独联系 BMV 更新，不要指望 transaction portal 在提交时改",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Update Current License",
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "documentHighlights",
       "context": "real-id",
-      "claim": "先看 Maine REAL ID FAQ，决定是初次 REAL ID、已有 REAL ID 续期，还是 non-REAL ID 普通续期",
+      "claim": "现场续期已有 REAL ID 且姓名未变时，BMV FAQ 通常只要求带将到期的 credential",
       "sourceUrls": [
         "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Maine BMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal"
@@ -53166,16 +54181,134 @@
     {
       "stateId": "maine",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "初次 REAL ID 按 identity/lawful status、SSN、two Maine residence、name-change chain 准备 original 或 certified documents",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "name、SSN 或 immigration status 改变时要补对应官方文件",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/renew-my-license"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Renew My License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "先选业务：首次 / 升级 REAL ID、已有 REAL ID renewal、standard renewal / duplicate、外州 transfer、首次考试或资料变更",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/renew-my-license",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/replacement-duplicate-license-identification-card",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Online Renewal / Replacement",
+        "对应官方来源：Maine New Resident / Out-of-State Transfer",
+        "对应官方来源：Maine Renew My License",
+        "对应官方来源：Maine Replacement / Duplicate",
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "replacement",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "不要从付款入口反推资格",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Online Renewal / Replacement",
+        "对应官方来源：Maine New Resident / Out-of-State Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "只为旅行时先查 TSA 接受证件",
+      "sourceUrls": [
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "已有有效 passport 或其他替代证件，不必把临行前升级 REAL ID 当成唯一方案",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "首次或升级 REAL ID 按 identity / lawful status、SSN / ineligibility、two physical-residence documents、name-change trail 四组整理未改动原件或 certified copies",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document",
@@ -53190,14 +54323,14 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "已有 REAL ID 续期先看 online renewal 页面，逐项排除 vision screening、data change、non-citizen、CDL 等不符合线上条件",
+      "claim": "已有 REAL ID 想线上续期时，逐项确认 U.S. citizen、non-commercial、无需 vision、不改资料、照片年龄合规",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine Online Renewal / Replacement"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal",
@@ -53211,15 +54344,123 @@
       "stateId": "maine",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "document",
-      "claim": "需要改地址、姓名或其他资料时，先联系 BMV 或安排 branch office，不要直接提交线上续期",
+      "context": "detail",
+      "claim": "任一项不符就转 office",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/find-your-local-branch"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine Online Renewal / Replacement",
+        "对应官方来源：Maine Branch Offices / Mobile Units"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要改地址时先电话、邮件或 Contact Us 更新 BMV record",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Update Current License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "name change、medical condition 或 corrective-lens restriction 变化直接安排 office",
+      "sourceUrls": [
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/find-your-local-branch"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal / Replacement",
+        "对应官方来源：Maine Branch Offices / Mobile Units"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "外州新居民在 30 天内去 BMV，带外州证件或未满 30 天 certified driving record，并准备 Maine residence、legal presence、SSN、vision 和费用",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/drivers-license-and-examination-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine New Resident / Out-of-State Transfer",
+        "对应官方来源：Maine Residency Documents",
+        "对应官方来源：Maine Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "ssn",
+        "transfer",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "非 U.S. citizen 先打开 BMV legal-presence page 检查当前 immigration documents",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-legal-presence-for-a-non-united-states-citizen"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Non-Citizen Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "不要使用 online renewal，疑难 status 在到场前联系 License Information",
+      "sourceUrls": [
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-legal-presence-for-a-non-united-states-citizen"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal / Replacement",
+        "对应官方来源：Maine Non-Citizen Legal Presence"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "online-service"
@@ -53232,14 +54473,74 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "有旅行需求时仍准备护照等 TSA 接受证件作为备选",
+      "claim": "需要中文笔试翻译时在 Class C exam application 上写明语言需求，并按至少四周排期准备",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine Driver License Exam / Interpreter"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "同时使用 Maine Motorist Handbook 学习",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "查看 specific branch 状态并预约",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/find-your-local-branch",
+        "https://mainebmvappt.cxmflow.com/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Branch Offices / Mobile Units",
+        "对应官方来源：Maine BMV Appointment System"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "有近期旅行时按 BMV 提示约提前两个月办理，同时携带 passport 等备用 TSA 证件",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV Home / Service Capacity",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -53249,16 +54550,59 @@
     {
       "stateId": "maine",
       "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "第一次申请 Maine REAL ID 时尝试完全在线办理",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "线上办理后保存 receipt 和 temporary credential",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/",
+        "https://www.maine.gov/online/bmv/dlr/faq.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine Online Renewal / Replacement",
+        "对应官方来源：Maine Online Renewal FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "官方 FAQ 写明 temporary credential 有效 60 天，成品最多可能三周寄达",
+      "sourceUrls": [
+        "https://www.maine.gov/online/bmv/dlr/faq.html"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "第一次申请或从 standard credential 升级 Maine REAL ID 时尝试完全在线办理",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -53270,17 +54614,20 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "已有 REAL ID 但同时要改地址或姓名，却仍然尝试 online renewal",
+      "claim": "继续照 2022 brochure 判断“REAL ID 不能 online / AAA”，没有看到 2025 年 11 月后的 current page 更新",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/MVL-9Checklist-20Brochure-20Revised-207-2022.pdf",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine 2022 REAL ID Brochure（渠道信息已过时）",
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Online Renewal / Replacement"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "renewal",
         "online-service"
       ],
       "uncoveredThemes": [],
@@ -53290,15 +54637,107 @@
       "stateId": "maine",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "以为必须带实体 SSN card，忽略 BMV 只要求能提供号码",
+      "context": "real-id",
+      "claim": "以为外州 REAL ID 可以原样转入，忽略 Maine 仍要求本州 residence、legal presence、SSN 和其他附加材料",
       "sourceUrls": [
-        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
       ],
       "sourceLabels": [
-        "对应官方来源：Maine BMV REAL ID"
+        "对应官方来源：Maine New Resident / Out-of-State Transfer",
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "在需要 vision、medical review、name change、非 U.S. citizen、CDL 或外州 transfer 时继续尝试 online service",
+      "sourceUrls": [
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal / Replacement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "相信旧 online FAQ 可以直接改地址",
+      "sourceUrls": [
+        "https://www.maine.gov/online/bmv/dlr/faq.html",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal FAQ",
+        "对应官方来源：Maine Update Current License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "现行 portal 只寄到在档地址，地址应先通过 BMV 更新",
+      "sourceUrls": [
+        "https://apps1.web.maine.gov/online/bmv/dlr_v2/",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Online Renewal / Replacement",
+        "对应官方来源：Maine Update Current License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "以为必须带实体 Social Security card，或反过来以为没有 SSN 也不需要准备 ineligibility evidence",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/renew-my-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Renew My License"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -53309,18 +54748,97 @@
       "stateId": "maine",
       "surface": "real-id",
       "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "只带一份地址文件申请 REAL ID，或者用 P.O. Box 代替 Maine physical residence",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV REAL ID",
+        "对应官方来源：Maine Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "commonMistakes",
       "context": "document",
-      "claim": "用 P.O. Box 当作 Maine residential address",
+      "claim": "身份文件与当前姓名不一致，却没有带完整 marriage / divorce / court-order chain",
       "sourceUrls": [
         "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id"
       ],
       "sourceLabels": [
         "对应官方来源：Maine BMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "document"
       ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "把普通话当成数字考试内置语言，没有提前申请 free interpreter 并预留四周以上排期",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine Driver License Exam / Interpreter"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "直接 walk in 而不看 specific branch 状态",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv",
+        "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/find-your-local-branch"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV Home / Service Capacity",
+        "对应官方来源：Maine Branch Offices / Mobile Units"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "maine",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "高峰期可能限流、等候超过三小时或提前停止接待",
+      "sourceUrls": [
+        "https://www.maine.gov/sos/bmv"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Maine BMV Home / Service Capacity"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },

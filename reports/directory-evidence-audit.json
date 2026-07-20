@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-07-19T08:17:08.400Z",
+    "generatedAt": "2026-07-20T20:48:03.459Z",
     "pages": 5,
-    "claims": 595,
-    "statesCovered": 49,
-    "aiAssisted": 417,
-    "automated": 178,
+    "claims": 613,
+    "statesCovered": 50,
+    "aiAssisted": 433,
+    "automated": 180,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 98,
-        "states": 29
+        "claims": 102,
+        "states": 30
       },
       "deadlines": {
-        "claims": 75,
-        "states": 29
+        "claims": 77,
+        "states": 30
       },
       "document-rules": {
-        "claims": 180,
-        "states": 48
+        "claims": 184,
+        "states": 49
       },
       "foreign-license": {
-        "claims": 95,
-        "states": 32
+        "claims": 99,
+        "states": 33
       },
       "identity-ssn": {
-        "claims": 147,
-        "states": 44
+        "claims": 151,
+        "states": 45
       }
     }
   },
@@ -1305,6 +1305,71 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "maine",
+      "category": "费用",
+      "claim": "外州换证要核对 legal presence、Maine residency、SSN、vision 和费用",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+      "sourceLabel": "对应官方来源：Maine New Resident / Out-of-State Transfer",
+      "themes": [
+        "fee",
+        "residency-documents",
+        "out-of-state",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "maine",
+      "category": "费用",
+      "claim": "当前费用页把 Class C 分为：65 岁以下 standard 6 年 $30、REAL ID 6 年 $55",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/drivers-license-and-examination-fees",
+      "sourceLabel": "对应官方来源：Maine Driver License Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "maine",
+      "category": "费用",
+      "claim": "65 岁及以上 standard 4 年 $20、REAL ID 4 年 $40",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/drivers-license-and-examination-fees",
+      "sourceLabel": "对应官方来源：Maine Driver License Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "maine",
+      "category": "费用",
+      "claim": "REAL ID State ID original / renewal 和所有 REAL ID duplicate 均为 $30",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+      "sourceLabel": "对应官方来源：Maine BMV REAL ID",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "hawaii",
       "category": "费用",
       "claim": "Oahu 对无法读写英文的申请人提供受限制的 oral examination 安排：Kapalama 可人工安排 phone translation 或 English oral classroom test，并另收 oral test fee",
@@ -2439,6 +2504,34 @@
       "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "automated"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "maine",
+      "category": "期限提醒",
+      "claim": "官方 FAQ 写明 temporary credential 有效 60 天，成品最多可能三周寄达",
+      "sourceUrl": "https://www.maine.gov/online/bmv/dlr/faq.html",
+      "sourceLabel": "对应官方来源：Maine Online Renewal FAQ",
+      "themes": [
+        "temporary-credential"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "maine",
+      "category": "续期 / 到期",
+      "claim": "从 2025 年 11 月 13 日起，已有 REAL ID 的部分申请人可 online renewal，或到 local AAA branch 续期",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+      "sourceLabel": "对应官方来源：Maine BMV REAL ID",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -4687,6 +4780,64 @@
     },
     {
       "page": "document-rules",
+      "stateId": "maine",
+      "category": "地址证明",
+      "claim": "REAL ID 准备两份写有姓名和 Maine physical residential address 的文件",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+      "sourceLabel": "对应官方来源：Maine BMV REAL ID",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "maine",
+      "category": "地址证明",
+      "claim": "P.O. Box 不能代替 physical address",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+      "sourceLabel": "对应官方来源：Maine BMV REAL ID",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "maine",
+      "category": "地址证明",
+      "claim": "没有常规地址文件时，可使用两名了解本人 Maine residence 的人分别签署 BMV residency affidavit",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency",
+      "sourceLabel": "对应官方来源：Maine Residency Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "maine",
+      "category": "地址证明",
+      "claim": "online 前要先把地址更新到 BMV record",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/replacement-duplicate-license-identification-card",
+      "sourceLabel": "对应官方来源：Maine Replacement / Duplicate",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [
+        "address-change"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
       "stateId": "hawaii",
       "category": "地址证明",
       "claim": "准备两份 Hawaii principal residence address 文件，必须来自不同 entities，并显示申请人的 full first and last name 与 Hawaii address",
@@ -6454,6 +6605,72 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": true,
+      "mappingMethod": "automated"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "maine",
+      "category": "外州 / 加拿大转入",
+      "claim": "现行 online service 明确排除首次 REAL ID、外州驾照、CDL、name change、新增或变化的 medical condition、取消 corrective-lens restriction、非 U.S. citizen 和需要 vision screening 的申请人",
+      "sourceUrl": "https://apps1.web.maine.gov/online/bmv/dlr_v2/",
+      "sourceLabel": "对应官方来源：Maine Online Renewal / Replacement",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [
+        "out-of-state"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "maine",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州换证要核对 legal presence、Maine residency、SSN、vision 和费用",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+      "sourceLabel": "对应官方来源：Maine New Resident / Out-of-State Transfer",
+      "themes": [
+        "fee",
+        "residency-documents",
+        "out-of-state",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "maine",
+      "category": "外州 / 加拿大转入",
+      "claim": "Maine New Resident / Out-of-State Transfer：30 天期限、外州 / 加拿大证件、材料、vision 和 test waiver 边界",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/i-moved-to-from-a-different-state",
+      "sourceLabel": "对应官方来源：Maine New Resident / Out-of-State Transfer",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "maine",
+      "category": "外州 / 加拿大转入",
+      "claim": "Maine Driver License Fees：Class C、REAL ID、考试和外州转入费用表",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/drivers-license-and-examination-fees",
+      "sourceLabel": "对应官方来源：Maine Driver License Fees",
+      "themes": [
+        "fee",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
       "mappingMethod": "automated"
     },
     {
@@ -8396,6 +8613,64 @@
       "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "automated"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "maine",
+      "category": "无 SSN / SSA",
+      "claim": "续期时 SSN 要在档，不能取得 SSN 者按 BMV 页面准备有效 immigration document 或 SSA written statement",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/update-my-current-license/renew-my-license",
+      "sourceLabel": "对应官方来源：Maine Renew My License",
+      "themes": [
+        "renewal",
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "maine",
+      "category": "无 SSN / SSA",
+      "claim": "不符合 SSN 资格者要准备 BMV 接受的 ineligibility evidence",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+      "sourceLabel": "对应官方来源：Maine BMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "maine",
+      "category": "无 SSN / SSA",
+      "claim": "首次或升级 REAL ID 按 identity / lawful status、SSN / ineligibility、two physical-residence documents、name-change trail 四组整理未改动原件或 certified copies",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/real-id",
+      "sourceLabel": "对应官方来源：Maine BMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "maine",
+      "category": "ITIN / affidavit",
+      "claim": "没有常规地址文件时，可使用两名了解本人 Maine residence 的人分别签署 BMV residency affidavit",
+      "sourceUrl": "https://www.maine.gov/sos/bmv/visit-your-bmv-branch/how-to-prove-maine-residency",
+      "sourceLabel": "对应官方来源：Maine Residency Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
