@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T20:48:04.285Z",
+    "generatedAt": "2026-07-20T21:17:37.456Z",
     "pages": 100,
     "states": 50,
-    "claims": 3060,
-    "links": 4900,
-    "aiAssistedClaims": 2440,
-    "aiAssistedPages": 56,
+    "claims": 3132,
+    "links": 5061,
+    "aiAssistedClaims": 2538,
+    "aiAssistedPages": 58,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1425,
-        "links": 2269,
+        "claims": 1463,
+        "links": 2350,
         "states": 50
       },
       "real-id": {
-        "claims": 1635,
-        "links": 2631,
+        "claims": 1669,
+        "links": 2711,
         "states": 50
       }
     }
@@ -58652,21 +58652,43 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "密西西比州驾照、REAL ID、续期、ID card、非公民身份和地址/姓名材料由 Driver Service Bureau 处理",
+      "claim": "Mississippi 的路线与多数州不同：DSB FAQ 写明本州签发的 driver license 和 ID 都是 REAL ID compliant，并自动带 Gold Star，不需要另选 standard credential",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303",
-        "https://www.driverservicebureau.dps.ms.gov/node/298"
+        "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents",
-        "对应官方来源：Mississippi Renew Driver License / ID"
+        "对应官方来源：Mississippi DSB Frequently Asked Questions"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document",
-        "lawful-presence",
-        "renewal"
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "summary",
+      "context": "license",
+      "claim": "首次申请、外州转入和非公民业务走 Driver Service station",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen",
+        "https://www.driverservicebureau.dps.ms.gov/drivers/driver_license_locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi Non-U.S. Citizen Information",
+        "对应官方来源：Mississippi Driver License Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -58675,20 +58697,23 @@
       "stateId": "mississippi",
       "surface": "overview",
       "field": "summary",
-      "context": "document",
-      "claim": "DSB 首页、Required Documents、Renew Driver License / ID、Identification Cards 和 Non-U.S. Citizen 页面是核心入口",
+      "context": "license",
+      "claim": "符合条件的 U.S. citizen 可线上续期、补证或在续期/补证过程中改地址",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303",
-        "https://www.driverservicebureau.dps.ms.gov/node/298"
+        "https://www.ms.gov/dps/license_renewal/License",
+        "https://www.ms.gov/dps/license_renewal/Duplicate",
+        "https://www.ms.gov/dps/license_renewal/ChangeAddress"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents",
-        "对应官方来源：Mississippi Renew Driver License / ID"
+        "对应官方来源：Mississippi Online License Renewal",
+        "对应官方来源：Mississippi Online Duplicate Portal",
+        "对应官方来源：Mississippi Change Address"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "renewal"
+        "renewal",
+        "replacement",
+        "online-service"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -58697,20 +58722,19 @@
       "stateId": "mississippi",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "document",
-      "claim": "续期时，如果 license / ID 过期未超过 60 个月，官方 renewal 页面说明通常不要求文件",
+      "context": "license",
+      "claim": "新居民按官方驾驶手册应在搬入后 60 天内取得 Mississippi license，并交回外州证件",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303",
-        "https://www.driverservicebureau.dps.ms.gov/node/298"
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents",
-        "对应官方来源：Mississippi Renew Driver License / ID"
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "renewal"
+        "transfer"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -58719,21 +58743,42 @@
       "stateId": "mississippi",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "document",
-      "claim": "超过 60 个月则要重新带 birth certificate、SSN 和两份 residency，且 driver license 还要重新参加 knowledge exam",
+      "context": "license",
+      "claim": "有效外州驾照通常免 computerized exam，但仍要 vision screening",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303",
-        "https://www.driverservicebureau.dps.ms.gov/node/298"
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents",
-        "对应官方来源：Mississippi Renew Driver License / ID"
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi Regular Driver License / Transfer"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "residency-proof",
-        "ssn",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "appointment",
+      "claim": "当前 Class R 页面把任何 expired out-of-state license 都列为要考 knowledge exam，而 2025 manual 写成过期超过 30 天，边界有冲突，应按当前业务页准备考试并在预约前向 DSB 确认",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://telegov.egov.com/dps"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi DPS Appointment System"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
         "test"
       ],
       "uncoveredThemes": [],
@@ -58744,20 +58789,42 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Mississippi REAL ID / compliant license 的高频材料是 original birth certificate 或其他 acceptable identity document、SSN card 或显示完整 9 位 SSN 的官方文件、两份 Mississippi residency，以及姓名变化法律文件",
+      "claim": "Mississippi 不设普通驾照与 REAL ID 的升级二选一，州 FAQ 说明所有 Mississippi driver license / ID 自动为 Gold Star compliant credential",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303"
+        "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents"
+        "对应官方来源：Mississippi DSB Frequently Asked Questions"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "首次 credential 仍要准备 completed application、original 或 certified birth / identity document、SSN card 或显示完整九位号码的政府文件、两份带 physical Mississippi address 的 domicile documents，以及适用的 legal name-change papers",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/303",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Required Documents",
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document",
-        "residency-proof",
-        "ssn",
-        "name-change"
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -58767,14 +58834,20 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "Driver Service Bureau 强烈建议预约",
+      "claim": "DSB 对所有申请人都强烈建议预约",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/"
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/node/298",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen",
+        "https://telegov.egov.com/dps"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Driver Service Bureau"
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Renew Driver License / ID",
+        "对应官方来源：Mississippi Non-U.S. Citizen Information",
+        "对应官方来源：Mississippi DPS Appointment System"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment"
       ],
@@ -58785,18 +58858,20 @@
       "stateId": "mississippi",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "document",
-      "claim": "Mississippi residency 文件必须显示申请人姓名和 Mississippi residence address",
+      "context": "license",
+      "claim": "线上 renewal 只适用于 U.S. citizen 的有效 Class R / Class D，并允许最早到期前六个月、最迟过期一年内办理且不能连续两次 online",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303"
+        "https://www.ms.gov/dps/license_renewal/License",
+        "https://www.driverservicebureau.dps.ms.gov/node/298"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents"
+        "对应官方来源：Mississippi Online License Renewal",
+        "对应官方来源：Mississippi Renew Driver License / ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "residency-proof"
+        "renewal",
+        "online-service"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -58805,55 +58880,255 @@
       "stateId": "mississippi",
       "surface": "overview",
       "field": "appointmentNote",
-      "context": "document",
-      "claim": "P.O. Box、不请自来的 junk mail、信封、手写文件/信件不接受",
+      "context": "appointment",
+      "claim": "non-U.S. citizen、过期超过十二个月、没有有效照片或需要立即拿 duplicate 的申请人应到 Driver Service station",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303"
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen",
+        "https://www.driverservicebureau.dps.ms.gov/node/298",
+        "https://www.ms.gov/dps/license_renewal/License",
+        "https://www.ms.gov/dps/license_renewal/Duplicate",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Duplicate_License"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents"
+        "对应官方来源：Mississippi Non-U.S. Citizen Information",
+        "对应官方来源：Mississippi Renew Driver License / ID",
+        "对应官方来源：Mississippi Online License Renewal",
+        "对应官方来源：Mississippi Online Duplicate Portal",
+        "对应官方来源：Mississippi Duplicate License / ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Mississippi FAQ 明确写着所有 Mississippi driver licenses 和 ID 都是 REAL ID compliant，并自动显示 Gold Star",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi DSB Frequently Asked Questions"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "线上续期同样会取得 Gold Star，不应再写成 standard 与 REAL ID 二选一",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi DSB Frequently Asked Questions"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "DSB FAQ 同一处仍保留“REAL ID deadline 延到 May 3, 2023”的旧答案",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi DSB Frequently Asked Questions"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "该日期已经失效，机场身份证件以 TSA 当前规则为准",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi DSB Frequently Asked Questions",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "新居民手册要求搬入 Mississippi 后 60 天内换驾照，交回所有外州证件",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "外州证件遗失时要向 Driver License office 领取 Affidavit of Inability to Surrender，并对签名做 notarization",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi 2025 Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "有效外州驾照转入可免 Computerized Exam，但仍要 vision screening",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi Regular Driver License / Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "考试边界存在官方表述差异：当前 Class R 页面说 expired out-of-state license 要考，2025 manual 则写过期超过 30 天才考",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi 2025 Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "保守做法是过期证件都按需考准备并向 DSB 确认",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://telegov.egov.com/dps"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi DPS Appointment System"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "首次 Class R 当前费用为 4 年 $24 或 8 年 $47",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Driver_Service_Fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Driver Service Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "申请人通常要 completed application、original birth certificate 或 acceptable document、完整九位 SSN 证明、两份不超过 60 天的 residency 和适用的 legal name-change documents",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/node/303",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Required Documents",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "mississippi",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "document",
-      "claim": "Residency 页面明确 no P.O. boxes、no junk mail、no envelopes、no handwritten letters，是防止白跑的重点",
-      "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "mississippi",
-      "surface": "overview",
-      "field": "editorNotes",
-      "context": "document",
-      "claim": "SSN 要 SSN card 或官方 correspondence 显示 full 9 digits，不能只写“提供 SSN”",
-      "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
+        "residency-proof",
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -58861,19 +59136,547 @@
     },
     {
       "stateId": "mississippi",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "Mississippi REAL ID / compliant license 的高频材料是 original birth certificate 或其他 acceptable identity document、SSN card 或显示完整 9 位 SSN 的官方文件、两份 Mississippi residency，以及姓名变化法律文件",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "17 岁及以上首次申请人无需持 permit 12 个月，可在同一天完成 permit 与 license 路线，但要通过 knowledge 和 eye exam",
       "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Learners_Permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Learner Permit / Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "当前 Class R 页面还写明 regular license 暂不要求 skills / road test",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "16 岁申请人通常要持 learner permit 12 个月或直到 17 岁，以先到者为准，并准备 valid permit、更新的 school attendance form 和 Waiver of Road Testing Affidavit",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Learners_Permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Learner Permit / Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "DSB 2026 年 6 月更新写明：自 2027 年 7 月 1 日起，所有 new driver 取得 regular license 都要完成 certified Driver Education",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/400"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Mandatory Driver Education Update"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "自 2026 年 7 月 1 日起，Hardship License 只接受 DPS 或 MDE certified instructor 完成的课程",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/400"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Mandatory Driver Education Update"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "需要考试口译时，申请人要自行携带 interpreter，并提交经过 notarization 的 Mississippi Interpreter Oath",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-03/MDPS%20-%20Interpreter%20Oath.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Interpreter Oath"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "口译员只能准确翻译，不能给答案、提示或解释题意",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-03/MDPS%20-%20Interpreter%20Oath.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Interpreter Oath"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通续期最早可在到期前六个月办理",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298",
+        "https://www.ms.gov/dps/license_renewal/License"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID",
+        "对应官方来源：Mississippi Online License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "未过期超过 12 个月可 online 或到 station，超过 12 个月必须现场，过期续期加 $1 late fee",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Driver_Service_Fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID",
+        "对应官方来源：Mississippi Driver Service Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "线上续期只允许 every other renewal",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "上一次已 online renewal 的，本次要到 Driver Service station",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "online license renewal 还要求 U.S. citizen、有效 Class R / Class D、有效照片和本人办理",
+      "sourceUrls": [
+        "https://www.ms.gov/dps/license_renewal/License"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Online License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "续期页面说证件过期不超过 60 个月通常不要求文件，但 DSB 也提醒新 records system 可能没有完整历史材料",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "renewal"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "带 birth certificate、SSN 和两份 residency 可减少现场中断",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298",
         "https://www.driverservicebureau.dps.ms.gov/node/303"
       ],
       "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID",
         "对应官方来源：Mississippi Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
+        "document",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "超过 60 个月必须重交材料，driver license 还要重考 knowledge exam",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID",
+        "对应官方来源：Mississippi Regular Driver License / Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "non-U.S. citizen 必须在到期前 30 天内才可续期，必须本人带 Homeland Security immigration documents 到 station，不能 online renewal",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen",
+        "https://www.driverservicebureau.dps.ms.gov/node/298"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Non-U.S. Citizen Information",
+        "对应官方来源：Mississippi Renew Driver License / ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "证件期限按 authorized stay 决定且最长四年",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Non-U.S. Citizen Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "non-U.S. citizen 的 lawful status 要经 SAVE 核验",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen",
+        "https://www.driverservicebureau.dps.ms.gov/Security/Non_US_Status_Verification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Non-U.S. Citizen Information",
+        "对应官方来源：Mississippi Non-US Status Verification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "不能即时验证时，官方提示制证可能延迟最多 30 天，并可能要求补件",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Non-U.S. Citizen Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "SSN 只在 applicable 时提供，不要把公民材料清单原样套到所有移民类别",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Non-U.S. Citizen Information",
+        "对应官方来源：Mississippi 2025 Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "duplicate driver license / ID 费用为 $11，可 online 申请",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Duplicate_License",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Driver_Service_Fees",
+        "https://www.ms.gov/dps/license_renewal/Duplicate"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Duplicate License / ID",
+        "对应官方来源：Mississippi Driver Service Fees",
+        "对应官方来源：Mississippi Online Duplicate Portal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "需要立即取得证件或没有有效照片时应到 station，现场会重新拍照并填写 duplicate application",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Duplicate_License",
+        "https://www.ms.gov/dps/license_renewal/Duplicate"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Duplicate License / ID",
+        "对应官方来源：Mississippi Online Duplicate Portal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "线上改地址不能单独免费完成：官方 portal 要求同时订 duplicate credential，或在符合资格的 online renewal 中修改",
+      "sourceUrls": [
+        "https://www.ms.gov/dps/license_renewal/ChangeAddress",
+        "https://www.ms.gov/dps/license_renewal/Duplicate",
+        "https://www.ms.gov/dps/license_renewal/License"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Change Address",
+        "对应官方来源：Mississippi Online Duplicate Portal",
+        "对应官方来源：Mississippi Online License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "成品只寄到 credential 地址，不能寄 P.O. Box 或 alternate address",
+      "sourceUrls": [
+        "https://www.ms.gov/dps/license_renewal/ChangeAddress",
+        "https://www.ms.gov/dps/license_renewal/Duplicate",
+        "https://www.ms.gov/dps/license_renewal/License"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Change Address",
+        "对应官方来源：Mississippi Online Duplicate Portal",
+        "对应官方来源：Mississippi Online License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "新 State ID 可由六岁及以上申请人办理，4 年 $17、8 年 $33",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Identification_Cards",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Driver_Service_Fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Identification Cards",
+        "对应官方来源：Mississippi Driver Service Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "材料仍包括申请表、原件或 certified identity、SSN 证明、两份 residency 和姓名变化法律文件",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Identification_Cards",
+        "https://www.driverservicebureau.dps.ms.gov/node/303"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Identification Cards",
+        "对应官方来源：Mississippi Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document",
         "residency-proof",
         "ssn",
@@ -58885,16 +59688,99 @@
     {
       "stateId": "mississippi",
       "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Mississippi 不设普通驾照与 REAL ID 的升级二选一，州 FAQ 说明所有 Mississippi driver license / ID 自动为 Gold Star compliant credential",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi DSB Frequently Asked Questions"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "首次 credential 仍要准备 completed application、original 或 certified birth / identity document、SSN card 或显示完整九位号码的政府文件、两份带 physical Mississippi address 的 domicile documents，以及适用的 legal name-change papers",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/303",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Required Documents",
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "Completed and signed Mississippi Driver License / ID application",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "外州转入还要带 out-of-state credential，遗失时按 DSB 手册取得 notarized inability-to-surrender affidavit",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Original Birth Certificate 或其他 acceptable identity document",
+      "claim": "Date of birth / identity 使用带 state seal 和 certificate number 的 original 或 certified birth certificate，或 Certificate of Naturalization / Citizenship",
       "sourceUrls": [
         "https://www.driverservicebureau.dps.ms.gov/node/303"
       ],
       "sourceLabels": [
         "对应官方来源：Mississippi Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -58906,14 +59792,18 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "DSB 页面明确 No Photocopies Accepted",
+      "claim": "普通 photocopy 不接受",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303"
+        "https://www.driverservicebureau.dps.ms.gov/node/303",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Identification_Cards",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Learners_Permit"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents"
+        "对应官方来源：Mississippi Required Documents",
+        "对应官方来源：Mississippi Identification Cards",
+        "对应官方来源：Mississippi Learner Permit / Testing"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -58923,14 +59813,14 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "SSN Card 或官方政府 correspondence，显示完整 9 位 SSN",
+      "claim": "SSN 使用 Social Security Card，或显示申请人姓名与完整九位 SSN 的 official government correspondence，例如 returned W-2 / 1099、pay stub、DD-214 或 NGB-22",
       "sourceUrls": [
         "https://www.driverservicebureau.dps.ms.gov/node/303"
       ],
       "sourceLabels": [
         "对应官方来源：Mississippi Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -58942,14 +59832,16 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 Mississippi residency，显示本人姓名和 Mississippi residence address",
+      "claim": "首次 Class R 的两份 Mississippi residency 应带本人姓名和 physical residence address，并且当前 Class R 页面要求不超过 60 天",
       "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
         "https://www.driverservicebureau.dps.ms.gov/node/303"
       ],
       "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
         "对应官方来源：Mississippi Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -58961,14 +59853,132 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名变化时带 marriage license、divorce decree、adoption order 或 court order",
+      "claim": "P.O. Box、junk / soliciting mail、envelope、handwritten document / letter 和 blank check 不能作为 domicile proof",
       "sourceUrls": [
         "https://www.driverservicebureau.dps.ms.gov/node/303"
       ],
       "sourceLabels": [
         "对应官方来源：Mississippi Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "常见地址文件包括 utility / internet / phone bill、bank or credit-card statement、pay stub、lease、insurance、vehicle title / registration、tax / government document 或 property record",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/303"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "最终由 DSB 判断是否接受",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/303"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "21 岁以下可使用 parent / guardian domicile 文件",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/node/303"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "21 岁以上没有本人账单时，可用 spouse / parent 文件并以 marriage license 或 birth certificate 证明关系",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/303"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "roommate、landlord、parent 或 guardian 路线可用 official Proof of Domicile Affidavit，再配同址 driver license / ID 或一份合格 domicile document，凑足两份",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/303"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "姓名变化只接受 Marriage License、Divorce Decree、Adoption Order 或 Court Order",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/303",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Required Documents",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "name-change"
@@ -58981,36 +59991,59 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "非美国公民还要带 I-94、valid visa、resident alien card 等 official immigration papers（如适用）",
+      "claim": "首次交易时 SSN card 不一定已改成新姓名，但 DSB 强烈建议续期前更新",
       "sourceUrls": [
         "https://www.driverservicebureau.dps.ms.gov/node/303"
       ],
       "sourceLabels": [
         "对应官方来源：Mississippi Required Documents"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "renewal"
+      ],
+      "uncoveredThemes": [
+        "renewal"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "non-U.S. citizen 根据身份准备 passport、I-94、valid visa、I-551、I-766、I-20、DS-2019、I-797 等当前类别要求",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen",
+        "https://www.driverservicebureau.dps.ms.gov/Security/Non_US_Status_Verification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Non-U.S. Citizen Information",
+        "对应官方来源：Mississippi Non-US Status Verification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
     {
       "stateId": "mississippi",
       "surface": "real-id",
-      "field": "recommendedSteps",
+      "field": "documentHighlights",
       "context": "document",
-      "claim": "先看 Required Documents，把 identity、SSN、two residency、name change 分组",
+      "claim": "所有 supporting documents 上的姓名和出生日期要一致",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303"
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents"
+        "对应官方来源：Mississippi Non-U.S. Citizen Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "residency-proof",
-        "ssn",
-        "name-change"
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -59020,16 +60053,27 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "license",
-      "claim": "续期先看 Renew Driver License / ID，确认是否超过 60 个月",
+      "claim": "先选业务：first license、valid / expired out-of-state transfer、renewal、duplicate / address、State ID 或 non-U.S. citizen",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/298"
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://www.driverservicebureau.dps.ms.gov/node/298",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Duplicate_License",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Identification_Cards",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Renew Driver License / ID"
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi Renew Driver License / ID",
+        "对应官方来源：Mississippi Duplicate License / ID",
+        "对应官方来源：Mississippi Identification Cards",
+        "对应官方来源：Mississippi Non-U.S. Citizen Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal"
+        "renewal",
+        "replacement"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -59038,19 +60082,21 @@
       "stateId": "mississippi",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "需要 ID card 或非公民 credential 时分别看 Identification Cards 或 Non-U.S. Citizen 页面",
+      "context": "real-id",
+      "claim": "Mississippi 不需要单独选择 REAL ID upgrade",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303"
+        "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents"
+        "对应官方来源：Mississippi DSB Frequently Asked Questions"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "lawful-presence"
+        "real-id"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "real-id"
+      ],
       "valid": true
     },
     {
@@ -59058,17 +60104,21 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "地址证明逐项排除 P.O. Box、junk mail、envelopes 和 handwritten documents",
+      "claim": "首次或外州转入按 application、identity / birth、full-nine-digit SSN、two recent physical-address proofs、name-change chain 分组原件",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303"
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/node/303",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents"
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Required Documents",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof"
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -59078,14 +60128,184 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "appointment",
-      "claim": "最后从 DSB 首页预约或选择 Driver Service location",
+      "claim": "新居民在 60 天内预约 station",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/"
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://telegov.egov.com/dps"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Driver Service Bureau"
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi DPS Appointment System"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "带外州 credential，遗失时先取得 notarized inability-to-surrender affidavit",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "证件过期则按 knowledge exam 路线准备",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi 2025 Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "首次申请前确认年龄路线：17 岁及以上准备 knowledge + eye exam",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Learners_Permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Learner Permit / Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "16 岁路线另核对 12-month permit、school form 和 road-test waiver",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Learners_Permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Learner Permit / Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要中文口译时下载 Interpreter Oath，提前找到 interpreter 并完成 notarization",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-03/MDPS%20-%20Interpreter%20Oath.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Interpreter Oath"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "口译员不得解释或提示答案",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-03/MDPS%20-%20Interpreter%20Oath.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Interpreter Oath"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期先核对是否 U.S. citizen、Class R / D、有效照片、过期未超一年，以及上一次是否 online",
+      "sourceUrls": [
+        "https://www.ms.gov/dps/license_renewal/License",
+        "https://www.driverservicebureau.dps.ms.gov/node/298"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Online License Renewal",
+        "对应官方来源：Mississippi Renew Driver License / ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "任一不符就预约 station",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298",
+        "https://www.ms.gov/dps/license_renewal/License",
+        "https://telegov.egov.com/dps"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID",
+        "对应官方来源：Mississippi Online License Renewal",
+        "对应官方来源：Mississippi DPS Appointment System"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "appointment"
       ],
@@ -59095,18 +60315,227 @@
     {
       "stateId": "mississippi",
       "surface": "real-id",
-      "field": "commonMistakes",
+      "field": "recommendedSteps",
       "context": "document",
-      "claim": "地址证明用 P.O. Box、信封、junk mail 或手写信",
+      "claim": "续期即使未满 60 个月也带核心材料备份",
       "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298",
         "https://www.driverservicebureau.dps.ms.gov/node/303"
       ],
       "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID",
         "对应官方来源：Mississippi Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "document",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "超过 60 个月则必须按 first-credential 材料和 knowledge exam 准备",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID",
+        "对应官方来源：Mississippi Regular Driver License / Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "non-U.S. citizen 在到期前 30 天内预约现场，按具体 immigration category 整理原件，并为 SAVE 最多 30 天的追加核验留出时间",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen",
+        "https://www.driverservicebureau.dps.ms.gov/Security/Non_US_Status_Verification",
+        "https://telegov.egov.com/dps"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Non-U.S. Citizen Information",
+        "对应官方来源：Mississippi Non-US Status Verification",
+        "对应官方来源：Mississippi DPS Appointment System"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "renewal",
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "改地址时选择 eligible online renewal 或 $11 duplicate",
+      "sourceUrls": [
+        "https://www.ms.gov/dps/license_renewal/ChangeAddress",
+        "https://www.ms.gov/dps/license_renewal/License",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Duplicate_License",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Driver_Service_Fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Change Address",
+        "对应官方来源：Mississippi Online License Renewal",
+        "对应官方来源：Mississippi Duplicate License / ID",
+        "对应官方来源：Mississippi Driver Service Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "先确认 USPS 会投递到 physical address，不能使用 P.O. Box 或 alternate mailing address",
+      "sourceUrls": [
+        "https://www.ms.gov/dps/license_renewal/ChangeAddress",
+        "https://www.ms.gov/dps/license_renewal/Duplicate",
+        "https://www.ms.gov/dps/license_renewal/License"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Change Address",
+        "对应官方来源：Mississippi Online Duplicate Portal",
+        "对应官方来源：Mississippi Online License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
         "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "查看具体 Driver Service location 和 appointment confirmation",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/drivers/driver_license_locations",
+        "https://telegov.egov.com/dps"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Driver License Locations",
+        "对应官方来源：Mississippi DPS Appointment System"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "计划在 2027 年 7 月 1 日后首次领证的申请人还要检查 certified Driver Education 新要求",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/400"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Mandatory Driver Education Update"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "以为 Mississippi 还要在 standard 与 REAL ID 之间选择，另外寻找不存在的升级流程",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi DSB Frequently Asked Questions"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "继续引用 DSB FAQ 内已经失效的 May 3, 2023 REAL ID deadline",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi DSB Frequently Asked Questions",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "外州证件已经过期，却只按 valid transfer 的免考路线准备，没有预留 knowledge exam",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi 2025 Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -59116,16 +60545,43 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "license",
-      "claim": "license 过期超过 60 个月还按普通续期准备",
+      "claim": "把中国或其他外国驾照当作 U.S. out-of-state transfer",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/298"
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Renew Driver License / ID"
+        "对应官方来源：Mississippi 2025 Driver Manual",
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Non-U.S. Citizen Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal"
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "DSB 公布的免考转入规则只写有效外州 license，非公民仍要走 original / lawful-status 与考试路线",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Regular Driver License / Transfer",
+        "对应官方来源：Mississippi Non-U.S. Citizen Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence",
+        "transfer",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -59135,14 +60591,36 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "SSN 文件只显示后四位",
+      "claim": "地址证明使用 P.O. Box、信封、junk mail、手写信、blank check，或首次 Class R 文件已经超过 60 天",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/303",
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Required Documents",
+        "对应官方来源：Mississippi Regular Driver License / Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "SSN 文件只显示后四位，或没有申请人姓名和完整九位号码",
       "sourceUrls": [
         "https://www.driverservicebureau.dps.ms.gov/node/303"
       ],
       "sourceLabels": [
         "对应官方来源：Mississippi Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "ssn"
@@ -59155,19 +60633,135 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "姓名变化只带普通复印件或非法律文件",
+      "claim": "姓名变化只带普通复印件、姓名声明或翻译件，没有 marriage / divorce / adoption / court order 原件链",
       "sourceUrls": [
-        "https://www.driverservicebureau.dps.ms.gov/node/303"
+        "https://www.driverservicebureau.dps.ms.gov/node/303",
+        "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Mississippi Required Documents"
+        "对应官方来源：Mississippi Required Documents",
+        "对应官方来源：Mississippi Driver License / ID Application (2025)"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "name-change"
+        "name-change",
+        "language"
       ],
       "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "上次已经 online renewal，本次仍直接在线付款",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "Mississippi 只允许 every other renewal online",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/node/298"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Renew Driver License / ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "non-U.S. citizen 提前超过 30 天续期、尝试 online renewal，或没有带完整 Homeland Security documents",
+      "sourceUrls": [
+        "https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen",
+        "https://www.driverservicebureau.dps.ms.gov/node/298"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Non-U.S. Citizen Information",
+        "对应官方来源：Mississippi Renew Driver License / ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "只在线提交独立地址更新",
+      "sourceUrls": [
+        "https://www.ms.gov/dps/license_renewal/ChangeAddress"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Change Address"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "mississippi",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "portal 要求把地址变更放进 renewal 或 duplicate，而且不会寄到 P.O. Box / alternate address",
+      "sourceUrls": [
+        "https://www.ms.gov/dps/license_renewal/ChangeAddress",
+        "https://www.ms.gov/dps/license_renewal/Duplicate",
+        "https://www.ms.gov/dps/license_renewal/License"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Mississippi Change Address",
+        "对应官方来源：Mississippi Online Duplicate Portal",
+        "对应官方来源：Mississippi Online License Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "address-change",
+        "renewal",
+        "replacement",
+        "online-service",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
       "valid": true
     },
     {

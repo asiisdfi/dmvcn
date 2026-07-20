@@ -919,8 +919,174 @@ const ME_FEES =
 const ME_BRANCHES =
   'https://www.maine.gov/sos/bmv/visit-your-bmv-branch/find-your-local-branch';
 const ME_APPOINTMENTS = 'https://mainebmvappt.cxmflow.com/';
+const MS_HOME = 'https://www.driverservicebureau.dps.ms.gov/';
+const MS_REQUIRED = 'https://www.driverservicebureau.dps.ms.gov/node/303';
+const MS_CLASS_R =
+  'https://www.driverservicebureau.dps.ms.gov/Drivers/ClassR';
+const MS_MANUAL =
+  'https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf';
+const MS_APPLICATION =
+  'https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/DLapplication_2.6.2025.pdf';
+const MS_RENEW = 'https://www.driverservicebureau.dps.ms.gov/node/298';
+const MS_ONLINE = 'https://www.ms.gov/dps/license_renewal/';
+const MS_ONLINE_LICENSE = 'https://www.ms.gov/dps/license_renewal/License';
+const MS_CHANGE_ADDRESS =
+  'https://www.ms.gov/dps/license_renewal/ChangeAddress';
+const MS_DUPLICATE =
+  'https://www.driverservicebureau.dps.ms.gov/Drivers/Duplicate_License';
+const MS_ONLINE_DUPLICATE =
+  'https://www.ms.gov/dps/license_renewal/Duplicate';
+const MS_ID =
+  'https://www.driverservicebureau.dps.ms.gov/Drivers/Identification_Cards';
+const MS_NONCITIZEN =
+  'https://www.driverservicebureau.dps.ms.gov/Drivers/Non_Citizen';
+const MS_NONCITIZEN_VERIFY =
+  'https://www.driverservicebureau.dps.ms.gov/Security/Non_US_Status_Verification';
+const MS_LEARNER =
+  'https://www.driverservicebureau.dps.ms.gov/Drivers/Learners_Permit';
+const MS_INTERPRETER =
+  'https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-03/MDPS%20-%20Interpreter%20Oath.pdf';
+const MS_DRIVER_ED = 'https://www.driverservicebureau.dps.ms.gov/node/400';
+const MS_FEES =
+  'https://www.driverservicebureau.dps.ms.gov/Drivers/Driver_Service_Fees';
+const MS_LOCATIONS =
+  'https://www.driverservicebureau.dps.ms.gov/drivers/driver_license_locations';
+const MS_APPOINTMENTS = 'https://telegov.egov.com/dps';
+const MS_FAQ =
+  'https://www.driverservicebureau.dps.ms.gov/frequently-asked-questions';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  mississippi: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      MS_HOME,
+      MS_REQUIRED,
+      MS_CLASS_R,
+      MS_MANUAL,
+      MS_APPLICATION,
+      MS_RENEW,
+      MS_ONLINE,
+      MS_ONLINE_LICENSE,
+      MS_CHANGE_ADDRESS,
+      MS_DUPLICATE,
+      MS_ONLINE_DUPLICATE,
+      MS_ID,
+      MS_NONCITIZEN,
+      MS_NONCITIZEN_VERIFY,
+      MS_LEARNER,
+      MS_INTERPRETER,
+      MS_DRIVER_ED,
+      MS_FEES,
+      MS_LOCATIONS,
+      MS_APPOINTMENTS,
+      MS_FAQ,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开并比对 Mississippi DSB 的 Class R、2025 Driver Manual / application、Required Documents、renewal、online renewal / duplicate / change address、State ID、non-citizen / SAVE、learner permit、interpreter oath、2026 driver-education update、fees、locations、appointment、FAQ 与 TSA 当前身份证件页面。',
+    notes:
+      '重写 Mississippi 两页并登记显式声明级来源；确认全州 credential 自动 Gold Star，拆分 first / transfer / renewal / duplicate / address / non-citizen / testing 路线，并公开标记过期外州证件考试门槛和旧 2023 REAL ID deadline 两组官方冲突。',
+    claims: {
+      'Mississippi 的路线与多数州不同：DSB FAQ 写明本州签发的 driver license 和 ID 都是 REAL ID compliant，并自动带 Gold Star，不需要另选 standard credential': [MS_FAQ],
+      '首次申请、外州转入和非公民业务走 Driver Service station': [MS_CLASS_R, MS_MANUAL, MS_NONCITIZEN, MS_LOCATIONS],
+      '符合条件的 U.S. citizen 可线上续期、补证或在续期/补证过程中改地址': [MS_ONLINE_LICENSE, MS_ONLINE_DUPLICATE, MS_CHANGE_ADDRESS],
+      'Mississippi 不设普通驾照与 REAL ID 的升级二选一，州 FAQ 说明所有 Mississippi driver license / ID 自动为 Gold Star compliant credential': [MS_FAQ],
+      '首次 credential 仍要准备 completed application、original 或 certified birth / identity document、SSN card 或显示完整九位号码的政府文件、两份带 physical Mississippi address 的 domicile documents，以及适用的 legal name-change papers': [MS_REQUIRED, MS_CLASS_R, MS_APPLICATION],
+      '新居民按官方驾驶手册应在搬入后 60 天内取得 Mississippi license，并交回外州证件': [MS_MANUAL, MS_APPLICATION],
+      '有效外州驾照通常免 computerized exam，但仍要 vision screening': [MS_MANUAL, MS_CLASS_R],
+      '当前 Class R 页面把任何 expired out-of-state license 都列为要考 knowledge exam，而 2025 manual 写成过期超过 30 天，边界有冲突，应按当前业务页准备考试并在预约前向 DSB 确认': [MS_CLASS_R, MS_MANUAL, MS_APPOINTMENTS],
+      'DSB 对所有申请人都强烈建议预约': [MS_CLASS_R, MS_RENEW, MS_NONCITIZEN, MS_APPOINTMENTS],
+      '线上 renewal 只适用于 U.S. citizen 的有效 Class R / Class D，并允许最早到期前六个月、最迟过期一年内办理且不能连续两次 online': [MS_ONLINE_LICENSE, MS_RENEW],
+      'non-U.S. citizen、过期超过十二个月、没有有效照片或需要立即拿 duplicate 的申请人应到 Driver Service station': [MS_NONCITIZEN, MS_RENEW, MS_ONLINE_LICENSE, MS_ONLINE_DUPLICATE, MS_DUPLICATE],
+      'Mississippi FAQ 明确写着所有 Mississippi driver licenses 和 ID 都是 REAL ID compliant，并自动显示 Gold Star': [MS_FAQ],
+      '线上续期同样会取得 Gold Star，不应再写成 standard 与 REAL ID 二选一': [MS_FAQ],
+      'DSB FAQ 同一处仍保留“REAL ID deadline 延到 May 3, 2023”的旧答案': [MS_FAQ],
+      '该日期已经失效，机场身份证件以 TSA 当前规则为准': [MS_FAQ, TSA_IDENTIFICATION],
+      '新居民手册要求搬入 Mississippi 后 60 天内换驾照，交回所有外州证件': [MS_MANUAL, MS_APPLICATION],
+      '外州证件遗失时要向 Driver License office 领取 Affidavit of Inability to Surrender，并对签名做 notarization': [MS_MANUAL],
+      '有效外州驾照转入可免 Computerized Exam，但仍要 vision screening': [MS_MANUAL, MS_CLASS_R],
+      '考试边界存在官方表述差异：当前 Class R 页面说 expired out-of-state license 要考，2025 manual 则写过期超过 30 天才考': [MS_CLASS_R, MS_MANUAL],
+      '保守做法是过期证件都按需考准备并向 DSB 确认': [MS_CLASS_R, MS_MANUAL, MS_APPOINTMENTS],
+      '首次 Class R 当前费用为 4 年 $24 或 8 年 $47': [MS_CLASS_R, MS_FEES],
+      '申请人通常要 completed application、original birth certificate 或 acceptable document、完整九位 SSN 证明、两份不超过 60 天的 residency 和适用的 legal name-change documents': [MS_CLASS_R, MS_REQUIRED, MS_APPLICATION],
+      '17 岁及以上首次申请人无需持 permit 12 个月，可在同一天完成 permit 与 license 路线，但要通过 knowledge 和 eye exam': [MS_CLASS_R, MS_LEARNER],
+      '当前 Class R 页面还写明 regular license 暂不要求 skills / road test': [MS_CLASS_R],
+      '16 岁申请人通常要持 learner permit 12 个月或直到 17 岁，以先到者为准，并准备 valid permit、更新的 school attendance form 和 Waiver of Road Testing Affidavit': [MS_CLASS_R, MS_LEARNER],
+      'DSB 2026 年 6 月更新写明：自 2027 年 7 月 1 日起，所有 new driver 取得 regular license 都要完成 certified Driver Education': [MS_DRIVER_ED],
+      '自 2026 年 7 月 1 日起，Hardship License 只接受 DPS 或 MDE certified instructor 完成的课程': [MS_DRIVER_ED],
+      '需要考试口译时，申请人要自行携带 interpreter，并提交经过 notarization 的 Mississippi Interpreter Oath': [MS_CLASS_R, MS_INTERPRETER],
+      '口译员只能准确翻译，不能给答案、提示或解释题意': [MS_INTERPRETER],
+      '普通续期最早可在到期前六个月办理': [MS_RENEW, MS_ONLINE_LICENSE],
+      '未过期超过 12 个月可 online 或到 station，超过 12 个月必须现场，过期续期加 $1 late fee': [MS_RENEW, MS_FEES],
+      '线上续期只允许 every other renewal': [MS_RENEW],
+      '上一次已 online renewal 的，本次要到 Driver Service station': [MS_RENEW],
+      'online license renewal 还要求 U.S. citizen、有效 Class R / Class D、有效照片和本人办理': [MS_ONLINE_LICENSE],
+      '续期页面说证件过期不超过 60 个月通常不要求文件，但 DSB 也提醒新 records system 可能没有完整历史材料': [MS_RENEW],
+      '带 birth certificate、SSN 和两份 residency 可减少现场中断': [MS_RENEW, MS_REQUIRED],
+      '超过 60 个月必须重交材料，driver license 还要重考 knowledge exam': [MS_RENEW, MS_CLASS_R],
+      'non-U.S. citizen 必须在到期前 30 天内才可续期，必须本人带 Homeland Security immigration documents 到 station，不能 online renewal': [MS_NONCITIZEN, MS_RENEW],
+      '证件期限按 authorized stay 决定且最长四年': [MS_NONCITIZEN],
+      'non-U.S. citizen 的 lawful status 要经 SAVE 核验': [MS_NONCITIZEN, MS_NONCITIZEN_VERIFY],
+      '不能即时验证时，官方提示制证可能延迟最多 30 天，并可能要求补件': [MS_NONCITIZEN],
+      'SSN 只在 applicable 时提供，不要把公民材料清单原样套到所有移民类别': [MS_NONCITIZEN, MS_MANUAL],
+      'duplicate driver license / ID 费用为 $11，可 online 申请': [MS_DUPLICATE, MS_FEES, MS_ONLINE_DUPLICATE],
+      '需要立即取得证件或没有有效照片时应到 station，现场会重新拍照并填写 duplicate application': [MS_DUPLICATE, MS_ONLINE_DUPLICATE],
+      '线上改地址不能单独免费完成：官方 portal 要求同时订 duplicate credential，或在符合资格的 online renewal 中修改': [MS_CHANGE_ADDRESS, MS_ONLINE_DUPLICATE, MS_ONLINE_LICENSE],
+      '成品只寄到 credential 地址，不能寄 P.O. Box 或 alternate address': [MS_CHANGE_ADDRESS, MS_ONLINE_DUPLICATE, MS_ONLINE_LICENSE],
+      '新 State ID 可由六岁及以上申请人办理，4 年 $17、8 年 $33': [MS_ID, MS_FEES],
+      '材料仍包括申请表、原件或 certified identity、SSN 证明、两份 residency 和姓名变化法律文件': [MS_ID, MS_REQUIRED],
+      'Completed and signed Mississippi Driver License / ID application': [MS_CLASS_R, MS_APPLICATION],
+      '外州转入还要带 out-of-state credential，遗失时按 DSB 手册取得 notarized inability-to-surrender affidavit': [MS_MANUAL, MS_APPLICATION],
+      'Date of birth / identity 使用带 state seal 和 certificate number 的 original 或 certified birth certificate，或 Certificate of Naturalization / Citizenship': [MS_REQUIRED],
+      '普通 photocopy 不接受': [MS_REQUIRED, MS_ID, MS_LEARNER],
+      'SSN 使用 Social Security Card，或显示申请人姓名与完整九位 SSN 的 official government correspondence，例如 returned W-2 / 1099、pay stub、DD-214 或 NGB-22': [MS_REQUIRED],
+      '首次 Class R 的两份 Mississippi residency 应带本人姓名和 physical residence address，并且当前 Class R 页面要求不超过 60 天': [MS_CLASS_R, MS_REQUIRED],
+      'P.O. Box、junk / soliciting mail、envelope、handwritten document / letter 和 blank check 不能作为 domicile proof': [MS_REQUIRED],
+      '常见地址文件包括 utility / internet / phone bill、bank or credit-card statement、pay stub、lease、insurance、vehicle title / registration、tax / government document 或 property record': [MS_REQUIRED],
+      '最终由 DSB 判断是否接受': [MS_REQUIRED],
+      '21 岁以下可使用 parent / guardian domicile 文件': [MS_CLASS_R, MS_REQUIRED],
+      '21 岁以上没有本人账单时，可用 spouse / parent 文件并以 marriage license 或 birth certificate 证明关系': [MS_REQUIRED],
+      'roommate、landlord、parent 或 guardian 路线可用 official Proof of Domicile Affidavit，再配同址 driver license / ID 或一份合格 domicile document，凑足两份': [MS_REQUIRED],
+      '姓名变化只接受 Marriage License、Divorce Decree、Adoption Order 或 Court Order': [MS_REQUIRED, MS_APPLICATION],
+      '首次交易时 SSN card 不一定已改成新姓名，但 DSB 强烈建议续期前更新': [MS_REQUIRED],
+      'non-U.S. citizen 根据身份准备 passport、I-94、valid visa、I-551、I-766、I-20、DS-2019、I-797 等当前类别要求': [MS_NONCITIZEN, MS_NONCITIZEN_VERIFY],
+      '所有 supporting documents 上的姓名和出生日期要一致': [MS_NONCITIZEN],
+      '以为 Mississippi 还要在 standard 与 REAL ID 之间选择，另外寻找不存在的升级流程': [MS_FAQ],
+      '继续引用 DSB FAQ 内已经失效的 May 3, 2023 REAL ID deadline': [MS_FAQ, TSA_IDENTIFICATION],
+      '外州证件已经过期，却只按 valid transfer 的免考路线准备，没有预留 knowledge exam': [MS_CLASS_R, MS_MANUAL],
+      '把中国或其他外国驾照当作 U.S. out-of-state transfer': [MS_MANUAL, MS_CLASS_R, MS_NONCITIZEN],
+      'DSB 公布的免考转入规则只写有效外州 license，非公民仍要走 original / lawful-status 与考试路线': [MS_CLASS_R, MS_NONCITIZEN],
+      '地址证明使用 P.O. Box、信封、junk mail、手写信、blank check，或首次 Class R 文件已经超过 60 天': [MS_REQUIRED, MS_CLASS_R],
+      'SSN 文件只显示后四位，或没有申请人姓名和完整九位号码': [MS_REQUIRED],
+      '姓名变化只带普通复印件、姓名声明或翻译件，没有 marriage / divorce / adoption / court order 原件链': [MS_REQUIRED, MS_APPLICATION],
+      '上次已经 online renewal，本次仍直接在线付款': [MS_RENEW],
+      'Mississippi 只允许 every other renewal online': [MS_RENEW],
+      'non-U.S. citizen 提前超过 30 天续期、尝试 online renewal，或没有带完整 Homeland Security documents': [MS_NONCITIZEN, MS_RENEW],
+      '只在线提交独立地址更新': [MS_CHANGE_ADDRESS],
+      'portal 要求把地址变更放进 renewal 或 duplicate，而且不会寄到 P.O. Box / alternate address': [MS_CHANGE_ADDRESS, MS_ONLINE_DUPLICATE, MS_ONLINE_LICENSE],
+      '先选业务：first license、valid / expired out-of-state transfer、renewal、duplicate / address、State ID 或 non-U.S. citizen': [MS_CLASS_R, MS_MANUAL, MS_RENEW, MS_DUPLICATE, MS_ID, MS_NONCITIZEN],
+      'Mississippi 不需要单独选择 REAL ID upgrade': [MS_FAQ],
+      '首次或外州转入按 application、identity / birth、full-nine-digit SSN、two recent physical-address proofs、name-change chain 分组原件': [MS_CLASS_R, MS_REQUIRED, MS_APPLICATION],
+      '新居民在 60 天内预约 station': [MS_MANUAL, MS_APPOINTMENTS],
+      '带外州 credential，遗失时先取得 notarized inability-to-surrender affidavit': [MS_MANUAL, MS_APPLICATION],
+      '证件过期则按 knowledge exam 路线准备': [MS_CLASS_R, MS_MANUAL],
+      '首次申请前确认年龄路线：17 岁及以上准备 knowledge + eye exam': [MS_CLASS_R, MS_LEARNER],
+      '16 岁路线另核对 12-month permit、school form 和 road-test waiver': [MS_CLASS_R, MS_LEARNER],
+      '需要中文口译时下载 Interpreter Oath，提前找到 interpreter 并完成 notarization': [MS_CLASS_R, MS_INTERPRETER],
+      '口译员不得解释或提示答案': [MS_INTERPRETER],
+      '续期先核对是否 U.S. citizen、Class R / D、有效照片、过期未超一年，以及上一次是否 online': [MS_ONLINE_LICENSE, MS_RENEW],
+      '任一不符就预约 station': [MS_RENEW, MS_ONLINE_LICENSE, MS_APPOINTMENTS],
+      '续期即使未满 60 个月也带核心材料备份': [MS_RENEW, MS_REQUIRED],
+      '超过 60 个月则必须按 first-credential 材料和 knowledge exam 准备': [MS_RENEW, MS_CLASS_R],
+      'non-U.S. citizen 在到期前 30 天内预约现场，按具体 immigration category 整理原件，并为 SAVE 最多 30 天的追加核验留出时间': [MS_NONCITIZEN, MS_NONCITIZEN_VERIFY, MS_APPOINTMENTS],
+      '改地址时选择 eligible online renewal 或 $11 duplicate': [MS_CHANGE_ADDRESS, MS_ONLINE_LICENSE, MS_DUPLICATE, MS_FEES],
+      '先确认 USPS 会投递到 physical address，不能使用 P.O. Box 或 alternate mailing address': [MS_CHANGE_ADDRESS, MS_ONLINE_DUPLICATE, MS_ONLINE_LICENSE],
+      '查看具体 Driver Service location 和 appointment confirmation': [MS_LOCATIONS, MS_APPOINTMENTS],
+      '计划在 2027 年 7 月 1 日后首次领证的申请人还要检查 certified Driver Education 新要求': [MS_DRIVER_ED],
+    },
+  },
   maine: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

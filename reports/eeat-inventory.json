@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T20:48:06.120Z",
+    "generatedAt": "2026-07-20T21:17:39.125Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 73,
+    "passed": 75,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 76,
-    "aiAssistedReviews": 79,
+    "sourceMappedReviews": 74,
+    "aiAssistedReviews": 81,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 93,
+    "blockedPages": 91,
     "averageScore": 96
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 197,
+        "sourceCount": 198,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 279,
+        "sourceCount": 281,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 102,
-        "directoryEvidenceLinks": 102,
+        "directoryEvidenceItems": 106,
+        "directoryEvidenceLinks": 106,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 543,
+        "sourceCount": 553,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 153,
+        "sourceCount": 151,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 99,
-        "directoryEvidenceLinks": 99,
+        "directoryEvidenceItems": 103,
+        "directoryEvidenceLinks": 103,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 198,
+        "sourceCount": 199,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 208,
+        "sourceCount": 206,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 207,
+        "sourceCount": 211,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1261,
+        "sourceCount": 1277,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -3249,21 +3249,21 @@
       "route": "/states/mississippi/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 89,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成密西西比州（Mississippi Driver Service Bureau）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Mississippi DSB 的 Class R、2025 Driver Manual / application、Required Documents、renewal、online renewal / duplicate / change address、State ID、non-citizen / SAVE、learner permit、interpreter oath、2026 driver-education update、fees、locations、appointment、FAQ 与 TSA 当前身份证件页面。",
+        "notes": "重写 Mississippi 两页并登记显式声明级来源；确认全州 credential 自动 Gold Star，拆分 first / transfer / renewal / duplicate / address / non-citizen / testing 路线，并公开标记过期外州证件考试门槛和旧 2023 REAL ID deadline 两组官方冲突。"
       },
       "scores": {
-        "factsAndSources": 18,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -3273,14 +3273,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 10,
+        "sourceCount": 22,
+        "factCheckCount": 48,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 10,
-        "stateEvidenceLinks": 14,
+        "stateEvidenceItems": 48,
+        "stateEvidenceLinks": 95,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3288,9 +3288,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/mississippi/real-id/",
@@ -3298,16 +3296,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成密西西比州（Mississippi Driver Service Bureau）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开并比对 Mississippi DSB 的 Class R、2025 Driver Manual / application、Required Documents、renewal、online renewal / duplicate / change address、State ID、non-citizen / SAVE、learner permit、interpreter oath、2026 driver-education update、fees、locations、appointment、FAQ 与 TSA 当前身份证件页面。",
+        "notes": "重写 Mississippi 两页并登记显式声明级来源；确认全州 credential 自动 Gold Star，拆分 first / transfer / renewal / duplicate / address / non-citizen / testing 路线，并公开标记过期外州证件考试门槛和旧 2023 REAL ID deadline 两组官方冲突。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3320,14 +3318,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 5,
-        "factCheckCount": 16,
+        "sourceCount": 22,
+        "factCheckCount": 50,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 16,
-        "stateEvidenceLinks": 16,
+        "stateEvidenceItems": 50,
+        "stateEvidenceLinks": 96,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3335,9 +3333,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/missouri/",

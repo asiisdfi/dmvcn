@@ -34,6 +34,13 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Mississippi 两页官方正文语义核对',
+    summary:
+      '逐条比对 Mississippi DSB 的 Class R、2025 Driver Manual 与申请表、Required Documents、续期、线上续补证与改址、State ID、non-citizen / SAVE、learner permit、interpreter oath、2026 driver-education update、费用、地点、预约和 FAQ 正文；登记 96 条独立声明的显式来源，并公开标注过期外州驾照考试门槛冲突和 FAQ 内已经失效的 2023 REAL ID deadline。',
+    scope: ['密西西比州办事总览', '密西西比州 REAL ID', '96 条独立声明显式核对', '考试门槛与旧截止日期冲突'],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Maine 两页官方正文语义核对',
     summary:
       '逐条比对 Maine BMV 的当前 REAL ID、online transaction、new-resident、续期、改址、补证、legal presence、residency、考试口译、费用、branch 与 appointment 正文；补齐 104 条页面级显式来源映射，并公开标注 2022 brochure、旧 online FAQ 与当前办理渠道之间的冲突。',
