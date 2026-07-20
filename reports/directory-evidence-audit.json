@@ -1,27 +1,27 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T23:04:24.567Z",
+    "generatedAt": "2026-07-20T23:26:45.714Z",
     "pages": 5,
-    "claims": 673,
+    "claims": 682,
     "statesCovered": 50,
-    "aiAssisted": 543,
-    "automated": 130,
+    "aiAssisted": 561,
+    "automated": 121,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 128,
-        "states": 37
+        "claims": 132,
+        "states": 38
       },
       "deadlines": {
-        "claims": 92,
-        "states": 36
+        "claims": 95,
+        "states": 37
       },
       "document-rules": {
         "claims": 184,
         "states": 49
       },
       "foreign-license": {
-        "claims": 112,
+        "claims": 114,
         "states": 37
       },
       "identity-ssn": {
@@ -1520,6 +1520,66 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "louisiana",
+      "category": "费用",
+      "claim": "REAL ID 与 non-compliant Louisiana credential 的州证件费用相同",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
+      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "louisiana",
+      "category": "费用",
+      "claim": "档案地址错误时要现场改地址并付 duplicate fee，原线上交易不退款",
+      "sourceUrl": "https://public.powerdms.com/ladpsc/documents/368151",
+      "sourceLabel": "对应官方来源：Louisiana Mail or Internet Renewal Policy",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "louisiana",
+      "category": "费用",
+      "claim": "现行 fee policy 对驾照过期超过 10 个 calendar days 加收 $15 delinquent fee",
+      "sourceUrl": "https://public.powerdms.com/ladpsc/documents/368099",
+      "sourceLabel": "对应官方来源：Louisiana Fees and Credential Duration",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "louisiana",
+      "category": "费用",
+      "claim": "付款前查最新 fee policy 和 checkout 总额",
+      "sourceUrl": "https://public.powerdms.com/ladpsc/documents/368099",
+      "sourceLabel": "对应官方来源：Louisiana Fees and Credential Duration",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "new-mexico",
       "category": "费用",
       "claim": "普通驾照费用当前为四年 $18、八年 $34",
@@ -3011,6 +3071,50 @@
       "failedThemes": [
         "address-change"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "louisiana",
+      "category": "期限提醒",
+      "claim": "建立 Louisiana domicile 后在 30 天期限内安排外州转入",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-transfers/",
+      "sourceLabel": "对应官方来源：Louisiana OMV License Transfers",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "louisiana",
+      "category": "搬家 / 地址",
+      "claim": "续期前检查 license status、record flags、档案地址和 180 天窗口",
+      "sourceUrl": "https://expresslane.la.gov/omv/resources/appointment-know-before-you-go/",
+      "sourceLabel": "对应官方来源：Louisiana Appointment - Know Before You Go",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [
+        "renewal"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "louisiana",
+      "category": "搬家 / 地址",
+      "claim": "补证先看证件是否仍有效、是否在 90 / 180 天续期窗口内以及地址是否正确",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/duplicate-replacement-reconstructed-cards/",
+      "sourceLabel": "对应官方来源：Louisiana OMV Duplicate / Replacement Cards",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -4945,22 +5049,21 @@
       "page": "document-rules",
       "stateId": "louisiana",
       "category": "地址证明",
-      "claim": "按 identity / lawful status、SSN、two proofs of residence 三组整理材料，并确认居住证明是独立来源",
-      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
-      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "claim": "普通首次 credential 按一份 primary 加两份 secondary，或两份 primary 的组合准备，并另带 Louisiana residency",
+      "sourceUrl": "https://public.powerdms.com/ladpsc/documents/368154",
+      "sourceLabel": "对应官方来源：Louisiana Identification Requirements",
       "themes": [
-        "residency-documents",
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "louisiana",
       "category": "地址证明",
-      "claim": "Louisiana REAL ID 要证明 identity、lawful status、date of birth、Social Security number 和两份 principal residence",
+      "claim": "REAL ID 按 identity、lawful status、date of birth、assigned SSN 和两份独立来源的 Louisiana principal-residence 原件分组",
       "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
       "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
       "themes": [
@@ -4968,35 +5071,38 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "louisiana",
-      "category": "SSN",
-      "claim": "Social Security 信息",
-      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
-      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "category": "地址证明",
+      "claim": "residency 文件要显示本人姓名和 Louisiana street address",
+      "sourceUrl": "https://public.powerdms.com/ladpsc/documents/368113",
+      "sourceLabel": "对应官方来源：Louisiana Residency Requirements",
       "themes": [
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "louisiana",
-      "category": "SSN",
-      "claim": "可口头提供，但最好带 SSN card、W-2、1099 或 pay stub 作为备用",
+      "category": "地址证明",
+      "claim": "REAL ID 两份必须来自独立来源，例如 utility、bank、employer、insurance、tax、school、mortgage、lease 或 USCIS 文件",
       "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
       "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
       "themes": [
-        "ssn"
+        "residency-documents",
+        "immigration-verification"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "immigration-verification"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -7214,30 +7320,67 @@
     {
       "page": "foreign-license",
       "stateId": "louisiana",
-      "category": "外州 / 加拿大转入",
-      "claim": "外州转入或非美国公民身份文件，按 License Transfers 页面准备身份和移民状态核验材料",
+      "category": "外国 / 境外驾照",
+      "claim": "外国驾照普通互惠名单当前只有 Germany、Switzerland、Taiwan 和 South Korea",
+      "sourceUrl": "https://public.powerdms.com/ladpsc/documents/368276",
+      "sourceLabel": "对应官方来源：Louisiana Foreign-License Reciprocity",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "louisiana",
+      "category": "外国 / 境外驾照",
+      "claim": "互惠外国驾照持有人可以保留外国驾照，但必须在持有 Louisiana 驾照期间保持该外国驾照有效",
+      "sourceUrl": "https://public.powerdms.com/ladpsc/documents/368276",
+      "sourceLabel": "对应官方来源：Louisiana Foreign-License Reciprocity",
+      "themes": [
+        "foreign-license",
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "louisiana",
+      "category": "外国 / 境外驾照",
+      "claim": "Louisiana License Transfers：核对 30 天期限、美国外州转入、外国驾照和 reciprocity",
       "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-transfers/",
       "sourceLabel": "对应官方来源：Louisiana OMV License Transfers",
       "themes": [
-        "out-of-state"
+        "foreign-license",
+        "out-of-state",
+        "reciprocity"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
+      "explicitSourceAttribution": false,
       "mappingMethod": "automated"
     },
     {
       "page": "foreign-license",
       "stateId": "louisiana",
-      "category": "外州 / 加拿大转入",
-      "claim": "外州转入和临时身份文件会进入额外核验，访问者身份不一定符合 Louisiana 驾照或 ID 资格",
-      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-transfers/",
-      "sourceLabel": "对应官方来源：Louisiana OMV License Transfers",
+      "category": "外国 / 境外驾照",
+      "claim": "中国大陆等非互惠外国驾照路线带 passport、当前 immigration / legal-presence documents、外国驾照和必要翻译，并预留 TIP、driver education 和全套考试",
+      "sourceUrl": "https://public.powerdms.com/ladpsc/documents/368156",
+      "sourceLabel": "对应官方来源：Louisiana Immigrant and Non-Immigrant Issuance",
       "themes": [
-        "out-of-state"
+        "foreign-license",
+        "reciprocity",
+        "translation"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "foreign-license",
+        "reciprocity"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -9141,8 +9284,22 @@
     {
       "page": "identity-ssn",
       "stateId": "louisiana",
-      "category": "SSN",
-      "claim": "Louisiana 可通过 SSOLV 核验口头提供的 SSN，并非每位申请人都被要求携带实体 Social Security card",
+      "category": "无 SSN / SSA",
+      "claim": "没有获分配 SSN 且身份类别不具资格时，要带 SSA 出具的 ineligible 或 not issued letter",
+      "sourceUrl": "https://public.powerdms.com/ladpsc/documents/368330",
+      "sourceLabel": "对应官方来源：Louisiana Social Security Verification",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "louisiana",
+      "category": "无 SSN / SSA",
+      "claim": "有 SSN 时可口头提供号码，建议带 Social Security card、W-2、SSA-1099、non-SSA 1099 或 pay stub 作为核验备用",
       "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
       "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
       "themes": [
@@ -9150,50 +9307,39 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "louisiana",
-      "category": "SSN",
-      "claim": "Social Security 信息",
-      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
-      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "category": "无 SSN / SSA",
+      "claim": "不具 SSN 资格者带 SSA letter",
+      "sourceUrl": "https://public.powerdms.com/ladpsc/documents/368330",
+      "sourceLabel": "对应官方来源：Louisiana Social Security Verification",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "louisiana",
-      "category": "SSN",
-      "claim": "可口头提供，但最好带 SSN card、W-2、1099 或 pay stub 作为备用",
-      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
-      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
-      "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "louisiana",
-      "category": "SSN",
-      "claim": "按 identity / lawful status、SSN、two proofs of residence 三组整理材料，并确认居住证明是独立来源",
-      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/",
-      "sourceLabel": "对应官方来源：Louisiana OMV REAL ID",
+      "category": "无 SSN / SSA",
+      "claim": "首次驾驶人先用身份证明、residency 和 SSN / SSA letter 取得 TIP",
+      "sourceUrl": "https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/new-licenses/",
+      "sourceLabel": "对应官方来源：Louisiana New Licenses",
       "themes": [
         "residency-documents",
         "ssn"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "residency-documents",
+        "ssn"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

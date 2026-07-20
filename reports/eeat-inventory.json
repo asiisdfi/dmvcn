@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T23:04:26.288Z",
+    "generatedAt": "2026-07-20T23:26:47.487Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 87,
+    "passed": 89,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 62,
-    "aiAssistedReviews": 93,
+    "sourceMappedReviews": 60,
+    "aiAssistedReviews": 95,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 79,
+    "blockedPages": 77,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 208,
+        "sourceCount": 210,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 128,
-        "directoryEvidenceLinks": 128,
+        "directoryEvidenceItems": 132,
+        "directoryEvidenceLinks": 132,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 238,
+        "sourceCount": 240,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 92,
-        "directoryEvidenceLinks": 92,
+        "directoryEvidenceItems": 95,
+        "directoryEvidenceLinks": 95,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 592,
+        "sourceCount": 596,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 207,
+        "sourceCount": 208,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 149,
+        "sourceCount": 150,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 112,
-        "directoryEvidenceLinks": 112,
+        "directoryEvidenceItems": 114,
+        "directoryEvidenceLinks": 114,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 219,
+        "sourceCount": 221,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 208,
+        "sourceCount": 205,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 211,
+        "sourceCount": 208,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1369,
+        "sourceCount": 1375,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -2701,21 +2701,21 @@
       "route": "/states/louisiana/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 91,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成路易斯安那州（Louisiana Office of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Louisiana OMV 办事页、2025-2026 年现行 policy PDF 与 TSA 页面，核对总览和 REAL ID 两个成品页的材料、期限、身份、考试、语言、费用、线上资格和邮寄边界。",
+        "notes": "本轮明确区分美国外州转入、非互惠中国大陆驾照、Taiwan reciprocity、visitor / non-immigrant 身份、Cantonese 笔试、普通 residency 与 REAL ID 双地址证明，并记录当前 fee policy 与较旧 mail-renewal policy 的金额差异；状态为 AI 辅助证据核查，不冒充人工或专业审核。"
       },
       "scores": {
-        "factsAndSources": 20,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -2725,14 +2725,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 13,
+        "sourceCount": 27,
+        "factCheckCount": 76,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 13,
-        "stateEvidenceLinks": 16,
+        "stateEvidenceItems": 76,
+        "stateEvidenceLinks": 127,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2740,9 +2740,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/louisiana/real-id/",
@@ -2750,16 +2748,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成路易斯安那州（Louisiana Office of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Louisiana OMV 办事页、2025-2026 年现行 policy PDF 与 TSA 页面，核对总览和 REAL ID 两个成品页的材料、期限、身份、考试、语言、费用、线上资格和邮寄边界。",
+        "notes": "本轮明确区分美国外州转入、非互惠中国大陆驾照、Taiwan reciprocity、visitor / non-immigrant 身份、Cantonese 笔试、普通 residency 与 REAL ID 双地址证明，并记录当前 fee policy 与较旧 mail-renewal policy 的金额差异；状态为 AI 辅助证据核查，不冒充人工或专业审核。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2772,14 +2770,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 18,
+        "sourceCount": 27,
+        "factCheckCount": 71,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 18,
-        "stateEvidenceLinks": 21,
+        "stateEvidenceItems": 71,
+        "stateEvidenceLinks": 145,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2787,9 +2785,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/maine/",

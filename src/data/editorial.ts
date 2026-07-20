@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Louisiana 两页官方正文语义核对',
+    summary:
+      '逐条比对 Louisiana OMV 的 REAL ID、identification、residency、immigrant / non-immigrant、foreign reciprocity、new license / TIP、permits、driver education、knowledge / road tests、车辆检查、续补证、姓名与 SSN、费用、预约、线上服务、地点与 TSA 当前正文；登记 145 条独立声明的显式来源，并补齐中国大陆与 Taiwan 路线、Cantonese / interpreter 边界、30 天外州转入、Limited-Term、线上资格、2026 fee policy 和邮寄处理。',
+    scope: [
+      '路易斯安那州办事总览',
+      '路易斯安那州 REAL ID',
+      '145 条独立声明显式核对',
+      '外国驾照、身份、语言与费用边界',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Wisconsin 两页官方正文语义核对',
     summary:
       '逐条比对 Wisconsin DMV 的 REAL ID、documentation、BDS316、name / DOB、identity、legal presence、residency、SSN / SSOLV、new resident / out-of-state、foreign license / reciprocity、knowledge / road tests、Motorists Handbook、续补证、改名改址、费用、ID、制卡状态、线上服务、MV3001 与 TSA 当前正文；登记 125 条独立声明的显式来源，并补齐 China / Taiwan 边界、Chinese 现场笔试、teen online test、60 / 30 天转入、8 年考试门槛、费用和邮寄流程。',

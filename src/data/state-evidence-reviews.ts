@@ -1098,6 +1098,54 @@ const UT_FINGERPRINTS = 'https://dld.utah.gov/dpc-fingerprint-vendors/';
 const UT_SERVICES = 'https://dld.utah.gov/driver-licensing-services/';
 const UT_LOCATIONS = 'https://dld.utah.gov/office-locations/';
 
+const LA_HOME = 'https://expresslane.la.gov/omv/drivers/';
+const LA_REAL_ID =
+  'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/real-id/';
+const LA_REAL_ID_POLICY =
+  'https://public.powerdms.com/ladpsc/documents/368157';
+const LA_IDENTIFICATION =
+  'https://public.powerdms.com/ladpsc/documents/368154';
+const LA_RESIDENCY =
+  'https://public.powerdms.com/ladpsc/documents/368113';
+const LA_NONCITIZEN =
+  'https://public.powerdms.com/ladpsc/documents/368156';
+const LA_RECIPROCITY =
+  'https://public.powerdms.com/ladpsc/documents/368276';
+const LA_RENEW =
+  'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-renewal/';
+const LA_RENEW_POLICY =
+  'https://public.powerdms.com/ladpsc/documents/368114';
+const LA_REMOTE_RENEW =
+  'https://public.powerdms.com/ladpsc/documents/368151';
+const LA_TRANSFER =
+  'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/license-transfers/';
+const LA_DUPLICATE =
+  'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/duplicate-replacement-reconstructed-cards/';
+const LA_ONLINE_DUPLICATE =
+  'https://public.powerdms.com/LADPSC/documents/933694';
+const LA_NEW_LICENSES =
+  'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/new-licenses/';
+const LA_PERMITS =
+  'https://expresslane.la.gov/omv/drivers/personal-driver-s-licenses/permits/';
+const LA_DRIVER_ED =
+  'https://expresslane.la.gov/omv/drivers/driver-s-education-information/student-parent-information/';
+const LA_KNOWLEDGE =
+  'https://public.powerdms.com/ladpsc/documents/368264';
+const LA_LANGUAGE_SCHOOLS =
+  'https://expresslane.la.gov/omv/drivers/driver-s-education-information/list-of-driving-schools-alternate-languages/';
+const LA_ROAD_TEST =
+  'https://public.powerdms.com/ladpsc/documents/368267';
+const LA_ROAD_VEHICLE =
+  'https://public.powerdms.com/ladpsc/documents/368265';
+const LA_NAME_CHANGE =
+  'https://public.powerdms.com/ladpsc/documents/368302';
+const LA_SSN = 'https://public.powerdms.com/ladpsc/documents/368330';
+const LA_FEES = 'https://public.powerdms.com/ladpsc/documents/368099';
+const LA_APPOINTMENT =
+  'https://expresslane.la.gov/omv/resources/appointment-know-before-you-go/';
+const LA_ONLINE = 'https://expresslane.la.gov/omv/online-services/';
+const LA_OFFICES = 'https://offices.omv.la.gov/';
+
 const WI_REAL_ID =
   'https://wisconsindot.gov/Pages/dmv/license-drvs/how-to-apply/realid.aspx';
 const WI_DOCUMENTATION =
@@ -1154,6 +1202,192 @@ const WI_MV3001 =
   'https://wisconsindot.gov/Documents/formdocs/mv3001.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  louisiana: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      LA_HOME,
+      LA_REAL_ID,
+      LA_REAL_ID_POLICY,
+      LA_IDENTIFICATION,
+      LA_RESIDENCY,
+      LA_NONCITIZEN,
+      LA_RECIPROCITY,
+      LA_RENEW,
+      LA_RENEW_POLICY,
+      LA_REMOTE_RENEW,
+      LA_TRANSFER,
+      LA_DUPLICATE,
+      LA_ONLINE_DUPLICATE,
+      LA_NEW_LICENSES,
+      LA_PERMITS,
+      LA_DRIVER_ED,
+      LA_KNOWLEDGE,
+      LA_LANGUAGE_SCHOOLS,
+      LA_ROAD_TEST,
+      LA_ROAD_VEHICLE,
+      LA_NAME_CHANGE,
+      LA_SSN,
+      LA_FEES,
+      LA_APPOINTMENT,
+      LA_ONLINE,
+      LA_OFFICES,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开 Louisiana OMV 办事页、2025-2026 年现行 policy PDF 与 TSA 页面，核对总览和 REAL ID 两个成品页的材料、期限、身份、考试、语言、费用、线上资格和邮寄边界。',
+    notes:
+      '本轮明确区分美国外州转入、非互惠中国大陆驾照、Taiwan reciprocity、visitor / non-immigrant 身份、Cantonese 笔试、普通 residency 与 REAL ID 双地址证明，并记录当前 fee policy 与较旧 mail-renewal policy 的金额差异；状态为 AI 辅助证据核查，不冒充人工或专业审核。',
+    claims: {
+      'Louisiana 驾照和 ID 由 Office of Motor Vehicles 管理': [LA_HOME],
+      '建立 Louisiana domicile 后，外州驾照应在 30 天内转入': [LA_TRANSFER],
+      '首次驾驶人、美国外州转入、外国驾照、续期、补证和 REAL ID 是不同路线，不能只从 ExpressLane 的一个线上按钮开始': [LA_HOME, LA_NEW_LICENSES, LA_TRANSFER, LA_RENEW, LA_DUPLICATE, LA_REAL_ID],
+      '有效美国外州非商业驾照转入通常只考视力': [LA_TRANSFER],
+      '外国驾照只有 Germany、Switzerland、South Korea 和 Taiwan 属于普通互惠名单': [LA_RECIPROCITY, LA_TRANSFER],
+      '中国大陆驾照不在名单内，符合身份资格者通常要先办 TIP、完成 Louisiana driver education，再通过 knowledge、vision 和 road skills tests': [LA_RECIPROCITY, LA_NONCITIZEN, LA_NEW_LICENSES, LA_DRIVER_ED],
+      'Louisiana 同时签发 REAL ID-compliant 与 non-compliant credential，REAL ID 是可选项且州证件费用相同': [LA_REAL_ID, LA_REAL_ID_POLICY],
+      '首次 REAL ID 要证明 identity、lawful status、date of birth、SSN，并提交两份显示本人姓名和 Louisiana street address、来自独立来源的 principal-residence 原件': [LA_REAL_ID, LA_REAL_ID_POLICY],
+      '预约前先查 driver-license status 和 flags': [LA_APPOINTMENT],
+      'reinstatement 只能在指定 customer service center 按预约办理': [LA_APPOINTMENT, LA_OFFICES],
+      '续期、补证和 ID renewal 有线上入口，但是否可用由邀请函、档案地址、证件状态、年龄和 record flags 决定': [LA_REMOTE_RENEW, LA_ONLINE_DUPLICATE, LA_ONLINE],
+      '首次证件、外州转入、身份或姓名核验要按现场路线准备': [LA_NEW_LICENSES, LA_TRANSFER, LA_NAME_CHANGE],
+      '建立 Louisiana domicile 后，外州驾照必须在 30 天内转入': [LA_TRANSFER],
+      '新证签发时原外州驾照会被收回并销毁': [LA_TRANSFER],
+      '外州转入要带最近签发州的 photo license': [LA_IDENTIFICATION, LA_TRANSFER],
+      '没有原卡时，California、Connecticut、Illinois、Kentucky、Maine、Nevada、Oklahoma 或 West Virginia 的申请人还要提供含姓名、出生日期和驾照号码的 official driving record': [LA_IDENTIFICATION],
+      '有效 non-commercial 外州驾照转入与 Louisiana Class E / D 对等类别时通常只做 vision test': [LA_TRANSFER],
+      '从等同 Class E 转为 Class D 仍要通过 written exam': [LA_TRANSFER],
+      '外州转入材料至少包括原驾照、一份 primary、一份 secondary 和 Louisiana residency': [LA_IDENTIFICATION, LA_TRANSFER],
+      '材料必须是 original 或 issuing agency certified copy，姓名不一致时要先解决 supporting documents': [LA_IDENTIFICATION],
+      '外国驾照普通互惠名单当前只有 Germany、Switzerland、Taiwan 和 South Korea': [LA_RECIPROCITY, LA_TRANSFER],
+      '这些路线可免 Louisiana driver education、knowledge 和 road skills tests，但仍要通过 vision 并满足身份材料要求': [LA_RECIPROCITY, LA_TRANSFER],
+      'Taiwan 互惠路线的 notarized translation 要由 Taipei Economic and Cultural Office in Houston 认证，或由 Louisiana OMV 接受的译者提供': [LA_RECIPROCITY],
+      '中国大陆驾照不在当前互惠名单内': [LA_RECIPROCITY],
+      '符合 Louisiana credential 身份资格的首次申请人通常要取得 TIP、完成获许可的 driver education，并通过 knowledge、vision 与 road skills tests': [LA_NONCITIZEN, LA_NEW_LICENSES, LA_DRIVER_ED, LA_KNOWLEDGE, LA_ROAD_TEST],
+      '互惠外国驾照持有人可以保留外国驾照，但必须在持有 Louisiana 驾照期间保持该外国驾照有效': [LA_RECIPROCITY],
+      'commercial Class A、B、C 不属于互惠计划': [LA_RECIPROCITY],
+      'Louisiana OMV 的 transfer 页面说明访客不符合 Louisiana 驾照或 ID 资格': [LA_TRANSFER, LA_NONCITIZEN],
+      '现行移民身份政策对 B-1、B-2 和 B-1/B-2/BCC 分别设置 no-issuance 或额外 EAD / I-797 条件，不能仅凭有效签证推断可办': [LA_NONCITIZEN],
+      '非移民首次申请通常要在 I-94 或 EAD 上至少剩余 180 天': [LA_NONCITIZEN],
+      'H-2A 首次申请例外为至少 60 天，续期通常要求合法居留文件至少剩余 30 天': [LA_NONCITIZEN, LA_RENEW_POLICY],
+      '合法居留不足六年时，non-permanent resident credential 会随最后合法居留日采用 variable expiration，并标注 Limited-Term': [LA_NONCITIZEN],
+      'Louisiana REAL ID 是可选项': [LA_REAL_ID],
+      '有效 passport 等 TSA 接受证件可替代州 REAL ID 用于国内航班，而国际旅行仍需要 passport': [LA_REAL_ID, TSA_IDENTIFICATION],
+      'REAL ID-compliant card 的卡面上部有金色边框白星': [LA_REAL_ID],
+      'REAL ID 与 non-compliant Louisiana credential 的州证件费用相同': [LA_REAL_ID, LA_REAL_ID_POLICY],
+      '一个人只能持有一张 REAL ID credential': [LA_REAL_ID_POLICY],
+      '60 岁及以上可选的 permanent ID 只能是 Not for Federal Identification，若要 REAL ID ID card 则采用六年有效期': [LA_REAL_ID_POLICY],
+      '首次 Louisiana REAL ID 要覆盖 identity、lawful status、date of birth、assigned SSN 和两份 principal residence': [LA_REAL_ID, LA_REAL_ID_POLICY],
+      '非公民证件姓名必须与原始 immigration document 精确一致': [LA_REAL_ID_POLICY, LA_NONCITIZEN],
+      'REAL ID 的两份 residence documents 必须是 original、显示本人姓名和 Louisiana street address，并来自 separate / independent sources': [LA_REAL_ID, LA_REAL_ID_POLICY],
+      '普通 non-REAL-ID 驾照或 ID 的 residency policy 至少要求一份原始 Louisiana 地址文件': [LA_RESIDENCY],
+      '不要把 REAL ID 的两份规则机械套到每个普通业务': [LA_RESIDENCY, LA_REAL_ID],
+      '与申请人同住的 parent、guardian、spouse 或 immediate family member 的 Louisiana credential 可作为地址材料，但该 family member 必须本人到场': [LA_RESIDENCY, LA_REAL_ID],
+      '有 SSN 的申请人必须提供号码，REAL ID 可口头提供并由 SSOLV 核验': [LA_REAL_ID, LA_SSN],
+      '没有获分配 SSN 且身份类别不具资格时，要带 SSA 出具的 ineligible 或 not issued letter': [LA_SSN, LA_NONCITIZEN],
+      '姓名变更要先在 Social Security Administration 更新，Louisiana 政策提示数据库通常约 24 小时后才反映': [LA_NAME_CHANGE, LA_SSN],
+      '之后用有效 credential 和 original / certified name-change record 到 OMV': [LA_NAME_CHANGE, LA_IDENTIFICATION],
+      '所有首次 Class E 申请人在参加 knowledge test、驾驶教学或 road skills test 前都要先从 OMV 取得 TIP': [LA_NEW_LICENSES, LA_PERMITS, LA_DRIVER_ED],
+      'TIP 最早可在 14 岁签发，但只允许在驾驶学校教练陪同的教学和考试场景使用': [LA_NEW_LICENSES, LA_PERMITS],
+      '15 岁起可签发 learner permit': [LA_NEW_LICENSES, LA_PERMITS],
+      '15 或 16 岁申请人通常要持 permit 至少 180 天，17 岁及以上可按年龄和考试条件进入 learner 或 full-license 路线': [LA_NEW_LICENSES, LA_PERMITS],
+      '14 岁 9 个月至 17 岁的 driver education 为 30 小时课堂加 8 小时 behind-the-wheel': [LA_DRIVER_ED],
+      '18 岁及以上可选 6 小时课堂加 8 小时驾驶的 pre-licensing course，或完整 38 小时课程': [LA_DRIVER_ED],
+      'Class D、Class E 和 motorcycle 自动笔试系统列有 Cantonese，但没有列 Mandarin': [LA_KNOWLEDGE],
+      '英语读写困难者可带 interpreter 协助这些非 CDL knowledge tests，CDL 不允许 interpreter': [LA_KNOWLEDGE],
+      'OMV 当前 alternate-language driving-school 清单列出 Spanish、French、German、Arabic 和 Vietnamese，没有标出中文课程': [LA_LANGUAGE_SCHOOLS],
+      '笔试有 Cantonese 不等于 driver education 课程也有中文': [LA_KNOWLEDGE, LA_LANGUAGE_SCHOOLS, LA_DRIVER_ED],
+      'Class E knowledge test 及格线是 80%': [LA_KNOWLEDGE],
+      '未通过时如当天时间允许可再考一次，作弊则普通驾照、chauffeur 和 motorcycle 考试至少等待 30 天': [LA_KNOWLEDGE],
+      'Class E road skills test 可由 OMV 或 approved third-party tester 办理，80 / 100 及格': [LA_ROAD_TEST, LA_DRIVER_ED],
+      'OMV 不收考试费，third-party tester 可自行收费': [LA_ROAD_TEST],
+      'OMV road test 自备车辆必须有效注册、车牌匹配、保险覆盖当天且申请人不是 excluded driver': [LA_ROAD_VEHICLE, LA_ROAD_TEST],
+      '车辆还要通过灯光、轮胎、车门、安全带、后视镜等现场检查': [LA_ROAD_VEHICLE, LA_ROAD_TEST],
+      '驾照可在到期前 180 天续期，前提是没有 suspension / revocation': [LA_RENEW, LA_RENEW_POLICY],
+      'OMV 网页称合格申请人约提前 100 天收到 invitation，mail / internet policy 则写 90 天，因此不要依赖邀请函才开始准备': [LA_RENEW, LA_REMOTE_RENEW],
+      'mail / internet renewal 要先收到 invitation 且申请人是 Louisiana resident Class D / E': [LA_REMOTE_RENEW],
+      '70 岁及以上、上次已按 mail renewal、证件过期至少 12 个月、record 有 flags、资料或身体状况变化、nonresident alien 等被 policy 列为不得 mail renewal 的情形，线上资格仍以系统 Check Renew Eligibility 为准': [LA_REMOTE_RENEW],
+      '线上或邮寄证件最长可能需要 30 天寄达': [LA_REMOTE_RENEW],
+      '满 30 天仍未收到且尚在交易后 60 天内，可带 receipt 到 OMV 申请免费 duplicate': [LA_REMOTE_RENEW, LA_ONLINE_DUPLICATE],
+      '档案地址错误时要现场改地址并付 duplicate fee，原线上交易不退款': [LA_REMOTE_RENEW],
+      '线上 duplicate 只面向当前住在 Louisiana、credential 仍有效且 record 无阻止签发 flag 的人': [LA_ONLINE_DUPLICATE],
+      '每天最多一次，线上不能改地址，未满 18 岁不能线上补 driver license，未满 17 岁不能线上补 ID': [LA_ONLINE_DUPLICATE],
+      '当前 2026-07-01 fee policy 把六年 Class E 总额列为 $32.25 至 $40.25、70 岁及以上为 $18.75 至 $26.75、六年证 duplicate / address change 为 $17 至 $25，区间取决于 handling fee': [LA_FEES],
+      '现行 fee policy 对驾照过期超过 10 个 calendar days 加收 $15 delinquent fee': [LA_FEES],
+      '较旧的 2025 mail-renewal policy 仍写 $10，付款前应以 OMV checkout 和最新 fee policy 为准': [LA_FEES, LA_REMOTE_RENEW],
+      '普通首次 credential 按一份 primary 加两份 secondary，或两份 primary 的组合准备，并另带 Louisiana residency': [LA_IDENTIFICATION, LA_RESIDENCY],
+      '已有可清晰识别的 Louisiana photo credential 时可能适用简化组合': [LA_IDENTIFICATION],
+      '所有 primary / secondary 文件须为 original 或 issuing agency certified copy': [LA_IDENTIFICATION],
+      '普通 photocopy 不接受，primary 与 secondary 姓名原则上须一致': [LA_IDENTIFICATION],
+      '外州转入带最近签发州的 photo license、一份 primary、一份 secondary 和一份 Louisiana residency': [LA_IDENTIFICATION, LA_TRANSFER, LA_RESIDENCY],
+      '原卡遗失时按州别准备 official driving record': [LA_IDENTIFICATION, LA_TRANSFER],
+      'REAL ID 按 identity、lawful status、date of birth、assigned SSN 和两份独立来源的 Louisiana principal-residence 原件分组': [LA_REAL_ID, LA_REAL_ID_POLICY],
+      '常见 identity / lawful-status 文件包括有效美国 passport、州签发 original / certified birth certificate、naturalization / citizenship certificate，或按身份表组合的 passport、I-94、I-797、I-20、DS-2019、I-551、I-766 等': [LA_REAL_ID, LA_REAL_ID_POLICY, LA_NONCITIZEN],
+      '有 SSN 时可口头提供号码，建议带 Social Security card、W-2、SSA-1099、non-SSA 1099 或 pay stub 作为核验备用': [LA_REAL_ID, LA_SSN],
+      '不具 SSN 资格者带 SSA letter': [LA_SSN, LA_NONCITIZEN],
+      'residency 文件要显示本人姓名和 Louisiana street address': [LA_RESIDENCY],
+      'REAL ID 两份必须来自独立来源，例如 utility、bank、employer、insurance、tax、school、mortgage、lease 或 USCIS 文件': [LA_REAL_ID, LA_RESIDENCY],
+      '使用同住 immediate family member 的 Louisiana credential 作地址证明时，该 family member 要带有效证件本人到场': [LA_RESIDENCY, LA_REAL_ID],
+      '姓名变化先更新 SSA，再带 original / certified marriage certificate、court order、divorce decree 或其他适用的完整 legal record': [LA_NAME_CHANGE, LA_IDENTIFICATION, LA_SSN],
+      '中国大陆等非互惠外国驾照路线带 passport、当前 immigration / legal-presence documents、外国驾照和必要翻译，并预留 TIP、driver education 和全套考试': [LA_NONCITIZEN, LA_RECIPROCITY, LA_NEW_LICENSES],
+      '首次驾驶人先用身份证明、residency 和 SSN / SSA letter 取得 TIP': [LA_NEW_LICENSES, LA_IDENTIFICATION, LA_RESIDENCY, LA_SSN],
+      '未满 18 岁另带 custodial parent / guardian 的身份证明和 custody documents': [LA_NEW_LICENSES, LA_PERMITS, LA_IDENTIFICATION],
+      'driver-education 结业后保留 Certificate of Successful Completion': [LA_DRIVER_ED, LA_PERMITS],
+      'TIP 转 learner permit 或 full license 时向 OMV 交回 TIP 和结业证明': [LA_DRIVER_ED, LA_PERMITS],
+      'road test 带有效 registration、匹配车牌和当天有效 liability-insurance proof，确认保险没有把申请人列为 excluded driver': [LA_ROAD_VEHICLE],
+      '现场续期带 proper identification、Louisiana residency、SSN、适用的 legal presence、车辆在本人名下时的 current liability insurance，并准备 vision test': [LA_RENEW_POLICY, LA_RENEW, LA_NONCITIZEN, LA_RESIDENCY],
+      '线上续期或补证先确认 credential 上的地址完全正确、邀请或系统资格有效，并保存 receipt': [LA_REMOTE_RENEW, LA_ONLINE_DUPLICATE],
+      '线上 duplicate 不提供地址变更': [LA_ONLINE_DUPLICATE],
+      '先判断自己属于首次驾驶人、美国外州转入、外国驾照、renewal、duplicate、name / address change、ID card 还是 first-time REAL ID': [LA_HOME, LA_NEW_LICENSES, LA_TRANSFER, LA_RENEW, LA_DUPLICATE, LA_REAL_ID],
+      '建立 Louisiana domicile 后在 30 天期限内安排外州转入': [LA_TRANSFER],
+      '先确认原驾照是否在手以及是否来自需要 driving record 的州': [LA_IDENTIFICATION, LA_TRANSFER],
+      '中国大陆或其他非互惠外国驾照持有人先用 immigration-status policy 确认资格，再按 TIP、Louisiana driver education、knowledge、vision 和 road-test 路线安排': [LA_NONCITIZEN, LA_RECIPROCITY, LA_NEW_LICENSES, LA_DRIVER_ED],
+      'Germany、Switzerland、South Korea 或 Taiwan 驾照持有人核对有效驾照、身份文件、vision 和翻译要求，再使用 reciprocity 路线': [LA_RECIPROCITY],
+      '需要中文笔试时向办理点确认 K2D 的 Cantonese 版本': [LA_KNOWLEDGE],
+      '需要 Mandarin 或其他语言时提前安排合格 interpreter，且不要把该规则套到 CDL': [LA_KNOWLEDGE],
+      '首次驾驶人先到 OMV 取得 TIP，再报名 licensed driving school': [LA_NEW_LICENSES, LA_PERMITS, LA_DRIVER_ED],
+      '未满 18 岁与成人按 38 小时或 14 小时课程分别准备': [LA_DRIVER_ED],
+      '先决定是否需要 REAL ID': [LA_REAL_ID],
+      '若已有 passport 等 TSA 接受证件，可以比较 non-compliant credential 的使用范围后再决定': [LA_REAL_ID, TSA_IDENTIFICATION],
+      'REAL ID 材料按 identity / lawful status / date of birth、SSN、两份 independent residence 和 name-change chain 分组，只带 original / certified copy': [LA_REAL_ID, LA_REAL_ID_POLICY, LA_IDENTIFICATION, LA_RESIDENCY, LA_NAME_CHANGE],
+      '普通 credential 也要按 identification policy 准备 primary / secondary 组合和至少一份 Louisiana residency，不要只带 REAL ID checklist': [LA_IDENTIFICATION, LA_RESIDENCY],
+      '续期前检查 license status、record flags、档案地址和 180 天窗口': [LA_APPOINTMENT, LA_RENEW_POLICY, LA_REMOTE_RENEW],
+      '只有收到 invitation 且系统判定合格时才走 mail / internet / LA Wallet': [LA_REMOTE_RENEW],
+      '补证先看证件是否仍有效、是否在 90 / 180 天续期窗口内以及地址是否正确': [LA_DUPLICATE, LA_ONLINE_DUPLICATE],
+      '地址不对就直接走 field office': [LA_ONLINE_DUPLICATE],
+      '姓名变化先在 SSA 更新并等待至少约 24 小时，再带有效 credential 和 original / certified legal record 到 OMV': [LA_NAME_CHANGE, LA_SSN],
+      'road test 前核对 registration、plate、insurance、excluded-driver 条款和车辆安全项目': [LA_ROAD_VEHICLE, LA_ROAD_TEST],
+      '比较 OMV 免费考试与 third-party tester 的自定收费': [LA_ROAD_TEST],
+      '预约前查询 driver-license status': [LA_APPOINTMENT],
+      '有 reinstatement 或其他 flag 时，选择明确提供对应服务的 customer service center': [LA_APPOINTMENT, LA_OFFICES],
+      '付款前查最新 fee policy 和 checkout 总额': [LA_FEES],
+      '完成后保存 receipt，并在 30 至 60 天未收到实体卡窗口内及时到 OMV 处理': [LA_REMOTE_RENEW, LA_ONLINE_DUPLICATE],
+      '建立 domicile 后继续等待外州驾照到期，错过 Louisiana 的 30 天转入期限': [LA_TRANSFER],
+      '外州转入只带旧驾照，没有准备 primary、secondary 和 Louisiana residency 原件': [LA_IDENTIFICATION, LA_TRANSFER, LA_RESIDENCY],
+      '原外州卡遗失时只拿手机照片，忽略部分州必须出具 official driving record': [LA_IDENTIFICATION, LA_TRANSFER],
+      '把中国大陆驾照套用 Taiwan 互惠，误以为可以免 driver education、knowledge 和 road tests': [LA_RECIPROCITY, LA_NONCITIZEN, LA_NEW_LICENSES],
+      '把有效 visitor visa 当成 Louisiana credential 资格，没有先按当前 immigration status 表确认': [LA_NONCITIZEN, LA_TRANSFER],
+      '看到自动笔试有 Cantonese 就假定有 Mandarin，或误以为驾驶学校也一定提供中文课程': [LA_KNOWLEDGE, LA_LANGUAGE_SCHOOLS, LA_DRIVER_ED],
+      '需要口译却报考 CDL': [LA_KNOWLEDGE],
+      'Louisiana 普通 Class D / E / motorcycle 可用 interpreter，但 CDL 明确不允许': [LA_KNOWLEDGE],
+      '第一次去驾驶学校或参加 knowledge / road test 前没有先取得 TIP': [LA_NEW_LICENSES, LA_PERMITS, LA_DRIVER_ED],
+      '把 14 岁可取得 TIP 理解成可以由家人陪同上路': [LA_NEW_LICENSES, LA_PERMITS],
+      'TIP 只用于 licensed driving-school instructor 陪同的教学和考试': [LA_NEW_LICENSES, LA_PERMITS],
+      'REAL ID 两份地址证明来自同一机构，或文件只显示 P.O. Box、没有本人 Louisiana street address': [LA_REAL_ID, LA_RESIDENCY],
+      '把普通 credential 的一份 residency 要求和 REAL ID 的两份独立来源要求混在一起': [LA_REAL_ID, LA_RESIDENCY],
+      'REAL ID 材料带成普通 photocopy，或非公民证件姓名与原始 immigration document 不完全一致': [LA_REAL_ID, LA_REAL_ID_POLICY, LA_IDENTIFICATION, LA_NONCITIZEN],
+      '姓名变更后尚未更新 SSA，或更新后未等数据库同步就立即去 OMV': [LA_NAME_CHANGE, LA_SSN],
+      '收到 renewal invitation 就默认可以线上完成，没有检查 flags、证件状态、年龄、地址和资料变化': [LA_REMOTE_RENEW, LA_APPOINTMENT],
+      '线上补证时顺便尝试改地址': [LA_ONLINE_DUPLICATE],
+      '系统会寄到 master record 地址，地址变化必须走现场路线': [LA_ONLINE_DUPLICATE],
+      '证件 90 天内到期仍办 duplicate，忽略此时必须按 renewal 处理': [LA_DUPLICATE, LA_ONLINE_DUPLICATE],
+      'road test 使用未保险、registration / plate 不匹配、申请人被保险排除或安全设备不合格的车辆': [LA_ROAD_VEHICLE, LA_ROAD_TEST],
+      '只看 $32.25 基础总额，没有预留最高 $8 handling fee、duplicate fee 或过期超过 10 天的 delinquent fee': [LA_FEES],
+      '邮寄未满 30 天就重复付费，或超过交易后 60 天才带 receipt 申请未收到证件的免费 replacement': [LA_REMOTE_RENEW, LA_ONLINE_DUPLICATE],
+    },
+  },
+
   wisconsin: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',
