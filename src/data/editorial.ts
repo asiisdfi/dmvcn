@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Rhode Island 两页官方正文语义核对',
+    summary:
+      '逐条比对 Rhode Island DMV 的 REAL ID、document checklist、LI-1、美国外州与外国驾照、permit、knowledge / road tests、DPC、renewal、name / address、fee、reservation、locations、online services、Driver Manual，Division of Taxation DPC 指引、现行 permit 州法与 TSA 当前正文；登记 69 条独立声明的显式来源，并补齐中国大陆驾照路线、其他语言考试两步预约、DPC 税务验证、30 天转入、当前费用，以及 DMV 网页与 2025 州法在 permit 续期次数上的冲突。',
+    scope: [
+      '罗得岛州办事总览',
+      '罗得岛州 REAL ID',
+      '69 条独立声明显式核对',
+      '外国驾照、DPC、考试语言与 permit 冲突',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Delaware 两页官方正文语义核对',
     summary:
       '逐条比对 Delaware DMV 的 Driver Services、SecureID、required documents、noncitizen / SAVE、adult transfer、first license、knowledge / road exams、DPC、renewal、name / address、2025 fee chart、online services、appointments、locations、wait times、July 2025 Driver Manual 与 TSA 当前正文；登记 112 条独立声明的显式来源，并补齐中国大陆与 Taiwan 互惠边界、DPC 指纹与报税路径、考试语言证据边界、SecureID one-time revalidation、SAVE、60 天转入、当前费用和 road-test 车辆要求。',

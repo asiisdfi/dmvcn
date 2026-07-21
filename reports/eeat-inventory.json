@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T00:25:26.840Z",
+    "generatedAt": "2026-07-21T00:46:03.056Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 95,
+    "passed": 97,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 54,
-    "aiAssistedReviews": 101,
+    "sourceMappedReviews": 52,
+    "aiAssistedReviews": 103,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 71,
+    "blockedPages": 69,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 212,
+        "sourceCount": 214,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 300,
+        "sourceCount": 301,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 141,
-        "directoryEvidenceLinks": 141,
+        "directoryEvidenceItems": 142,
+        "directoryEvidenceLinks": 142,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 244,
+        "sourceCount": 245,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 101,
-        "directoryEvidenceLinks": 101,
+        "directoryEvidenceItems": 103,
+        "directoryEvidenceLinks": 103,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 610,
+        "sourceCount": 614,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 211,
+        "sourceCount": 213,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 154,
+        "sourceCount": 156,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 117,
-        "directoryEvidenceLinks": 117,
+        "directoryEvidenceItems": 118,
+        "directoryEvidenceLinks": 118,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 228,
+        "sourceCount": 231,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 161,
-        "directoryEvidenceLinks": 161,
+        "directoryEvidenceItems": 164,
+        "directoryEvidenceLinks": 164,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 204,
+        "sourceCount": 205,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1409,
+        "sourceCount": 1428,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -4599,22 +4599,22 @@
       "route": "/states/rhode-island/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 92,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成罗得岛州（Rhode Island Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Rhode Island DMV 当前 licenses / permits / IDs、REAL ID、identity and residency documents、LI-1、out-of-state transfer、new resident、permit、knowledge exam、road test、DPC、renewal、name / address、fee、reservation、locations、online services、Driver Manual，Rhode Island Division of Taxation DPC 页面、2025 年生效的成人 permit 州法和 TSA 页面，核对两个成品页的资格、材料、期限、考试语言、费用、冲突与办理入口。",
+        "notes": "本轮重点区分美国外州与外国驾照、普通 lawful-presence credential 与 DPC、常规电脑考试与其他语言的两步预约，并记录 DMV permit 页面与 2025-06-06 生效州法在可续次数上的冲突。所有映射为 AI 辅助语义核查，不冒充 DMV、律师或真实人工专业签字。"
       },
       "scores": {
-        "factsAndSources": 22,
-        "evidenceMapping": 13.5,
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
         "authorship": 10,
@@ -4623,14 +4623,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 9,
+        "sourceCount": 26,
+        "factCheckCount": 20,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 9,
-        "stateEvidenceLinks": 9,
+        "stateEvidenceItems": 20,
+        "stateEvidenceLinks": 63,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4638,9 +4638,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/rhode-island/real-id/",
@@ -4648,16 +4646,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成罗得岛州（Rhode Island Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Rhode Island DMV 当前 licenses / permits / IDs、REAL ID、identity and residency documents、LI-1、out-of-state transfer、new resident、permit、knowledge exam、road test、DPC、renewal、name / address、fee、reservation、locations、online services、Driver Manual，Rhode Island Division of Taxation DPC 页面、2025 年生效的成人 permit 州法和 TSA 页面，核对两个成品页的资格、材料、期限、考试语言、费用、冲突与办理入口。",
+        "notes": "本轮重点区分美国外州与外国驾照、普通 lawful-presence credential 与 DPC、常规电脑考试与其他语言的两步预约，并记录 DMV permit 页面与 2025-06-06 生效州法在可续次数上的冲突。所有映射为 AI 辅助语义核查，不冒充 DMV、律师或真实人工专业签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4670,14 +4668,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 19,
+        "sourceCount": 26,
+        "factCheckCount": 51,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 19,
-        "stateEvidenceLinks": 19,
+        "stateEvidenceItems": 51,
+        "stateEvidenceLinks": 129,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4685,9 +4683,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/south-carolina/",

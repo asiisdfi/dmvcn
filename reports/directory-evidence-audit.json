@@ -1,19 +1,19 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T00:25:25.044Z",
+    "generatedAt": "2026-07-21T00:46:01.176Z",
     "pages": 5,
-    "claims": 704,
+    "claims": 711,
     "statesCovered": 50,
-    "aiAssisted": 609,
-    "automated": 95,
+    "aiAssisted": 626,
+    "automated": 85,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 141,
+        "claims": 142,
         "states": 41
       },
       "deadlines": {
-        "claims": 101,
+        "claims": 103,
         "states": 39
       },
       "document-rules": {
@@ -21,11 +21,11 @@
         "states": 49
       },
       "foreign-license": {
-        "claims": 117,
+        "claims": 118,
         "states": 38
       },
       "identity-ssn": {
-        "claims": 161,
+        "claims": 164,
         "states": 45
       }
     }
@@ -1752,30 +1752,50 @@
     {
       "page": "costs-timing",
       "stateId": "rhode-island",
-      "category": "邮寄 / 卡片",
-      "claim": "续期先看 License Renewal，确认是否能 online / mail / AAA，或是否需要 DMV branch",
-      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
-      "sourceLabel": "对应官方来源：RI DMV License Renewal",
+      "category": "费用",
+      "claim": "当前 Fee Schedule 列出 18 岁以上 instructional permit $8.50、road test $28.50、first license $44.50、out-of-state transfer $49.50、普通五年 renewal $73.50",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-fees",
+      "sourceLabel": "对应官方来源：RI License Fee Schedule",
       "themes": [
-        "renewal"
+        "fee",
+        "renewal",
+        "out-of-state"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
       "stateId": "rhode-island",
-      "category": "邮寄 / 卡片",
-      "claim": "Rhode Island license 可在到期前最多 90 天续期，可 online、DMV branch、AAA branch 或 mail 等路径处理",
-      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
-      "sourceLabel": "对应官方来源：RI DMV License Renewal",
+      "category": "费用",
+      "claim": "REAL ID 在正常 renewal period 内不另收升级费，窗口外办理 upgrade 当前为 $28.50",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/real-id",
+      "sourceLabel": "对应官方来源：RI DMV REAL ID",
       "themes": [
+        "fee",
         "renewal"
+      ],
+      "failedThemes": [
+        "fee",
+        "renewal"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "rhode-island",
+      "category": "费用",
+      "claim": "付款前查看当前 Fee Schedule",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-fees",
+      "sourceLabel": "对应官方来源：RI License Fee Schedule",
+      "themes": [
+        "fee"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -3444,16 +3464,43 @@
     {
       "page": "deadlines",
       "stateId": "rhode-island",
-      "category": "续期 / 到期",
-      "claim": "Rhode Island license 可在到期前最多 90 天续期，可 online、DMV branch、AAA branch 或 mail 等路径处理",
-      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
-      "sourceLabel": "对应官方来源：RI DMV License Renewal",
+      "category": "期限提醒",
+      "claim": "P.O. Box 不接受，utility bill、bank statement、payroll check 和政府信件通常须在 60 天内",
+      "sourceUrl": "https://dmv.ri.gov/node/1496",
+      "sourceLabel": "对应官方来源：RI REAL ID Identity and Residency Documents",
       "themes": [
-        "renewal"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "rhode-island",
+      "category": "材料时效",
+      "claim": "美国外州驾照持有人记录建立 Rhode Island residency 的日期，在 30 天内准备原证或 certified driving record",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+      "sourceLabel": "对应官方来源：RI Out of State Transfers",
+      "themes": [
+        "residency-documents",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "rhode-island",
+      "category": "期限提醒",
+      "claim": "RI DMV 当前成人 permit 页面说明 18 岁以上持有人在 30 天等待期间可独自驾驶",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+      "sourceLabel": "对应官方来源：RI New License Permits",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -5649,59 +5696,59 @@
       "page": "document-rules",
       "stateId": "rhode-island",
       "category": "地址证明",
-      "claim": "两份 Rhode Island residency，P.O. Box 不接受",
-      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
-      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
+      "claim": "REAL ID：completed LI-1、一份 original identity document、SSN 写在申请表上或 SSA ineligibility letter、两份 Rhode Island residency",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/real-id",
+      "sourceLabel": "对应官方来源：RI DMV REAL ID",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "rhode-island",
+      "category": "地址证明",
+      "claim": "Residency 必须是两份显示 physical Rhode Island address 的清单材料",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/real-id",
+      "sourceLabel": "对应官方来源：RI DMV REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "rhode-island",
       "category": "地址证明",
-      "claim": "把 identity、SSN、two residency 和姓名变化文件分成四组，日期和 P.O. Box 要特别检查",
-      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
-      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
+      "claim": "P.O. Box 不接受，utility bill、bank statement、payroll check 和政府信件通常须在 60 天内",
+      "sourceUrl": "https://dmv.ri.gov/node/1496",
+      "sourceLabel": "对应官方来源：RI REAL ID Identity and Residency Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "rhode-island",
+      "category": "地址证明",
+      "claim": "原卡不在手时带原州 certified driving record，并准备 SSN 与两份 Rhode Island residency",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+      "sourceLabel": "对应官方来源：RI Out of State Transfers",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "rhode-island",
-      "category": "地址证明",
-      "claim": "官方 checklist 明确 P.O. Box 不接受作居住地址",
-      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
-      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
-      "themes": [
-        "residency-documents",
-        "document-checklist"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "rhode-island",
-      "category": "SSN",
-      "claim": "Social Security number 写在 LI-1 上，或带 SSA 出具的不符合取得 SSN 的证明",
-      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
-      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
-      "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -7749,45 +7796,58 @@
       "page": "foreign-license",
       "stateId": "rhode-island",
       "category": "外国 / 境外驾照",
-      "claim": "Out of State/Country Transfers：外州或境外 license 转入 Rhode Island 的要求",
-      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
-      "sourceLabel": "对应官方来源：RI DMV Out of State/Country Transfers",
+      "claim": "中国大陆驾照按 out-of-country 路线处理",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+      "sourceLabel": "对应官方来源：RI New Resident and Out-of-Country",
       "themes": [
-        "out-of-state"
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "rhode-island",
+      "category": "外国 / 境外驾照",
+      "claim": "首次成人与外国驾照：instruction permit、Cranston 知识考试和 30 天等待",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+      "sourceLabel": "对应官方来源：RI New Resident and Out-of-Country",
+      "themes": [
+        "foreign-license"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "automated"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "rhode-island",
+      "category": "外国 / 境外驾照",
+      "claim": "中国大陆及其他外国驾照持有人不能套用该路线，18 岁以上要在 Cranston 申请 instruction permit、通过知识考试，持 permit 至少 30 天后再参加 road test",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+      "sourceLabel": "对应官方来源：RI New Resident and Out-of-Country",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
       "stateId": "rhode-island",
       "category": "外州 / 加拿大转入",
-      "claim": "外州转入带当前 out-of-state license",
+      "claim": "美国外州驾照持有人记录建立 Rhode Island residency 的日期，在 30 天内准备原证或 certified driving record",
       "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
-      "sourceLabel": "对应官方来源：RI DMV Out of State/Country Transfers",
+      "sourceLabel": "对应官方来源：RI Out of State Transfers",
       "themes": [
+        "residency-documents",
         "out-of-state"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "rhode-island",
-      "category": "材料 / 身份",
-      "claim": "RI Document Checklist PDF：REAL ID / non-REAL ID、续期、地址变化和转入材料表",
-      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
-      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
-      "themes": [
-        "address-change",
-        "document-checklist",
-        "renewal"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -9952,17 +10012,59 @@
     {
       "page": "identity-ssn",
       "stateId": "rhode-island",
+      "category": "无 SSN / SSA",
+      "claim": "改名先完成 SSA 更新并等待至少 24 小时",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/name-address-change",
+      "sourceLabel": "对应官方来源：RI Name & Address Change",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "rhode-island",
+      "category": "无 SSN / SSA",
+      "claim": "Rhode Island REAL ID 是可选联邦用途证件，首次申请必须本人办理并带 completed LI-1、一份原始 identity document、申请表上的 SSN 或 SSA ineligibility letter，以及两份 Rhode Island physical-address 证明",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/real-id",
+      "sourceLabel": "对应官方来源：RI DMV REAL ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "rhode-island",
       "category": "SSN",
-      "claim": "把 identity、SSN、two residency 和姓名变化文件分成四组，日期和 P.O. Box 要特别检查",
-      "sourceUrl": "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf",
-      "sourceLabel": "对应官方来源：RI DMV Document Checklist",
+      "claim": "原卡不在手时带原州 certified driving record，并准备 SSN 与两份 Rhode Island residency",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+      "sourceLabel": "对应官方来源：RI Out of State Transfers",
       "themes": [
         "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "rhode-island",
+      "category": "lawful presence",
+      "claim": "DPC 适用于无法证明 lawful presence 且满足上一纳税年度 Rhode Island resident return 条件的人，不与普通 lawful-presence credential 或 REAL ID 混写",
+      "sourceUrl": "https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs",
+      "sourceLabel": "对应官方来源：RI Driver Privilege Card FAQ",
+      "themes": [
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

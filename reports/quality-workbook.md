@@ -2,8 +2,8 @@
 
 - 页面数：166
 - 高风险待人工签字：17
-- 待逐页官方正文语义核对：54
-- 阻塞项：71
+- 待逐页官方正文语义核对：52
+- 阻塞项：69
 - 弱意图待处理：0
 
 ## 人工签字队列（高风险）
@@ -46,7 +46,6 @@
 | /states/nebraska/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/new-hampshire/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/north-dakota/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/rhode-island/ | state-overview | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/south-carolina/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/vermont/ | state-overview | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/west-virginia/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -57,7 +56,6 @@
 | /states/nebraska/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/new-hampshire/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/north-dakota/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/rhode-island/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/south-carolina/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/vermont/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/west-virginia/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -72,6 +70,8 @@
 | /topics/lost-stolen-license-id-replacement-identity-theft/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/lost-stolen-license-plates-registration-card-sticker/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/moving-to-new-state/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /topics/online-office-appointment/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /topics/proof-of-residency/ | topic | 95 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 
 ## 阻塞项优先处理
 
@@ -103,10 +103,10 @@
 | /states/new-hampshire/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/north-dakota/ | medium | 91 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/north-dakota/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/rhode-island/ | medium | 92 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/rhode-island/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/south-carolina/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/south-carolina/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /states/vermont/ | medium | 92 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /states/vermont/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 
 ## 执行节奏
 1. **第1-2周**：完成高风险人工签字，目标产出 8 条，检查点：未签字的高风险页不得用于新内容发布

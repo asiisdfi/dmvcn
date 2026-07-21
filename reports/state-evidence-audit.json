@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T00:25:25.900Z",
+    "generatedAt": "2026-07-21T00:46:02.066Z",
     "pages": 100,
     "states": 50,
-    "claims": 3915,
-    "links": 6873,
-    "aiAssistedClaims": 3610,
-    "aiAssistedPages": 78,
+    "claims": 3958,
+    "links": 7037,
+    "aiAssistedClaims": 3681,
+    "aiAssistedPages": 80,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1844,
-        "links": 3177,
+        "claims": 1855,
+        "links": 3231,
         "states": 50
       },
       "real-id": {
-        "claims": 2071,
-        "links": 3696,
+        "claims": 2103,
+        "links": 3806,
         "states": 50
       }
     }
@@ -67363,18 +67363,28 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "罗得岛州驾照、REAL ID、续期、地址/姓名变化和外州转入由 Rhode Island DMV 管理",
+      "claim": "Rhode Island 驾照、permit、REAL ID、Driver Privilege Card、考试、续期和外州转入由 Rhode Island DMV 管理",
       "sourceUrls": [
-        "https://dmv.ri.gov/licenses-permits-ids/real-id"
+        "https://dmv.ri.gov/licenses-permits-ids",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV REAL ID"
+        "对应官方来源：RI DMV Licenses, Permits & IDs",
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI Driver Privilege Card FAQ",
+        "对应官方来源：RI Permits & Tests",
+        "对应官方来源：RI License Renewal",
+        "对应官方来源：RI Out of State Transfers"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "name-change",
-        "renewal"
+        "renewal",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -67384,19 +67394,59 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "RI DMV 的实用入口是 REAL ID 页面、License Renewal、Out of State/Country Transfers、Name & Address Change，以及官方 Document Checklist PDF",
+      "claim": "先区分美国外州证、外国驾照、首次成人、普通 renewal、REAL ID upgrade 和无法证明 lawful presence 的 DPC",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI Out of State Transfers",
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：RI License Renewal",
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI Driver Privilege Card FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "lawful-presence",
+        "renewal",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "summary",
+      "context": "document",
+      "claim": "这些路线不能共用一套材料或预约",
+      "sourceUrls": [
+        "https://dmv.ri.gov/media/171/download?language=en",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/media/1991/download?language=en",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI License/ID/Permit Checklist",
+        "对应官方来源：RI Out of State Transfers",
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI DPC/IDPC Required Documents",
+        "对应官方来源：RI Make a Reservation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document",
-        "address-change",
-        "renewal"
+        "appointment"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -67405,16 +67455,203 @@
       "stateId": "rhode-island",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "license",
-      "claim": "Rhode Island license 可在到期前最多 90 天续期，可 online、DMV branch、AAA branch 或 mail 等路径处理",
+      "context": "document",
+      "claim": "成为 Rhode Island resident 后 30 天内应换本州驾照",
       "sourceUrls": [
-        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal"
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV License Renewal"
+        "对应官方来源：RI Out of State Transfers"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "有效或过期不足五年的美国外州驾照通常走 transfer",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+        "https://dmv.ri.gov/media/171/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Out of State Transfers",
+        "对应官方来源：RI License/ID/Permit Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "中国大陆及其他外国驾照持有人不能套用该路线，18 岁以上要在 Cranston 申请 instruction permit、通过知识考试，持 permit 至少 30 天后再参加 road test",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests",
+        "https://webserver.rilegislature.gov/Statutes/TITLE31/31-10/31-10-7.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：RI Knowledge Exams",
+        "对应官方来源：RI Road Tests",
+        "对应官方来源：R.I. Gen. Laws § 31-10-7"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Rhode Island REAL ID 是可选联邦用途证件，首次申请必须本人办理并带 completed LI-1、一份原始 identity document、申请表上的 SSN 或 SSA ineligibility letter，以及两份 Rhode Island physical-address 证明",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/node/1496",
+        "https://dmv.ri.gov/media/171/download?language=en",
+        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/license/License-App-v2-RI.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI REAL ID Identity and Residency Documents",
+        "对应官方来源：RI License/ID/Permit Checklist",
+        "对应官方来源：RI LI-1 Application"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "P.O. Box、普通复印件和断裂的姓名链都会造成退件",
+      "sourceUrls": [
+        "https://dmv.ri.gov/node/1496",
+        "https://dmv.ri.gov/media/171/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI REAL ID Identity and Residency Documents",
+        "对应官方来源：RI License/ID/Permit Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "RI DMV 现场业务目前按 reservation 办理",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation",
+        "https://dmv.ri.gov/locations-hours"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Make a Reservation",
+        "对应官方来源：RI Locations & Hours"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "知识考试、外国驾照与美国领地证件交易要选 Cranston 对应预约",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams",
+        "https://dmv.ri.gov/media/171/download?language=en",
+        "https://dmv.ri.gov/locations-hours"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI Knowledge Exams",
+        "对应官方来源：RI License/ID/Permit Checklist",
+        "对应官方来源：RI Locations & Hours"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "road test 使用独立入口",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Make a Reservation",
+        "对应官方来源：RI Road Tests"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "license",
+      "claim": "普通续期和地址更新先检查 online eligibility，再决定是否到 DMV 或符合条件的 AAA branch",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/name-address-change",
+        "https://dmv.ri.gov/online-services",
+        "https://dmv.ri.gov/locations-hours"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI License Renewal",
+        "对应官方来源：RI Name & Address Change",
+        "对应官方来源：RI Online Services",
+        "对应官方来源：RI Locations & Hours"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
         "renewal",
         "online-service"
       ],
@@ -67424,20 +67661,20 @@
     {
       "stateId": "rhode-island",
       "surface": "overview",
-      "field": "licenseSummary",
-      "context": "document",
-      "claim": "外州转入时通常要带当前外州 license、两份 RI residency、SSN 信息",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "中国大陆驾照按 out-of-country 路线处理",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI New License Permits"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof",
-        "ssn",
-        "transfer"
+        "foreign-license"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -67445,18 +67682,22 @@
     {
       "stateId": "rhode-island",
       "surface": "overview",
-      "field": "licenseSummary",
-      "context": "document",
-      "claim": "如果外州 license 不在手，需要 driving record 或 verification 加 identity document",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "官方没有外国驾照直接换 Rhode Island license 的互惠说明",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：RI Road Tests"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "foreign-license"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -67464,22 +67705,89 @@
     {
       "stateId": "rhode-island",
       "surface": "overview",
-      "field": "realIdSummary",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "知识考试常规电脑版本列 English、Spanish、Portuguese",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Knowledge Exams"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "其他语言要先取得正确交易预约，再另约 printed foreign-language exam",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Knowledge Exams",
+        "对应官方来源：RI Make a Reservation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "页面不把网站翻译器或口译服务写成中文考试保证",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Knowledge Exams",
+        "对应官方来源：RI Driver Privilege Card FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "overview",
+      "field": "editorNotes",
       "context": "real-id",
-      "claim": "Rhode Island REAL ID 交易通常要 completed LI-1 form、one proof of identity、Social Security number / SSA ineligibility、two proofs of Rhode Island residency，并按交易类型补充 current license、out-of-state license 或姓名变化文件",
+      "claim": "DPC 适用于无法证明 lawful presence 且满足上一纳税年度 Rhode Island resident return 条件的人，不与普通 lawful-presence credential 或 REAL ID 混写",
       "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs",
+        "https://dmv.ri.gov/media/1991/download?language=en",
+        "https://tax.ri.gov/guidance/special-programs/driver-privilege-cards",
         "https://dmv.ri.gov/licenses-permits-ids/real-id"
       ],
       "sourceLabels": [
+        "对应官方来源：RI Driver Privilege Card FAQ",
+        "对应官方来源：RI DPC/IDPC Required Documents",
+        "对应官方来源：RI Division of Taxation DPC Verification",
         "对应官方来源：RI DMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
-        "residency-proof",
-        "ssn",
-        "name-change"
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -67487,18 +67795,20 @@
     {
       "stateId": "rhode-island",
       "surface": "overview",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "官方 checklist 明确 P.O. Box 不接受作居住地址",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "成人 permit 续期存在官方冲突：DMV 页面仍写可续两个额外一年周期，但 2025-06-06 生效的 R.I. Gen. Laws § 31-10-7 写明只可续一个额外一年周期",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://webserver.rilegislature.gov/Statutes/TITLE31/31-10/31-10-7.htm"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：R.I. Gen. Laws § 31-10-7"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -67506,97 +67816,20 @@
     {
       "stateId": "rhode-island",
       "surface": "overview",
-      "field": "appointmentNote",
-      "context": "document",
-      "claim": "办理前优先查看 RI DMV 页面和 Document Checklist PDF",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "需要续 permit 时应先向 DMV 确认现行执行",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://webserver.rilegislature.gov/Statutes/TITLE31/31-10/31-10-7.htm",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：R.I. Gen. Laws § 31-10-7",
+        "对应官方来源：RI Make a Reservation"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "rhode-island",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "document",
-      "claim": "AAA 只承办部分会员交易，外州转入、姓名变化、州 ID 等复杂业务要确认是否必须到 DMV branch",
-      "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "name-change",
-        "transfer"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "rhode-island",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "Rhode Island REAL ID 交易通常要 completed LI-1 form、one proof of identity、Social Security number / SSA ineligibility、two proofs of Rhode Island residency，并按交易类型补充 current license、out-of-state license 或姓名变化文件",
-      "sourceUrls": [
-        "https://dmv.ri.gov/licenses-permits-ids/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：RI DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "residency-proof",
-        "ssn",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "rhode-island",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "官方 checklist 明确 P.O. Box 不接受作居住地址",
-      "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "rhode-island",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Completed LI-1 form",
-      "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -67604,55 +67837,75 @@
     {
       "stateId": "rhode-island",
       "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Rhode Island REAL ID 是可选联邦用途证件，首次申请必须本人办理并带 completed LI-1、一份原始 identity document、申请表上的 SSN 或 SSA ineligibility letter，以及两份 Rhode Island physical-address 证明",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/node/1496",
+        "https://dmv.ri.gov/media/171/download?language=en",
+        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/license/License-App-v2-RI.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI REAL ID Identity and Residency Documents",
+        "对应官方来源：RI License/ID/Permit Checklist",
+        "对应官方来源：RI LI-1 Application"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "P.O. Box、普通复印件和断裂的姓名链都会造成退件",
+      "sourceUrls": [
+        "https://dmv.ri.gov/node/1496",
+        "https://dmv.ri.gov/media/171/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI REAL ID Identity and Residency Documents",
+        "对应官方来源：RI License/ID/Permit Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
       "field": "documentHighlights",
       "context": "real-id",
-      "claim": "REAL ID license / ID 交易通常都要带",
+      "claim": "REAL ID：completed LI-1、一份 original identity document、SSN 写在申请表上或 SSA ineligibility letter、两份 Rhode Island residency",
       "sourceUrls": [
-        "https://dmv.ri.gov/licenses-permits-ids/real-id"
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/node/1496",
+        "https://dmv.ri.gov/media/171/download?language=en",
+        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/license/License-App-v2-RI.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV REAL ID"
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI REAL ID Identity and Residency Documents",
+        "对应官方来源：RI License/ID/Permit Checklist",
+        "对应官方来源：RI LI-1 Application"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "rhode-island",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "一份 proof of identity，常见例子包括有效 U.S. passport 或 certified birth certificate",
-      "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "rhode-island",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Social Security number 写在 LI-1 上，或带 SSA 出具的不符合取得 SSN 的证明",
-      "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -67663,15 +67916,62 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 Rhode Island residency，P.O. Box 不接受",
+      "claim": "Identity 文件使用有效 U.S. passport、certified birth certificate、I-551、I-766，或与有效 visa 和 I-94 配套的 foreign passport 等清单文件",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/node/1496",
+        "https://dmv.ri.gov/media/171/download?language=en"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI REAL ID Identity and Residency Documents",
+        "对应官方来源：RI License/ID/Permit Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "当前姓名不一致时带政府签发的完整 name-change chain",
+      "sourceUrls": [
+        "https://dmv.ri.gov/node/1496",
+        "https://dmv.ri.gov/media/171/download?language=en",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/name-address-change"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI REAL ID Identity and Residency Documents",
+        "对应官方来源：RI License/ID/Permit Checklist",
+        "对应官方来源：RI Name & Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Residency 必须是两份显示 physical Rhode Island address 的清单材料",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/node/1496",
+        "https://dmv.ri.gov/media/171/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI REAL ID Identity and Residency Documents",
+        "对应官方来源：RI License/ID/Permit Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -67682,14 +67982,16 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "utility bill、bank statement、payroll check 等通常要注意 60 天内日期",
+      "claim": "P.O. Box 不接受，utility bill、bank statement、payroll check 和政府信件通常须在 60 天内",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/node/1496",
+        "https://dmv.ri.gov/media/171/download?language=en"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI REAL ID Identity and Residency Documents",
+        "对应官方来源：RI License/ID/Permit Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -67701,14 +68003,18 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "license",
-      "claim": "外州转入带当前 out-of-state license",
+      "claim": "美国外州 transfer：LI-1、有效或过期不足五年的原驾照",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+        "https://dmv.ri.gov/media/171/download?language=en",
+        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/license/License-App-v2-RI.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI Out of State Transfers",
+        "对应官方来源：RI License/ID/Permit Checklist",
+        "对应官方来源：RI LI-1 Application"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "transfer"
       ],
@@ -67720,15 +68026,217 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "没有旧证时准备 driving record 或 verification 和 identity document",
+      "claim": "原卡不在手时带原州 certified driving record，并准备 SSN 与两份 Rhode Island residency",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+        "https://dmv.ri.gov/media/171/download?language=en"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI Out of State Transfers",
+        "对应官方来源：RI License/ID/Permit Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "美国领地驾照：原证加 30 天内 certified driving record，只在 Cranston 由 Enforcement 审核",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+        "https://dmv.ri.gov/media/171/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI Out of State Transfers",
+        "对应官方来源：RI License/ID/Permit Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "外国驾照/首次成人：LI-1、identity、SSN 或 SSA letter、两份 residency，并按 Cranston knowledge exam、instruction permit 和 road test 路线办理",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests",
+        "https://dmv.ri.gov/media/171/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI Permits & Tests",
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：RI Knowledge Exams",
+        "对应官方来源：RI Road Tests",
+        "对应官方来源：RI License/ID/Permit Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "ssn",
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Road test：original permit、有效 Rhode Island registration、有效 RI insurance、合格 inspection/safety 状态和 first-license issuance 所需材料",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests",
+        "https://dmv.ri.gov/media/521/download?language=en",
+        "https://dmv.ri.gov/media/436/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Road Tests",
+        "对应官方来源：RI Road Test Checklist",
+        "对应官方来源：RI Modified Skills Test Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "普通 rental vehicle 不接受",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests",
+        "https://dmv.ri.gov/media/521/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Road Tests",
+        "对应官方来源：RI Road Test Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "DPC：Division of Taxation tax-verification form、completed LI-1、两份 primary identity 或一份 primary 加一份 secondary、两份 residency",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs",
+        "https://dmv.ri.gov/media/1991/download?language=en",
+        "https://tax.ri.gov/guidance/special-programs/driver-privilege-cards",
+        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/license/License-App-v2-RI.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Driver Privilege Card FAQ",
+        "对应官方来源：RI DPC/IDPC Required Documents",
+        "对应官方来源：RI Division of Taxation DPC Verification",
+        "对应官方来源：RI LI-1 Application"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "外文身份证明附 certified English translation",
+      "sourceUrls": [
+        "https://dmv.ri.gov/media/1991/download?language=en",
+        "https://dmv.ri.gov/media/966/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI DPC/IDPC Required Documents",
+        "对应官方来源：Rhode Island Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "先判断本次是美国外州 transfer、外国驾照、首次成人、renewal/duplicate、REAL ID upgrade、name/address change，还是 DPC",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Out of State Transfers",
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：RI License Renewal",
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI Driver Privilege Card FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "address-change",
+        "renewal",
+        "replacement",
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "需要联邦用途时比较 REAL ID 与 passport、Permanent Resident Card 等 TSA 接受证件",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
         "document"
       ],
       "uncoveredThemes": [],
@@ -67739,14 +68247,14 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "先打开 RI REAL ID 页面，确认你要 REAL ID 还是 non-REAL ID credential",
+      "claim": "继续驾驶本身不要求必须升级 REAL ID",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/real-id"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI DMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -67758,16 +68266,22 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "下载 Document Checklist 和 LI-1，按交易类型框选所需材料",
+      "claim": "下载最新 LI-1 和 License/ID/Permit Checklist，按 identity、SSN、two residency、name chain 四组整理 original documents",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/license/License-App-v2-RI.pdf",
+        "https://dmv.ri.gov/media/171/download?language=en",
+        "https://dmv.ri.gov/node/1496"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI LI-1 Application",
+        "对应官方来源：RI License/ID/Permit Checklist",
+        "对应官方来源：RI REAL ID Identity and Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "document",
+        "residency-proof",
+        "ssn"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -67777,19 +68291,170 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "把 identity、SSN、two residency 和姓名变化文件分成四组，日期和 P.O. Box 要特别检查",
+      "claim": "美国外州驾照持有人记录建立 Rhode Island residency 的日期，在 30 天内准备原证或 certified driving record",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI Out of State Transfers"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "中国大陆及其他外国驾照持有人选择 Cranston permit exam，先通过 knowledge exam，再持 instruction permit 至少 30 天预约 road test",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests",
+        "https://webserver.rilegislature.gov/Statutes/TITLE31/31-10/31-10-7.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：RI Knowledge Exams",
+        "对应官方来源：RI Road Tests",
+        "对应官方来源：R.I. Gen. Laws § 31-10-7"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "RI DMV 当前成人 permit 页面说明 18 岁以上持有人在 30 天等待期间可独自驾驶",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://webserver.rilegislature.gov/Statutes/TITLE31/31-10/31-10-7.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：R.I. Gen. Laws § 31-10-7"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "permit 必须随身，卡面若有单独 restriction 则按卡面执行",
+      "sourceUrls": [
+        "https://webserver.rilegislature.gov/Statutes/TITLE31/31-10/31-10-7.htm",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits"
+      ],
+      "sourceLabels": [
+        "对应官方来源：R.I. Gen. Laws § 31-10-7",
+        "对应官方来源：RI New License Permits"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "常规知识考试可选 English、Spanish、Portuguese",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Knowledge Exams"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要中文或其他语言时，先取得正确交易 reservation confirmation，再提交 foreign-language exam request 并向 DMV 确认语言",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Knowledge Exams",
+        "对应官方来源：RI Make a Reservation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "Road test 前按 checklist 检查 original permit、RI registration、RI insurance、inspection、灯光、轮胎、车窗和禁止使用的车辆类型",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests",
+        "https://dmv.ri.gov/media/521/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Road Tests",
+        "对应官方来源：RI Road Test Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "无法证明 lawful presence 时先读 DPC FAQ，向 Division of Taxation取得上一纳税年度 verification，再按 DPC checklist 准备身份与居住文件",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs",
+        "https://tax.ri.gov/guidance/special-programs/driver-privilege-cards",
+        "https://dmv.ri.gov/media/1991/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Driver Privilege Card FAQ",
+        "对应官方来源：RI Division of Taxation DPC Verification",
+        "对应官方来源：RI DPC/IDPC Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof",
-        "ssn",
-        "name-change"
+        "lawful-presence",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -67799,14 +68464,16 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "license",
-      "claim": "续期先看 License Renewal，确认是否能 online / mail / AAA，或是否需要 DMV branch",
+      "claim": "续期先确认 90-day window 和 online eligibility",
       "sourceUrls": [
-        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal"
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal",
+        "https://dmv.ri.gov/online-services"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV License Renewal"
+        "对应官方来源：RI License Renewal",
+        "对应官方来源：RI Online Services"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "online-service"
@@ -67818,17 +68485,221 @@
       "stateId": "rhode-island",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "document",
-      "claim": "外州转入先看 Out of State/Country Transfers，确认旧 license、driving record 和居住证明",
+      "context": "real-id",
+      "claim": "首次 REAL ID upgrade 必须改走本人现场办理",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI Make a Reservation"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof",
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要续成人 permit 时，注意 DMV 页面仍写两个额外一年周期，而 2025-06-06 生效的州法写明只可续一个额外一年周期",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://webserver.rilegislature.gov/Statutes/TITLE31/31-10/31-10-7.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：R.I. Gen. Laws § 31-10-7"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "预约前向 DMV 确认当前执行",
+      "sourceUrls": [
+        "https://webserver.rilegislature.gov/Statutes/TITLE31/31-10/31-10-7.htm",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation"
+      ],
+      "sourceLabels": [
+        "对应官方来源：R.I. Gen. Laws § 31-10-7",
+        "对应官方来源：RI Make a Reservation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "改名先完成 SSA 更新并等待至少 24 小时",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/name-address-change",
+        "https://dmv.ri.gov/media/171/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Name & Address Change",
+        "对应官方来源：RI License/ID/Permit Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "搬家后 10 天内 online、mail 或 in person 更新 DMV record",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/name-address-change",
+        "https://dmv.ri.gov/online-services"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Name & Address Change",
+        "对应官方来源：RI Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "从 reservation 页面分别选择 road test 或 all other reservations，出发前再核对具体 branch 能处理的交易",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation",
+        "https://dmv.ri.gov/locations-hours"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Make a Reservation",
+        "对应官方来源：RI Locations & Hours"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "当前 Fee Schedule 列出 18 岁以上 instructional permit $8.50、road test $28.50、first license $44.50、out-of-state transfer $49.50、普通五年 renewal $73.50",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI License Fee Schedule"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "REAL ID 在正常 renewal period 内不另收升级费，窗口外办理 upgrade 当前为 $28.50",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI License Fee Schedule"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "付款前查看当前 Fee Schedule",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI License Fee Schedule"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "信用卡服务费在表列 DMV 金额之外另收",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI License Fee Schedule"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "搬入 Rhode Island 超过 30 天仍只用原州驾照，没有开始 transfer",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Out of State Transfers"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "transfer"
       ],
       "uncoveredThemes": [],
@@ -67838,15 +68709,226 @@
       "stateId": "rhode-island",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "只看 REAL ID 页面，没下载或填写 LI-1 表",
+      "context": "license",
+      "claim": "持中国大陆或其他外国驾照，却选择美国 out-of-state transfer，误以为可以直接换证免考",
       "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：RI Out of State Transfers",
+        "对应官方来源：RI Road Tests"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "REAL ID 只带 passport、SSN 和一份账单，漏掉 completed LI-1 或第二份 residency",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/media/171/download?language=en",
+        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/license/License-App-v2-RI.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI License/ID/Permit Checklist",
+        "对应官方来源：RI LI-1 Application"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "把外州 REAL ID 的星标当成会自动转入 Rhode Island，没有重新提交本州要求的原始文件",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/media/171/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Out of State Transfers",
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI License/ID/Permit Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "使用 P.O. Box、过期账单、普通 photocopy，或姓名变化文件没有连续连接 birth identity 与当前姓名",
+      "sourceUrls": [
+        "https://dmv.ri.gov/node/1496",
+        "https://dmv.ri.gov/media/171/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI REAL ID Identity and Residency Documents",
+        "对应官方来源：RI License/ID/Permit Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "用最近六个月新签发或新续的 U.S. passport 作唯一身份文件，没有为数据库可能无法验证准备另一份 identity document",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/media/171/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI License/ID/Permit Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "要中文知识考试时只预约普通 computerized test，没有完成 foreign-language exam 的第二步申请",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Knowledge Exams",
+        "对应官方来源：RI Make a Reservation"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "知识考试失败后未等至少 8 天，或 road test 失败后忽略 30/90/180 天等待期",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests",
+        "https://dmv.ri.gov/media/436/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Knowledge Exams",
+        "对应官方来源：RI Road Tests",
+        "对应官方来源：RI Modified Skills Test Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "根据仍未更新的 permit 网页直接假定可以续两次，没有先核对 2025 年生效的州法和 DMV 当前执行",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits",
+        "https://webserver.rilegislature.gov/Statutes/TITLE31/31-10/31-10-7.htm"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI New License Permits",
+        "对应官方来源：R.I. Gen. Laws § 31-10-7"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "Road test 使用 rental、外州普通车辆、过期 registration/inspection，或没有有效 RI insurance",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests",
+        "https://dmv.ri.gov/media/521/download?language=en"
+      ],
+      "sourceLabels": [
+        "对应官方来源：RI Road Tests",
+        "对应官方来源：RI Road Test Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "rhode-island",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "把 DPC 当成 REAL ID，或没有先取得上一纳税年度的 Rhode Island tax-verification form",
+      "sourceUrls": [
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs",
+        "https://dmv.ri.gov/media/1991/download?language=en",
+        "https://tax.ri.gov/guidance/special-programs/driver-privilege-cards",
         "https://dmv.ri.gov/licenses-permits-ids/real-id"
       ],
       "sourceLabels": [
+        "对应官方来源：RI Driver Privilege Card FAQ",
+        "对应官方来源：RI DPC/IDPC Required Documents",
+        "对应官方来源：RI Division of Taxation DPC Verification",
         "对应官方来源：RI DMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -67857,17 +68939,20 @@
       "stateId": "rhode-island",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "地址证明使用 P.O. Box，或账单日期太旧",
+      "context": "detail",
+      "claim": "地址变化后超过 10 天未通知 DMV，或以为免费更新 record 会自动寄一张新卡",
       "sourceUrls": [
-        "https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/checklist/license_checklist.pdf"
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/name-address-change",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-fees"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV Document Checklist"
+        "对应官方来源：RI Name & Address Change",
+        "对应官方来源：RI License Fee Schedule"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "address-change",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -67876,33 +68961,28 @@
       "stateId": "rhode-island",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "detail",
-      "claim": "外州 license 已遗失，却没有提前准备 driving record / verification",
+      "context": "real-id",
+      "claim": "首次 REAL ID、permit exam、外国驾照或 DPC 直接到场，没有选择正确 reservation 类别",
       "sourceUrls": [
-        "https://dmv.ri.gov/licenses-permits-ids/real-id"
+        "https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation",
+        "https://dmv.ri.gov/licenses-permits-ids/real-id",
+        "https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island",
+        "https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs"
       ],
       "sourceLabels": [
-        "对应官方来源：RI DMV REAL ID"
+        "对应官方来源：RI Make a Reservation",
+        "对应官方来源：RI DMV REAL ID",
+        "对应官方来源：RI Knowledge Exams",
+        "对应官方来源：RI New Resident and Out-of-Country",
+        "对应官方来源：RI Driver Privilege Card FAQ"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "rhode-island",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "detail",
-      "claim": "把 AAA 分支当成所有 RI DMV 交易都能办的入口",
-      "sourceUrls": [
-        "https://dmv.ri.gov/licenses-permits-ids/real-id"
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "foreign-license",
+        "test"
       ],
-      "sourceLabels": [
-        "对应官方来源：RI DMV REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },

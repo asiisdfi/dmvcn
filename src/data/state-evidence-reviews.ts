@@ -1221,6 +1221,45 @@ const DE_WAIT = 'https://dmv.de.gov/wait-times/';
 const DE_MANUAL =
   'https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf';
 
+const RI_DL = 'https://dmv.ri.gov/licenses-permits-ids';
+const RI_REAL_ID = 'https://dmv.ri.gov/licenses-permits-ids/real-id';
+const RI_REAL_ID_DOCUMENTS = 'https://dmv.ri.gov/node/1496';
+const RI_CHECKLIST = 'https://dmv.ri.gov/media/171/download?language=en';
+const RI_LI1 =
+  'https://dmv.ri.gov/sites/g/files/xkgbur556/files/documents/forms/license/License-App-v2-RI.pdf';
+const RI_TRANSFER =
+  'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers';
+const RI_NEW_RESIDENT =
+  'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/out-statecountry-transfers/new-rhode-island';
+const RI_PERMITS = 'https://dmv.ri.gov/licenses-permits-ids/permits-tests';
+const RI_NEW_LICENSE =
+  'https://dmv.ri.gov/licenses-permits-ids/permits-tests/new-license-permits';
+const RI_KNOWLEDGE =
+  'https://dmv.ri.gov/licenses-permits-ids/permits-tests/knowledge-exams';
+const RI_ROAD = 'https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests';
+const RI_ROAD_PREP =
+  'https://dmv.ri.gov/licenses-permits-ids/permits-tests/road-tests/preparing-your-test';
+const RI_ROAD_CHECKLIST = 'https://dmv.ri.gov/media/521/download?language=en';
+const RI_ROAD_GUIDE = 'https://dmv.ri.gov/media/436/download?language=en';
+const RI_MANUAL = 'https://dmv.ri.gov/media/966/download?language=en';
+const RI_ADULT_PERMIT_LAW =
+  'https://webserver.rilegislature.gov/Statutes/TITLE31/31-10/31-10-7.htm';
+const RI_DPC =
+  'https://dmv.ri.gov/licenses-permits-ids/drivers-privilege-card-identification-privilege-card-faqs';
+const RI_DPC_CHECKLIST = 'https://dmv.ri.gov/media/1991/download?language=en';
+const RI_DPC_TAX =
+  'https://tax.ri.gov/guidance/special-programs/driver-privilege-cards';
+const RI_RENEW =
+  'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-renewal';
+const RI_CHANGE =
+  'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/name-address-change';
+const RI_FEES =
+  'https://dmv.ri.gov/licenses-permits-ids/drivers-licenses/license-fees';
+const RI_RESERVATION =
+  'https://dmv.ri.gov/licenses-permits-ids/real-id/make-reservation';
+const RI_LOCATIONS = 'https://dmv.ri.gov/locations-hours';
+const RI_ONLINE = 'https://dmv.ri.gov/online-services';
+
 const OK_SERVICES =
   'https://oklahoma.gov/service/all-services/driving-and-automobiles.html';
 const OK_REAL_ID =
@@ -1759,6 +1798,114 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
     },
   },
 
+  'rhode-island': {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      RI_DL,
+      RI_REAL_ID,
+      RI_REAL_ID_DOCUMENTS,
+      RI_CHECKLIST,
+      RI_LI1,
+      RI_TRANSFER,
+      RI_NEW_RESIDENT,
+      RI_PERMITS,
+      RI_NEW_LICENSE,
+      RI_KNOWLEDGE,
+      RI_ROAD,
+      RI_ROAD_PREP,
+      RI_ROAD_CHECKLIST,
+      RI_ROAD_GUIDE,
+      RI_MANUAL,
+      RI_ADULT_PERMIT_LAW,
+      RI_DPC,
+      RI_DPC_CHECKLIST,
+      RI_DPC_TAX,
+      RI_RENEW,
+      RI_CHANGE,
+      RI_FEES,
+      RI_RESERVATION,
+      RI_LOCATIONS,
+      RI_ONLINE,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开 Rhode Island DMV 当前 licenses / permits / IDs、REAL ID、identity and residency documents、LI-1、out-of-state transfer、new resident、permit、knowledge exam、road test、DPC、renewal、name / address、fee、reservation、locations、online services、Driver Manual，Rhode Island Division of Taxation DPC 页面、2025 年生效的成人 permit 州法和 TSA 页面，核对两个成品页的资格、材料、期限、考试语言、费用、冲突与办理入口。',
+    notes:
+      '本轮重点区分美国外州与外国驾照、普通 lawful-presence credential 与 DPC、常规电脑考试与其他语言的两步预约，并记录 DMV permit 页面与 2025-06-06 生效州法在可续次数上的冲突。所有映射为 AI 辅助语义核查，不冒充 DMV、律师或真实人工专业签字。',
+    claims: normalizeReviewedClaims({
+      'Rhode Island 驾照、permit、REAL ID、Driver Privilege Card、考试、续期和外州转入由 Rhode Island DMV 管理': [RI_DL, RI_REAL_ID, RI_DPC, RI_PERMITS, RI_RENEW, RI_TRANSFER],
+      '先区分美国外州证、外国驾照、首次成人、普通 renewal、REAL ID upgrade 和无法证明 lawful presence 的 DPC': [RI_TRANSFER, RI_NEW_RESIDENT, RI_NEW_LICENSE, RI_RENEW, RI_REAL_ID, RI_DPC],
+      '这些路线不能共用一套材料或预约': [RI_CHECKLIST, RI_TRANSFER, RI_NEW_LICENSE, RI_REAL_ID, RI_DPC_CHECKLIST, RI_RESERVATION],
+      '成为 Rhode Island resident 后 30 天内应换本州驾照': [RI_TRANSFER],
+      '有效或过期不足五年的美国外州驾照通常走 transfer': [RI_TRANSFER, RI_CHECKLIST],
+      '中国大陆及其他外国驾照持有人不能套用该路线，18 岁以上要在 Cranston 申请 instruction permit、通过知识考试，持 permit 至少 30 天后再参加 road test': [RI_NEW_RESIDENT, RI_NEW_LICENSE, RI_KNOWLEDGE, RI_ROAD, RI_ADULT_PERMIT_LAW],
+      'Rhode Island REAL ID 是可选联邦用途证件，首次申请必须本人办理并带 completed LI-1、一份原始 identity document、申请表上的 SSN 或 SSA ineligibility letter，以及两份 Rhode Island physical-address 证明': [RI_REAL_ID, RI_REAL_ID_DOCUMENTS, RI_CHECKLIST, RI_LI1],
+      'P.O. Box、普通复印件和断裂的姓名链都会造成退件': [RI_REAL_ID_DOCUMENTS, RI_CHECKLIST],
+      'RI DMV 现场业务目前按 reservation 办理': [RI_RESERVATION, RI_LOCATIONS],
+      '知识考试、外国驾照与美国领地证件交易要选 Cranston 对应预约': [RI_NEW_RESIDENT, RI_KNOWLEDGE, RI_CHECKLIST, RI_LOCATIONS],
+      'road test 使用独立入口': [RI_RESERVATION, RI_ROAD],
+      '普通续期和地址更新先检查 online eligibility，再决定是否到 DMV 或符合条件的 AAA branch': [RI_RENEW, RI_CHANGE, RI_ONLINE, RI_LOCATIONS],
+      '中国大陆驾照按 out-of-country 路线处理': [RI_NEW_RESIDENT, RI_NEW_LICENSE],
+      '官方没有外国驾照直接换 Rhode Island license 的互惠说明': [RI_NEW_RESIDENT, RI_NEW_LICENSE, RI_ROAD],
+      '知识考试常规电脑版本列 English、Spanish、Portuguese': [RI_KNOWLEDGE],
+      '其他语言要先取得正确交易预约，再另约 printed foreign-language exam': [RI_KNOWLEDGE, RI_RESERVATION],
+      '页面不把网站翻译器或口译服务写成中文考试保证': [RI_KNOWLEDGE, RI_DPC],
+      'DPC 适用于无法证明 lawful presence 且满足上一纳税年度 Rhode Island resident return 条件的人，不与普通 lawful-presence credential 或 REAL ID 混写': [RI_DPC, RI_DPC_CHECKLIST, RI_DPC_TAX, RI_REAL_ID],
+      '成人 permit 续期存在官方冲突：DMV 页面仍写可续两个额外一年周期，但 2025-06-06 生效的 R.I. Gen. Laws § 31-10-7 写明只可续一个额外一年周期': [RI_NEW_LICENSE, RI_ADULT_PERMIT_LAW],
+      '需要续 permit 时应先向 DMV 确认现行执行': [RI_NEW_LICENSE, RI_ADULT_PERMIT_LAW, RI_RESERVATION],
+      'REAL ID：completed LI-1、一份 original identity document、SSN 写在申请表上或 SSA ineligibility letter、两份 Rhode Island residency': [RI_REAL_ID, RI_REAL_ID_DOCUMENTS, RI_CHECKLIST, RI_LI1],
+      'Identity 文件使用有效 U.S. passport、certified birth certificate、I-551、I-766，或与有效 visa 和 I-94 配套的 foreign passport 等清单文件': [RI_REAL_ID_DOCUMENTS, RI_CHECKLIST],
+      '当前姓名不一致时带政府签发的完整 name-change chain': [RI_REAL_ID_DOCUMENTS, RI_CHECKLIST, RI_CHANGE],
+      'Residency 必须是两份显示 physical Rhode Island address 的清单材料': [RI_REAL_ID, RI_REAL_ID_DOCUMENTS, RI_CHECKLIST],
+      'P.O. Box 不接受，utility bill、bank statement、payroll check 和政府信件通常须在 60 天内': [RI_REAL_ID_DOCUMENTS, RI_CHECKLIST],
+      '美国外州 transfer：LI-1、有效或过期不足五年的原驾照': [RI_TRANSFER, RI_CHECKLIST, RI_LI1],
+      '原卡不在手时带原州 certified driving record，并准备 SSN 与两份 Rhode Island residency': [RI_TRANSFER, RI_CHECKLIST],
+      '美国领地驾照：原证加 30 天内 certified driving record，只在 Cranston 由 Enforcement 审核': [RI_NEW_RESIDENT, RI_TRANSFER, RI_CHECKLIST],
+      '外国驾照/首次成人：LI-1、identity、SSN 或 SSA letter、两份 residency，并按 Cranston knowledge exam、instruction permit 和 road test 路线办理': [RI_NEW_RESIDENT, RI_PERMITS, RI_NEW_LICENSE, RI_KNOWLEDGE, RI_ROAD, RI_CHECKLIST],
+      'Road test：original permit、有效 Rhode Island registration、有效 RI insurance、合格 inspection/safety 状态和 first-license issuance 所需材料': [RI_ROAD, RI_ROAD_CHECKLIST, RI_ROAD_GUIDE],
+      '普通 rental vehicle 不接受': [RI_ROAD, RI_ROAD_CHECKLIST],
+      'DPC：Division of Taxation tax-verification form、completed LI-1、两份 primary identity 或一份 primary 加一份 secondary、两份 residency': [RI_DPC, RI_DPC_CHECKLIST, RI_DPC_TAX, RI_LI1],
+      '外文身份证明附 certified English translation': [RI_DPC_CHECKLIST, RI_MANUAL],
+      '先判断本次是美国外州 transfer、外国驾照、首次成人、renewal/duplicate、REAL ID upgrade、name/address change，还是 DPC': [RI_TRANSFER, RI_NEW_RESIDENT, RI_NEW_LICENSE, RI_RENEW, RI_REAL_ID, RI_DPC],
+      '需要联邦用途时比较 REAL ID 与 passport、Permanent Resident Card 等 TSA 接受证件': [RI_REAL_ID, TSA_IDENTIFICATION],
+      '继续驾驶本身不要求必须升级 REAL ID': [RI_REAL_ID],
+      '下载最新 LI-1 和 License/ID/Permit Checklist，按 identity、SSN、two residency、name chain 四组整理 original documents': [RI_LI1, RI_CHECKLIST, RI_REAL_ID_DOCUMENTS],
+      '美国外州驾照持有人记录建立 Rhode Island residency 的日期，在 30 天内准备原证或 certified driving record': [RI_TRANSFER],
+      '中国大陆及其他外国驾照持有人选择 Cranston permit exam，先通过 knowledge exam，再持 instruction permit 至少 30 天预约 road test': [RI_NEW_RESIDENT, RI_NEW_LICENSE, RI_KNOWLEDGE, RI_ROAD, RI_ADULT_PERMIT_LAW],
+      'RI DMV 当前成人 permit 页面说明 18 岁以上持有人在 30 天等待期间可独自驾驶': [RI_NEW_LICENSE, RI_ADULT_PERMIT_LAW],
+      'permit 必须随身，卡面若有单独 restriction 则按卡面执行': [RI_ADULT_PERMIT_LAW, RI_NEW_LICENSE],
+      '常规知识考试可选 English、Spanish、Portuguese': [RI_KNOWLEDGE],
+      '需要中文或其他语言时，先取得正确交易 reservation confirmation，再提交 foreign-language exam request 并向 DMV 确认语言': [RI_KNOWLEDGE, RI_RESERVATION],
+      'Road test 前按 checklist 检查 original permit、RI registration、RI insurance、inspection、灯光、轮胎、车窗和禁止使用的车辆类型': [RI_ROAD, RI_ROAD_CHECKLIST],
+      '无法证明 lawful presence 时先读 DPC FAQ，向 Division of Taxation取得上一纳税年度 verification，再按 DPC checklist 准备身份与居住文件': [RI_DPC, RI_DPC_TAX, RI_DPC_CHECKLIST],
+      '续期先确认 90-day window 和 online eligibility': [RI_RENEW, RI_ONLINE],
+      '首次 REAL ID upgrade 必须改走本人现场办理': [RI_REAL_ID, RI_RESERVATION],
+      '需要续成人 permit 时，注意 DMV 页面仍写两个额外一年周期，而 2025-06-06 生效的州法写明只可续一个额外一年周期': [RI_NEW_LICENSE, RI_ADULT_PERMIT_LAW],
+      '预约前向 DMV 确认当前执行': [RI_ADULT_PERMIT_LAW, RI_RESERVATION],
+      '改名先完成 SSA 更新并等待至少 24 小时': [RI_CHANGE, RI_CHECKLIST],
+      '搬家后 10 天内 online、mail 或 in person 更新 DMV record': [RI_CHANGE, RI_ONLINE],
+      '从 reservation 页面分别选择 road test 或 all other reservations，出发前再核对具体 branch 能处理的交易': [RI_RESERVATION, RI_LOCATIONS],
+      '当前 Fee Schedule 列出 18 岁以上 instructional permit $8.50、road test $28.50、first license $44.50、out-of-state transfer $49.50、普通五年 renewal $73.50': [RI_FEES],
+      'REAL ID 在正常 renewal period 内不另收升级费，窗口外办理 upgrade 当前为 $28.50': [RI_REAL_ID, RI_FEES],
+      '付款前查看当前 Fee Schedule': [RI_FEES],
+      '信用卡服务费在表列 DMV 金额之外另收': [RI_FEES],
+      '搬入 Rhode Island 超过 30 天仍只用原州驾照，没有开始 transfer': [RI_TRANSFER],
+      '持中国大陆或其他外国驾照，却选择美国 out-of-state transfer，误以为可以直接换证免考': [RI_NEW_RESIDENT, RI_NEW_LICENSE, RI_TRANSFER, RI_ROAD],
+      'REAL ID 只带 passport、SSN 和一份账单，漏掉 completed LI-1 或第二份 residency': [RI_REAL_ID, RI_CHECKLIST, RI_LI1],
+      '把外州 REAL ID 的星标当成会自动转入 Rhode Island，没有重新提交本州要求的原始文件': [RI_TRANSFER, RI_REAL_ID, RI_CHECKLIST],
+      '使用 P.O. Box、过期账单、普通 photocopy，或姓名变化文件没有连续连接 birth identity 与当前姓名': [RI_REAL_ID_DOCUMENTS, RI_CHECKLIST],
+      '用最近六个月新签发或新续的 U.S. passport 作唯一身份文件，没有为数据库可能无法验证准备另一份 identity document': [RI_REAL_ID, RI_CHECKLIST],
+      '要中文知识考试时只预约普通 computerized test，没有完成 foreign-language exam 的第二步申请': [RI_KNOWLEDGE, RI_RESERVATION],
+      '知识考试失败后未等至少 8 天，或 road test 失败后忽略 30/90/180 天等待期': [RI_KNOWLEDGE, RI_ROAD, RI_ROAD_GUIDE],
+      '根据仍未更新的 permit 网页直接假定可以续两次，没有先核对 2025 年生效的州法和 DMV 当前执行': [RI_NEW_LICENSE, RI_ADULT_PERMIT_LAW],
+      'Road test 使用 rental、外州普通车辆、过期 registration/inspection，或没有有效 RI insurance': [RI_ROAD, RI_ROAD_CHECKLIST],
+      '把 DPC 当成 REAL ID，或没有先取得上一纳税年度的 Rhode Island tax-verification form': [RI_DPC, RI_DPC_CHECKLIST, RI_DPC_TAX, RI_REAL_ID],
+      '地址变化后超过 10 天未通知 DMV，或以为免费更新 record 会自动寄一张新卡': [RI_CHANGE, RI_FEES],
+      '首次 REAL ID、permit exam、外国驾照或 DPC 直接到场，没有选择正确 reservation 类别': [RI_RESERVATION, RI_REAL_ID, RI_KNOWLEDGE, RI_NEW_RESIDENT, RI_DPC],
+    }),
+  },
   oklahoma: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

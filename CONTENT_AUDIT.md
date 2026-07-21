@@ -2792,3 +2792,37 @@ Validation:
 - Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,518 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
 - Browser QA at 1280 x 720 and 390 x 844 confirmed 58 overview evidence rows and 60 REAL ID evidence rows, expected Delaware transfer and DPC guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+## Round 68 Changes
+
+Date: 2026-07-21
+
+### Rhode Island License, REAL ID, Foreign-Language Exam and DPC Deep Review
+
+Source scan:
+
+- Opened and checked the current Rhode Island DMV licenses / permits / IDs hub, REAL ID guidance, identity and residency list, License/ID/Permit checklist, LI-1, out-of-state transfer, new-resident / out-of-country route, permit, knowledge-exam, road-test, road-test checklist and guide, Driver Manual, DPC, renewal, name / address, fee, reservation, locations and online-service pages, plus the Rhode Island Division of Taxation DPC guidance, current adult-permit statute and TSA identification page.
+- Confirmed that a new resident must transfer within 30 days; a valid U.S. out-of-state license or one expired less than five years uses the transfer route, while an adult with an out-of-country license must apply for an instruction permit at Cranston, pass the knowledge exam and hold the permit at least 30 days before the road test.
+- Confirmed that normal computerized knowledge exams are offered in English, Spanish and Portuguese. Other languages use a separate printed-exam request after the applicant first obtains the correct transaction reservation; the page does not promise a Chinese exam without DMV confirmation.
+- Confirmed the DPC path for applicants unable to establish lawful presence: prior-tax-year Rhode Island resident-return verification, original identity documents, certified English translations where required and two residence proofs. A qualifying state / territory license or recent certified driving record can change the testing path.
+- Found an official conflict that was absent from the old page: the DMV permit page still says two additional one-year renewals, while R.I. Gen. Laws § 31-10-7, effective June 6, 2025, says the one-year adult permit may be renewed only once. The page now discloses the conflict and tells renewal applicants to confirm current execution.
+- Confirmed current posted amounts for the adult instructional permit, road test, first license, transfer, five-year renewal and out-of-window REAL ID upgrade, including the separate credit-card service fee.
+
+Scope:
+
+- Rewrote both `/states/rhode-island/` and `/states/rhode-island/real-id/` with six-path routing, 30-day transfer timing, U.S. versus foreign-license rules, adult permit and test steps, foreign-language exam workflow, road-test vehicle restrictions, REAL ID originals and residence rules, DPC tax verification, renewal, name / address changes, reservations and current fees.
+- Expanded the Rhode Island source list from 5 to 26 checked official sources and registered all 69 unique claims as AI-assisted explicit mappings. The two rendered pages expose 71 evidence rows without representing the work as human or professional approval.
+- Restored a reader-facing access note because 25 Rhode Island government URLs currently return a security challenge to automated checks. They remain registered official URLs, current indexed bodies and downloadable government documents; none returned a hard failure.
+- Updated the public editorial update log, README quality totals, quality workbook and Search Console priority reports.
+
+Validation:
+
+- Rhode Island official-link audit: 26 checked, 1 direct OK, 25 security-challenge / timeout watch, 0 fail.
+- State evidence audit: 3,958 claims, 7,037 official links, 3,681 AI-assisted explicit mappings across 80 pages, 0 errors.
+- Directory evidence audit: 711 claims, 626 inherited explicit mappings, 85 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 97 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 52 automated-source pages and 17 high-risk human approvals still honestly pending.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,536 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 20 overview evidence rows and 51 REAL ID evidence rows, visible transfer / DPC / language / fee / permit-conflict guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
+- Quality workbook: 52 semantic-review pages and 69 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
