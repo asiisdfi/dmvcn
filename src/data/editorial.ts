@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 New Hampshire 两页官方正文语义核对',
+    summary:
+      '逐条比对 New Hampshire DMV 的 REAL ID、DSMV634A / 634B、申请表、Driver Manual、美国外州转入、首次申请、续期、资料变更、地点与预约，现行 Saf-C 1000 行政规则、RSA 263:9 / 10 / 35 / 39-a / 42、Domicile / Residence FAQ 与 TSA 当前正文；登记 86 条独立声明的显式来源，并补齐中国大陆驾照与非公民首次申请、Mandarin Chinese 知识考试、60 天新居民期限、隔周期线上续期，以及旧 DSMV30 与 2026 州法的地址换卡费用冲突。',
+    scope: [
+      '新罕布什尔州办事总览',
+      '新罕布什尔州 REAL ID',
+      '86 条独立声明显式核对',
+      '外国驾照、普通话考试、非公民与费用冲突',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Rhode Island 两页官方正文语义核对',
     summary:
       '逐条比对 Rhode Island DMV 的 REAL ID、document checklist、LI-1、美国外州与外国驾照、permit、knowledge / road tests、DPC、renewal、name / address、fee、reservation、locations、online services、Driver Manual，Division of Taxation DPC 指引、现行 permit 州法与 TSA 当前正文；登记 69 条独立声明的显式来源，并补齐中国大陆驾照路线、其他语言考试两步预约、DPC 税务验证、30 天转入、当前费用，以及 DMV 网页与 2025 州法在 permit 续期次数上的冲突。',

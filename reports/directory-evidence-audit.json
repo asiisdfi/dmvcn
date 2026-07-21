@@ -1,31 +1,31 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T00:46:01.176Z",
+    "generatedAt": "2026-07-21T01:05:00.032Z",
     "pages": 5,
-    "claims": 711,
+    "claims": 723,
     "statesCovered": 50,
-    "aiAssisted": 626,
-    "automated": 85,
+    "aiAssisted": 644,
+    "automated": 79,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 142,
-        "states": 41
+        "claims": 146,
+        "states": 42
       },
       "deadlines": {
-        "claims": 103,
-        "states": 39
+        "claims": 106,
+        "states": 40
       },
       "document-rules": {
         "claims": 184,
         "states": 49
       },
       "foreign-license": {
-        "claims": 118,
-        "states": 38
+        "claims": 122,
+        "states": 39
       },
       "identity-ssn": {
-        "claims": 164,
+        "claims": 165,
         "states": 45
       }
     }
@@ -1799,6 +1799,67 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "new-hampshire",
+      "category": "费用",
+      "claim": "自 2026 年 1 月 1 日起，现行州法把 duplicate photographic license 定为 $20，把因地址变化换发新卡定为 $10",
+      "sourceUrl": "https://www.gc.nh.gov/rsa/html/XXI/263/263-42.htm",
+      "sourceLabel": "对应官方来源：NH RSA 263:42 Driver License Fees",
+      "themes": [
+        "fee",
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-hampshire",
+      "category": "费用",
+      "claim": "仍在线的 DSMV30 Record Change Request 是 2023 年版本，表上写地址换卡 $3，与 2026 年现行州法 $10 冲突",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/dsmv30.pdf",
+      "sourceLabel": "对应官方来源：NH DMV DSMV30 Record Change Request",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-hampshire",
+      "category": "费用",
+      "claim": "需要新卡时按 current statute 核对 replacement fee",
+      "sourceUrl": "https://www.gc.nh.gov/rsa/html/XXI/263/263-42.htm",
+      "sourceLabel": "对应官方来源：NH RSA 263:42 Driver License Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "new-hampshire",
+      "category": "费用",
+      "claim": "不要依赖仍写 $3 地址换卡费的旧 DSMV30",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/dsmv30.pdf",
+      "sourceLabel": "对应官方来源：NH DMV DSMV30 Record Change Request",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "maine",
       "category": "费用",
       "claim": "外州换证要核对 legal presence、Maine residency、SSN、vision 和费用",
@@ -3500,6 +3561,51 @@
       "themes": [],
       "failedThemes": [],
       "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-hampshire",
+      "category": "材料时效",
+      "claim": "新居民记录建立 New Hampshire residency 的日期，普通情形在 60 天内完成转入，不要自行套用 H-2A 例外",
+      "sourceUrl": "https://gc.nh.gov/rsa/html/XXI/263/263-35.htm",
+      "sourceLabel": "对应官方来源：NH RSA 263:35 New Resident Deadline",
+      "themes": [
+        "residency-documents",
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-hampshire",
+      "category": "搬家 / 地址",
+      "claim": "姓名或地址变化后在 30 天内提交书面通知",
+      "sourceUrl": "https://www.gc.nh.gov/rsa/html/XXI/263/263-9.htm",
+      "sourceLabel": "对应官方来源：NH RSA 263:9 Name or Address Change",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "new-hampshire",
+      "category": "续期 / 到期",
+      "claim": "普通驾照通常每五年到生日时到期，DMV 约在到期前 45 天通知持证人本人办理地点以及是否符合 online renewal",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/nhdm.pdf",
+      "sourceLabel": "对应官方来源：NH Driver Manual",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [
+        "renewal"
+      ],
+      "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
     {
@@ -5754,62 +5860,61 @@
       "page": "document-rules",
       "stateId": "new-hampshire",
       "category": "地址证明",
-      "claim": "Proof of New Hampshire residency",
+      "claim": "REAL ID residency 准备两份显示本人姓名和 New Hampshire legal physical address 的文件",
       "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf",
-      "sourceLabel": "对应官方来源：NH DMV REAL ID Required Documents PDF",
+      "sourceLabel": "对应官方来源：NH DMV DSMV634A REAL ID Required Documents",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-hampshire",
       "category": "地址证明",
-      "claim": "先看 NH REAL ID 页面和 Required Documents REAL ID compliant PDF，确认 identity、SSN、residency 三组材料",
+      "claim": "常见 residency 文件包括有效 NH license / ID、vehicle registration、lease 或 deed、property tax、mortgage、utility、payroll 或 government document，具体有效期看 DSMV634A 的红色标记",
       "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf",
-      "sourceLabel": "对应官方来源：NH DMV REAL ID Required Documents PDF",
+      "sourceLabel": "对应官方来源：NH DMV DSMV634A REAL ID Required Documents",
       "themes": [
-        "residency-documents",
-        "document-checklist",
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-hampshire",
       "category": "地址证明",
-      "claim": "New Hampshire REAL ID 要用官方 required documents 清单证明 identity、Social Security number 和 New Hampshire residency",
-      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf",
-      "sourceLabel": "对应官方来源：NH DMV REAL ID Required Documents PDF",
+      "claim": "standard non-federally compliant credential 按 DSMV634B 准备 identity 组合和一份 NH residency，不要误套 REAL ID 的两份地址材料规则",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/dsmv634b.pdf",
+      "sourceLabel": "对应官方来源：NH DMV DSMV634B Standard Credential Documents",
       "themes": [
-        "residency-documents",
-        "document-checklist",
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "new-hampshire",
-      "category": "SSN",
-      "claim": "Proof of Social Security number，按 REAL ID required documents 清单准备",
-      "sourceUrl": "https://www.dmv.nh.gov/drivers-licensenon-driver-ids/real-id",
-      "sourceLabel": "对应官方来源：NH DMV REAL ID",
+      "category": "地址证明",
+      "claim": "临时就业身份通常要核对 employment visa、有效 I-94、SSN 已签发或不符合资格证明，以及 NH residency",
+      "sourceUrl": "https://gc.nh.gov/rules/state_agencies/saf-c1000.html",
+      "sourceLabel": "对应官方来源：NH Driver Licensing Administrative Rules Saf-C 1000",
       "themes": [
-        "document-checklist",
+        "residency-documents",
         "ssn"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "residency-documents",
+        "ssn"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -7844,6 +7949,68 @@
       "themes": [
         "residency-documents",
         "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-hampshire",
+      "category": "外州 / 加拿大转入",
+      "claim": "有效美国外州驾照转入通常只做 vision test，外州证件过期超过一年则要做 vision、knowledge 和 road tests",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/nhdm.pdf",
+      "sourceLabel": "对应官方来源：NH Driver Manual",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [
+        "out-of-state"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-hampshire",
+      "category": "外州 / 加拿大转入",
+      "claim": "Transfer License From Another State：美国外州驾照搬入 New Hampshire 后的换证入口",
+      "sourceUrl": "https://gc.nh.gov/rsa/html/XXI/263/263-35.htm",
+      "sourceLabel": "对应官方来源：NH RSA 263:35 New Resident Deadline",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "automated"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-hampshire",
+      "category": "外州 / 加拿大转入",
+      "claim": "持当前有效美国外州驾照转入时，NH Driver Manual 写明通常只做 vision test",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/nhdm.pdf",
+      "sourceLabel": "对应官方来源：NH Driver Manual",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [
+        "out-of-state"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "new-hampshire",
+      "category": "期限 / 居民身份",
+      "claim": "新居民记录建立 New Hampshire residency 的日期，普通情形在 60 天内完成转入，不要自行套用 H-2A 例外",
+      "sourceUrl": "https://gc.nh.gov/rsa/html/XXI/263/263-35.htm",
+      "sourceLabel": "对应官方来源：NH RSA 263:35 New Resident Deadline",
+      "themes": [
+        "residency-documents",
+        "new-resident"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
@@ -10069,49 +10236,70 @@
     {
       "page": "identity-ssn",
       "stateId": "new-hampshire",
-      "category": "SSN",
-      "claim": "Proof of Social Security number，按 REAL ID required documents 清单准备",
-      "sourceUrl": "https://www.dmv.nh.gov/drivers-licensenon-driver-ids/real-id",
-      "sourceLabel": "对应官方来源：NH DMV REAL ID",
+      "category": "无 SSN / SSA",
+      "claim": "留学身份通常还要核对 I-20 或 DS-2019，OPT 情形准备有效 employment authorization card，并按规则补 SSN 或 ineligibility 与 residency",
+      "sourceUrl": "https://gc.nh.gov/rules/state_agencies/saf-c1000.html",
+      "sourceLabel": "对应官方来源：NH Driver Licensing Administrative Rules Saf-C 1000",
       "themes": [
-        "document-checklist",
+        "residency-documents",
         "ssn"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "residency-documents",
+        "ssn"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "new-hampshire",
       "category": "SSN",
-      "claim": "先看 NH REAL ID 页面和 Required Documents REAL ID compliant PDF，确认 identity、SSN、residency 三组材料",
+      "claim": "REAL ID SSN 准备 Social Security card、显示完整号码的 pay stub、W-2 或 1099 中的一项，磨损严重的 Social Security card 可能不接受",
       "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf",
-      "sourceLabel": "对应官方来源：NH DMV REAL ID Required Documents PDF",
+      "sourceLabel": "对应官方来源：NH DMV DSMV634A REAL ID Required Documents",
       "themes": [
-        "residency-documents",
-        "document-checklist",
         "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "new-hampshire",
       "category": "SSN",
-      "claim": "New Hampshire REAL ID 要用官方 required documents 清单证明 identity、Social Security number 和 New Hampshire residency",
-      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf",
-      "sourceLabel": "对应官方来源：NH DMV REAL ID Required Documents PDF",
+      "claim": "临时就业身份通常要核对 employment visa、有效 I-94、SSN 已签发或不符合资格证明，以及 NH residency",
+      "sourceUrl": "https://gc.nh.gov/rules/state_agencies/saf-c1000.html",
+      "sourceLabel": "对应官方来源：NH Driver Licensing Administrative Rules Saf-C 1000",
       "themes": [
         "residency-documents",
-        "document-checklist",
         "ssn"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "residency-documents",
+        "ssn"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "new-hampshire",
+      "category": "SSN",
+      "claim": "永久居民、asylee 或 refugee 通常要准备 SSN、有效 Permanent Resident Card 或标明 refugee / asylee 的 I-94 等适用身份文件，以及 NH residency",
+      "sourceUrl": "https://gc.nh.gov/rules/state_agencies/saf-c1000.html",
+      "sourceLabel": "对应官方来源：NH Driver Licensing Administrative Rules Saf-C 1000",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

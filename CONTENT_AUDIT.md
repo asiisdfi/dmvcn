@@ -2826,3 +2826,37 @@ Validation:
 - Browser QA at 1280 x 720 and 390 x 844 confirmed 20 overview evidence rows and 51 REAL ID evidence rows, visible transfer / DPC / language / fee / permit-conflict guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
 - Quality workbook: 52 semantic-review pages and 69 blocked pages remain; weak-intent pages remain 0.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+## Round 69 Changes
+
+Date: 2026-07-21
+
+### New Hampshire License, REAL ID, Mandarin Test and Non-Citizen Deep Review
+
+Source scan:
+
+- Opened and checked the New Hampshire DMV driver-licensing hub, REAL ID page, DSMV634A REAL ID document list, DSMV634B standard-credential list, DSMV450 application, Driver Manual, first-license, out-of-state transfer, renewal, online renewal, personal-information, DSMV30, locations and appointments, plus current Saf-C 1000 administrative rules, RSA 263:9, 263:10, 263:35, 263:39-a, 263:42, the domicile / residence FAQ and TSA identification guidance.
+- Confirmed the 60-day new-resident deadline and the narrow 300-day H-2A temporary-agricultural-worker exception. A current valid U.S. out-of-state license normally requires only vision testing; one expired more than a year requires vision, knowledge and road tests.
+- Confirmed that mainland-China and other foreign licenses do not fit DSMV450's U.S. state, District of Columbia, Canadian province or U.S. territory exchange route. Non-U.S.-citizen original-license applicants follow the vision, knowledge and road-test sequence, with identity-document combinations determined by employment, student, permanent-resident, asylee or refugee status.
+- Confirmed that the ordinary operator knowledge test has 40 questions, a 40-minute limit and automatic termination after more than eight wrong answers. The current Driver Manual explicitly offers Mandarin Chinese in written and audible formats.
+- Confirmed the optional REAL ID path: one identity document, full-SSN evidence, two New Hampshire physical-address proofs and a complete name-change chain. The standard non-federally-compliant credential uses DSMV634B and normally one residence proof instead.
+- Found and disclosed a current official conflict: the still-published 2023 DSMV30 says $3 for an address-change replacement, while RSA 263:42, effective January 1, 2026, sets the fee at $10. The same current statute lists $20 for a duplicate photographic license, $50 for a standard operator original / renewal and $60 for a REAL ID-compliant operator original / renewal.
+
+Scope:
+
+- Rewrote both `/states/new-hampshire/` and `/states/new-hampshire/real-id/` with explicit routes for U.S. out-of-state transfer, foreign-license / non-citizen original application, first-time driving, REAL ID versus standard credential, renewal and personal-information changes.
+- Expanded the New Hampshire source list from 5 to 23 checked official sources and registered all 86 unique claims as AI-assisted explicit mappings. The two rendered pages expose 35 overview and 53 REAL ID evidence rows without representing the work as human or professional approval.
+- Added the Mandarin Chinese knowledge-test path, one-license rule, visitor / resident boundary, non-citizen transaction-location rules, five-year renewal cycle, alternating online-renewal rule, current fees and the DSMV30 / statute conflict.
+- Updated the public editorial update log, README quality totals, quality workbook and Search Console priority reports.
+
+Validation:
+
+- New Hampshire official-link audit: 23 checked, 8 direct OK, 15 security-challenge watch, 0 fail.
+- State evidence audit: 4,018 claims, 7,175 official links, 3,769 AI-assisted explicit mappings across 82 pages, 0 errors.
+- Directory evidence audit: 723 claims, 644 inherited explicit mappings, 79 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 99 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 50 automated-source pages and 17 high-risk human approvals still honestly pending.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,552 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 35 overview evidence rows and 53 REAL ID evidence rows, visible Mandarin Chinese test and 2026 fee-conflict guidance, normal title wrapping and no horizontal overflow.
+- Quality workbook: 50 semantic-review pages and 67 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.

@@ -76,7 +76,9 @@ const routeCards = [
     text: isCountyRouted
       ? '先按岛屿确认 Honolulu、Maui、Hawaii County 或 Kauai，再查看该县的 transfer 规则。'
       : newResidentLink
-      ? `从 ${newResidentLink.label} 开始，先确认外州证件、地址证明和是否要预约。`
+      ? /foreign|country/.test(linkLabel(newResidentLink))
+        ? newResidentLink.description
+        : `从 ${newResidentLink.label} 开始，先确认外州证件、地址证明和是否要预约。`
       : '先看搬州专题，再回到本州 DMV 页面确认 new resident 要求。',
     href: isCountyRouted ? '#official-entry' : newResidentLink?.url ?? '/topics/moving-to-new-state/',
     action: isCountyRouted ? '选择所在县' : newResidentLink ? '打开官方入口' : '看搬州专题',

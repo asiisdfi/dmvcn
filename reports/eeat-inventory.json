@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T00:46:03.056Z",
+    "generatedAt": "2026-07-21T01:05:01.736Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 97,
+    "passed": 99,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 52,
-    "aiAssistedReviews": 103,
+    "sourceMappedReviews": 50,
+    "aiAssistedReviews": 105,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 69,
+    "blockedPages": 67,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 214,
+        "sourceCount": 216,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 301,
+        "sourceCount": 303,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 142,
-        "directoryEvidenceLinks": 142,
+        "directoryEvidenceItems": 146,
+        "directoryEvidenceLinks": 146,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 245,
+        "sourceCount": 247,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 103,
-        "directoryEvidenceLinks": 103,
+        "directoryEvidenceItems": 106,
+        "directoryEvidenceLinks": 106,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 614,
+        "sourceCount": 620,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 213,
+        "sourceCount": 215,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 156,
+        "sourceCount": 158,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 118,
-        "directoryEvidenceLinks": 118,
+        "directoryEvidenceItems": 122,
+        "directoryEvidenceLinks": 122,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 231,
+        "sourceCount": 235,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 164,
-        "directoryEvidenceLinks": 164,
+        "directoryEvidenceItems": 165,
+        "directoryEvidenceLinks": 165,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 205,
+        "sourceCount": 202,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 202,
+        "sourceCount": 205,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1428,
+        "sourceCount": 1443,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -3691,21 +3691,21 @@
       "route": "/states/new-hampshire/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 93,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成新罕布什尔州（New Hampshire Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 New Hampshire DMV 当前 driver licensing、REAL ID、DSMV634A、DSMV634B、DSMV450、Driver Manual、first license、transfer、renewal、online renewal、personal information、DSMV30、locations、appointments，New Hampshire 现行 Saf-C 1000 行政规则、RSA 263:9、263:10、263:35、263:39-a、263:42、Domicile / Residence FAQ、TSA 和 USA.gov 目录，核对两个成品页的资格、材料、期限、考试语言、费用、非公民路径与官方冲突。",
+        "notes": "本轮重点区分美国外州转入、中国大陆等外国驾照与短期游客，补齐 Mandarin Chinese 知识考试、非美国公民身份分类、线上续期隔周期规则，并明确披露 2023 DSMV30 的 $3 地址换卡费与 2026 现行 RSA 263:42 的 $10 冲突。所有映射为 AI 辅助语义核查，不冒充 DMV、律师或真实人工专业签字。"
       },
       "scores": {
-        "factsAndSources": 22,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -3715,14 +3715,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 10,
+        "sourceCount": 23,
+        "factCheckCount": 35,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 10,
-        "stateEvidenceLinks": 11,
+        "stateEvidenceItems": 35,
+        "stateEvidenceLinks": 64,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3730,9 +3730,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/new-hampshire/real-id/",
@@ -3740,16 +3738,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成新罕布什尔州（New Hampshire Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 New Hampshire DMV 当前 driver licensing、REAL ID、DSMV634A、DSMV634B、DSMV450、Driver Manual、first license、transfer、renewal、online renewal、personal information、DSMV30、locations、appointments，New Hampshire 现行 Saf-C 1000 行政规则、RSA 263:9、263:10、263:35、263:39-a、263:42、Domicile / Residence FAQ、TSA 和 USA.gov 目录，核对两个成品页的资格、材料、期限、考试语言、费用、非公民路径与官方冲突。",
+        "notes": "本轮重点区分美国外州转入、中国大陆等外国驾照与短期游客，补齐 Mandarin Chinese 知识考试、非美国公民身份分类、线上续期隔周期规则，并明确披露 2023 DSMV30 的 $3 地址换卡费与 2026 现行 RSA 263:42 的 $10 冲突。所有映射为 AI 辅助语义核查，不冒充 DMV、律师或真实人工专业签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3762,14 +3760,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 18,
+        "sourceCount": 23,
+        "factCheckCount": 53,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 18,
-        "stateEvidenceLinks": 18,
+        "stateEvidenceItems": 53,
+        "stateEvidenceLinks": 103,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3777,9 +3775,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/new-jersey/",

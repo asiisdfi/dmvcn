@@ -1260,6 +1260,46 @@ const RI_RESERVATION =
 const RI_LOCATIONS = 'https://dmv.ri.gov/locations-hours';
 const RI_ONLINE = 'https://dmv.ri.gov/online-services';
 
+const NH_DL = 'https://www.dmv.nh.gov/drivers-licensenon-driver-ids';
+const NH_REAL_ID =
+  'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/real-id';
+const NH_REAL_ID_DOCS =
+  'https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/sonh/dsmv634a.pdf';
+const NH_STANDARD_DOCS =
+  'https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/dsmv634b.pdf';
+const NH_APPLICATION =
+  'https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/dsmv450.pdf';
+const NH_MANUAL =
+  'https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/nhdm.pdf';
+const NH_FIRST =
+  'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/apply-your-first-drivers-licensenon-driver-id';
+const NH_TRANSFER =
+  'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/transfer-license-another-state';
+const NH_RENEW =
+  'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/renew-driver-licensenon-driver-id';
+const NH_ONLINE =
+  'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/online-renewals';
+const NH_CHANGE =
+  'https://www.dmv.nh.gov/drivers-licensenon-driver-ids/update-personal-information';
+const NH_RECORD_CHANGE =
+  'https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/dsmv30.pdf';
+const NH_LOCATIONS = 'https://www.dmv.nh.gov/locations-hours';
+const NH_APPOINTMENTS = 'https://www.dmv.nh.gov/appointments';
+const NH_RULES = 'https://gc.nh.gov/rules/state_agencies/saf-c1000.html';
+const NH_NEW_RESIDENT_STATUTE =
+  'https://gc.nh.gov/rsa/html/XXI/263/263-35.htm';
+const NH_NONCITIZEN_STATUTE =
+  'https://gc.nh.gov/RSA/html/XXI/263/263-39-a.htm';
+const NH_ADDRESS_STATUTE =
+  'https://www.gc.nh.gov/rsa/html/XXI/263/263-9.htm';
+const NH_EXPIRATION_STATUTE =
+  'https://gc.nh.gov/RSA/html/XXI/263/263-10.htm';
+const NH_FEES = 'https://www.gc.nh.gov/rsa/html/XXI/263/263-42.htm';
+const NH_RESIDENCE_FAQ =
+  'https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/domicle-residencefaqs.pdf';
+const USA_STATE_MOTOR_VEHICLE =
+  'https://www.usa.gov/state-motor-vehicle-services';
+
 const OK_SERVICES =
   'https://oklahoma.gov/service/all-services/driving-and-automobiles.html';
 const OK_REAL_ID =
@@ -1904,6 +1944,128 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '把 DPC 当成 REAL ID，或没有先取得上一纳税年度的 Rhode Island tax-verification form': [RI_DPC, RI_DPC_CHECKLIST, RI_DPC_TAX, RI_REAL_ID],
       '地址变化后超过 10 天未通知 DMV，或以为免费更新 record 会自动寄一张新卡': [RI_CHANGE, RI_FEES],
       '首次 REAL ID、permit exam、外国驾照或 DPC 直接到场，没有选择正确 reservation 类别': [RI_RESERVATION, RI_REAL_ID, RI_KNOWLEDGE, RI_NEW_RESIDENT, RI_DPC],
+    }),
+  },
+  'new-hampshire': {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      NH_DL,
+      NH_REAL_ID,
+      NH_REAL_ID_DOCS,
+      NH_STANDARD_DOCS,
+      NH_APPLICATION,
+      NH_MANUAL,
+      NH_FIRST,
+      NH_TRANSFER,
+      NH_RENEW,
+      NH_ONLINE,
+      NH_CHANGE,
+      NH_RECORD_CHANGE,
+      NH_LOCATIONS,
+      NH_APPOINTMENTS,
+      NH_RULES,
+      NH_NEW_RESIDENT_STATUTE,
+      NH_NONCITIZEN_STATUTE,
+      NH_ADDRESS_STATUTE,
+      NH_EXPIRATION_STATUTE,
+      NH_FEES,
+      NH_RESIDENCE_FAQ,
+      TSA_IDENTIFICATION,
+      USA_STATE_MOTOR_VEHICLE,
+    ],
+    scope:
+      '逐条打开 New Hampshire DMV 当前 driver licensing、REAL ID、DSMV634A、DSMV634B、DSMV450、Driver Manual、first license、transfer、renewal、online renewal、personal information、DSMV30、locations、appointments，New Hampshire 现行 Saf-C 1000 行政规则、RSA 263:9、263:10、263:35、263:39-a、263:42、Domicile / Residence FAQ、TSA 和 USA.gov 目录，核对两个成品页的资格、材料、期限、考试语言、费用、非公民路径与官方冲突。',
+    notes:
+      '本轮重点区分美国外州转入、中国大陆等外国驾照与短期游客，补齐 Mandarin Chinese 知识考试、非美国公民身份分类、线上续期隔周期规则，并明确披露 2023 DSMV30 的 $3 地址换卡费与 2026 现行 RSA 263:42 的 $10 冲突。所有映射为 AI 辅助语义核查，不冒充 DMV、律师或真实人工专业签字。',
+    claims: normalizeReviewedClaims({
+      'New Hampshire 驾照、non-driver ID、REAL ID、考试和续期由 NH Division of Motor Vehicles 管理': [NH_DL],
+      '成为本州居民后，持其他司法辖区有效驾照者通常最多有 60 天取得 New Hampshire 驾照，H-2A 临时农业工人按现行州法有 300 天例外': [NH_NEW_RESIDENT_STATUTE, NH_RESIDENCE_FAQ],
+      '持当前有效美国外州驾照转入时，NH Driver Manual 写明通常只做 vision test': [NH_MANUAL, NH_TRANSFER],
+      '原证过期超过一年则要通过 vision、knowledge 和 road tests': [NH_MANUAL, NH_TRANSFER],
+      '中国大陆等外国驾照不能当作美国州、DC 或加拿大省证件直接交换，非美国公民首次申请按现行行政规则要依次完成视力、知识和路考': [NH_APPLICATION, NH_RULES],
+      'New Hampshire REAL ID 是可选的联邦合规证件，不是继续合法驾驶的前提': [NH_REAL_ID, NH_MANUAL, TSA_IDENTIFICATION],
+      '首次申请通常要交一份 identity、完整 SSN 证明和两份 New Hampshire residency，姓名与身份文件不一致时还要用法律文件串起每次变化': [NH_REAL_ID_DOCS, NH_REAL_ID],
+      '需要 knowledge test 可到提供 driver licensing 的 DMV office，road test 必须预约': [NH_RULES, NH_LOCATIONS, NH_APPOINTMENTS],
+      '临时居留的非美国公民首次申请或续期要去 Concord 23 Hazen Drive，或确认具体地点提供 non-US citizen transaction': [NH_RULES, NH_LOCATIONS],
+      '短期游客可持本国当前有效驾照在 New Hampshire 驾驶，但成为居民后要切换到本州申请规则': [NH_MANUAL, NH_NEW_RESIDENT_STATUTE],
+      'New Hampshire 实行 one-license 原则，办理转入时要交回其他有效驾照，其他州存在 suspension 或 revocation 时不能靠换州恢复驾驶资格': [NH_MANUAL, NH_APPLICATION],
+      '有效美国外州驾照转入通常只做 vision test，外州证件过期超过一年则要做 vision、knowledge 和 road tests': [NH_MANUAL, NH_TRANSFER],
+      '申请不同于原证的车辆类别时，要完成该类别对应的 written 和 road tests': [NH_MANUAL],
+      '中国大陆驾照不属于申请表列出的美国州、District of Columbia、加拿大省或美国领地 exchange credential': [NH_APPLICATION],
+      '非美国公民首次申请 driver license 时，行政规则要求依次通过 vision、knowledge 和 road skills examinations': [NH_RULES, NH_NONCITIZEN_STATUTE],
+      '非美国公民交回外国驾照后，DMV 会核验原证真伪、是否确属申请人以及是否存在 suspension 或 revocation': [NH_RULES, NH_NONCITIZEN_STATUTE],
+      '普通 operator knowledge test 有 40 道选择题和 40 分钟时限，错超过 8 题考试会自动结束': [NH_MANUAL],
+      'NH Driver Manual 明确列出 Mandarin Chinese 的书面和语音自动考试，也提供耳机口述模式': [NH_MANUAL],
+      '路考平均约 20 分钟，考官只能给指令而不能在考试中指导驾驶': [NH_MANUAL],
+      'New Hampshire 不向普通新手签发 learner permit，年满 15 岁半者在合格成年人陪同下按州法练车': [NH_MANUAL, NH_RULES],
+      '普通驾照通常每五年到生日时到期，DMV 约在到期前 45 天通知持证人本人办理地点以及是否符合 online renewal': [NH_MANUAL, NH_RULES, NH_EXPIRATION_STATUTE],
+      '州法规定线上续期只能隔一个 renewal cycle 使用一次，下一周期要本人到 licensing facility': [NH_EXPIRATION_STATUTE, NH_RULES],
+      '现场续期要做 vision test，符合线上续期者则要确认自己满足视力标准': [NH_RULES, NH_RENEW, NH_ONLINE],
+      '当前州法费用为 standard operator original 或 renewal $50，REAL ID compliant operator original 或 renewal $60': [NH_FEES, NH_APPLICATION],
+      '自 2026 年 1 月 1 日起，现行州法把 duplicate photographic license 定为 $20，把因地址变化换发新卡定为 $10': [NH_FEES],
+      '仍在线的 DSMV30 Record Change Request 是 2023 年版本，表上写地址换卡 $3，与 2026 年现行州法 $10 冲突': [NH_RECORD_CHANGE, NH_FEES],
+      '付款前应向 DMV 确认并以当前收费为准': [NH_FEES, NH_RECORD_CHANGE],
+      '驾照持有人改变 legal name、permanent residence 或 mailing address 后，要在 30 天内书面通知 DMV': [NH_ADDRESS_STATUTE, NH_CHANGE],
+      '改名必须本人到 DMV 并带 supporting documents，改出生日期也要本人到场并带 certified birth certificate 或有效 U.S. passport 等证明': [NH_RECORD_CHANGE, NH_CHANGE],
+      'REAL ID 的 identity 文件要使用清单接受的原件或 issuing agency certified copy，当前姓名不同要提交完整 name-change chain': [NH_REAL_ID_DOCS],
+      'REAL ID 的两份 New Hampshire residency 都要显示 legal physical address，标红类别的文件要在 60 天内': [NH_REAL_ID_DOCS],
+      'standard non-federally compliant credential 的材料路线不同，通常只要求一份 New Hampshire residency，但 identity 组合要按 DSMV634B 逐项核对': [NH_STANDARD_DOCS],
+      '临时就业、留学、永久居民、asylee 或 refugee 的移民文件组合不同，不能只按一份通用 non-citizen 清单准备': [NH_RULES, NH_NONCITIZEN_STATUTE],
+      '临时居留的非美国公民应先确认具体 office 能办理 non-US citizen transaction，永久居民、asylee 或 refugee 续期可到任一 DMV office': [NH_RULES, NH_LOCATIONS],
+      'NH DMV 深层网页可能触发安全验证，打不开时可从州 DMV driver licensing 首页或 USA.gov 州机动车目录重新进入': [NH_DL, USA_STATE_MOTOR_VEHICLE],
+      'REAL ID identity 准备一份清单文件，例如 raised-seal 或 stamped birth certificate、未过期 U.S. passport、Certificate of Naturalization / Citizenship、Permanent Resident Card，或清单接受的 I-94 身份证明': [NH_REAL_ID_DOCS],
+      'REAL ID SSN 准备 Social Security card、显示完整号码的 pay stub、W-2 或 1099 中的一项，磨损严重的 Social Security card 可能不接受': [NH_REAL_ID_DOCS],
+      'REAL ID residency 准备两份显示本人姓名和 New Hampshire legal physical address 的文件': [NH_REAL_ID_DOCS],
+      '常见 residency 文件包括有效 NH license / ID、vehicle registration、lease 或 deed、property tax、mortgage、utility、payroll 或 government document，具体有效期看 DSMV634A 的红色标记': [NH_REAL_ID_DOCS],
+      '当前姓名与 birth certificate、passport 或 immigration document 不一致时，准备 marriage certificate、divorce decree、court order 等能连续连接每次姓名变化的文件': [NH_REAL_ID_DOCS],
+      'standard non-federally compliant credential 按 DSMV634B 准备 identity 组合和一份 NH residency，不要误套 REAL ID 的两份地址材料规则': [NH_STANDARD_DOCS],
+      '美国外州转入带当前驾照并准备交回': [NH_APPLICATION, NH_MANUAL, NH_TRANSFER],
+      '原证过期超过一年时，另按 vision、knowledge 和 road-test 路线准备': [NH_MANUAL, NH_TRANSFER],
+      '中国大陆等外国驾照持有人带原证供 DMV 核验，并准备 DSMV450、适用的移民文件、SSN 或 SSA 相关证明和 NH residency': [NH_APPLICATION, NH_RULES],
+      '临时就业身份通常要核对 employment visa、有效 I-94、SSN 已签发或不符合资格证明，以及 NH residency': [NH_RULES],
+      '留学身份通常还要核对 I-20 或 DS-2019，OPT 情形准备有效 employment authorization card，并按规则补 SSN 或 ineligibility 与 residency': [NH_RULES],
+      '永久居民、asylee 或 refugee 通常要准备 SSN、有效 Permanent Resident Card 或标明 refugee / asylee 的 I-94 等适用身份文件，以及 NH residency': [NH_RULES],
+      '需要改名或出生日期时带 Record Change Request 和 supporting documents，本人到场': [NH_RECORD_CHANGE, NH_CHANGE],
+      '只改 DMV record 与取得印有新资料的 replacement card 不是同一件事': [NH_RECORD_CHANGE, NH_FEES],
+      '先判断本次属于美国外州转入、外国驾照 / 非公民首次申请、从未持证、renewal、replacement、资料变更还是 REAL ID upgrade': [NH_DL, NH_FIRST, NH_TRANSFER, NH_RENEW, NH_CHANGE, NH_REAL_ID],
+      '新居民记录建立 New Hampshire residency 的日期，普通情形在 60 天内完成转入，不要自行套用 H-2A 例外': [NH_NEW_RESIDENT_STATUTE, NH_RESIDENCE_FAQ],
+      '美国外州驾照持有人核对原证是否当前有效': [NH_TRANSFER, NH_MANUAL],
+      '有效证通常只做 vision test，过期超过一年则为 knowledge 和 road tests 预留时间': [NH_MANUAL, NH_TRANSFER],
+      '中国大陆等外国驾照持有人按 original non-US citizen 路线准备，不要选择美国州、DC 或加拿大省 exchange': [NH_APPLICATION, NH_RULES, NH_FIRST],
+      '非美国公民先按当前身份核对 Saf-C 1002.05 的 employment、student、permanent resident、asylee 或 refugee 材料组合': [NH_RULES, NH_NONCITIZEN_STATUTE],
+      '临时居留申请人在预约前联系具体地点，确认可办理 non-US citizen transaction': [NH_RULES, NH_LOCATIONS],
+      '需要联邦用途时先比较 REAL ID 与 passport 等 TSA 接受证件': [NH_REAL_ID, TSA_IDENTIFICATION],
+      '只需州内驾驶时可选择 standard credential': [NH_REAL_ID, NH_STANDARD_DOCS],
+      '办 REAL ID 时打开 DSMV634A，按一份 identity、一份完整 SSN 证明、两份 NH residency 和完整 name-change chain 分组': [NH_REAL_ID_DOCS],
+      '办 standard credential 时改用 DSMV634B，按其 identity 组合和一份 NH residency 准备': [NH_STANDARD_DOCS],
+      '需要中文 knowledge test 时，在到场前向具体 office 确认 Mandarin Chinese 书面或语音版本，并学习当前 NH Driver Manual': [NH_MANUAL, NH_LOCATIONS],
+      '首次申请依次完成 vision、40 题 knowledge test 和 road test': [NH_RULES, NH_MANUAL, NH_FIRST],
+      '需要路考时单独预约': [NH_RULES, NH_APPOINTMENTS],
+      '续期先检查 DMV 通知和 online eligibility': [NH_RENEW, NH_ONLINE, NH_RULES],
+      '上一个 cycle 已 online renewal 时，下一周期按州法本人到场': [NH_EXPIRATION_STATUTE],
+      '姓名或地址变化后在 30 天内提交书面通知': [NH_ADDRESS_STATUTE, NH_CHANGE],
+      '需要新卡时按 current statute 核对 replacement fee': [NH_FEES, NH_RECORD_CHANGE],
+      '付款前以现行 RSA 263:42 和 DMV 当前页面为准': [NH_FEES, NH_DL],
+      '不要依赖仍写 $3 地址换卡费的旧 DSMV30': [NH_RECORD_CHANGE, NH_FEES],
+      '办结前确认已交回其他有效驾照，并保存 receipt 或 temporary credential': [NH_MANUAL, NH_APPLICATION, NH_RULES],
+      '实体卡和个案有效期以 DMV 当场说明为准': [NH_RULES, NH_DL],
+      '成为 New Hampshire resident 后超过 60 天仍只使用原州驾照，或把 H-2A 的 300 天例外套到普通新居民': [NH_NEW_RESIDENT_STATUTE],
+      '把中国大陆驾照填成美国外州 exchange，误以为只做 vision test 而没有准备 knowledge 和 road tests': [NH_APPLICATION, NH_RULES, NH_MANUAL],
+      '短期游客规则继续套用到已经建立 New Hampshire residency 的情形': [NH_MANUAL, NH_NEW_RESIDENT_STATUTE],
+      '转入时想保留另一张有效驾照，或原州驾驶资格已 suspended / revoked 却继续申请': [NH_MANUAL, NH_APPLICATION],
+      '只看 REAL ID 介绍页，没有下载 DSMV634A 并逐项核对 identity、完整 SSN、两份 residency 和 name chain': [NH_REAL_ID, NH_REAL_ID_DOCS],
+      '把 standard credential 的一份 residency 与 REAL ID 的两份 residency 混在一起': [NH_STANDARD_DOCS, NH_REAL_ID_DOCS],
+      '两份 REAL ID 地址材料没有显示 legal physical address，或标红类别已经超过 60 天': [NH_REAL_ID_DOCS],
+      'Social Security card 磨损严重，或 pay stub、W-2、1099 没显示完整 SSN': [NH_REAL_ID_DOCS],
+      '姓名变化只带最近一次文件，没有把 identity document 上的姓名连续连接到当前姓名': [NH_REAL_ID_DOCS],
+      '非美国公民只带 passport 和 visa，没有按就业、留学、永久居民、asylee 或 refugee 路线补 I-94、I-20、DS-2019、EAD、SSN 和 residency': [NH_RULES],
+      '看到 manual 有 Mandarin Chinese 就默认每个地点和时段都能立即开考，没有先向具体 office 确认': [NH_MANUAL, NH_LOCATIONS],
+      '收到 renewal notice 就默认可以 online，忽略线上续期只能隔一个 cycle 使用一次以及视力、照片和其他资格条件': [NH_RENEW, NH_ONLINE, NH_EXPIRATION_STATUTE, NH_RULES],
+      '搬家后只向 USPS 改址，没有在 30 天内书面通知 DMV': [NH_ADDRESS_STATUTE, NH_CHANGE],
+      '继续按 2023 DSMV30 上的 $3 地址换卡费付款，没有发现 2026 年现行州法已经改为 $10': [NH_RECORD_CHANGE, NH_FEES],
+      '需要 road test 时直接到场，没有预约或没有先完成 vision 和 knowledge requirements': [NH_RULES, NH_APPOINTMENTS, NH_MANUAL],
     }),
   },
   oklahoma: {
