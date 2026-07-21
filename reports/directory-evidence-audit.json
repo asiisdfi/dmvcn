@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T03:28:52.415Z",
+    "generatedAt": "2026-07-21T03:44:23.717Z",
     "pages": 5,
-    "claims": 772,
+    "claims": 789,
     "statesCovered": 50,
-    "aiAssisted": 734,
-    "automated": 38,
+    "aiAssisted": 753,
+    "automated": 36,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 160,
-        "states": 45
+        "claims": 164,
+        "states": 46
       },
       "deadlines": {
-        "claims": 118,
-        "states": 44
+        "claims": 121,
+        "states": 45
       },
       "document-rules": {
-        "claims": 187,
+        "claims": 190,
         "states": 49
       },
       "foreign-license": {
-        "claims": 133,
+        "claims": 136,
         "states": 43
       },
       "identity-ssn": {
-        "claims": 174,
-        "states": 46
+        "claims": 178,
+        "states": 47
       }
     }
   },
@@ -1560,6 +1560,67 @@
       "failedThemes": [
         "temporary-credential"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "south-carolina",
+      "category": "费用",
+      "claim": "Class D beginner permit 的 knowledge test 每次 $2，通过后 permit 为 $2.50，15 岁可申请普通 permit",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/drivers-license/beginner-permits",
+      "sourceLabel": "对应官方来源：SCDMV Beginner Permit",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "south-carolina",
+      "category": "费用",
+      "claim": "普通八年驾照当前为 $25，lawfully present international customer 的四年或更短驾照为 $12.50，信用卡或借记卡另有 $1 加 1.7% 的处理费",
+      "sourceUrl": "https://dmv.sc.gov/fees",
+      "sourceLabel": "对应官方来源：SCDMV Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "south-carolina",
+      "category": "费用",
+      "claim": "首次申请 permit 时在下午 4 点前完成 $2 knowledge test，通过后购买 $2.50 permit",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/drivers-license/beginner-permits",
+      "sourceLabel": "对应官方来源：SCDMV Beginner Permit",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "south-carolina",
+      "category": "邮寄 / 卡片",
+      "claim": "非美国公民不能在线或邮寄续期，须携 MV-94 所列文件到指定 International Customers branch",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/renewals",
+      "sourceLabel": "对应官方来源：SCDMV Renewals",
+      "themes": [
+        "processing-or-mail",
+        "renewal"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -3544,6 +3605,48 @@
       "failedThemes": [
         "address-change"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "south-carolina",
+      "category": "搬家 / 地址",
+      "claim": "外州永久新居民把 45 天期限、外州 credential、driving record 例外和 vision requirement 一并放进办理清单",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/moving-to-sc",
+      "sourceLabel": "对应官方来源：SCDMV Moving to SC",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "south-carolina",
+      "category": "续期 / 到期",
+      "claim": "续期先核对公民身份、过期月份、上次办理方式、points、suspension、license class 与 36 个月 vision result 是否符合 online / mail 条件",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/renewals",
+      "sourceLabel": "对应官方来源：SCDMV Renewals",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "south-carolina",
+      "category": "搬家 / 地址",
+      "claim": "有效美国外州 license 或 ID 的永久新居民应在搬入后 45 天内申请 South Carolina credential，并交回所有外州 license / ID",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/moving-to-sc",
+      "sourceLabel": "对应官方来源：SCDMV Moving to SC",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -5795,13 +5898,57 @@
       "page": "document-rules",
       "stateId": "south-carolina",
       "category": "地址证明",
-      "claim": "地址或姓名变化先看 Address or Name Change 页面",
-      "sourceUrl": "https://dmv.sc.gov/driver-services/drivers-license/address-or-name-change",
-      "sourceLabel": "对应官方来源：SCDMV Address or Name Change",
-      "themes": [],
+      "claim": "standard credential 通常要一份 current physical SC address，REAL ID 要两份来自不同机构且显示同一地址的材料",
+      "sourceUrl": "https://dmv.sc.gov/sites/scdmv/files/2026-06/MV-93%20US%20Citizens%E2%80%99%20Checklist.pdf",
+      "sourceLabel": "对应官方来源：SCDMV MV-93 US Citizens Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "south-carolina",
+      "category": "地址证明",
+      "claim": "South Carolina 地址文件须显示本人姓名和 current residence，P.O. Box 不能替代 physical address",
+      "sourceUrl": "https://dmv.sc.gov/sites/scdmv/files/2026-06/MV-93%20US%20Citizens%E2%80%99%20Checklist.pdf",
+      "sourceLabel": "对应官方来源：SCDMV MV-93 US Citizens Checklist",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "south-carolina",
+      "category": "地址证明",
+      "claim": "首次申请和适用的重新核验使用九个月内地址材料，出发前逐项对照当前 checklist 的可接受类别",
+      "sourceUrl": "https://dmv.sc.gov/sites/scdmv/files/2026-06/MV-93%20US%20Citizens%E2%80%99%20Checklist.pdf",
+      "sourceLabel": "对应官方来源：SCDMV MV-93 US Citizens Checklist",
+      "themes": [
+        "document-checklist"
+      ],
       "failedThemes": [],
       "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "south-carolina",
+      "category": "地址证明",
+      "claim": "外州 REAL ID 不会自动转换为 South Carolina REAL ID，仍须按 MV-93 或 MV-94 重新证明身份、SSN、地址和姓名链",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/moving-to-sc",
+      "sourceLabel": "对应官方来源：SCDMV Moving to SC",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -8154,8 +8301,8 @@
     {
       "page": "foreign-license",
       "stateId": "south-carolina",
-      "category": "期限 / 居民身份",
-      "claim": "新搬到 South Carolina 时先看 Moving to SC，再处理 REAL ID 或换证",
+      "category": "外州 / 加拿大转入",
+      "claim": "有效美国外州 license 或 ID 的永久新居民应在搬入后 45 天内申请 South Carolina credential，并交回所有外州 license / ID",
       "sourceUrl": "https://dmv.sc.gov/driver-services/moving-to-sc",
       "sourceLabel": "对应官方来源：SCDMV Moving to SC",
       "themes": [
@@ -8163,7 +8310,50 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "south-carolina",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州证件遗失时要带原签发州的 driving record，外州驾照过期九个月或以上还要参加 knowledge 和 road tests",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/moving-to-sc",
+      "sourceLabel": "对应官方来源：SCDMV Moving to SC",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "south-carolina",
+      "category": "外州 / 加拿大转入",
+      "claim": "持有效美国外州驾照并永久搬入 South Carolina 的新居民须在 45 天内现场转入并交回外州证件，通常完成文件核验、视力检查和缴费即可",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/moving-to-sc",
+      "sourceLabel": "对应官方来源：SCDMV Moving to SC",
+      "themes": [
+        "new-resident",
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "south-carolina",
+      "category": "外州 / 加拿大转入",
+      "claim": "外州永久新居民把 45 天期限、外州 credential、driving record 例外和 vision requirement 一并放进办理清单",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/moving-to-sc",
+      "sourceLabel": "对应官方来源：SCDMV Moving to SC",
+      "themes": [
+        "new-resident"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -10420,6 +10610,63 @@
       "claim": "一份显示完整号码的 SSN 证明，例如 Social Security Card、当前 W-2 / 1099 或当前 pay stub",
       "sourceUrl": "https://www.ksrevenue.gov/dovtelegovreq.html",
       "sourceLabel": "对应官方来源：Kansas KDOR Required Documents and Appointment",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "south-carolina",
+      "category": "无 SSN / SSA",
+      "claim": "地址或姓名变化须在 10 天内通知 SCDMV，姓名变更要先更新 SSA 并至少等待 48 小时再到 branch",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/drivers-license/address-or-name-change",
+      "sourceLabel": "对应官方来源：SCDMV Address or Name Change",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "south-carolina",
+      "category": "无 SSN / SSA",
+      "claim": "申请表填写的 legal name、date of birth 和 SSN 必须与 SSA 记录匹配",
+      "sourceUrl": "https://dmv.sc.gov/sites/scdmv/files/2026-06/MV-93%20US%20Citizens%E2%80%99%20Checklist.pdf",
+      "sourceLabel": "对应官方来源：SCDMV MV-93 US Citizens Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "south-carolina",
+      "category": "无 SSN / SSA",
+      "claim": "美国公民按 MV-93、lawfully present non-US citizen 按 MV-94 准备身份与出生日期、SSN 或适用的 SSA denial letter、完整姓名链，以及两份九个月内且地址一致的 current physical SC address 材料",
+      "sourceUrl": "https://dmv.sc.gov/sites/scdmv/files/2026-06/MV-93%20US%20Citizens%E2%80%99%20Checklist.pdf",
+      "sourceLabel": "对应官方来源：SCDMV MV-93 US Citizens Checklist",
+      "themes": [
+        "residency-documents",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "south-carolina",
+      "category": "SSN",
+      "claim": "外州 REAL ID 不会自动转换为 South Carolina REAL ID，仍须按 MV-93 或 MV-94 重新证明身份、SSN、地址和姓名链",
+      "sourceUrl": "https://dmv.sc.gov/driver-services/moving-to-sc",
+      "sourceLabel": "对应官方来源：SCDMV Moving to SC",
       "themes": [
         "ssn"
       ],

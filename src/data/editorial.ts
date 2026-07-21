@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 South Carolina 两页官方清单、考试与非公民路线核对',
+    summary:
+      '逐条比对 SCDMV 的 Driver License、Moving to SC、lawfully present non-US citizens、2026 MV-93 / MV-94、beginner permit、testing、road test、appointment、Driver Manual、renewal、vision、replacement、address / name、fees、ID、online services、locations、forms、Form 4030、visiting SC、中央制证资料与 TSA 页面；登记 83 条独立声明的显式来源，并补齐中国大陆非互惠路线、官网未保证中文考试、45 天转入、九个月考试门槛、standard / REAL ID 材料、points 官方措辞差异、road-test 时段和邮寄制证风险。',
+    scope: [
+      '南卡罗来纳州办事总览',
+      '南卡罗来纳州 REAL ID',
+      '83 条独立声明显式核对',
+      '中国驾照、考试语言、非公民网点与中央制证',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Montana 两页官方资料、互惠文件与费用语义核对',
     summary:
       '逐条比对 Montana MVD 的 new resident、adult first driver、required documents、REAL ID 与 2026 checklist、renewal、replacement、address、name、fees、ID card、forms、manual、exam stations 和 FAQ，以及 Taiwan / Republic of Korea 互惠文件、2025 新卡公告、citizenship marker、2026 年 7 月临时费用公告、Class D / ID application、USCIS SAVE 与 TSA 页面；登记 137 条独立声明的显式来源，并补齐中国大陆非互惠路线、官网未公布中文考试的证据边界、60 天转入、standard / REAL ID 材料、非公民核验、当前费用和续补证时限。',

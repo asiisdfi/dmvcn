@@ -3068,3 +3068,37 @@ Validation:
 - Browser QA at 1280 x 720 and 390 x 844 confirmed 70 evidence rows and 205 official-source links on each Montana page, visible mainland-China, language-evidence, SSN, P.O. Box, SAVE and new-card-symbol guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
 - Quality workbook: 38 semantic-review pages and 55 blocked pages remain; weak-intent pages remain 0.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+## Round 76 Changes
+
+Date: 2026-07-21
+
+### South Carolina Driver License, REAL ID, Noncitizen and Testing Deep Review
+
+Source scan:
+
+- Checked SCDMV's Driver License, Moving to SC, lawfully present non-US citizens, beginner-permit, testing, regular-road-test, appointment, renewal, vision, replacement, address / name, fee, ID-card, online-service, location, forms, translation and visiting-SC pages; the June 2026 MV-93 / MV-94 checklists, April 2026 Driver Manual, central-issuance materials and TSA identification guidance.
+- Confirmed the 45-day transfer route for permanent residents with a valid U.S. out-of-state credential, the driving-record substitute for a missing card and the knowledge / road-test requirement once the out-of-state license has been expired for nine months or more.
+- Confirmed that SCDMV's current reciprocity list includes Taiwan and South Korea but not mainland China. Mainland-China applicants are routed through MV-94 and designated International Customers branches without inventing a Chinese-test guarantee or a U.S.-style transfer waiver.
+- Confirmed the optional standard / REAL ID choice, the need to re-document an out-of-state REAL ID, current MV-93 / MV-94 identity and address rules, full name chains, SSN / SSA-denial handling, foreign-document translation boundaries and the P.O. Box limitation.
+- Confirmed permit and road-test fees, age-based permit holding periods, walk-in / appointment windows, vehicle and rental requirements, retest waits, renewal eligibility, current fees, address / name timing and centralized card delivery.
+- Disclosed the current official wording difference for a noncitizen with exactly five points: the general renewal page says more than five points while the noncitizen page says five or more, so the page directs that reader to confirm with the designated branch.
+
+Scope:
+
+- Rewrote both `/states/south-carolina/` and `/states/south-carolina/real-id/` with separate decision paths for U.S. transfers, mainland-China and other foreign licenses, noncitizen branches, first-time applicants, standard versus REAL ID credentials, testing, renewal, replacement, address / name changes and non-driver ID cards.
+- Expanded the South Carolina source list to 25 registered official sources and mapped all 83 unique claims as AI-assisted explicit evidence. The overview renders 36 evidence rows with 103 official-source links; the REAL ID page renders 50 rows with 135 links.
+- Preserved the original publication date, set separate modification and fact-check dates to the actual review date, added a public editorial update and retained the USA.gov fallback for SCDMV direct-access restrictions.
+- Updated the README totals, E-E-A-T inventory, quality workbook and Search Console priority reports.
+
+Validation:
+
+- South Carolina official-link audit: 26 checked, 2 direct OK, 24 security-response watch, 0 fail. The official bodies were available through the web crawler during review; the site describes the direct 403 limitation instead of treating those links as deleted.
+- State evidence audit: 4,589 claims, 8,711 official links, 4,533 AI-assisted explicit mappings across 96 pages, 0 errors.
+- Directory evidence audit: 789 claims, 753 inherited explicit mappings, 36 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 113 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 36 automated-source pages and 17 high-risk human approvals still honestly pending. South Carolina's overview scores 96 and its REAL ID page scores 99.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,664 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 36 overview evidence rows with 103 links and 50 REAL ID evidence rows with 135 links, visible mainland-China, reciprocity, language-boundary and MV-94 guidance, normal title wrapping and no horizontal overflow.
+- Quality workbook: 36 semantic-review pages and 53 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.

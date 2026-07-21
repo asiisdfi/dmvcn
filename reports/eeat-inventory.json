@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T03:28:54.267Z",
+    "generatedAt": "2026-07-21T03:44:25.599Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 111,
+    "passed": 113,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 38,
-    "aiAssistedReviews": 117,
+    "sourceMappedReviews": 36,
+    "aiAssistedReviews": 119,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 55,
+    "blockedPages": 53,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 225,
+        "sourceCount": 226,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 312,
+        "sourceCount": 315,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 160,
-        "directoryEvidenceLinks": 160,
+        "directoryEvidenceItems": 164,
+        "directoryEvidenceLinks": 164,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 257,
+        "sourceCount": 258,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 118,
-        "directoryEvidenceLinks": 118,
+        "directoryEvidenceItems": 121,
+        "directoryEvidenceLinks": 121,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 674,
+        "sourceCount": 678,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 224,
+        "sourceCount": 227,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -521,8 +521,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 187,
-        "directoryEvidenceLinks": 187,
+        "directoryEvidenceItems": 190,
+        "directoryEvidenceLinks": 190,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 168,
+        "sourceCount": 170,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 133,
-        "directoryEvidenceLinks": 133,
+        "directoryEvidenceItems": 136,
+        "directoryEvidenceLinks": 136,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 254,
+        "sourceCount": 258,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 174,
-        "directoryEvidenceLinks": 174,
+        "directoryEvidenceItems": 178,
+        "directoryEvidenceLinks": 178,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1540,
+        "sourceCount": 1559,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -4661,21 +4661,21 @@
       "route": "/states/south-carolina/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 93,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成南卡罗来纳州（South Carolina Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 SCDMV 当前 Driver License、Moving to SC、lawfully present non-US citizens、2026 MV-93 / MV-94、beginner permit、testing、road test、appointment、2026 Driver Manual、renewal、vision、replacement、address / name、fees、ID、online services、locations、forms、Form 4030、visiting SC、中央制证公告与 FAQ，并交叉核对 TSA 当前机场身份证件规则。SCDMV 深层页在本环境直接抓取时常返回 403，因此以可读取的官方搜索索引正文、官方 PDF 和同机构页面交叉确认。",
+        "notes": "重写 South Carolina 两页，拆开有效美国外州转入、外州驾照过期九个月以上、中国大陆与其他非互惠外国驾照、非公民指定网点、permit / testing、standard / REAL ID、续期、补证、地址和姓名变更。普通考试公开资料没有完整语言表，未虚构中文考试、翻译员或当天发卡保证；所有映射为 AI 辅助证据核查，不冒充 SCDMV、律师或人工专业审核。"
       },
       "scores": {
-        "factsAndSources": 22,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -4685,14 +4685,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 11,
+        "sourceCount": 25,
+        "factCheckCount": 36,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 11,
-        "stateEvidenceLinks": 11,
+        "stateEvidenceItems": 36,
+        "stateEvidenceLinks": 103,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4700,9 +4700,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/south-carolina/real-id/",
@@ -4710,16 +4708,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成南卡罗来纳州（South Carolina Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 SCDMV 当前 Driver License、Moving to SC、lawfully present non-US citizens、2026 MV-93 / MV-94、beginner permit、testing、road test、appointment、2026 Driver Manual、renewal、vision、replacement、address / name、fees、ID、online services、locations、forms、Form 4030、visiting SC、中央制证公告与 FAQ，并交叉核对 TSA 当前机场身份证件规则。SCDMV 深层页在本环境直接抓取时常返回 403，因此以可读取的官方搜索索引正文、官方 PDF 和同机构页面交叉确认。",
+        "notes": "重写 South Carolina 两页，拆开有效美国外州转入、外州驾照过期九个月以上、中国大陆与其他非互惠外国驾照、非公民指定网点、permit / testing、standard / REAL ID、续期、补证、地址和姓名变更。普通考试公开资料没有完整语言表，未虚构中文考试、翻译员或当天发卡保证；所有映射为 AI 辅助证据核查，不冒充 SCDMV、律师或人工专业审核。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4732,14 +4730,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 17,
+        "sourceCount": 25,
+        "factCheckCount": 50,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 17,
-        "stateEvidenceLinks": 19,
+        "stateEvidenceItems": 50,
+        "stateEvidenceLinks": 135,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4747,9 +4745,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/south-dakota/",

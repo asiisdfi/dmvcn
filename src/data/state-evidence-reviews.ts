@@ -1432,6 +1432,41 @@ const MT_APPLICATION =
   'https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf';
 const USCIS_SAVE = 'https://www.uscis.gov/save';
 
+const SC_DRIVER = 'https://dmv.sc.gov/driver-services/drivers-license';
+const SC_MOVING = 'https://dmv.sc.gov/driver-services/moving-to-sc';
+const SC_NON_US =
+  'https://dmv.sc.gov/driver-services/lawfully-present-non-us-citizens';
+const SC_MV93 =
+  'https://dmv.sc.gov/sites/scdmv/files/2026-06/MV-93%20US%20Citizens%E2%80%99%20Checklist.pdf';
+const SC_MV94 =
+  'https://dmv.sc.gov/sites/scdmv/files/2026-06/MV-94%20Lawfully%20Present%20Non-US%20Citizens%27%20Checklist.pdf';
+const SC_BEGINNER =
+  'https://dmv.sc.gov/driver-services/drivers-license/beginner-permits';
+const SC_TESTING =
+  'https://dmv.sc.gov/driver-services/drivers-license/testing';
+const SC_ROAD =
+  'https://dmv.sc.gov/driver-services/drivers-license/testing/regular-license-road-test';
+const SC_APPOINTMENT = 'https://dmv.sc.gov/schedule-appointment';
+const SC_MANUAL =
+  'https://dmv.sc.gov/sites/scdmv/files/2026-04/Driver%27s%20Manual.pdf';
+const SC_RENEW = 'https://dmv.sc.gov/driver-services/renewals';
+const SC_VISION = 'https://dmv.sc.gov/driver-services/vision-tests';
+const SC_REPLACE =
+  'https://dmv.sc.gov/driver-services/drivers-license/replace-license';
+const SC_CHANGE =
+  'https://dmv.sc.gov/driver-services/drivers-license/address-or-name-change';
+const SC_FEES = 'https://dmv.sc.gov/fees';
+const SC_ID = 'https://dmv.sc.gov/driver-services/identification-cards';
+const SC_ONLINE = 'https://dmv.sc.gov/online-services';
+const SC_LOCATIONS = 'https://dmv.sc.gov/locations';
+const SC_FORMS = 'https://dmv.sc.gov/forms-and-manuals';
+const SC_TRANSLATION =
+  'https://dmv.sc.gov/sites/scdmv/files/media/Forms/4030.pdf';
+const SC_VISITING = 'https://dmv.sc.gov/driver-services/visiting-sc';
+const SC_NEW_CARD = 'https://dmv.sc.gov/news/New-License-Designs';
+const SC_CENTRAL =
+  'https://dmv.sc.gov/sites/scdmv/files/media/Files/Central-Issuance-External-FAQ-2.pdf';
+
 const IA_HUB = 'https://iowadot.gov/drivers-licenses-ids';
 const IA_NEW = 'https://iowadot.gov/drivers-licenses-ids/new-iowa';
 const IA_IMMIGRANT =
@@ -1606,6 +1641,202 @@ const ID_ADDRESS =
   'https://itd.idaho.gov/wp-content/uploads/2025/03/Address.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  'south-carolina': {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      SC_DRIVER,
+      SC_MOVING,
+      SC_NON_US,
+      SC_MV93,
+      SC_MV94,
+      SC_BEGINNER,
+      SC_TESTING,
+      SC_ROAD,
+      SC_APPOINTMENT,
+      SC_MANUAL,
+      SC_RENEW,
+      SC_VISION,
+      SC_REPLACE,
+      SC_CHANGE,
+      SC_FEES,
+      SC_ID,
+      SC_ONLINE,
+      SC_LOCATIONS,
+      SC_FORMS,
+      SC_TRANSLATION,
+      SC_VISITING,
+      SC_NEW_CARD,
+      SC_CENTRAL,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 SCDMV 当前 Driver License、Moving to SC、lawfully present non-US citizens、2026 MV-93 / MV-94、beginner permit、testing、road test、appointment、2026 Driver Manual、renewal、vision、replacement、address / name、fees、ID、online services、locations、forms、Form 4030、visiting SC、中央制证公告与 FAQ，并交叉核对 TSA 当前机场身份证件规则。SCDMV 深层页在本环境直接抓取时常返回 403，因此以可读取的官方搜索索引正文、官方 PDF 和同机构页面交叉确认。',
+    notes:
+      '重写 South Carolina 两页，拆开有效美国外州转入、外州驾照过期九个月以上、中国大陆与其他非互惠外国驾照、非公民指定网点、permit / testing、standard / REAL ID、续期、补证、地址和姓名变更。普通考试公开资料没有完整语言表，未虚构中文考试、翻译员或当天发卡保证；所有映射为 AI 辅助证据核查，不冒充 SCDMV、律师或人工专业审核。',
+    claims: normalizeReviewedClaims({
+      ...mapReviewedClaims([
+        'South Carolina 驾照、beginner permit、州 ID、考试和 REAL ID 由 SCDMV 办理',
+      ], [SC_DRIVER, SC_BEGINNER, SC_TESTING, SC_ID]),
+      ...mapReviewedClaims([
+        '美国外州转入、持中国大陆或其他外国驾照、非美国公民首次申请、续期和首次升级 REAL ID 是不同路线',
+        '先判断自己属于有效美国外州转入、外州证件过期九个月以上、中国或其他外国驾照、首次无照申请、renewal / replacement，还是只办 non-driver ID',
+      ], [SC_MOVING, SC_NON_US, SC_RENEW, SC_REPLACE, SC_ID]),
+      ...mapReviewedClaims([
+        '2025 年启用中央制证后，branch 现场先发最长 30 天的 temporary certificate，永久卡通常在 7–15 个工作日内邮寄',
+        '新卡统一中央制证，现场 temporary driving certificate 最长有效 30 天，永久卡通常在 7–15 个工作日内寄到',
+        '办结前再次确认 mailing address，中央制证的永久卡不会在 branch 当场交付',
+        '收到 temporary certificate 后用二维码跟踪，30 天仍未收到永久卡时回 SCDMV branch 处理',
+        '永久卡 30 天仍未收到时到 branch 处理，地址或姓名变化则在 10 天内更新',
+      ], [SC_DRIVER, SC_NEW_CARD, SC_CENTRAL]),
+      ...mapReviewedClaims([
+        '持有效美国外州驾照并永久搬入 South Carolina 的新居民须在 45 天内现场转入并交回外州证件，通常完成文件核验、视力检查和缴费即可',
+        '有效美国外州 license 或 ID 的永久新居民应在搬入后 45 天内申请 South Carolina credential，并交回所有外州 license / ID',
+        '外州永久新居民把 45 天期限、外州 credential、driving record 例外和 vision requirement 一并放进办理清单',
+      ], [SC_MOVING, SC_MANUAL]),
+      ...mapReviewedClaims([
+        '外州驾照已过期九个月或以上时，还要通过 knowledge 和 road tests',
+        '外州证件遗失时要带原签发州的 driving record，外州驾照过期九个月或以上还要参加 knowledge 和 road tests',
+        '外州转入带现有实体 license / ID，证件遗失则带原州 driving record',
+      ], [SC_MOVING, SC_DRIVER, SC_MANUAL]),
+      ...mapReviewedClaims([
+        '临时在 South Carolina 居住的学生、军人等如仍持有效外州驾照，SCDMV 页面说明不强制换成 South Carolina 驾照',
+      ], [SC_MOVING, SC_VISITING, SC_MANUAL]),
+      ...mapReviewedClaims([
+        '中国大陆不在 SCDMV 当前驾照互惠名单，持中国大陆驾照的 lawfully present 申请人应使用 MV-94 路线，在指定 International Customers 网点完成文件、视力、knowledge 和 skills 要求',
+        'SCDMV 当前普通驾照互惠名单列出 Canada、France、Germany、South Korea、Taiwan、部分美国领地和自由联系邦，但不列中国大陆',
+        '中国大陆驾照不能套用 Taiwan reciprocity，lawfully present 申请人应预期完成 knowledge 和 skills tests',
+        '把中国大陆驾照当成 Taiwan 驾照，错误套用 South Carolina reciprocity',
+      ], [SC_NON_US, SC_MV94, SC_MANUAL]),
+      ...mapReviewedClaims([
+        '有效互惠地区驾照可豁免 knowledge 和 skills tests，但不能豁免 MV-94 文件要求、视力检查和费用',
+      ], [SC_NON_US, SC_MV94, SC_VISION, SC_FEES]),
+      ...mapReviewedClaims([
+        'South Korea 与 Taiwan 的申请人还要取得相应总领馆证明信，该信只有 30 天有效并可替代外国驾照的普通翻译表',
+      ], [SC_NON_US, SC_TRANSLATION]),
+      ...mapReviewedClaims([
+        'South Carolina REAL ID 是可选证件，standard card 仍可驾驶，但卡面会写有 “Not for Federal Identification”',
+        '再决定要 standard 还是 REAL ID，已有 passport 等 TSA 接受证件且只需驾驶者可比较 standard card',
+      ], [SC_DRIVER, TSA_IDENTIFICATION]),
+      ...mapReviewedClaims([
+        '首次申请或从外州 REAL ID 转入时仍要重新提交 South Carolina 所需文件，不能只交原州星标卡',
+        '外州 REAL ID 不会自动转换为 South Carolina REAL ID，仍须按 MV-93 或 MV-94 重新证明身份、SSN、地址和姓名链',
+        '持外州 REAL ID 就以为 South Carolina 会直接续发星标卡，没有重新带完整材料',
+      ], [SC_MOVING, SC_DRIVER, SC_MV93, SC_MV94]),
+      ...mapReviewedClaims([
+        '美国公民按 MV-93、lawfully present non-US citizen 按 MV-94 准备身份与出生日期、SSN 或适用的 SSA denial letter、完整姓名链，以及两份九个月内且地址一致的 current physical SC address 材料',
+        '美国公民使用 current MV-93，非美国公民使用 current MV-94，不要混用两张 checklist',
+        '美国公民下载 current MV-93，非美国公民下载 current MV-94，逐项标出 identity、SSN / denial letter、address、name chain 和 immigration documents',
+      ], [SC_MV93, SC_MV94, SC_DRIVER]),
+      ...mapReviewedClaims([
+        '普通 knowledge test 不要求预约，但须在下午 4 点前到提供该考试的 branch',
+        '下午 4 点后才到 branch 参加 knowledge test，或没有检查该地点是否提供相应考试',
+      ], [SC_APPOINTMENT, SC_BEGINNER, SC_LOCATIONS]),
+      ...mapReviewedClaims([
+        'Class D road test 每日较早时段接受 walk-in，周三从 9:30 开始，其余工作日从 8:30 开始，均到 1:30 截止，下午 2–4 点须预约',
+        '把下午 road test 当成 walk-in，忽略 2–4 点须预约的安排',
+      ], [SC_ROAD, SC_APPOINTMENT, SC_LOCATIONS]),
+      ...mapReviewedClaims([
+        '非美国公民只能选择 Locations 页面中标为 International Customers 的指定网点，并应在出发前复核当天营业时间和服务项目',
+        '非美国公民去了不办理 International Customers 的 branch',
+        '使用 Locations & Wait Times 核对 branch 的考试和 International Customers 标记，需要下午 road test 时从官方入口预约',
+      ], [SC_NON_US, SC_LOCATIONS, SC_APPOINTMENT]),
+      ...mapReviewedClaims([
+        '外国驾照可能要连同 Form 4030 翻译文件出示，原驾照不能被翻译件或 IDP 取代',
+        '持外国驾照者带原始有效驾照，并按 SCDMV 要求准备 Form 4030 translation，IDP 只作翻译且必须与有效外国驾照一起使用',
+        '只带翻译或 IDP，没有带原始有效外国驾照和 MV-94 身份文件',
+        '持中国大陆驾照者选择 International Customers branch，带原驾照并提前询问 Form 4030 translation 与 knowledge-test language',
+      ], [SC_MV94, SC_TRANSLATION, SC_VISITING, SC_NON_US]),
+      ...mapReviewedClaims([
+        'SCDMV 当前普通考试页、Forms & Manuals 和 Driver Manual 没有公布完整考试语言表，也没有保证提供中文 knowledge test',
+        '需要中文或其他语言协助时，应在预约或到店前直接询问所选 branch，不要假定亲友可代译考试或进入 road-test vehicle',
+        '从非官方题库推断 South Carolina 当前一定提供中文 knowledge test',
+      ], [SC_TESTING, SC_FORMS, SC_MANUAL, SC_APPOINTMENT]),
+      ...mapReviewedClaims([
+        'Class D beginner permit 的 knowledge test 每次 $2，通过后 permit 为 $2.50，15 岁可申请普通 permit',
+        '首次申请 permit 时在下午 4 点前完成 $2 knowledge test，通过后购买 $2.50 permit',
+      ], [SC_BEGINNER, SC_FEES]),
+      ...mapReviewedClaims([
+        '申请人 15–17 岁须持 permit 至少 180 天，18 岁及以上须至少 30 天，才可参加普通 road test',
+        '按年龄持 permit 满 180 天或 30 天，再安排 Class D road test',
+      ], [SC_BEGINNER, SC_ROAD]),
+      ...mapReviewedClaims([
+        'road-test vehicle 要有有效 plate、registration 和 South Carolina 合法保险，并确保灯光、制动、雨刷、安全带、转向灯、后视镜、速度表、除霜和喇叭正常',
+        'road test 当天带 permit 或旧驾照、可合法陪同的 licensed driver、registration、保险和合格车辆',
+        'road-test vehicle 的 registration、保险、灯光、雨刷或其他必检设备不合格',
+        '路考前逐项检查 plate、registration、保险、陪同 licensed driver、车辆设备和 rental contract',
+      ], [SC_ROAD]),
+      ...mapReviewedClaims([
+        '若使用 rental car，租赁合同必须显示申请人姓名并表明其受保险覆盖',
+      ], [SC_ROAD]),
+      ...mapReviewedClaims([
+        '第一次 road test 未通过后等两个完整工作日，第二次未通过后等七个日历日，第三次及以后每次等 30 个日历日',
+        '路考失败后没有按第几次失败计算两个工作日、七个日历日或 30 个日历日的等待期',
+      ], [SC_ROAD, SC_MANUAL]),
+      ...mapReviewedClaims([
+        '普通八年驾照当前为 $25，lawfully present international customer 的四年或更短驾照为 $12.50，信用卡或借记卡另有 $1 加 1.7% 的处理费',
+      ], [SC_FEES, SC_DRIVER, SC_NON_US]),
+      ...mapReviewedClaims([
+        '所有驾照和 beginner permit 续期都要视力检查，SCDMV branch 简单视力筛查以 20/40 或更好为基准',
+      ], [SC_RENEW, SC_VISION]),
+      ...mapReviewedClaims([
+        '在线续期只适用于满足全部条件的美国公民，并要求 South Carolina 持证眼科专业人员在 portal 提交 36 个月内的视力结果',
+        '续期先核对公民身份、过期月份、上次办理方式、points、suspension、license class 与 36 个月 vision result 是否符合 online / mail 条件',
+      ], [SC_RENEW, SC_VISION]),
+      ...mapReviewedClaims([
+        '非美国公民不能在线或邮寄续期，须携 MV-94 所列文件到指定 International Customers branch',
+      ], [SC_RENEW, SC_NON_US, SC_MV94]),
+      ...mapReviewedClaims([
+        '一般续期页把最近两年超过五分写成需要 knowledge test，非公民页则写五分或以上，恰好五分的申请人应先让指定 branch 确认',
+      ], [SC_RENEW, SC_NON_US]),
+      ...mapReviewedClaims([
+        '驾照过期不足九个月可按普通续期处理，过期九个月或以上须现场重新提交文件并通过 vision、knowledge 和 skills tests',
+        '非美国公民直接尝试 online / mail renewal，或驾照已过期九个月仍按普通续期准备',
+      ], [SC_RENEW, SC_MV93, SC_MV94]),
+      ...mapReviewedClaims([
+        'temporary driver license 不在 TSA 当前可接受身份证件名单中，等卡期间乘机要另带 passport、passport card 或其他 TSA 接受的实体证件',
+        '现场办结后核对邮寄地址，保存 temporary certificate 和二维码，并为旅行保留 TSA 接受的替代实体 ID',
+        '拿 temporary driving certificate 去机场，或没有为 7–15 个工作日的邮寄时间留余量',
+      ], [SC_DRIVER, SC_CENTRAL, TSA_IDENTIFICATION]),
+      ...mapReviewedClaims([
+        '地址或姓名变化须在 10 天内通知 SCDMV，姓名变更要先更新 SSA 并至少等待 48 小时再到 branch',
+        '地址或姓名变化超过 10 天才更新，或改名后未等待 SSA 记录同步至少 48 小时',
+      ], [SC_CHANGE]),
+      ...mapReviewedClaims([
+        '身份与出生信息文件要带 original 或 government-issued copy，普通复印、扫描件和手机照片不能替代',
+        '美国公民可按清单选择 government-issued birth certificate、有效 U.S. passport / passport card 等合格身份文件',
+      ], [SC_DRIVER, SC_MV93]),
+      ...mapReviewedClaims([
+        '非公民按 immigration status 带未过期 I-766，或 passport、visa、I-94 及该身份对应的 I-20、DS-2019 或其他 current-stay 文件',
+        '没有资格取得 SSN 的非公民按 MV-94 携带 SSA denial letter，不能自行用 ITIN 替代该路径',
+      ], [SC_MV94]),
+      ...mapReviewedClaims([
+        '申请表填写的 legal name、date of birth 和 SSN 必须与 SSA 记录匹配',
+      ], [SC_MV93, SC_MV94, SC_DRIVER]),
+      ...mapReviewedClaims([
+        'standard credential 通常要一份 current physical SC address，REAL ID 要两份来自不同机构且显示同一地址的材料',
+        '把 standard card 的一份地址材料规则用于首次 REAL ID，少带第二份不同机构的地址证明',
+      ], [SC_MV93, SC_MV94, SC_DRIVER]),
+      ...mapReviewedClaims([
+        'South Carolina 地址文件须显示本人姓名和 current residence，P.O. Box 不能替代 physical address',
+        '首次申请和适用的重新核验使用九个月内地址材料，出发前逐项对照当前 checklist 的可接受类别',
+        '用 P.O. Box、旧地址、超过时效的账单，或两份地址不一致的文件',
+      ], [SC_MV93, SC_MV94, SC_DRIVER]),
+      ...mapReviewedClaims([
+        '姓名与身份文件不一致时，带齐 marriage license、divorce decree 或 court order，建立从出生姓名到当前姓名的完整链条',
+        '当前姓名的有效 U.S. passport 或 passport card 可按 SCDMV 规则替代美国公民的姓名链文件',
+        '姓名已变却漏掉中间一次 marriage、divorce 或 court order，或没有先让 SSA 更新',
+      ], [SC_DRIVER, SC_MV93, SC_CHANGE]),
+      ...mapReviewedClaims([
+        '申请驾照而非 permit / ID 时，准备在 South Carolina 获准经营的汽车责任保险公司信息供电子核验',
+      ], [SC_MV93, SC_MV94, SC_RENEW]),
+      ...mapReviewedClaims([
+        '补证先判断是否在过去 12 个月内已 online duplicate，首次升级 REAL ID 则改为本人带材料到 branch',
+        '在线补证时误以为会把从未办理过的 standard card 自动升级成 REAL ID',
+      ], [SC_REPLACE, SC_DRIVER, SC_ONLINE]),
+    }),
+  },
   montana: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',
