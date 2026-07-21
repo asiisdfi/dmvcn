@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Idaho 两页官方正文语义核对',
+    summary:
+      '逐条比对 Idaho ITD 的 Star Card、acceptable documents、2026 checklist、Add the Star、FAQ、New to Idaho、required documents、2026-07-01 identity update、Taking the Driver’s Test、July 2026 Driver’s Handbook、county locations、license / ID、online renewal、ID card、address form 与 TSA 当前正文；登记 76 条独立声明的显式来源，并补齐中国大陆驾照、Chinese written / aural knowledge test、外国驾照互惠、县级与第三方考试分工、线上续期和最新照片身份证要求。',
+    scope: [
+      '爱达荷州办事总览',
+      '爱达荷州 Star Card / REAL ID',
+      '76 条独立声明显式核对',
+      '2026 身份规则、外国驾照、中文考试与县级办理',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 New Hampshire 两页官方正文语义核对',
     summary:
       '逐条比对 New Hampshire DMV 的 REAL ID、DSMV634A / 634B、申请表、Driver Manual、美国外州转入、首次申请、续期、资料变更、地点与预约，现行 Saf-C 1000 行政规则、RSA 263:9 / 10 / 35 / 39-a / 42、Domicile / Residence FAQ 与 TSA 当前正文；登记 86 条独立声明的显式来源，并补齐中国大陆驾照与非公民首次申请、Mandarin Chinese 知识考试、60 天新居民期限、隔周期线上续期，以及旧 DSMV30 与 2026 州法的地址换卡费用冲突。',

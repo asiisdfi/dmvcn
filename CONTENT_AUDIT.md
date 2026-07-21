@@ -2860,3 +2860,37 @@ Validation:
 - Browser QA at 1280 x 720 and 390 x 844 confirmed 35 overview evidence rows and 53 REAL ID evidence rows, visible Mandarin Chinese test and 2026 fee-conflict guidance, normal title wrapping and no horizontal overflow.
 - Quality workbook: 50 semantic-review pages and 67 blocked pages remain; weak-intent pages remain 0.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+## Round 70 Changes
+
+Date: 2026-07-21
+
+### Idaho Driver License, Star Card, Chinese Test and Foreign-License Deep Review
+
+Source scan:
+
+- Opened and checked the Idaho Transportation Department driver-license hub, Star Card guide, acceptable-document page, Add the Star tool, Star Card FAQ and February 2026 checklist, plus the new-resident, required-document, testing, office-location, online-renewal and identification-card pages, July 2026 Driver's Handbook, current address form, June 2026 identity-requirement notice and TSA identification guidance.
+- Confirmed the 30-day new-resident license / ID timing and kept vehicle title / registration as a separate county-office transaction. The page now distinguishes ITD policy from county Sheriff / Assessor office execution and tells readers to verify whether a selected location handles driver services, vehicle services or both.
+- Confirmed that all foreign Class D applicants take Idaho's knowledge test. Germany, South Korea and Taiwan have limited skills-test reciprocity, but mainland China and all other non-reciprocal jurisdictions require the skills test. The current handbook lists Chinese written and audio knowledge tests; an interpreter is only considered when the language is unavailable or after three failed attempts in an offered language.
+- Confirmed the optional Star Card path: one identity / lawful-presence document, SSN verification, two different Idaho physical-address proofs and a complete name-change chain. A standard non-Star credential remains valid for driving, while federal identification rules apply at airport security and other covered facilities.
+- Found and disclosed a current identity-document difference: the general required-document page discusses some photo identification expired within five years, while the newer June 26, 2026 notice requires valid government-issued photo identification when creating a new customer profile. The page follows the newer, stricter instruction and directs affected applicants to confirm before visiting.
+- Confirmed the four- and eight-year renewal paths, current online-renewal limits, first-time Star Card in-person rule, temporary lawful-presence term logic, address and name-change sequence, ID-card path, current posted fees and the three-day wait after failed knowledge or skills tests.
+
+Scope:
+
+- Rewrote both `/states/idaho/` and `/states/idaho/real-id/` with explicit routes for new residents, foreign-license holders, first-time drivers, Star Card versus standard credentials, renewal, replacement, address / name changes and non-driver ID cards.
+- Expanded the Idaho source list from 5 to 19 checked official sources and registered all 76 unique claims as AI-assisted explicit mappings. The two rendered pages expose 33 overview and 46 REAL ID evidence rows, with 173 official-source links, without representing the work as human or professional approval.
+- Replaced two obsolete ITD PDF URLs with the current 2026 Star Card checklist and 2025 address form, removed a dead old name-change PDF and corrected the related Chinese-test topic route.
+- Updated the public editorial update log, README quality totals, quality workbook and Search Console priority reports.
+
+Validation:
+
+- Idaho official-link audit: 19 checked, 19 OK, 0 watch, 0 fail.
+- State evidence audit: 4,069 claims, 7,318 official links, 3,848 AI-assisted explicit mappings across 84 pages, 0 errors.
+- Directory evidence audit: 728 claims, 656 inherited explicit mappings, 72 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 101 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 48 automated-source pages and 17 high-risk human approvals still honestly pending.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,561 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 33 overview evidence rows and 46 REAL ID evidence rows, visible Chinese-test, foreign-license, Star Card and 2026 identity guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
+- Quality workbook: 48 semantic-review pages and 65 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.

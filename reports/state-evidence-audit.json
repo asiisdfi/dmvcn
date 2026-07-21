@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T01:09:47.160Z",
+    "generatedAt": "2026-07-21T01:33:48.140Z",
     "pages": 100,
     "states": 50,
-    "claims": 4018,
-    "links": 7175,
-    "aiAssistedClaims": 3769,
-    "aiAssistedPages": 82,
+    "claims": 4069,
+    "links": 7318,
+    "aiAssistedClaims": 3848,
+    "aiAssistedPages": 84,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1880,
-        "links": 3284,
+        "claims": 1902,
+        "links": 3338,
         "states": 50
       },
       "real-id": {
-        "claims": 2138,
-        "links": 3891,
+        "claims": 2167,
+        "links": 3980,
         "states": 50
       }
     }
@@ -76325,18 +76325,18 @@
       "stateId": "idaho",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "爱达荷州把 REAL ID compliant credential 称为 Star Card，由 Idaho Transportation Department / county driver license offices 处理",
+      "context": "license",
+      "claim": "Idaho Transportation Department 制定驾照与 Star Card 规则，实际签发由 county Sheriff 或 Assessor 管理的 driver license office 完成",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/"
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/dmv-locations/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho ITD Star Card"
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：Idaho DMV Locations Directory"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -76344,20 +76344,19 @@
       "stateId": "idaho",
       "surface": "overview",
       "field": "summary",
-      "context": "document",
-      "claim": "Star Card、acceptable documents、Add the Star tool 和 Idaho DMV portal 是核心入口",
+      "context": "license",
+      "claim": "新居民通常要在开始居住后 30 天内办理 Idaho 驾照或 ID，并把驾照、车辆 title / registration 当作两项独立业务",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
-        "https://dmv.idaho.gov/"
+        "https://itd.idaho.gov/guide/new-to-idaho/",
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents",
-        "对应官方来源：Idaho DMV"
+        "对应官方来源：ITD New to Idaho",
+        "对应官方来源：Idaho Drivers Licenses and ID Cards"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "online-service"
+        "transfer"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -76366,76 +76365,66 @@
       "stateId": "idaho",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "document",
-      "claim": "申请 Star Card 比普通 license / ID 要多材料",
+      "context": "license",
+      "claim": "持中国大陆或其他非互惠国家驾照申请 Idaho Class D 时，不能按美国外州免路考路线处理：所有外国驾照申请人都要参加知识考试，中国大陆驾照持有人还要参加 skills test",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/guide/new-to-idaho/",
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：ITD New to Idaho",
+        "对应官方来源：ITD Taking the Driver’s Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "foreign-license",
+        "test"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
       "valid": true
     },
     {
       "stateId": "idaho",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "document",
-      "claim": "两份 Idaho residency 文件必须显示 current physical address，P.O. Box 不接受，通常要在一年内、来自不同来源",
+      "context": "license",
+      "claim": "外国 Class D 通常不必交回原外国驾照或提供 driving record",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "residency-proof"
+        "foreign-license"
       ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "idaho",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "document",
-      "claim": "originals 或 printed e-documents 可用，fax 不接受",
-      "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+      "uncoveredThemes": [
+        "foreign-license"
       ],
-      "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
       "valid": true
     },
     {
       "stateId": "idaho",
       "surface": "overview",
       "field": "realIdSummary",
-      "context": "document",
-      "claim": "Idaho Star Card 需要证明 identity、Social Security number 和 Idaho residency",
+      "context": "real-id",
+      "claim": "Star Card 是 Idaho 的可选 REAL ID",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/starcard/",
+        "https://itd.idaho.gov/faqs/star-card-faq/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：Idaho ITD Star Card",
+        "对应官方来源：Idaho Star Card FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof",
-        "ssn"
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -76445,14 +76434,18 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "官方说明强调 out-of-state license 即使带 REAL ID 标记，也不能单独用来证明 identity",
+      "claim": "普通无星驾照仍可合法驾驶，但自 2025-05-07 起不能单独用于受 REAL ID 规则约束的机场安检和部分联邦设施",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/"
+        "https://itd.idaho.gov/starcard/",
+        "https://itd.idaho.gov/faqs/star-card-faq/",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho ITD Star Card"
+        "对应官方来源：Idaho ITD Star Card",
+        "对应官方来源：Idaho Star Card FAQ",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -76464,18 +76457,45 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "它只能作为 photo identity document，还要补 identity、SSN 和 residency 文件",
+      "claim": "Star Card 要一份合格 identity / lawful-presence 文件、SSN 核验、两份不同来源的 Idaho physical-address 证明和完整姓名链",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/starcard/add-the-star-tool/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/03/StarCard_Checklist-1-2.pdf",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Add the Star Tool",
+        "对应官方来源：Idaho Star Card Checklist",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof",
-        "ssn"
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "Idaho 各县自行安排 driver services，地点可能只办驾照、只办车辆或两者兼办，预约和 walk-in 规则也不同",
+      "sourceUrls": [
+        "https://itd.idaho.gov/dmv-locations/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho DMV Locations Directory",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -76485,14 +76505,35 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "license",
-      "claim": "Idaho 驾照和 Star Card 通常由 county driver license office 办理",
+      "claim": "知识考试在 county driver license office，Class D skills test 则由 ITD 列出的第三方 examiner 执行",
       "sourceUrls": [
-        "https://dmv.idaho.gov/"
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho DMV"
+        "对应官方来源：ITD Taking the Driver’s Test",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "2026-07-01 起，首次建立 Idaho DMV customer profile 的新客户必须本人出示仍有效的政府签发照片证件，证件要有 full legal name、date of birth 和 photograph",
+      "sourceUrls": [
+        "https://itd.idaho.gov/news/idaho-dmv-announces-updated-proof-of-identity-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho 2026 Proof of Identity Update"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -76500,21 +76541,479 @@
     {
       "stateId": "idaho",
       "surface": "overview",
-      "field": "appointmentNote",
+      "field": "editorNotes",
       "context": "document",
-      "claim": "到场前先确认县办公室地点、预约方式和本次业务所需材料",
+      "claim": "ITD 一般材料页仍写部分照片身份证件可在过期五年内接受，但 2026-06-26 的较新公告对新 profile 明确要求 valid government-issued photo ID",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/news/idaho-dmv-announces-updated-proof-of-identity-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho 2026 Proof of Identity Update"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "首次建档应按较新的严格规则准备并向所在县确认",
+      "sourceUrls": [
+        "https://itd.idaho.gov/news/idaho-dmv-announces-updated-proof-of-identity-requirements/",
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/dmv-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho 2026 Proof of Identity Update",
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho DMV Locations Directory"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "普通 non-Star credential 通常用一份 Idaho residency proof，带两份不同来源、同名同址的合格文件才进入 Star Card 路线",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Star Card Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "美国外州驾照转入也要参加 40 题 Class D knowledge test，最多只能错 6 题",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "同级别外州驾照通常可帮助免 skills test，但过期达到 25 个月要按适用规则重考",
       "sourceUrls": [
         "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
-        "https://dmv.idaho.gov/"
+        "https://itd.idaho.gov/guide/new-to-idaho/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Idaho Star Card Acceptable Documents",
-        "对应官方来源：Idaho DMV"
+        "对应官方来源：ITD New to Idaho",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "Class D knowledge test 当前提供 Chinese written and aural，ITD 没有进一步区分简体、繁体或普通话，应在所选 county office 预约前确认具体版本",
+      "sourceUrls": [
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/dmv-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：ITD Taking the Driver’s Test",
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：Idaho DMV Locations Directory"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "只有系统没有提供该语言，或申请人已经用系统提供的语言失败至少三次，才可按 ITD 规则申请 translator",
+      "sourceUrls": [
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：ITD Taking the Driver’s Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "知识考试和 skills test 失败后都要等待三天再考并重新付费，skills retest 要重新支付 county 与 examiner 两部分",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：ITD Taking the Driver’s Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "外国 Class D 互惠只涉及 skills test：Germany 可免 skills test 且不必交回驾照，Korea 或 Taiwan 只有选择交回原证时才可免 skills test，任何外国驾照都不免 knowledge test",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "非美国公民的 lawful presence 会由 USCIS 核验，未能证明 lawful presence 的申请人不符合 Idaho license / ID 资格",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "临时外国居民的 credential 到期日通常取 DHS 授权停留终点或四年中较早者，DHS 文件无到期日时通常签发一年",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/faqs/star-card-faq/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：Idaho Star Card FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "21 岁以上 Class D 可现场提前最多 25 个月续期，通常选择四年或八年，八年选项限 21 至 62 岁",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：Idaho Drivers Licenses and ID Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "每次现场续期都要 vision screening",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "ITD 2025 online-renewal 公告把常见资格列为 21 至 69 岁、到期时不超过 70 岁、最近一次续期为四年或更短、美国公民或永久居民、过期不超过 25 个月且不改姓名、endorsement 或 restriction",
+      "sourceUrls": [
+        "https://itd.idaho.gov/news/help-us-help-others-renew-online-if-you-can/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho 2025 Online Renewal Eligibility"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "首次升级 Star Card 必须现场核验材料",
+      "sourceUrls": [
+        "https://itd.idaho.gov/news/help-us-help-others-renew-online-if-you-can/",
+        "https://itd.idaho.gov/starcard/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho 2025 Online Renewal Eligibility",
+        "对应官方来源：Idaho ITD Star Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "已有 Star Card 的美国公民或 lawful permanent resident 可能符合 online renewal，其他非美国公民续 Star Card 要现场重新证明持续 lawful presence",
+      "sourceUrls": [
+        "https://itd.idaho.gov/starcard/",
+        "https://itd.idaho.gov/service/license-renewal/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho ITD Star Card",
+        "对应官方来源：Idaho Online DMV Renewals"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "当前 Class D 费用为四年 $35、八年 $60、knowledge test $5、skills test 总计 $35、duplicate $20",
+      "sourceUrls": [
+        "https://itd.idaho.gov/faqs/star-card-faq/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Star Card FAQ",
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：Idaho Drivers Licenses and ID Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Star 与 non-Star 的同类 credential 费用相同",
+      "sourceUrls": [
+        "https://itd.idaho.gov/faqs/star-card-faq/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Star Card FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "地址变化后 30 天内要更新 ITD record，online、paper、email 或 mail 都可更新记录",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/",
+        "https://itd.idaho.gov/wp-content/uploads/2025/03/Address.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：Idaho Drivers Licenses and ID Cards",
+        "对应官方来源：Idaho Address Change Form ITD 3239"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "若要卡面显示新地址，还要另办 duplicate 或在符合条件时续期",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/wp-content/uploads/2025/03/Address.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：Idaho Address Change Form ITD 3239"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "改名应先更新 Social Security Administration，再带 certified marriage certificate、divorce decree 或 court order 到 county driver license office 办 duplicate 或符合条件的 renewal",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：Idaho Driver License and ID Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "appointment"
+        "ssn",
+        "name-change",
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Idaho ID card 面向各年龄居民，21 岁以上四年 $15、八年 $25",
+      "sourceUrls": [
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/identification-cards/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Identification Cards",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -76524,36 +77023,19 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "Out-of-state REAL ID 不能单独证明 identity，是搬州用户最容易误判的点",
+      "claim": "Star ID 同样要两份 residency，driver license 与 ID 的用途不能混为一谈",
       "sourceUrls": [
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/identification-cards/",
         "https://itd.idaho.gov/starcard/"
       ],
       "sourceLabels": [
+        "对应官方来源：Idaho Identification Cards",
         "对应官方来源：Idaho ITD Star Card"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "idaho",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "Idaho Star Card 需要证明 identity、Social Security number 和 Idaho residency",
-      "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof",
-        "ssn"
+        "real-id",
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -76563,14 +77045,39 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "官方说明强调 out-of-state license 即使带 REAL ID 标记，也不能单独用来证明 identity",
+      "claim": "Star Card 是 Idaho 的可选 REAL ID",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/"
+        "https://itd.idaho.gov/starcard/",
+        "https://itd.idaho.gov/faqs/star-card-faq/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho ITD Star Card"
+        "对应官方来源：Idaho ITD Star Card",
+        "对应官方来源：Idaho Star Card FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "普通无星驾照仍可合法驾驶，但自 2025-05-07 起不能单独用于受 REAL ID 规则约束的机场安检和部分联邦设施",
+      "sourceUrls": [
+        "https://itd.idaho.gov/starcard/",
+        "https://itd.idaho.gov/faqs/star-card-faq/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho ITD Star Card",
+        "对应官方来源：Idaho Star Card FAQ",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -76582,14 +77089,375 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "它只能作为 photo identity document，还要补 identity、SSN 和 residency 文件",
+      "claim": "Star Card 要一份合格 identity / lawful-presence 文件、SSN 核验、两份不同来源的 Idaho physical-address 证明和完整姓名链",
+      "sourceUrls": [
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/starcard/add-the-star-tool/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/03/StarCard_Checklist-1-2.pdf",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Add the Star Tool",
+        "对应官方来源：Idaho Star Card Checklist",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "2026-07-01 后首次建立 DMV profile，先准备仍有效的政府签发照片证件，证件必须显示 full legal name、date of birth 和 photograph",
+      "sourceUrls": [
+        "https://itd.idaho.gov/news/idaho-dmv-announces-updated-proof-of-identity-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho 2026 Proof of Identity Update"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "新申请人要证明 U.S. citizenship 或 lawful presence",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "常见文件包括 certified U.S. birth certificate、未过期 U.S. passport、I-551、I-766，或与实际身份相符的 I-94 / I-797 / I-20 / DS-2019",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "普通 license / ID 通常至少一份 Idaho residency，Star Card 要两份来自不同来源的 residency documents",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/identification-cards/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Residency 文件要显示申请人姓名和 principal Idaho physical address，通常在最近 12 个月内",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Star Card Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "电子文件应打印，P.O. Box 不能代替居住地址",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/starcard/add-the-star-tool/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Add the Star Tool"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "常见 residency 包括签署并注明日期的 lease / mortgage / deed、utility 或 bank statement、W-2 / 1099、pay stub、school record、insurance 或 property-tax record",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/starcard/add-the-star-tool/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Add the Star Tool"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Star Card identity / lawful-presence 文件不得 laminated，普通 photocopy 或 fax 不接受",
+      "sourceUrls": [
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/03/StarCard_Checklist-1-2.pdf",
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Star Card Checklist",
+        "对应官方来源：Idaho Driver License and ID Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "符合要求的电子地址文件可以打印",
+      "sourceUrls": [
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/starcard/add-the-star-tool/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Add the Star Tool"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "外国申请人通常用有效 foreign passport 配合当前 lawful-presence 文件，只有中国驾照、翻译件或 IDP 不能代替 Idaho 身份与移民材料",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：Idaho Star Card Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "SSN 会与 SSA 电子核验",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/starcard/add-the-star-tool/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Add the Star Tool"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "从未获配 SSN 的申请人要带 SSA 书面证明，并在之后每次 renewal 重新取得新证明",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver License and ID Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Star Card 的 SSN 路线可用 current-name Social Security card、W-2、SSA / non-SSA 1099 或显示姓名与 SSN 的 pay statement",
+      "sourceUrls": [
+        "https://itd.idaho.gov/starcard/add-the-star-tool/",
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Add the Star Tool",
+        "对应官方来源：Idaho Star Card Acceptable Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "identity 文件姓名与当前法定姓名不同，要用 recorded / certified marriage、divorce、adoption 或 court documents 串起每一次变化",
+      "sourceUrls": [
+        "https://itd.idaho.gov/starcard/add-the-star-tool/",
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/03/StarCard_Checklist-1-2.pdf",
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Add the Star Tool",
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Star Card Checklist",
+        "对应官方来源：Idaho Driver License and ID Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "外州驾照即使已有 REAL ID 星标，也不能单独完成 Idaho Star Card identity verification",
       "sourceUrls": [
         "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
       ],
       "sourceLabels": [
         "对应官方来源：Idaho Star Card Acceptable Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "仍要补 identity、SSN、residency 和适用的 lawful-presence 文件",
+      "sourceUrls": [
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Driver License and ID Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "residency-proof",
@@ -76603,14 +77471,87 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Identity 文件，例如 birth certificate、passport 或 ITD Star Card 清单接受的身份文件",
+      "claim": "参加 skills test 要带照片身份证明、有效 insurance、签字的 current vehicle registration，以及非本人车辆的书面或车主现场口头许可",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：ITD Taking the Driver’s Test",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "先分清本次是美国外州转入、外国驾照申请、首次驾照、Star Card upgrade、renewal、duplicate、address / name change 还是只办 ID card",
+      "sourceUrls": [
+        "https://itd.idaho.gov/guide/new-to-idaho/",
+        "https://itd.idaho.gov/starcard/",
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/",
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/identification-cards/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：ITD New to Idaho",
+        "对应官方来源：Idaho ITD Star Card",
+        "对应官方来源：Idaho Drivers Licenses and ID Cards",
+        "对应官方来源：Idaho Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change",
+        "renewal",
+        "replacement",
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "新居民记录开始在 Idaho 居住的日期，在 30 天内安排 driver license / ID，并另行处理车辆 title 和 registration",
+      "sourceUrls": [
+        "https://itd.idaho.gov/guide/new-to-idaho/",
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：ITD New to Idaho",
+        "对应官方来源：Idaho Drivers Licenses and ID Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "第一次建立 DMV profile 时按 2026-07-01 新规则准备 valid government-issued photo ID，再按实际 citizenship / immigration status 补齐 credential 材料",
+      "sourceUrls": [
+        "https://itd.idaho.gov/news/idaho-dmv-announces-updated-proof-of-identity-requirements/",
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho 2026 Proof of Identity Update",
+        "对应官方来源：Idaho Driver License and ID Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -76620,73 +77561,18 @@
     {
       "stateId": "idaho",
       "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Social Security number 证明，例如 Social Security card、W-2、1099 或含完整 SSN 的 paystub",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "先决定要 Star Card 还是 non-Star credential",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/starcard/",
+        "https://itd.idaho.gov/faqs/star-card-faq/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：Idaho ITD Star Card",
+        "对应官方来源：Idaho Star Card FAQ"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "idaho",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "两份 Idaho residency，显示 current physical address，P.O. Box 不接受",
-      "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "idaho",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "居住证明要在 current legal name 下、通常在一年内、来自不同来源",
-      "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "idaho",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "外州搬入时带 out-of-state license，但不要把它当作唯一 identity proof",
-      "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -76695,15 +77581,17 @@
       "stateId": "idaho",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "先打开 Idaho Star Card 页面，确认是否需要带星卡或用护照替代",
+      "context": "document",
+      "claim": "已有 passport、Permanent Resident Card 等 TSA 接受证件时，可以不把 Star upgrade 当成唯一旅行方案",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/"
+        "https://itd.idaho.gov/starcard/",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho ITD Star Card"
+        "对应官方来源：Idaho ITD Star Card",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -76715,18 +77603,21 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "用 Acceptable Documents / Add the Star Tool 核对 identity、SSN、two residency",
+      "claim": "用 Required Documents 和 Add the Star Tool 整理 identity / lawful presence、SSN、residency、name chain 四组材料",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+        "https://itd.idaho.gov/starcard/add-the-star-tool/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：Idaho Driver License and ID Required Documents",
+        "对应官方来源：Idaho Add the Star Tool"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "residency-proof",
-        "ssn"
+        "ssn",
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -76736,35 +77627,19 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "搬州用户特别检查 out-of-state license 只能作为 photo identity document 的限制",
+      "claim": "Star Card 把两份 residency 按不同来源分开，逐份检查 current legal name、physical address、12 个月日期范围和打印要求",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/starcard/add-the-star-tool/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/03/StarCard_Checklist-1-2.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Add the Star Tool",
+        "对应官方来源：Idaho Star Card Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "idaho",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "把 residency 文件按来源分开，并确认姓名、地址和日期",
-      "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -76774,17 +77649,217 @@
       "stateId": "idaho",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "最后从 Idaho DMV portal 或 county office 选择办理地点",
+      "context": "license",
+      "claim": "中国大陆驾照持有人按 foreign Class D 路线准备 40 题 knowledge test 和第三方 skills test，不必为了申请 Idaho Class D 主动交回中国驾照",
       "sourceUrls": [
-        "https://dmv.idaho.gov/"
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho DMV"
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：ITD Taking the Driver’s Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "需要中文知识考试时联系具体 county driver license office，确认 Chinese written / aural 的版本、预约方式和最晚测试时间",
+      "sourceUrls": [
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/",
+        "https://itd.idaho.gov/dmv-locations/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：ITD Taking the Driver’s Test",
+        "对应官方来源：Idaho DMV Locations Directory",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "通过知识考试并取得 county skills-test receipt 后，再联系 ITD 名单中的第三方 examiner，确认费用、车辆、insurance、registration 和陪同驾驶人",
+      "sourceUrls": [
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：ITD Taking the Driver’s Test",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "从 DMV Locations 目录筛选 Driver Services 或 Combined Services，逐个查看 appointment、walk-in、营业时间和 test cutoff",
+      "sourceUrls": [
+        "https://itd.idaho.gov/dmv-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho DMV Locations Directory"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "test"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期先在 DMV Online 查看本人实际资格",
+      "sourceUrls": [
+        "https://itd.idaho.gov/service/license-renewal/",
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Online DMV Renewals",
+        "对应官方来源：Idaho Drivers Licenses and ID Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
         "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "首次 Star upgrade、改名、endorsement / restriction 变化或需重新证明 lawful presence 时改走现场",
+      "sourceUrls": [
+        "https://itd.idaho.gov/news/help-us-help-others-renew-online-if-you-can/",
+        "https://itd.idaho.gov/starcard/",
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho 2025 Online Renewal Eligibility",
+        "对应官方来源：Idaho ITD Star Card",
+        "对应官方来源：Idaho Driver License and ID Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "办结后保留 temporary paper credential 和旧证备查，实体卡寄到前不要自行假定临时纸证可满足 TSA 身份要求",
+      "sourceUrls": [
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [
+        "processing-or-mail",
+        "temporary-credential"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "第一次建立 Idaho DMV profile 只带 birth certificate，没有按 2026-07-01 新规则准备 valid government-issued photo ID",
+      "sourceUrls": [
+        "https://itd.idaho.gov/news/idaho-dmv-announces-updated-proof-of-identity-requirements/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho 2026 Proof of Identity Update"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把中国大陆驾照当作美国 out-of-state license，期待免 knowledge test 或 skills test",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/guide/new-to-idaho/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：ITD New to Idaho"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "把 Korea / Taiwan 的 skills-test 互惠扩大到中国大陆，或误以为互惠也免 knowledge test",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -76794,14 +77869,16 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "real-id",
-      "claim": "以为外州 REAL ID license 可以直接换 Idaho Star Card，不用再带 birth certificate 或 passport",
+      "claim": "以为外州 REAL ID 可以单独证明 Star Card identity，不再带 passport、birth certificate 或 lawful-presence 文件",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/"
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho ITD Star Card"
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Driver License and ID Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "document"
@@ -76814,14 +77891,16 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "两份地址证明来自同一来源，或只显示 P.O. Box",
+      "claim": "两份 Star Card 地址证明来自同一来源，姓名或 physical address 不一致，或只显示 P.O. Box",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/starcard/add-the-star-tool/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Add the Star Tool"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -76833,14 +77912,16 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "带 fax 文件或截图文件",
+      "claim": "带手机截图、fax、普通 photocopy 或 laminated identity document，没有按类别准备 original、certified copy 或 printed e-document",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Driver License and ID Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -76852,16 +77933,134 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "只准备普通 Idaho license 材料，没看 Star Card 的额外要求",
+      "claim": "姓名只带最后一次 marriage certificate，无法从出生姓名连续连接到 current legal name",
       "sourceUrls": [
-        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/"
+        "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+        "https://itd.idaho.gov/starcard/add-the-star-tool/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/03/StarCard_Checklist-1-2.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Idaho Star Card Acceptable Documents"
+        "对应官方来源：Idaho Star Card Acceptable Documents",
+        "对应官方来源：Idaho Add the Star Tool",
+        "对应官方来源：Idaho Star Card Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "需要 Chinese test 却直接到任意车辆服务点，没有确认它是否为 driver services location、是否接受预约以及提供哪种 Chinese 版本",
+      "sourceUrls": [
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/",
+        "https://itd.idaho.gov/dmv-locations/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：ITD Taking the Driver’s Test",
+        "对应官方来源：Idaho DMV Locations Directory"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "知识考试失败后第二天再次到场，或 skills test 失败后没有重新取得 receipt 和准备两部分费用",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：ITD Taking the Driver’s Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "路考车辆没有 current signed registration、有效 insurance 或车主许可，或由无有效驾照的申请人自己开到考场",
+      "sourceUrls": [
+        "https://itd.idaho.gov/guide/taking-the-drivers-test/",
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：ITD Taking the Driver’s Test",
+        "对应官方来源：Idaho Driver’s Handbook July 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "首次升级 Star Card 或非公民续期时直接使用 online renewal，忽略现场文件核验要求",
+      "sourceUrls": [
+        "https://itd.idaho.gov/news/help-us-help-others-renew-online-if-you-can/",
+        "https://itd.idaho.gov/starcard/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho 2025 Online Renewal Eligibility",
+        "对应官方来源：Idaho ITD Star Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "idaho",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "只在线更新 address record 后等待免费新卡，忽略卡面新地址需要 duplicate 或 renewal",
+      "sourceUrls": [
+        "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+        "https://itd.idaho.gov/dmv/drivers-licenses-id-cards/",
+        "https://itd.idaho.gov/wp-content/uploads/2025/03/Address.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Idaho Driver’s Handbook July 2026",
+        "对应官方来源：Idaho Drivers Licenses and ID Cards",
+        "对应官方来源：Idaho Address Change Form ITD 3239"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true

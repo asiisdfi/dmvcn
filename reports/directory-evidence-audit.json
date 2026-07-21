@@ -1,11 +1,11 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T01:05:00.032Z",
+    "generatedAt": "2026-07-21T01:33:47.324Z",
     "pages": 5,
-    "claims": 723,
+    "claims": 728,
     "statesCovered": 50,
-    "aiAssisted": 644,
-    "automated": 79,
+    "aiAssisted": 656,
+    "automated": 72,
     "errors": 0,
     "coverage": {
       "costs-timing": {
@@ -13,19 +13,19 @@
         "states": 42
       },
       "deadlines": {
-        "claims": 106,
-        "states": 40
+        "claims": 109,
+        "states": 41
       },
       "document-rules": {
         "claims": 184,
         "states": 49
       },
       "foreign-license": {
-        "claims": 122,
-        "states": 39
+        "claims": 123,
+        "states": 40
       },
       "identity-ssn": {
-        "claims": 165,
+        "claims": 166,
         "states": 45
       }
     }
@@ -3695,6 +3695,50 @@
     },
     {
       "page": "deadlines",
+      "stateId": "idaho",
+      "category": "材料时效",
+      "claim": "Residency 文件要显示申请人姓名和 principal Idaho physical address，通常在最近 12 个月内",
+      "sourceUrl": "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+      "sourceLabel": "对应官方来源：Idaho Driver License and ID Required Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "idaho",
+      "category": "材料时效",
+      "claim": "Star Card 把两份 residency 按不同来源分开，逐份检查 current legal name、physical address、12 个月日期范围和打印要求",
+      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
+      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "idaho",
+      "category": "续期 / 到期",
+      "claim": "21 岁以上 Class D 可现场提前最多 25 个月续期，通常选择四年或八年，八年选项限 21 至 62 岁",
+      "sourceUrl": "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+      "sourceLabel": "对应官方来源：Idaho Driver’s Handbook July 2026",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [
+        "renewal"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
       "stateId": "mississippi",
       "category": "续期 / 到期",
       "claim": "续期即使未满 60 个月也带核心材料备份",
@@ -6093,58 +6137,57 @@
       "page": "document-rules",
       "stateId": "idaho",
       "category": "地址证明",
-      "claim": "两份 Idaho residency，显示 current physical address，P.O. Box 不接受",
-      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
-      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "claim": "普通 license / ID 通常至少一份 Idaho residency，Star Card 要两份来自不同来源的 residency documents",
+      "sourceUrl": "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+      "sourceLabel": "对应官方来源：Idaho Driver License and ID Required Documents",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "idaho",
       "category": "地址证明",
-      "claim": "居住证明要在 current legal name 下、通常在一年内、来自不同来源",
-      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
-      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "claim": "Residency 文件要显示申请人姓名和 principal Idaho physical address，通常在最近 12 个月内",
+      "sourceUrl": "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+      "sourceLabel": "对应官方来源：Idaho Driver License and ID Required Documents",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "idaho",
       "category": "地址证明",
-      "claim": "把 residency 文件按来源分开，并确认姓名、地址和日期",
-      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
-      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "claim": "电子文件应打印，P.O. Box 不能代替居住地址",
+      "sourceUrl": "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+      "sourceLabel": "对应官方来源：Idaho Driver License and ID Required Documents",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "idaho",
       "category": "地址证明",
-      "claim": "Idaho Star Card 需要证明 identity、Social Security number 和 Idaho residency",
-      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
-      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
+      "claim": "常见 residency 包括签署并注明日期的 lease / mortgage / deed、utility 或 bank statement、W-2 / 1099、pay stub、school record、insurance 或 property-tax record",
+      "sourceUrl": "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+      "sourceLabel": "对应官方来源：Idaho Driver License and ID Required Documents",
       "themes": [
-        "residency-documents",
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -7957,15 +8000,15 @@
     {
       "page": "foreign-license",
       "stateId": "new-hampshire",
-      "category": "外州 / 加拿大转入",
-      "claim": "有效美国外州驾照转入通常只做 vision test，外州证件过期超过一年则要做 vision、knowledge 和 road tests",
-      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/nhdm.pdf",
-      "sourceLabel": "对应官方来源：NH Driver Manual",
+      "category": "外国 / 境外驾照",
+      "claim": "非美国公民交回外国驾照后，DMV 会核验原证真伪、是否确属申请人以及是否存在 suspension 或 revocation",
+      "sourceUrl": "https://gc.nh.gov/rules/state_agencies/saf-c1000.html",
+      "sourceLabel": "对应官方来源：NH Driver Licensing Administrative Rules Saf-C 1000",
       "themes": [
-        "out-of-state"
+        "foreign-license"
       ],
       "failedThemes": [
-        "out-of-state"
+        "foreign-license"
       ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
@@ -7973,12 +8016,13 @@
     {
       "page": "foreign-license",
       "stateId": "new-hampshire",
-      "category": "外州 / 加拿大转入",
-      "claim": "Transfer License From Another State：美国外州驾照搬入 New Hampshire 后的换证入口",
-      "sourceUrl": "https://gc.nh.gov/rsa/html/XXI/263/263-35.htm",
-      "sourceLabel": "对应官方来源：NH RSA 263:35 New Resident Deadline",
+      "category": "外国 / 境外驾照",
+      "claim": "NH New Resident: U.S. or Foreign License：先区分美国外州换证与外国驾照首次申请，再进入对应业务",
+      "sourceUrl": "https://www.dmv.nh.gov/drivers-licensenon-driver-ids",
+      "sourceLabel": "对应官方来源：NH DMV Driver Licenses / Non-Driver IDs",
       "themes": [
         "new-resident",
+        "foreign-license",
         "out-of-state"
       ],
       "failedThemes": [],
@@ -7988,15 +8032,15 @@
     {
       "page": "foreign-license",
       "stateId": "new-hampshire",
-      "category": "外州 / 加拿大转入",
-      "claim": "持当前有效美国外州驾照转入时，NH Driver Manual 写明通常只做 vision test",
-      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/nhdm.pdf",
-      "sourceLabel": "对应官方来源：NH Driver Manual",
+      "category": "外国 / 境外驾照",
+      "claim": "中国大陆等外国驾照不能当作美国州、DC 或加拿大省证件直接交换，非美国公民首次申请按现行行政规则要依次完成视力、知识和路考",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/dsmv450.pdf",
+      "sourceLabel": "对应官方来源：NH DMV DSMV450 Driver License / ID Application",
       "themes": [
-        "out-of-state"
+        "foreign-license"
       ],
       "failedThemes": [
-        "out-of-state"
+        "foreign-license"
       ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
@@ -8004,15 +8048,16 @@
     {
       "page": "foreign-license",
       "stateId": "new-hampshire",
-      "category": "期限 / 居民身份",
-      "claim": "新居民记录建立 New Hampshire residency 的日期，普通情形在 60 天内完成转入，不要自行套用 H-2A 例外",
-      "sourceUrl": "https://gc.nh.gov/rsa/html/XXI/263/263-35.htm",
-      "sourceLabel": "对应官方来源：NH RSA 263:35 New Resident Deadline",
+      "category": "外国 / 境外驾照",
+      "claim": "中国大陆等外国驾照持有人按 original non-US citizen 路线准备，不要选择美国州、DC 或加拿大省 exchange",
+      "sourceUrl": "https://www.dmv.nh.gov/sites/g/files/ehbemt416/files/inline-documents/dsmv450.pdf",
+      "sourceLabel": "对应官方来源：NH DMV DSMV450 Driver License / ID Application",
       "themes": [
-        "residency-documents",
-        "new-resident"
+        "foreign-license"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "foreign-license"
+      ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -8202,6 +8247,20 @@
         "foreign-license",
         "translation"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "idaho",
+      "category": "IDP / 国际驾照",
+      "claim": "外国申请人通常用有效 foreign passport 配合当前 lawful-presence 文件，只有中国驾照、翻译件或 IDP 不能代替 Idaho 身份与移民材料",
+      "sourceUrl": "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+      "sourceLabel": "对应官方来源：Idaho Driver License and ID Required Documents",
+      "themes": [
+        "translation"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -10482,21 +10541,7 @@
       "page": "identity-ssn",
       "stateId": "idaho",
       "category": "SSN",
-      "claim": "Social Security number 证明，例如 Social Security card、W-2、1099 或含完整 SSN 的 paystub",
-      "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
-      "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
-      "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "idaho",
-      "category": "SSN",
-      "claim": "Idaho Star Card 需要证明 identity、Social Security number 和 Idaho residency",
+      "claim": "仍要补 identity、SSN、residency 和适用的 lawful-presence 文件",
       "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
       "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
       "themes": [
@@ -10505,22 +10550,53 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "idaho",
       "category": "SSN",
-      "claim": "它只能作为 photo identity document，还要补 identity、SSN 和 residency 文件",
+      "claim": "用 Required Documents 和 Add the Star Tool 整理 identity / lawful presence、SSN、residency、name chain 四组材料",
+      "sourceUrl": "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+      "sourceLabel": "对应官方来源：Idaho Driver License and ID Required Documents",
+      "themes": [
+        "residency-documents",
+        "document-checklist",
+        "ssn",
+        "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "idaho",
+      "category": "SSN",
+      "claim": "Star Card 要一份合格 identity / lawful-presence 文件、SSN 核验、两份不同来源的 Idaho physical-address 证明和完整姓名链",
       "sourceUrl": "https://itd.idaho.gov/starcard/star-card-acceptable-documents/",
       "sourceLabel": "对应官方来源：Idaho Star Card Acceptable Documents",
       "themes": [
-        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "idaho",
+      "category": "lawful presence",
+      "claim": "非美国公民的 lawful presence 会由 USCIS 核验，未能证明 lawful presence 的申请人不符合 Idaho license / ID 资格",
+      "sourceUrl": "https://itd.idaho.gov/service/drivers-license-and-id-required-documents/",
+      "sourceLabel": "对应官方来源：Idaho Driver License and ID Required Documents",
+      "themes": [
+        "lawful-presence",
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
