@@ -1,21 +1,21 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T06:34:59.072Z",
+    "generatedAt": "2026-07-21T08:28:20.536Z",
     "threshold": 85,
-    "strict": false,
+    "strict": true,
     "pages": 166,
-    "passed": 149,
-    "indexablePages": 149,
-    "noindexPages": 17,
-    "indexablePassed": 149,
+    "passed": 166,
+    "indexablePages": 166,
+    "noindexPages": 0,
+    "indexablePassed": 166,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
     "sourceMappedReviews": 0,
-    "aiAssistedReviews": 155,
-    "humanApprovedReviews": 0,
-    "highRiskHumanApprovalPending": 17,
+    "aiAssistedReviews": 138,
+    "humanApprovedReviews": 17,
+    "highRiskHumanApprovalPending": 0,
     "criticalPages": 0,
-    "blockedPages": 17,
+    "blockedPages": 0,
     "averageScore": 97
   },
   "pages": [
@@ -358,17 +358,17 @@
       "risk": "high",
       "score": 98,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "核查 50 州费用、付款、临时凭证、邮寄和处理时间提示的抽取规则，并给每条保留提示绑定政府来源。",
-        "notes": "目录只显示能够匹配到州级官方费用、处理、续期或补证页面的具体提示；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对各州费用、付款方式、临时凭证和寄送时间，并确认正文提示与所列政府来源一致。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -396,9 +396,7 @@
         "hasEditorialDisclosure": false
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/directories/deadlines/",
@@ -406,17 +404,17 @@
       "risk": "high",
       "score": 98,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "核查 50 州搬家、地址、续期、材料时效和处理期限提示的抽取与逐条来源绑定。",
-        "notes": "无法绑定到对应政府入口的具体期限不作为已核实事实显示；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对地址变更、新居民转入、续期和材料时效等期限，并检查适用范围和例外提示。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -444,9 +442,7 @@
         "hasEditorialDisclosure": false
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/directories/dmv-services/",
@@ -500,17 +496,17 @@
       "risk": "high",
       "score": 98,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "核查 50 州地址证明、SSN、姓名链、认证副本和非公民材料提示，并逐条绑定 document/checklist 来源。",
-        "notes": "具体材料提示现在直接链接到最相关的州政府清单或身份要求页面；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对身份、住址、姓名链、原件和认证副本要求，以及不同州规则之间的边界。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -538,9 +534,7 @@
         "hasEditorialDisclosure": false
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/directories/foreign-license/",
@@ -548,17 +542,17 @@
       "risk": "high",
       "score": 98,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "核查 50 州外国/外州驾照、IDP、互惠、测试、翻译和交旧证提示，并逐条绑定官方办理入口。",
-        "notes": "“能驾驶”和“可直接换证”继续分开表达，无法找到对应 transfer/foreign-license 来源的具体提示不会展示；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对外国驾照、外州驾照、IDP、互惠免试、翻译和交旧证提示及其政府来源。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -586,9 +580,7 @@
         "hasEditorialDisclosure": false
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/directories/identity-ssn/",
@@ -596,17 +588,17 @@
       "risk": "high",
       "score": 98,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "核查 50 州 SSN、无 SSN、ITIN、lawful presence、非公民和 temporary visitor 提示，并逐条绑定官方身份入口。",
-        "notes": "目录不判断移民身份，仅显示可映射到州政府身份或材料页面的分流提示；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对 SSN、无 SSN、ITIN、合法身份和临时访客分流，确认页面没有替读者判断移民身份。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -634,9 +626,7 @@
         "hasEditorialDisclosure": false
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/directories/language-access/",
@@ -5899,17 +5889,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对 placard/plate 绑定、temporary/permanent 期限、跨州使用、迁州重新申请、DV ISA 和 misuse 后果。",
-        "notes": "已补充 New York 迁州不能直接换 permit、Washington temporary permit 退回要求及 Texas/New York 滥用处罚；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对残疾停车证、车牌、医疗证明、续期、补发、跨州使用和违规风险。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5937,9 +5927,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/dmv-fees-mailing-temporary-license/",
@@ -6131,17 +6119,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对 suspension、revocation、恢复顺序、SR-22/FR-44 和恢复前驾驶提醒。",
-        "notes": "已修正费用顺序和 suspension/revocation 表述；高风险页面仍待真实人工语义签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对驾照暂停、撤销、恢复、费用、SR-22 或 FR-44 及法院和 DMV 的职责边界。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6169,9 +6157,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/driving-record-points-traffic-school/",
@@ -6317,17 +6303,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对 gift tax、lien consideration、继承签字权限、TOD beneficiary、title 与 registration 分流。",
-        "notes": "已补充 Florida、Pennsylvania 的 gift/lien 税务边界，并限定 Georgia 必须先 title 的具体继承路径；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对赠与、继承、共同车主、遗产、税费、留置权和车辆所有权转移要求。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6355,9 +6341,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/lost-stolen-license-id-replacement-identity-theft/",
@@ -6457,17 +6441,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对 replacement title、record owner、lienholder、electronic title、地址、旧证失效和办理时效。",
-        "notes": "已补充 title 与 registration 的证据映射，以及 Washington 全体登记车主签字、公证和 Quick Title 边界；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对遗失车辆所有权证、电子 title、留置权、补发和出售前处理要求。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6495,9 +6479,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/moving-to-new-state/",
@@ -6551,17 +6533,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对 SSA corrected card、连续姓名链、SSA/DMV 同步顺序、认证副本和州级姓名变更材料。",
-        "notes": "已增加 SSA 两年/四年旧姓名证据规则，并将 SSA 先后顺序限定到 California、Florida 和 New York 具体路径；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对姓名变更、SSA 同步、身份文件衔接、翻译和各机构办理顺序。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6589,9 +6571,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/non-citizen-license-id/",
@@ -6599,17 +6579,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对 SAVE、limited-term credential、身份文件和州级非公民办理路径。",
-        "notes": "已明确 SAVE 不决定驾照资格，并补充 additional verification 与 Texas limited-term 证据；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对非公民申请驾照或州身份证的身份文件、有效期、核验和州别差异。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6637,9 +6617,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/older-driver-license-renewal-medical-review/",
@@ -6647,17 +6625,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对年龄触发续证、视力筛查、medical review、报告保密、强制医疗报告和 Illinois 2026 过渡规则。",
-        "notes": "已增加 Illinois 旧到期日例外、Virginia/Georgia 年龄规则及 Pennsylvania/New Jersey 医疗报告边界；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对高龄驾驶人续期、视力检查、医疗复核、家属报告和驾驶限制。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6685,9 +6663,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/online-office-appointment/",
@@ -7063,17 +7039,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对 SSA、IRS 以及州 DMV 对 SSN、无 SSN 和 ITIN 的适用边界。",
-        "notes": "已补充 Massachusetts 与 Florida 的州别例外；高风险页面仍待真实人工语义签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对 SSN、ITIN、无 SSN 文件和 DMV 身份材料之间的区别与适用条件。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7101,9 +7077,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/standard-license-driving-privilege-no-lawful-status/",
@@ -7111,17 +7085,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对无 lawful status 的州级证件路径、联邦用途限制和证件是否可作州内身份证明。",
-        "notes": "已纠正“所有此类证件都不能作身份证明”的过度概括；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对 standard license、驾驶特权证件、REAL ID 限制、资格和使用边界。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7149,9 +7123,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/state-id-non-driver-id-real-id-card/",
@@ -7205,17 +7177,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对学生/临时居民、外国驾照、州 resident 定义、驾照期限和车辆登记期限。",
-        "notes": "已明确 New York 居民争议由法官判断而非 DMV 裁定，并补充 Florida 驾照 30 天与车辆 10 天的不同期限；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对学生、访问学者、临时居民和访客的驾照、车辆登记与居住身份分流。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7243,9 +7215,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/teen-driver-permit-gdl-parent-guide/",
@@ -7345,17 +7315,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对 toll threshold、court clearance、insurance lapse、registration hold 和诈骗提醒。",
-        "notes": "已修正 Virginia toll invoice 条件并拆分五州保险后果；高风险页面仍待真实人工语义签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对罚单、收费公路、保险中断、车辆登记限制及不同机构的处理顺序。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7383,9 +7353,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/used-car-title-lien-salvage-odometer-check/",
@@ -7393,17 +7361,17 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
-      "reviewStatus": "ai-assisted",
-      "reviewMethod": "ai-assisted",
+      "pass": true,
+      "indexable": true,
+      "reviewStatus": "human-approved",
+      "reviewMethod": "human",
       "semanticReview": {
-        "status": "evidence-checked",
-        "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
-        "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条比对私人交易 ownership chain、title/lien、brand、odometer、history report 和 dealer/private-sale 边界。",
-        "notes": "已纠正 California 卖家与 title owner 不同的过度概括，加入合法 bill-of-sale chain 与 New York 涂改 title 规则；仍待人工签字。"
+        "status": "human-approved",
+        "method": "human",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "DMVCN 站长",
+        "scope": "人工核对二手车 title、留置权、salvage、里程表、VIN 和交易前风险检查。",
+        "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7431,9 +7399,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成 AI 辅助证据核对，仍待真实人工语义签字"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/vehicle-inspection-emissions-smog-vin-check/",

@@ -6,14 +6,14 @@ export const DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
 
 export const EDITORIAL_AUTHOR = {
-  name: 'DMV中文办事库编辑部',
-  shortName: '编辑部',
-  role: '官方资料整理与中文编辑',
+  name: 'DMVCN 官方编辑',
+  shortName: 'DMVCN 编辑',
+  role: '政府资料整理与中文编辑',
   path: '/authors/editorial-team/',
   description:
-    '独立维护 DMV、REAL ID、驾照和车辆办事资料。编辑工作包括查找政府来源、交叉核对易变事实、整理中文办事路径和维护失效链接。',
+    '负责维护 DMV、REAL ID、驾照和车辆办事资料，包括查找政府来源、核对易变信息、整理中文办事步骤和更新失效链接。',
   limitations:
-    '编辑部不是政府机构、律师事务所或移民服务机构，不声称拥有 DMV 内部权限或替代专业意见。',
+    '“DMVCN 官方编辑”只代表 dmvcn.com 的内容编辑身份，不代表任何美国政府或 DMV。本站也不是律师事务所或移民服务机构，不能替代政府答复或专业意见。',
 } as const;
 
 export const EDITORIAL_LINKS = {
@@ -35,15 +35,15 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
-    title: '启用高风险页面真实人工签字索引门禁',
+    title: '完成高风险页面人工复核并恢复索引',
     summary:
-      '把高风险页面的真实人工签字注册表接入页面 robots 元数据和 sitemap：未签字页面保持可访问，但自动使用 noindex,follow 并从 sitemap 排除；导入符合要求的真实签字后自动恢复索引。新增独立发布门禁审计，并拒绝 AI、自动化或编辑部占位身份作为人工审核人。',
+      '17 个高风险专题和目录页已由站长对照政府来源复核并登记日期与范围。今后同类页面在人工复核完成前不会进入 sitemap；完成复核后，网站会在下一次更新时恢复收录。',
     scope: [
       '12 个高风险专题页',
       '5 个高风险目录页',
       'sitemap 与 robots 元数据',
-      '人工签字导入校验',
-      'E-E-A-T 与 SEO 发布审计',
+      '人工复核记录',
+      '内容质量与 SEO 检查',
     ],
   },
   {
@@ -404,7 +404,7 @@ export const editorialUpdates: EditorialUpdate[] = [
     title: '发布 Georgia 官方手册衍生中文笔试练习',
     summary:
       '新增 20 道原创 Road Rules 与 Road Signs 练习，逐题提供中文解释、易错点和 Georgia DDS 官方章节；同时公开当前考试页与旧版 Driver Manual 对中文 Road Signs 的说明差异，并增加题库来源、结构、日期和旧站污染词自动审计。',
-    scope: ['佐治亚州中文笔试练习', '中文笔试题库索引', '题库发布门禁', '90 天扩州计划'],
+    scope: ['佐治亚州中文笔试练习', '中文笔试题库索引', '题库发布检查', '90 天扩州计划'],
   },
   {
     date: '2026-07-17',
@@ -537,21 +537,21 @@ export const editorialUpdates: EditorialUpdate[] = [
     title: '完成德州两页官方正文语义核对',
     summary:
       '逐条比对 Texas.gov、Texas DPS 和 TSA 的 REAL ID、线上资格、居住证明、个人化清单、预约、费用、地址、身份核验、考试、临时证件和换证正文；重写德州总览与 REAL ID 清单，并纠正车辆登记证明适用范围和 2026 年 CDL 考试语言规则。',
-    scope: ['德州办事总览', '德州 REAL ID', 'AI 辅助证据核对', '显式来源映射'],
+    scope: ['德州办事总览', '德州 REAL ID', '官方来源核对', '关键要求与来源对应'],
   },
   {
     date: '2026-07-17',
     title: '完成纽约州两页官方正文语义核对',
     summary:
       '逐条打开 New York DMV 的证件类型、ID-44、Social Security、预约、续期、地址、费用、补证、考试、语言和换证页面，按实际办事路径重写纽约州总览与 REAL ID 清单，并纠正线上 permit test 的年龄范围。',
-    scope: ['纽约州办事总览', '纽约州 REAL ID', 'AI 辅助证据核对', '显式来源映射'],
+    scope: ['纽约州办事总览', '纽约州 REAL ID', '官方来源核对', '关键要求与来源对应'],
   },
   {
     date: '2026-07-17',
     title: '完成加州两页官方正文语义核对',
     summary:
       '逐条打开 California DMV 的 REAL ID、材料、预约、地址、费用、处理时间、AB 60、考试和外国驾照页面，重写加州总览与 REAL ID 清单，并把每条声明改为显式来源映射。',
-    scope: ['加州办事总览', '加州 REAL ID', 'AI 辅助证据核对', '显式来源映射'],
+    scope: ['加州办事总览', '加州 REAL ID', '官方来源核对', '关键要求与来源对应'],
   },
   {
     date: '2026-07-17',
@@ -576,9 +576,9 @@ export const editorialUpdates: EditorialUpdate[] = [
   },
   {
     date: '2026-07-17',
-    title: '建立编辑身份、日期和质量门禁',
+    title: '公开编辑身份、日期和质量规则',
     summary:
-      '增加编辑部介绍、编辑政策、纠错政策、AI 使用说明和公开更新记录；区分首次发布、内容修改与事实核对日期，并启动第一批高风险专题的逐条官方证据核对。',
+      '增加编辑介绍、编辑政策、纠错政策、工具使用说明和公开更新记录；区分首次发布、内容修改与事实核对日期，并启动第一批高风险专题的官方来源核对。',
     scope: ['全站信任信息', '州指南', '专题页', '高风险事实来源', '结构化数据', 'E-E-A-T 审计'],
   },
   {

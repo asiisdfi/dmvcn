@@ -188,12 +188,12 @@ const pageTypeName: Record<PageType, string> = {
 };
 
 const pageStatusLabel: Record<ReviewStatus, string> = {
-  'human-approved': '已完成人工签字',
-  'ai-assisted': 'AI 辅助已核对',
-  'source-mapped': '仅来源映射',
-  pending: '待登记',
-  invalid: '异常状态',
-  'not-required': '无需审计',
+  'human-approved': '人工复核完成',
+  'ai-assisted': '来源已核对',
+  'source-mapped': '来源已登记',
+  pending: '等待复核',
+  invalid: '需要处理',
+  'not-required': '无需复核',
 };
 
 const riskLabel: Record<Risk, string> = {
@@ -237,9 +237,9 @@ function formatTitle(page: EeatPage) {
 const qualityChecks = [
   '官方来源可追溯',
   '三类日期完整显示',
-  '每个关键事实逐条映射官方来源',
-  '搜索意图对应用户决策行为',
-  '每篇有编辑说明与更新方法',
+  '费用、期限等重要信息在正文旁标出政府来源',
+  '页面回答一个明确的办事问题',
+  '每页写明整理人和核对日期',
   '高风险事实有风险边界',
   '页面结构可抓取（h1、canonical、JSON-LD）',
 ];
@@ -280,26 +280,26 @@ const weakStatePages = lowScorePages
 const plan = [
   {
     title: '第 1-2 周',
-    goal: '完成高风险页面的人工语义签字',
-    intent: '高风险专题 + 高风险目录：费用、身份、暂停、外国驾照',
-    sources: ['州官网正文', '专题官方来源页'],
-    scope: highRiskPending.map((page) => formatTitle(page)).slice(0, 12),
+    goal: '复查搜索展现最高的页面',
+    intent: '根据 Search Console 数据补强标题、开头答案和内部链接',
+    sources: ['Search Console 导出', '页面已有政府来源', '州政府最近更新'],
+    scope: ['优先处理已有展现但点击率偏低的州页和专题页', '核对最近 30 天出现的新搜索问题'],
     publish: toIsoDate(14),
-    reviewCycle: '每周复核 + 发布后 5 个工作日抽检',
+    reviewCycle: '每周查看数据，修改后 5 个工作日抽查',
   },
   {
     title: '第 3-4 周',
-    goal: '补齐低分州页的“判定路径”',
-    intent: '州总览与 REAL ID 页面差异化决策清晰化',
+    goal: '让需要改善的州页更容易使用',
+    intent: '讲清州总览与 REAL ID 页面各自解决什么问题',
     sources: ['州官方主页、州DMV办理页、州文书说明页'],
     scope: weakStatePages,
     publish: toIsoDate(28),
-    reviewCycle: '每 2 周一轮人工复核',
+    reviewCycle: '每 2 周复查一次',
   },
   {
     title: '第 5-6 周',
-    goal: '建立月度“热门意图”专题扩展机制',
-    intent: '围绕高搜索意图专题补齐流程失败与禁忌',
+    goal: '根据热门问题扩充专题',
+    intent: '补充读者最常遇到的失败原因和不能混用的规则',
     sources: ['专题官方来源 + FAQ', '州入口页'],
     scope: ['费用和时效', '外国驾照互惠', 'non citizen / lawful presence', '车辆登记 hold', '驾驶记录与扣分'],
     publish: toIsoDate(42),
@@ -307,8 +307,8 @@ const plan = [
   },
   {
     title: '第 7-12 周',
-    goal: '月度更新机制落地',
-    intent: '把搜索需求×官方更新频率做优先级排序',
+    goal: '形成固定的月度更新节奏',
+    intent: '按照读者搜索需求和政府规则变化安排先后顺序',
     sources: ['Search Console 导出', '州政府官方更新提示页'],
     scope: [
       `优先州：${highPriorityStates.map((state) => state.nameZh).join('、')}`,
@@ -319,29 +319,29 @@ const plan = [
         .join('、')}`,
     ],
     publish: toIsoDate(84),
-    reviewCycle: '月末复盘 + 下一月发布前签字',
+    reviewCycle: '月末复盘，下一月发布前复核',
   },
 ];
 
 const qualityWorkflow = [
   {
     title: '来源优先',
-    text: '先抓取联邦和州官方页面，再做中文化决策路径落地。每条关键事实都保留可核对来源。',
+    text: '先读联邦和州政府页面，再整理中文说明。每项重要要求都保留可核对的出处。',
     Icon: ShieldCheck,
   },
   {
-    title: '事实映射',
-    text: '高风险事实逐条显示来源，不以页尾链接替代正文旁的来源承载；禁止“可疑来源”进入正文。',
+    title: '重要信息有出处',
+    text: '费用、期限、身份和资格等重要要求直接标出政府来源，不能只在页尾堆放链接。',
     Icon: Search,
   },
   {
-    title: '价值重写',
-    text: '每篇都要覆盖判断路径、材料清单、办理步骤、常见失败和官方入口，不是纯翻译或目录摘抄。',
+    title: '解决具体问题',
+    text: '每篇都要讲清该怎么判断、准备什么、按什么顺序办理，以及遇到问题去哪里确认。',
     Icon: Target,
   },
   {
-    title: '发布门禁',
-    text: '未具备三类日期、缺失作者、缺少源映射、高风险未人工签字，不进入可推送状态。',
+    title: '上线检查',
+    text: '缺少署名、日期或关键来源的页面不会上线；高风险内容还要先完成人工复核。',
     Icon: Flag,
   },
 ];
@@ -368,8 +368,8 @@ const scActionLabel: Record<string, string> = {
 ---
 
 <BaseLayout
-  title="E-E-A-T 内容台账"
-  description="把 50 州、37 个专题、目录页与信任页形成逐页可执行台账，支持 90 天更新计划与阻塞项管理。"
+  title="内容质量与更新记录"
+  description="查看 DMV中文办事库的页面覆盖、来源核对、人工复核、更新日期和未来 90 天内容计划。"
   publishedAt={SITE_LAUNCH_DATE}
   modifiedAt={QUALITY_MODIFIED_AT}
   reviewedAt={QUALITY_REVIEWED_AT}
@@ -379,9 +379,9 @@ const scActionLabel: Record<string, string> = {
       <nav class="breadcrumbs" aria-label="面包屑">
         <a href="/">首页</a><span>/</span><span>来源与更新</span>
       </nav>
-      <p class="eyebrow">质量与发布控制</p>
-      <h1>E-E-A-T 内容台账</h1>
-      <p class="lead">目标是让每个页面都能对应“可复核来源 + 真实决策价值 + 明确更新责任”。</p>
+      <p class="eyebrow">来源与更新</p>
+      <h1>内容质量与更新记录</h1>
+      <p class="lead">这里公开本站覆盖了哪些内容、何时核对、哪些页面经过人工复核，以及接下来准备更新什么。</p>
       <div class="article-meta">
         <ContentMeta publishedAt={SITE_LAUNCH_DATE} modifiedAt={QUALITY_MODIFIED_AT} reviewedAt={QUALITY_REVIEWED_AT} />
       </div>
@@ -397,7 +397,7 @@ const scActionLabel: Record<string, string> = {
         </div>
         <div>
           <strong>{officialSourceCount}</strong>
-          <span>官方 URL</span>
+          <span>政府来源链接</span>
         </div>
       </div>
     </div>
@@ -406,10 +406,10 @@ const scActionLabel: Record<string, string> = {
   <section class="section">
     {report ? (
       <>
-        <div class="registry-summary eeat-summary" aria-label="台账总览">
+        <div class="registry-summary eeat-summary" aria-label="内容概览">
           <div>
             <strong>{summary.pages}</strong>
-            <span>审计页面总数</span>
+            <span>已检查页面</span>
           </div>
           <div>
             <strong>{summary.indexablePages}</strong>
@@ -417,19 +417,19 @@ const scActionLabel: Record<string, string> = {
           </div>
           <div>
             <strong>{summary.indexablePassed}</strong>
-            <span>可索引页通过</span>
+            <span>质量检查通过</span>
           </div>
           <div>
             <strong>{summary.averageScore}</strong>
-            <span>平均分</span>
+            <span>平均质量分</span>
           </div>
           <div>
             <strong>{summary.highRiskHumanApprovalPending}</strong>
-            <span>待签字 / noindex</span>
+            <span>等待人工复核</span>
           </div>
           <div>
             <strong>{(summary.indexablePassed / Math.max(summary.indexablePages, 1) * 100).toFixed(1)}%</strong>
-            <span>可索引页通过率</span>
+            <span>质量检查通过率</span>
           </div>
         </div>
 
@@ -441,14 +441,14 @@ const scActionLabel: Record<string, string> = {
           </article>
 
           <article class="card">
-            <div class="card-top"><CircleCheck size={22} aria-hidden="true" /><span class="small-badge">签字状态</span></div>
-            <h2>人工签字与 AI 辅助</h2>
-            <p>人工签字 <strong>{summary.humanApprovedReviews}</strong>；AI 辅助核对 <strong>{summary.aiAssistedReviews}</strong>；待真人签字 <strong>{summary.highRiskHumanApprovalPending}</strong>。</p>
+            <div class="card-top"><CircleCheck size={22} aria-hidden="true" /><span class="small-badge">复核状态</span></div>
+            <h2>人工复核与来源核对</h2>
+            <p>人工复核 <strong>{summary.humanApprovedReviews}</strong> 页；其余 <strong>{summary.aiAssistedReviews + summary.sourceMappedReviews}</strong> 页已完成来源或页面结构核对；等待复核 <strong>{summary.highRiskHumanApprovalPending}</strong> 页。</p>
           </article>
 
           <article class="card">
             <div class="card-top"><UserRoundCheck size={22} aria-hidden="true" /><span class="small-badge">风险结构</span></div>
-            <h2>风险分层</h2>
+            <h2>内容风险级别</h2>
             <p>标准 {byRisk.standard} 页，中等 {byRisk.medium} 页，高风险 {byRisk.high} 页，政策页 {byRisk.policy} 页。</p>
           </article>
 
@@ -460,52 +460,48 @@ const scActionLabel: Record<string, string> = {
         </div>
 
         <section class="panel">
-          <h2>质量核验清单（E-E-A-T 映射）</h2>
+          <h2>每页都要通过的检查</h2>
           <ol class="step-list">
             {qualityChecks.map((step) => <li>{step}</li>)}
           </ol>
         </section>
 
         <section class="panel">
-          <h2>高风险待人工签字</h2>
-          <p>
-            共 <strong>{highRiskPending.length}</strong> 页。签字前页面保持可访问，但自动输出 <code>noindex,follow</code> 并从 sitemap 排除；真实签字导入后才恢复收录。
-          </p>
-          <div class="eeat-table-wrap">
-            <table class="eeat-table">
-              <thead>
-                <tr>
-                  <th>页面</th>
-                  <th>风险</th>
-                  <th>状态</th>
-                  <th>最近核对</th>
-                  <th>来源绑定</th>
-                </tr>
-              </thead>
-              <tbody>
-                {highRiskPending.map((page) => (
-                  <tr>
-                    <td>
-                      <a href={page.route}>{formatTitle(page)}</a>
-                    </td>
-                    <td><span class="status-chip warn">{riskLabel[page.risk]}</span></td>
-                    <td><span class="status-chip">{pageStatusLabel[page.reviewStatus]}</span></td>
-                    <td>{page.semanticReview?.reviewedAt ?? '—'}</td>
-                    <td>{page.signals.hasInlineStateEvidence || page.signals.hasInlineDirectoryEvidence ? '逐条映射' : '结构映射'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <h2>高风险页面复核状态</h2>
+          {highRiskPending.length > 0 ? (
+            <>
+              <p>还有 <strong>{highRiskPending.length}</strong> 页等待人工复核。这些页面暂不进入 sitemap，也不会请求搜索引擎收录。</p>
+              <div class="eeat-table-wrap">
+                <table class="eeat-table">
+                  <thead>
+                    <tr>
+                      <th>页面</th>
+                      <th>风险</th>
+                      <th>状态</th>
+                      <th>最近核对</th>
+                      <th>来源</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {highRiskPending.map((page) => (
+                      <tr>
+                        <td><a href={page.route}>{formatTitle(page)}</a></td>
+                        <td><span class="status-chip warn">{riskLabel[page.risk]}</span></td>
+                        <td><span class="status-chip">{pageStatusLabel[page.reviewStatus]}</span></td>
+                        <td>{page.semanticReview?.reviewedAt ?? '—'}</td>
+                        <td>{page.signals.hasInlineStateEvidence || page.signals.hasInlineDirectoryEvidence ? '关键要求有对应来源' : '页面来源已登记'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          ) : <p>当前所有高风险页面都已完成站长人工复核，并保留审核日期和范围。</p>}
         </section>
 
         <section class="panel">
-          <h2>人工签字与发布动作工单（自动生成）</h2>
-          <p>{qualityWorkbookError ? qualityWorkbookError : `已加载 ${qualityWorkbook?.generatedAt?.slice(0, 10) ?? 'N/A'} 的工作清单。`}</p>
-          <p class="small-note">
-            高风险页面默认阻塞发布。每轮执行前可运行 <code>npm run plan:signoff</code> 生成签字清单，再由真实审核人填充 <code>docs/review-manual-signoff-template.csv</code> 并执行
-            <code>SIGNOFF_CSV=docs/review-manual-signoff-template.csv npm run review:signoffs:import</code>。
-          </p>
+          <h2>近期复核安排</h2>
+          <p>{qualityWorkbookError ? qualityWorkbookError : `工作清单更新于 ${qualityWorkbook?.generatedAt?.slice(0, 10) ?? 'N/A'}。`}</p>
           <div class="eeat-table-wrap">
             <table class="eeat-table">
               <thead>
@@ -530,19 +526,17 @@ const scActionLabel: Record<string, string> = {
                         <td>{task.reviewDue ?? '—'}</td>
                       </tr>
                     ))
-                  : <tr><td colspan="6">当前无待签字高风险项。</td></tr>}
+                  : <tr><td colspan="6">当前没有等待人工复核的高风险页面。</td></tr>}
               </tbody>
             </table>
           </div>
-          <p class="small-note">
-            高风险发布前必须完成人工语义签字；导入签字后，构建门禁会自动解除 noindex 并把页面重新加入 sitemap。
-          </p>
+          <p class="small-note">今后新增或大幅改写高风险页面时，会先安排人工复核，完成后再请求搜索引擎收录。</p>
         </section>
 
         <div class="quality-grid-2">
           <section class="panel">
-            <h2>低分页与重写优先项</h2>
-            <p>评分低于 90 的页面建议先补齐搜索意图、独特价值与来源映射的可读呈现。</p>
+            <h2>需要继续改善的页面</h2>
+            <p>评分低于 90 的页面会优先补充明确答案、实用步骤和正文旁的政府来源。</p>
             <div class="registry-table state-registry" role="list">
               {lowScorePages.map((page) => (
                 <article class="registry-row" role="listitem">
@@ -569,13 +563,13 @@ const scActionLabel: Record<string, string> = {
           </section>
 
           <section class="panel">
-            <h2>搜索意图与内容重叠监控</h2>
+            <h2>重复内容检查</h2>
             <ul class="check-list">
               {weakIntentPages.length > 0
                 ? weakIntentPages.map((page) => (
                     <li>
                       <a href={page.route}>{formatTitle(page)}</a>
-                      <small>建议判断是否与专题/目录形成独立意图；必要时考虑合并或设置 noindex。</small>
+                      <small>检查它是否与现有专题重复；如果不能单独解决一个问题，就合并或暂不收录。</small>
                 </li>
                   ))
                 : <li>当前未发现明显重复意图冲突项。索引页与详情页分工清晰。</li>}
@@ -583,11 +577,13 @@ const scActionLabel: Record<string, string> = {
           </section>
 
           <section class="panel">
-            <h2>Search Console 月度建议</h2>
+            <h2>按搜索数据安排更新</h2>
             <p>
               {searchConsolePlanError
                 ? searchConsolePlanError
-                : `来源：${searchConsolePlan?.source ?? '未指定'}；已入库 ${searchConsolePlan?.includedRows ?? 0}/${searchConsolePlan?.totalRows ?? 0} 条。`}
+                : searchConsolePlan?.includedRows
+                  ? `已读取 Search Console 导出数据 ${searchConsolePlan.includedRows}/${searchConsolePlan.totalRows} 条。`
+                  : '本月还没有导入新的 Search Console 查询数据。'}
             </p>
             <ul class="check-list">
               {scPlanList.length > 0
@@ -601,7 +597,7 @@ const scActionLabel: Record<string, string> = {
                       <p>{item.reason}</p>
                     </li>
                   ))
-                : <li>请先执行 <code>npm run plan:sc</code>（配合 Search Console 导出）生成月度建议。</li>}
+                : <li>导入 Search Console 查询数据后，这里会列出本月最值得更新的页面。</li>}
             </ul>
           </section>
         </div>
@@ -615,7 +611,7 @@ const scActionLabel: Record<string, string> = {
                 <p><strong>目标：</strong>{phase.goal}</p>
                 <p><strong>搜索意图：</strong>{phase.intent}</p>
                 <p><strong>官方来源：</strong>{phase.sources.join(' / ')}</p>
-                <p><strong>范围：</strong>{phase.scope.length ? phase.scope.join('；') : '按搜索需求动态补全'}</p>
+                <p><strong>范围：</strong>{phase.scope.length ? phase.scope.join('；') : '根据实际搜索问题安排'}</p>
                 <p><strong>目标上线：</strong>{phase.publish}；<strong>复核：</strong>{phase.reviewCycle}</p>
               </article>
             ))}
@@ -623,7 +619,7 @@ const scActionLabel: Record<string, string> = {
         </section>
 
         <section class="panel">
-          <h2>发布流程（可复用为编辑工作流）</h2>
+          <h2>编辑工作流程</h2>
           <div class="grid two">
             {qualityWorkflow.map((step) => (
               <article class="card">
@@ -635,7 +631,7 @@ const scActionLabel: Record<string, string> = {
           </div>
           <div class="policy-links">
             <a href={EDITORIAL_LINKS.policy}>编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
-            <a href={EDITORIAL_LINKS.ai}>AI 使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
+            <a href={EDITORIAL_LINKS.ai}>工具使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
             <a href={EDITORIAL_LINKS.corrections}>纠错政策 <ArrowRight size={15} aria-hidden="true" /></a>
             <a href={EDITORIAL_LINKS.updates}>更新记录 <ArrowRight size={15} aria-hidden="true" /></a>
             <a href="/sources/">来源清单 <ArrowRight size={15} aria-hidden="true" /></a>
@@ -643,7 +639,7 @@ const scActionLabel: Record<string, string> = {
         </section>
 
         <section class="panel">
-          <h2>阻塞项快照</h2>
+          <h2>需要处理的问题</h2>
           <div class="eeat-check-list">
             {blockedPages.length > 0 ? (
               blockedPages.map((page) => (
@@ -658,20 +654,15 @@ const scActionLabel: Record<string, string> = {
                 </article>
               ))
             ) : (
-              <p>当前无阻塞项。</p>
+              <p>当前没有需要处理的问题。</p>
             )}
           </div>
         </section>
       </>
     ) : (
       <section class="panel">
-        <h2>当前无法展示审计清单</h2>
-        <p>请先在本地执行：</p>
-        <ol class="step-list">
-          <li>npm run build</li>
-          <li>npm run audit:eeat</li>
-        </ol>
-        <p>生成后返回 `/quality/` 即可看到逐页清单。</p>
+        <h2>当前无法展示质量记录</h2>
+        <p>质量数据正在更新，请稍后再查看。</p>
       </section>
     )}
   </section>

@@ -167,8 +167,8 @@ for (const file of htmlFiles) {
     }
   }
 
-  if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !/"author":\{"@type":"Organization","name":"DMV中文办事库编辑部","url":"https?:\/\//.test(html)) {
-    errors.push(`${file.relative}: Article author must identify the editorial team and author URL`);
+  if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !/"author":\{"@type":"Organization","name":"[^"]{2,}","url":"https?:\/\//.test(html)) {
+    errors.push(`${file.relative}: Article author must identify a named editorial organization and author URL`);
   }
 }
 

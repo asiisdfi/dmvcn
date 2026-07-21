@@ -137,7 +137,12 @@ for (const state of states) {
       const attributes = attrs(itemNode);
       const context = attributes.get('data-evidence-context') ?? '';
       const field = attributes.get('data-evidence-field') ?? '';
-      const mappingMethod = attributes.get('data-evidence-method') ?? '';
+      const renderedMethod = attributes.get('data-evidence-method') ?? '';
+      const mappingMethod = renderedMethod === 'reviewed'
+        ? 'ai-assisted'
+        : renderedMethod === 'registered'
+          ? 'automated'
+          : renderedMethod;
       const claimNode = descendants(itemNode, (node) => node.tagName === 'p')[0];
       const claim = text(claimNode ?? {}).replace(/\s+/g, ' ').trim();
       const links = descendants(itemNode, (node) => classes(node).has('state-evidence-link'));

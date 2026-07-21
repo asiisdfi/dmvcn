@@ -25,7 +25,7 @@ const schema = {
 
 <BaseLayout
   title="编辑政策"
-  description="DMV中文办事库编辑政策：选题、官方来源、事实核对、风险分级、更新和发布门禁。"
+  description="DMV中文办事库编辑政策：选题、政府来源、事实核对、风险分级、更新和上线检查。"
   publishedAt={EDITORIAL_POLICY_DATE}
   modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE}
   reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE}
@@ -88,20 +88,20 @@ const schema = {
         <dl class="definition-list">
           <div><dt>首次发布</dt><dd>页面第一次公开提供的日期，后续更新不会覆盖。</dd></div>
           <div><dt>内容更新</dt><dd>页面正文、结论、结构或来源发生实质变化的日期。</dd></div>
-          <div><dt>事实核对</dt><dd>编辑部最后一次回到官方来源确认关键要求的日期。</dd></div>
+          <div><dt>事实核对</dt><dd>DMVCN 官方编辑最后一次回到政府来源确认重要要求的日期。</dd></div>
         </dl>
         <p>只改拼写、样式或构建代码时，不会把事实核对日期伪装成最新日期。具体变更会记录在<a class="text-link" href={EDITORIAL_LINKS.updates}>更新记录</a>。</p>
       </section>
 
       <section class="panel">
-        <h2>发布门禁</h2>
-        <p>新增或重大更新页面必须通过来源、作者、三类日期、结构化数据、内部链接、移动端和 E-E-A-T 台账检查。自动来源映射、AI 辅助证据核对与真实人工签字分开记录；高风险页面只有完成真实人员的逐条语义复查后，才会在台账中标为通过。</p>
-        <p>尚未取得真实人工签字的高风险页面会保持可访问，供读者核对来源和审核人员复查，但自动使用 <code>noindex,follow</code> 并从 sitemap 排除。签字记录的审核人字段、日期和范围通过校验后，下一次构建才会恢复索引。</p>
+        <h2>上线前检查</h2>
+        <p>新页面或重大更新必须检查来源、署名、三类日期、结构化数据、内部链接和移动端显示。涉及费用、身份、资格或法律后果的页面，还要由真实人员对照政府来源复查。</p>
+        <p>没有完成复核的高风险页面可以暂时保留给编辑检查，但会标记为 <code>noindex,follow</code>，也不会进入 sitemap。审核人、日期和范围登记完整后，下一次网站更新才会恢复收录。</p>
       </section>
 
       <nav class="policy-links" aria-label="相关政策">
-        <a href={EDITORIAL_AUTHOR.path}>编辑部介绍 <ArrowRight size={15} aria-hidden="true" /></a>
-        <a href={EDITORIAL_LINKS.ai}>AI 使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_AUTHOR.path}>编辑介绍 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_LINKS.ai}>工具使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
         <a href={EDITORIAL_LINKS.corrections}>纠错政策 <ArrowRight size={15} aria-hidden="true" /></a>
       </nav>
     </div>

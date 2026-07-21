@@ -5,6 +5,24 @@ import ContentMeta from '../components/ContentMeta.astro';
 import { EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE, editorialUpdates } from '../data/editorial';
 
 const latestUpdate = editorialUpdates[0]?.date ?? EDITORIAL_POLICY_DATE;
+
+const publicUpdateText = (text: string) => text
+  .replace(/补齐 (\d+) 条页面级显式来源映射/g, '为 $1 条关键要求补上对应出处')
+  .replace(/登记 (\d+) 条(?:去重|独立)声明的显式来源/g, '为 $1 条关键要求登记出处')
+  .replace(/(\d+) 条显式来源映射/g, '$1 条关键要求有对应出处')
+  .replaceAll('页面级显式来源映射', '页面要求与政府来源的对应关系')
+  .replaceAll('显式来源映射', '关键要求与来源对应')
+  .replaceAll('页面声明到官方来源的映射', '页面要求与政府来源的对应关系')
+  .replaceAll('官方正文语义核对', '政府资料核对')
+  .replaceAll('官方语义核对', '政府资料核对')
+  .replaceAll('官方证据核对', '政府来源核对')
+  .replaceAll('语义核对', '内容核对')
+  .replaceAll('证据核对', '来源核对')
+  .replaceAll('逐条比对', '对照')
+  .replaceAll('逐条打开', '打开并核对')
+  .replaceAll('逐条审查', '核对')
+  .replaceAll('成品 HTML 证据门禁', '上线前来源检查')
+  .replaceAll('构建审计', '上线前检查');
 ---
 
 <BaseLayout
@@ -32,10 +50,10 @@ const latestUpdate = editorialUpdates[0]?.date ?? EDITORIAL_POLICY_DATE;
         <article class="update-entry">
           <div class="update-date"><History size={17} aria-hidden="true" /><time datetime={update.date}>{update.date}</time></div>
           <div>
-            <h2>{update.title}</h2>
-            <p>{update.summary}</p>
+            <h2>{publicUpdateText(update.title)}</h2>
+            <p>{publicUpdateText(update.summary)}</p>
             <ul class="tag-list" aria-label="变更范围">
-              {update.scope.map((item) => <li>{item}</li>)}
+              {update.scope.map((item) => <li>{publicUpdateText(item)}</li>)}
             </ul>
           </div>
         </article>

@@ -3,13 +3,13 @@ import { ArrowRight, BadgeCheck, BookOpenCheck, Scale, Wrench } from '@lucide/as
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentMeta from '../../components/ContentMeta.astro';
 import { SITE } from '../../data/content';
-import { EDITORIAL_AUTHOR, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE } from '../../data/editorial';
+import { EDITORIAL_AUTHOR, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, EDITORIAL_POLICY_MODIFIED_DATE } from '../../data/editorial';
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const schema = {
   '@type': 'ProfilePage',
   dateCreated: EDITORIAL_POLICY_DATE,
-  dateModified: EDITORIAL_POLICY_DATE,
+    dateModified: EDITORIAL_POLICY_MODIFIED_DATE,
   mainEntity: {
     '@type': 'Organization',
     name: EDITORIAL_AUTHOR.name,
@@ -26,20 +26,20 @@ const schema = {
 
 <BaseLayout
   title={EDITORIAL_AUTHOR.name}
-  description="了解 DMV中文办事库编辑部的职责、能力边界、资料整理方法和纠错渠道。"
+  description="了解 DMVCN 官方编辑的职责、身份边界、资料整理方法和纠错渠道。"
   publishedAt={EDITORIAL_POLICY_DATE}
-  modifiedAt={EDITORIAL_POLICY_DATE}
-  reviewedAt={EDITORIAL_POLICY_DATE}
+  modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE}
+  reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE}
   schema={schema}
 >
   <section class="page-hero">
     <div class="section">
-      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><a href="/about/">关于</a><span>/</span><span>编辑部</span></nav>
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><a href="/about/">关于</a><span>/</span><span>DMVCN 官方编辑</span></nav>
       <p class="eyebrow">内容责任人</p>
       <h1>{EDITORIAL_AUTHOR.name}</h1>
       <p class="lead">{EDITORIAL_AUTHOR.description}</p>
       <div class="article-meta">
-        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_DATE} reviewedAt={EDITORIAL_POLICY_DATE} />
+        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE} reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE} />
       </div>
     </div>
   </section>
@@ -67,8 +67,8 @@ const schema = {
         <ol class="step-list">
           <li>先确定用户要完成的具体任务和可能造成损失的错误。</li>
           <li>优先读取官方机构的业务页、表格说明、FAQ 和法规实施说明。</li>
-          <li>把关键事实连接到对应来源，不把搜索摘要、AI 输出或其他中文网站当成最终证据。</li>
-          <li>完成中文编辑、风险措辞检查、链接检查和构建审计后再发布。</li>
+          <li>把关键要求连接到对应来源，不把搜索摘要、工具生成的文字或其他中文网站当成最终证据。</li>
+          <li>完成中文编辑、风险措辞、链接和页面显示检查后再发布。</li>
         </ol>
       </section>
 
@@ -76,13 +76,13 @@ const schema = {
         <BadgeCheck size={22} aria-hidden="true" />
         <div>
           <strong>不虚构个人资历</strong>
-          <p>本站目前以编辑组织署名，不展示不存在的律师、移民顾问、DMV 员工或“亲身办理专家”身份。未来如有实名专业审核，会单独列出审核者、资历、审核范围和日期。</p>
+          <p>本站使用统一编辑署名，不展示不存在的律师、移民顾问、DMV 员工或“亲身办理专家”身份。未来如有实名专业审核，会单独列出审核者、资历、审核范围和日期。</p>
         </div>
       </section>
 
       <nav class="policy-links" aria-label="相关编辑政策">
         <a href={EDITORIAL_LINKS.policy}>查看编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
-        <a href={EDITORIAL_LINKS.ai}>查看 AI 使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href={EDITORIAL_LINKS.ai}>查看工具使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
         <a href={EDITORIAL_LINKS.corrections}>提交内容纠错 <ArrowRight size={15} aria-hidden="true" /></a>
       </nav>
     </div>
