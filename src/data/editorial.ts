@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Alabama 两页官方正文语义核对',
+    summary:
+      '逐条比对 ALEA 的 Driver License、STAR ID、材料清单、FAQ、首证与外州转入、offices、2024 Driver Manual、GDL、road-test guide、forms、address form、online portal，以及 Alabama 州法、行政规则、官方 phishing warning 与 TSA 当前正文；登记 80 条独立声明的显式来源，并补齐 ALEA / county / ADOR 分工、新居民 30 天、Chinese written examination、外国驾照非免试、四年续期、60 天宽限和非公民 160 天 / 30 天官方冲突。',
+    scope: [
+      '阿拉巴马州办事总览',
+      '阿拉巴马州 STAR ID',
+      '80 条独立声明显式核对',
+      '考试语言、外国驾照与非公民期限冲突',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Oklahoma 两页官方正文语义核对',
     summary:
       '逐条比对 Service Oklahoma 的 REAL ID、required documents、首次成人、Learner Permit、written / road tests、美国外州与外国驾照转入、续补证、State ID、改址、locations、公开业务 SOP、Oklahoma 州法与 TSA 当前正文；登记 86 条独立声明的显式来源，并补齐中国大陆与 Taiwan 路线、online English-only written test、English-only road test、SAVE、4 / 8 年费用、10 天改名改址和 temporary credential 邮寄风险。',

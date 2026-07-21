@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T23:44:28.412Z",
+    "generatedAt": "2026-07-20T23:59:03.072Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 91,
+    "passed": 93,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 58,
-    "aiAssistedReviews": 97,
+    "sourceMappedReviews": 56,
+    "aiAssistedReviews": 99,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 75,
+    "blockedPages": 73,
     "averageScore": 97
   },
   "pages": [
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 294,
+        "sourceCount": 295,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 135,
-        "directoryEvidenceLinks": 135,
+        "directoryEvidenceItems": 137,
+        "directoryEvidenceLinks": 137,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 98,
-        "directoryEvidenceLinks": 98,
+        "directoryEvidenceItems": 101,
+        "directoryEvidenceLinks": 101,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 601,
+        "sourceCount": 603,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 210,
+        "sourceCount": 211,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 151,
+        "sourceCount": 152,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 113,
-        "directoryEvidenceLinks": 113,
+        "directoryEvidenceItems": 115,
+        "directoryEvidenceLinks": 115,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 224,
+        "sourceCount": 225,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 158,
-        "directoryEvidenceLinks": 158,
+        "directoryEvidenceItems": 159,
+        "directoryEvidenceLinks": 159,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 206,
+        "sourceCount": 203,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1389,
+        "sourceCount": 1395,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1151,21 +1151,21 @@
       "route": "/states/alabama/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 95,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成阿拉巴马州（Alabama Law Enforcement Agency）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 ALEA 当前 Driver License、STAR ID、document list、FAQ、License and ID Cards、Driver License Information、offices、2024 Driver Manual、GDL、road-test guide、forms、address form、online portal，以及 Alabama 现行州法、行政规则、官方 phishing warning 和 TSA 页面，核对两个成品页的机构分工、材料、期限、资格、考试语言、费用和办理入口。",
+        "notes": "本轮重点纠正县级办公室与 ALEA Examining Office 混用、外国驾照误套美国外州免试、遗漏 Chinese written examination，以及非公民网页 160 天与 2024 手册 30 天的官方冲突。所有映射均为 AI 辅助语义核查，不冒充律师、政府人员或真实人工专业签字。"
       },
       "scores": {
-        "factsAndSources": 24,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -1175,14 +1175,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 7,
-        "factCheckCount": 12,
+        "sourceCount": 17,
+        "factCheckCount": 32,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 12,
-        "stateEvidenceLinks": 13,
+        "stateEvidenceItems": 32,
+        "stateEvidenceLinks": 71,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1190,9 +1190,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/alabama/real-id/",
@@ -1200,16 +1198,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成阿拉巴马州（Alabama Law Enforcement Agency）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 ALEA 当前 Driver License、STAR ID、document list、FAQ、License and ID Cards、Driver License Information、offices、2024 Driver Manual、GDL、road-test guide、forms、address form、online portal，以及 Alabama 现行州法、行政规则、官方 phishing warning 和 TSA 页面，核对两个成品页的机构分工、材料、期限、资格、考试语言、费用和办理入口。",
+        "notes": "本轮重点纠正县级办公室与 ALEA Examining Office 混用、外国驾照误套美国外州免试、遗漏 Chinese written examination，以及非公民网页 160 天与 2024 手册 30 天的官方冲突。所有映射均为 AI 辅助语义核查，不冒充律师、政府人员或真实人工专业签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1222,14 +1220,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 7,
-        "factCheckCount": 16,
+        "sourceCount": 17,
+        "factCheckCount": 51,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 16,
-        "stateEvidenceLinks": 16,
+        "stateEvidenceItems": 51,
+        "stateEvidenceLinks": 107,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1237,9 +1235,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/alaska/",

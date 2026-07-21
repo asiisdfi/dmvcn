@@ -1,31 +1,31 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T23:44:26.781Z",
+    "generatedAt": "2026-07-20T23:59:01.405Z",
     "pages": 5,
-    "claims": 688,
+    "claims": 696,
     "statesCovered": 50,
-    "aiAssisted": 576,
-    "automated": 112,
+    "aiAssisted": 591,
+    "automated": 105,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 135,
-        "states": 39
+        "claims": 137,
+        "states": 40
       },
       "deadlines": {
-        "claims": 98,
-        "states": 38
+        "claims": 101,
+        "states": 39
       },
       "document-rules": {
         "claims": 184,
         "states": 49
       },
       "foreign-license": {
-        "claims": 113,
-        "states": 37
+        "claims": 115,
+        "states": 38
       },
       "identity-ssn": {
-        "claims": 158,
+        "claims": 159,
         "states": 45
       }
     }
@@ -1626,6 +1626,38 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "alabama",
+      "category": "邮寄 / 卡片",
+      "claim": "ALEA 驾照和 non-driver ID 不会由邮局转寄，提交线上或邮寄业务前要核对 mailing address",
+      "sourceUrl": "https://www.alea.gov/sites/default/files/Updated%20ALEA%20Driver%27s%20Manual%2012-5-24.pdf",
+      "sourceLabel": "对应官方来源：ALEA 2024 Driver Manual",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "alabama",
+      "category": "邮寄 / 卡片",
+      "claim": "提交线上、邮寄或现场业务前确认 mailing address，因为 Alabama credential 不会由 USPS 转寄",
+      "sourceUrl": "https://www.alea.gov/sites/default/files/Updated%20ALEA%20Driver%27s%20Manual%2012-5-24.pdf",
+      "sourceLabel": "对应官方来源：ALEA 2024 Driver Manual",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "new-mexico",
       "category": "费用",
       "claim": "普通驾照费用当前为四年 $18、八年 $34",
@@ -3209,6 +3241,54 @@
         "renewal"
       ],
       "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "alabama",
+      "category": "搬家 / 地址",
+      "claim": "搬家后 30 天内免费更新 record，需要新卡面地址时再办理 duplicate",
+      "sourceUrl": "https://admincode.legislature.state.al.us/administrative-code/760-X-1-.07",
+      "sourceLabel": "对应官方来源：Alabama Administrative Code 760-X-1-.07",
+      "themes": [
+        "address-change"
+      ],
+      "failedThemes": [
+        "address-change"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "alabama",
+      "category": "续期 / 到期",
+      "claim": "普通驾照通常按四年周期签发，可在到期前 180 天开始续期",
+      "sourceUrl": "https://alison.legislature.state.al.us/code-of-alabama?section=32-6-1",
+      "sourceLabel": "对应官方来源：Code of Alabama Section 32-6-1",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [
+        "renewal"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "alabama",
+      "category": "续期 / 到期",
+      "claim": "Alabama Code 提供到期后 60 天的 renewal grace period，超过该时段不要继续驾驶",
+      "sourceUrl": "https://alison.legislature.state.al.us/code-of-alabama?section=32-6-1",
+      "sourceLabel": "对应官方来源：Code of Alabama Section 32-6-1",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [
+        "renewal"
+      ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -5274,49 +5354,50 @@
       "page": "document-rules",
       "stateId": "alabama",
       "category": "地址证明",
-      "claim": "两份 Alabama principal residence 文件，例如 utility bill、lease、vehicle registration 或 voter registration",
-      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
-      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
-      "themes": [
-        "residency-documents"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "alabama",
-      "category": "地址证明",
-      "claim": "按 STAR ID Document List 凑齐 identity、full SSN、two residence proofs 和姓名变化文件",
-      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
-      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
+      "claim": "按普通 credential 或 STAR ID 对应清单整理 identity、full SSN、two residence proofs、name chain 和 authorized-presence documents",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/license-and-id-cards",
+      "sourceLabel": "对应官方来源：ALEA License and ID Cards",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "alabama",
       "category": "地址证明",
-      "claim": "Alabama STAR ID 需要四类材料：身份/出生日期、完整 SSN、两份 principal residence、以及姓名变化时的 certified legal documents",
+      "claim": "STAR ID 清单要求一份 identity / date-of-birth 文件、一份显示完整 SSN 的文件和两份 principal-residence 文件，姓名不一致时还要补 certified linking documents",
       "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
       "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
       "themes": [
+        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "alabama",
       "category": "SSN",
-      "claim": "一份显示完整 Social Security number 的文件，例如 Social Security card、W-2 或符合要求的 Medicare/Medicaid ID",
+      "claim": "SSN 证明要显示完整九位号码，可用 Social Security card、SSA 抬头认证信、DD-214、符合条件的 Medicare / Medicaid card 或 W-2",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/license-and-id-cards",
+      "sourceLabel": "对应官方来源：ALEA License and ID Cards",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "alabama",
+      "category": "SSN",
+      "claim": "STAR ID 的 SSN 文件必须显示完整号码，清单接受 Social Security card、DD-214、符合条件的 Medicare / Medicaid ID 或本年 / 上年 W-2",
       "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
       "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
       "themes": [
@@ -5324,7 +5405,7 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -7508,6 +7589,36 @@
     },
     {
       "page": "foreign-license",
+      "stateId": "alabama",
+      "category": "外国 / 境外驾照",
+      "claim": "外国出生证明若用来证明出生日期，2024 Driver Manual 要求英文翻译并由签发国 embassy 认证",
+      "sourceUrl": "https://www.alea.gov/sites/default/files/Updated%20ALEA%20Driver%27s%20Manual%2012-5-24.pdf",
+      "sourceLabel": "对应官方来源：ALEA 2024 Driver Manual",
+      "themes": [
+        "translation"
+      ],
+      "failedThemes": [
+        "translation"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "alabama",
+      "category": "外国 / 境外驾照",
+      "claim": "外国驾照只解决符合条件的非居民临时驾驶资格，不等于可以按美国外州免试转入",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/driver-license-information",
+      "sourceLabel": "对应官方来源：ALEA Driver License Information",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
       "stateId": "delaware",
       "category": "外州 / 加拿大转入",
       "claim": "New Resident Transfer License：外州搬入 Delaware 后换证要求",
@@ -9513,36 +9624,50 @@
     {
       "page": "identity-ssn",
       "stateId": "alabama",
-      "category": "SSN",
-      "claim": "一份显示完整 Social Security number 的文件，例如 Social Security card、W-2 或符合要求的 Medicare/Medicaid ID",
-      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
-      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
+      "category": "无 SSN / SSA",
+      "claim": "SSN 证明要显示完整九位号码，可用 Social Security card、SSA 抬头认证信、DD-214、符合条件的 Medicare / Medicaid card 或 W-2",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/license-and-id-cards",
+      "sourceLabel": "对应官方来源：ALEA License and ID Cards",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "alabama",
+      "category": "无 SSN / SSA",
+      "claim": "改名先更新 SSA，再带 certified name-change documents",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/driver-license-forms",
+      "sourceLabel": "对应官方来源：ALEA Driver License Forms",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "alabama",
       "category": "SSN",
-      "claim": "按 STAR ID Document List 凑齐 identity、full SSN、two residence proofs 和姓名变化文件",
-      "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
-      "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
+      "claim": "改名要先更新 Social Security Administration，再带 marriage certificate、court order 等文件办理 corrected credential",
+      "sourceUrl": "https://www.alea.gov/dps/driver-license/driver-license-forms",
+      "sourceLabel": "对应官方来源：ALEA Driver License Forms",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "alabama",
       "category": "SSN",
-      "claim": "Alabama STAR ID 需要四类材料：身份/出生日期、完整 SSN、两份 principal residence、以及姓名变化时的 certified legal documents",
+      "claim": "STAR ID 的 SSN 文件必须显示完整号码，清单接受 Social Security card、DD-214、符合条件的 Medicare / Medicaid ID 或本年 / 上年 W-2",
       "sourceUrl": "https://www.alea.gov/dps/driver-license/star-id/star-id-document-list",
       "sourceLabel": "对应官方来源：ALEA STAR ID Document List",
       "themes": [
@@ -9550,7 +9675,7 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

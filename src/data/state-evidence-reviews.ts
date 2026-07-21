@@ -1155,6 +1155,36 @@ const LA_APPOINTMENT =
 const LA_ONLINE = 'https://expresslane.la.gov/omv/online-services/';
 const LA_OFFICES = 'https://offices.omv.la.gov/';
 
+const AL_DL = 'https://www.alea.gov/dps/driver-license';
+const AL_STAR = 'https://www.alea.gov/dps/driver-license/star-id';
+const AL_STAR_DOCS =
+  'https://www.alea.gov/dps/driver-license/star-id/star-id-document-list';
+const AL_STAR_FAQ =
+  'https://www.alea.gov/dps/driver-license/star-id/star-id-frequently-asked-questions';
+const AL_LICENSE_ID =
+  'https://www.alea.gov/dps/driver-license/license-and-id-cards';
+const AL_DRIVER_INFO =
+  'https://www.alea.gov/dps/driver-license/driver-license-information';
+const AL_OFFICES =
+  'https://www.alea.gov/dps/driver-license/driver-license-offices';
+const AL_MANUAL =
+  'https://www.alea.gov/sites/default/files/Updated%20ALEA%20Driver%27s%20Manual%2012-5-24.pdf';
+const AL_GDL =
+  'https://www.alea.gov/dps/driver-license/license-and-id-cards/graduated-driver-license';
+const AL_ROAD =
+  'https://www.alea.gov/dps/driver-license/license-and-id-cards/road-test-study-guide';
+const AL_FORMS =
+  'https://www.alea.gov/dps/driver-license/driver-license-forms';
+const AL_ADDRESS =
+  'https://www.alea.gov/sites/default/files/dl-forms/ChangeOfAddress.pdf';
+const AL_ONLINE = 'https://alabamadl.alea.gov/';
+const AL_CODE =
+  'https://alison.legislature.state.al.us/code-of-alabama?section=32-6-1';
+const AL_ADMIN =
+  'https://admincode.legislature.state.al.us/administrative-code/760-X-1-.07';
+const AL_PHISHING =
+  'https://www.alea.gov/news/alea-warns-alabamians-nationwide-phishing-scam-impersonating-alabama-dmv';
+
 const OK_SERVICES =
   'https://oklahoma.gov/service/all-services/driving-and-automobiles.html';
 const OK_REAL_ID =
@@ -1250,6 +1280,116 @@ const WI_MV3001 =
   'https://wisconsindot.gov/Documents/formdocs/mv3001.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  alabama: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      AL_DL,
+      AL_STAR,
+      AL_STAR_DOCS,
+      AL_STAR_FAQ,
+      AL_LICENSE_ID,
+      AL_DRIVER_INFO,
+      AL_OFFICES,
+      AL_MANUAL,
+      AL_GDL,
+      AL_ROAD,
+      AL_FORMS,
+      AL_ADDRESS,
+      AL_ONLINE,
+      AL_CODE,
+      AL_ADMIN,
+      AL_PHISHING,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开 ALEA 当前 Driver License、STAR ID、document list、FAQ、License and ID Cards、Driver License Information、offices、2024 Driver Manual、GDL、road-test guide、forms、address form、online portal，以及 Alabama 现行州法、行政规则、官方 phishing warning 和 TSA 页面，核对两个成品页的机构分工、材料、期限、资格、考试语言、费用和办理入口。',
+    notes:
+      '本轮重点纠正县级办公室与 ALEA Examining Office 混用、外国驾照误套美国外州免试、遗漏 Chinese written examination，以及非公民网页 160 天与 2024 手册 30 天的官方冲突。所有映射均为 AI 辅助语义核查，不冒充律师、政府人员或真实人工专业签字。',
+    claims: normalizeReviewedClaims({
+      'Alabama 驾照和 ID 由 ALEA Driver License Division 签发，车辆注册则由 Alabama Department of Revenue 和县级机构处理，州内没有名为“Alabama DMV”的单一政府部门': [AL_PHISHING, AL_DL],
+      '首次驾照、外州转入、首次 STAR ID、考试和复杂身份材料核验优先走 ALEA Driver License Examining Office，普通续期或 duplicate 再按资格选择县级 Probate / License Commissioner、ALEA office 或官方线上入口': [AL_STAR, AL_LICENSE_ID, AL_OFFICES, AL_ONLINE],
+      '新居民应在建立 Alabama residency 后 30 天内取得州驾照': [AL_CODE, AL_DRIVER_INFO],
+      '持美国外州驾照且过期不超过一年者，ALEA 当前说明可免 driver examination，但转入仍须到 ALEA office 交回外州证件、提交 SSN 证明和一份 primary identity，并支付 $5 transfer fee 与当前 $36.25 license fee': [AL_DRIVER_INFO, AL_LICENSE_ID, AL_MANUAL],
+      '外国驾照只解决符合条件的非居民临时驾驶资格，不等于可以按美国外州免试转入': [AL_DRIVER_INFO, AL_LICENSE_ID, AL_MANUAL],
+      '成为居民或首次申请时应按 required examination 路线准备，知识考试可向 Driver License District Office 申请 Chinese': [AL_DRIVER_INFO, AL_MANUAL],
+      'Alabama 把 REAL ID 称为 STAR ID，首次签发只能在 ALEA Driver License Examining Office 办理，county office 只能继续处理已有 license、ID 或 STAR ID 的 renewals / duplicates': [AL_STAR, AL_STAR_FAQ],
+      'STAR ID 清单要求一份 identity / date-of-birth 文件、一份显示完整 SSN 的文件和两份 principal-residence 文件，姓名不一致时还要补 certified linking documents': [AL_STAR_DOCS],
+      '普通 photocopy 不接受': [AL_STAR_DOCS],
+      'ALEA Offices 页面按 county 列出地址、电话、开放日和测试截止提示，并连接官方 appointment system': [AL_OFFICES, AL_ONLINE],
+      '首次 STAR ID、外州转入、首次申请、knowledge / road test 或非公民材料核验，应先确认所选 ALEA office 能办该业务，再预约或核对 walk-in 与测试时段': [AL_STAR, AL_LICENSE_ID, AL_OFFICES, AL_GDL],
+      'ALEA 负责 driver licensing，ADOR 负责 vehicle registration，收到自称 Alabama DMV 的罚单或停牌短信时不要点击链接': [AL_PHISHING],
+      'Alabama 新居民必须在建立 residency 后 30 天内取得州驾照，原有驾照要交回 ALEA': [AL_CODE, AL_DRIVER_INFO, AL_MANUAL],
+      '美国外州驾照过期不超过一年时可免 driver examination，过期超过一年不能自行假定仍可免试': [AL_DRIVER_INFO, AL_MANUAL],
+      '持有效 home-state 或 foreign-country license 的 16 岁以上非居民通常可在 Alabama 驾驶，符合条件的全日制非居民学生也有例外': [AL_DRIVER_INFO, AL_MANUAL],
+      '外国驾照和 IDP 被列为身份材料中的 secondary document，不是美国外州转入免试资格': [AL_LICENSE_ID, AL_DRIVER_INFO, AL_MANUAL],
+      '18 岁以上首次完成全部考试的人要带 licensed driver、proof of insurance 和可通过安全检查的车辆': [AL_LICENSE_ID, AL_GDL, AL_MANUAL],
+      'Road test 还要出示 vehicle registration，租车只有在申请人姓名列入 rental agreement 时才能用于考试': [AL_MANUAL, AL_ROAD],
+      'ALEA 2024 Driver Manual 明确把 Chinese 列为 written examination 可用语言，具体提供方式要向 Driver License District Office 确认': [AL_MANUAL, AL_OFFICES],
+      '普通 Class D 知识考试费当前为 $5，首次 license 的页面基础费用为 $36.25，ALEA Driver License Division 不收 personal checks': [AL_LICENSE_ID, AL_GDL, AL_MANUAL],
+      '普通驾照通常按四年周期签发，可在到期前 180 天开始续期': [AL_CODE, AL_MANUAL],
+      'Alabama Code 提供到期后 60 天的 renewal grace period，超过该时段不要继续驾驶': [AL_CODE, AL_MANUAL],
+      '驾照过期不超过三年可在不重新考试的情况下续期，续发期限从上一到期日计算': [AL_CODE, AL_MANUAL],
+      '地址变化后 30 天内必须通知 Driver License Division，免费更新 record 不会自动签发新卡': [AL_ADMIN, AL_ADDRESS, AL_MANUAL],
+      '改名要先更新 Social Security Administration，再带 marriage certificate、court order 等文件办理 corrected credential': [AL_FORMS, AL_MANUAL],
+      'STAR ID 持有人必须到 ALEA office': [AL_STAR, AL_MANUAL],
+      'ALEA 驾照和 non-driver ID 不会由邮局转寄，提交线上或邮寄业务前要核对 mailing address': [AL_MANUAL, AL_FORMS],
+      '当前 ALEA License and ID Cards 页面要求非公民的授权停留文件超过 160 天，而 2024 Driver Manual 写至少剩余 30 天': [AL_LICENSE_ID, AL_MANUAL],
+      '临时身份申请人应让所选 ALEA office 确认当前期限，不要自行按两份官方材料中较短的数字判断资格': [AL_LICENSE_ID, AL_MANUAL, AL_OFFICES],
+      'STAR ID 是联邦用途选项而不是驾驶资格本身，已有 passport、Permanent Resident Card 等 TSA 接受证件时可先比较是否需要升级': [AL_STAR, TSA_IDENTIFICATION],
+      '非 STAR Alabama credential 仍可用于州内驾驶，但 2022 年 4 月 25 日后签发的卡会标注 Not for Federal Identification': [AL_STAR],
+      '同一个人不能同时持有 STAR ID driver license 和 STAR ID identification card': [AL_STAR_FAQ],
+      '首次普通 license / ID 按 ALEA general rules 准备两份 identification，其中至少一份带照片且一份来自 primary list': [AL_LICENSE_ID, AL_MANUAL],
+      '如果三份都不带照片，仍须至少一份 primary': [AL_LICENSE_ID, AL_MANUAL],
+      'Primary 常见 certified U.S. birth certificate、current U.S. passport、naturalization / citizenship certificate、resident alien card，或附有效 U.S. immigration document 的 foreign passport': [AL_LICENSE_ID, AL_MANUAL],
+      'SSN 证明要显示完整九位号码，可用 Social Security card、SSA 抬头认证信、DD-214、符合条件的 Medicare / Medicaid card 或 W-2': [AL_LICENSE_ID, AL_MANUAL],
+      'STAR ID 的 identity / date-of-birth 组带一份清单文件，例如未过期 U.S. passport、州 Vital Statistics 签发的 certified birth certificate、I-551、I-766、naturalization / citizenship certificate，或附有效 visa 和 I-94 的 foreign passport': [AL_STAR_DOCS],
+      'STAR ID 的 principal residence 组带两份，例如 voter registration、mortgage、current lease、vehicle registration、homeowners insurance 或政府寄件': [AL_STAR_DOCS],
+      'utility bill 必须少于 90 天': [AL_STAR_DOCS],
+      '地址文件写在 spouse 或 parent 名下时，另带 marriage certificate 或 birth certificate 证明关系': [AL_STAR_DOCS],
+      'STAR ID 的 SSN 文件必须显示完整号码，清单接受 Social Security card、DD-214、符合条件的 Medicare / Medicaid ID 或本年 / 上年 W-2': [AL_STAR_DOCS],
+      '姓名与 identity 文件不一致时带 certified marriage certificate、adoption record 或 court order 串起变化': [AL_STAR_DOCS],
+      '普通 photocopy 不接受，identity、date of birth 与 authorized-presence 文件应为 original 或 issuing-agency certified copy': [AL_STAR_DOCS, AL_MANUAL],
+      '非公民准备 foreign passport、visa 或 resident alien card、SSN verification 或 SSA non-eligibility letter，以及 I-94、I-797、I-20、DS-2019 等与实际 status 相符的文件': [AL_LICENSE_ID, AL_MANUAL],
+      '外国出生证明若用来证明出生日期，2024 Driver Manual 要求英文翻译并由签发国 embassy 认证': [AL_MANUAL],
+      '已有 U.S. passport 时可用护照证明出生日期': [AL_MANUAL],
+      '外州转入带 out-of-state license、完整 SSN 证明和一份 primary identity，19 岁以下首次申请人还要带 school enrollment / graduation proof': [AL_LICENSE_ID, AL_MANUAL],
+      'Road test 带 proof of insurance、current vehicle registration 和安全车辆，租车申请人必须列在 rental agreement 上': [AL_LICENSE_ID, AL_MANUAL, AL_ROAD],
+      '先分清本次是 first license、美国外州 transfer、外国驾照首次申请、普通 renewal / duplicate、address / name change，还是 STAR ID upgrade': [AL_DL, AL_STAR, AL_LICENSE_ID, AL_FORMS],
+      '需要联邦用途时先比较 STAR ID 与 passport、Permanent Resident Card 等 TSA 接受证件，不把升级当成维持驾驶资格的唯一办法': [AL_STAR, TSA_IDENTIFICATION],
+      '首次 STAR ID、外州转入、首次申请、考试和复杂非公民交易先从 ALEA Offices 页面选择地点并确认服务': [AL_STAR, AL_LICENSE_ID, AL_OFFICES],
+      '按普通 credential 或 STAR ID 对应清单整理 identity、full SSN、two residence proofs、name chain 和 authorized-presence documents': [AL_LICENSE_ID, AL_STAR_DOCS, AL_MANUAL],
+      '材料只带 original 或 issuing-agency certified copy，地址写在 spouse / parent 名下时补关系证明': [AL_STAR_DOCS, AL_MANUAL],
+      '新居民记录 residency established date，在 30 天内完成 Alabama license 申请并准备交回原有驾照': [AL_CODE, AL_DRIVER_INFO, AL_MANUAL],
+      '中国大陆及其他外国驾照持有人不要选美国 out-of-state transfer waiver，按首次申请与 required examination 准备': [AL_DRIVER_INFO, AL_LICENSE_ID, AL_MANUAL],
+      '需要中文笔试时提前联系 Driver License District Office，明确申请 Chinese written examination 并确认具体地点和形式': [AL_MANUAL, AL_OFFICES],
+      'Road test 前逐项检查 licensed driver、insurance、registration、vehicle safety 和 rental agreement': [AL_LICENSE_ID, AL_MANUAL, AL_ROAD],
+      '按官方页面准备 $5 test / transfer fee 与当前 $36.25 license fee，并确认现场不收 personal checks 和当地可能附加的费用': [AL_LICENSE_ID, AL_GDL, AL_MANUAL],
+      '续期先检查 180-day window、线上资格、四年周期和 60-day grace period': [AL_CODE, AL_MANUAL, AL_ONLINE],
+      '过期超过三年按可能重新考试准备': [AL_DRIVER_INFO, AL_MANUAL],
+      '搬家后 30 天内免费更新 record，需要新卡面地址时再办理 duplicate': [AL_ADMIN, AL_ADDRESS, AL_MANUAL],
+      '改名先更新 SSA，再带 certified name-change documents': [AL_FORMS, AL_MANUAL],
+      'STAR ID 持有人选择 ALEA office': [AL_STAR, AL_MANUAL],
+      '提交线上、邮寄或现场业务前确认 mailing address，因为 Alabama credential 不会由 USPS 转寄': [AL_MANUAL, AL_FORMS],
+      '非公民把网页与手册的停留期差异截图或记下，向所选 ALEA office 确认当前 160-day / 30-day 规则后再预约': [AL_LICENSE_ID, AL_MANUAL, AL_OFFICES],
+      '去 county Probate 或 License Commissioner office 首次申请 STAR ID': [AL_STAR, AL_STAR_FAQ],
+      '把一份 identity、一个 SSN 文件和一份地址证明误算成官方所说的 four documents，漏掉第二份 principal-residence 文件': [AL_STAR_DOCS],
+      '带普通 photocopy、手机照片或自行公证复印件，而不是 original 或 issuing-agency certified copy': [AL_STAR_DOCS, AL_MANUAL],
+      'SSN 文件只显示末四位，没有显示完整九位号码': [AL_STAR_DOCS, AL_MANUAL],
+      '居住证明在 spouse 或 parent 名下，却没有带 marriage certificate 或 birth certificate 证明关系': [AL_STAR_DOCS],
+      '持中国大陆驾照就按美国外州 transfer 预约，误以为外国驾照或 IDP 会自动免除 examination': [AL_DRIVER_INFO, AL_LICENSE_ID, AL_MANUAL],
+      '不知道 written examination 提供 Chinese，或到场后才询问具体考点能否安排': [AL_MANUAL, AL_OFFICES],
+      '新居民超过 30 天仍只使用原州或外国驾照，没有启动 Alabama 申请': [AL_CODE, AL_DRIVER_INFO],
+      'Road test 没带 insurance / registration，车辆不安全，或租车 agreement 没有申请人姓名': [AL_LICENSE_ID, AL_MANUAL, AL_ROAD],
+      '非公民只看网页的 160 天或手册的 30 天，不向 ALEA 核实当前适用门槛': [AL_LICENSE_ID, AL_MANUAL, AL_OFFICES],
+      '免费提交 address update 后以为系统会自动寄一张显示新地址的卡': [AL_ADDRESS, AL_MANUAL],
+      '改名尚未更新 SSA，或 STAR ID 持有人去了只能处理普通业务的县级办公室': [AL_FORMS, AL_MANUAL, AL_STAR],
+      '依赖 USPS forwarding 接收新证件，没有先核对 ALEA record 和 mailing address': [AL_MANUAL, AL_FORMS],
+      '通过搜索广告进入第三方 renewal 网站，没有确认域名与 ALEA 官方入口': [AL_PHISHING, AL_DL, AL_ONLINE],
+      '把 60 天 renewal grace period 理解成可以无限期使用过期证件，或拖到三年免试窗口之外': [AL_CODE, AL_MANUAL],
+    }),
+  },
   louisiana: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',
