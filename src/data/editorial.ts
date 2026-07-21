@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Vermont 两页州法、三类证件与口译路线核对',
+    summary:
+      '逐条比对 Vermont DMV 的 Driver License、REAL ID、Enhanced Driver License / ID、Driver Privilege Card、VL-011 / VL-021 / VL-017 / VL-002 / VL-040 / VN-142 / VT-009、Driver Manual、当前州法与 2025 Act 66，以及 TSA 和 CBP 页面；登记 90 条独立声明的显式来源，并补齐 2025 年口译规则、DPC 居住证明组合、2026 年 7 月路考预约费、中国大陆与其他外国驾照路线，以及州法三年和申请表一年口径不一致的处理方式。',
+    scope: [
+      '佛蒙特州办事总览',
+      '佛蒙特州 REAL ID / EDL / Driver Privilege Card',
+      '90 条独立声明显式核对',
+      '外国驾照、口译、费用与官方口径冲突',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 South Carolina 两页官方清单、考试与非公民路线核对',
     summary:
       '逐条比对 SCDMV 的 Driver License、Moving to SC、lawfully present non-US citizens、2026 MV-93 / MV-94、beginner permit、testing、road test、appointment、Driver Manual、renewal、vision、replacement、address / name、fees、ID、online services、locations、forms、Form 4030、visiting SC、中央制证资料与 TSA 页面；登记 83 条独立声明的显式来源，并补齐中国大陆非互惠路线、官网未保证中文考试、45 天转入、九个月考试门槛、standard / REAL ID 材料、points 官方措辞差异、road-test 时段和邮寄制证风险。',

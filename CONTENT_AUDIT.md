@@ -3102,3 +3102,38 @@ Validation:
 - Browser QA at 1280 x 720 and 390 x 844 confirmed 36 overview evidence rows with 103 links and 50 REAL ID evidence rows with 135 links, visible mainland-China, reciprocity, language-boundary and MV-94 guidance, normal title wrapping and no horizontal overflow.
 - Quality workbook: 36 semantic-review pages and 53 blocked pages remain; weak-intent pages remain 0.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+## Round 77 Changes
+
+Date: 2026-07-21
+
+### Vermont Driver License, REAL ID, EDL, Privilege Card and Interpreter Deep Review
+
+Source scan:
+
+- Checked Vermont DMV's driver-license, REAL ID, Enhanced Driver License / ID, Driver Privilege Card, appointment, language-assistance and service pages; forms VL-011, VL-021, VL-017, VL-002, VL-040, VN-142 and VT-009; the current Driver Manual; current 23 V.S.A. sections 7, 205, 601, 603, 604, 608, 613, 617, 631, 632 and 634; 2025 Act 66; and TSA / CBP identification guidance.
+- Separated Vermont's standard credential, federal REAL ID and EDL / EID paths. The page explains that an EDL / EID requires U.S. citizenship, costs $36 more and supports land / sea border use but does not replace a passport for international air travel.
+- Confirmed the 60-day new-resident route, the narrower valid-foreign-license plus IDP visitor rule, the current mainland-China first-driver path and the absence of a published automatic exchange or fixed Chinese-test guarantee.
+- Disclosed the official transfer-test wording conflict instead of silently choosing one answer: current statute gives DMV discretion for a comparable out-of-jurisdiction credential valid or expired within three years, while VL-021 asks about a U.S., D.C. or Canadian credential expired within the past year. Readers are directed to let DMV classify the case before relying on a waiver.
+- Confirmed the 20-question knowledge test, 16-answer passing threshold, one-day retest wait, 20/40 vision standard, appointment route, road-test vehicle / companion requirements and the $29 road-test scheduling fee beginning in July 2026.
+- Confirmed the 2025 statutory right to bring a chosen interpreter for oral or road testing, while preserving the distinction between that rule and Vermont's annually selected translated-test languages. The page does not promise a current Chinese written test.
+- Confirmed Driver Privilege Card identity and 2025 residence-proof combinations, co-residence affidavit boundaries, SSN / SSA-letter paths, temporary-lawful-stay limit, name / address duties, renewal and replacement rules, and the limitation created by official deep pages that return automated 403 responses.
+
+Scope:
+
+- Rewrote both `/states/vermont/` and `/states/vermont/real-id/` with separate decision paths for U.S. transfers, mainland-China and other foreign licenses, first-time applicants, standard / REAL ID / EDL credentials, Driver Privilege Card applicants, testing, renewal, replacement, address and name changes.
+- Expanded Vermont's registered source set from 5 to 33 live official sources and mapped all 90 unique claims as AI-assisted explicit evidence without representing the work as human, legal or professional approval.
+- Preserved the original publication date, set separate modification and fact-check dates to the actual review date, added a public editorial update and retained federal / state fallbacks where direct Vermont pages restrict automated access.
+- Updated the README evidence totals, E-E-A-T inventory and the 90-day plan's real execution status.
+
+Validation:
+
+- State evidence audit: 4,653 claims, 8,983 official links, 4,623 AI-assisted explicit mappings across 98 pages, 0 errors.
+- Directory evidence audit: 805 claims, 770 inherited explicit mappings, 35 automated semantic mappings, 0 errors.
+- Vermont official-link audit: 33 checked, 20 direct OK, 13 Vermont Legislature timeout watch, 0 fail. A deleted DMV replacement-license page found on the first pass was removed and replaced by the live VL-040 form, myDMV route and current § 613 evidence before release.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO, sitemap and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 115 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 34 automated-source pages and 17 high-risk human approvals still honestly pending.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,680 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 45 evidence rows on each page, 134 overview and 169 REAL ID statement-level source links, visible mainland-China, interpreter, EDL, $29 fee and official-conflict guidance, separate publication / modification / fact-check dates, normal mobile title wrapping and no horizontal clipping. Browser logs contained no page warnings or errors.
+- Quality workbook: 34 semantic-review pages and 51 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.

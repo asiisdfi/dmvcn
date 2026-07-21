@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T03:44:25.599Z",
+    "generatedAt": "2026-07-21T04:16:24.045Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 113,
+    "passed": 115,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 36,
-    "aiAssistedReviews": 119,
+    "sourceMappedReviews": 34,
+    "aiAssistedReviews": 121,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 53,
+    "blockedPages": 51,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 226,
+        "sourceCount": 229,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 315,
+        "sourceCount": 320,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 164,
-        "directoryEvidenceLinks": 164,
+        "directoryEvidenceItems": 167,
+        "directoryEvidenceLinks": 167,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 258,
+        "sourceCount": 261,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 121,
-        "directoryEvidenceLinks": 121,
+        "directoryEvidenceItems": 124,
+        "directoryEvidenceLinks": 124,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 678,
+        "sourceCount": 686,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 227,
+        "sourceCount": 231,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -521,8 +521,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 190,
-        "directoryEvidenceLinks": 190,
+        "directoryEvidenceItems": 194,
+        "directoryEvidenceLinks": 194,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 170,
+        "sourceCount": 174,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 136,
-        "directoryEvidenceLinks": 136,
+        "directoryEvidenceItems": 140,
+        "directoryEvidenceLinks": 140,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 258,
+        "sourceCount": 263,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 178,
-        "directoryEvidenceLinks": 178,
+        "directoryEvidenceItems": 180,
+        "directoryEvidenceLinks": 180,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 204,
+        "sourceCount": 203,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1559,
+        "sourceCount": 1585,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -5111,22 +5111,22 @@
       "route": "/states/vermont/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 92,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成佛蒙特州（Vermont Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Vermont DMV 当前 REAL ID、EDL、Driver Privilege Card、VL-011 证件对比、VL-021 驾照申请、VL-017 非驾驶 ID、VL-002 居住证明、VL-040 补证、VN-142 外州证件 affidavit、VT-009 改名通知、Driver Manual、新申请、online permit、续期、补证、myDMV、locations 和语言帮助入口；同时核对 23 V.S.A. §§ 7、205、601、603、604、608、610、613、617、631、632、634、2025 Act 66、TSA 与 CBP 当前规则。Vermont DMV 深层页会对自动请求返回 403，因此以可读取的官方搜索索引正文、官方 PDF、州法正文和同机构页面交叉确认。",
+        "notes": "重写 Vermont 两页，明确区分 Privilege Card、REAL ID 与 EDL / EID，补入 2025 年口译和 Privilege Card residency 修法、2026 road-test scheduling fee、外州三年免考裁量与 VL-021 一年问题的冲突、外国驾照访客和申请路线、考试、续期、补证及改名改址。未虚构固定中文考试、外国驾照互惠、当场发卡或人工专业审核；所有映射均为 AI 辅助证据核查。"
       },
       "scores": {
-        "factsAndSources": 22,
-        "evidenceMapping": 13.5,
+        "factsAndSources": 25,
+        "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
         "authorship": 10,
@@ -5135,14 +5135,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 9,
+        "sourceCount": 33,
+        "factCheckCount": 45,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 9,
-        "stateEvidenceLinks": 11,
+        "stateEvidenceItems": 45,
+        "stateEvidenceLinks": 134,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5150,9 +5150,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/vermont/real-id/",
@@ -5160,16 +5158,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成佛蒙特州（Vermont Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Vermont DMV 当前 REAL ID、EDL、Driver Privilege Card、VL-011 证件对比、VL-021 驾照申请、VL-017 非驾驶 ID、VL-002 居住证明、VL-040 补证、VN-142 外州证件 affidavit、VT-009 改名通知、Driver Manual、新申请、online permit、续期、补证、myDMV、locations 和语言帮助入口；同时核对 23 V.S.A. §§ 7、205、601、603、604、608、610、613、617、631、632、634、2025 Act 66、TSA 与 CBP 当前规则。Vermont DMV 深层页会对自动请求返回 403，因此以可读取的官方搜索索引正文、官方 PDF、州法正文和同机构页面交叉确认。",
+        "notes": "重写 Vermont 两页，明确区分 Privilege Card、REAL ID 与 EDL / EID，补入 2025 年口译和 Privilege Card residency 修法、2026 road-test scheduling fee、外州三年免考裁量与 VL-021 一年问题的冲突、外国驾照访客和申请路线、考试、续期、补证及改名改址。未虚构固定中文考试、外国驾照互惠、当场发卡或人工专业审核；所有映射均为 AI 辅助证据核查。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5182,14 +5180,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 17,
+        "sourceCount": 33,
+        "factCheckCount": 45,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 17,
-        "stateEvidenceLinks": 20,
+        "stateEvidenceItems": 45,
+        "stateEvidenceLinks": 169,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5197,9 +5195,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/virginia/",

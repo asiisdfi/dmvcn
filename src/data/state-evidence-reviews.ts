@@ -1467,6 +1467,64 @@ const SC_NEW_CARD = 'https://dmv.sc.gov/news/New-License-Designs';
 const SC_CENTRAL =
   'https://dmv.sc.gov/sites/scdmv/files/media/Files/Central-Issuance-External-FAQ-2.pdf';
 
+const VT_HOME = 'https://dmv.vermont.gov/';
+const VT_REAL_ID =
+  'https://dmv.vermont.gov/licenses/types-of-licenses-ids/real-id';
+const VT_EDL =
+  'https://dmv.vermont.gov/licenses/types-of-licenses-ids/enhanced-drivers-license-edl';
+const VT_PRIVILEGE =
+  'https://dmv.vermont.gov/licenses/types-of-licenses-ids/driver-privilege-card';
+const VT_COMPARISON =
+  'https://dmv.vermont.gov/sites/dmv/files/documents/VL-011-License_Comparisons.pdf';
+const VT_APPLICATION =
+  'https://dmv.vermont.gov/sites/dmv/files/documents/VL-021-License_Application.pdf';
+const VT_ID_APPLICATION =
+  'https://dmv.vermont.gov/sites/dmv/files/documents/VL-017-NonDriver_ID_App.pdf';
+const VT_RESIDENCY =
+  'https://dmv.vermont.gov/sites/dmv/files/documents/VL-002-Residency_Certification.pdf';
+const VT_REPLACEMENT_FORM =
+  'https://dmv.vermont.gov/sites/dmv/files/documents/VL-040-Replacement_License.pdf';
+const VT_OOS_AFFIDAVIT =
+  'https://dmv.vermont.gov/sites/dmv/files/documents/VN-142-Affidavit_of_nonlicensure.pdf';
+const VT_NAME_NOTICE =
+  'https://dmv.vermont.gov/sites/dmv/files/documents/VT-009-Legal_Name_Notice.pdf';
+const VT_MANUAL =
+  'https://dmv.vermont.gov/sites/dmv/files/documents/VN-007-Drivers_Manual.pdf';
+const VT_NEW = 'https://dmv.vermont.gov/licenses/new';
+const VT_PERMIT = 'https://dmv.vermont.gov/licenses/new/learners-permit';
+const VT_RENEW = 'https://dmv.vermont.gov/licenses/renew';
+const VT_MYDMV = 'https://mydmv.vermont.gov/';
+const VT_LOCATIONS = 'https://dmv.vermont.gov/locations';
+const VT_CONTACT = 'https://dmv.vermont.gov/contact';
+const VT_STAT_7 =
+  'https://legislature.vermont.gov/statutes/section/23/001/00007';
+const VT_STAT_205 =
+  'https://legislature.vermont.gov/statutes/section/23/005/00205';
+const VT_STAT_601 =
+  'https://legislature.vermont.gov/statutes/section/23/009/00601';
+const VT_STAT_603 =
+  'https://legislature.vermont.gov/statutes/section/23/009/00603';
+const VT_STAT_604 =
+  'https://legislature.vermont.gov/statutes/section/23/009/00604';
+const VT_STAT_608 =
+  'https://legislature.vermont.gov/statutes/section/23/009/00608';
+const VT_STAT_610 =
+  'https://legislature.vermont.gov/statutes/section/23/009/00610';
+const VT_STAT_613 =
+  'https://legislature.vermont.gov/statutes/section/23/009/00613';
+const VT_STAT_617 =
+  'https://legislature.vermont.gov/statutes/section/23/009/00617';
+const VT_STAT_631 =
+  'https://legislature.vermont.gov/statutes/section/23/009/00631';
+const VT_STAT_632 =
+  'https://legislature.vermont.gov/statutes/section/23/009/00632';
+const VT_STAT_634 =
+  'https://legislature.vermont.gov/statutes/section/23/009/00634';
+const VT_ACT_66 =
+  'https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT066/ACT066%20As%20Enacted.pdf';
+const CBP_US_CITIZEN_DOCUMENTS =
+  'https://www.help.cbp.gov/s/article/Article-1467?language=en_US';
+
 const IA_HUB = 'https://iowadot.gov/drivers-licenses-ids';
 const IA_NEW = 'https://iowadot.gov/drivers-licenses-ids/new-iowa';
 const IA_IMMIGRANT =
@@ -1641,6 +1699,241 @@ const ID_ADDRESS =
   'https://itd.idaho.gov/wp-content/uploads/2025/03/Address.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  vermont: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      VT_HOME,
+      VT_REAL_ID,
+      VT_EDL,
+      VT_PRIVILEGE,
+      VT_COMPARISON,
+      VT_APPLICATION,
+      VT_ID_APPLICATION,
+      VT_RESIDENCY,
+      VT_REPLACEMENT_FORM,
+      VT_OOS_AFFIDAVIT,
+      VT_NAME_NOTICE,
+      VT_MANUAL,
+      VT_NEW,
+      VT_PERMIT,
+      VT_RENEW,
+      VT_MYDMV,
+      VT_LOCATIONS,
+      VT_CONTACT,
+      VT_STAT_7,
+      VT_STAT_205,
+      VT_STAT_601,
+      VT_STAT_603,
+      VT_STAT_604,
+      VT_STAT_608,
+      VT_STAT_610,
+      VT_STAT_613,
+      VT_STAT_617,
+      VT_STAT_631,
+      VT_STAT_632,
+      VT_STAT_634,
+      VT_ACT_66,
+      TSA_IDENTIFICATION,
+      CBP_US_CITIZEN_DOCUMENTS,
+    ],
+    scope:
+      '逐条比对 Vermont DMV 当前 REAL ID、EDL、Driver Privilege Card、VL-011 证件对比、VL-021 驾照申请、VL-017 非驾驶 ID、VL-002 居住证明、VL-040 补证、VN-142 外州证件 affidavit、VT-009 改名通知、Driver Manual、新申请、online permit、续期、补证、myDMV、locations 和语言帮助入口；同时核对 23 V.S.A. §§ 7、205、601、603、604、608、610、613、617、631、632、634、2025 Act 66、TSA 与 CBP 当前规则。Vermont DMV 深层页会对自动请求返回 403，因此以可读取的官方搜索索引正文、官方 PDF、州法正文和同机构页面交叉确认。',
+    notes:
+      '重写 Vermont 两页，明确区分 Privilege Card、REAL ID 与 EDL / EID，补入 2025 年口译和 Privilege Card residency 修法、2026 road-test scheduling fee、外州三年免考裁量与 VL-021 一年问题的冲突、外国驾照访客和申请路线、考试、续期、补证及改名改址。未虚构固定中文考试、外国驾照互惠、当场发卡或人工专业审核；所有映射均为 AI 辅助证据核查。',
+    claims: normalizeReviewedClaims({
+      ...mapReviewedClaims([
+        'Vermont DMV 同时签发 Driver Privilege Card、REAL ID 和 Enhanced Driver License / ID',
+      ], [VT_APPLICATION, VT_ID_APPLICATION, VT_COMPARISON]),
+      ...mapReviewedClaims([
+        'Privilege Card 可以用于驾驶但不是联邦身份证件，REAL ID 适合需要用州证件通过 TSA 或进入适用联邦设施的人，EDL / EID 只面向 Vermont 居民中的美国公民，并增加部分陆路和海路返美用途',
+        '先选证件类型：Driver Privilege Card 是 Non-Real ID，REAL ID 用于适用联邦身份场景，EDL / EID 则只给 Vermont 居民中的美国公民',
+        '先按用途选择 Driver Privilege Card、REAL ID 或 EDL / EID',
+        '把 REAL ID、EDL 和 Driver Privilege Card 当成同一张证件，忽略公民身份和使用场景差异',
+      ], [VT_APPLICATION, VT_COMPARISON, VT_STAT_7, VT_STAT_603, TSA_IDENTIFICATION, CBP_US_CITIZEN_DOCUMENTS]),
+      ...mapReviewedClaims([
+        '持有效外州驾照的新居民须在搬入后 60 天内取得 Vermont 驾照',
+        '搬入 Vermont 后超过 60 天才处理有效外州 license transfer',
+      ], [VT_STAT_601, VT_MANUAL, VT_NEW]),
+      ...mapReviewedClaims([
+        '外州或外国驾照能否免考不能只看证件是否未过期',
+        '现行 23 V.S.A. § 632 允许 DMV 对持有其他司法辖区有效或三年内过期驾照、且原辖区考试与 Vermont 相似的申请人酌情免考，但 VL-021 的外州转入问题只列美国州、DC 或加拿大省且写一年内过期',
+        'Vermont Driver Manual 把有效或三年内过期外州驾照列为通常只做 vision examination 的转入路径，但 23 V.S.A. § 632 的免考写的是 DMV discretion，VL-021 又只询问有效或一年内过期的美国州、DC、加拿大省驾照',
+        '看到三年免考条款就认定 DMV 必须免试，忽略法条中的 discretion 和 VL-021 的一年问题口径',
+      ], [VT_STAT_632, VT_APPLICATION, VT_MANUAL]),
+      ...mapReviewedClaims([
+        '中国大陆驾照用户不应自行假定可直接换证，应按可能需要 vision、knowledge 和 road tests 准备并让 DMV 作最终判断',
+        '持中国大陆或其他外国驾照就选择 “Transfer from Out of State”，没有先向 DMV 确认考试和申请路线',
+      ], [VT_APPLICATION, VT_STAT_632, VT_MANUAL, VT_CONTACT]),
+      ...mapReviewedClaims([
+        'Vermont REAL ID 首次申请或升级时，要按当前 VL-021 / VL-017 准备 identity and date of birth、SSN 或适用的 SSA ineligibility letter、两份 current Vermont residential address 和 lawful status 材料',
+      ], [VT_REAL_ID, VT_APPLICATION, VT_ID_APPLICATION, VT_COMPARISON, VT_MANUAL]),
+      ...mapReviewedClaims([
+        'EDL / EID 本身符合 REAL ID，但还要证明美国公民身份并另付 $36',
+        'EDL 再增加 U.S. citizenship',
+      ], [VT_EDL, VT_STAT_7, VT_APPLICATION, VT_ID_APPLICATION, VT_COMPARISON]),
+      ...mapReviewedClaims([
+        'EDL 可用于符合 WHTI 的陆路或海路返美场景，不能代替国际航空旅行所需护照',
+        '拿 EDL 乘国际航班或进入目的国，误以为它能在所有国际旅行中代替 passport',
+      ], [VT_EDL, VT_MANUAL, CBP_US_CITIZEN_DOCUMENTS, TSA_IDENTIFICATION]),
+      ...mapReviewedClaims([
+        'Vermont 当前 Driver Manual 写明 office visits 需预约，可从 myDMV 或 888-970-0357 安排',
+      ], [VT_MANUAL, VT_MYDMV, VT_LOCATIONS]),
+      ...mapReviewedClaims([
+        '自 2026 年 7 月起，普通 road test 预约前收取 $29 scheduling fee',
+        '到场后该费用按法条计入 license examination fee，未到场通常会被没收，除非至少提前 48 小时取消或 DMV 认可 good cause',
+        'Road-test scheduling fee 与考试费的抵扣和最终应付金额以 myDMV 结算页为准',
+        '没有预约或没有预付 road-test scheduling fee，临近考试才发现不能安排',
+        '使用旧版手册的费用总额，漏掉 2026 年已生效的 $29 road-test scheduling fee',
+      ], [VT_STAT_634, VT_ACT_66, VT_MYDMV, VT_MANUAL]),
+      ...mapReviewedClaims([
+        'Vermont 普通四年 Driver License / Privilege Card 为 $62，两年证件为 $39',
+      ], [VT_STAT_608, VT_APPLICATION, VT_MANUAL]),
+      ...mapReviewedClaims([
+        'learner permit $24，knowledge exam $39，需要参加的 operator license exam $23，replacement $24，EDL 另加 $36',
+      ], [VT_STAT_7, VT_STAT_613, VT_STAT_617, VT_STAT_634, VT_APPLICATION, VT_MANUAL]),
+      ...mapReviewedClaims([
+        '官方手册写明 knowledge test 在线完成，共 20 题，至少答对 16 题通过',
+      ], [VT_MANUAL, VT_PERMIT]),
+      ...mapReviewedClaims([
+        '未通过后至少等一天再考',
+        'Vision screening 标准为 20/40，未达到时会转介 licensed optometrist 或 ophthalmologist 进一步评估',
+      ], [VT_MANUAL]),
+      ...mapReviewedClaims([
+        '2025 年 7 月 1 日生效的 23 V.S.A. § 632(c) 允许申请人在 oral examination 或 road test 选择一名人员担任口译，包括翻译路考口头指令',
+      ], [VT_STAT_632, VT_ACT_66]),
+      ...mapReviewedClaims([
+        '需要中文协助时仍应在预约前致电 802-828-2000，让 DMV 确认考点安排',
+      ], [VT_CONTACT, VT_MYDMV]),
+      ...mapReviewedClaims([
+        'Vermont 法律要求 DMV 每年按 USCRI Vermont 近十年服务人群的主要来源国语言翻译 licensing forms、applications 和 tests，但不要求翻译 Driver Manual，也没有在法条中保证固定的中文考试选项',
+        '不要根据非官方中文题库推断当天一定有中文试卷',
+        '从中文题库推断 Vermont 当前固定提供中文考试，没有提前确认语言帮助或按 § 632 安排口译人员',
+      ], [VT_STAT_631, VT_STAT_632, VT_MANUAL, VT_CONTACT]),
+      ...mapReviewedClaims([
+        '非居民年满 18 岁、在美国合法停留且入境不超过一年时，可在同时持有效外国驾照和 International Driving Permit 的条件下在 Vermont 驾驶',
+        '这是访客驾驶条件，不等于外国驾照可以直接换成 Vermont 驾照',
+      ], [VT_STAT_601, VT_STAT_632, VT_APPLICATION]),
+      ...mapReviewedClaims([
+        '持有效外州驾照的新居民须在搬入 Vermont 后 60 天内换证并交回现有外州或加拿大证件',
+      ], [VT_STAT_601, VT_STAT_603, VT_MANUAL]),
+      ...mapReviewedClaims([
+        '若实体证件不在手中，VN-142 要求提供 license number 和 expiration date，否则还要原签发地出具 clearance letter',
+        '证件遗失时按 VN-142 准备原州 license number、expiration date，必要时取得 clearance letter',
+      ], [VT_OOS_AFFIDAVIT]),
+      ...mapReviewedClaims([
+        '证件已过期或来自外国时要在预约前让 DMV 确认考试范围',
+      ], [VT_STAT_632, VT_APPLICATION, VT_CONTACT]),
+      ...mapReviewedClaims([
+        '首次 Vermont 申请或原 Vermont 驾照过期超过三年时，法条要求完成 examination',
+        '考试包括 oral or written examination、road test，以及 DMV 认为必要的其他检查',
+      ], [VT_STAT_632]),
+      ...mapReviewedClaims([
+        'Road test 车辆要有有效 registration、inspection 和 insurance，并保持安全机械状态',
+        '租车用于考试时，官方手册要求租赁公司出具承担责任的 letter',
+        '申请人还要按 permit 规则带符合资格的 licensed accompanying driver',
+        '参加 road test 时带 learner permit、符合资格的陪同驾驶人、车辆 registration、inspection 和 insurance',
+        '租车另准备租赁公司责任 letter',
+      ], [VT_MANUAL, VT_STAT_617]),
+      ...mapReviewedClaims([
+        'Driver Privilege Card 标有 “non-Real ID”，不用于联邦身份用途',
+        '把 Driver Privilege Card 当作 TSA 或其他联邦身份用途证件',
+      ], [VT_PRIVILEGE, VT_STAT_603, VT_APPLICATION, VT_COMPARISON, TSA_IDENTIFICATION]),
+      ...mapReviewedClaims([
+        '2025 年修订后的 § 603 对该卡的 Vermont residency 规定了特定组合：两封近 30 天邮件再加一份列明文件，或者从法条清单中选两份显示姓名和 residential address 的文件',
+        'Driver Privilege Card 要特别按 2025 年后的 § 603 residency 组合准备，不要只照抄 2023 VL-002 或 2024 VL-021 上的概括性“两份地址”说明',
+        'Driver Privilege Card 申请人单独对照现行 § 603 的 identity 和 residency 组合',
+        '申请 Privilege Card 时只带两封普通邮件，没有按 2025 § 603 核对额外文件组合',
+      ], [VT_STAT_603, VT_ACT_66, VT_APPLICATION, VT_RESIDENCY]),
+      ...mapReviewedClaims([
+        'VL-002 可供未成年人或与他人同住、本人没有常规地址材料的申请人使用',
+        '证明人须填写 affidavit，并带一份显示 current name 和 street address 的合格材料',
+        '与他人同住时再使用 VL-002 affidavit 路径',
+      ], [VT_RESIDENCY]),
+      ...mapReviewedClaims([
+        '没有 SSN 时不能自行用 ITIN 替代',
+        '当前申请表要求 SSA ineligibility letter',
+        '只有同时申请 Privilege Card、不登记投票并提交该 letter 时，VL-021 才允许 SSN 栏留空',
+      ], [VT_APPLICATION, VT_ID_APPLICATION, VT_COMPARISON]),
+      ...mapReviewedClaims([
+        '临时外国公民申请 REAL ID 或其他要求 lawful status 的证件时，官方手册写明剩余合法停留不足 30 天不会签发，获发证件的到期日也会与 authorized stay 对齐',
+      ], [VT_MANUAL, VT_STAT_603]),
+      ...mapReviewedClaims([
+        '姓名变化要先更新 Social Security Administration，再本人到 DMV 提交 original 或 certified marriage license / certificate 或明确写出新姓名的 court order',
+      ], [VT_REPLACEMENT_FORM, VT_NAME_NOTICE, VT_MANUAL]),
+      ...mapReviewedClaims([
+        '姓名、residence 或 mailing address 改变后须在 30 天内书面通知 DMV',
+        '改名后未先更新 SSA，或姓名、residence、mailing address 改变超过 30 天仍未通知 DMV',
+      ], [VT_STAT_205, VT_REPLACEMENT_FORM, VT_NAME_NOTICE]),
+      ...mapReviewedClaims([
+        '普通续期可通过符合资格的 online、mail 或 in-person 路径完成',
+      ], [VT_RENEW, VT_MANUAL, VT_MYDMV, VT_STAT_610]),
+      ...mapReviewedClaims([
+        '2025 年新增的 early-renewal 法条允许到期前随时续期并按剩余整年比例减免费用，但不会免除该次续期原本适用的申请和材料要求',
+      ], [VT_STAT_604, VT_RENEW]),
+      ...mapReviewedClaims([
+        'Identity and date of birth 通常从 valid unexpired passport、政府签发的 certified birth record、Permanent Resident Card、Certificate of Naturalization / Citizenship 等当前清单项目中选择',
+      ], [VT_APPLICATION, VT_ID_APPLICATION, VT_REPLACEMENT_FORM, VT_MANUAL]),
+      ...mapReviewedClaims([
+        '官方手册说明普通 photocopy 和 fax 不接受',
+      ], [VT_MANUAL]),
+      ...mapReviewedClaims([
+        'SSN 类别可带 Social Security card',
+        '卡不在手时可用 W-2、SSA-1099 或显示姓名和至少后四位 SSN 的 pay stub',
+        '没有资格取得 SSN 时带 SSA ineligibility letter',
+      ], [VT_APPLICATION, VT_ID_APPLICATION, VT_REPLACEMENT_FORM, VT_COMPARISON]),
+      ...mapReviewedClaims([
+        '普通 REAL ID / EDL 路线准备两份显示本人姓名和 current Vermont residential street address 的文件，例如符合清单的 mail、utility bill、property tax bill、signed lease 或 renters / homeowners insurance，P.O. Box 不能替代住址',
+      ], [VT_APPLICATION, VT_ID_APPLICATION, VT_REPLACEMENT_FORM, VT_COMPARISON]),
+      ...mapReviewedClaims([
+        'REAL ID 和 EDL 要证明 lawful status',
+        '临时外国公民通常带 passport and visa、I-551 或其他当前合法停留文件，并预留 DMV 的电子核验时间',
+      ], [VT_APPLICATION, VT_ID_APPLICATION, VT_REPLACEMENT_FORM, VT_MANUAL, VT_STAT_603]),
+      ...mapReviewedClaims([
+        'EDL / EID 还要带美国公民身份证明，例如 certified U.S. birth certificate、有效 U.S. passport / passport card、Certificate of Citizenship / Naturalization 或 Consular Report of Birth Abroad',
+      ], [VT_STAT_7, VT_APPLICATION, VT_ID_APPLICATION, VT_REPLACEMENT_FORM]),
+      ...mapReviewedClaims([
+        '姓名与基础身份文件不一致时带齐每一次 marriage、civil union、dissolution 或 court order，建立连续 name chain，并先让 SSA 记录更新',
+      ], [VT_APPLICATION, VT_REPLACEMENT_FORM, VT_NAME_NOTICE, VT_MANUAL]),
+      ...mapReviewedClaims([
+        '外州转入带现有实体驾照',
+      ], [VT_STAT_603, VT_APPLICATION, VT_MANUAL]),
+      ...mapReviewedClaims([
+        '已有 passport 且只为登机时，先比较是否真的需要升级州证件',
+      ], [VT_REAL_ID, TSA_IDENTIFICATION]),
+      ...mapReviewedClaims([
+        '再按身份选择路线：首次无照、有效美国外州 / DC / 加拿大省转入、中国大陆或其他外国驾照、renewal、replacement 或 address / name change',
+      ], [VT_APPLICATION, VT_RENEW, VT_REPLACEMENT_FORM, VT_STAT_632]),
+      ...mapReviewedClaims([
+        '下载当前 VL-021 和 License Types Comparison，把每个勾选项与自己的证件类型、transaction 和 SSN 情况对上',
+      ], [VT_APPLICATION, VT_COMPARISON]),
+      ...mapReviewedClaims([
+        '把材料分成 identity / date of birth、SSN / SSA letter、Vermont residential address、lawful status、name chain 五组',
+      ], [VT_APPLICATION, VT_ID_APPLICATION, VT_REPLACEMENT_FORM, VT_NAME_NOTICE]),
+      ...mapReviewedClaims([
+        '外州证件持有人在 60 天内预约，带实体证件或按 VN-142 准备 license number、expiration date 和可能的 clearance letter',
+      ], [VT_STAT_601, VT_MANUAL, VT_OOS_AFFIDAVIT, VT_MYDMV]),
+      ...mapReviewedClaims([
+        '中国大陆驾照或需要中文协助者先致电 802-828-2000，确认考试范围、当前 test language，并说明准备按 § 632(c) 带自选口译人员参加 oral exam 或 road test',
+      ], [VT_APPLICATION, VT_STAT_631, VT_STAT_632, VT_ACT_66, VT_CONTACT]),
+      ...mapReviewedClaims([
+        '需要考试时先完成 online knowledge test，核对 $39 exam fee 和 $24 permit fee，再支付 $29 road-test scheduling fee并预约地点',
+      ], [VT_PERMIT, VT_MANUAL, VT_STAT_617, VT_STAT_634, VT_MYDMV]),
+      ...mapReviewedClaims([
+        '路考前检查 registration、inspection、insurance、车辆设备、陪同驾驶人和租车责任 letter，无法赴约时至少提前 48 小时取消',
+      ], [VT_MANUAL, VT_STAT_634]),
+      ...mapReviewedClaims([
+        '办结后保存收据和申请记录',
+      ], [VT_APPLICATION, VT_MYDMV]),
+      ...mapReviewedClaims([
+        '续期先查 online / mail 资格，补证按 $24 当前费用准备，地址或姓名变化在 30 天内处理',
+      ], [VT_RENEW, VT_STAT_613, VT_STAT_205, VT_REPLACEMENT_FORM, VT_MYDMV]),
+      ...mapReviewedClaims([
+        '只带 passport 和旧驾照，没有准备 SSN / SSA letter、两份 Vermont street-address 材料或完整姓名链',
+      ], [VT_APPLICATION, VT_ID_APPLICATION, VT_REPLACEMENT_FORM]),
+    }),
+  },
   'south-carolina': {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',
