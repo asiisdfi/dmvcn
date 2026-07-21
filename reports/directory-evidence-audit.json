@@ -1,31 +1,31 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T02:21:20.772Z",
+    "generatedAt": "2026-07-21T02:43:11.542Z",
     "pages": 5,
-    "claims": 736,
+    "claims": 746,
     "statesCovered": 50,
-    "aiAssisted": 683,
-    "automated": 53,
+    "aiAssisted": 699,
+    "automated": 47,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 149,
-        "states": 43
+        "claims": 153,
+        "states": 44
       },
       "deadlines": {
-        "claims": 110,
-        "states": 41
+        "claims": 112,
+        "states": 42
       },
       "document-rules": {
         "claims": 184,
         "states": 49
       },
       "foreign-license": {
-        "claims": 125,
+        "claims": 128,
         "states": 41
       },
       "identity-ssn": {
-        "claims": 168,
+        "claims": 169,
         "states": 45
       }
     }
@@ -2168,6 +2168,66 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "north-dakota",
+      "category": "费用",
+      "claim": "road test 每次 $5，自备 current registration 且设备正常的车辆",
+      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/noncommercial-manual.pdf",
+      "sourceLabel": "对应官方来源：North Dakota 2025–2027 Class D Manual",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "north-dakota",
+      "category": "费用",
+      "claim": "knowledge 和 road test 各 $5，duplicate $8，单纯 name / address corrected card $3",
+      "sourceUrl": "https://www.dot.nd.gov/driver/driver-education/driver-license-requirements",
+      "sourceLabel": "对应官方来源：NDDOT Driver License Requirements",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "north-dakota",
+      "category": "费用",
+      "claim": "18 岁及以上首次卡免费，未满 18 岁和遗失补卡为 $8",
+      "sourceUrl": "https://www.dot.nd.gov/driver/id-card-requirements",
+      "sourceLabel": "对应官方来源：NDDOT ID Card Requirements",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "north-dakota",
+      "category": "费用",
+      "claim": "普通 Class D 改地址可先 online 更新 record，是否购买 $3 corrected card 按用途决定",
+      "sourceUrl": "https://www.dot.nd.gov/driver/driver-license",
+      "sourceLabel": "对应官方来源：NDDOT Driver License",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "south-dakota",
       "category": "邮寄 / 卡片",
       "claim": "需要邮寄时按 4–6 周或更久规划，不承诺固定到证日",
@@ -3849,6 +3909,34 @@
       "sourceLabel": "对应官方来源：Nebraska Document Verification Form",
       "themes": [
         "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "north-dakota",
+      "category": "续期 / 到期",
+      "claim": "续期可提前 10 个月且不损失剩余期限",
+      "sourceUrl": "https://www.dot.nd.gov/driver/online-services-drivers/driver-license-renewal",
+      "sourceLabel": "对应官方来源：NDDOT Driver License Renewal",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "north-dakota",
+      "category": "搬家 / 地址",
+      "claim": "姓名或地址变化要在 10 天内通知",
+      "sourceUrl": "https://www.dot.nd.gov/driver/driver-license",
+      "sourceLabel": "对应官方来源：NDDOT Driver License",
+      "themes": [
+        "address-change"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
@@ -6427,58 +6515,59 @@
       "page": "document-rules",
       "stateId": "north-dakota",
       "category": "地址证明",
-      "claim": "Category 4: 两份 North Dakota residence address，显示 physical address",
-      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
-      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "claim": "P.O. Box 不接受，未满 18 岁可使用 parent 的 proof",
+      "sourceUrl": "https://www.dot.nd.gov/driver/real-id-information",
+      "sourceLabel": "对应官方来源：NDDOT REAL ID Information",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "north-dakota",
       "category": "地址证明",
-      "claim": "P.O. Box 不接受",
-      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
-      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "claim": "地址改变时再交 residency proof，首次 REAL ID upgrade 不能只走 online duplicate",
+      "sourceUrl": "https://www.dot.nd.gov/driver/replace-lost-stolen-or-damaged-license",
+      "sourceLabel": "对应官方来源：NDDOT Replacement License or ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "north-dakota",
       "category": "地址证明",
-      "claim": "North Dakota REAL ID 要从四类文件中准备：proof of identification / legal presence、proof of name change、proof of Social Security Number、proof of North Dakota residence address",
-      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
-      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "claim": "REAL ID 四类材料是：一份 identity / legal presence、适用的完整 name chain、一份显示姓名和 full SSN 的文件、两份显示当前 physical address 的 North Dakota 文件",
+      "sourceUrl": "https://www.dot.nd.gov/driver/real-id-information",
+      "sourceLabel": "对应官方来源：NDDOT REAL ID Information",
       "themes": [
+        "residency-documents",
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "north-dakota",
-      "category": "SSN",
-      "claim": "Category 3: full Social Security number proof，例如 SSN card、W-2、SSA-1099、1099 或 pay stub",
-      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
-      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "category": "地址证明",
+      "claim": "knowledge 和 road test 各 $5，duplicate $8，单纯 name / address corrected card $3",
+      "sourceUrl": "https://www.dot.nd.gov/driver/driver-education/driver-license-requirements",
+      "sourceLabel": "对应官方来源：NDDOT Driver License Requirements",
       "themes": [
-        "ssn"
+        "fee"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -8455,17 +8544,65 @@
     {
       "page": "foreign-license",
       "stateId": "north-dakota",
-      "category": "外州 / 加拿大转入",
-      "claim": "外州转入先看 Requirements Transferring License，确认 address 和 SSN 文件",
-      "sourceUrl": "https://www.dot.nd.gov/driver/requirements-transferring-license",
-      "sourceLabel": "对应官方来源：NDDOT Requirements Transferring License",
+      "category": "外国 / 境外驾照",
+      "claim": "建立 resident 身份后要按外国驾照流程换证",
+      "sourceUrl": "https://www.dot.nd.gov/driver/drivers-other-nations",
+      "sourceLabel": "对应官方来源：NDDOT Drivers from Other Nations",
       "themes": [
-        "out-of-state",
-        "ssn"
+        "foreign-license"
+      ],
+      "failedThemes": [
+        "foreign-license"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "north-dakota",
+      "category": "外国 / 境外驾照",
+      "claim": "Drivers from Other Nations：中国与其他外国驾照、surrender、Chinese test、English road test 和 residency",
+      "sourceUrl": "https://www.tsa.gov/travel/security-screening/identification",
+      "sourceLabel": "对应官方来源：TSA Acceptable Identification",
+      "themes": [
+        "residency-documents",
+        "foreign-license"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "automated"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "north-dakota",
+      "category": "外国 / 境外驾照",
+      "claim": "外国驾照须按 NDDOT 要求 surrender",
+      "sourceUrl": "https://www.dot.nd.gov/driver/drivers-other-nations",
+      "sourceLabel": "对应官方来源：NDDOT Drivers from Other Nations",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [
+        "foreign-license"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "north-dakota",
+      "category": "外国 / 境外驾照",
+      "claim": "中国驾照持有人打开 Drivers from Other Nations，准备 surrender foreign license、vision、Chinese knowledge test 和 English road test",
+      "sourceUrl": "https://www.dot.nd.gov/driver/drivers-other-nations",
+      "sourceLabel": "对应官方来源：NDDOT Drivers from Other Nations",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [
+        "foreign-license"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -10889,30 +11026,45 @@
       "page": "identity-ssn",
       "stateId": "north-dakota",
       "category": "SSN",
-      "claim": "North Dakota REAL ID 要从四类文件中准备：proof of identification / legal presence、proof of name change、proof of Social Security Number、proof of North Dakota residence address",
-      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
-      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "claim": "REAL ID 四类材料是：一份 identity / legal presence、适用的完整 name chain、一份显示姓名和 full SSN 的文件、两份显示当前 physical address 的 North Dakota 文件",
+      "sourceUrl": "https://www.dot.nd.gov/driver/real-id-information",
+      "sourceLabel": "对应官方来源：NDDOT REAL ID Information",
       "themes": [
+        "residency-documents",
         "ssn",
         "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "north-dakota",
+      "category": "SSN",
+      "claim": "这不等于申请表无需填写 SSN 或豁免，也不改变 lawful-presence identity 要求",
+      "sourceUrl": "https://www.dot.nd.gov/driver/requirements-transferring-license",
+      "sourceLabel": "对应官方来源：NDDOT Requirements for Transferring License",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "north-dakota",
       "category": "lawful presence",
-      "claim": "Category 1: proof of identification、date of birth 和 legal presence，例如 certified birth certificate、passport、permanent resident card 等",
-      "sourceUrl": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf",
-      "sourceLabel": "对应官方来源：North Dakota REAL ID Checklist PDF",
+      "claim": "identity / legal presence 可按清单选 state-certified U.S. birth certificate、valid U.S. passport、I-551、I-766、valid foreign passport + I-94，或 refugee / asylee I-94",
+      "sourceUrl": "https://www.dot.nd.gov/driver/driver-education/driver-license-requirements",
+      "sourceLabel": "对应官方来源：NDDOT Driver License Requirements",
       "themes": [
         "lawful-presence"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

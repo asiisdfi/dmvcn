@@ -1394,6 +1394,37 @@ const WI_LOCATIONS =
 const WI_MV3001 =
   'https://wisconsindot.gov/Documents/formdocs/mv3001.pdf';
 
+const ND_HUB = 'https://www.dot.nd.gov/driver';
+const ND_LICENSE = 'https://www.dot.nd.gov/driver/driver-license';
+const ND_REQUIREMENTS =
+  'https://www.dot.nd.gov/driver/driver-education/driver-license-requirements';
+const ND_TRANSFER =
+  'https://www.dot.nd.gov/driver/requirements-transferring-license';
+const ND_FOREIGN = 'https://www.dot.nd.gov/driver/drivers-other-nations';
+const ND_PERMIT = 'https://www.dot.nd.gov/driver/how-apply-learners-permit';
+const ND_REAL_ID = 'https://www.dot.nd.gov/driver/real-id-information';
+const ND_REAL_ID_CHECKLIST =
+  'https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/real-id-checklist.pdf';
+const ND_PROOF_ID =
+  'https://www.dot.nd.gov/sites/www/files/documents/proof-of-identification-documents.pdf';
+const ND_MANUAL_PAGE =
+  'https://www.dot.nd.gov/driver/noncommercial-driver-license-manual';
+const ND_MANUAL =
+  'https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/noncommercial-manual.pdf';
+const ND_RENEW =
+  'https://www.dot.nd.gov/driver/online-services-drivers/driver-license-renewal';
+const ND_ONLINE_RENEW =
+  'https://apps.nd.gov/dot/dlts/dlos/renewal/welcome.htm';
+const ND_REPLACE =
+  'https://www.dot.nd.gov/driver/replace-lost-stolen-or-damaged-license';
+const ND_ID = 'https://www.dot.nd.gov/driver/id-card-requirements';
+const ND_SITES = 'https://www.dot.nd.gov/driver/driver-license-sites';
+const ND_APPLICATION = 'https://www.dot.nd.gov/forms/sfn06763.pdf';
+const ND_CLASSES = 'https://www.dot.nd.gov/driver/driver-license-classes';
+const ND_IDP =
+  'https://www.dot.nd.gov/driver/international-driving-permit-idp';
+const ND_CODE = 'https://ndlegis.gov/prod/cencode/t39c06.pdf';
+
 const NE_HUB = 'https://dmv.nebraska.gov/driver-license';
 const NE_CLASS_O = 'https://dmv.nebraska.gov/dl/driver-license';
 const NE_DOC_PAGE =
@@ -1484,6 +1515,158 @@ const ID_ADDRESS =
   'https://itd.idaho.gov/wp-content/uploads/2025/03/Address.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  'north-dakota': {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      ND_HUB,
+      ND_LICENSE,
+      ND_REQUIREMENTS,
+      ND_TRANSFER,
+      ND_FOREIGN,
+      ND_PERMIT,
+      ND_REAL_ID,
+      ND_REAL_ID_CHECKLIST,
+      ND_PROOF_ID,
+      ND_MANUAL_PAGE,
+      ND_MANUAL,
+      ND_RENEW,
+      ND_ONLINE_RENEW,
+      ND_REPLACE,
+      ND_ID,
+      ND_SITES,
+      ND_APPLICATION,
+      ND_CLASSES,
+      ND_IDP,
+      ND_CODE,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开 NDDOT driver hub、license、requirements、U.S. transfer、foreign driver、permit、REAL ID、renewal、online renewal、replacement、ID、site、class 与 IDP 正文，并核对 current REAL ID / proof-of-identification PDFs、2025–2027 Class D manual、2026 SFN 6763 application、current NDCC Chapter 39-06 和 TSA identification guidance。',
+    notes:
+      '重点补齐中国大陆驾照、Chinese knowledge / English road test、90-day residence 与 60-day post-residency rule、SSN exception 官方冲突、standard / REAL ID 文件差异、考试车辆、当前费用、online renewal、补证和 non-driver ID。所有映射为 AI 辅助核查，不冒充 NDDOT、律师或真实人工专业审核。',
+    claims: normalizeReviewedClaims({
+      'Road test 只在 Bismarck、Devils Lake、Dickinson、Fargo、Grand Forks、Jamestown、Minot 和 Williston 进行': [ND_SITES],
+      'office knowledge test 和 road test 也要预约，在线 knowledge test 通过后仍须预约到现场领 permit': [ND_SITES, ND_PERMIT, ND_MANUAL],
+      '所有 Driver License Site 业务都按预约办理': [ND_SITES, ND_REQUIREMENTS],
+      '70 岁及以上、资料除地址外变化或上一轮已 online renewal，仍提交 online renewal': [ND_ONLINE_RENEW],
+      'REAL ID 的 SSN 文件只显示后四位，或地址材料只有 P.O. Box / digital screenshot / photocopy': [ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      'road test 带着乘客、宠物或电子设备，或车辆 registration / equipment 不符合手册要求': [ND_MANUAL],
+      '两份 REAL ID address proof 不是最 current、没有本人姓名和 physical residence address': [ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      '只带 IDP 而没有有效中国驾照，或把 IDP 当作 lawful-presence / identity document': [ND_FOREIGN, ND_IDP, ND_REQUIREMENTS],
+      '只看 foreign-driver page 的 mandatory SSN 句子或只看 affidavit exception，没有提前确认 NDDOT 当前执行': [ND_REQUIREMENTS, ND_ID, ND_FOREIGN, ND_APPLICATION, ND_CODE],
+      '多次改名只带最后一份文件，或拿未明确 current legal name 的 divorce decree 直接套 REAL ID checklist': [ND_REAL_ID, ND_REAL_ID_CHECKLIST, ND_LICENSE],
+      '官方明确 road test 全程 English': [ND_FOREIGN],
+      '把 standard credential 的一份 address / no SSN-proof-document 规则误用到 REAL ID 四类清单': [ND_TRANSFER, ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      '把中国驾照放进美国 out-of-state transfer，误以为可以直接免 knowledge / road test': [ND_FOREIGN, ND_TRANSFER, ND_CLASSES],
+      '把连续居住 90 天和 resident 后 60 天两条规则简化成“搬来 60 天”，导致错误计算 deadline': [ND_REQUIREMENTS, ND_TRANSFER, ND_FOREIGN, ND_MANUAL],
+      '改名或改地址超过 10 天才通知，或试图在线完成必须现场拍照的 name change': [ND_LICENSE, ND_MANUAL],
+      '看到 Chinese knowledge test 就默认 road test 也提供中文口令': [ND_FOREIGN, ND_PERMIT],
+      '线上通过 knowledge test 后直接去现场，没有先预约领取 permit': [ND_PERMIT, ND_MANUAL],
+      '美国外州实体卡过期超过一年、遗失或 record 有问题，仍假定所有 tests 自动豁免': [ND_TRANSFER, ND_CLASSES],
+      '证件过期后继续驾驶，或过期超过一年却没有预约 knowledge 和 road tests': [ND_RENEW, ND_LICENSE],
+      'P.O. Box 不接受，未满 18 岁可使用 parent 的 proof': [ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      'REAL ID checklist 未单独列它，先向 NDDOT 确认': [ND_REAL_ID_CHECKLIST, ND_LICENSE],
+      'REAL ID 准备两份最 current 的 North Dakota address documents': [ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      'REAL ID 的 SSN proof 选 Social Security Card、W-2、SSA-1099、non-SSA 1099 或 pay stub，必须同时显示姓名和完整 SSN': [ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      'U.S. 外州 permit、license 或 ID 不能替代首次申请所需的 name / date-of-birth identity document': [ND_FOREIGN],
+      'identity / legal presence 可按清单选 state-certified U.S. birth certificate、valid U.S. passport、I-551、I-766、valid foreign passport + I-94，或 refugee / asylee I-94': [ND_REQUIREMENTS, ND_REAL_ID, ND_PROOF_ID],
+      'identity 上的姓名与 current legal name 不同，用 certified government marriage certificate、certified adoption document 或 sealed court order 串起变化': [ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      'online address change 要上传两份实际 address documents 的 scan': [ND_ONLINE_RENEW],
+      'photocopy、hospital certificate 和 digital REAL ID document 不接受': [ND_REAL_ID_CHECKLIST],
+      'road test 自备车辆，带 current registration，并确保全部 equipment 正常': [ND_MANUAL],
+      '不要让 2026 application 的冲突到现场才暴露': [ND_REQUIREMENTS, ND_FOREIGN, ND_APPLICATION, ND_CODE],
+      '中国驾照路线同时带有效 foreign license、独立 lawful-presence identity、North Dakota address 和适用的 SSN / exception 材料': [ND_FOREIGN, ND_REQUIREMENTS],
+      '全部 government identity 和 legal-name 文件使用 paper original 或 certified copy': [ND_REAL_ID, ND_REAL_ID_CHECKLIST, ND_PROOF_ID],
+      '可用材料包括 current lease / mortgage、utility、home or renter insurance、financial statement、pay stub、vehicle insurance、Tribal resident document、property-owner statement 或 shelter certification': [ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      '地址改变时再交 residency proof，首次 REAL ID upgrade 不能只走 online duplicate': [ND_REPLACE],
+      '地址文件显示本人姓名和 current physical residence address': [ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      '外国驾照须按 NDDOT 要求 surrender': [ND_FOREIGN],
+      '如使用 divorce decree，一般 name-change FAQ 要求 certified、带 seal 且明确写出 current legal name': [ND_LICENSE],
+      '无 SSN 的 nonimmigrant / 未获分配者准备 lawful-status documents，并在预约前询问 affidavit 或 exception': [ND_REQUIREMENTS, ND_ID, ND_CODE],
+      '无实体卡时预期考试或追加 driving record': [ND_CLASSES, ND_TRANSFER],
+      '标准非 REAL ID transfer 页面目前写一份': [ND_TRANSFER],
+      '测试车内不留乘客、普通宠物或 electronic device': [ND_MANUAL],
+      '续期现场带 current North Dakota license、corrective lenses 和 $15': [ND_RENEW],
+      '美国外州 transfer 带 most current 实体 license，确认未 suspended / cancelled / revoked 且过期不超过一年': [ND_TRANSFER],
+      '补证现场准备可接受 identity': [ND_REPLACE],
+      '适用时另带 I-20 或 DS-2019': [ND_PROOF_ID],
+      '18 岁及以上首次卡免费，未满 18 岁和遗失补卡为 $8': [ND_ID],
+      'CDL 是 30 天': [ND_REQUIREMENTS, ND_TRANSFER],
+      'Chinese knowledge test 不代表 road test 有中文：NDDOT 明确写所有 road tests entirely in English': [ND_FOREIGN],
+      'IDP 只是现有驾照的翻译，不是独立 driver license': [ND_FOREIGN, ND_IDP],
+      'NDDOT 的 SSN 说明当前互相冲突：general requirements、ID page 和现行 NDCC 允许不符合 SSN 资格的 nonimmigrant 或未获分配者走例外 / affidavit，但 foreign-driver page、manual、proof PDF 和 2026 application 写成必须提供 SSN': [ND_REQUIREMENTS, ND_ID, ND_FOREIGN, ND_MANUAL, ND_APPLICATION, ND_CODE],
+      'Noncommercial Class D knowledge test 官方列出 Chinese，但未说明简体、繁体或题库翻译版本': [ND_FOREIGN, ND_PERMIT, ND_MANUAL],
+      'North Dakota non-driver ID 可在任何年龄申请': [ND_ID],
+      'REAL ID checklist 明确不收 digital document、photocopy 或 hospital certificate': [ND_REAL_ID_CHECKLIST],
+      'REAL ID 四类材料是：一份 identity / legal presence、适用的完整 name chain、一份显示姓名和 full SSN 的文件、两份显示当前 physical address 的 North Dakota 文件': [ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      'REAL ID 页面只列 certified marriage certificate、adoption document 和 sealed court order': [ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      'foreign-driver 页面费用区把 Permit 写成 “$5 per attempt”，但 permit page、requirements 和 2026 application 均把普通 permit / license 费用列为 $15': [ND_FOREIGN, ND_PERMIT, ND_REQUIREMENTS, ND_APPLICATION],
+      'general-business LEP interpretation 不能当作 road-test interpreter 承诺': [ND_MANUAL, ND_FOREIGN],
+      'knowledge test 可在 office 或官方 KnowToDrive online 完成': [ND_PERMIT, ND_MANUAL],
+      'knowledge 和 road test 各 $5，duplicate $8，单纯 name / address corrected card $3': [ND_REQUIREMENTS, ND_LICENSE],
+      'name change 必须本人带 certified document，普通 noncommercial address change 可只更新 record，CDL 必须买 corrected card': [ND_LICENSE],
+      'noncommercial license / permit、renewal 和美国外州 transfer 当前均为 $15': [ND_REQUIREMENTS, ND_TRANSFER, ND_RENEW, ND_PERMIT],
+      'online renewal 不适用于 70 岁及以上、除地址外资料变化或上一轮已经 online renewal': [ND_ONLINE_RENEW],
+      'road test 只有八个城市提供并且必须预约': [ND_SITES],
+      'road test 每次 $5，自备 current registration 且设备正常的车辆': [ND_MANUAL, ND_REQUIREMENTS],
+      '一般 name-change FAQ 另接受明确写出 current legal name 的 certified divorce decree，REAL ID 使用 divorce decree 前应确认': [ND_LICENSE, ND_REAL_ID, ND_REAL_ID_CHECKLIST],
+      '不能用 IDP 替代有效中国驾照、lawful-presence document 或 North Dakota address proof': [ND_FOREIGN, ND_IDP, ND_REQUIREMENTS],
+      '中国或其他外国驾照持有人要本人到场并交回所有其他州或国家签发的 license': [ND_FOREIGN],
+      '临时移民文件作为 identity 时，credential 可能按 duration-of-stay date 到期，不超过普通 licensing cycle': [ND_MANUAL],
+      '乘客、普通宠物和 electronic devices 不得留在测试车内': [ND_MANUAL],
+      '付款前按业务确认，不把这行当正式 permit 总价': [ND_FOREIGN, ND_PERMIT, ND_REQUIREMENTS, ND_APPLICATION],
+      '任何考试失败后当天不能重考': [ND_MANUAL, ND_PERMIT],
+      '先拨 855-633-6835 确认当前 affidavit、资格和 REAL ID Category 3 执行方式': [ND_REQUIREMENTS, ND_ID, ND_TRANSFER],
+      '在线系统提示预留 10 business days': [ND_ONLINE_RENEW],
+      '外州 permit / license / ID 不能作为姓名和出生日期的 identity proof': [ND_FOREIGN],
+      '姓名或地址变化要在 10 天内通知': [ND_LICENSE, ND_MANUAL],
+      '官网另把连续居住 90 天列为 resident threshold，不应把这两条擅自合并成“搬来后 60 天”': [ND_REQUIREMENTS, ND_TRANSFER, ND_FOREIGN, ND_MANUAL],
+      '建立 resident 身份后要按外国驾照流程换证': [ND_FOREIGN, ND_REQUIREMENTS],
+      '持实际美国外州证件、状态正常且过期不超过一年时，可走 equivalent transfer': [ND_TRANSFER],
+      '材料要以纸质 original / certified copy 提交': [ND_REAL_ID_CHECKLIST],
+      '标准 non-REAL ID transfer 页面写 no proof of SSN document 和一份 address proof': [ND_TRANSFER],
+      '每次 $5、一天只允许一次，线上通过后仍要预约到 Driver License office 领取 permit': [ND_PERMIT, ND_FOREIGN],
+      '没有 SSN 的 noncitizen 不应只凭其中一页到场': [ND_REQUIREMENTS, ND_ID, ND_FOREIGN, ND_APPLICATION],
+      '申请人应在预约前确认所需中文显示': [ND_PERMIT, ND_FOREIGN],
+      '续期可提前 10 个月且不损失剩余期限': [ND_RENEW],
+      '美国外州 Class D / M license 在本人被视为 North Dakota resident 后最多再用 60 天': [ND_REQUIREMENTS, ND_TRANSFER, ND_MANUAL],
+      '过期后不能驾驶，过期超过一年要重新通过 knowledge 和 road tests': [ND_RENEW],
+      '这不等于申请表无需填写 SSN 或豁免，也不改变 lawful-presence identity 要求': [ND_TRANSFER, ND_REQUIREMENTS, ND_APPLICATION],
+      '通常可免相应 tests，但无实体卡、身体状况或 driving record 不清楚时可能需要考试': [ND_CLASSES, ND_TRANSFER],
+      '非居民年满 16 岁且随身持有效 home-country license 时可在 North Dakota 驾驶': [ND_FOREIGN, ND_MANUAL],
+      '首次 REAL ID 也必须现场': [ND_REAL_ID, ND_REPLACE, ND_ONLINE_RENEW],
+      'IDP 只是驾照翻译，不能替代有效中国驾照': [ND_FOREIGN, ND_IDP],
+      '中国大陆驾照持有人不是美国外州 transfer，应走 Drivers from Other Nations：本人到场、交回其他州或国家签发的证件、完成 vision、可选 Chinese 的 Class D knowledge test，并参加全程 English 的 road test': [ND_FOREIGN],
+      'North Dakota REAL ID 看右上角 gold star，属于 opt-in：首次升级必须本人预约，按四类准备 identity / lawful presence、适用的 name chain、full-SSN proof 和两份 physical-address proof': [ND_REAL_ID, ND_REAL_ID_CHECKLIST, ND_REPLACE],
+      '标准 non-federal credential 仍可用于驾驶，但 TSA 已不接受它作为普通机场身份证件，持有人可改用 passport 等官方列明证件': [ND_REAL_ID, TSA_IDENTIFICATION],
+      '18 岁及以上首次 ID 当前免费，REAL ID 版本仍按四类材料准备': [ND_ID, ND_REAL_ID],
+      'road test 预约八个指定城市之一，自备合格车辆和 current registration，并提前练习 English instructions、parallel parking、signals 和 lane control': [ND_SITES, ND_MANUAL, ND_FOREIGN],
+      'standard transfer 按当前页面核对一份地址及 SSN exception': [ND_TRANSFER, ND_REQUIREMENTS],
+      '不合资格就预约现场': [ND_SITES, ND_RENEW, ND_ONLINE_RENEW],
+      '不要自行合并 90-day resident threshold 与 resident 后 60-day license rule，必要时拨 855-633-6835': [ND_REQUIREMENTS, ND_TRANSFER, ND_FOREIGN, ND_MANUAL],
+      '中国驾照持有人打开 Drivers from Other Nations，准备 surrender foreign license、vision、Chinese knowledge test 和 English road test': [ND_FOREIGN, ND_PERMIT],
+      '保留 NDDOT 给出的具体材料答复': [ND_REQUIREMENTS, ND_FOREIGN],
+      '先定路线：美国外州 transfer、中国 / 外国驾照、首次 permit / Class D、REAL ID upgrade、renewal、duplicate、name / address change 或 non-driver ID': [ND_LICENSE, ND_FOREIGN, ND_TRANSFER, ND_REAL_ID, ND_RENEW, ND_REPLACE],
+      '向 NDDOT 确认 Chinese 显示版本，一天只安排一次 attempt': [ND_FOREIGN, ND_PERMIT],
+      '地址已变时准备 residency proof，首次 gold-star upgrade 改走现场': [ND_REPLACE, ND_REAL_ID],
+      '按 REAL ID / standard 选择材料：REAL ID 用 identity、name chain、full SSN 和 two physical-address documents': [ND_REAL_ID, ND_REAL_ID_CHECKLIST, ND_TRANSFER],
+      '改名在 10 天内预约并带 certified document': [ND_LICENSE, ND_MANUAL],
+      '普通 Class D 改地址可先 online 更新 record，是否购买 $3 corrected card 按用途决定': [ND_LICENSE],
+      '机场出行时检查是否 gold star': [ND_REAL_ID],
+      '永久搬入者分别记录开始居住和 resident status 的日期': [ND_REQUIREMENTS, ND_TRANSFER, ND_FOREIGN, ND_MANUAL],
+      '没有 SSN 时先把 lawful status、nonimmigrant eligibility 和 affidavit 问清，再预约': [ND_REQUIREMENTS, ND_ID, ND_CODE],
+      '没有就带 TSA 当前接受的 passport、green card、foreign passport 等替代 ID，别依赖 temporary license': [TSA_IDENTIFICATION],
+      '续期先检查 10-month window、是否 70+、上轮是否 online、资料是否变化和 vision restriction': [ND_RENEW, ND_ONLINE_RENEW],
+      '补证先确认 driving privilege 仍有效': [ND_REPLACE],
+      '需要 non-driver ID 时预约 Driver License Site': [ND_ID, ND_SITES],
+      '需要笔试时先选 office 或 KnowToDrive online': [ND_PERMIT, ND_MANUAL],
+      '预约前再次查 Driver License Sites：part-time office 开放日有限，knowledge-test cutoff 和 road-test city 不同': [ND_SITES],
+      'North Dakota 的驾照、permit、REAL ID 和 non-driver ID 由 NDDOT Driver License Division 办理，当前所有现场业务都要预约且不接 walk-in': [ND_HUB, ND_SITES],
+      '美国外州证件、中国或其他外国证件、首次学车和现有 North Dakota 证件使用不同路径': [ND_LICENSE, ND_FOREIGN, ND_TRANSFER, ND_PERMIT, ND_RENEW, ND_REPLACE],
+    }),
+  },
   nebraska: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

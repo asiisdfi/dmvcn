@@ -2964,3 +2964,38 @@ Validation:
 - Browser QA at 1280 x 720 and 390 x 844 confirmed visible mainland-China routing, non-verbal-test guidance, SAVE timing and new star design; both pages wrap normally, have no horizontal overflow and produced no page warnings or errors.
 - Quality workbook: 44 semantic-review pages and 61 blocked pages remain; weak-intent pages remain 0.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+## Round 73 Changes
+
+Date: 2026-07-21
+
+### North Dakota Driver License, REAL ID, Chinese Test and SSN Conflict Deep Review
+
+Source scan:
+
+- Opened and checked the North Dakota Department of Transportation driver hub, license, applicant-requirement, out-of-state transfer, foreign-driver, learner-permit, REAL ID, renewal, replacement, ID-card, site, license-class and IDP pages; the REAL ID checklist, proof-of-identification guide, current noncommercial manual and 2026 credential application; current North Dakota Century Code Chapter 39-06; and TSA identification guidance.
+- Confirmed that every in-person NDDOT driver transaction currently requires an appointment and no walk-ins are accepted. Knowledge testing has office and online routes, but an online pass still requires an appointment to receive the permit; road testing is limited to the eight currently listed sites and is conducted entirely in English.
+- Confirmed that the noncommercial Class D knowledge test is offered in Chinese without promising a particular written script. General limited-English interpretation is available for ordinary agency business, but it does not change the English-only road-test rule.
+- Separated North Dakota's two residency clocks: the current materials describe a 90-consecutive-day resident threshold, while a U.S. or foreign noncommercial license may be used for 60 days after residence is established. The pages do not collapse those rules into an unsupported "60 days after moving" statement.
+- Confirmed that mainland-China and other foreign-license holders use the vision, knowledge and road-test route and surrender their foreign credential; an IDP is only a translation. Current equivalent U.S. out-of-state credentials normally use the transfer route and may receive test waivers under the stated conditions.
+- Confirmed the optional gold-star REAL ID route, first-upgrade in-person rule, one identity / lawful-presence document, full-SSN evidence, two current physical-address proofs, complete name chain, original-document limits, renewal eligibility, current fees, test retake rules, information-change timing and ID-card terms.
+- Found and disclosed three current official-source differences instead of silently choosing one version: the foreign-driver page's $5 permit wording versus the current $15 permit / license sources; the general requirements, ID page and current statute SSN exceptions versus other NDDOT materials that say an SSN is mandatory; and the REAL ID document list's omission of divorce decrees versus the general name-change guidance that accepts a qualifying certified decree. Affected readers are directed to confirm execution with NDDOT before the appointment.
+
+Scope:
+
+- Rewrote both `/states/north-dakota/` and `/states/north-dakota/real-id/` with decision paths for U.S. transfers, mainland-China and other foreign licenses, first-time applicants, standard versus REAL ID credentials, noncitizen identity documents, renewal, replacement, name / address changes and non-driver ID cards.
+- Expanded the North Dakota source list from 5 to 21 checked official sources and registered all 118 unique claims as AI-assisted explicit mappings. The two rendered pages expose 120 evidence rows with 254 official-source links without representing the work as human, legal or professional approval.
+- Preserved the original publication date, set separate modification and fact-check dates to the actual review date, and added a reader-facing editorial update entry.
+- Added a reader-facing access note and USA.gov fallback because this environment's ordinary direct checker currently times out on most NDDOT and North Dakota Legislature URLs; their official bodies remained readable through the web crawler and no registered source returned a hard failure.
+
+Validation:
+
+- North Dakota official-link audit: 21 checked, 1 direct OK, 20 timeout watch, 0 fail. All NDDOT and North Dakota Legislature source bodies used for the review were readable through the web crawler.
+- State evidence audit: 4,339 claims, 7,939 official links, 4,199 AI-assisted explicit mappings across 90 pages, 0 errors.
+- Directory evidence audit: 746 claims, 699 inherited explicit mappings, 47 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 107 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 42 automated-source pages and 17 high-risk human approvals still honestly pending. North Dakota's overview scores 96 and its REAL ID page scores 99.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,603 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 54 overview evidence rows and 66 REAL ID evidence rows, 254 rendered official-source links, visible mainland-China, Chinese-test, English-only road-test, residency-clock, SSN-conflict and divorce-decree guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
+- Quality workbook: 42 semantic-review pages and 59 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.

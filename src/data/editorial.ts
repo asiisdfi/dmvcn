@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 North Dakota 两页官方正文、手册与州法语义核对',
+    summary:
+      '逐条比对 NDDOT 的 driver license、requirements、U.S. transfer、foreign driver、permit、REAL ID、renewal、online renewal、replacement、ID、sites、classes 与 IDP 正文，current REAL ID / proof PDFs、2025–2027 Class D manual、2026 SFN 6763 application、current NDCC Chapter 39-06 和 TSA 页面；登记 118 条独立声明的显式来源，并补齐中国大陆驾照、Chinese knowledge / English road test、residency 双时钟、SSN exception 官方冲突、standard / REAL ID 文件差异、当前费用和线上资格。',
+    scope: [
+      '北达科他州办事总览',
+      '北达科他州 REAL ID',
+      '118 条独立声明显式核对',
+      '中国驾照、中文笔试、SSN 冲突与 residency',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Nebraska 两页官方正文与手册语义核对',
     summary:
       '逐条比对 Nebraska DMV 的 Class O、document verification、new resident、renewal、replacement、address、name、State ID、LPD、practice test、locations、non-federal credential 与 licensing-services 正文，2024 Document Verification Form、2025 Class O / examiner manuals、2026 card notice 和 TSA 页面；登记 114 条独立声明的显式来源，并补齐中国大陆驾照、无官方 Chinese written test、non-verbal picture test、外州卡遗失 / 过期、SAVE、2026 REAL ID 星标、当前费用和领卡时限。',

@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T02:21:22.529Z",
+    "generatedAt": "2026-07-21T02:43:13.492Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 105,
+    "passed": 107,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 44,
-    "aiAssistedReviews": 111,
+    "sourceMappedReviews": 42,
+    "aiAssistedReviews": 113,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 61,
+    "blockedPages": 59,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 218,
+        "sourceCount": 220,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 306,
+        "sourceCount": 309,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 149,
-        "directoryEvidenceLinks": 149,
+        "directoryEvidenceItems": 153,
+        "directoryEvidenceLinks": 153,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 250,
+        "sourceCount": 251,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 110,
-        "directoryEvidenceLinks": 110,
+        "directoryEvidenceItems": 112,
+        "directoryEvidenceLinks": 112,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 644,
+        "sourceCount": 653,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 218,
+        "sourceCount": 220,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 162,
+        "sourceCount": 164,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 125,
-        "directoryEvidenceLinks": 125,
+        "directoryEvidenceItems": 128,
+        "directoryEvidenceLinks": 128,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 243,
+        "sourceCount": 246,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 168,
-        "directoryEvidenceLinks": 168,
+        "directoryEvidenceItems": 169,
+        "directoryEvidenceLinks": 169,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 202,
+        "sourceCount": 201,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1484,
+        "sourceCount": 1498,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -4129,21 +4129,21 @@
       "route": "/states/north-dakota/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 91,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成北达科他州（North Dakota Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 NDDOT driver hub、license、requirements、U.S. transfer、foreign driver、permit、REAL ID、renewal、online renewal、replacement、ID、site、class 与 IDP 正文，并核对 current REAL ID / proof-of-identification PDFs、2025–2027 Class D manual、2026 SFN 6763 application、current NDCC Chapter 39-06 和 TSA identification guidance。",
+        "notes": "重点补齐中国大陆驾照、Chinese knowledge / English road test、90-day residence 与 60-day post-residency rule、SSN exception 官方冲突、standard / REAL ID 文件差异、考试车辆、当前费用、online renewal、补证和 non-driver ID。所有映射为 AI 辅助核查，不冒充 NDDOT、律师或真实人工专业审核。"
       },
       "scores": {
-        "factsAndSources": 20,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -4153,14 +4153,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 10,
+        "sourceCount": 21,
+        "factCheckCount": 54,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 10,
-        "stateEvidenceLinks": 14,
+        "stateEvidenceItems": 54,
+        "stateEvidenceLinks": 116,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4168,9 +4168,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/north-dakota/real-id/",
@@ -4178,16 +4176,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成北达科他州（North Dakota Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 NDDOT driver hub、license、requirements、U.S. transfer、foreign driver、permit、REAL ID、renewal、online renewal、replacement、ID、site、class 与 IDP 正文，并核对 current REAL ID / proof-of-identification PDFs、2025–2027 Class D manual、2026 SFN 6763 application、current NDCC Chapter 39-06 和 TSA identification guidance。",
+        "notes": "重点补齐中国大陆驾照、Chinese knowledge / English road test、90-day residence 与 60-day post-residency rule、SSN exception 官方冲突、standard / REAL ID 文件差异、考试车辆、当前费用、online renewal、补证和 non-driver ID。所有映射为 AI 辅助核查，不冒充 NDDOT、律师或真实人工专业审核。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4200,14 +4198,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 17,
+        "sourceCount": 21,
+        "factCheckCount": 66,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 17,
-        "stateEvidenceLinks": 19,
+        "stateEvidenceItems": 66,
+        "stateEvidenceLinks": 138,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -4215,9 +4213,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/ohio/",
