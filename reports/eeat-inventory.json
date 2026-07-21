@@ -1,8 +1,8 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T05:57:22.233Z",
+    "generatedAt": "2026-07-21T06:19:46.356Z",
     "threshold": 85,
-    "strict": true,
+    "strict": false,
     "pages": 166,
     "passed": 149,
     "belowThreshold": 0,

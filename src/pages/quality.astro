@@ -11,16 +11,17 @@ import {
   Target,
   UserRoundCheck,
 } from '@lucide/astro/icons';
-import fs from 'node:fs/promises';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentMeta from '../components/ContentMeta.astro';
+import eeatReportData from '../../reports/eeat-inventory.json';
+import qualityWorkbookData from '../../reports/quality-workbook.json';
+import searchConsolePlanData from '../../reports/search-console-priority.json';
 import {
   EDITORIAL_LINKS,
-  EDITORIAL_POLICY_DATE,
   HIGH_RISK_TOPIC_SLUGS,
   SITE_LAUNCH_DATE,
 } from '../data/editorial';
-import { REVIEW_DATE, federalSources, getStatePublicStatus, states, topics } from '../data/content';
+import { federalSources, getStatePublicStatus, states, topics } from '../data/content';
 
 type ReviewStatus = 'human-approved' | 'ai-assisted' | 'source-mapped' | 'pending' | 'invalid' | 'not-required';
 type Risk = 'standard' | 'medium' | 'high' | 'policy';
@@ -138,7 +139,9 @@ type EeatReport = {
   pages: EeatPage[];
 };
 
-const today = '2026-07-19';
+const QUALITY_MODIFIED_AT = '2026-07-21';
+const QUALITY_REVIEWED_AT = '2026-07-21';
+const today = QUALITY_REVIEWED_AT;
 const toIsoDate = (offsetDays: number) =>
   new Date(Date.parse(today) + offsetDays * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
@@ -162,14 +165,8 @@ const defaultSummary: EeatSummary = {
   criticalPages: 0,
 };
 
-let report: EeatReport | null = null;
-let reportError = '';
-try {
-  const json = await fs.readFile(new URL('../../reports/eeat-inventory.json', import.meta.url), 'utf8');
-  report = JSON.parse(json) as EeatReport;
-} catch {
-  reportError = '尚未生成 eeat-inventory.json，请先运行 npm run build 后再执行 npm run audit:eeat。';
-}
+const report = eeatReportData as EeatReport;
+const reportError = '';
 
 const inventory = report?.pages ?? [];
 const summary = report?.summary ?? defaultSummary;
@@ -342,23 +339,11 @@ const qualityWorkflow = [
   },
 ];
 
-let qualityWorkbook: WorkbookReport | null = null;
-let qualityWorkbookError = '';
-try {
-  const workbookText = await fs.readFile(new URL('../../reports/quality-workbook.json', import.meta.url), 'utf8');
-  qualityWorkbook = JSON.parse(workbookText) as WorkbookReport;
-} catch {
-  qualityWorkbookError = '未生成 /reports/quality-workbook.json，先执行 npm run plan:quality。';
-}
+const qualityWorkbook = qualityWorkbookData as WorkbookReport;
+const qualityWorkbookError = '';
 
-let searchConsolePlan: SearchConsoleReport | null = null;
-let searchConsolePlanError = '';
-try {
-  const planText = await fs.readFile(new URL('../../reports/search-console-priority.json', import.meta.url), 'utf8');
-  searchConsolePlan = JSON.parse(planText) as SearchConsoleReport;
-} catch {
-  searchConsolePlanError = '未生成 /reports/search-console-priority.json，先执行 npm run plan:sc。';
-}
+const searchConsolePlan = searchConsolePlanData as SearchConsoleReport;
+const searchConsolePlanError = '';
 
 const reviewTaskList = qualityWorkbook?.queues?.humanSignoff ?? [];
 const blockedWorklist = qualityWorkbook?.queues?.blocked ?? [];
@@ -379,8 +364,8 @@ const scActionLabel: Record<string, string> = {
   title="E-E-A-T 内容台账"
   description="把 50 州、37 个专题、目录页与信任页形成逐页可执行台账，支持 90 天更新计划与阻塞项管理。"
   publishedAt={SITE_LAUNCH_DATE}
-  modifiedAt={EDITORIAL_POLICY_DATE}
-  reviewedAt={REVIEW_DATE}
+  modifiedAt={QUALITY_MODIFIED_AT}
+  reviewedAt={QUALITY_REVIEWED_AT}
 >
   <section class="page-hero">
     <div class="section">
@@ -391,7 +376,7 @@ const scActionLabel: Record<string, string> = {
       <h1>E-E-A-T 内容台账</h1>
       <p class="lead">目标是让每个页面都能对应“可复核来源 + 真实决策价值 + 明确更新责任”。</p>
       <div class="article-meta">
-        <ContentMeta publishedAt={SITE_LAUNCH_DATE} modifiedAt={EDITORIAL_POLICY_DATE} reviewedAt={REVIEW_DATE} />
+        <ContentMeta publishedAt={SITE_LAUNCH_DATE} modifiedAt={QUALITY_MODIFIED_AT} reviewedAt={QUALITY_REVIEWED_AT} />
       </div>
       {reportError ? <p class="status-chip ready" role="status">{reportError}</p> : null}
       <div class="registry-summary">
