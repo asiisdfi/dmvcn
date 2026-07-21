@@ -22,10 +22,11 @@
     "audit:launch": "node --env-file-if-exists=.env scripts/audit-launch-config.mjs",
     "plan:quality": "node scripts/build-quality-workbook.mjs",
     "plan:sc": "node scripts/build-search-console-plan.mjs",
-    "review:signoffs:import": "node scripts/import-review-signoffs.mjs",
-    "verify:launch": "npm run audit:content && npm run audit:practice && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:site && npm run audit:seo && npm run audit:launch",
+    "review:signoffs:import": "node --experimental-strip-types scripts/import-review-signoffs.mjs",
+    "verify:launch": "npm run audit:content && npm run audit:practice && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:publication && npm run audit:site && npm run audit:seo && npm run audit:launch",
     "astro": "astro",
-    "plan:signoff": "node scripts/build-signoff-template.mjs"
+    "plan:signoff": "node scripts/build-signoff-template.mjs",
+    "audit:publication": "node --experimental-strip-types scripts/audit-publication-gate.mjs"
   },
   "dependencies": {
     "@lucide/astro": "^1.23.0",

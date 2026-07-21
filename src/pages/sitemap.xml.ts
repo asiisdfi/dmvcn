@@ -1,5 +1,6 @@
 import { states, topics } from '../data/content.ts';
 import { practiceTests } from '../data/practice-tests.ts';
+import { isRouteIndexable } from '../data/publication-gate.ts';
 
 const DIRECTORY_ROUTES = [
   '/directories/',
@@ -53,7 +54,7 @@ export function GET({ site }: { site: URL }) {
     ...states.flatMap((state) => [`/states/${state.id}/`, `/states/${state.id}/real-id/`]),
     ...topics.map((topic) => `/topics/${topic.slug}/`),
   ];
-  const uniqueRoutes = [...new Set(routes)].sort((a, b) => {
+  const uniqueRoutes = [...new Set(routes)].filter(isRouteIndexable).sort((a, b) => {
     if (a === '/') return -1;
     if (b === '/') return 1;
     return a.localeCompare(b);

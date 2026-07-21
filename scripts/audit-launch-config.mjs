@@ -1,4 +1,4 @@
-import { access, readFile } from 'node:fs/promises';
+import { access, readdir, readFile } from 'node:fs/promises';
 
 const projectRoot = new URL('../', import.meta.url);
 const dataFile = new URL('src/data/content.ts', projectRoot);
@@ -16,6 +16,22 @@ async function exists(url) {
   } catch {
     return false;
   }
+}
+
+async function collectHtmlFiles(directory) {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files = [];
+  for (const entry of entries) {
+    const entryUrl = new URL(entry.name, directory);
+    if (entry.isDirectory()) files.push(...(await collectHtmlFiles(new URL(`${entry.name}/`, directory))));
+    else if (entry.name.endsWith('.html')) files.push(entryUrl);
+  }
+  return files;
+}
+
+function hasNoindex(html) {
+  const content = html.match(/<meta\s+name="robots"\s+content="([^"]+)"/i)?.[1] ?? '';
+  return content.toLowerCase().split(',').map((value) => value.trim()).includes('noindex');
 }
 
 function readEnvSiteUrl() {
@@ -106,6 +122,17 @@ if (!dataSource.includes('PUBLIC_CONTACT_EMAIL')) {
 if (!(await exists(distDir))) {
   errors.push('dist directory is missing; run npm run build before launch checks.');
 } else {
+  const htmlFiles = await collectHtmlFiles(distDir);
+  let expectedIndexablePages = 0;
+  for (const file of htmlFiles) {
+    if (file.pathname.endsWith('/404.html')) continue;
+    if (!hasNoindex(await readFile(file, 'utf8'))) expectedIndexablePages += 1;
+  }
+
+  if (expectedIndexablePages < 100) {
+    errors.push(`Built site has only ${expectedIndexablePages} indexable HTML pages; expected at least 100.`);
+  }
+
   for (const path of [
     'index.html',
     'contact/index.html',
@@ -187,8 +214,10 @@ if (!(await exists(distDir))) {
     if (sitemap.includes('sitemap-0.xml')) {
       errors.push('Built sitemap.xml still points through sitemap-0.xml.');
     }
-    if (sitemapUrls.length < 160) {
-      errors.push(`Built sitemap.xml has only ${sitemapUrls.length} page URLs.`);
+    if (sitemapUrls.length !== expectedIndexablePages) {
+      errors.push(
+        `Built sitemap.xml has ${sitemapUrls.length} page URLs; expected ${expectedIndexablePages} from final HTML robots directives.`,
+      );
     }
     if (sitemapUrls.some((url) => !url.startsWith(siteUrl))) {
       errors.push('Built sitemap.xml contains a URL outside PUBLIC_SITE_URL.');

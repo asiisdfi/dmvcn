@@ -2,6 +2,7 @@
 import { CalendarDays, Menu, Search, X } from '@lucide/astro/icons';
 import { SITE } from '../data/content';
 import { EDITORIAL_AUTHOR, EDITORIAL_LINKS } from '../data/editorial';
+import { isRouteIndexable } from '../data/publication-gate';
 import ContentMeta from '../components/ContentMeta.astro';
 import '../styles/global.css';
 
@@ -17,6 +18,7 @@ type Props = {
   modifiedAt?: string;
   reviewedAt?: string;
   showContentMeta?: boolean;
+  indexable?: boolean;
 };
 
 const {
@@ -29,8 +31,11 @@ const {
   modifiedAt,
   reviewedAt,
   showContentMeta = false,
+  indexable: indexableOverride,
 } = Astro.props as Props;
 
+const currentPath = Astro.url.pathname;
+const indexable = indexableOverride ?? isRouteIndexable(currentPath);
 const isArticle = Boolean(publishedAt || modifiedAt || reviewedAt);
 const pageTitle = title ? `${title} | ${SITE.name}` : SITE.name;
 const canonicalUrl = canonical
@@ -70,7 +75,6 @@ const jsonLdItems = [organizationSchema, siteSchema, ...pageSchemas].map((item) 
     ? item
     : { '@context': 'https://schema.org', ...item },
 );
-const currentPath = Astro.url.pathname;
 const navItems = [
   { href: '/', label: '首页' },
   { href: '/states/', label: '州指南' },
@@ -89,6 +93,7 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="author" content={EDITORIAL_AUTHOR.name} />
+    {!indexable && <meta name="robots" content="noindex,follow" />}
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />

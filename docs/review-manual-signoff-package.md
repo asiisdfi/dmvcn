@@ -8,7 +8,8 @@
 - 审核人不需要具备虚构的 DMV、律师或移民顾问资历；如无相应资历，不得在姓名或备注中暗示专业背书。
 - 每条声明至少检查适用州、适用人群、期限或金额、例外、法律后果、来源是否仍有效，以及中文是否扩大了官方原意。
 - 发现一条关键事实无法由现行官方正文支持时，应选择“退回修改”或“部分通过”，不能为了让严格审计变绿而签字。
-- 审核完成后，把签字表 CSV 填好，再执行 `npm run review:signoffs:import -- docs/review-manual-signoff-template.csv`。
+- 审核完成后，把签字表 CSV 填好，再执行 `SIGNOFF_CSV=docs/review-manual-signoff-template.csv npm run review:signoffs:import`。
+- 通过导入后，页面会在下一次构建时自动移除 `noindex` 并重新进入 sitemap；未签字页继续保留访问入口，但不提交搜索引擎收录。
 
 ## 1. /directories/costs-timing/
 
@@ -45,6 +46,7 @@
 - 审核日期：
 - 审核范围：
 - 结论与修改备注：
+
 ## 2. /directories/deadlines/
 
 - 页面：/directories/deadlines/
@@ -171,8 +173,8 @@
 
 ### 目录证据检查
 
-- 当前可见证据行：182
-- 当前官方来源链接：182
+- 当前可见证据行：183
+- 当前官方来源链接：183
 - [ ] 每个州至少检查一条最具体、风险最高的证据行。
 - [ ] 对含金额、天数、年龄、SSN、lawful presence、互惠或法律后果的行执行全量检查。
 - [ ] 声明和来源属于同一州、同一业务、同一证件类型。

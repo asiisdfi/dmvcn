@@ -1,6 +1,6 @@
 # DMV中文办事库 E-E-A-T 执行标准
 
-版本：2026-07-19
+版本：2026-07-21
 
 ## 目的
 
@@ -34,7 +34,8 @@
 - 总分至少 85 分。
 - 不能存在任何关键失败项。
 - 高风险页面必须由真实人员完成逐条语义核对并签字；自动脚本或 AI 辅助证据核对不能替代人工签字。
-- “待复核”页面可以继续在内部工作，但不能被报告为通过。
+- “待复核”页面可以继续访问和进入人工工作流，但必须输出 `noindex,follow`、从 sitemap 排除，并且不能被报告为通过。
+- 人工签字导入后，构建系统自动解除 `noindex` 并恢复 sitemap；不允许手工绕过签字注册表单独放行。
 
 ## 关键失败项
 
@@ -96,7 +97,7 @@ npm run plan:signoff             # 生成待签字清单
 SIGNOFF_CSV=docs/review-manual-signoff-template.csv npm run review:signoffs:import
 ```
 
-在清单中填写真实审核人姓名（或机构）与审核范围后，导入 `REVIEW_MANUAL_SIGNOFFS` 即可恢复发布门禁。
+在清单中填写真实审核人姓名、日期和实际审核范围后，导入 `REVIEW_MANUAL_SIGNOFFS` 即可恢复发布门禁。导入器会拒绝 AI、自动化、编辑部占位身份、重复路由、过短审核范围和非高风险路由；已有签字采用合并更新，不会因分批导入而丢失。
 
 ## 语义核对步骤
 
@@ -123,5 +124,5 @@ SIGNOFF_CSV=docs/review-manual-signoff-template.csv npm run review:signoffs:impo
 - 现有页面无法通过补充一个章节满足该任务。
 - 至少两个有效官方来源；高风险页面通常需要更多来源交叉核对。
 - 包含判断路径、准备清单、步骤、失败原因和官方入口中的至少四类。
-- 通过 `audit:content`、`audit:directory-evidence`、`audit:state-evidence`、`audit:practice`、`audit:eeat`、构建、SEO、站点完整性和移动端检查。
+- 通过 `audit:content`、`audit:directory-evidence`、`audit:state-evidence`、`audit:practice`、`audit:eeat`、`audit:publication`、构建、SEO、站点完整性和移动端检查。
 - 不以达到固定文章数量或固定字数为发布理由。

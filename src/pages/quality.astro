@@ -41,6 +41,7 @@ type EeatPage = {
   score: number;
   threshold: number;
   pass: boolean;
+  indexable: boolean;
   reviewStatus: ReviewStatus;
   reviewMethod: 'ai-assisted' | 'human' | 'automated' | null;
   semanticReview: SemanticReview | null;
@@ -65,6 +66,9 @@ type EeatSummary = {
   generatedAt: string;
   pages: number;
   passed: number;
+  indexablePages: number;
+  noindexPages: number;
+  indexablePassed: number;
   blockedPages: number;
   threshold: number;
   highRiskHumanApprovalPending: number;
@@ -152,6 +156,9 @@ const defaultSummary: EeatSummary = {
   generatedAt: '',
   pages: 0,
   passed: 0,
+  indexablePages: 0,
+  noindexPages: 0,
+  indexablePassed: 0,
   blockedPages: 0,
   threshold: 85,
   highRiskHumanApprovalPending: 0,
@@ -402,11 +409,15 @@ const scActionLabel: Record<string, string> = {
         <div class="registry-summary eeat-summary" aria-label="台账总览">
           <div>
             <strong>{summary.pages}</strong>
-            <span>可索引页（当前版本）</span>
+            <span>审计页面总数</span>
           </div>
           <div>
-            <strong>{summary.passed}</strong>
-            <span>当前通过</span>
+            <strong>{summary.indexablePages}</strong>
+            <span>当前可索引</span>
+          </div>
+          <div>
+            <strong>{summary.indexablePassed}</strong>
+            <span>可索引页通过</span>
           </div>
           <div>
             <strong>{summary.averageScore}</strong>
@@ -414,15 +425,11 @@ const scActionLabel: Record<string, string> = {
           </div>
           <div>
             <strong>{summary.highRiskHumanApprovalPending}</strong>
-            <span>高风险待人工签字</span>
+            <span>待签字 / noindex</span>
           </div>
           <div>
-            <strong>{summary.blockedPages}</strong>
-            <span>阻塞项（门禁项）</span>
-          </div>
-          <div>
-            <strong>{(summary.passed / Math.max(summary.pages, 1) * 100).toFixed(1)}%</strong>
-            <span>通过率</span>
+            <strong>{(summary.indexablePassed / Math.max(summary.indexablePages, 1) * 100).toFixed(1)}%</strong>
+            <span>可索引页通过率</span>
           </div>
         </div>
 
@@ -461,7 +468,9 @@ const scActionLabel: Record<string, string> = {
 
         <section class="panel">
           <h2>高风险待人工签字</h2>
-          <p>共 <strong>{highRiskPending.length}</strong> 页。建议按页逐条复核官方页面并更新签字记录。</p>
+          <p>
+            共 <strong>{highRiskPending.length}</strong> 页。签字前页面保持可访问，但自动输出 <code>noindex,follow</code> 并从 sitemap 排除；真实签字导入后才恢复收录。
+          </p>
           <div class="eeat-table-wrap">
             <table class="eeat-table">
               <thead>
@@ -526,7 +535,7 @@ const scActionLabel: Record<string, string> = {
             </table>
           </div>
           <p class="small-note">
-            高风险发布前必须完成人工语义签字。
+            高风险发布前必须完成人工语义签字；导入签字后，构建门禁会自动解除 noindex 并把页面重新加入 sitemap。
           </p>
         </section>
 

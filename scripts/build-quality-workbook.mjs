@@ -152,6 +152,7 @@ for (const page of pages) {
     score: page.score,
     threshold: page.threshold,
     pass: page.pass,
+    indexable: page.indexable,
     reviewStatus: page.reviewStatus,
     reviewMethod: page.reviewMethod,
     reviewedAt: reviewedAt ?? '',
@@ -211,6 +212,8 @@ const plan = {
   source: reportPath,
   summary: {
     pages: pages.length,
+    indexablePages: pages.filter((page) => page.indexable).length,
+    noindexPages: pages.filter((page) => !page.indexable).length,
     blockedPages: blockedQueue.length,
     highRiskPending: reviewQueue.length,
     semanticReviewPending: semanticReviewQueue.length,
@@ -231,7 +234,7 @@ const plan = {
       goal: '完成高风险人工签字',
       expectedDone: Math.min(8, reviewQueue.length),
       routePrefix: '/topics/ /directories/',
-      checkpoint: '未签字的高风险页不得用于新内容发布',
+      checkpoint: '未签字的高风险页必须保持 noindex 并从 sitemap 排除',
     },
     {
       name: '第3-4周',
@@ -259,13 +262,14 @@ await mkdir(outputDir, { recursive: true });
 await writeFile(path.join(outputDir, 'quality-workbook.json'), `${JSON.stringify(plan, null, 2)}\n`);
 
 const csvRows = [
-  ['route', 'pageType', 'risk', 'priority', 'score', 'reviewStatus', 'reviewMethod', 'reviewedAt', 'reviewDue', 'overdueDays', 'action', 'expectedOutcome', 'reviewer', 'notes'],
+  ['route', 'pageType', 'risk', 'priority', 'score', 'indexable', 'reviewStatus', 'reviewMethod', 'reviewedAt', 'reviewDue', 'overdueDays', 'action', 'expectedOutcome', 'reviewer', 'notes'],
   ...workbookItems.map((row) => [
     row.route,
     row.pageType,
     row.risk,
     row.priority,
     row.score,
+    row.indexable,
     row.reviewStatus,
     row.reviewMethod ?? '',
     row.reviewedAt ?? '',
@@ -287,6 +291,8 @@ const markdownLines = [
   `# 本周质量工作簿（${today}）`,
   '',
   `- 页面数：${pages.length}`,
+  `- 当前可索引：${pages.filter((page) => page.indexable).length}`,
+  `- 当前 noindex：${pages.filter((page) => !page.indexable).length}`,
   `- 高风险待人工签字：${reviewQueue.length}`,
   `- 待逐页官方正文语义核对：${semanticReviewQueue.length}`,
   `- 阻塞项：${blockedQueue.length}`,

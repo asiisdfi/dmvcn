@@ -3,7 +3,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'parse5';
 import { federalSources, states, topics } from '../src/data/content.ts';
-import { HIGH_RISK_TOPIC_SLUGS, TRUST_PAGE_PATHS } from '../src/data/editorial.ts';
+import {
+  HIGH_RISK_DIRECTORY_ROUTES,
+  HIGH_RISK_TOPIC_SLUGS,
+  TRUST_PAGE_PATHS,
+} from '../src/data/editorial.ts';
 import { semanticReviews } from '../src/data/review-registry.ts';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -128,7 +132,7 @@ function pageIdentity(route) {
   if (route === '/directories/') return { type: 'collection', id: route, risk: 'standard' };
 
   if (route.startsWith('/directories/')) {
-    const highRiskDirectory = /identity-ssn|document-rules|deadlines|costs-timing|foreign-license/.test(route);
+    const highRiskDirectory = HIGH_RISK_DIRECTORY_ROUTES.has(route);
     return { type: 'directory', id: route, risk: highRiskDirectory ? 'high' : 'standard' };
   }
 
@@ -229,6 +233,11 @@ function scorePage(route, document) {
     document.classNames.has('directory-table') &&
     (identity.risk !== 'high' || hasInlineDirectoryEvidence);
   const review = semanticReviews[route];
+  const robotsDirectives = (document.metas.get('robots') ?? '')
+    .toLowerCase()
+    .split(',')
+    .map((directive) => directive.trim());
+  const indexable = !robotsDirectives.includes('noindex');
 
   const scores = {
     factsAndSources: identity.type === 'trust'
@@ -347,6 +356,15 @@ function scorePage(route, document) {
         : '高风险页面尚未完成人工语义签字',
     );
   }
+  const requiresHumanApproval = identity.risk === 'high' && identity.type !== 'trust';
+  const expectedIndexable = !requiresHumanApproval || reviewStatus === 'human-approved';
+  if (indexable !== expectedIndexable) {
+    critical.push(
+      expectedIndexable
+        ? '页面已满足发布门禁，但仍被 noindex 阻止收录'
+        : '高风险页面尚未完成人工签字，却仍允许搜索引擎收录',
+    );
+  }
   if (score < threshold) blockers.push(`自动评分 ${score}，低于 ${threshold} 分门槛`);
 
   const pass = critical.length === 0 && blockers.length === 0 && score >= threshold;
@@ -358,6 +376,7 @@ function scorePage(route, document) {
     score,
     threshold,
     pass,
+    indexable,
     reviewStatus,
     reviewMethod: review?.method ?? null,
     semanticReview: review ?? null,
@@ -411,6 +430,9 @@ const summary = {
   strict,
   pages: pages.length,
   passed: pages.filter((page) => page.pass).length,
+  indexablePages: pages.filter((page) => page.indexable).length,
+  noindexPages: pages.filter((page) => !page.indexable).length,
+  indexablePassed: pages.filter((page) => page.indexable && page.pass).length,
   belowThreshold: pages.filter((page) => page.score < threshold).length,
   evidenceReviewPending: pages.filter((page) => page.reviewStatus === 'pending').length,
   sourceMappedReviews: pages.filter((page) => page.reviewStatus === 'source-mapped').length,
@@ -433,6 +455,7 @@ const csvHeaders = [
   'risk',
   'score',
   'pass',
+  'indexable',
   'reviewStatus',
   'reviewMethod',
   'critical',
@@ -444,6 +467,7 @@ const csvRows = pages.map((page) => [
   page.risk,
   page.score,
   page.pass,
+  page.indexable,
   page.reviewStatus,
   page.reviewMethod,
   page.critical.join(' | '),
@@ -458,6 +482,9 @@ console.log('# E-E-A-T Inventory');
 console.log('');
 console.log(`Pages: ${summary.pages}`);
 console.log(`Passed: ${summary.passed}`);
+console.log(`Indexable pages: ${summary.indexablePages}`);
+console.log(`Noindex pages: ${summary.noindexPages}`);
+console.log(`Indexable pages passed: ${summary.indexablePassed}/${summary.indexablePages}`);
 console.log(`Average score: ${summary.averageScore}`);
 console.log(`Below ${threshold}: ${summary.belowThreshold}`);
 console.log(`Evidence review pending: ${summary.evidenceReviewPending}`);

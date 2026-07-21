@@ -4,8 +4,9 @@
 
 ## 当前结论
 
-- 可索引页面：166。
-- 通过当前站内门槛：149。
+- 审计页面总数：166。
+- 当前可索引页面：149；通过门槛：149/149。
+- 待真实人工签字并自动 noindex：17。
 - 平均 E-E-A-T 分：97；低于 85 分：0。
 - 完成 AI 辅助证据核对：155 页。
 - 高风险真人批准待完成：17 页。
@@ -22,15 +23,15 @@
 | 5 | 不虚构作者或审核 | 已完成 | 作者统一为编辑部，公开能力边界；`human-approved` 为 0 |
 | 6 | 作者、编辑、纠错、AI、更新方法和记录 | 已完成 | `/authors/editorial-team/`、`/editorial-policy/`、`/corrections/`、`/ai-policy/`、`/updates/`、`/quality/` |
 | 7 | 区分发布、修改和事实核对日期 | 已完成 | 内容模型、页面元数据和 JSON-LD 分别记录三类日期 |
-| 8 | 重写、合并、noindex 或删除薄弱页 | 已审计 | `weakIntent=0`；当前没有为凑数量新建的薄弱页 |
+| 8 | 重写、合并、noindex 或删除薄弱页 | 已执行 | `weakIntent=0`；17 个未完成人工签字的高风险页自动 noindex 并从 sitemap 排除 |
 | 9 | 判断路径、材料、步骤、州别差异、失败原因和官方入口 | 已完成 | 内容审计和页面结构检查通过 |
-| 10 | 技术 SEO、结构化数据、内链和移动端 | 已完成 | 167 个 HTML、766 个 JSON-LD、7,705 个内部导航引用；SEO 和移动端实测无错 |
+| 10 | 技术 SEO、结构化数据、内链和移动端 | 已完成 | 167 个 HTML、766 个 JSON-LD、149 个 sitemap URL；发布门禁、SEO、站点完整性和移动端检查无错 |
 | 11 | 90 天内容计划 | 已完成 | `docs/CONTENT_PLAN_90_DAYS.md` 含主题、意图、来源、州、时间和复核周期 |
 | 12 | Search Console 月度更新机制 | 机制已完成 | `docs/MONTHLY_SEARCH_CONSOLE_WORKFLOW.md` 和 `npm run plan:sc`；等待首份真实 28 天导出 |
 
 ## 未完成项
 
-17 个高风险页面仍需真实人员逐句复查并签字。待复核包位于 `docs/review-manual-signoff-package.md`，待填写清单位于 `docs/review-manual-signoff-template.csv`。在完成前，`npm run audit:eeat:strict` 必须继续返回失败。
+17 个高风险页面仍需真实人员逐句复查并签字。待复核包位于 `docs/review-manual-signoff-package.md`，待填写清单位于 `docs/review-manual-signoff-template.csv`。这些页面当前均使用 `noindex,follow` 且不在 sitemap；`npm run audit:publication` 会阻止门禁状态与真实签字记录不一致的构建。在全部完成前，`npm run audit:eeat:strict` 必须继续返回失败。
 
 ## 外部观察项
 

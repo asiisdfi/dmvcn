@@ -1,6 +1,6 @@
 export const SITE_LAUNCH_DATE = '2026-07-13';
 export const EDITORIAL_POLICY_DATE = '2026-07-17';
-export const EDITORIAL_POLICY_MODIFIED_DATE = '2026-07-19';
+export const EDITORIAL_POLICY_MODIFIED_DATE = '2026-07-21';
 export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
@@ -33,6 +33,19 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-21',
+    title: '启用高风险页面真实人工签字索引门禁',
+    summary:
+      '把高风险页面的真实人工签字注册表接入页面 robots 元数据和 sitemap：未签字页面保持可访问，但自动使用 noindex,follow 并从 sitemap 排除；导入符合要求的真实签字后自动恢复索引。新增独立发布门禁审计，并拒绝 AI、自动化或编辑部占位身份作为人工审核人。',
+    scope: [
+      '12 个高风险专题页',
+      '5 个高风险目录页',
+      'sitemap 与 robots 元数据',
+      '人工签字导入校验',
+      'E-E-A-T 与 SEO 发布审计',
+    ],
+  },
   {
     date: '2026-07-21',
     title: '修复 Minnesota 与 Kentucky 官方来源迁移',
@@ -597,6 +610,14 @@ export const HIGH_RISK_TOPIC_SLUGS = new Set([
   'lost-vehicle-title-replacement-electronic-title-lien-sale',
   'disabled-parking-placard-plates',
   'older-driver-license-renewal-medical-review',
+]);
+
+export const HIGH_RISK_DIRECTORY_ROUTES = new Set([
+  '/directories/costs-timing/',
+  '/directories/deadlines/',
+  '/directories/document-rules/',
+  '/directories/foreign-license/',
+  '/directories/identity-ssn/',
 ]);
 
 export const TRUST_PAGE_PATHS = new Set([

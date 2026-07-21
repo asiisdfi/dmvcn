@@ -60,6 +60,11 @@ function hasJsonLd(html) {
   return /<script\s+type="application\/ld\+json"/.test(html);
 }
 
+function hasNoindex(html) {
+  const content = html.match(/<meta\s+name="robots"\s+content="([^"]+)"/i)?.[1] ?? '';
+  return content.toLowerCase().split(',').map((value) => value.trim()).includes('noindex');
+}
+
 function isStateContentPage(relative) {
   return /^states\/[^/]+\/(?:index|real-id\/index)\.html$/.test(relative);
 }
@@ -87,9 +92,11 @@ if (!(await exists(distDir))) {
 }
 
 const htmlFiles = errors.length ? [] : await collectHtmlFiles(distDir);
+const htmlByRelative = new Map();
 
 for (const file of htmlFiles) {
   const html = await readFile(file.url, 'utf8');
+  htmlByRelative.set(file.relative, html);
 
   if (!/<title>[^<]{10,}<\/title>/.test(html)) errors.push(`${file.relative}: missing useful title`);
   if (!hasMetaDescription(html)) errors.push(`${file.relative}: missing useful meta description`);
@@ -194,7 +201,12 @@ if (!(await exists(new URL('sitemap.xml', distDir)))) {
 if (await exists(new URL('sitemap.xml', distDir))) {
   const sitemap = await readFile(new URL('sitemap.xml', distDir), 'utf8');
   const sitemapUrls = [...sitemap.matchAll(/<loc>(https?:\/\/[^<]+)<\/loc>/g)].map((match) => match[1]);
-  const indexableHtml = htmlFiles.filter((file) => file.relative !== '404.html');
+  const indexableHtml = htmlFiles.filter(
+    (file) => file.relative !== '404.html' && !hasNoindex(htmlByRelative.get(file.relative) ?? ''),
+  );
+  const noindexHtml = htmlFiles.filter(
+    (file) => file.relative !== '404.html' && hasNoindex(htmlByRelative.get(file.relative) ?? ''),
+  );
   const expectedIndexablePages = indexableHtml.length;
   const expectedRoutes = new Set(indexableHtml.map((file) => routeForHtml(file.relative)));
   const sitemapRoutes = new Set(sitemapUrls.map((url) => new URL(url).pathname));
@@ -220,6 +232,10 @@ if (await exists(new URL('sitemap.xml', distDir))) {
   for (const route of sitemapRoutes) {
     if (!expectedRoutes.has(route)) errors.push(`sitemap.xml lists a route without built HTML: ${route}`);
   }
+  for (const file of noindexHtml) {
+    const route = routeForHtml(file.relative);
+    if (sitemapRoutes.has(route)) errors.push(`sitemap.xml includes noindex route ${route}`);
+  }
   for (const route of ['/', '/states/', '/topics/', '/directories/', '/practice-tests/', '/practice-tests/georgia/']) {
     if (!sitemapRoutes.has(route)) errors.push(`sitemap.xml is missing ${route}`);
   }
@@ -233,6 +249,8 @@ console.log('');
 console.log(`HTML pages: ${htmlFiles.length}`);
 console.log(`State content pages: ${stateContentPages.length}`);
 console.log(`Topic content pages: ${topicContentPages.length}`);
+console.log(`Indexable pages: ${htmlFiles.filter((file) => file.relative !== '404.html' && !hasNoindex(htmlByRelative.get(file.relative) ?? '')).length}`);
+console.log(`Noindex pages: ${htmlFiles.filter((file) => file.relative !== '404.html' && hasNoindex(htmlByRelative.get(file.relative) ?? '')).length}`);
 console.log(`Errors: ${errors.length}`);
 console.log('');
 

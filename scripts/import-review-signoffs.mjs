@@ -1,6 +1,12 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { REVIEW_MANUAL_SIGNOFFS as existingSignoffs } from '../src/data/review-manual-signoffs.ts';
+import {
+  HUMAN_REVIEW_REQUIRED_ROUTES,
+  isPlausibleHumanReviewer,
+  isValidReviewDate,
+} from '../src/data/publication-gate.ts';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const csvPath = process.env.SIGNOFF_CSV;
@@ -109,21 +115,22 @@ if (missingHeader) {
   process.exit(1);
 }
 
-const signoffs = [];
+const importedSignoffs = [];
 const invalid = [];
+const seenRoutes = new Set();
 for (const row of records) {
   const route = formatRoute(row.route || row.Route || row.ROUTE || row.path);
   const reviewer = (row.reviewer || row.Reviewer || '').trim();
   const reviewedAt = (row.reviewedAt || row.date || row.Date || '').trim();
-  const scope = (row.scope || row.Scope || '').trim() || '手动语义核对补充';
+  const scope = (row.scope || row.Scope || '').trim();
   const notes = (row.notes || row.Notes || '').trim();
 
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(reviewedAt)) {
-    invalid.push({ route, reason: 'reviewedAt 非 YYYY-MM-DD' });
+  if (!isValidReviewDate(reviewedAt)) {
+    invalid.push({ route, reason: 'reviewedAt 必须是真实、非未来的 YYYY-MM-DD 日期' });
     continue;
   }
-  if (!reviewer) {
-    invalid.push({ route, reason: '缺少 reviewer' });
+  if (!isPlausibleHumanReviewer(reviewer)) {
+    invalid.push({ route, reason: 'reviewer 必须是真实人员姓名，不能使用 AI、自动化或编辑部占位身份' });
     continue;
   }
   if (!route || !route.startsWith('/')) {
@@ -134,9 +141,32 @@ for (const row of records) {
     invalid.push({ route, reason: '路由不在 eeat 页面清单内' });
     continue;
   }
+  if (!HUMAN_REVIEW_REQUIRED_ROUTES.has(route)) {
+    invalid.push({ route, reason: '该路由不属于高风险人工签字清单' });
+    continue;
+  }
+  if (scope.length < 12) {
+    invalid.push({ route, reason: 'scope 过短，需说明实际核对范围' });
+    continue;
+  }
+  if (seenRoutes.has(route)) {
+    invalid.push({ route, reason: 'CSV 中存在重复路由' });
+    continue;
+  }
+  seenRoutes.add(route);
 
-  signoffs.push({ route, reviewer, reviewedAt, scope, notes });
+  importedSignoffs.push({ route, reviewer, reviewedAt, scope, notes });
 }
+
+if (invalid.length) {
+  console.error('以下记录未通过校验，未写入任何签字：');
+  for (const row of invalid) console.error(`- ${row.route || '(空路由)'}：${row.reason}`);
+  process.exit(1);
+}
+
+const signoffsByRoute = new Map(existingSignoffs.map((signoff) => [signoff.route, signoff]));
+for (const signoff of importedSignoffs) signoffsByRoute.set(signoff.route, signoff);
+const signoffs = [...signoffsByRoute.values()].sort((a, b) => a.route.localeCompare(b.route));
 
 await mkdir(path.dirname(targetPath), { recursive: true });
 
@@ -156,10 +186,4 @@ body += '];\n';
 
 await writeFile(targetPath, body, 'utf8');
 
-console.log(`已写入 ${signoffs.length} 条人工签字记录到 ${targetPath}`);
-if (invalid.length) {
-  console.log('以下记录未通过校验：');
-  for (const row of invalid) {
-    console.log(`- ${row.route || '(空路由)'}：${row.reason}`);
-  }
-}
+console.log(`已新增或更新 ${importedSignoffs.length} 条签字；当前共 ${signoffs.length} 条人工签字记录：${targetPath}`);
