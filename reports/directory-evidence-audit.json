@@ -1,16 +1,16 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T23:59:01.405Z",
+    "generatedAt": "2026-07-21T00:25:25.044Z",
     "pages": 5,
-    "claims": 696,
+    "claims": 704,
     "statesCovered": 50,
-    "aiAssisted": 591,
-    "automated": 105,
+    "aiAssisted": 609,
+    "automated": 95,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 137,
-        "states": 40
+        "claims": 141,
+        "states": 41
       },
       "deadlines": {
         "claims": 101,
@@ -21,11 +21,11 @@
         "states": 49
       },
       "foreign-license": {
-        "claims": 115,
+        "claims": 117,
         "states": 38
       },
       "identity-ssn": {
-        "claims": 159,
+        "claims": 161,
         "states": 45
       }
     }
@@ -1688,6 +1688,69 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "delaware",
+      "category": "费用",
+      "claim": "当前 DMV Fee Chart 把 Class D 首证和 8 年续期列为 $50，late renewal 为 $10，duplicate license 为 $20，change of name 为 $10，change of address 不收费",
+      "sourceUrl": "https://dmv.de.gov/Common/DMVFees/",
+      "sourceLabel": "对应官方来源：Delaware DMV Fee Chart",
+      "themes": [
+        "fee",
+        "address-change",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "delaware",
+      "category": "费用",
+      "claim": "当前 DPC brochure 列出 $20 DPC fee 和 SBI 收取的 $72 identity-validation fee",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf",
+      "sourceLabel": "对应官方来源：Delaware DPC Brochure",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "delaware",
+      "category": "费用",
+      "claim": "续期先检查 180-day window、online eligibility、one-time SecureID revalidation 和当前 $50 renewal / $10 late fee",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals",
+      "sourceLabel": "对应官方来源：Delaware License Renewals",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "delaware",
+      "category": "费用",
+      "claim": "姓名变化也在 30 天内完成，付款前以当前 Fee Chart 的 $10 为准，不沿用旧手册金额",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change",
+      "sourceLabel": "对应官方来源：Delaware Name and Address Change",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "rhode-island",
       "category": "邮寄 / 卡片",
       "claim": "续期先看 License Renewal，确认是否能 online / mail / AAA，或是否需要 DMV branch",
@@ -3337,44 +3400,46 @@
     {
       "page": "deadlines",
       "stateId": "delaware",
-      "category": "搬家 / 地址",
-      "claim": "如果是外州搬入，先看 New Resident Transfer License，确认 60 天要求和旧 license / driving record",
-      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
-      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
-      "themes": [
-        "new-resident"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "deadlines",
-      "stateId": "delaware",
       "category": "材料时效",
-      "claim": "Residency proofs 要来自 separate sources、显示 physical address，且 mail 通常要在 60 天内",
-      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml",
+      "claim": "mail 要由 USPS 投递并在最近 60 天内 postmarked 或 received，普通打印账单、个人信件和 UPS / FedEx / DHL 寄件不接受",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
       "sourceLabel": "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "delaware",
-      "category": "续期 / 到期",
-      "claim": "续期可在到期前 180 天内进行，可在 DMV facility 或 online 办理",
-      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals",
-      "sourceLabel": "对应官方来源：Delaware License Renewals",
+      "category": "材料时效",
+      "claim": "DPC 两份地址证明同样要来自独立商业来源、显示 physical address，并满足 USPS 最近 60 天的投递要求",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+      "sourceLabel": "对应官方来源：Delaware Driving Privilege Card",
       "themes": [
-        "renewal"
+        "residency-documents"
+      ],
+      "failedThemes": [
+        "residency-documents"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "delaware",
+      "category": "材料时效",
+      "claim": "两份 residency 逐项检查本人姓名、physical Delaware address、独立来源、USPS 投递和最近 60 天日期",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+      "sourceLabel": "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+      "themes": [
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -5524,57 +5589,61 @@
       "page": "document-rules",
       "stateId": "delaware",
       "category": "地址证明",
-      "claim": "两份 Delaware residency，来自不同来源，显示 physical address",
-      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
-      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "claim": "Residency 组带两份不同来源的材料，例如 utility bill、credit-card statement、auto / life insurance、bank、employment、rental agreement 或 USPS change-of-address confirmation",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+      "sourceLabel": "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "delaware",
       "category": "地址证明",
-      "claim": "P.O. Box 不适合作为主要居住地址",
-      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
-      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "claim": "两份 residency 都要显示本人 physical address，不能只写 P.O. Box",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+      "sourceLabel": "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "delaware",
       "category": "地址证明",
-      "claim": "Residency proofs 要来自 separate sources、显示 physical address，且 mail 通常要在 60 天内",
-      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
-      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "claim": "DPC 材料包括 SBI receipt、Division of Revenue Certification of Filing Compliance、一份 valid foreign passport 或合格 consular ID、全部姓名变化文件和两份 Delaware residency",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+      "sourceLabel": "对应官方来源：Delaware Driving Privilege Card",
       "themes": [
         "residency-documents"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "residency-documents"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "delaware",
       "category": "地址证明",
-      "claim": "Delaware federally compliant DL/ID 要证明 identity / lawful status、date of birth、Social Security number 和 Delaware residence",
-      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
-      "sourceLabel": "对应官方来源：Delaware General Requirements",
+      "claim": "DPC 两份地址证明同样要来自独立商业来源、显示 physical address，并满足 USPS 最近 60 天的投递要求",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+      "sourceLabel": "对应官方来源：Delaware Driving Privilege Card",
       "themes": [
-        "ssn"
+        "residency-documents"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "residency-documents"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -7621,11 +7690,39 @@
       "page": "foreign-license",
       "stateId": "delaware",
       "category": "外州 / 加拿大转入",
-      "claim": "New Resident Transfer License：外州搬入 Delaware 后换证要求",
+      "claim": "有效美国外州驾照转入时仍要 eye screening，但 written 与 road exams 通常免除",
       "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
       "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
       "themes": [
-        "new-resident"
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "delaware",
+      "category": "互惠 / 免考",
+      "claim": "Germany、Taiwan (Republic of China) 与 France 仅对 Class D 免两项考试，endorsement 不互惠",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "themes": [
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "delaware",
+      "category": "测试判断",
+      "claim": "Delaware Online Services：myDMV、DL/ID transactions、driving record 和 road-test appointment",
+      "sourceUrl": "https://dmv.de.gov/OnlineServices/",
+      "sourceLabel": "对应官方来源：Delaware Online Services",
+      "themes": [
+        "appointment"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
@@ -7634,16 +7731,19 @@
     {
       "page": "foreign-license",
       "stateId": "delaware",
-      "category": "外州 / 加拿大转入",
-      "claim": "如果是外州搬入，先看 New Resident Transfer License，确认 60 天要求和旧 license / driving record",
-      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
-      "sourceLabel": "对应官方来源：Delaware New Resident Transfer License",
+      "category": "期限 / 居民身份",
+      "claim": "新居民记录 residency 起算日，在 60 天内安排 transfer",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
+      "sourceLabel": "对应官方来源：Delaware General Requirements",
       "themes": [
+        "residency-documents",
         "new-resident"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "new-resident"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -9796,30 +9896,58 @@
     {
       "page": "identity-ssn",
       "stateId": "delaware",
-      "category": "SSN",
-      "claim": "Delaware federally compliant DL/ID 要证明 identity / lawful status、date of birth、Social Security number 和 Delaware residence",
-      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
-      "sourceLabel": "对应官方来源：Delaware General Requirements",
+      "category": "无 SSN / SSA",
+      "claim": "先更新 SSA 并等待 48 至 72 小时，再带旧证和全部 name-change documents",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change",
+      "sourceLabel": "对应官方来源：Delaware Name and Address Change",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "delaware",
-      "category": "SSN",
-      "claim": "姓名变化要先更新 Social Security 记录，并按 DMV 说明等待数据库同步后再去办公室",
-      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
-      "sourceLabel": "对应官方来源：Delaware General Requirements",
+      "category": "无 SSN / SSA",
+      "claim": "SSN 组带一份显示完整号码的 Social Security card、W-2、SSA-1099、non-SSA 1099、pay stub 或 SSA 出具的有效文件",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+      "sourceLabel": "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
       "themes": [
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "delaware",
+      "category": "无 SSN / SSA",
+      "claim": "SSA ineligibility letter 只适用于因 legal-presence status 不具 SSN 资格的人，而且不能用来取得 federally compliant credential",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+      "sourceLabel": "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "delaware",
+      "category": "无 SSN / SSA",
+      "claim": "姓名不一致先更新 SSA，等待 48 至 72 小时，再带全部 government-issued name-change documents 到 DMV",
+      "sourceUrl": "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change",
+      "sourceLabel": "对应官方来源：Delaware Name and Address Change",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

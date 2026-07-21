@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T23:59:02.198Z",
+    "generatedAt": "2026-07-21T00:25:25.900Z",
     "pages": 100,
     "states": 50,
-    "claims": 3830,
-    "links": 6689,
-    "aiAssistedClaims": 3492,
-    "aiAssistedPages": 76,
+    "claims": 3915,
+    "links": 6873,
+    "aiAssistedClaims": 3610,
+    "aiAssistedPages": 78,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1801,
-        "links": 3085,
+        "claims": 1844,
+        "links": 3177,
         "states": 50
       },
       "real-id": {
-        "claims": 2029,
-        "links": 3604,
+        "claims": 2071,
+        "links": 3696,
         "states": 50
       }
     }
@@ -64848,14 +64848,22 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "特拉华州驾照、REAL ID、续期、外州转入和地址/姓名更新由 Delaware Division of Motor Vehicles 管理",
+      "claim": "Delaware 驾照、ID、federally compliant SecureID、Driving Privilege Card、考试、续期和外州转入都由 Delaware Division of Motor Vehicles 管理",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml"
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+        "对应官方来源：Delaware Driver Services",
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware License Renewals"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal",
@@ -64869,19 +64877,55 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "Delaware DMV 页面把 REAL ID 称为 federally compliant driver license / ID card，并把材料、续期、搬入和线上服务分在不同入口",
+      "claim": "首次申请、美国外州转入、外国驾照、普通续期、SecureID 和 DPC 是不同路线",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml"
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_apply",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals",
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+        "对应官方来源：Delaware Driver Services",
+        "对应官方来源：Delaware Apply for License (Over 18)",
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware License Renewals",
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Driving Privilege Card"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
         "renewal",
-        "online-service"
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "summary",
+      "context": "appointment",
+      "claim": "myDMV 可处理符合资格的 DL/ID 交易、road-test appointment 和记录服务，但首次身份核验、考试与 DPC 仍要按现场流程办理",
+      "sourceUrls": [
+        "https://dmv.de.gov/OnlineServices/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_apply",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Online Services",
+        "对应官方来源：Delaware Apply for License (Over 18)",
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware Driving Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -64891,14 +64935,82 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "document",
-      "claim": "Delaware 要求成为 bona fide resident 后 60 天内取得 Delaware driver license",
+      "claim": "成为 Delaware bona fide resident 后 60 天内要取得本州驾照",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware General Requirements",
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware Driver Manual, July 2025"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "document",
+      "claim": "18 岁以上持有效美国外州驾照者带原卡或 current certified driving record、legal-presence、SSN 和两份 Delaware residency，通常可免 written 与 road exams",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware Required Documents",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "ssn",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "外国驾照持有人原则上要通过 knowledge 和 road exams，只有 Germany、Taiwan (Republic of China) 与 France 的 Class D 互惠例外",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "中国大陆驾照不属于 Taiwan 互惠",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -64908,14 +65020,665 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "license",
-      "claim": "续期可在到期前 180 天内进行，可在 DMV facility 或 online 办理",
+      "claim": "首次成人申请人通过 eye screening 和 knowledge exam 后取得 12 个月 learner permit，至少等 10 天才能参加 road test",
       "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_apply",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Apply for License (Over 18)",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Delaware 把 REAL ID 合规证件称为 federally compliant DL/ID 或 SecureID",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "合规卡有 gold star，非合规卡标注 Not for Federal ID",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "申请合规卡要提交一份 identity / lawful-presence 文件、一份完整 SSN 证明和两份来自独立来源、显示本人 physical Delaware address 的居住证明",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "所有文件须为 original 或 certified copy",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "已有 Delaware DL/ID 的人会在一次 renewal 中完成 source-document revalidation，之后通常只在姓名等资料变化或移民文件到期时再次出示",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
         "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals"
       ],
       "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
         "对应官方来源：Delaware License Renewals"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "SSA ineligibility letter 只能支持 non-compliant credential，不能支持 federally compliant card",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "license",
+      "claim": "Delaware City、Wilmington、Dover 与 Georgetown 四个 DMV facility 办理现场驾照业务",
+      "sourceUrls": [
+        "https://dmv.de.gov/About/contact_info/index.shtml",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware DMV Locations and Hours",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "官方 Online Services 提供 DL/ID transactions 和 road-test appointment，知识考试与 New to State 也可从官方 appointment scheduler 选服务",
+      "sourceUrls": [
+        "https://dmv.de.gov/OnlineServices/",
+        "https://appointments.dmv.de.gov/book"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Online Services",
+        "对应官方来源：Delaware DMV Appointment Scheduler"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "出发前先查 locations、营业时间和 wait times",
+      "sourceUrls": [
+        "https://dmv.de.gov/About/contact_info/index.shtml",
+        "https://dmv.de.gov/wait-times/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware DMV Locations and Hours",
+        "对应官方来源：Delaware DMV Wait Times"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "license",
+      "claim": "需要考试辅助或不能确定移民、DPC、外国驾照路线时，先联系所选 office",
+      "sourceUrls": [
+        "https://dmv.de.gov/About/contact_info/index.shtml",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf",
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml?dc=dr_lic_naturalized_non_us",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware DMV Locations and Hours",
+        "对应官方来源：Delaware Driver Manual, July 2025",
+        "对应官方来源：Delaware Naturalized Citizens and Non-US Citizens",
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "新居民在成为 bona fide Delaware resident 后有 60 天完成州驾照申请",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware General Requirements",
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "美国外州原驾照或 ID 会按 surrender agreement 交回并取消",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware General Requirements",
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "有效美国外州驾照转入时仍要 eye screening，但 written 与 road exams 通常免除",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "suspended、revoked 或 restricted license 要先清除未结事项",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "持有效外国驾照的 16 岁以上非居民可以在携带原证时临时驾驶，成为居民 60 天后则必须申请 Delaware license",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "外国驾照持有人可保留外国证件，但通常要考 knowledge 和 road",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Germany、Taiwan (Republic of China) 与 France 仅对 Class D 免两项考试，endorsement 不互惠",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "中国大陆驾照不等于 Taiwan (Republic of China) 驾照，不能使用该互惠例外",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "18 岁以上首次申请人先通过 eye screening 和 knowledge exam取得 12 个月 learner permit，至少持有 10 天后才能 road test",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_apply",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Apply for License (Over 18)",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "12 个月内未通过要重新申请并重考",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_apply"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Apply for License (Over 18)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Delaware 当前 Class D knowledge test 为 32 题，答对 26 题通过",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_written"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Sample Written Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "官方 sample portal只列 English、Spanish 与 Haitian，Driver Manual 另说明可按要求提供 headphones audio test",
+      "sourceUrls": [
+        "https://dmv.de.gov/app/dmvexam/home",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Sample Driving Exam Portal",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "官方页面没有承诺中文笔试",
+      "sourceUrls": [
+        "https://dmv.de.gov/app/dmvexam/home",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Sample Driving Exam Portal",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "需要中文或其他语言协助时，应在预约前联系 DMV 确认当前考点、形式和允许的辅助，不能把网页翻译按钮当作考试语言",
+      "sourceUrls": [
+        "https://dmv.de.gov/app/dmvexam/home",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf",
+        "https://dmv.de.gov/About/contact_info/index.shtml"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Sample Driving Exam Portal",
+        "对应官方来源：Delaware Driver Manual, July 2025",
+        "对应官方来源：Delaware DMV Locations and Hours"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Road test 要带 valid permit、21 岁以上 accompanying driver 的有效驾照、考试车辆 registration 和 insurance",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_road"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "无独立驾驶资格时，陪同驾驶人必须留在现场",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_road"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "考试车辆由申请人提供，须无杂物、至少半箱油并通过 basic safety inspection",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_road"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Intelligent Parking Assist 必须关闭",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_road"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "普通视力门槛为 20/40，可戴眼镜或隐形",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driver Examination"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "20/40 至 20/50 可能只获 daylight-only restriction",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driver Examination"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "当前 DMV Fee Chart 把 Class D 首证和 8 年续期列为 $50，late renewal 为 $10，duplicate license 为 $20，change of name 为 $10，change of address 不收费",
+      "sourceUrls": [
+        "https://dmv.de.gov/Common/DMVFees/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware DMV Fee Chart"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "name-change",
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "普通 Delaware license 通常有效 8 年，可在到期前 180 天于 DMV facility 或 online 续期",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals",
+        "https://dmv.de.gov/Common/DMVFees/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware License Renewals",
+        "对应官方来源：Delaware DMV Fee Chart"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "online-service"
@@ -64926,157 +65689,41 @@
     {
       "stateId": "delaware",
       "surface": "overview",
-      "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "续期时要交回旧 license、完成申请并通过 eye-screening，搬家或 REAL ID revalidation 时可能要补居住、SSN 或 legal presence 材料",
-      "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "ssn",
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "delaware",
-      "surface": "overview",
-      "field": "realIdSummary",
+      "field": "editorNotes",
       "context": "document",
-      "claim": "Delaware federally compliant DL/ID 要证明 identity / lawful status、date of birth、Social Security number 和 Delaware residence",
+      "claim": "现场续期要交回旧证、填申请并通过 eye screening，DMV 仍可要求考试或补 residency、SSN、legal-presence",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware License Renewals"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "residency-proof",
+        "ssn",
+        "renewal",
+        "test"
+      ],
+      "uncoveredThemes": [
         "residency-proof",
         "ssn"
       ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "delaware",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "官方页面强调 existing holders 在 renewal 时也要做一次 original source documents revalidation",
-      "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "delaware",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "所有文件必须是 original 或 certified copy，普通复印件和 non-certified 文件不接受",
-      "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "delaware",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "先用 REAL ID / SecureID 页面确认是否需要 compliant card，再看 renewal、transfer 或 address/name change 页面",
-      "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "name-change",
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "delaware",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "地址变化后 30 天内要通知 DMV",
-      "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "address-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "delaware",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "document",
-      "claim": "姓名变化要先更新 Social Security 记录，并按 DMV 说明等待数据库同步后再去办公室",
-      "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "ssn",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
       "valid": true
     },
     {
       "stateId": "delaware",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "Delaware 有 one-time revalidation 要求",
+      "context": "document",
+      "claim": "姓名合法变更后 30 天内要本人到 DMV",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml"
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+        "对应官方来源：Delaware Name and Address Change"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -65086,17 +65733,63 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "document",
-      "claim": "老用户续期时也可能需要重新携带 original source documents",
+      "claim": "先更新 SSA 并等待 48 至 72 小时，再带旧证和全部 name-change documents",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change",
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware Name and Address Change",
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "renewal"
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Delaware 地址变化后 30 天内要同时通知 Driver License 与 Vehicle Registration sections",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Name and Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "DL/ID 可在线或到 DMV 免费更新",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change",
+        "https://dmv.de.gov/OnlineServices/",
+        "https://dmv.de.gov/Common/DMVFees/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Name and Address Change",
+        "对应官方来源：Delaware Online Services",
+        "对应官方来源：Delaware DMV Fee Chart"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -65106,16 +65799,141 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "document",
-      "claim": "Residency proofs 要来自 separate sources、显示 physical address，且 mail 通常要在 60 天内",
+      "claim": "非公民首次申请、外州转入、续期和 duplicate 都可能要再次提交移民文件",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml?dc=dr_lic_naturalized_non_us"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware Naturalized Citizens and Non-US Citizens"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "document",
+        "lawful-presence",
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "DMV 通过 SAVE 核验，无法验证时不会签发",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml?dc=dr_lic_naturalized_non_us"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Naturalized Citizens and Non-US Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "临时非移民证件有效期不会超过 authorized stay",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml?dc=dr_lic_naturalized_non_us"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Naturalized Citizens and Non-US Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "SAVE 显示 indefinite 或 duration of status 时，Delaware 当前说明使用一年有效期",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml?dc=dr_lic_naturalized_non_us"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Naturalized Citizens and Non-US Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "DPC 只供无法提供 lawful presence、且符合条件的外国 Delaware resident 驾驶使用，不是有效身份证明，也不是 REAL ID",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware DPC Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "美国公民和有 valid legal presence 的人不符合 DPC 资格",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "DPC 申请要先预约 SBI 指纹核验，再取得 Division of Revenue 出具的前两年 Delaware 报税 Certification of Filing Compliance，之后本人到 DMV 完成材料和考试",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware DPC Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "appointment",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -65125,16 +65943,113 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "document",
-      "claim": "这比只写“两份地址证明”更有用",
+      "claim": "当前 DPC brochure 列出 $20 DPC fee 和 SBI 收取的 $72 identity-validation fee",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware DPC Brochure"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "DPC permit 有效 6 个月，DPC card 有效 4 年",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware DPC Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "DPC 只保证 Delaware 州内驾驶权限，其他州是否接受由对方州决定",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware DPC Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "它不能用于 CDL，motorcycle endorsement 则须另通过对应考试",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware DPC Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "SecureID 是联邦用途选项，不是维持 Delaware 驾驶资格的唯一证件",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "已有 U.S. passport、Permanent Resident Card 等 TSA 接受证件时可先比较是否需要升级",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -65143,16 +66058,57 @@
       "stateId": "delaware",
       "surface": "real-id",
       "field": "realIdSummary",
-      "context": "document",
-      "claim": "Delaware federally compliant DL/ID 要证明 identity / lawful status、date of birth、Social Security number 和 Delaware residence",
+      "context": "real-id",
+      "claim": "Delaware 把 REAL ID 合规证件称为 federally compliant DL/ID 或 SecureID",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "合规卡有 gold star，非合规卡标注 Not for Federal ID",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "申请合规卡要提交一份 identity / lawful-presence 文件、一份完整 SSN 证明和两份来自独立来源、显示本人 physical Delaware address 的居住证明",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
         "residency-proof",
         "ssn"
       ],
@@ -65164,34 +66120,16 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "官方页面强调 existing holders 在 renewal 时也要做一次 original source documents revalidation",
+      "claim": "所有文件须为 original 或 certified copy",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "delaware",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "所有文件必须是 original 或 certified copy，普通复印件和 non-certified 文件不接受",
-      "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -65201,19 +66139,64 @@
     {
       "stateId": "delaware",
       "surface": "real-id",
-      "field": "documentHighlights",
+      "field": "realIdSummary",
       "context": "document",
-      "claim": "一份 proof of identity / legal presence，例如 certified U.S. birth certificate、有效 U.S. passport、Certificate of Naturalization 或合格移民文件",
+      "claim": "已有 Delaware DL/ID 的人会在一次 renewal 中完成 source-document revalidation，之后通常只在姓名等资料变化或移民文件到期时再次出示",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
-        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements",
-        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware License Renewals"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "document",
+        "lawful-presence",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "SSA ineligibility letter 只能支持 non-compliant credential，不能支持 federally compliant card",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "SecureID identity / lawful-presence 组带一份原件或 certified copy，例如 U.S. certified birth certificate、valid U.S. passport、Consular Report of Birth Abroad、Naturalization / Citizenship certificate、I-551、I-766，或与有效移民文件配套的 foreign passport",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
         "document",
         "lawful-presence"
       ],
@@ -65225,14 +66208,78 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Social Security number 证明，例如 SSN card、W-2、SSA-1099、1099、含完整 SSN 的 pay stub，或 SSA ineligibility letter",
+      "claim": "医院出生记录、birth announcement、wallet birth card、过期或 altered document 不属于可接受的 certified birth record",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "SSN 组带一份显示完整号码的 Social Security card、W-2、SSA-1099、non-SSA 1099、pay stub 或 SSA 出具的有效文件",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Medicare / Medicaid card 不接受",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "SSA ineligibility letter 只适用于因 legal-presence status 不具 SSN 资格的人，而且不能用来取得 federally compliant credential",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -65244,14 +66291,36 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 Delaware residency，来自不同来源，显示 physical address",
+      "claim": "Residency 组带两份不同来源的材料，例如 utility bill、credit-card statement、auto / life insurance、bank、employment、rental agreement 或 USPS change-of-address confirmation",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两份 residency 都要显示本人 physical address，不能只写 P.O. Box",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -65263,14 +66332,16 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "P.O. Box 不适合作为主要居住地址",
+      "claim": "mail 要由 USPS 投递并在最近 60 天内 postmarked 或 received，普通打印账单、个人信件和 UPS / FedEx / DHL 寄件不接受",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -65282,14 +66353,18 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名变化时带全部 marriage certificate、divorce decree 或 court order，且文件要能串起姓名变化链",
+      "claim": "当前姓名与 identity document 不一致时，带每一次 government-issued marriage / civil-union certificate、court order 或符合条件的 finalized divorce decree，完整串起姓名链",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table",
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents",
+        "对应官方来源：Delaware Name and Address Change"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "name-change"
@@ -65302,14 +66377,55 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "新居民转入时带外州 license 或 certified driving record，并准备 legal presence、SSN 和两份 Delaware residency",
+      "claim": "非公民按身份带含 Alien Registration Number 或 I-94 Number 的有效 USCIS / INS documents",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml?dc=dr_lic_naturalized_non_us"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware Naturalized Citizens and Non-US Citizens"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "F-1 / F-2 / M-1 学生通常还要 I-20，J-1 / J-2 通常还要 DS-2019",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml?dc=dr_lic_naturalized_non_us"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Naturalized Citizens and Non-US Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "美国外州转入带 out-of-state license 或 current certified driving record，并另备 legal-presence、SSN 和两份 Delaware residency",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof",
         "ssn",
@@ -65321,18 +66437,194 @@
     {
       "stateId": "delaware",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "先看 SecureID / REAL ID 页面，决定要 federally compliant card 还是 non-compliant card",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Road test 带 learner permit、21 岁以上陪同人的 valid license、车辆 valid registration 与 original 或 electronic insurance card",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml"
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_road"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+        "对应官方来源：Delaware Road Test"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id"
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "DPC 材料包括 SBI receipt、Division of Revenue Certification of Filing Compliance、一份 valid foreign passport 或合格 consular ID、全部姓名变化文件和两份 Delaware residency",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware DPC Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "name-change",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "residency-proof",
+        "name-change"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "DPC 外文文件须由 professional translator 翻成英文，并与原外文文件一起提交",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware DPC Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "photocopied、altered 或 expired documents 不接受",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "DPC 两份地址证明同样要来自独立商业来源、显示 physical address，并满足 USPS 最近 60 天的投递要求",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware DPC Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "先判断本次属于首次 Class D、美国外州 transfer、外国驾照、renewal / duplicate、SecureID upgrade、name / address change，还是 DPC",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_apply",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals",
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Apply for License (Over 18)",
+        "对应官方来源：Delaware New Resident Transfer License",
+        "对应官方来源：Delaware License Renewals",
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware Name and Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "address-change",
+        "renewal",
+        "replacement",
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "需要联邦用途时先比较 SecureID 与 passport、Permanent Resident Card 等 TSA 接受证件，不把 REAL ID 当成继续驾驶的唯一选择",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "办理 SecureID 时按 identity / lawful presence、full SSN、two independent residency 和完整 name chain 四组整理 original 或 certified documents",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Required Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn",
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -65342,17 +66634,37 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "按 identity/legal presence、SSN、two Delaware residency、name-change chain 四组准备原件或 certified copy",
+      "claim": "两份 residency 逐项检查本人姓名、physical Delaware address、独立来源、USPS 投递和最近 60 天日期",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "姓名不一致先更新 SSA，等待 48 至 72 小时，再带全部 government-issued name-change documents 到 DMV",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change",
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Name and Address Change",
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
-        "residency-proof",
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -65363,15 +66675,41 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "如果是外州搬入，先看 New Resident Transfer License，确认 60 天要求和旧 license / driving record",
+      "claim": "非公民先按当前 status 准备 passport、I-94 / Alien Registration Number、I-20 / DS-2019 等材料，并预留 SAVE mismatch 处理时间",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml?dc=dr_lic_naturalized_non_us"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware Naturalized Citizens and Non-US Citizens"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "document",
+        "lawful-presence",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "新居民记录 residency 起算日，在 60 天内安排 transfer",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware General Requirements",
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
         "transfer"
       ],
       "uncoveredThemes": [],
@@ -65381,19 +66719,217 @@
       "stateId": "delaware",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "如果只是续期，先看 License Renewals，确认 online eligibility、eye-screening 和是否要 REAL ID revalidation",
+      "context": "detail",
+      "claim": "美国外州路线准备交回原卡或 current certified driving record",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml"
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+        "对应官方来源：Delaware New Resident Transfer License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "中国大陆及其他非互惠外国驾照持有人按 knowledge 与 road exams 准备，不要选择 Taiwan reciprocity",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "18 岁以上首次申请先完成 eye screening 和 knowledge exam，领取 12 个月 permit，至少等待 10 天后预约 road test",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_apply"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Apply for License (Over 18)"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "知识考试前以当前 Delaware Driver Manual 为主，使用官方 32 题规则和 sample portal练习",
+      "sourceUrls": [
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_written",
+        "https://dmv.de.gov/app/dmvexam/home"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driver Manual, July 2025",
+        "对应官方来源：Delaware Sample Written Test",
+        "对应官方来源：Delaware Sample Driving Exam Portal"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要语言或 audio assistance 时提前联系考点确认",
+      "sourceUrls": [
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf",
+        "https://dmv.de.gov/About/contact_info/index.shtml"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driver Manual, July 2025",
+        "对应官方来源：Delaware DMV Locations and Hours"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "Road test 通过 Online Services 或 office 电话预约，并核对 permit、21 岁以上陪同人、registration、insurance、半箱油、车内清空和 parking-assist off",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_road",
+        "https://dmv.de.gov/OnlineServices/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Road Test",
+        "对应官方来源：Delaware Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "DPC 先预约 SBI 指纹并保存 receipt，再向 Division of Revenue取得前两年 filing certification，最后带原件、专业翻译和两份 residency 到 DMV",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware DPC Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "appointment",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "residency-proof",
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "续期先检查 180-day window、online eligibility、one-time SecureID revalidation 和当前 $50 renewal / $10 late fee",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals",
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/Common/DMVFees/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware License Renewals",
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware DMV Fee Chart"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal",
-        "online-service"
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "地址变化后 30 天内同时更新 Driver License 与 Vehicle Registration records",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Name and Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "DL/ID address change 当前不收费",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change",
+        "https://dmv.de.gov/Common/DMVFees/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Name and Address Change",
+        "对应官方来源：Delaware DMV Fee Chart"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -65403,37 +66939,87 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "地址或姓名变化先看 Other / Name & Address Change，尤其是 30 天地址通知和 SSA 先行规则",
+      "claim": "姓名变化也在 30 天内完成，付款前以当前 Fee Chart 的 $10 为准，不沿用旧手册金额",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change",
+        "https://dmv.de.gov/Common/DMVFees/",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware Name and Address Change",
+        "对应官方来源：Delaware DMV Fee Chart",
+        "对应官方来源：Delaware Driver Manual, July 2025"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "ssn",
-        "name-change"
+        "name-change",
+        "fee"
       ],
       "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "选择 Delaware City、Wilmington、Dover 或 Georgetown office 前查看 location hours 与 wait times",
+      "sourceUrls": [
+        "https://dmv.de.gov/About/contact_info/index.shtml",
+        "https://dmv.de.gov/wait-times/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware DMV Locations and Hours",
+        "对应官方来源：Delaware DMV Wait Times"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "复杂身份、DPC 或语言问题先电话确认",
+      "sourceUrls": [
+        "https://dmv.de.gov/About/contact_info/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml?dc=dr_lic_naturalized_non_us",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware DMV Locations and Hours",
+        "对应官方来源：Delaware Naturalized Citizens and Non-US Citizens",
+        "对应官方来源：Delaware Driving Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [
+        "language"
+      ],
       "valid": true
     },
     {
       "stateId": "delaware",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "以为已经有 Delaware license，REAL ID 续期时就不用再带原始身份文件",
+      "context": "document",
+      "claim": "已经有 Delaware license，就以为 compliant renewal 一定不需要做一次 original source-document revalidation",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware License Renewals"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "document",
         "renewal"
       ],
@@ -65445,14 +67031,35 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "带打印账单、普通复印件或没有邮戳/日期的地址材料",
+      "claim": "只带一份地址证明，或两份都来自同一银行、同一保险公司等相同来源",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "带网页打印账单、普通复印件、个人来信、UPS / FedEx / DHL 包裹，或只有 P.O. Box 的地址材料",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID",
+        "对应官方来源：Delaware Driving Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "residency-proof"
@@ -65464,15 +67071,243 @@
       "stateId": "delaware",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "姓名变化后直接去 DMV，没先更新 Social Security 记录",
+      "context": "real-id",
+      "claim": "把 SSA ineligibility letter 当成 SecureID 的 SSN 文件，忽略它只能支持 non-compliant credential",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req"
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware General Requirements"
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "用医院出生记录、birth announcement 或 wallet card 代替 Vital Statistics 签发的 certified birth certificate",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "搬入超过 60 天仍使用外州或外国驾照，没有启动 Delaware 申请",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "持中国大陆驾照却选择 Taiwan reciprocity，误以为可免 knowledge 与 road exams",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把任何外国驾照都当成美国外州 transfer，忽略外国证件原则上要完成两项考试",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware New Resident Transfer License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer",
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "看到官网有 Translate 功能或英文 sample test，就假定现场必定提供中文考试，没有提前向考点确认",
+      "sourceUrls": [
+        "https://dmv.de.gov/app/dmvexam/home",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf",
+        "https://dmv.de.gov/About/contact_info/index.shtml"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Sample Driving Exam Portal",
+        "对应官方来源：Delaware Driver Manual, July 2025",
+        "对应官方来源：Delaware DMV Locations and Hours"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "Road test 没带 21 岁以上陪同驾驶人、permit、registration 或 insurance，或者陪同人提前离开",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_road"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "考试车辆少于半箱油、车内有杂物、未通过安全检查，或没有关闭自动泊车辅助",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_road"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Road Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "把 DPC 当成 REAL ID、通用身份证明或全国都接受的驾照",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf",
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware DPC Brochure",
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "申请 DPC 时直接去 DMV，尚未完成 SBI fingerprints 或前两年 Delaware tax filing certification",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml",
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card",
+        "对应官方来源：Delaware DPC Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "DPC 外文文件只带翻译件，没带原件，或使用非专业翻译",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Driving Privilege Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "language"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "姓名改完立即去 DMV，未先更新 SSA 并等待 48 至 72 小时，也没有带完整姓名链",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change",
+        "https://dmv.de.gov/DriverServices/drivers_license/secureID/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware Name and Address Change",
+        "对应官方来源：Delaware SecureID / Federally Compliant DL/ID"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn",
         "name-change"
@@ -65485,16 +67320,40 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "detail",
-      "claim": "搬到 Delaware 后超过 60 天才处理外州 license transfer",
+      "claim": "只更新 DL/ID 地址，没有同时处理 Vehicle Registration section 的地址记录",
       "sourceUrls": [
-        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18"
+        "https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change"
       ],
       "sourceLabels": [
-        "对应官方来源：Delaware New Resident Transfer License"
+        "对应官方来源：Delaware Name and Address Change"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "transfer"
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "delaware",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "在到期后才续期，忽略 $10 late fee，或按旧版 Driver Manual 的过时费用预算",
+      "sourceUrls": [
+        "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals",
+        "https://dmv.de.gov/Common/DMVFees/",
+        "https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Delaware License Renewals",
+        "对应官方来源：Delaware DMV Fee Chart",
+        "对应官方来源：Delaware Driver Manual, July 2025"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true

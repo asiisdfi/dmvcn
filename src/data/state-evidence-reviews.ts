@@ -1185,6 +1185,42 @@ const AL_ADMIN =
 const AL_PHISHING =
   'https://www.alea.gov/news/alea-warns-alabamians-nationwide-phishing-scam-impersonating-alabama-dmv';
 
+const DE_DL = 'https://dmv.de.gov/DriverServices/drivers_license/index.shtml';
+const DE_SECURE_ID =
+  'https://dmv.de.gov/DriverServices/drivers_license/secureID/';
+const DE_GENERAL =
+  'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_gen_req';
+const DE_DOCUMENTS =
+  'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_doc_table';
+const DE_NONCITIZEN =
+  'https://dmv.de.gov/DriverServices/drivers_license/secureID/index.shtml?dc=dr_lic_naturalized_non_us';
+const DE_TRANSFER =
+  'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_trsfr_ov18';
+const DE_FIRST_LICENSE =
+  'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_apply';
+const DE_EXAM =
+  'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_exam';
+const DE_WRITTEN =
+  'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_written';
+const DE_SAMPLE = 'https://dmv.de.gov/app/dmvexam/home';
+const DE_ROAD =
+  'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_road';
+const DE_DPC =
+  'https://dmv.de.gov/DriverServices/drivers_license/DPC/index.shtml';
+const DE_DPC_BROCHURE =
+  'https://dmv.de.gov/DriverServices/drivers_license/DPC/pdfs/DPCBrochureEN.pdf';
+const DE_RENEW =
+  'https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_renewals';
+const DE_CHANGE =
+  'https://dmv.de.gov/DriverServices/other/index.shtml?dc=dr_oth_change';
+const DE_FEES = 'https://dmv.de.gov/Common/DMVFees/';
+const DE_ONLINE = 'https://dmv.de.gov/OnlineServices/';
+const DE_APPOINTMENTS = 'https://appointments.dmv.de.gov/book';
+const DE_CONTACT = 'https://dmv.de.gov/About/contact_info/index.shtml';
+const DE_WAIT = 'https://dmv.de.gov/wait-times/';
+const DE_MANUAL =
+  'https://services.dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf';
+
 const OK_SERVICES =
   'https://oklahoma.gov/service/all-services/driving-and-automobiles.html';
 const OK_REAL_ID =
@@ -1388,6 +1424,153 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '依赖 USPS forwarding 接收新证件，没有先核对 ALEA record 和 mailing address': [AL_MANUAL, AL_FORMS],
       '通过搜索广告进入第三方 renewal 网站，没有确认域名与 ALEA 官方入口': [AL_PHISHING, AL_DL, AL_ONLINE],
       '把 60 天 renewal grace period 理解成可以无限期使用过期证件，或拖到三年免试窗口之外': [AL_CODE, AL_MANUAL],
+    }),
+  },
+  delaware: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      DE_DL,
+      DE_SECURE_ID,
+      DE_GENERAL,
+      DE_DOCUMENTS,
+      DE_NONCITIZEN,
+      DE_TRANSFER,
+      DE_FIRST_LICENSE,
+      DE_EXAM,
+      DE_WRITTEN,
+      DE_SAMPLE,
+      DE_ROAD,
+      DE_DPC,
+      DE_DPC_BROCHURE,
+      DE_RENEW,
+      DE_CHANGE,
+      DE_FEES,
+      DE_ONLINE,
+      DE_APPOINTMENTS,
+      DE_CONTACT,
+      DE_WAIT,
+      DE_MANUAL,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开 Delaware DMV 当前 Driver Services、SecureID、required documents、noncitizen / SAVE、adult transfer、first license、knowledge / road exam、DPC、renewal、name / address、fee chart、online services、appointments、locations、wait times、July 2025 Driver Manual 与 TSA 页面，核对两个成品页的资格、材料、期限、考试、语言边界、费用和办理入口。',
+    notes:
+      '本轮重点区分美国外州与外国驾照、Taiwan reciprocity 与中国大陆驾照、SecureID 与 non-compliant credential、lawful-presence credential 与 DPC，并以 2025 年 10 月生效的 Fee Chart 覆盖 July 2025 Driver Manual 中的旧金额。官方样题入口只列 English、Spanish、Haitian，未据此虚构中文考试。全部映射为 AI 辅助语义核查，不冒充 DMV、律师或人工专业签字。',
+    claims: normalizeReviewedClaims({
+      'Delaware 驾照、ID、federally compliant SecureID、Driving Privilege Card、考试、续期和外州转入都由 Delaware Division of Motor Vehicles 管理': [DE_DL, DE_SECURE_ID, DE_DPC, DE_TRANSFER, DE_RENEW],
+      '首次申请、美国外州转入、外国驾照、普通续期、SecureID 和 DPC 是不同路线': [DE_DL, DE_FIRST_LICENSE, DE_TRANSFER, DE_RENEW, DE_SECURE_ID, DE_DPC],
+      'myDMV 可处理符合资格的 DL/ID 交易、road-test appointment 和记录服务，但首次身份核验、考试与 DPC 仍要按现场流程办理': [DE_ONLINE, DE_FIRST_LICENSE, DE_TRANSFER, DE_DPC],
+      '成为 Delaware bona fide resident 后 60 天内要取得本州驾照': [DE_GENERAL, DE_TRANSFER, DE_MANUAL],
+      '18 岁以上持有效美国外州驾照者带原卡或 current certified driving record、legal-presence、SSN 和两份 Delaware residency，通常可免 written 与 road exams': [DE_TRANSFER, DE_DOCUMENTS, DE_MANUAL],
+      '外国驾照持有人原则上要通过 knowledge 和 road exams，只有 Germany、Taiwan (Republic of China) 与 France 的 Class D 互惠例外': [DE_TRANSFER, DE_MANUAL],
+      '中国大陆驾照不属于 Taiwan 互惠': [DE_TRANSFER],
+      '首次成人申请人通过 eye screening 和 knowledge exam 后取得 12 个月 learner permit，至少等 10 天才能参加 road test': [DE_FIRST_LICENSE, DE_MANUAL],
+      'Delaware 把 REAL ID 合规证件称为 federally compliant DL/ID 或 SecureID': [DE_SECURE_ID],
+      '合规卡有 gold star，非合规卡标注 Not for Federal ID': [DE_SECURE_ID, DE_MANUAL],
+      '申请合规卡要提交一份 identity / lawful-presence 文件、一份完整 SSN 证明和两份来自独立来源、显示本人 physical Delaware address 的居住证明': [DE_SECURE_ID, DE_DOCUMENTS],
+      '所有文件须为 original 或 certified copy': [DE_SECURE_ID, DE_DOCUMENTS],
+      '已有 Delaware DL/ID 的人会在一次 renewal 中完成 source-document revalidation，之后通常只在姓名等资料变化或移民文件到期时再次出示': [DE_SECURE_ID, DE_RENEW],
+      'SSA ineligibility letter 只能支持 non-compliant credential，不能支持 federally compliant card': [DE_SECURE_ID, DE_DOCUMENTS],
+      'Delaware City、Wilmington、Dover 与 Georgetown 四个 DMV facility 办理现场驾照业务': [DE_CONTACT, DE_MANUAL],
+      '官方 Online Services 提供 DL/ID transactions 和 road-test appointment，知识考试与 New to State 也可从官方 appointment scheduler 选服务': [DE_ONLINE, DE_APPOINTMENTS],
+      '出发前先查 locations、营业时间和 wait times': [DE_CONTACT, DE_WAIT],
+      '需要考试辅助或不能确定移民、DPC、外国驾照路线时，先联系所选 office': [DE_CONTACT, DE_MANUAL, DE_NONCITIZEN, DE_DPC, DE_TRANSFER],
+      '新居民在成为 bona fide Delaware resident 后有 60 天完成州驾照申请': [DE_GENERAL, DE_TRANSFER, DE_MANUAL],
+      '美国外州原驾照或 ID 会按 surrender agreement 交回并取消': [DE_GENERAL, DE_TRANSFER, DE_MANUAL],
+      '有效美国外州驾照转入时仍要 eye screening，但 written 与 road exams 通常免除': [DE_TRANSFER],
+      'suspended、revoked 或 restricted license 要先清除未结事项': [DE_TRANSFER],
+      '持有效外国驾照的 16 岁以上非居民可以在携带原证时临时驾驶，成为居民 60 天后则必须申请 Delaware license': [DE_TRANSFER, DE_MANUAL],
+      '外国驾照持有人可保留外国证件，但通常要考 knowledge 和 road': [DE_TRANSFER],
+      'Germany、Taiwan (Republic of China) 与 France 仅对 Class D 免两项考试，endorsement 不互惠': [DE_TRANSFER],
+      '中国大陆驾照不等于 Taiwan (Republic of China) 驾照，不能使用该互惠例外': [DE_TRANSFER],
+      '18 岁以上首次申请人先通过 eye screening 和 knowledge exam取得 12 个月 learner permit，至少持有 10 天后才能 road test': [DE_FIRST_LICENSE, DE_MANUAL],
+      '12 个月内未通过要重新申请并重考': [DE_FIRST_LICENSE],
+      'Delaware 当前 Class D knowledge test 为 32 题，答对 26 题通过': [DE_WRITTEN],
+      '官方 sample portal只列 English、Spanish 与 Haitian，Driver Manual 另说明可按要求提供 headphones audio test': [DE_SAMPLE, DE_MANUAL],
+      '官方页面没有承诺中文笔试': [DE_SAMPLE, DE_MANUAL],
+      '需要中文或其他语言协助时，应在预约前联系 DMV 确认当前考点、形式和允许的辅助，不能把网页翻译按钮当作考试语言': [DE_SAMPLE, DE_MANUAL, DE_CONTACT],
+      'Road test 要带 valid permit、21 岁以上 accompanying driver 的有效驾照、考试车辆 registration 和 insurance': [DE_ROAD],
+      '无独立驾驶资格时，陪同驾驶人必须留在现场': [DE_ROAD],
+      '考试车辆由申请人提供，须无杂物、至少半箱油并通过 basic safety inspection': [DE_ROAD],
+      'Intelligent Parking Assist 必须关闭': [DE_ROAD],
+      '普通视力门槛为 20/40，可戴眼镜或隐形': [DE_EXAM],
+      '20/40 至 20/50 可能只获 daylight-only restriction': [DE_EXAM],
+      '当前 DMV Fee Chart 把 Class D 首证和 8 年续期列为 $50，late renewal 为 $10，duplicate license 为 $20，change of name 为 $10，change of address 不收费': [DE_FEES],
+      '普通 Delaware license 通常有效 8 年，可在到期前 180 天于 DMV facility 或 online 续期': [DE_RENEW, DE_FEES],
+      '现场续期要交回旧证、填申请并通过 eye screening，DMV 仍可要求考试或补 residency、SSN、legal-presence': [DE_RENEW],
+      '姓名合法变更后 30 天内要本人到 DMV': [DE_CHANGE],
+      '先更新 SSA 并等待 48 至 72 小时，再带旧证和全部 name-change documents': [DE_CHANGE, DE_SECURE_ID, DE_DOCUMENTS],
+      'Delaware 地址变化后 30 天内要同时通知 Driver License 与 Vehicle Registration sections': [DE_CHANGE],
+      'DL/ID 可在线或到 DMV 免费更新': [DE_CHANGE, DE_ONLINE, DE_FEES],
+      '非公民首次申请、外州转入、续期和 duplicate 都可能要再次提交移民文件': [DE_NONCITIZEN],
+      'DMV 通过 SAVE 核验，无法验证时不会签发': [DE_NONCITIZEN],
+      '临时非移民证件有效期不会超过 authorized stay': [DE_NONCITIZEN],
+      'SAVE 显示 indefinite 或 duration of status 时，Delaware 当前说明使用一年有效期': [DE_NONCITIZEN],
+      'DPC 只供无法提供 lawful presence、且符合条件的外国 Delaware resident 驾驶使用，不是有效身份证明，也不是 REAL ID': [DE_DPC, DE_DPC_BROCHURE],
+      '美国公民和有 valid legal presence 的人不符合 DPC 资格': [DE_DPC],
+      'DPC 申请要先预约 SBI 指纹核验，再取得 Division of Revenue 出具的前两年 Delaware 报税 Certification of Filing Compliance，之后本人到 DMV 完成材料和考试': [DE_DPC, DE_DPC_BROCHURE],
+      '当前 DPC brochure 列出 $20 DPC fee 和 SBI 收取的 $72 identity-validation fee': [DE_DPC_BROCHURE],
+      'DPC permit 有效 6 个月，DPC card 有效 4 年': [DE_DPC, DE_DPC_BROCHURE],
+      'DPC 只保证 Delaware 州内驾驶权限，其他州是否接受由对方州决定': [DE_DPC_BROCHURE],
+      '它不能用于 CDL，motorcycle endorsement 则须另通过对应考试': [DE_DPC_BROCHURE],
+      'SecureID 是联邦用途选项，不是维持 Delaware 驾驶资格的唯一证件': [DE_SECURE_ID],
+      '已有 U.S. passport、Permanent Resident Card 等 TSA 接受证件时可先比较是否需要升级': [DE_SECURE_ID, TSA_IDENTIFICATION],
+      'SecureID identity / lawful-presence 组带一份原件或 certified copy，例如 U.S. certified birth certificate、valid U.S. passport、Consular Report of Birth Abroad、Naturalization / Citizenship certificate、I-551、I-766，或与有效移民文件配套的 foreign passport': [DE_SECURE_ID, DE_DOCUMENTS],
+      '医院出生记录、birth announcement、wallet birth card、过期或 altered document 不属于可接受的 certified birth record': [DE_SECURE_ID, DE_DOCUMENTS],
+      'SSN 组带一份显示完整号码的 Social Security card、W-2、SSA-1099、non-SSA 1099、pay stub 或 SSA 出具的有效文件': [DE_SECURE_ID, DE_DOCUMENTS],
+      'Medicare / Medicaid card 不接受': [DE_SECURE_ID, DE_DOCUMENTS],
+      'SSA ineligibility letter 只适用于因 legal-presence status 不具 SSN 资格的人，而且不能用来取得 federally compliant credential': [DE_SECURE_ID, DE_DOCUMENTS],
+      'Residency 组带两份不同来源的材料，例如 utility bill、credit-card statement、auto / life insurance、bank、employment、rental agreement 或 USPS change-of-address confirmation': [DE_SECURE_ID, DE_DOCUMENTS],
+      '两份 residency 都要显示本人 physical address，不能只写 P.O. Box': [DE_SECURE_ID],
+      'mail 要由 USPS 投递并在最近 60 天内 postmarked 或 received，普通打印账单、个人信件和 UPS / FedEx / DHL 寄件不接受': [DE_SECURE_ID, DE_DOCUMENTS],
+      '当前姓名与 identity document 不一致时，带每一次 government-issued marriage / civil-union certificate、court order 或符合条件的 finalized divorce decree，完整串起姓名链': [DE_SECURE_ID, DE_DOCUMENTS, DE_CHANGE],
+      '非公民按身份带含 Alien Registration Number 或 I-94 Number 的有效 USCIS / INS documents': [DE_NONCITIZEN],
+      'F-1 / F-2 / M-1 学生通常还要 I-20，J-1 / J-2 通常还要 DS-2019': [DE_NONCITIZEN],
+      '美国外州转入带 out-of-state license 或 current certified driving record，并另备 legal-presence、SSN 和两份 Delaware residency': [DE_TRANSFER, DE_DOCUMENTS],
+      'Road test 带 learner permit、21 岁以上陪同人的 valid license、车辆 valid registration 与 original 或 electronic insurance card': [DE_ROAD],
+      'DPC 材料包括 SBI receipt、Division of Revenue Certification of Filing Compliance、一份 valid foreign passport 或合格 consular ID、全部姓名变化文件和两份 Delaware residency': [DE_DPC, DE_DPC_BROCHURE],
+      'DPC 外文文件须由 professional translator 翻成英文，并与原外文文件一起提交': [DE_DPC, DE_DPC_BROCHURE],
+      'photocopied、altered 或 expired documents 不接受': [DE_DPC, DE_DOCUMENTS],
+      'DPC 两份地址证明同样要来自独立商业来源、显示 physical address，并满足 USPS 最近 60 天的投递要求': [DE_DPC, DE_DPC_BROCHURE],
+      '先判断本次属于首次 Class D、美国外州 transfer、外国驾照、renewal / duplicate、SecureID upgrade、name / address change，还是 DPC': [DE_FIRST_LICENSE, DE_TRANSFER, DE_RENEW, DE_SECURE_ID, DE_DPC, DE_CHANGE],
+      '需要联邦用途时先比较 SecureID 与 passport、Permanent Resident Card 等 TSA 接受证件，不把 REAL ID 当成继续驾驶的唯一选择': [DE_SECURE_ID, TSA_IDENTIFICATION],
+      '办理 SecureID 时按 identity / lawful presence、full SSN、two independent residency 和完整 name chain 四组整理 original 或 certified documents': [DE_SECURE_ID, DE_DOCUMENTS],
+      '两份 residency 逐项检查本人姓名、physical Delaware address、独立来源、USPS 投递和最近 60 天日期': [DE_SECURE_ID],
+      '姓名不一致先更新 SSA，等待 48 至 72 小时，再带全部 government-issued name-change documents 到 DMV': [DE_CHANGE, DE_SECURE_ID],
+      '非公民先按当前 status 准备 passport、I-94 / Alien Registration Number、I-20 / DS-2019 等材料，并预留 SAVE mismatch 处理时间': [DE_NONCITIZEN],
+      '新居民记录 residency 起算日，在 60 天内安排 transfer': [DE_GENERAL, DE_TRANSFER],
+      '美国外州路线准备交回原卡或 current certified driving record': [DE_TRANSFER],
+      '中国大陆及其他非互惠外国驾照持有人按 knowledge 与 road exams 准备，不要选择 Taiwan reciprocity': [DE_TRANSFER],
+      '18 岁以上首次申请先完成 eye screening 和 knowledge exam，领取 12 个月 permit，至少等待 10 天后预约 road test': [DE_FIRST_LICENSE],
+      '知识考试前以当前 Delaware Driver Manual 为主，使用官方 32 题规则和 sample portal练习': [DE_MANUAL, DE_WRITTEN, DE_SAMPLE],
+      '需要语言或 audio assistance 时提前联系考点确认': [DE_MANUAL, DE_CONTACT],
+      'Road test 通过 Online Services 或 office 电话预约，并核对 permit、21 岁以上陪同人、registration、insurance、半箱油、车内清空和 parking-assist off': [DE_ROAD, DE_ONLINE],
+      'DPC 先预约 SBI 指纹并保存 receipt，再向 Division of Revenue取得前两年 filing certification，最后带原件、专业翻译和两份 residency 到 DMV': [DE_DPC, DE_DPC_BROCHURE],
+      '续期先检查 180-day window、online eligibility、one-time SecureID revalidation 和当前 $50 renewal / $10 late fee': [DE_RENEW, DE_SECURE_ID, DE_FEES],
+      '地址变化后 30 天内同时更新 Driver License 与 Vehicle Registration records': [DE_CHANGE],
+      'DL/ID address change 当前不收费': [DE_CHANGE, DE_FEES],
+      '姓名变化也在 30 天内完成，付款前以当前 Fee Chart 的 $10 为准，不沿用旧手册金额': [DE_CHANGE, DE_FEES, DE_MANUAL],
+      '选择 Delaware City、Wilmington、Dover 或 Georgetown office 前查看 location hours 与 wait times': [DE_CONTACT, DE_WAIT],
+      '复杂身份、DPC 或语言问题先电话确认': [DE_CONTACT, DE_NONCITIZEN, DE_DPC],
+      '已经有 Delaware license，就以为 compliant renewal 一定不需要做一次 original source-document revalidation': [DE_SECURE_ID, DE_RENEW],
+      '只带一份地址证明，或两份都来自同一银行、同一保险公司等相同来源': [DE_SECURE_ID],
+      '带网页打印账单、普通复印件、个人来信、UPS / FedEx / DHL 包裹，或只有 P.O. Box 的地址材料': [DE_SECURE_ID, DE_DPC],
+      '把 SSA ineligibility letter 当成 SecureID 的 SSN 文件，忽略它只能支持 non-compliant credential': [DE_SECURE_ID],
+      '用医院出生记录、birth announcement 或 wallet card 代替 Vital Statistics 签发的 certified birth certificate': [DE_SECURE_ID],
+      '搬入超过 60 天仍使用外州或外国驾照，没有启动 Delaware 申请': [DE_TRANSFER],
+      '持中国大陆驾照却选择 Taiwan reciprocity，误以为可免 knowledge 与 road exams': [DE_TRANSFER],
+      '把任何外国驾照都当成美国外州 transfer，忽略外国证件原则上要完成两项考试': [DE_TRANSFER],
+      '看到官网有 Translate 功能或英文 sample test，就假定现场必定提供中文考试，没有提前向考点确认': [DE_SAMPLE, DE_MANUAL, DE_CONTACT],
+      'Road test 没带 21 岁以上陪同驾驶人、permit、registration 或 insurance，或者陪同人提前离开': [DE_ROAD],
+      '考试车辆少于半箱油、车内有杂物、未通过安全检查，或没有关闭自动泊车辅助': [DE_ROAD],
+      '把 DPC 当成 REAL ID、通用身份证明或全国都接受的驾照': [DE_DPC, DE_DPC_BROCHURE, DE_SECURE_ID],
+      '申请 DPC 时直接去 DMV，尚未完成 SBI fingerprints 或前两年 Delaware tax filing certification': [DE_DPC, DE_DPC_BROCHURE],
+      'DPC 外文文件只带翻译件，没带原件，或使用非专业翻译': [DE_DPC],
+      '姓名改完立即去 DMV，未先更新 SSA 并等待 48 至 72 小时，也没有带完整姓名链': [DE_CHANGE, DE_SECURE_ID],
+      '只更新 DL/ID 地址，没有同时处理 Vehicle Registration section 的地址记录': [DE_CHANGE],
+      '在到期后才续期，忽略 $10 late fee，或按旧版 Driver Manual 的过时费用预算': [DE_RENEW, DE_FEES, DE_MANUAL],
     }),
   },
   louisiana: {

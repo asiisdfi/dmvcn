@@ -2,8 +2,8 @@
 
 - 页面数：166
 - 高风险待人工签字：17
-- 待逐页官方正文语义核对：56
-- 阻塞项：73
+- 待逐页官方正文语义核对：54
+- 阻塞项：71
 - 弱意图待处理：0
 
 ## 人工签字队列（高风险）
@@ -39,7 +39,6 @@
 | /directories/real-id/ | directory | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /directories/service-paths/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /directories/tests-permits/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/delaware/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/idaho/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/iowa/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/kentucky/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -51,7 +50,6 @@
 | /states/south-carolina/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/vermont/ | state-overview | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/west-virginia/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/delaware/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/idaho/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/iowa/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/kentucky/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -72,6 +70,8 @@
 | /topics/first-driver-license-road-test/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/foreign-license-idp-transfer/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/lost-stolen-license-id-replacement-identity-theft/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /topics/lost-stolen-license-plates-registration-card-sticker/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /topics/moving-to-new-state/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 
 ## 阻塞项优先处理
 
@@ -89,8 +89,6 @@
 | /directories/real-id/ | standard | 92 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /directories/service-paths/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /directories/tests-permits/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/delaware/ | medium | 91 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/delaware/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/idaho/ | medium | 91 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/idaho/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/iowa/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
@@ -107,6 +105,8 @@
 | /states/north-dakota/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/rhode-island/ | medium | 92 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/rhode-island/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /states/south-carolina/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /states/south-carolina/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 
 ## 执行节奏
 1. **第1-2周**：完成高风险人工签字，目标产出 8 条，检查点：未签字的高风险页不得用于新内容发布

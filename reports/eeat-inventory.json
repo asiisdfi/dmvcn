@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-20T23:59:03.072Z",
+    "generatedAt": "2026-07-21T00:25:26.840Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 93,
+    "passed": 95,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 56,
-    "aiAssistedReviews": 99,
+    "sourceMappedReviews": 54,
+    "aiAssistedReviews": 101,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 73,
+    "blockedPages": 71,
     "averageScore": 97
   },
   "pages": [
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 295,
+        "sourceCount": 300,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 137,
-        "directoryEvidenceLinks": 137,
+        "directoryEvidenceItems": 141,
+        "directoryEvidenceLinks": 141,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 243,
+        "sourceCount": 244,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 603,
+        "sourceCount": 610,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 152,
+        "sourceCount": 154,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 115,
-        "directoryEvidenceLinks": 115,
+        "directoryEvidenceItems": 117,
+        "directoryEvidenceLinks": 117,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 225,
+        "sourceCount": 228,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 159,
-        "directoryEvidenceLinks": 159,
+        "directoryEvidenceItems": 161,
+        "directoryEvidenceLinks": 161,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 203,
+        "sourceCount": 202,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1395,
+        "sourceCount": 1409,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1781,21 +1781,21 @@
       "route": "/states/delaware/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 91,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成特拉华州（Delaware Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Delaware DMV 当前 Driver Services、SecureID、required documents、noncitizen / SAVE、adult transfer、first license、knowledge / road exam、DPC、renewal、name / address、fee chart、online services、appointments、locations、wait times、July 2025 Driver Manual 与 TSA 页面，核对两个成品页的资格、材料、期限、考试、语言边界、费用和办理入口。",
+        "notes": "本轮重点区分美国外州与外国驾照、Taiwan reciprocity 与中国大陆驾照、SecureID 与 non-compliant credential、lawful-presence credential 与 DPC，并以 2025 年 10 月生效的 Fee Chart 覆盖 July 2025 Driver Manual 中的旧金额。官方样题入口只列 English、Spanish、Haitian，未据此虚构中文考试。全部映射为 AI 辅助语义核查，不冒充 DMV、律师或人工专业签字。"
       },
       "scores": {
-        "factsAndSources": 20,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -1805,14 +1805,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 15,
+        "sourceCount": 22,
+        "factCheckCount": 58,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 15,
-        "stateEvidenceLinks": 15,
+        "stateEvidenceItems": 58,
+        "stateEvidenceLinks": 107,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1820,9 +1820,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/delaware/real-id/",
@@ -1830,16 +1828,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成特拉华州（Delaware Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Delaware DMV 当前 Driver Services、SecureID、required documents、noncitizen / SAVE、adult transfer、first license、knowledge / road exam、DPC、renewal、name / address、fee chart、online services、appointments、locations、wait times、July 2025 Driver Manual 与 TSA 页面，核对两个成品页的资格、材料、期限、考试、语言边界、费用和办理入口。",
+        "notes": "本轮重点区分美国外州与外国驾照、Taiwan reciprocity 与中国大陆驾照、SecureID 与 non-compliant credential、lawful-presence credential 与 DPC，并以 2025 年 10 月生效的 Fee Chart 覆盖 July 2025 Driver Manual 中的旧金额。官方样题入口只列 English、Spanish、Haitian，未据此虚构中文考试。全部映射为 AI 辅助语义核查，不冒充 DMV、律师或人工专业签字。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1852,14 +1850,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 18,
+        "sourceCount": 22,
+        "factCheckCount": 60,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 18,
-        "stateEvidenceLinks": 19,
+        "stateEvidenceItems": 60,
+        "stateEvidenceLinks": 111,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1867,9 +1865,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/florida/",

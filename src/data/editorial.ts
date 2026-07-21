@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Delaware 两页官方正文语义核对',
+    summary:
+      '逐条比对 Delaware DMV 的 Driver Services、SecureID、required documents、noncitizen / SAVE、adult transfer、first license、knowledge / road exams、DPC、renewal、name / address、2025 fee chart、online services、appointments、locations、wait times、July 2025 Driver Manual 与 TSA 当前正文；登记 112 条独立声明的显式来源，并补齐中国大陆与 Taiwan 互惠边界、DPC 指纹与报税路径、考试语言证据边界、SecureID one-time revalidation、SAVE、60 天转入、当前费用和 road-test 车辆要求。',
+    scope: [
+      '特拉华州办事总览',
+      '特拉华州 SecureID / REAL ID',
+      '112 条独立声明显式核对',
+      'DPC、外国驾照、考试与非公民边界',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Alabama 两页官方正文语义核对',
     summary:
       '逐条比对 ALEA 的 Driver License、STAR ID、材料清单、FAQ、首证与外州转入、offices、2024 Driver Manual、GDL、road-test guide、forms、address form、online portal，以及 Alabama 州法、行政规则、官方 phishing warning 与 TSA 当前正文；登记 80 条独立声明的显式来源，并补齐 ALEA / county / ADOR 分工、新居民 30 天、Chinese written examination、外国驾照非免试、四年续期、60 天宽限和非公民 160 天 / 30 天官方冲突。',

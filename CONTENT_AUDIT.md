@@ -2761,3 +2761,34 @@ Final validation:
 ### Final External Boundary
 
 The codebase now has automated evidence for content structure, SEO, internal navigation, page reachability, accessibility references, production URL propagation and static output. No further local preparation has higher launch value than deploying with a real domain and monitored public mailbox. GA4 and AdSense remain optional post-launch integrations.
+
+## Round 67 Changes
+
+Date: 2026-07-21
+
+### Delaware Driver License, SecureID and DPC Deep Review
+
+Source scan:
+
+- Opened and checked the current Delaware DMV Driver Services hub, SecureID guide, required-document table, noncitizen / SAVE page, adult transfer, first adult license, examination, written-test, sample-test, road-test, DPC, renewal, name / address, fee chart, online services, appointment scheduler, locations, wait times and July 2025 Driver Manual, plus TSA's current acceptable-identification page.
+- Confirmed that a valid U.S. out-of-state license is normally transferred without written and road exams, while foreign licenses normally require both exams; only Germany, Taiwan (Republic of China) and France receive the Class D reciprocity exception. Mainland China is not Taiwan for this rule.
+- Confirmed the DPC route requires SBI fingerprint validation, the prior two years' Delaware tax-filing certification, in-person DMV documents and testing. The current brochure lists a $20 DPC fee plus a $72 SBI fee and warns that out-of-state acceptance is not guaranteed.
+- Confirmed that the public sample-test portal currently lists English, Spanish and Haitian, while the manual offers an audio test on request. No official source was found that promises a Chinese knowledge exam, so the page tells readers to confirm assistance with the selected office instead of inventing availability.
+- Used the DMV fee chart updated for October 2025 for current $50 Class D issuance / renewal, $10 late renewal, $20 duplicate, $10 name change and no-charge address change. The page explicitly warns against budgeting from the older July 2025 manual fee table.
+
+Scope:
+
+- Rewrote both `/states/delaware/` and `/states/delaware/real-id/` with current task routing, 60-day transfer deadline, U.S. versus foreign-license paths, first-adult permit and exam steps, road-test vehicle rules, SecureID / non-compliant distinctions, one-time source-document revalidation, SAVE handling, DPC eligibility and process, renewal, name / address changes and current fees.
+- Expanded the Delaware source list from 5 to 22 checked official sources and registered all 112 unique claims as AI-assisted explicit mappings. The two rendered pages expose 118 evidence rows and 218 official-source links without representing the work as human or professional approval.
+- Updated the public editorial update log and README quality totals. Delaware also increased inherited explicit mappings in the five high-risk directories.
+
+Validation:
+
+- Delaware official-link audit: 22 checked, 22 OK, 0 watch, 0 fail.
+- State evidence audit: 3,915 claims, 6,873 official links, 3,610 AI-assisted explicit mappings across 78 pages, 0 errors.
+- Directory evidence audit: 704 claims, 609 inherited explicit mappings, 95 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 95 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 54 automated-source pages and 17 high-risk human approvals still honestly pending.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,518 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 58 overview evidence rows and 60 REAL ID evidence rows, expected Delaware transfer and DPC guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
