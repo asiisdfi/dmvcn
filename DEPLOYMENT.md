@@ -45,8 +45,8 @@ npm run verify:launch
 ## 首次发布后
 
 1. 打开首页、Contact、Privacy、一个州页、一个 REAL ID 页和一个专题页。
-2. 确认 `https://你的域名/sitemap-index.xml` 和 `https://你的域名/robots.txt` 可以访问。
-3. 在 Google Search Console 验证域名并提交 `sitemap-index.xml`。
+2. 确认 `https://你的域名/sitemap.xml` 和 `https://你的域名/robots.txt` 可以访问。
+3. 在 Google Search Console 验证域名并提交 `sitemap.xml`。
 4. 先观察收录和查询词，再决定下一批内容。
 5. Google Analytics 和 AdSense 当前保持关闭；接入前应同时完成脚本、隐私披露和适用的同意机制。
 
