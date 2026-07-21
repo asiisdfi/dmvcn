@@ -17,6 +17,10 @@ function normalizeReviewedClaims(claims: Record<string, string[]>) {
   );
 }
 
+function mapReviewedClaims(claims: string[], sources: string[]) {
+  return Object.fromEntries(claims.map((claim) => [claim, sources]));
+}
+
 const CA_REAL_ID =
   'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/';
 const CA_WHAT_IS_REAL_ID =
@@ -1394,6 +1398,40 @@ const WI_LOCATIONS =
 const WI_MV3001 =
   'https://wisconsindot.gov/Documents/formdocs/mv3001.pdf';
 
+const MT_HOME = 'https://mvdmt.gov/';
+const MT_GET_LICENSE = 'https://mvdmt.gov/new-driver-license/';
+const MT_NEW_RESIDENT =
+  'https://mvdmt.gov/new-driver-license/drivers-new-to-montana/';
+const MT_ADULT =
+  'https://mvdmt.gov/new-driver-license/adult-driver-license/';
+const MT_REQUIRED = 'https://mvdmt.gov/required-documents/';
+const MT_REAL_ID = 'https://mvdmt.gov/real-id/';
+const MT_REAL_ID_CHECKLIST =
+  'https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf';
+const MT_RENEW = 'https://mvdmt.gov/renew-license-id/';
+const MT_REPLACE = 'https://mvdmt.gov/replace-license-id/';
+const MT_ADDRESS = 'https://mvdmt.gov/address-change/';
+const MT_NAME = 'https://mvdmt.gov/changing-your-name/';
+const MT_FEES = 'https://mvdmt.gov/licensing-fees/';
+const MT_ID_CARD = 'https://mvdmt.gov/id-card/';
+const MT_FORMS = 'https://mvdmt.gov/forms-driver-license/';
+const MT_MANUAL =
+  'https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf';
+const MT_STATIONS = 'https://mvdmt.gov/driver-license-exam-stations/';
+const MT_FAQ = 'https://mvdmt.gov/faqs/';
+const MT_TAIWAN =
+  'https://mvdmt.gov/wp-content/uploads/2023/11/MVD-Taiwanese-Reciprocity-Agreement-eff-10.10.2020.pdf';
+const MT_KOREA =
+  'https://dojmt.gov/attorney-general-knudsen-signs-driver-license-reciprocity-mou-with-republic-of-korea/';
+const MT_NEW_CARD =
+  'https://dojmt.gov/montana-motor-vehicle-division-launches-new-driver-licenses-and-ids/';
+const MT_CITIZENSHIP = 'https://mvdmt.gov/citizenship-marker/';
+const MT_PROMOTION =
+  'https://dojmt.gov/attorney-general-knudsen-waives-driver-license-and-id-fees-to-encourages-montanans-to-add-their-citizenship-marker-in-celebration-of-americas-250th-birthday-this-july/';
+const MT_APPLICATION =
+  'https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf';
+const USCIS_SAVE = 'https://www.uscis.gov/save';
+
 const IA_HUB = 'https://iowadot.gov/drivers-licenses-ids';
 const IA_NEW = 'https://iowadot.gov/drivers-licenses-ids/new-iowa';
 const IA_IMMIGRANT =
@@ -1568,6 +1606,253 @@ const ID_ADDRESS =
   'https://itd.idaho.gov/wp-content/uploads/2025/03/Address.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  montana: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      MT_HOME,
+      MT_GET_LICENSE,
+      MT_NEW_RESIDENT,
+      MT_ADULT,
+      MT_REQUIRED,
+      MT_REAL_ID,
+      MT_REAL_ID_CHECKLIST,
+      MT_RENEW,
+      MT_REPLACE,
+      MT_ADDRESS,
+      MT_NAME,
+      MT_FEES,
+      MT_ID_CARD,
+      MT_FORMS,
+      MT_MANUAL,
+      MT_STATIONS,
+      MT_FAQ,
+      MT_TAIWAN,
+      MT_KOREA,
+      MT_NEW_CARD,
+      MT_CITIZENSHIP,
+      MT_PROMOTION,
+      MT_APPLICATION,
+      USCIS_SAVE,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 Montana MVD 的 driver service、new resident、adult first driver、required documents、REAL ID 与 2026 checklist、renewal、replacement、address、name、fees、ID card、forms、manual、exam stations 和 FAQ；同时核对 Taiwan / Republic of Korea 互惠文件、2025 新卡公告、citizenship marker、2026 年 7 月临时费用公告、Class D / ID application、USCIS SAVE 与 TSA 身份证件规则。部分 mvdmt.gov 深层页限制普通直连，相关事实以可读取官方 PDF、官方页面索引正文和同机构交叉来源复核。',
+    notes:
+      '重写 Montana 两页，拆开美国外州转入、Taiwan / Korea 互惠、中国大陆非互惠首次申请、standard / REAL ID、非公民 SAVE、考试语言、续期、补证、地址与姓名变更。未把中国大陆驾照、中文考试或翻译材料写成官网未公布的豁免或保证；所有映射为 AI 辅助证据核查，不冒充 Montana MVD、律师或人工专业审核。',
+    claims: normalizeReviewedClaims({
+      ...mapReviewedClaims([
+        'Montana MVD Driver Services 办理驾照、learner license、ID、考试和 REAL ID',
+      ], [MT_HOME, MT_GET_LICENSE, MT_REAL_ID]),
+      ...mapReviewedClaims([
+        'vehicle title、registration 与 plates 走 MVD vehicle service 或 county treasurer 路线',
+      ], [MT_HOME]),
+      ...mapReviewedClaims([
+        '美国外州转入、中国或其他外国驾照、18 岁以上首次申请、REAL ID、续期、补证和资料变更不是同一流程',
+        '先分清 U.S. out-of-state transfer、mainland China / foreign license、18+ first driver、REAL ID、renewal、replacement、name / address change 或 state ID',
+      ], [MT_GET_LICENSE, MT_NEW_RESIDENT, MT_ADULT, MT_REAL_ID, MT_RENEW, MT_REPLACE]),
+      ...mapReviewedClaims([
+        '有效美国外州 noncommercial license 的新居民应在搬入后 60 天内本人申请，带实体有效卡通常可免 written 和 road tests',
+        '有效美国外州 noncommercial license 的新居民要在 60 天内开始转入',
+        '带 hard copy valid out-of-state license 通常可免 written / road tests，但 health 或 vision 情况仍可能触发进一步评估',
+        'New to Montana 页面把有效外州实体卡、full SSN 和一份 physical-address proof 作为转入核心材料',
+        '美国外州转入带 hard copy current valid license、完整 SSN 和一份 physical-address document',
+        '新居民超过 60 天才启动 noncommercial transfer，或把 CDL 的 30-day deadline 混到普通 Class D',
+      ], [MT_NEW_RESIDENT, MT_REQUIRED, MT_MANUAL]),
+      ...mapReviewedClaims([
+        'Montana 当前互惠只列 Taiwan 与 Republic of Korea',
+        'Montana 当前驾照互惠只有 Taiwan（2020-10-10）和 Republic of Korea（2026-04-23）',
+        'MVD reciprocity 页面概括 Taiwan / Korea 可免 knowledge 和 skills tests',
+      ], [MT_GET_LICENSE, MT_TAIWAN, MT_KOREA]),
+      ...mapReviewedClaims([
+        'mainland China 不在名单内，应按 18+ first-driver 路线预期 written、vision 和 road tests，并提前向 MVD 确认语言与外国驾照记录要求',
+        'mainland China 不在名单内，不能把 Republic of China (Taiwan) 套用到中国大陆驾照',
+        'mainland China 与其他非互惠外国驾照申请人应预期 18+ first-driver 的 written、vision、road sequence',
+        '官网没有给出可直接交换的中国大陆驾照路径',
+        '中国大陆驾照路线带现有 foreign license，预约前向 MVD 确认是否需要 driving record、English translation 或其他补充材料',
+        '不要假定可以按 Taiwan reciprocity 免试',
+        '中国大陆驾照按 non-reciprocal route 预留 written、vision 和 road tests',
+        '把 mainland China 当成 Republic of China (Taiwan)，错误套用 Montana reciprocity',
+        '持中国大陆驾照却按 U.S. out-of-state transfer 假定 written / road tests 自动豁免',
+      ], [MT_GET_LICENSE, MT_TAIWAN, MT_KOREA, MT_ADULT]),
+      ...mapReviewedClaims([
+        'Montana REAL ID 自愿办理，不是合法驾驶的前提',
+        'general Required Documents 页面同时写新居民通常需两份 identity documents，出发前宜再带一份合格 secondary identity document',
+        '文件应未被改动，适用项目要有政府认证章或 seal',
+        'REAL ID residency 文件必须显示 full legal name 与 current physical address',
+        'standard 新申请按 general list 准备一份 authorized-presence document、两份 identity documents（two primary 或 one primary + one secondary）和一份 Montana physical-address proof',
+        '为解决 general list 的两份 identity 表述，再备一份合格 secondary identity document',
+        'hospital birth certificate、birth registration card、手机照片或普通 photocopy 不能替代需要 government-certified 的 birth certificate',
+        'SSN card 不要求，但要准确填写完整 SSN',
+        '从 standard 首次升级 REAL ID 必须本人带完整 REAL ID documents',
+        '先决定是否需要 REAL ID',
+        'standard 与 REAL ID 材料混用：standard 一份 residence，首次 REAL ID 两份且都在一年内',
+        '拿普通 hospital record、birth registration card、手机照片或未认证复印件代替 certified document',
+      ], [MT_REAL_ID, MT_REAL_ID_CHECKLIST, MT_REQUIRED]),
+      ...mapReviewedClaims([
+        '首次或外州转入不能继承原州 REAL ID，须本人带一份 full legal name / date of birth / authorized-presence 文件、每次适用的 certified name-change 文件，以及两份一年内、显示本人 current physical Montana address 的材料',
+        'REAL ID 改为一份合并的 identity / DOB / authorized-presence 文件、完整 name chain 和两份 residence',
+        '不论 standard 还是 REAL ID，SSN proof document 当前不要求，但申请人要知道完整 SSN 供 SSA 核验，申请姓名与 SSA 记录必须一致',
+        '2026 REAL ID checklist 要一份 authorized-presence 文件、每次适用 name change 的一份文件和两份一年内 residence documents',
+        '姓名变化要先在 SSA 更新并至少等待 48 小时，再到 exam station 带 certified marriage / divorce / court / naturalization 等文件串起 current legal name',
+        'common-law marriage affidavit 不接受',
+        'name change 也需现场办理',
+        '姓名与 date of birth 先和 SSA 记录对齐',
+        '常见 REAL ID residence 包括 Montana credential、tribal ID、court document、bank / credit-card statement、utility / phone bill、pay stub、rental agreement、mortgage、voter registration、hunting / fishing license 或 dated first-class mail',
+        'identity 或 authorized-presence 文件与 current name 不同，每一次变化各带 certified government marriage / partnership、court order、divorce / dissolution、naturalization 或 citizenship document',
+        'common-law marriage affidavit 和 church-issued marriage certificate 不接受',
+        'REAL ID 按 Group A、each name change、two one-year residence documents 整理',
+        '改名先 SSA 后现场',
+        '姓名已变但未先更新 SSA / 等待 48 小时，或漏掉中间一次 marriage / divorce / court name change',
+      ], [MT_NAME, MT_REAL_ID, MT_REAL_ID_CHECKLIST]),
+      ...mapReviewedClaims([
+        '只写 P.O. Box 不接受',
+        'P.O. Box 只能另作 mailing address，不能替代 residence proof',
+        'REAL ID 带两份一年内文件，均显示 full legal name、current physical address、city / state / ZIP',
+        'P.O. Box 不能作为 physical residence',
+        'foreign name-change document 需翻译并提前确认认证要求',
+        '两份 REAL ID address 文件只有 P.O. Box、旧地址、昵称，或没有 city / state / ZIP',
+      ], [MT_REAL_ID, MT_REAL_ID_CHECKLIST]),
+      ...mapReviewedClaims([
+        'MVD FAQ 写 appointment always recommended',
+        '先用官方 scheduler 选对 exam station，授权合作点的服务和促销资格可能不同',
+      ], [MT_FAQ, MT_STATIONS]),
+      ...mapReviewedClaims([
+        '新居民转入、首次 REAL ID、首次 ID、written / road test 和改名走现场',
+      ], [MT_NEW_RESIDENT, MT_ADULT, MT_REAL_ID, MT_ID_CARD, MT_NAME]),
+      ...mapReviewedClaims([
+        '符合资格的 renewal / replacement 可在线或邮寄',
+      ], [MT_RENEW, MT_REPLACE]),
+      ...mapReviewedClaims([
+        'Korea DOJ 公告另明确 vision test、proof of identity 和 fully certified driving record，韩国申请人应按更具体的公告准备并向 MVD确认',
+      ], [MT_KOREA]),
+      ...mapReviewedClaims([
+        'MVD Forms 页面当前提供 English、Arabic、Dari、Swahili 和 Spanish study manual，没有列 Chinese manual，也没有公布普通 written test 的完整语言表',
+        '不要把翻译版手册当作考试语言承诺',
+        '需要中文或其他语言协助者应在预约前联系 MVD Customer Care',
+        '本站不承诺中文试题、口译员能进入 road test，或亲友可以代为翻译考试',
+        '预约前询问 MVD 是否需要 certified driving record / translation 以及可用语言协助',
+        '官网没公布 Chinese test language 仍直接期待中文笔试，或把 translated study manual 当作考试语言保证',
+      ], [MT_FORMS, MT_ADULT, MT_FAQ, MT_STATIONS]),
+      ...mapReviewedClaims([
+        '18+ 首次申请先通过 written test 才能预约 road test',
+        'driver-license receipt 一年内有效，测试申请人有三次机会在这一年内完成全部 required examinations',
+        '需要考试时先约 written、通过后再约 road',
+        '用 current English manual 学习，三次机会和 one-year receipt 不要浪费在材料不全上',
+      ], [MT_ADULT, MT_MANUAL, MT_STATIONS, MT_FORMS]),
+      ...mapReviewedClaims([
+        'road test 要带 current learner permit、current vehicle registration、physical 或 digital proof of insurance，并使用无明显 mechanical issue、windshield 无裂纹且 lights / signals 正常的车辆',
+        'road test 带 current learner permit、current registration、proof of insurance',
+        '车辆 windshield、taillights、brake lights、turn signals 和整体 mechanical condition 要合格',
+        'road test 前确认 learner permit、registration、insurance、合格车辆和到达的 exam station',
+        'road-test vehicle registration / insurance 过期，windshield 开裂或 lights / signals 失效',
+      ], [MT_ADULT]),
+      ...mapReviewedClaims([
+        'standard 首次申请一般准备 authorized presence、两份 identity documents 和一份 Montana residence',
+        'Montana 要求新申请、外州转入以及 temporary / permanent foreign national 提供 authorized presence',
+        '没有单独的 undocumented standard-license 路线',
+        'temporary foreign national 的 authorized presence 由 SAVE 核验，credential 不得晚于 USCIS 授权文件的结束日期',
+        'REAL ID Group A 选一份 certified U.S. birth certificate、valid U.S. passport、Consular Report、Certificate of Naturalization / Citizenship、I-551，或清单列明的 foreign passport + I-766 / I-94 路线',
+        '外国 passport 路线同时带 current I-94、I-766、I-551 stamp 或其他对应 federal authorized-status document',
+        '中国驾照本身不是 lawful-presence proof',
+        '美国外州新居民从入住时间计算 60 天，预约现场并准备有效实体卡、full SSN、authorized presence、address 和额外 identity document',
+        'standard 用户按 authorized presence、two identity documents、one residence 整理',
+        '只带外州驾照而没有第二份 identity document、authorized presence、SSN 和 physical-address proof',
+      ], [MT_REQUIRED, MT_REAL_ID_CHECKLIST, MT_MANUAL, MT_APPLICATION, USCIS_SAVE]),
+      ...mapReviewedClaims([
+        '遇到额外核验不能承诺现场当天签发',
+      ], [MT_REQUIRED, USCIS_SAVE]),
+      ...mapReviewedClaims([
+        '无固定住址申请人可使用 descriptive residence、单独 mailing address 和 social-service agency letter 的标准路线，不应直接写成“homeless 无法申请”',
+        '无固定住址时准备 descriptive address 与 social-service agency letter',
+      ], [MT_REQUIRED, MT_REAL_ID_CHECKLIST]),
+      ...mapReviewedClaims([
+        '2025 年底起签发的新卡以 black circle 内 white star 表示 REAL ID，black eagle 表示 U.S. citizenship',
+        '旧版仍在有效期内的 Montana credential 不会因新版上线自动失效',
+        '把 black eagle citizenship marker 当作 REAL ID 标志，或只找旧版 gold star 而忽略新版 black-circle white star',
+      ], [MT_NEW_CARD, MT_CITIZENSHIP, MT_REAL_ID]),
+      ...mapReviewedClaims([
+        'standard credential 仍可合法驾驶',
+      ], [MT_REAL_ID, MT_REQUIRED]),
+      ...mapReviewedClaims([
+        '自 2025-05-07 起机场或适用 federal facility 需要 REAL ID 或 passport / passport card 等 TSA 接受的替代证件',
+        'temporary paper credential 不是 REAL ID',
+        '现场或邮寄完成后保留 temporary paper license，但机场另备 passport、passport card 等 TSA 当前接受证件',
+        '已有 passport / passport card 且只需驾驶时，可比较 standard 12-year credential',
+      ], [MT_REAL_ID, MT_MANUAL, TSA_IDENTIFICATION]),
+      ...mapReviewedClaims([
+        '21–63 岁 noncommercial license 当前 standard 最长 12 年、总费 $62.32',
+        '带 REAL ID 的对应 8 年总费 $67.47',
+        '75 岁以上通常四年',
+        '准确金额按申请人在 expiration date 的年龄查当前 fee table',
+        'current fee table 与 2026 DOJ 公告都把 existing REAL ID replacement 列为 $10.30，且不再加收 REAL ID fee',
+        '付款前仍应复核当前 fee table 并保留付款确认',
+        '当前 $17、通常 8 年',
+        '付款前按 expiration-date age 查 fee table',
+      ], [MT_FEES, MT_REAL_ID]),
+      ...mapReviewedClaims([
+        '2026 年 7 月 citizenship-marker 活动只是在限定月份、本人现场且同时加 marker 时减免部分费用，不是长期免费政策，也不免 new / renewed REAL ID 的 REAL ID fee',
+        '不要把 temporary July 2026 citizenship-marker promotion 当作标准费用',
+        '把 2026 年 7 月 citizenship-marker fee waiver 当成长期免费，或以为 REAL ID fee 也一并免除',
+      ], [MT_PROMOTION, MT_FEES, MT_CITIZENSHIP]),
+      ...mapReviewedClaims([
+        'online / mail renewal 只限 U.S. citizen、处于到期前 6 个月至过期后 1 年、上一轮不是 online / mail 且在任何州都未 suspended / revoked 的申请人',
+        'online 不更新 photo 或 signature',
+        'Montana 没有过期后继续驾驶的 grace period：driving privilege 在 expiration date 午夜终止',
+        '可在一年内免 retest 续期，超过一年按新申请并完成适用考试',
+        'in-person renewal 后通常先拿 temporary license，永久卡约 2–4 周邮寄',
+        'renewal 现场带 expiring Montana credential',
+        '续期先检查 6-month / 1-year window、U.S.-citizen 条件、上一轮办理方式和 suspension status',
+        'license 过期后继续驾驶，以为一年内可续期就等于一年 driving grace',
+        '上一轮已 online / mail renewal、非 U.S. citizen 或 license suspended，仍直接走 online renewal',
+      ], [MT_RENEW, MT_MANUAL]),
+      ...mapReviewedClaims([
+        '地址变化须在 10 天内通知',
+        '只更新 electronic record 免费，卡面要显示新地址则本人办 replacement 并付费',
+        '地址在 10 天内更新：只改 record 可免费，卡面要新地址再办 $10.30 replacement',
+        '只免费更新 electronic address record，却以为卡面地址会自动更换',
+        '或超过 10 天才通知 MVD',
+      ], [MT_ADDRESS, MT_REPLACE, MT_FEES]),
+      ...mapReviewedClaims([
+        'lost / stolen credential 可 online、in person 或 mail replacement',
+        '失证距离到期少于 6 个月时可能直接续期，stolen card 建议向 local law enforcement 报告',
+        'replacement by mail / online 只能复制已有 credential 类型',
+        '补证比较 online / mail / in-person',
+        '距离到期 6 个月内先比较 renewal，stolen credential 同时报 local law enforcement',
+      ], [MT_REPLACE, MT_RENEW]),
+      ...mapReviewedClaims([
+        'Montana resident 的 ID 首次必须本人到 exam station，不能 mail',
+        'Montana 只允许一个 credential，不能同时持 driver license 和 state ID',
+      ], [MT_ID_CARD, MT_FAQ, MT_MANUAL, MT_FEES]),
+      ...mapReviewedClaims([
+        'mail renewal 页面另写 90-day paper license 约 3–10 天、hard copy 约 2–6 周，mailing address 必须可投递且不会自动转寄',
+        '不合格则现场办理',
+      ], [MT_RENEW]),
+      ...mapReviewedClaims([
+        'standard new-resident 通常带一份 Montana residence',
+      ], [MT_REQUIRED]),
+      ...mapReviewedClaims([
+        '不在住址收信时可另填 mailing address',
+      ], [MT_REQUIRED, MT_APPLICATION]),
+      ...mapReviewedClaims([
+        '卡丢失则准备 identity documents，姓名、health 或 vision 变化另带对应 certified / provider documents',
+      ], [MT_REPLACE, MT_REQUIRED, MT_RENEW]),
+      ...mapReviewedClaims([
+        '非公民核对 I-94 / I-766 / I-551 等 current federal document 和姓名一致性，为 SAVE additional verification 留时间',
+      ], [MT_REQUIRED, MT_REAL_ID_CHECKLIST, USCIS_SAVE]),
+      ...mapReviewedClaims([
+        '办结后检查 mailing address，保留 temporary paper license，并为机场准备 TSA accepted physical ID',
+        '拿 temporary paper credential 去机场，或认为永久卡会由 USPS 自动 forward 到新地址',
+      ], [MT_RENEW, TSA_IDENTIFICATION]),
+      ...mapReviewedClaims([
+        'standard credential 首次升级 REAL ID 时只提交 online replacement，没有本人带完整材料',
+      ], [MT_REPLACE, MT_REAL_ID, MT_REAL_ID_CHECKLIST]),
+      ...mapReviewedClaims([
+        '用授权合作点的说明替代 mvdmt.gov 当前要求，没有确认该地点能办测试、首次 REAL ID 或活动减免',
+      ], [MT_STATIONS, MT_FAQ, MT_REAL_ID]),
+    }),
+  },
   iowa: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

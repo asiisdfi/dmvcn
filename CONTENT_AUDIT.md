@@ -3035,3 +3035,36 @@ Validation:
 - Browser QA at 1280 x 720 and 390 x 844 confirmed 47 overview evidence rows, 61 REAL ID evidence rows, 214 rendered official-source links, visible mainland-China, Chinese-test, SAVE, SSN, residency and future-law guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
 - Quality workbook: 40 semantic-review pages and 57 blocked pages remain; weak-intent pages remain 0.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+## Round 75 Changes
+
+Date: 2026-07-21
+
+### Montana Driver License, REAL ID, Foreign-License and Language-Evidence Deep Review
+
+Source scan:
+
+- Checked Montana MVD's driver-service hub, new-resident and adult-first-driver routes, required documents, REAL ID page and April 2026 checklist, renewal, replacement, address, name, fee, ID-card, forms, manual, exam-station and FAQ materials; also checked the Taiwan agreement, April 2026 Republic of Korea announcement, December 2025 credential announcement, citizenship marker, July 2026 temporary fee promotion, Class D / ID application, USCIS SAVE and TSA identification guidance.
+- Confirmed the 60-day noncommercial transfer route for holders of a valid U.S. out-of-state license and kept the general two-identity-document list visible beside the new-resident page's narrower core-material wording.
+- Confirmed that Montana's published reciprocity routes name Taiwan and the Republic of Korea, not mainland China. Mainland-China applicants are therefore routed through the adult first-driver testing sequence without inventing a direct exchange, Chinese-test guarantee or mandatory translation rule that MVD has not published.
+- Confirmed the distinction between standard and REAL ID documents, complete legal-name chains, one-year physical-address evidence, the P.O. Box limitation, the no-fixed-address route, SSN verification, noncitizen authorized-presence handling and SAVE-related timing uncertainty.
+- Confirmed the current fee table, renewal window, no-driving-grace warning, replacement and address-change routes, temporary / permanent card delivery estimates, new black-circle white-star REAL ID mark and separate black-eagle citizenship marker. Removed an unnecessary old-PDF fee comparison that was not part of the registered source set.
+
+Scope:
+
+- Rewrote both `/states/montana/` and `/states/montana/real-id/` with separate decision paths for U.S. transfers, mainland-China and other foreign licenses, Taiwan / Korea reciprocity, first-time drivers, standard versus REAL ID credentials, noncitizen verification, testing, renewal, replacement, address / name changes and non-driver ID cards.
+- Expanded the Montana source list from 5 to 25 checked official sources and registered all 137 unique claims as AI-assisted explicit mappings. The two rendered pages each expose 70 evidence rows and 205 official-source links without representing the work as human, legal or professional approval.
+- Preserved the original publication date, set separate modification and fact-check dates to the actual review date, added a public editorial update and retained the USA.gov fallback for Montana's direct-access restrictions.
+- Updated the README totals, E-E-A-T inventory, quality workbook and Search Console priority reports.
+
+Validation:
+
+- Montana official-link audit: 27 checked, 3 direct OK, 24 security-response watch, 0 fail. The site displays the direct-access limitation and a federal fallback rather than treating 403 responses as deleted pages.
+- State evidence audit: 4,531 claims, 8,503 official links, 4,447 AI-assisted explicit mappings across 94 pages, 0 errors.
+- Directory evidence audit: 772 claims, 734 inherited explicit mappings, 38 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 111 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 38 automated-source pages and 17 high-risk human approvals still honestly pending.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,636 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 70 evidence rows and 205 official-source links on each Montana page, visible mainland-China, language-evidence, SSN, P.O. Box, SAVE and new-card-symbol guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
+- Quality workbook: 38 semantic-review pages and 55 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.

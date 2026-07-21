@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Montana 两页官方资料、互惠文件与费用语义核对',
+    summary:
+      '逐条比对 Montana MVD 的 new resident、adult first driver、required documents、REAL ID 与 2026 checklist、renewal、replacement、address、name、fees、ID card、forms、manual、exam stations 和 FAQ，以及 Taiwan / Republic of Korea 互惠文件、2025 新卡公告、citizenship marker、2026 年 7 月临时费用公告、Class D / ID application、USCIS SAVE 与 TSA 页面；登记 137 条独立声明的显式来源，并补齐中国大陆非互惠路线、官网未公布中文考试的证据边界、60 天转入、standard / REAL ID 材料、非公民核验、当前费用和续补证时限。',
+    scope: [
+      '蒙大拿州办事总览',
+      '蒙大拿州 REAL ID',
+      '137 条独立声明显式核对',
+      '中国驾照、考试语言、SAVE 与新版证件标志',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Iowa 两页官方正文、行政规则与州法语义核对',
     summary:
       '逐条比对 Iowa DOT 的 driver-license hub、New to Iowa、Immigrant & Refugee、REAL ID 与互动材料清单、renewal、fees、change、replacement、test、manual、appointment、location 和 ID-card 正文，current Iowa Administrative Code 761-604、2026 Iowa Code 321.1A / 321.176 / 321.196、SF 2187、HF 2102 当前状态与 TSA 页面；登记 106 条独立声明的显式来源，并补齐中国大陆与 Taiwan 互惠边界、Chinese knowledge test、residency triggers、SSN / SAVE、1-1-2 材料、考试、费用和未来核验条款。',

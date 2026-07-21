@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T03:00:37.010Z",
+    "generatedAt": "2026-07-21T03:28:54.267Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 109,
+    "passed": 111,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 40,
-    "aiAssistedReviews": 115,
+    "sourceMappedReviews": 38,
+    "aiAssistedReviews": 117,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 57,
+    "blockedPages": 55,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 222,
+        "sourceCount": 225,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 311,
+        "sourceCount": 312,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 157,
-        "directoryEvidenceLinks": 157,
+        "directoryEvidenceItems": 160,
+        "directoryEvidenceLinks": 160,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 253,
+        "sourceCount": 257,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 115,
-        "directoryEvidenceLinks": 115,
+        "directoryEvidenceItems": 118,
+        "directoryEvidenceLinks": 118,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 663,
+        "sourceCount": 674,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 167,
+        "sourceCount": 168,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 129,
-        "directoryEvidenceLinks": 129,
+        "directoryEvidenceItems": 133,
+        "directoryEvidenceLinks": 133,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 251,
+        "sourceCount": 254,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 173,
-        "directoryEvidenceLinks": 173,
+        "directoryEvidenceItems": 174,
+        "directoryEvidenceLinks": 174,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 212,
+        "sourceCount": 211,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -700,7 +700,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 194,
+        "sourceCount": 195,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 205,
+        "sourceCount": 204,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1521,
+        "sourceCount": 1540,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -3401,21 +3401,21 @@
       "route": "/states/montana/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 93,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成蒙大拿州（Montana Motor Vehicle Division）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Montana MVD 的 driver service、new resident、adult first driver、required documents、REAL ID 与 2026 checklist、renewal、replacement、address、name、fees、ID card、forms、manual、exam stations 和 FAQ；同时核对 Taiwan / Republic of Korea 互惠文件、2025 新卡公告、citizenship marker、2026 年 7 月临时费用公告、Class D / ID application、USCIS SAVE 与 TSA 身份证件规则。部分 mvdmt.gov 深层页限制普通直连，相关事实以可读取官方 PDF、官方页面索引正文和同机构交叉来源复核。",
+        "notes": "重写 Montana 两页，拆开美国外州转入、Taiwan / Korea 互惠、中国大陆非互惠首次申请、standard / REAL ID、非公民 SAVE、考试语言、续期、补证、地址与姓名变更。未把中国大陆驾照、中文考试或翻译材料写成官网未公布的豁免或保证；所有映射为 AI 辅助证据核查，不冒充 Montana MVD、律师或人工专业审核。"
       },
       "scores": {
-        "factsAndSources": 22,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -3425,14 +3425,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 10,
+        "sourceCount": 25,
+        "factCheckCount": 70,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 10,
-        "stateEvidenceLinks": 13,
+        "stateEvidenceItems": 70,
+        "stateEvidenceLinks": 205,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3440,9 +3440,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/montana/real-id/",
@@ -3450,16 +3448,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成蒙大拿州（Montana Motor Vehicle Division）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 Montana MVD 的 driver service、new resident、adult first driver、required documents、REAL ID 与 2026 checklist、renewal、replacement、address、name、fees、ID card、forms、manual、exam stations 和 FAQ；同时核对 Taiwan / Republic of Korea 互惠文件、2025 新卡公告、citizenship marker、2026 年 7 月临时费用公告、Class D / ID application、USCIS SAVE 与 TSA 身份证件规则。部分 mvdmt.gov 深层页限制普通直连，相关事实以可读取官方 PDF、官方页面索引正文和同机构交叉来源复核。",
+        "notes": "重写 Montana 两页，拆开美国外州转入、Taiwan / Korea 互惠、中国大陆非互惠首次申请、standard / REAL ID、非公民 SAVE、考试语言、续期、补证、地址与姓名变更。未把中国大陆驾照、中文考试或翻译材料写成官网未公布的豁免或保证；所有映射为 AI 辅助证据核查，不冒充 Montana MVD、律师或人工专业审核。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3472,14 +3470,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 19,
+        "sourceCount": 25,
+        "factCheckCount": 70,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 19,
-        "stateEvidenceLinks": 19,
+        "stateEvidenceItems": 70,
+        "stateEvidenceLinks": 205,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3487,9 +3485,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/nebraska/",

@@ -2,8 +2,8 @@
 
 - 页面数：166
 - 高风险待人工签字：17
-- 待逐页官方正文语义核对：40
-- 阻塞项：57
+- 待逐页官方正文语义核对：38
+- 阻塞项：55
 - 弱意图待处理：0
 
 ## 人工签字队列（高风险）
@@ -39,11 +39,9 @@
 | /directories/real-id/ | directory | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /directories/service-paths/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /directories/tests-permits/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/montana/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/south-carolina/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/vermont/ | state-overview | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/west-virginia/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/montana/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/south-carolina/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/vermont/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/west-virginia/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -89,8 +87,6 @@
 | /directories/real-id/ | standard | 92 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /directories/service-paths/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /directories/tests-permits/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/montana/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/montana/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/south-carolina/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/south-carolina/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/vermont/ | medium | 92 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
@@ -107,6 +103,8 @@
 | /topics/driving-record-points-traffic-school/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/first-driver-license-road-test/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/foreign-license-idp-transfer/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /topics/gift-inherited-vehicle-title-transfer/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
+| /topics/lost-stolen-license-id-replacement-identity-theft/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 
 ## 执行节奏
 1. **第1-2周**：完成高风险人工签字，目标产出 8 条，检查点：未签字的高风险页不得用于新内容发布

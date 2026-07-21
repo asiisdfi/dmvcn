@@ -1,31 +1,31 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T03:00:35.069Z",
+    "generatedAt": "2026-07-21T03:28:52.415Z",
     "pages": 5,
-    "claims": 761,
+    "claims": 772,
     "statesCovered": 50,
-    "aiAssisted": 715,
-    "automated": 46,
+    "aiAssisted": 734,
+    "automated": 38,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 157,
+        "claims": 160,
         "states": 45
       },
       "deadlines": {
-        "claims": 115,
-        "states": 43
+        "claims": 118,
+        "states": 44
       },
       "document-rules": {
         "claims": 187,
         "states": 49
       },
       "foreign-license": {
-        "claims": 129,
-        "states": 42
+        "claims": 133,
+        "states": 43
       },
       "identity-ssn": {
-        "claims": 173,
+        "claims": 174,
         "states": 46
       }
     }
@@ -2185,16 +2185,58 @@
     {
       "page": "costs-timing",
       "stateId": "montana",
-      "category": "邮寄 / 卡片",
-      "claim": "续期先看 Renew License / ID，确认 online、mail 或 in-person 路径",
-      "sourceUrl": "https://mvdmt.gov/renew-license-id/",
-      "sourceLabel": "对应官方来源：Montana Renew License / ID",
+      "category": "费用",
+      "claim": "21–63 岁 noncommercial license 当前 standard 最长 12 年、总费 $62.32",
+      "sourceUrl": "https://mvdmt.gov/licensing-fees/",
+      "sourceLabel": "对应官方来源：Montana Licensing Fees",
       "themes": [
-        "renewal"
+        "fee"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "montana",
+      "category": "费用",
+      "claim": "带 REAL ID 的对应 8 年总费 $67.47",
+      "sourceUrl": "https://mvdmt.gov/licensing-fees/",
+      "sourceLabel": "对应官方来源：Montana Licensing Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "montana",
+      "category": "费用",
+      "claim": "current fee table 与 2026 DOJ 公告都把 existing REAL ID replacement 列为 $10.30，且不再加收 REAL ID fee",
+      "sourceUrl": "https://mvdmt.gov/licensing-fees/",
+      "sourceLabel": "对应官方来源：Montana Licensing Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "montana",
+      "category": "费用",
+      "claim": "付款前仍应复核当前 fee table 并保留付款确认",
+      "sourceUrl": "https://mvdmt.gov/licensing-fees/",
+      "sourceLabel": "对应官方来源：Montana Licensing Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -3972,6 +4014,49 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "montana",
+      "category": "续期 / 到期",
+      "claim": "距离到期 6 个月内先比较 renewal，stolen credential 同时报 local law enforcement",
+      "sourceUrl": "https://mvdmt.gov/replace-license-id/",
+      "sourceLabel": "对应官方来源：Montana Replace License / ID",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "montana",
+      "category": "续期 / 到期",
+      "claim": "2026 年 7 月 citizenship-marker 活动只是在限定月份、本人现场且同时加 marker 时减免部分费用，不是长期免费政策，也不免 new / renewed REAL ID 的 REAL ID fee",
+      "sourceUrl": "https://dojmt.gov/attorney-general-knudsen-waives-driver-license-and-id-fees-to-encourages-montanans-to-add-their-citizenship-marker-in-celebration-of-americas-250th-birthday-this-july/",
+      "sourceLabel": "对应官方来源：Montana DOJ July 2026 Fee Promotion",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "montana",
+      "category": "续期 / 到期",
+      "claim": "online / mail renewal 只限 U.S. citizen、处于到期前 6 个月至过期后 1 年、上一轮不是 online / mail 且在任何州都未 suspended / revoked 的申请人",
+      "sourceUrl": "https://mvdmt.gov/renew-license-id/",
+      "sourceLabel": "对应官方来源：Montana Renew License / ID",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
     {
@@ -6546,58 +6631,58 @@
       "page": "document-rules",
       "stateId": "montana",
       "category": "地址证明",
-      "claim": "两份 Montana residency，显示本人姓名和 physical address",
-      "sourceUrl": "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-      "sourceLabel": "对应官方来源：Montana REAL ID Checklist",
+      "claim": "美国外州转入带 hard copy current valid license、完整 SSN 和一份 physical-address document",
+      "sourceUrl": "https://mvdmt.gov/new-driver-license/drivers-new-to-montana/",
+      "sourceLabel": "对应官方来源：Montana Drivers New to Montana",
+      "themes": [
+        "out-of-state",
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "montana",
+      "category": "地址证明",
+      "claim": "REAL ID 带两份一年内文件，均显示 full legal name、current physical address、city / state / ZIP",
+      "sourceUrl": "https://mvdmt.gov/real-id/",
+      "sourceLabel": "对应官方来源：Montana MVD REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "montana",
       "category": "地址证明",
-      "claim": "P.O. Box 不接受",
-      "sourceUrl": "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-      "sourceLabel": "对应官方来源：Montana REAL ID Checklist",
+      "claim": "P.O. Box 不能作为 physical residence",
+      "sourceUrl": "https://mvdmt.gov/real-id/",
+      "sourceLabel": "对应官方来源：Montana MVD REAL ID",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "montana",
       "category": "地址证明",
-      "claim": "地址变化可先更新 MVD electronic record",
-      "sourceUrl": "https://mvdmt.gov/address-change/",
-      "sourceLabel": "对应官方来源：Montana Address Change",
+      "claim": "New to Montana 页面把有效外州实体卡、full SSN 和一份 physical-address proof 作为转入核心材料",
+      "sourceUrl": "https://mvdmt.gov/new-driver-license/drivers-new-to-montana/",
+      "sourceLabel": "对应官方来源：Montana Drivers New to Montana",
       "themes": [
-        "address-change"
+        "ssn"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "montana",
-      "category": "地址证明",
-      "claim": "按 authorized presence、two Montana residency、name change 三组准备文件",
-      "sourceUrl": "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-      "sourceLabel": "对应官方来源：Montana REAL ID Checklist",
-      "themes": [
-        "residency-documents",
-        "lawful-presence"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -8682,6 +8767,60 @@
       "failedThemes": [
         "out-of-state"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "montana",
+      "category": "外州 / 加拿大转入",
+      "claim": "带 hard copy valid out-of-state license 通常可免 written / road tests，但 health 或 vision 情况仍可能触发进一步评估",
+      "sourceUrl": "https://mvdmt.gov/new-driver-license/drivers-new-to-montana/",
+      "sourceLabel": "对应官方来源：Montana Drivers New to Montana",
+      "themes": [
+        "out-of-state"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "montana",
+      "category": "互惠 / 免考",
+      "claim": "MVD reciprocity 页面概括 Taiwan / Korea 可免 knowledge 和 skills tests",
+      "sourceUrl": "https://mvdmt.gov/new-driver-license/",
+      "sourceLabel": "对应官方来源：Montana Getting a Driver License",
+      "themes": [
+        "reciprocity"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "montana",
+      "category": "测试判断",
+      "claim": "Korea DOJ 公告另明确 vision test、proof of identity 和 fully certified driving record，韩国申请人应按更具体的公告准备并向 MVD确认",
+      "sourceUrl": "https://dojmt.gov/attorney-general-knudsen-signs-driver-license-reciprocity-mou-with-republic-of-korea/",
+      "sourceLabel": "对应官方来源：Montana DOJ Korea Reciprocity Announcement",
+      "themes": [],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "montana",
+      "category": "翻译要求",
+      "claim": "foreign name-change document 需翻译并提前确认认证要求",
+      "sourceUrl": "https://mvdmt.gov/real-id/",
+      "sourceLabel": "对应官方来源：Montana MVD REAL ID",
+      "themes": [
+        "translation"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -11144,46 +11283,58 @@
     {
       "page": "identity-ssn",
       "stateId": "montana",
-      "category": "lawful presence",
-      "claim": "一份证明 name、date of birth 和 authorized presence 的文件，例如 certified birth certificate、valid passport、certificate of citizenship 或 naturalization",
-      "sourceUrl": "https://mvdmt.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Montana Required Documents",
+      "category": "无 SSN / SSA",
+      "claim": "不论 standard 还是 REAL ID，SSN proof document 当前不要求，但申请人要知道完整 SSN 供 SSA 核验，申请姓名与 SSA 记录必须一致",
+      "sourceUrl": "https://mvdmt.gov/changing-your-name/",
+      "sourceLabel": "对应官方来源：Montana Changing Your Name",
       "themes": [
-        "lawful-presence"
+        "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "montana",
-      "category": "lawful presence",
-      "claim": "按 authorized presence、two Montana residency、name change 三组准备文件",
-      "sourceUrl": "https://mvdmt.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Montana Required Documents",
+      "category": "无 SSN / SSA",
+      "claim": "姓名变化要先在 SSA 更新并至少等待 48 小时，再到 exam station 带 certified marriage / divorce / court / naturalization 等文件串起 current legal name",
+      "sourceUrl": "https://mvdmt.gov/changing-your-name/",
+      "sourceLabel": "对应官方来源：Montana Changing Your Name",
       "themes": [
-        "residency-documents",
-        "lawful-presence"
+        "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "montana",
-      "category": "lawful presence",
-      "claim": "Montana REAL ID 要证明 name/date of birth/authorized presence、Montana residency 和适用时的 name change",
-      "sourceUrl": "https://mvdmt.gov/required-documents/",
-      "sourceLabel": "对应官方来源：Montana Required Documents",
+      "category": "无 SSN / SSA",
+      "claim": "姓名与 date of birth 先和 SSA 记录对齐",
+      "sourceUrl": "https://mvdmt.gov/changing-your-name/",
+      "sourceLabel": "对应官方来源：Montana Changing Your Name",
       "themes": [
-        "residency-documents",
-        "lawful-presence"
+        "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "montana",
+      "category": "SSN",
+      "claim": "New to Montana 页面把有效外州实体卡、full SSN 和一份 physical-address proof 作为转入核心材料",
+      "sourceUrl": "https://mvdmt.gov/new-driver-license/drivers-new-to-montana/",
+      "sourceLabel": "对应官方来源：Montana Drivers New to Montana",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
