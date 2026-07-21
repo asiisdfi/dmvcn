@@ -2894,3 +2894,38 @@ Validation:
 - Browser QA at 1280 x 720 and 390 x 844 confirmed 33 overview evidence rows and 46 REAL ID evidence rows, visible Chinese-test, foreign-license, Star Card and 2026 identity guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
 - Quality workbook: 48 semantic-review pages and 65 blocked pages remain; weak-intent pages remain 0.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+## Round 71 Changes
+
+Date: 2026-07-21
+
+### Kentucky Driver License, REAL ID, Chinese Test and Non-Citizen Deep Review
+
+Source scan:
+
+- Opened and checked the Kentucky Transportation Cabinet REAL ID hub, document, pricing, timing and FAQ pages; first-issuance, new-resident, non-U.S.-citizen, renewal, vision, update / replacement, ID-card, office and myDrive pages; the current foreign-license-country list and Driver Manual; Kentucky State Police driver-testing guidance; and TSA identification guidance.
+- Confirmed the 30-day new-resident deadline and separated Kentucky Transportation Cabinet credential issuance from Kentucky State Police vision, written and road testing. A valid U.S. out-of-state license, or one expired less than a year, normally transfers without testing; one expired longer requires a recent certified driving record plus vision and written tests.
+- Confirmed that Kentucky's current reciprocity list names Taiwan and South Korea, not mainland China. A mainland-China license therefore uses the permit and testing route described for non-U.S.-citizen applicants rather than a claimed exchange shortcut.
+- Confirmed that the standard operator written test is available in Chinese, requires 80 percent, and can use an oral-test or interpreter arrangement when approved. The page does not promise a particular written script or spoken variant, and it explains that an interpreter cannot ride in the road-test vehicle.
+- Confirmed the January 1, 2025 vision-screening requirement for every permit or driver-license renewal, the current four- and eight-year standard / REAL ID fees, renewal windows, replacement and information-change fees, and the current myDrive Letter ID recency rule.
+- Found and disclosed three live official conflicts: temporarily lawful noncitizen REAL ID eligibility differs between current KYTC pages and the Driver Manual; Taiwan / South Korea test combinations differ between the current webpage and manual; and learner-permit online renewal differs between the renewal page and myDrive FAQ. The pages identify the conflict and route the reader to office confirmation instead of silently choosing one version.
+
+Scope:
+
+- Rewrote both `/states/kentucky/` and `/states/kentucky/real-id/` with task routing for U.S. transfers, mainland-China and other foreign licenses, first-time driving, REAL ID versus standard credentials, noncitizen documents, renewal, vision screening, replacement, name / address changes and personal ID cards.
+- Expanded the Kentucky source list from 5 to 20 checked official sources and registered all 110 unique claims as AI-assisted explicit mappings. The two rendered pages expose 113 evidence rows and 238 official-source links without representing the work as human, legal or professional approval.
+- Added current document counts, original-document and physical-address rules, complete name-chain handling, translated-document limits, test vehicle requirements, one-week failed-road-test wait, office / testing responsibility split, current fees and explicit handling of the three official conflicts.
+- Added a reader-facing access note and USA.gov fallback because 18 Kentucky government URLs currently return a security challenge to automated direct checks. The registered URLs remain official government destinations; neither page treats automated access success as proof of factual accuracy.
+- Updated the public editorial update log, README quality totals, quality workbook and Search Console priority reports.
+
+Validation:
+
+- Kentucky official-link audit: 20 checked, 2 direct OK, 18 security-challenge watch, 0 fail.
+- State evidence audit: 4,154 claims, 7,525 official links, 3,961 AI-assisted explicit mappings across 86 pages, 0 errors.
+- Directory evidence audit: 733 claims, 669 inherited explicit mappings, 64 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 103 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 46 automated-source pages and 17 high-risk human approvals still honestly pending.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,573 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 52 overview evidence rows and 61 REAL ID evidence rows, visible mainland-China route, Chinese-test availability, Letter ID rule, two-residency-document rule and noncitizen REAL ID conflict, with normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
+- Quality workbook: 46 semantic-review pages and 63 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.

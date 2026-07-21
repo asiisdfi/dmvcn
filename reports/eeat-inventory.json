@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T01:33:49.044Z",
+    "generatedAt": "2026-07-21T01:53:47.640Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 101,
+    "passed": 103,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 48,
-    "aiAssistedReviews": 107,
+    "sourceMappedReviews": 46,
+    "aiAssistedReviews": 109,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 65,
+    "blockedPages": 63,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 217,
+        "sourceCount": 219,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 303,
+        "sourceCount": 304,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 146,
-        "directoryEvidenceLinks": 146,
+        "directoryEvidenceItems": 147,
+        "directoryEvidenceLinks": 147,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 248,
+        "sourceCount": 249,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 628,
+        "sourceCount": 636,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 158,
+        "sourceCount": 161,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 123,
-        "directoryEvidenceLinks": 123,
+        "directoryEvidenceItems": 126,
+        "directoryEvidenceLinks": 126,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 237,
+        "sourceCount": 240,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 166,
-        "directoryEvidenceLinks": 166,
+        "directoryEvidenceItems": 167,
+        "directoryEvidenceLinks": 167,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 201,
+        "sourceCount": 205,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -700,7 +700,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 193,
+        "sourceCount": 194,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 204,
+        "sourceCount": 202,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1456,
+        "sourceCount": 1470,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -2595,21 +2595,21 @@
       "route": "/states/kentucky/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 91,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成肯塔基州（Kentucky Transportation Cabinet）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Kentucky DRIVE 的 REAL ID、材料清单、standard 对比、upgrade、pricing、FAQ、first issuance、new resident、non-U.S. citizen、外国驾照名单、renewal、vision、update / replace、ID card、Regional Office 与 myDrive 正文，以及 KSP testing、当前 Driver Manual 和 TSA 身份证件页面，核对两页的材料、期限、中国驾照、中文考试、费用、线上资格和身份冲突。",
+        "notes": "重点补齐中国大陆与 Taiwan / South Korea 互惠边界、KSP Chinese standard-operator test、30 天转入、2026 Letter ID、vision renewal、非公民 REAL ID 和 permit online-renewal 的官方冲突。DRIVE 直连在自动检查中返回 403，但当前官方索引正文与 PDF 均已语义核对；所有映射为 AI 辅助核查，不冒充 KYTC、KSP、律师或真实人工专业审核。"
       },
       "scores": {
-        "factsAndSources": 20,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -2619,14 +2619,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 11,
+        "sourceCount": 21,
+        "factCheckCount": 52,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 11,
-        "stateEvidenceLinks": 13,
+        "stateEvidenceItems": 52,
+        "stateEvidenceLinks": 109,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2634,9 +2634,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/kentucky/real-id/",
@@ -2644,16 +2642,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成肯塔基州（Kentucky Transportation Cabinet）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Kentucky DRIVE 的 REAL ID、材料清单、standard 对比、upgrade、pricing、FAQ、first issuance、new resident、non-U.S. citizen、外国驾照名单、renewal、vision、update / replace、ID card、Regional Office 与 myDrive 正文，以及 KSP testing、当前 Driver Manual 和 TSA 身份证件页面，核对两页的材料、期限、中国驾照、中文考试、费用、线上资格和身份冲突。",
+        "notes": "重点补齐中国大陆与 Taiwan / South Korea 互惠边界、KSP Chinese standard-operator test、30 天转入、2026 Letter ID、vision renewal、非公民 REAL ID 和 permit online-renewal 的官方冲突。DRIVE 直连在自动检查中返回 403，但当前官方索引正文与 PDF 均已语义核对；所有映射为 AI 辅助核查，不冒充 KYTC、KSP、律师或真实人工专业审核。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2666,14 +2664,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 17,
+        "sourceCount": 21,
+        "factCheckCount": 61,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 17,
-        "stateEvidenceLinks": 18,
+        "stateEvidenceItems": 61,
+        "stateEvidenceLinks": 129,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2681,9 +2679,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/louisiana/",

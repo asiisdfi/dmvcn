@@ -1,15 +1,15 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T01:33:47.324Z",
+    "generatedAt": "2026-07-21T01:53:45.887Z",
     "pages": 5,
-    "claims": 728,
+    "claims": 733,
     "statesCovered": 50,
-    "aiAssisted": 656,
-    "automated": 72,
+    "aiAssisted": 669,
+    "automated": 64,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 146,
+        "claims": 147,
         "states": 42
       },
       "deadlines": {
@@ -21,11 +21,11 @@
         "states": 49
       },
       "foreign-license": {
-        "claims": 123,
-        "states": 40
+        "claims": 126,
+        "states": 41
       },
       "identity-ssn": {
-        "claims": 166,
+        "claims": 167,
         "states": 45
       }
     }
@@ -1507,16 +1507,31 @@
       "page": "costs-timing",
       "stateId": "kentucky",
       "category": "邮寄 / 卡片",
-      "claim": "想升级 REAL ID 时，官方 renewal 页面说明不能在线或邮寄完成升级，必须到 Regional Office 并带额外材料",
-      "sourceUrl": "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
-      "sourceLabel": "对应官方来源：Kentucky License / Permit Renewal",
+      "claim": "没有 Letter ID 可申请邮寄或到 Regional Office 获取",
+      "sourceUrl": "https://drive.ky.gov/Pages/myDrive-FAQ.aspx",
+      "sourceLabel": "对应官方来源：Kentucky myDrive FAQ",
       "themes": [
-        "processing-or-mail",
-        "renewal"
+        "processing-or-mail"
+      ],
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "kentucky",
+      "category": "邮寄 / 卡片",
+      "claim": "forwarded mail 不能作为 REAL ID residency",
+      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
+      "themes": [
+        "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "costs-timing",
@@ -5427,59 +5442,57 @@
       "page": "document-rules",
       "stateId": "kentucky",
       "category": "地址证明",
-      "claim": "Kentucky residency 证明，按 What You Need 页面确认数量和类别",
+      "claim": "standard credential 通常一份 Kentucky residency，REAL ID 要两份",
+      "sourceUrl": "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
+      "sourceLabel": "对应官方来源：Kentucky Valid Proof Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kentucky",
+      "category": "地址证明",
+      "claim": "文件要显示 Kentucky physical address，P.O. Box 不能单独充当 physical-address proof",
+      "sourceUrl": "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
+      "sourceLabel": "对应官方来源：Kentucky Valid Proof Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kentucky",
+      "category": "地址证明",
+      "claim": "常见 residency 包括一年内的 utility / telephone bill、bank statement、tax return、pay statement、postmarked USPS mail，以及 current lease、mortgage、insurance、vehicle registration 或 Kentucky credential",
+      "sourceUrl": "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
+      "sourceLabel": "对应官方来源：Kentucky Valid Proof Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "kentucky",
+      "category": "地址证明",
+      "claim": "forwarded mail 不能作为 REAL ID residency",
       "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
       "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
-      "explicitSourceAttribution": true,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "kentucky",
-      "category": "地址证明",
-      "claim": "打开 What You Need，按 identity、SSN、residency、name/gender change 分组准备材料",
-      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
-      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
-      "themes": [
-        "residency-documents",
-        "ssn"
-      ],
-      "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "kentucky",
-      "category": "地址证明",
-      "claim": "Kentucky REAL ID 要证明 identity、Social Security、residency，以及任何姓名或 gender changes",
-      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
-      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
-      "themes": [
-        "residency-documents",
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "kentucky",
-      "category": "SSN",
-      "claim": "Social Security 证明",
-      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
-      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
-      "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -7772,6 +7785,57 @@
     },
     {
       "page": "foreign-license",
+      "stateId": "kentucky",
+      "category": "外国 / 境外驾照",
+      "claim": "外国驾照、foreign birth certificate 和 foreign marriage license 要附 notarized translated statement",
+      "sourceUrl": "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+      "sourceLabel": "对应官方来源：Kentucky Non-U.S. Citizens",
+      "themes": [
+        "foreign-license"
+      ],
+      "failedThemes": [
+        "foreign-license"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "kentucky",
+      "category": "外国 / 境外驾照",
+      "claim": "identity 准备一份 original 或 issuing-agency certified copy，例如政府签发 birth certificate、有效 U.S. passport、Permanent Resident Card 或符合身份表的 foreign passport / immigration document",
+      "sourceUrl": "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
+      "sourceLabel": "对应官方来源：Kentucky Valid Proof Documents",
+      "themes": [
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
+      "stateId": "kentucky",
+      "category": "IDP / 国际驾照",
+      "claim": "外国驾照路线带有效 foreign license、适用的 IDP 或 notarized translation、passport、当前 USCIS / lawful-status 文件、SSN 证明和两份 Kentucky residency",
+      "sourceUrl": "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+      "sourceLabel": "对应官方来源：Kentucky Non-U.S. Citizens",
+      "themes": [
+        "residency-documents",
+        "foreign-license",
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "residency-documents",
+        "foreign-license",
+        "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
       "stateId": "louisiana",
       "category": "外国 / 境外驾照",
       "claim": "外国驾照普通互惠名单当前只有 Germany、Switzerland、Taiwan 和 South Korea",
@@ -9832,8 +9896,22 @@
     {
       "page": "identity-ssn",
       "stateId": "kentucky",
-      "category": "SSN",
-      "claim": "Social Security 证明",
+      "category": "无 SSN / SSA",
+      "claim": "改名要先更新 SSA，再带 legal name-change proof 到 Regional Office",
+      "sourceUrl": "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
+      "sourceLabel": "对应官方来源：Kentucky Update or Replace Credential",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "kentucky",
+      "category": "无 SSN / SSA",
+      "claim": "birth certificate 姓名与 current legal name 不同，要带 certified marriage certificate、divorce decree 或 court order 串起全部变化，并先更新 SSA record",
       "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
       "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
       "themes": [
@@ -9841,37 +9919,42 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "kentucky",
       "category": "SSN",
-      "claim": "打开 What You Need，按 identity、SSN、residency、name/gender change 分组准备材料",
-      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
-      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
+      "claim": "外国驾照路线带有效 foreign license、适用的 IDP 或 notarized translation、passport、当前 USCIS / lawful-status 文件、SSN 证明和两份 Kentucky residency",
+      "sourceUrl": "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+      "sourceLabel": "对应官方来源：Kentucky Non-U.S. Citizens",
       "themes": [
         "residency-documents",
+        "foreign-license",
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "residency-documents",
+        "foreign-license",
         "ssn"
       ],
-      "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "kentucky",
       "category": "SSN",
-      "claim": "Kentucky REAL ID 要证明 identity、Social Security、residency，以及任何姓名或 gender changes",
-      "sourceUrl": "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
-      "sourceLabel": "对应官方来源：Kentucky REAL ID What You Need",
+      "claim": "姓名更新带 updated Social Security card 和 certified legal name-change document",
+      "sourceUrl": "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
+      "sourceLabel": "对应官方来源：Kentucky Update or Replace Credential",
       "themes": [
-        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

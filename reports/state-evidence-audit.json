@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T01:33:48.140Z",
+    "generatedAt": "2026-07-21T01:53:46.722Z",
     "pages": 100,
     "states": 50,
-    "claims": 4069,
-    "links": 7318,
-    "aiAssistedClaims": 3848,
-    "aiAssistedPages": 84,
+    "claims": 4154,
+    "links": 7525,
+    "aiAssistedClaims": 3961,
+    "aiAssistedPages": 86,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1902,
-        "links": 3338,
+        "claims": 1943,
+        "links": 3434,
         "states": 50
       },
       "real-id": {
-        "claims": 2167,
-        "links": 3980,
+        "claims": 2211,
+        "links": 4091,
         "states": 50
       }
     }
@@ -53511,14 +53511,129 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "肯塔基驾照、REAL ID 和 ID 服务由 Kentucky Transportation Cabinet / DRIVE 管理",
+      "claim": "Kentucky 驾照、permit、REAL ID 和 personal ID 由 Kentucky Transportation Cabinet 的 Driver Licensing Regional Office 签发",
       "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/default.aspx"
+        "https://drive.ky.gov/Drivers/Pages/First-Issuance.aspx",
+        "https://drive.ky.gov/Pages/Find-An-Office.aspx/",
+        "https://drive.ky.gov/Drivers/Pages/ID-Cards.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID"
+        "对应官方来源：Kentucky First Issuance",
+        "对应官方来源：Kentucky Driver Licensing Regional Offices",
+        "对应官方来源：Kentucky Identification Cards"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [
+        "real-id"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "summary",
+      "context": "overview",
+      "claim": "written、vision 和 road testing 由 Kentucky State Police 安排",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/First-Issuance.aspx",
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky First Issuance",
+        "对应官方来源：Kentucky State Police Driver Testing",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "summary",
+      "context": "document",
+      "claim": "新居民通常要在建立 Kentucky residency 后 30 天内转入驾照",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "中国大陆不在 Kentucky 当前的 Taiwan / South Korea 互惠名单，也不在州政府发布的 U.S.-accepted foreign-license country list",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Vienna1968Parties.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky U.S.-Accepted Foreign Licenses"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "document",
+      "claim": "中国驾照持有人建立 Kentucky residency 后，应按身份状态准备 permit、written、vision 和 road test，而不是套用美国外州免试路线",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Vienna1968Parties.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky U.S.-Accepted Foreign Licenses"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Kentucky REAL ID 是可选证件，standard credential 仍可驾驶，但不能单独用于受 REAL ID 规则约束的机场安检和部分联邦设施",
+      "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/Difference_Between.aspx",
+        "https://drive.ky.gov/RealID/Pages/FAQs.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID vs Standard ID",
+        "对应官方来源：Kentucky REAL ID FAQ",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -53528,22 +53643,27 @@
     {
       "stateId": "kentucky",
       "surface": "overview",
-      "field": "summary",
-      "context": "real-id",
-      "claim": "REAL ID、What You Need、New to Kentucky、renewal、update/replace 和 myDrive 是核心路径",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "首次申请通常要一份 original / certified identity、一份显示完整 SSN 的文件、两份 Kentucky residency 和完整姓名链，并在 Regional Office 现场核验",
       "sourceUrls": [
         "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
-        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
+        "https://drive.ky.gov/RealID/Pages/When-can-I-apply.aspx",
+        "https://drive.ky.gov/Pages/Find-An-Office.aspx/"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky REAL ID What You Need",
-        "对应官方来源：Kentucky License / Permit Renewal"
+        "对应官方来源：Kentucky Valid Proof Documents",
+        "对应官方来源：Kentucky REAL ID Renewal and Upgrade",
+        "对应官方来源：Kentucky Driver Licensing Regional Offices"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "renewal",
-        "replacement"
+        "document",
+        "residency-proof",
+        "ssn",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53551,102 +53671,30 @@
     {
       "stateId": "kentucky",
       "surface": "overview",
-      "field": "licenseSummary",
+      "field": "appointmentNote",
       "context": "document",
-      "claim": "新居民通常要在建立 Kentucky residency 后 30 天内取得 Kentucky driver license",
+      "claim": "Regional Office 负责材料核验和签发，KSP 负责考试，两套预约不能混用",
       "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
+        "https://drive.ky.gov/Drivers/Pages/First-Issuance.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
+        "https://drive.ky.gov/Pages/Find-An-Office.aspx/"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID What You Need"
+        "对应官方来源：Kentucky First Issuance",
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky State Police Driver Testing",
+        "对应官方来源：Kentucky Driver Licensing Regional Offices"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "kentucky",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "license",
-      "claim": "续期要注意 vision screening",
-      "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Kentucky License / Permit Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "renewal",
+        "document",
+        "appointment",
         "test"
       ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "kentucky",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "想升级 REAL ID 时，官方 renewal 页面说明不能在线或邮寄完成升级，必须到 Regional Office 并带额外材料",
-      "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Kentucky License / Permit Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "renewal",
-        "processing-or-mail"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "kentucky",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "Kentucky REAL ID 要证明 identity、Social Security、residency，以及任何姓名或 gender changes",
-      "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID What You Need"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "residency-proof",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "kentucky",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "What You Need 页面明确要求带 original 或 certified document，不接受普通复印件",
-      "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID What You Need"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
+      "uncoveredThemes": [
         "document"
       ],
-      "uncoveredThemes": [],
       "valid": true
     },
     {
@@ -53654,16 +53702,19 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "license",
-      "claim": "Kentucky 的 myDrive 可处理部分续期、补证和地址更新，但需要创建账户并连接 credential",
+      "claim": "myDrive 可做 pre-application 和部分续期、补证、地址业务",
       "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx",
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky License / Permit Renewal"
+        "对应官方来源：Kentucky myDrive FAQ",
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky Update or Replace Credential"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
         "renewal",
         "replacement"
       ],
@@ -53675,19 +53726,24 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "real-id",
-      "claim": "REAL ID 升级、姓名变化、新居民转入或材料核验时，应优先看 Regional Office 路径",
+      "claim": "新居民转入、首次 REAL ID、姓名变化和身份 / SAVE 核验仍要现场办理",
       "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/default.aspx",
-        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx"
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/RealID/Pages/When-can-I-apply.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID",
-        "对应官方来源：Kentucky New To Kentucky"
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky REAL ID Renewal and Upgrade",
+        "对应官方来源：Kentucky Update or Replace Credential",
+        "对应官方来源：Kentucky myDrive FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document",
         "name-change",
         "transfer"
       ],
@@ -53698,15 +53754,552 @@
       "stateId": "kentucky",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "Kentucky 2026 页面加入 myDrive / Letter ID 账户连接说明，线上服务文案要提醒用户不是所有业务都能直接在线办",
+      "context": "license",
+      "claim": "有效美国外州驾照或过期不足一年通常可免考试转入",
       "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "过期超过一年要带最近 30 天内的 certified Driver History Record / clearance letter，并通过 written knowledge 和 vision tests",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "外州驾照遗失也要带最近 30 天内的 Driver History Record / clearance letter",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "若原证仍有效或过期不足一年，当前 New to Kentucky 页面只要求 vision screening",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Kentucky 当前外国驾照互惠只列 Taiwan 和 South Korea",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "中国大陆不是 Taiwan，不能按互惠路线处理",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Vienna1968Parties.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky U.S.-Accepted Foreign Licenses"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "州政府 U.S.-accepted foreign-license country PDF 没有列 People’s Republic of China",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/Vienna1968Parties.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky U.S.-Accepted Foreign Licenses"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "对中国大陆驾照，当前 Non-U.S. Citizen 页面要求 written、vision、road tests 并从 permit 开始",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Vienna1968Parties.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky U.S.-Accepted Foreign Licenses"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "外国驾照、foreign birth certificate 和 foreign marriage license 要附 notarized translated statement",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "翻译不能替代原始身份、lawful-status 和 Kentucky residency 文件",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "KSP 当前 standard operator written test 明确提供 Chinese，但没有说明简体、繁体或口语版本",
+      "sourceUrls": [
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "预约前应向所选 testing site 确认",
+      "sourceUrls": [
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
+        "https://drive.ky.gov/Pages/Find-An-Office.aspx/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky State Police Driver Testing",
+        "对应官方来源：Kentucky Driver Licensing Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "KSP 当前语言页只把 Chinese 列为 standard operator test 语言，不能据此推断 CDL 或其他 endorsement 也提供中文",
+      "sourceUrls": [
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "普通 operator written test 至少 80% 才通过",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "oral test 或 interpreter 要特殊安排，road test 车内不允许 interpreter",
+      "sourceUrls": [
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky State Police Driver Testing",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "road test 自备车辆要有有效 registration 和 liability insurance",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf",
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Driver Manual",
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "租车只有在申请人列为 authorized operator 且能证明 insurance 时才接受",
+      "sourceUrls": [
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky State Police Driver Testing",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "road test 未通过要等待至少一周",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "parallel park assist 不允许，backup camera 可用但不能完全依赖",
+      "sourceUrls": [
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "2025-01-01 起 driver license / permit 每次 renewal 都要 vision screening",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Vision-Screening.aspx",
         "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky License / Permit Renewal"
+        "对应官方来源：Kentucky Vision Screening Requirement",
+        "对应官方来源：Kentucky License and Permit Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Regional Office 免费筛查，或使用 12 个月内由合格 provider 完成的 TC 94-202",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Vision-Screening.aspx",
+        "https://drive.ky.gov/Pages/Find-An-Office.aspx/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Vision Screening Requirement",
+        "对应官方来源：Kentucky Driver Licensing Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "driver license 可提前六个月续期，过期不足五年通常不重考，超过五年要按新驾驶人从 permit 开始",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "permit 过期超过一年也要重新开始",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "myDrive 账户连接需要 Kentucky Transportation Cabinet 2026-06-06 或以后签发、且签发不超过 60 天的 Letter ID",
+      "sourceUrls": [
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx",
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky myDrive FAQ",
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky Update or Replace Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "没有 Letter ID 可申请邮寄或到 Regional Office 获取",
+      "sourceUrls": [
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx",
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky myDrive FAQ",
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky Update or Replace Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "当前 renewal 页面说符合条件的 learner permit 可在 myDrive 续期，但 myDrive FAQ 同时写 permit 不能线上续期",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky myDrive FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "permit 持有人应以 portal 实际资格和 Regional Office 确认为准",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx",
+        "https://drive.ky.gov/Pages/Find-An-Office.aspx/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky myDrive FAQ",
+        "对应官方来源：Kentucky Driver Licensing Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "online-service"
       ],
@@ -53718,20 +54311,317 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "REAL ID upgrade 不能在线或邮寄完成，这是 renewal/replacement 专题里的高价值提醒",
+      "claim": "第一次升级 REAL ID 必须现场",
       "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/When-can-I-apply.aspx",
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx",
         "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky License / Permit Renewal"
+        "对应官方来源：Kentucky REAL ID Renewal and Upgrade",
+        "对应官方来源：Kentucky myDrive FAQ",
+        "对应官方来源：Kentucky License and Permit Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "已有 REAL ID 且资料不变的合格用户可能在线或邮寄续期",
+      "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/When-can-I-apply.aspx",
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID Renewal and Upgrade",
+        "对应官方来源：Kentucky License and Permit Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal",
-        "replacement",
         "processing-or-mail"
       ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "标准 driver license 当前四年 $21.50、八年 $43",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky New to Kentucky"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID driver license 四年 $24、八年 $48",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/RealID/Pages/Pricing.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky REAL ID Pricing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "首次提前升级、补证、地址或姓名更新通常为 $15",
+      "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/When-can-I-apply.aspx",
+        "https://drive.ky.gov/RealID/Pages/Pricing.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID Renewal and Upgrade",
+        "对应官方来源：Kentucky REAL ID Pricing",
+        "对应官方来源：Kentucky Update or Replace Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "地址变化后 10 天内要更新 credential，并建议先改 USPS mailing address",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Update or Replace Credential",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "改名要先更新 SSA，再带 legal name-change proof 到 Regional Office",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Update or Replace Credential",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "当前 Non-U.S. Citizen 页面说部分临时合法居留者可能取得 limited-term REAL ID，但 What You Need 页面和 Driver Manual 仍写只有 U.S. citizens / permanent residents",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "临时身份申请人必须先按最新 status table 向 Regional Office 确认",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Pages/Find-An-Office.aspx/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky Driver Licensing Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "当前 Non-U.S. Citizen 网页对 Taiwan / South Korea 互惠列为 vision-only，而 Driver Manual 仍列不同测试组合",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "申请人应保存 status-table 截图并在预约前确认适用考试",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "非公民 credential 通常随 USCIS document 到期",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "若合法停留没有具体终止日，当前网页说 limited-term credential 最长可签发一年",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "普通 personal ID 通常面向 15 岁以上居民",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/ID-Cards.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "自 2024-07-15 起，持有效 permit 或 operator license 的人不能同时获发 personal ID",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/ID-Cards.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -53740,18 +54630,20 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Kentucky REAL ID 要证明 identity、Social Security、residency，以及任何姓名或 gender changes",
+      "claim": "Kentucky REAL ID 是可选证件，standard credential 仍可驾驶，但不能单独用于受 REAL ID 规则约束的机场安检和部分联邦设施",
       "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
+        "https://drive.ky.gov/RealID/Pages/Difference_Between.aspx",
+        "https://drive.ky.gov/RealID/Pages/FAQs.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID What You Need"
+        "对应官方来源：Kentucky REAL ID vs Standard ID",
+        "对应官方来源：Kentucky REAL ID FAQ",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "residency-proof",
-        "ssn"
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53761,16 +54653,25 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "document",
-      "claim": "What You Need 页面明确要求带 original 或 certified document，不接受普通复印件",
+      "claim": "首次申请通常要一份 original / certified identity、一份显示完整 SSN 的文件、两份 Kentucky residency 和完整姓名链，并在 Regional Office 现场核验",
       "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
+        "https://drive.ky.gov/RealID/Pages/When-can-I-apply.aspx",
+        "https://drive.ky.gov/Pages/Find-An-Office.aspx/"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID What You Need"
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Valid Proof Documents",
+        "对应官方来源：Kentucky REAL ID Renewal and Upgrade",
+        "对应官方来源：Kentucky Driver Licensing Regional Offices"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "document",
+        "residency-proof",
+        "ssn",
+        "name-change"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53780,16 +54681,21 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "一份 original 或 certified identity 文件",
+      "claim": "identity 准备一份 original 或 issuing-agency certified copy，例如政府签发 birth certificate、有效 U.S. passport、Permanent Resident Card 或符合身份表的 foreign passport / immigration document",
       "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID What You Need"
+        "对应官方来源：Kentucky Valid Proof Documents",
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Non-U.S. Citizens"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "document",
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53799,17 +54705,17 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "普通 photocopy 不适合作为身份原件",
+      "claim": "普通 photocopy 不接受",
       "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
         "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：Kentucky Valid Proof Documents",
         "对应官方来源：Kentucky REAL ID What You Need"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -53818,14 +54724,18 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Social Security 证明",
+      "claim": "首次 credential 或美国外州转入要带 current-name Social Security card",
       "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID What You Need"
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Valid Proof Documents",
+        "对应官方来源：Kentucky New to Kentucky"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "ssn"
       ],
@@ -53836,16 +54746,41 @@
       "stateId": "kentucky",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "document",
-      "claim": "Kentucky residency 证明，按 What You Need 页面确认数量和类别",
+      "context": "real-id",
+      "claim": "其他符合条件的 REAL ID 路线可按清单使用 SSNAP printout、最近 W-2 / 1099 或显示完整 SSN 的 pay statement",
       "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "standard credential 通常一份 Kentucky residency，REAL ID 要两份",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
         "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：Kentucky Valid Proof Documents",
         "对应官方来源：Kentucky REAL ID What You Need"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "real-id",
         "residency-proof"
       ],
       "uncoveredThemes": [],
@@ -53856,14 +54791,77 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名或 gender changes 时准备法律证明文件",
+      "claim": "文件要显示 Kentucky physical address，P.O. Box 不能单独充当 physical-address proof",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "常见 residency 包括一年内的 utility / telephone bill、bank statement、tax return、pay statement、postmarked USPS mail，以及 current lease、mortgage、insurance、vehicle registration 或 Kentucky credential",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Valid Proof Documents",
+        "对应官方来源：Kentucky REAL ID What You Need"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "forwarded mail 不能作为 REAL ID residency",
       "sourceUrls": [
         "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky REAL ID What You Need"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两份材料逐份检查姓名、地址和适用日期",
+      "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -53875,14 +54873,40 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "新居民带有效外州 license / permit 和 Kentucky required documents",
+      "claim": "birth certificate 姓名与 current legal name 不同，要带 certified marriage certificate、divorce decree 或 court order 串起全部变化，并先更新 SSA record",
       "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID What You Need"
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Valid Proof Documents",
+        "对应官方来源：Kentucky Update or Replace Credential"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "婚姻路线要的是 certified marriage certificate，不是普通 marriage license",
+      "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -53892,18 +54916,462 @@
     {
       "stateId": "kentucky",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "先用 Kentucky REAL ID 页面判断是否需要 REAL ID，或是否能用护照替代",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "divorce decree 必须显示法院准予姓名变化",
       "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/default.aspx"
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID"
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Valid Proof Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "美国外州转入带当前 out-of-state credential",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "原卡遗失或过期超过一年时，另带前州最近 30 天内签发的 Driver History Record / clearance letter",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "外国驾照路线带有效 foreign license、适用的 IDP 或 notarized translation、passport、当前 USCIS / lawful-status 文件、SSN 证明和两份 Kentucky residency",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn",
+        "lawful-presence",
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "非公民首次申请先按 status table 准备全部 original immigration documents，并预留 SAVE verification",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "lawful-presence"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Regional Office 核验后再按要求到 KSP 考试并返回签发",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "road test 带 permit、valid registration 和 liability-insurance proof",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf",
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Driver Manual",
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "租车申请人必须列在 rental agreement 上并能证明受保",
+      "sourceUrls": [
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky State Police Driver Testing",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "在线或邮寄 renewal 要先完成 vision screening",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Vision-Screening.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky Vision Screening Requirement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "只有 TC 94-202 被接受为外部 vision proof，眼镜或隐形眼镜处方不能替代该表",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Vision-Screening.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Vision Screening Requirement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "地址更新准备一份可接受 Kentucky residency",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Update or Replace Credential",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "姓名更新带 updated Social Security card 和 certified legal name-change document",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Update or Replace Credential",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "当前 Non-U.S. Citizen 页面说部分临时合法居留者可能取得 limited-term REAL ID，但 What You Need 页面和 Driver Manual 仍写只有 U.S. citizens / permanent residents",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "先分清自己是美国外州转入、中国 / 外国驾照、首次驾驶人、REAL ID upgrade、renewal、replacement、address / name change 还是 personal ID",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/First-Issuance.aspx",
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/RealID/Pages/default.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
+        "https://drive.ky.gov/Drivers/Pages/ID-Cards.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky First Issuance",
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky REAL ID",
+        "对应官方来源：Kentucky Update or Replace Credential",
+        "对应官方来源：Kentucky Identification Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "name-change",
+        "renewal",
+        "replacement",
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "新居民记录 Kentucky residency 起始日期，在 30 天内安排驾照",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "transfer"
+      ],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "车辆 insurance、title 和 registration 另按 County Clerk 路线处理",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "中国大陆驾照持有人先用 Non-U.S. Citizen status table 确认 lawful-status 文件，再按 permit、written、vision、road test 路线准备",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Vienna1968Parties.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky U.S.-Accepted Foreign Licenses"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "需要中文笔试时联系 KSP testing site，确认 Chinese 版本、可用设备、预约和 interpreter 安排",
+      "sourceUrls": [
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky State Police Driver Testing",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "不要把 standard operator 语言套到 CDL",
+      "sourceUrls": [
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "先决定 REAL ID 或 standard credential",
+      "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/Difference_Between.aspx",
+        "https://drive.ky.gov/RealID/Pages/FAQs.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID vs Standard ID",
+        "对应官方来源：Kentucky REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "已有有效 passport、Permanent Resident Card 等 TSA 接受文件时，可把 standard credential 作为合法驾驶方案比较",
+      "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/Difference_Between.aspx",
+        "https://drive.ky.gov/RealID/Pages/FAQs.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID vs Standard ID",
+        "对应官方来源：Kentucky REAL ID FAQ",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document"
       ],
       "uncoveredThemes": [],
@@ -53914,14 +55382,16 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "打开 What You Need，按 identity、SSN、residency、name/gender change 分组准备材料",
+      "claim": "用 Valid Proof Documents 把 identity、full SSN、Kentucky residency、name-change chain 和额外身份文件分组，只带 originals / certified copies",
       "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf",
         "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：Kentucky Valid Proof Documents",
         "对应官方来源：Kentucky REAL ID What You Need"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "residency-proof",
@@ -53934,17 +55404,92 @@
       "stateId": "kentucky",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "新居民先看 New To Kentucky，确认 30 天换证和外州 license transfer 要求",
+      "context": "real-id",
+      "claim": "第一次 REAL ID、美国外州转入、姓名变化或 SAVE 核验先做 myDrive pre-application，再到 Driver Licensing Regional Office",
       "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx"
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx",
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky New To Kentucky"
+        "对应官方来源：Kentucky myDrive FAQ",
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky Update or Replace Credential"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "transfer"
+        "real-id",
+        "name-change"
+      ],
+      "uncoveredThemes": [
+        "real-id",
+        "name-change"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "pre-application 不需要先连接 credential",
+      "sourceUrls": [
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky myDrive FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "若需 KSP testing，先完成 Regional Office 的材料核验，再按指示考试并返回 Regional Office 领取 temporary paper credential",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Pages/First-Issuance.aspx",
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky First Issuance",
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "test",
+        "temporary-credential"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "road test 前核对 permit hold period、21 岁以上陪同驾驶人、registration、insurance、rental authorization 和车辆辅助功能限制",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf",
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Driver Manual",
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -53954,14 +55499,364 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "license",
-      "claim": "续期先看 License / Permit Renewal，确认 vision screening 和线上资格",
+      "claim": "续期先在六个月窗口内完成免费 Regional Office vision screening，或让合格 provider 填 TC 94-202",
       "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Vision-Screening.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky Vision Screening Requirement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "再比较 myDrive、mail 和 in-person",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Drivers/Pages/Vision-Screening.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky Vision Screening Requirement"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "使用 myDrive online services 前准备合格 Letter ID",
+      "sourceUrls": [
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx",
         "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky License / Permit Renewal"
+        "对应官方来源：Kentucky myDrive FAQ",
+        "对应官方来源：Kentucky License and Permit Renewal"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "若只做 office pre-application，可以不连接现有 credential",
+      "sourceUrls": [
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky myDrive FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "地址变化先更新 USPS，再在 10 天内上传一份 Kentucky residency 或现场办理",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Update or Replace Credential",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "姓名变化先更新 SSA，再预约 Regional Office",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Update or Replace Credential",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "name-change",
+        "appointment"
+      ],
+      "uncoveredThemes": [
+        "appointment"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "非公民 REAL ID 或 reciprocity 遇到网页与手册冲突时，保存当前 status table，并向具体 Regional Office / KSP testing site 确认适用规则后再付款和预约",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf",
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
+        "https://drive.ky.gov/Pages/Find-An-Office.aspx/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Driver Manual",
+        "对应官方来源：Kentucky State Police Driver Testing",
+        "对应官方来源：Kentucky Driver Licensing Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "lawful-presence",
+        "appointment",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把中国大陆驾照当成 Taiwan 互惠证件，误以为只做 vision screening",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Vienna1968Parties.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky U.S.-Accepted Foreign Licenses"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "把外国驾照、IDP 或翻译件当作 Kentucky identity / lawful-status 材料的替代品",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "看到 KSP 写 Chinese 就默认是简体中文、普通话，或默认 CDL 也有中文，没有先问 testing site",
+      "sourceUrls": [
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "新居民超过 30 天才处理驾照，或把 County Clerk 的车辆 title / registration 当作同一项业务",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "外州驾照遗失或过期超过一年，却没有准备最近 30 天内的 Driver History Record / clearance letter",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky New to Kentucky",
+        "对应官方来源：Kentucky Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "REAL ID identity 带普通 photocopy，或用 hospital birth certificate 代替 government-certified birth certificate",
+      "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "两份 REAL ID 地址证明只有 P.O. Box、是 forwarded mail、日期太旧，或姓名和地址不一致",
+      "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "姓名变化只带当前 SSA card，没有带 certified records 串起 birth-name 到 current-name",
+      "sourceUrls": [
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Valid Proof Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "第一次 REAL ID upgrade 直接在 myDrive 或 mail-in form 操作，忽略现场 identity review",
+      "sourceUrls": [
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx",
+        "https://drive.ky.gov/RealID/Pages/When-can-I-apply.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky myDrive FAQ",
+        "对应官方来源：Kentucky REAL ID Renewal and Upgrade"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "用普通眼镜处方代替 TC 94-202，导致 online / mail renewal 缺少合格 vision proof",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Vision-Screening.aspx",
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Vision Screening Requirement",
+        "对应官方来源：Kentucky License and Permit Renewal"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "online-service",
@@ -53973,43 +55868,19 @@
     {
       "stateId": "kentucky",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "需要 REAL ID upgrade、姓名变化或材料核验时，选择 Driver Licensing Regional Office 路径",
-      "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Kentucky License / Permit Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "document",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "kentucky",
-      "surface": "real-id",
       "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "想在线续期时顺便升级 REAL ID",
+      "context": "detail",
+      "claim": "没有 Letter ID 就反复创建 myDrive 账户，或拿 2026-06-06 以前 / 超过 60 天的 KYTC letter 尝试连接",
       "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/default.aspx",
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx",
         "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID",
-        "对应官方来源：Kentucky License / Permit Renewal"
+        "对应官方来源：Kentucky myDrive FAQ",
+        "对应官方来源：Kentucky License and Permit Renewal"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "renewal"
-      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -54018,16 +55889,62 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "license",
-      "claim": "忘记 renewal 前需要 vision screening",
+      "claim": "看到 renewal 页面写 permit 可在线续期就直接承诺成功，忽略 myDrive FAQ 的相反说明和 portal eligibility",
       "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx"
+        "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
+        "https://drive.ky.gov/Pages/myDrive-FAQ.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky License / Permit Renewal"
+        "对应官方来源：Kentucky License and Permit Renewal",
+        "对应官方来源：Kentucky myDrive FAQ"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "地址变化超过 10 天才更新，或改名尚未同步 SSA 就去 Regional Office",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Update or Replace Credential"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [
+        "name-change"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "kentucky",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "road test 自己无合格陪同驾驶到考点，或车辆 registration、insurance、rental agreement 不符合要求",
+      "sourceUrls": [
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf",
+        "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Kentucky Driver Manual",
+        "对应官方来源：Kentucky State Police Driver Testing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "test"
       ],
       "uncoveredThemes": [],
@@ -54037,36 +55954,22 @@
       "stateId": "kentucky",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "license",
-      "claim": "新搬到 Kentucky 超过 30 天还没有处理州内驾照",
+      "context": "real-id",
+      "claim": "临时合法居留者只看 What You Need 或旧 Driver Manual 就判断一定不能办 REAL ID，没有向 Regional Office 核对当前 status table",
       "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx"
+        "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
+        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
+        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Kentucky New To Kentucky"
+        "对应官方来源：Kentucky Non-U.S. Citizens",
+        "对应官方来源：Kentucky REAL ID What You Need",
+        "对应官方来源：Kentucky Driver Manual"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "transfer"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "kentucky",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "document",
-      "claim": "带普通复印件替代 original 或 certified document",
-      "sourceUrls": [
-        "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Kentucky REAL ID What You Need"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document"
+        "real-id",
+        "lawful-presence"
       ],
       "uncoveredThemes": [],
       "valid": true

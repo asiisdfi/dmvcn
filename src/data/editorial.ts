@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Kentucky 两页官方正文语义核对',
+    summary:
+      '逐条比对 Kentucky DRIVE 的 REAL ID、材料 PDF、standard 对比、upgrade、pricing、first issuance、new resident、non-U.S. citizen、外国驾照国家名单、renewal、vision、update / replace、ID card、Regional Office、myDrive，KSP testing、当前 Driver Manual 与 TSA 正文；登记 110 条独立声明的显式来源，并补齐中国大陆驾照、Chinese standard-operator test、2026 Letter ID、视力续期、当前费用，以及非公民 REAL ID、互惠考试和 permit online renewal 的官方冲突。',
+    scope: [
+      '肯塔基州办事总览',
+      '肯塔基州 REAL ID',
+      '110 条独立声明显式核对',
+      '中国驾照、中文考试、myDrive 与官方冲突',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Idaho 两页官方正文语义核对',
     summary:
       '逐条比对 Idaho ITD 的 Star Card、acceptable documents、2026 checklist、Add the Star、FAQ、New to Idaho、required documents、2026-07-01 identity update、Taking the Driver’s Test、July 2026 Driver’s Handbook、county locations、license / ID、online renewal、ID card、address form 与 TSA 当前正文；登记 76 条独立声明的显式来源，并补齐中国大陆驾照、Chinese written / aural knowledge test、外国驾照互惠、县级与第三方考试分工、线上续期和最新照片身份证要求。',

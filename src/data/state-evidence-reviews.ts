@@ -1394,6 +1394,37 @@ const WI_LOCATIONS =
 const WI_MV3001 =
   'https://wisconsindot.gov/Documents/formdocs/mv3001.pdf';
 
+const KY_REAL_ID = 'https://drive.ky.gov/RealID/Pages/default.aspx';
+const KY_WHAT_NEED =
+  'https://drive.ky.gov/RealID/Pages/What-You-Need.aspx';
+const KY_DOCS =
+  'https://drive.ky.gov/Drivers/Documents/ValidProofDocuments.pdf';
+const KY_DIFFERENCE =
+  'https://drive.ky.gov/RealID/Pages/Difference_Between.aspx';
+const KY_UPGRADE =
+  'https://drive.ky.gov/RealID/Pages/When-can-I-apply.aspx';
+const KY_PRICING = 'https://drive.ky.gov/RealID/Pages/Pricing.aspx';
+const KY_REAL_ID_FAQ = 'https://drive.ky.gov/RealID/Pages/FAQs.aspx';
+const KY_FIRST = 'https://drive.ky.gov/Drivers/Pages/First-Issuance.aspx';
+const KY_NEW = 'https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx';
+const KY_NON_US =
+  'https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx';
+const KY_FOREIGN_LIST =
+  'https://drive.ky.gov/Drivers/Documents/Vienna1968Parties.pdf';
+const KY_KSP_TEST =
+  'https://wp.kentuckystatepolice.ky.gov/driver-testing/';
+const KY_MANUAL =
+  'https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf';
+const KY_RENEW =
+  'https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx';
+const KY_VISION =
+  'https://drive.ky.gov/Drivers/Pages/Vision-Screening.aspx';
+const KY_UPDATE =
+  'https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx';
+const KY_ID_CARD = 'https://drive.ky.gov/Drivers/Pages/ID-Cards.aspx';
+const KY_OFFICES = 'https://drive.ky.gov/Pages/Find-An-Office.aspx/';
+const KY_MYDRIVE = 'https://drive.ky.gov/Pages/myDrive-FAQ.aspx';
+
 const ID_STAR = 'https://itd.idaho.gov/starcard/';
 const ID_STAR_DOCS =
   'https://itd.idaho.gov/starcard/star-card-acceptable-documents/';
@@ -1421,6 +1452,149 @@ const ID_ADDRESS =
   'https://itd.idaho.gov/wp-content/uploads/2025/03/Address.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  kentucky: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      KY_REAL_ID,
+      KY_WHAT_NEED,
+      KY_DOCS,
+      KY_DIFFERENCE,
+      KY_UPGRADE,
+      KY_PRICING,
+      KY_REAL_ID_FAQ,
+      KY_FIRST,
+      KY_NEW,
+      KY_NON_US,
+      KY_FOREIGN_LIST,
+      KY_KSP_TEST,
+      KY_MANUAL,
+      KY_RENEW,
+      KY_VISION,
+      KY_UPDATE,
+      KY_ID_CARD,
+      KY_OFFICES,
+      KY_MYDRIVE,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开 Kentucky DRIVE 的 REAL ID、材料清单、standard 对比、upgrade、pricing、FAQ、first issuance、new resident、non-U.S. citizen、外国驾照名单、renewal、vision、update / replace、ID card、Regional Office 与 myDrive 正文，以及 KSP testing、当前 Driver Manual 和 TSA 身份证件页面，核对两页的材料、期限、中国驾照、中文考试、费用、线上资格和身份冲突。',
+    notes:
+      '重点补齐中国大陆与 Taiwan / South Korea 互惠边界、KSP Chinese standard-operator test、30 天转入、2026 Letter ID、vision renewal、非公民 REAL ID 和 permit online-renewal 的官方冲突。DRIVE 直连在自动检查中返回 403，但当前官方索引正文与 PDF 均已语义核对；所有映射为 AI 辅助核查，不冒充 KYTC、KSP、律师或真实人工专业审核。',
+    claims: normalizeReviewedClaims({
+      'Kentucky 驾照、permit、REAL ID 和 personal ID 由 Kentucky Transportation Cabinet 的 Driver Licensing Regional Office 签发': [KY_FIRST, KY_OFFICES, KY_ID_CARD],
+      'written、vision 和 road testing 由 Kentucky State Police 安排': [KY_FIRST, KY_KSP_TEST, KY_MANUAL],
+      '新居民通常要在建立 Kentucky residency 后 30 天内转入驾照': [KY_NEW, KY_MANUAL],
+      'Kentucky REAL ID 是可选证件，standard credential 仍可驾驶，但不能单独用于受 REAL ID 规则约束的机场安检和部分联邦设施': [KY_DIFFERENCE, KY_REAL_ID_FAQ, TSA_IDENTIFICATION],
+      '首次申请通常要一份 original / certified identity、一份显示完整 SSN 的文件、两份 Kentucky residency 和完整姓名链，并在 Regional Office 现场核验': [KY_WHAT_NEED, KY_DOCS, KY_UPGRADE, KY_OFFICES],
+      '中国大陆不在 Kentucky 当前的 Taiwan / South Korea 互惠名单，也不在州政府发布的 U.S.-accepted foreign-license country list': [KY_NON_US, KY_FOREIGN_LIST],
+      '中国驾照持有人建立 Kentucky residency 后，应按身份状态准备 permit、written、vision 和 road test，而不是套用美国外州免试路线': [KY_NON_US, KY_FOREIGN_LIST],
+      'Regional Office 负责材料核验和签发，KSP 负责考试，两套预约不能混用': [KY_FIRST, KY_NON_US, KY_KSP_TEST, KY_OFFICES],
+      'myDrive 可做 pre-application 和部分续期、补证、地址业务': [KY_MYDRIVE, KY_RENEW, KY_UPDATE],
+      '新居民转入、首次 REAL ID、姓名变化和身份 / SAVE 核验仍要现场办理': [KY_NEW, KY_NON_US, KY_UPGRADE, KY_UPDATE, KY_MYDRIVE],
+      '有效美国外州驾照或过期不足一年通常可免考试转入': [KY_NEW, KY_MANUAL],
+      '过期超过一年要带最近 30 天内的 certified Driver History Record / clearance letter，并通过 written knowledge 和 vision tests': [KY_NEW, KY_MANUAL],
+      '外州驾照遗失也要带最近 30 天内的 Driver History Record / clearance letter': [KY_NEW, KY_MANUAL],
+      '若原证仍有效或过期不足一年，当前 New to Kentucky 页面只要求 vision screening': [KY_NEW],
+      'Kentucky 当前外国驾照互惠只列 Taiwan 和 South Korea': [KY_NON_US],
+      '中国大陆不是 Taiwan，不能按互惠路线处理': [KY_NON_US, KY_FOREIGN_LIST],
+      '州政府 U.S.-accepted foreign-license country PDF 没有列 People’s Republic of China': [KY_FOREIGN_LIST],
+      '对中国大陆驾照，当前 Non-U.S. Citizen 页面要求 written、vision、road tests 并从 permit 开始': [KY_NON_US, KY_FOREIGN_LIST],
+      '外国驾照、foreign birth certificate 和 foreign marriage license 要附 notarized translated statement': [KY_NON_US],
+      '翻译不能替代原始身份、lawful-status 和 Kentucky residency 文件': [KY_NON_US, KY_DOCS],
+      'KSP 当前 standard operator written test 明确提供 Chinese，但没有说明简体、繁体或口语版本': [KY_KSP_TEST],
+      '预约前应向所选 testing site 确认': [KY_KSP_TEST, KY_OFFICES],
+      'KSP 当前语言页只把 Chinese 列为 standard operator test 语言，不能据此推断 CDL 或其他 endorsement 也提供中文': [KY_KSP_TEST],
+      '普通 operator written test 至少 80% 才通过': [KY_MANUAL],
+      'oral test 或 interpreter 要特殊安排，road test 车内不允许 interpreter': [KY_KSP_TEST, KY_MANUAL],
+      'road test 自备车辆要有有效 registration 和 liability insurance': [KY_MANUAL, KY_KSP_TEST],
+      '租车只有在申请人列为 authorized operator 且能证明 insurance 时才接受': [KY_KSP_TEST, KY_MANUAL],
+      'road test 未通过要等待至少一周': [KY_MANUAL],
+      'parallel park assist 不允许，backup camera 可用但不能完全依赖': [KY_KSP_TEST],
+      '2025-01-01 起 driver license / permit 每次 renewal 都要 vision screening': [KY_VISION, KY_RENEW],
+      'Regional Office 免费筛查，或使用 12 个月内由合格 provider 完成的 TC 94-202': [KY_VISION, KY_OFFICES],
+      'driver license 可提前六个月续期，过期不足五年通常不重考，超过五年要按新驾驶人从 permit 开始': [KY_RENEW, KY_MANUAL],
+      'permit 过期超过一年也要重新开始': [KY_RENEW, KY_MANUAL],
+      'myDrive 账户连接需要 Kentucky Transportation Cabinet 2026-06-06 或以后签发、且签发不超过 60 天的 Letter ID': [KY_MYDRIVE, KY_RENEW, KY_UPDATE],
+      '没有 Letter ID 可申请邮寄或到 Regional Office 获取': [KY_MYDRIVE, KY_RENEW, KY_UPDATE],
+      '当前 renewal 页面说符合条件的 learner permit 可在 myDrive 续期，但 myDrive FAQ 同时写 permit 不能线上续期': [KY_RENEW, KY_MYDRIVE],
+      'permit 持有人应以 portal 实际资格和 Regional Office 确认为准': [KY_RENEW, KY_MYDRIVE, KY_OFFICES],
+      '第一次升级 REAL ID 必须现场': [KY_UPGRADE, KY_MYDRIVE, KY_RENEW],
+      '已有 REAL ID 且资料不变的合格用户可能在线或邮寄续期': [KY_UPGRADE, KY_RENEW],
+      '标准 driver license 当前四年 $21.50、八年 $43': [KY_RENEW, KY_NEW],
+      'REAL ID driver license 四年 $24、八年 $48': [KY_RENEW, KY_NEW, KY_PRICING],
+      '首次提前升级、补证、地址或姓名更新通常为 $15': [KY_UPGRADE, KY_PRICING, KY_UPDATE],
+      '地址变化后 10 天内要更新 credential，并建议先改 USPS mailing address': [KY_UPDATE, KY_MANUAL],
+      '改名要先更新 SSA，再带 legal name-change proof 到 Regional Office': [KY_UPDATE, KY_DOCS],
+      '当前 Non-U.S. Citizen 页面说部分临时合法居留者可能取得 limited-term REAL ID，但 What You Need 页面和 Driver Manual 仍写只有 U.S. citizens / permanent residents': [KY_NON_US, KY_WHAT_NEED, KY_MANUAL],
+      '临时身份申请人必须先按最新 status table 向 Regional Office 确认': [KY_NON_US, KY_OFFICES],
+      '当前 Non-U.S. Citizen 网页对 Taiwan / South Korea 互惠列为 vision-only，而 Driver Manual 仍列不同测试组合': [KY_NON_US, KY_MANUAL],
+      '申请人应保存 status-table 截图并在预约前确认适用考试': [KY_NON_US, KY_KSP_TEST],
+      '非公民 credential 通常随 USCIS document 到期': [KY_NON_US],
+      '若合法停留没有具体终止日，当前网页说 limited-term credential 最长可签发一年': [KY_NON_US],
+      '普通 personal ID 通常面向 15 岁以上居民': [KY_ID_CARD],
+      '自 2024-07-15 起，持有效 permit 或 operator license 的人不能同时获发 personal ID': [KY_ID_CARD],
+      'identity 准备一份 original 或 issuing-agency certified copy，例如政府签发 birth certificate、有效 U.S. passport、Permanent Resident Card 或符合身份表的 foreign passport / immigration document': [KY_DOCS, KY_WHAT_NEED, KY_NON_US],
+      '普通 photocopy 不接受': [KY_DOCS, KY_WHAT_NEED],
+      '首次 credential 或美国外州转入要带 current-name Social Security card': [KY_WHAT_NEED, KY_DOCS, KY_NEW],
+      '其他符合条件的 REAL ID 路线可按清单使用 SSNAP printout、最近 W-2 / 1099 或显示完整 SSN 的 pay statement': [KY_WHAT_NEED, KY_DOCS],
+      'standard credential 通常一份 Kentucky residency，REAL ID 要两份': [KY_DOCS, KY_WHAT_NEED],
+      '文件要显示 Kentucky physical address，P.O. Box 不能单独充当 physical-address proof': [KY_DOCS],
+      '常见 residency 包括一年内的 utility / telephone bill、bank statement、tax return、pay statement、postmarked USPS mail，以及 current lease、mortgage、insurance、vehicle registration 或 Kentucky credential': [KY_DOCS, KY_WHAT_NEED],
+      'forwarded mail 不能作为 REAL ID residency': [KY_WHAT_NEED],
+      '两份材料逐份检查姓名、地址和适用日期': [KY_WHAT_NEED, KY_DOCS],
+      'birth certificate 姓名与 current legal name 不同，要带 certified marriage certificate、divorce decree 或 court order 串起全部变化，并先更新 SSA record': [KY_WHAT_NEED, KY_DOCS, KY_UPDATE],
+      '婚姻路线要的是 certified marriage certificate，不是普通 marriage license': [KY_WHAT_NEED, KY_DOCS],
+      'divorce decree 必须显示法院准予姓名变化': [KY_WHAT_NEED, KY_DOCS],
+      '美国外州转入带当前 out-of-state credential': [KY_NEW, KY_DOCS],
+      '原卡遗失或过期超过一年时，另带前州最近 30 天内签发的 Driver History Record / clearance letter': [KY_NEW, KY_MANUAL],
+      '外国驾照路线带有效 foreign license、适用的 IDP 或 notarized translation、passport、当前 USCIS / lawful-status 文件、SSN 证明和两份 Kentucky residency': [KY_NON_US, KY_DOCS],
+      '非公民首次申请先按 status table 准备全部 original immigration documents，并预留 SAVE verification': [KY_NON_US],
+      'Regional Office 核验后再按要求到 KSP 考试并返回签发': [KY_NON_US, KY_KSP_TEST],
+      'road test 带 permit、valid registration 和 liability-insurance proof': [KY_MANUAL, KY_KSP_TEST],
+      '租车申请人必须列在 rental agreement 上并能证明受保': [KY_KSP_TEST, KY_MANUAL],
+      '在线或邮寄 renewal 要先完成 vision screening': [KY_RENEW, KY_VISION],
+      '只有 TC 94-202 被接受为外部 vision proof，眼镜或隐形眼镜处方不能替代该表': [KY_VISION],
+      '地址更新准备一份可接受 Kentucky residency': [KY_UPDATE, KY_DOCS],
+      '姓名更新带 updated Social Security card 和 certified legal name-change document': [KY_UPDATE, KY_DOCS],
+      '把中国大陆驾照当成 Taiwan 互惠证件，误以为只做 vision screening': [KY_NON_US, KY_FOREIGN_LIST],
+      '把外国驾照、IDP 或翻译件当作 Kentucky identity / lawful-status 材料的替代品': [KY_NON_US, KY_DOCS],
+      '看到 KSP 写 Chinese 就默认是简体中文、普通话，或默认 CDL 也有中文，没有先问 testing site': [KY_KSP_TEST],
+      '新居民超过 30 天才处理驾照，或把 County Clerk 的车辆 title / registration 当作同一项业务': [KY_NEW],
+      '外州驾照遗失或过期超过一年，却没有准备最近 30 天内的 Driver History Record / clearance letter': [KY_NEW, KY_MANUAL],
+      'REAL ID identity 带普通 photocopy，或用 hospital birth certificate 代替 government-certified birth certificate': [KY_WHAT_NEED, KY_DOCS],
+      '两份 REAL ID 地址证明只有 P.O. Box、是 forwarded mail、日期太旧，或姓名和地址不一致': [KY_WHAT_NEED, KY_DOCS],
+      '姓名变化只带当前 SSA card，没有带 certified records 串起 birth-name 到 current-name': [KY_WHAT_NEED, KY_DOCS],
+      '第一次 REAL ID upgrade 直接在 myDrive 或 mail-in form 操作，忽略现场 identity review': [KY_MYDRIVE, KY_UPGRADE],
+      '用普通眼镜处方代替 TC 94-202，导致 online / mail renewal 缺少合格 vision proof': [KY_VISION, KY_RENEW],
+      '没有 Letter ID 就反复创建 myDrive 账户，或拿 2026-06-06 以前 / 超过 60 天的 KYTC letter 尝试连接': [KY_MYDRIVE, KY_RENEW],
+      '看到 renewal 页面写 permit 可在线续期就直接承诺成功，忽略 myDrive FAQ 的相反说明和 portal eligibility': [KY_RENEW, KY_MYDRIVE],
+      '地址变化超过 10 天才更新，或改名尚未同步 SSA 就去 Regional Office': [KY_UPDATE],
+      'road test 自己无合格陪同驾驶到考点，或车辆 registration、insurance、rental agreement 不符合要求': [KY_MANUAL, KY_KSP_TEST],
+      '临时合法居留者只看 What You Need 或旧 Driver Manual 就判断一定不能办 REAL ID，没有向 Regional Office 核对当前 status table': [KY_NON_US, KY_WHAT_NEED, KY_MANUAL],
+      '先分清自己是美国外州转入、中国 / 外国驾照、首次驾驶人、REAL ID upgrade、renewal、replacement、address / name change 还是 personal ID': [KY_FIRST, KY_NEW, KY_NON_US, KY_REAL_ID, KY_UPDATE, KY_ID_CARD],
+      '新居民记录 Kentucky residency 起始日期，在 30 天内安排驾照': [KY_NEW],
+      '车辆 insurance、title 和 registration 另按 County Clerk 路线处理': [KY_NEW],
+      '中国大陆驾照持有人先用 Non-U.S. Citizen status table 确认 lawful-status 文件，再按 permit、written、vision、road test 路线准备': [KY_NON_US, KY_FOREIGN_LIST],
+      '需要中文笔试时联系 KSP testing site，确认 Chinese 版本、可用设备、预约和 interpreter 安排': [KY_KSP_TEST, KY_MANUAL],
+      '不要把 standard operator 语言套到 CDL': [KY_KSP_TEST],
+      '先决定 REAL ID 或 standard credential': [KY_DIFFERENCE, KY_REAL_ID_FAQ],
+      '已有有效 passport、Permanent Resident Card 等 TSA 接受文件时，可把 standard credential 作为合法驾驶方案比较': [KY_DIFFERENCE, KY_REAL_ID_FAQ, TSA_IDENTIFICATION],
+      '用 Valid Proof Documents 把 identity、full SSN、Kentucky residency、name-change chain 和额外身份文件分组，只带 originals / certified copies': [KY_DOCS, KY_WHAT_NEED],
+      '第一次 REAL ID、美国外州转入、姓名变化或 SAVE 核验先做 myDrive pre-application，再到 Driver Licensing Regional Office': [KY_MYDRIVE, KY_NEW, KY_NON_US, KY_UPDATE],
+      'pre-application 不需要先连接 credential': [KY_MYDRIVE],
+      '若需 KSP testing，先完成 Regional Office 的材料核验，再按指示考试并返回 Regional Office 领取 temporary paper credential': [KY_NON_US, KY_FIRST, KY_KSP_TEST],
+      'road test 前核对 permit hold period、21 岁以上陪同驾驶人、registration、insurance、rental authorization 和车辆辅助功能限制': [KY_MANUAL, KY_KSP_TEST],
+      '续期先在六个月窗口内完成免费 Regional Office vision screening，或让合格 provider 填 TC 94-202': [KY_RENEW, KY_VISION],
+      '再比较 myDrive、mail 和 in-person': [KY_RENEW, KY_VISION],
+      '使用 myDrive online services 前准备合格 Letter ID': [KY_MYDRIVE, KY_RENEW],
+      '若只做 office pre-application，可以不连接现有 credential': [KY_MYDRIVE],
+      '地址变化先更新 USPS，再在 10 天内上传一份 Kentucky residency 或现场办理': [KY_UPDATE, KY_DOCS],
+      '姓名变化先更新 SSA，再预约 Regional Office': [KY_UPDATE, KY_DOCS],
+      '非公民 REAL ID 或 reciprocity 遇到网页与手册冲突时，保存当前 status table，并向具体 Regional Office / KSP testing site 确认适用规则后再付款和预约': [KY_NON_US, KY_WHAT_NEED, KY_MANUAL, KY_KSP_TEST, KY_OFFICES],
+    }),
+  },
   idaho: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',
