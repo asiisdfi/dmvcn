@@ -1,10 +1,10 @@
 ---
-import { SITE_LAUNCH_DATE } from '../../data/editorial';
+import { DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
 import StatusFilter from '../../components/StatusFilter.astro';
-import { REVIEW_DATE, getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
+import { getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
 
 type StateGuide = (typeof states)[number];
 
@@ -141,7 +141,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'DMV 线上/现场分流表',
   description: '按州整理 DMV / REAL ID / 驾照续期、补证、地址变更和预约的线上或现场办理路径。',
-  dateModified: REVIEW_DATE,
+  dateModified: DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -156,7 +156,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 线上/现场分流表" description="按州查找 DMV / REAL ID / 驾照续期、补证、地址变更和预约的线上或现场办理路径。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE}
+<BaseLayout title="DMV 线上/现场分流表" description="按州查找 DMV / REAL ID / 驾照续期、补证、地址变更和预约的线上或现场办理路径。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DIRECTORY_REVIEW_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">

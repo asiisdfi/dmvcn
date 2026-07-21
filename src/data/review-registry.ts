@@ -68,6 +68,326 @@ function ensureSourceMapped(route: string, scope: string, note?: string): void {
  * completes the same comparison and is accurately identified.
  */
 export const semanticReviews: Record<string, SemanticReview> = {
+  '/directories/appointments/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '核对 50 州 appointmentNote、办理步骤和官方 action links 的预约、walk-in、办公室类型与地点分工抽取；逐项回查已显式核验的州级声明和对应官方入口。',
+    notes:
+      '目录只重排 100 个已完成显式来源核查的州页声明；预约可用不等于该地点可办目标业务，页面保留到场前核对服务类型的限制。',
+  },
+  '/directories/dmv-services/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '核对 50 州主管机构、appointmentNote 和 action links 的成品输出，确认每个机构与业务入口继承自已显式核验的州级来源集合。',
+    notes:
+      '本页是官方业务入口索引，不替代州级资格判断；复杂材料继续进入对应州指南和政府业务页。',
+  },
+  '/directories/service-paths/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '核对 50 州线上、现场、预约、改址、续期、补证和 REAL ID 分流提示的抽取逻辑，并回查每条入选文本在州页显式来源映射中的限定条件。',
+    notes:
+      '页面把线上资格提示与必须到场情形分开；未把 portal 存在扩大为所有申请人都可在线完成。',
+  },
+  '/directories/tests-permits/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '核对 50 州 learner permit、knowledge test、road test、first license、GDL、practice test 和第三方考点提示，逐项回查州级手册、考试页和显式声明来源。',
+    notes:
+      '目录不把 practice test 当正式题目，也不把某类考试入口扩大为所有年龄、证件或语言均可使用。',
+  },
+  '/directories/language-access/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '核对 50 州 Chinese、Mandarin、translated test、interpreter、文件翻译、driver manual 与 English-only / CDL 限制的抽取，并回查已核验官方语言与考试来源。',
+    notes:
+      '页面继续明确区分网页翻译、中文手册、中文笔试、口译和路考 / CDL 语言；没有固定官方依据的州只显示需确认。',
+  },
+  '/directories/new-residents/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '核对 50 州新居民、外州转入、地址和车辆办理的第一步提示与官方入口，逐项回查州级 recommendedSteps、documentHighlights 和 licenseSummary 的显式来源。',
+    notes:
+      '本页只给第一步分流，不把摘要替代具体期限、考试、车辆登记或保险规则；读者仍回州页和官方入口确认。',
+  },
+  '/directories/real-id/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '核对 50 州 REAL ID、STAR ID、Star Card、Travel ID、Secure ID 或相应材料入口，并逐州比对 action links 与已核验 REAL ID 来源。',
+    notes:
+      '修正原先固定选取第一个 action link 的逻辑：现在优先州级 REAL ID / STAR ID 专页，材料清单兜底，并排除 TSA 通用页作为州级主入口。',
+  },
+  '/topics/real-id-basics/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 REAL ID 联邦用途、替代证件、临时驾照、儿童证件、州级申请差异，以及 2026 年 TSA ConfirmID 的费用、机场核验、有效期和失败风险。',
+    notes:
+      '已移除过时的免费现场核验暗示，改为 2026-02-01 起的 $45 ConfirmID 现行流程，并明确付款不保证身份核验成功。',
+  },
+  '/topics/real-id-vs-standard-license/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 Standard、REAL ID、Enhanced Driver License / ID 的驾驶用途、联邦用途、公民资格、陆海路边境用途、国际航空限制和卡面标记。',
+    notes:
+      'New York 与 Washington 的州别差异均回查现行官方正文；Washington 声明改绑当前 REAL ID 专页，保留 EDL 业务入口供办理。',
+  },
+  '/topics/document-checklist/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对身份与 lawful status、SSN、州内地址、姓名链、原件或认证副本、非公民分流和州级互动材料清单。',
+    notes:
+      '通用四组材料只作为分拣框架；数量、文件形式、无 SSN 路径和护照当前姓名例外均保留 Pennsylvania、Texas、Florida 等州的明确边界。',
+  },
+  '/topics/proof-of-residency/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对地址文件数量、本人姓名与住宅地址、电子文件、日期窗口、P.O. Box、关系追溯、affidavit、同一来源限制和预上传边界。',
+    notes:
+      'California、New York、Texas 的不同规则分别绑定州级官方来源，没有把某州的打印件、日期窗口或 P.O. Box 规则推广到全国。',
+  },
+  '/topics/residency-proof-no-bills-po-box/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对无本人账单、同住人证明、学校或雇主文件、P.O. Box / PMB、打印格式、Texas DL-5、Florida HSMV 71120 和 South Dakota full-time traveler 特例。',
+    notes:
+      '替换 South Dakota 已失效旧入口，并按当前知识库限定为过去一年州内一晚住宿收据、PMB 证明和 Residency Affidavit；virtual address 不被接受。',
+  },
+  '/topics/airport-travel-after-real-id/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对成人与儿童证件、REAL ID 替代证件、过期证件、临时驾照、联邦设施，以及 TSA ConfirmID 的费用、处理时间、付款凭证、机场核验和失败风险。',
+    notes:
+      '已按 2026 年 TSA 正文重写无可接受 ID 的处理路径：$45 ConfirmID 可提前或到机场付款，但实际核验在机场完成且不保证通过。',
+  },
+  '/topics/state-id-non-driver-id-real-id-card/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 State ID 的非驾驶用途、REAL ID / standard / Enhanced 区别、年龄、驾照 surrender、材料、邮寄、临时 ID、费用减免和 mobile ID 边界。',
+    notes:
+      'California、Texas、Washington、Virginia、New Jersey 和 Massachusetts 的年龄、持证关系、材料与寄卡规则分别绑定州级来源，没有写成全国统一资格。',
+  },
+  '/topics/online-office-appointment/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对线上资格、kiosk / mail / office 分流、地点服务范围、预约、考试入口、交易供应商和临时证件限制。',
+    notes:
+      '保留“入口可用不等于本人符合资格”和“预约不等于地点可办目标业务”两层限制，并核对 California、New York、Texas、Florida、Washington、New Jersey 当前入口。',
+  },
+  '/topics/lost-stolen-license-id-replacement-identity-theft/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对补证资格、地址与邮寄、被盗号码、警察报告、身份盗用、临时或移动 ID、旧证销毁、外州补证与 TSA 旅行处理。',
+    notes:
+      '已将旅行部分切换为 2026 年 $45 ConfirmID 现行流程，并把 Washington 邮寄补普通驾照的限制绑定专门 out-of-state 页面；没有承诺换新号码或免费补证。',
+  },
+  '/topics/dmv-fees-mailing-temporary-license/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 original / renewal / replacement 费用分类、线上附加费、处理时间、实体卡邮寄、receipt、temporary credential 和 TSA 接受范围。',
+    notes:
+      'California、Florida、New Jersey、New York 与 Texas 的费用和寄卡规则均按具体交易表达，页面未给跨州统一价格或把临时驾驶效力扩大为身份用途。',
+  },
+  '/topics/moving-to-new-state/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对新居民驾照、车辆 title / registration、保险、车牌、办理顺序、期限和 lienholder 文件路径。',
+    notes:
+      'California、New York、New Jersey、Georgia、Texas、Florida 与 Washington 的期限和先后顺序分别回查当前官方正文，未把某州顺序推广到全国。',
+  },
+  '/topics/renewal-replacement-address/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对续期、补证、地址更新期限、线上资格、实体卡订购，以及驾照与车辆 title / registration 记录是否同步。',
+    notes:
+      'California 10 天与续期前 5 天、New York 10 天、Florida 与 Massachusetts 30 天等易变数字均保留对应州政府来源；地址记录更新与订购新卡分开表达。',
+  },
+  '/topics/first-driver-license-road-test/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对首次普通驾照、learner permit、knowledge test、年龄路径、课程、练车、road test 和临时凭证等跨州分流。',
+    notes:
+      '页面只提供判断顺序，不给全国统一天数或费用；已切换 California 当前 learner-permit 入口，并把考试语言问题导向按州、考试类型和考点确认。',
+  },
+  '/topics/road-test-day-vehicle-sponsor-insurance-rental-retest/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 road-test 资格、陪同人、登记与保险、车辆设备、租车、临牌或近期购车、口译、辅助驾驶功能和重考限制。',
+    notes:
+      'California、New York、Texas、Washington、New Jersey、Massachusetts、Pennsylvania、Virginia 与 Georgia 的州别规则分别绑定当前官方正文；Georgia 已切换现行 road-test 入口。',
+  },
+  '/topics/teen-driver-permit-gdl-parent-guide/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 teen / GDL 阶段、permit 年龄、家长同意、认可课程、监督驾驶与夜间小时、路考车辆和拿证后的限制。',
+    notes:
+      '数值规则均按 California、Florida、Washington、New Jersey、Pennsylvania、Virginia 与 Georgia 当前官方页面表达，并补齐家长参与和 Florida 路考车辆的就近来源。',
+  },
+  '/topics/dmv-test-language-translation-interpreter/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对网页与手册语言、普通 knowledge test、road test、oral / audio test、interpreter、文件翻译及 CDL / Hazmat 限制。',
+    notes:
+      '保留 Florida 2026-02-06 全部驾照考试 English-only 与 Texas 2026-06-01 CDL / CLP knowledge English-only 更新；移除无法由 North Carolina 当前官方正文确认的多语言笔试泛化。',
+  },
+  '/topics/foreign-license-idp-transfer/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对外国访客驾驶、IDP、州居民期限、外文翻译、original-license 路径、交回原证和互惠免试条件。',
+    notes:
+      '明确区分“访客可驾驶”“成为居民后申请”和“特定来源地可免测试”；新增 New Jersey、Pennsylvania 与 Texas 当前互惠国家及限制的显式来源。',
+  },
+  '/topics/dmv-scam-text-fake-ticket-toll-real-id-phishing/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 unpaid toll、ticket、REAL ID 加急、付款威胁、短信链接、独立核验、7726 / IC3 报告和身份盗用补救路径。',
+    notes:
+      'FTC、FBI、IdentityTheft.gov 与 California、Florida、Washington、Virginia、Georgia、New York 的当前警告分别提供就近来源；页面未把合法提醒或官方授权合作方一概写成诈骗。',
+  },
+  '/topics/vehicle-title-registration-insurance-after-move/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对搬州后 vehicle title、registration、保险、车牌、dealer / private sale、lienholder 文件、县级办理和各州期限。',
+    notes:
+      'California、Florida、New Jersey、Washington、Massachusetts、New York、Texas 与 Pennsylvania 的顺序和期限分别绑定当前州政府页面，没有把一州流程推广为全国规则。',
+  },
+  '/topics/vehicle-registration-renewal-expired-tags-non-operation/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 registration renewal、grace period、notice、地址、保险、inspection / emissions、未完成申请、过期窗口、即时凭证和停驶路径。',
+    notes:
+      '保留 California 无宽限期与 North Carolina 15-day valid-through 的差异，并将 Virginia 停驶来源修正为当前 plate surrender / deactivation 页面。',
+  },
+  '/topics/lost-stolen-license-plates-registration-card-sticker/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 plate、registration card、sticker / decal 的补办差异、警方报告、剩余车牌、新号码、未收到邮件与各州办理表格。',
+    notes:
+      'California、New York、Washington、Texas、Florida、North Carolina、Virginia 与 Georgia 的失窃和补发条件分别回查官方正文，未承诺保留原号码或统一免收费用。',
+  },
+  '/topics/temporary-tag-trip-permit-dealer-plate/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 temporary tag、TOP、trip / transit permit、dealer plate 的用途、期限、跨州限制、保险、车辆类别和正式登记衔接。',
+    notes:
+      '按 Texas HB 718 当前正文明确旧式纸质 30-Day / One-Trip permit 展示方式已由 Temporary Registration metal plate 取代，同时保留其他 permit 类别的区别。',
+  },
+  '/topics/vehicle-inspection-emissions-smog-vin-check/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 safety inspection、emissions / smog、VIN verification、州县适用范围、registration renewal 阻断和失败后处理。',
+    notes:
+      '确认 Texas 2025 safety inspection 变化、当前 17 个 emissions counties 与 Bexar County 2026-11-01 生效日期；Florida 仅按 VIN / odometer verification 表达。',
+  },
+  '/topics/sold-car-release-liability-plates-insurance/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 seller notice、release of liability、title transfer、车牌移除或退还、保险取消顺序，以及卖给 dealer 后的记录风险。',
+    notes:
+      'California 5 calendar days、Washington 5 business days、Texas 30 days、Oregon 与 Arizona 10 days 均保留对应官方页面或表格；另以 New York、North Carolina 等来源约束退牌后取消保险的顺序。',
+  },
+  '/topics/driving-record-points-traffic-school/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对 driving record 类型、points 阈值、traffic school / defensive driving、保险评分、CDL 例外和 Texas DRP 废止状态。',
+    notes:
+      'California、Florida、New York、Washington、Georgia 与 Texas 的当前数字均回查官方正文；Texas 仅把 Type 3A 写成明确可用于 DDC，并避免把 Type AR 的用途作无来源断言。',
+  },
   '/practice-tests/': {
     status: 'evidence-checked',
     method: 'ai-assisted',

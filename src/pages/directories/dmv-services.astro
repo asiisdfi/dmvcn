@@ -1,10 +1,10 @@
 ---
-import { SITE_LAUNCH_DATE } from '../../data/editorial';
+import { DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
 import StatusFilter from '../../components/StatusFilter.astro';
-import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
+import { getStatePublicStatus, states } from '../../data/content';
 
 const rows = states.map((state) => {
   const status = getStatePublicStatus(state);
@@ -28,7 +28,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: '50 州 DMV 常用业务入口表',
   description: '按州整理 DMV、DPS、RMV、MVC、DDS 等官方机构和常用办理入口。',
-  dateModified: REVIEW_DATE,
+  dateModified: DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -43,7 +43,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="50 州 DMV 常用业务入口表" description="按州查找 DMV、DPS、RMV、MVC、DDS 官方机构、REAL ID、续期、补证、地址变更、预约和线上服务入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE}
+<BaseLayout title="50 州 DMV 常用业务入口表" description="按州查找 DMV、DPS、RMV、MVC、DDS 官方机构、REAL ID、续期、补证、地址变更、预约和线上服务入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DIRECTORY_REVIEW_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">

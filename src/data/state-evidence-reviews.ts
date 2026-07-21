@@ -700,33 +700,33 @@ const CT_APPOINTMENTS =
 const CT_LOCATIONS =
   'https://portal.ct.gov/dmv/resources/locations-office-hours';
 const MN_DVS_CONTACT =
-  'https://dps.mn.gov/divisions/dvs/contact';
+  'https://dps.mn.gov/divisions/dvs';
 const MN_DVS_CONTACT_FORMS =
   'https://dps.mn.gov/divisions/dvs/contact/driver-services-online-contact-forms';
 const MN_DVS_ONLINE_SERVICES =
   'https://onlineservices.dps.mn.gov/EServices/_/';
 const MN_REAL_ID_REQUIREMENTS =
-  'https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf';
+  'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card';
 const MN_REAL_ID_DOCS =
   'https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf';
 const MN_SIDE_BY_SIDE =
-  'https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf';
+  'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information';
 const MN_REAL_ID_INFOGRAPHIC =
-  'https://dvsinfohub.dps.mn.gov/Documents/RealIDInfographic.pdf';
+  'https://assets.dps.mn.gov/files/dvs/dvs-real-id-documents-infographic2.pdf';
 const MN_SAME_DAY =
-  'https://dvsinfohub.dps.mn.gov/Documents/Elimination%20of%20Same-Day%20Standard%20Driver%20License%20-%20FAQ.pdf';
+  'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/same-day-dl-and-id-card';
 const MN_RENEW =
   'https://dps.mn.gov/divisions/dvs/license-and-id/common-transactions-all-dl-and-id-card-types/renew-your-dl-id-card';
 const MN_ADDRESS =
   'https://dps.mn.gov/divisions/dvs/license-and-id/common-transactions-all-dl-and-id-card-types/change-your-address-your-dl-id-card';
 const MN_ID_CARD =
-  'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/id-id-card';
+  'https://dps.mn.gov/id-card-forms-and-documents';
 const MN_NEW_RESIDENT_VEHICLE =
-  'https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration-new-mn-resident';
+  'https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration/vehicle-registration-new-mn-resident';
 const MN_APP =
   'https://assets.dps.mn.gov/files/dvs/dvs-license-permit-id-application.pdf';
 const MN_FAQ =
-  'https://dvsinfohub.dps.mn.gov/Documents/DeputyRegistrarFAQ.pdf';
+  'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/id-id-card';
 const MN_LAW_171_06 =
   'https://www.revisor.mn.gov/statutes/cite/171.06';
 const MN_LAW_171_01 =
@@ -1713,7 +1713,7 @@ const KY_FOREIGN_LIST =
 const KY_KSP_TEST =
   'https://wp.kentuckystatepolice.ky.gov/driver-testing/';
 const KY_MANUAL =
-  'https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf';
+  'https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf';
 const KY_RENEW =
   'https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx';
 const KY_VISION =

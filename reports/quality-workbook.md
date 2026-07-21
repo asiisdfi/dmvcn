@@ -2,8 +2,8 @@
 
 - 页面数：166
 - 高风险待人工签字：17
-- 待逐页官方正文语义核对：32
-- 阻塞项：49
+- 待逐页官方正文语义核对：0
+- 阻塞项：17
 - 弱意图待处理：0
 
 ## 人工签字队列（高风险）
@@ -32,76 +32,31 @@
 
 | 路由 | 类型 | 分数 | 当前状态 | 下一步 |
 | --- | --- | --- | --- | --- |
-| /directories/appointments/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /directories/dmv-services/ | directory | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /directories/language-access/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /directories/new-residents/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /directories/real-id/ | directory | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /directories/service-paths/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /directories/tests-permits/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/airport-travel-after-real-id/ | topic | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/dmv-fees-mailing-temporary-license/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/dmv-scam-text-fake-ticket-toll-real-id-phishing/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/dmv-test-language-translation-interpreter/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/document-checklist/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/driving-record-points-traffic-school/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/first-driver-license-road-test/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/foreign-license-idp-transfer/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/lost-stolen-license-id-replacement-identity-theft/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/lost-stolen-license-plates-registration-card-sticker/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/moving-to-new-state/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/online-office-appointment/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/proof-of-residency/ | topic | 95 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/real-id-basics/ | topic | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/real-id-vs-standard-license/ | topic | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/renewal-replacement-address/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/residency-proof-no-bills-po-box/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/road-test-day-vehicle-sponsor-insurance-rental-retest/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/sold-car-release-liability-plates-insurance/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/state-id-non-driver-id-real-id-card/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/teen-driver-permit-gdl-parent-guide/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/temporary-tag-trip-permit-dealer-plate/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/vehicle-inspection-emissions-smog-vin-check/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/vehicle-registration-renewal-expired-tags-non-operation/ | topic | 95 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /topics/vehicle-title-registration-insurance-after-move/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 
 ## 阻塞项优先处理
 
 | 路由 | 风险 | 分数 | 阻塞点 |
 | --- | --- | --- | --- |
-| /directories/appointments/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /directories/costs-timing/ | high | 98 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
 | /directories/deadlines/ | high | 98 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
-| /directories/dmv-services/ | standard | 92 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /directories/document-rules/ | high | 98 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
 | /directories/foreign-license/ | high | 98 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
 | /directories/identity-ssn/ | high | 98 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
-| /directories/language-access/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /directories/new-residents/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /directories/real-id/ | standard | 92 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /directories/service-paths/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /directories/tests-permits/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /topics/airport-travel-after-real-id/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/disabled-parking-placard-plates/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
-| /topics/dmv-fees-mailing-temporary-license/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /topics/dmv-scam-text-fake-ticket-toll-real-id-phishing/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /topics/dmv-test-language-translation-interpreter/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /topics/document-checklist/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/driver-license-suspension-reinstatement-sr22/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
-| /topics/driving-record-points-traffic-school/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /topics/first-driver-license-road-test/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /topics/foreign-license-idp-transfer/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/gift-inherited-vehicle-title-transfer/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
-| /topics/lost-stolen-license-id-replacement-identity-theft/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /topics/lost-stolen-license-plates-registration-card-sticker/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
-| /topics/moving-to-new-state/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/name-change-chain/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
 | /topics/non-citizen-license-id/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
 | /topics/older-driver-license-renewal-medical-review/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
+| /topics/ssn-and-itin/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
+| /topics/standard-license-driving-privilege-no-lawful-status/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
+| /topics/student-temporary-resident-license-registration/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
+| /topics/tickets-tolls-insurance-lapse-registration-hold/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
+| /topics/used-car-title-lien-salvage-odometer-check/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
 
 ## 执行节奏
 1. **第1-2周**：完成高风险人工签字，目标产出 8 条，检查点：未签字的高风险页不得用于新内容发布
-2. **第3-4周**：完成自动来源映射页面的逐页正文语义核对，目标产出 20 条，检查点：只有打开并比对官方正文的页面才能升级为 ai-assisted
+2. **第3-4周**：完成自动来源映射页面的逐页正文语义核对，目标产出 0 条，检查点：只有打开并比对官方正文的页面才能升级为 ai-assisted
 3. **第5-8周**：完成意图弱页重构或合并，目标产出 0 条，检查点：每页保留完整办事价值，不以堆字数为标准
 

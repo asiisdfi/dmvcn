@@ -1,9 +1,9 @@
 ---
-import { SITE_LAUNCH_DATE } from '../../data/editorial';
+import { DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, CalendarDays, ClipboardList, CreditCard, FileCheck2, Globe2, Languages, MapPinned, Route } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
-import { REVIEW_DATE, states, topics } from '../../data/content';
+import { states, topics } from '../../data/content';
 
 const serviceLinkCount = states.reduce((count, state) => count + state.actionLinks.length, 0);
 const directoryCards = [
@@ -103,7 +103,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'DMV 办事入口表',
   description: '按州整理 REAL ID、DMV 常用业务、州指南和官方入口的中文目录。',
-  dateModified: REVIEW_DATE,
+  dateModified: DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: directoryCards.map((card) => ({
     '@type': 'SiteNavigationElement',
@@ -117,8 +117,8 @@ const schema = {
   title="DMV 办事入口表"
   description="按州查找 REAL ID、DMV 常用业务、州指南和官方入口的中文目录。"
   publishedAt={SITE_LAUNCH_DATE}
-  modifiedAt={SITE_LAUNCH_DATE}
-  reviewedAt={REVIEW_DATE}
+  modifiedAt={DIRECTORY_REVIEW_DATE}
+  reviewedAt={DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
   schema={schema}
 >

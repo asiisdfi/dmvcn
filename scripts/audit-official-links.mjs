@@ -9,6 +9,11 @@ const ownerFilter = (process.env.LINK_AUDIT_OWNER ?? '').trim();
 const userAgent =
   process.env.LINK_AUDIT_UA ??
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
+const automated404WatchHosts = new Set([
+  // Current DVS pages are indexed and available to normal U.S. browsing, but this
+  // host returns a uniform 404 to our automated client and network location.
+  'dps.mn.gov',
+]);
 
 async function extractLinks() {
   const byUrl = new Map();
@@ -65,7 +70,7 @@ async function checkUrl(entry) {
       ...entry,
       effectiveUrl: effectiveParts.join(' ') || entry.url,
       status,
-      tone: classifyStatus(status),
+      tone: classifyStatus(status, undefined, entry.url),
     };
   } catch (error) {
     const stdout = typeof error.stdout === 'string' ? error.stdout.trim() : '';
@@ -75,14 +80,15 @@ async function checkUrl(entry) {
       effectiveUrl: effectiveParts.join(' ') || entry.url,
       error: error.code || error.message,
       status,
-      tone: classifyStatus(status, error.code || error.message),
+      tone: classifyStatus(status, error.code || error.message, entry.url),
     };
   }
 }
 
-function classifyStatus(status, error) {
+function classifyStatus(status, error, url) {
   if (/^2\d\d$/.test(status) || /^3\d\d$/.test(status)) return 'ok';
   if (status === '401' || status === '403' || status === '429') return 'watch';
+  if (status === '404' && automated404WatchHosts.has(new URL(url).hostname)) return 'watch';
   if (status === '000' && ['28', '35', '52', '56', '92'].includes(String(error))) return 'watch';
   return 'fail';
 }

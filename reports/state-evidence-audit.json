@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T04:34:11.984Z",
+    "generatedAt": "2026-07-21T05:54:50.953Z",
     "pages": 100,
     "states": 50,
     "claims": 4730,
@@ -39170,11 +39170,11 @@
       "context": "real-id",
       "claim": "明尼苏达驾照和 ID 分 Standard、REAL ID 与 Enhanced 三类用途，Standard 主要用于驾驶，REAL ID 与 Enhanced 更偏向联邦用途，是否需要哪类要先按出行或验证用途判断",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf",
-        "https://dvsinfohub.dps.mn.gov/Documents/RealIDInfographic.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information",
+        "https://assets.dps.mn.gov/files/dvs/dvs-real-id-documents-infographic2.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Side-by-Side Requirements",
+        "对应官方来源：Minnesota License and ID Types",
         "对应官方来源：Minnesota Real ID Infographic"
       ],
       "mappingMethod": "ai-assisted",
@@ -39218,11 +39218,11 @@
       "context": "real-id",
       "claim": "REAL ID 的核心材料通常包含身份和出生日期或 lawful presence 证明、Social Security 相关材料、两份 Minnesota 居住证明以及完整姓名链条，是否接受电子扫描、翻译件或替代形式需以当日 DVS 清单确认",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
         "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements",
+        "对应官方来源：Minnesota REAL ID",
         "对应官方来源：Minnesota Real ID Requirements PDF"
       ],
       "mappingMethod": "ai-assisted",
@@ -39245,11 +39245,11 @@
       "context": "appointment",
       "claim": "明尼苏达 DVS 的 office、exam station、deputy registrar 与 license agent 处理业务不同，先确认办理类型与服务点是否一致，可显著降低到错窗口率",
       "sourceUrls": [
-        "https://dps.mn.gov/divisions/dvs/contact",
+        "https://dps.mn.gov/divisions/dvs",
         "https://dps.mn.gov/divisions/dvs/contact/driver-services-online-contact-forms"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota DVS Contact",
+        "对应官方来源：Minnesota DVS Home",
         "对应官方来源：Minnesota DVS Contact Form"
       ],
       "mappingMethod": "ai-assisted",
@@ -39266,10 +39266,10 @@
       "context": "real-id",
       "claim": "明尼苏达 Standard、REAL ID、Enhanced 要分开叙述，避免把 Enhanced 当作普通 Standard 或把 Standard 当作联邦出行通用证件",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Side-by-Side Requirements"
+        "对应官方来源：Minnesota License and ID Types"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39286,12 +39286,12 @@
       "context": "document",
       "claim": "高风险事实重点是地址时效、居住证明文件数量与姓名链条，姓名不一致时必须逐段核对每一次法定变更文件",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
-        "https://dvsinfohub.dps.mn.gov/Documents/DeputyRegistrarFAQ.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/id-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements",
-        "对应官方来源：Minnesota Deputy Registrar FAQ"
+        "对应官方来源：Minnesota REAL ID",
+        "对应官方来源：Minnesota Non-Driver ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39309,10 +39309,10 @@
       "context": "real-id",
       "claim": "REAL ID 路径会因 lawful status、年龄和是否美国公民变化，材料清单与审批要求也会同步调整，需以当前官方页面时间戳为准",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39329,10 +39329,10 @@
       "context": "detail",
       "claim": "同日服务与入口页面有历史变更，不能把“同日可办”结论当成长期规律使用",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/Elimination%20of%20Same-Day%20Standard%20Driver%20License%20-%20FAQ.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/same-day-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Same-Day Service FAQ"
+        "对应官方来源：Minnesota Same-Day License and ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [],
@@ -39346,11 +39346,11 @@
       "context": "appointment",
       "claim": "线上服务、office/agent 与外部目录可达性偶有波动，出现 403/404 时优先改用 DVS contact form/电话确认预约和业务",
       "sourceUrls": [
-        "https://dps.mn.gov/divisions/dvs/contact",
+        "https://dps.mn.gov/divisions/dvs",
         "https://dps.mn.gov/divisions/dvs/contact/driver-services-online-contact-forms"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota DVS Contact",
+        "对应官方来源：Minnesota DVS Home",
         "对应官方来源：Minnesota DVS Contact Form"
       ],
       "mappingMethod": "ai-assisted",
@@ -39368,11 +39368,11 @@
       "context": "real-id",
       "claim": "REAL ID 的核心材料通常包含身份和出生日期或 lawful presence 证明、Social Security 相关材料、两份 Minnesota 居住证明以及完整姓名链条，是否接受电子扫描、翻译件或替代形式需以当日 DVS 清单确认",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
         "https://assets.dps.mn.gov/files/dvs/dvs-real-id-document-requirements.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements",
+        "对应官方来源：Minnesota REAL ID",
         "对应官方来源：Minnesota Real ID Requirements PDF"
       ],
       "mappingMethod": "ai-assisted",
@@ -39396,11 +39396,11 @@
       "claim": "《Minnesota Statutes 171.06》与 DVS 官方材料页可交叉确认 Standard、REAL ID、Enhanced 的适用场景、文书关系和基础资格要件",
       "sourceUrls": [
         "https://www.revisor.mn.gov/statutes/cite/171.06",
-        "https://dps.mn.gov/divisions/dvs/contact"
+        "https://dps.mn.gov/divisions/dvs"
       ],
       "sourceLabels": [
         "对应官方来源：Minnesota Statutes 171.06",
-        "对应官方来源：Minnesota DVS Contact"
+        "对应官方来源：Minnesota DVS Home"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39422,10 +39422,10 @@
       "context": "real-id",
       "claim": "STANDARD、REAL ID、Enhanced 的用途不同，先确认目标后再决定是否要进行联邦身份升级",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Side-by-Side Requirements"
+        "对应官方来源：Minnesota License and ID Types"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39442,10 +39442,10 @@
       "context": "real-id",
       "claim": "REAL ID 常见材料包括身份/出生日期、lawful presence、SSN、两份居住证明和姓名链条",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39466,10 +39466,10 @@
       "context": "document",
       "claim": "居住证明应能支持 Minnesota 主居住地址，PO Box 常不足以单独承担主要居住用途",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39485,12 +39485,12 @@
       "context": "document",
       "claim": "姓名变更链条若不完整，常见退件点会集中在姓名与历史文件不一致",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
-        "https://dvsinfohub.dps.mn.gov/Documents/DeputyRegistrarFAQ.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/id-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements",
-        "对应官方来源：Minnesota Deputy Registrar FAQ"
+        "对应官方来源：Minnesota REAL ID",
+        "对应官方来源：Minnesota Non-Driver ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39528,10 +39528,10 @@
       "context": "document",
       "claim": "同日领证停止后，现场流程通常是收据/凭条加快递，取卡与邮寄信息需单独确认",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/Elimination%20of%20Same-Day%20Standard%20Driver%20License%20-%20FAQ.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/same-day-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Same-Day Service FAQ"
+        "对应官方来源：Minnesota Same-Day License and ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39547,7 +39547,7 @@
       "context": "license",
       "claim": "新居民车辆入籍有 60 天窗口，驾照和 ID 时效通常不能直接套用该期限",
       "sourceUrls": [
-        "https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration-new-mn-resident",
+        "https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration/vehicle-registration-new-mn-resident",
         "https://dps.mn.gov/divisions/dvs/license-and-id/common-transactions-all-dl-and-id-card-types/renew-your-dl-id-card"
       ],
       "sourceLabels": [
@@ -39568,10 +39568,10 @@
       "context": "document",
       "claim": "部分身份材料和非英文证明件是否接受电子扫描或替代件需按 DVS 当前清单确认",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39610,11 +39610,11 @@
       "context": "document",
       "claim": "官方入口、DVS contact、在线表单和服务站三端建议同步核对，尤其在高峰期容易出现可达性差异",
       "sourceUrls": [
-        "https://dps.mn.gov/divisions/dvs/contact",
+        "https://dps.mn.gov/divisions/dvs",
         "https://dps.mn.gov/divisions/dvs/contact/driver-services-online-contact-forms"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota DVS Contact",
+        "对应官方来源：Minnesota DVS Home",
         "对应官方来源：Minnesota DVS Contact Form"
       ],
       "mappingMethod": "ai-assisted",
@@ -39629,10 +39629,10 @@
       "context": "document",
       "claim": "非公民或特殊身份申请时，lawful presence 与 SSN 路径是关键核验点之一",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39649,10 +39649,10 @@
       "context": "detail",
       "claim": "先判断当前办事目标是普通驾驶、联邦出行还是边境用途",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Side-by-Side Requirements"
+        "对应官方来源：Minnesota License and ID Types"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [],
@@ -39666,10 +39666,10 @@
       "context": "real-id",
       "claim": "确认你是要办理 Standard、REAL ID 还是 Enhanced，并标注是否涉及首次身份核验",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39705,10 +39705,10 @@
       "context": "real-id",
       "claim": "涉及 REAL ID、Enhanced、改名、改址时优先按 DVS 现场路径准备材料",
       "sourceUrls": [
-        "https://dps.mn.gov/divisions/dvs/contact"
+        "https://dps.mn.gov/divisions/dvs"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota DVS Contact"
+        "对应官方来源：Minnesota DVS Home"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39751,10 +39751,10 @@
       "context": "document",
       "claim": "按身份、SSN、居住、姓名链条四组建立材料清单，再按页面要求逐项核对",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39772,10 +39772,10 @@
       "context": "document",
       "claim": "核验每份文件的姓名、出生日期、签发日期和主要住址字段是否一致",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39791,10 +39791,10 @@
       "context": "document",
       "claim": "优先使用非 PO Box 的住址证明，并准备至少两份居住类文件",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39811,10 +39811,10 @@
       "context": "document",
       "claim": "有非公民身份或移民文件变更时，优先确认 lawful status 证据链",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39831,17 +39831,20 @@
       "context": "document",
       "claim": "姓名变化时按时间顺序准备 marriage certificate、court order、离婚判决等",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/DeputyRegistrarFAQ.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/id-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Deputy Registrar FAQ"
+        "对应官方来源：Minnesota Non-Driver ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "name-change"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document",
+        "name-change"
+      ],
       "valid": true
     },
     {
@@ -39896,10 +39899,10 @@
       "context": "document",
       "claim": "到场时携带当前证件、确认码、支付凭证和所有原件文件",
       "sourceUrls": [
-        "https://dps.mn.gov/divisions/dvs/contact"
+        "https://dps.mn.gov/divisions/dvs"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota DVS Contact"
+        "对应官方来源：Minnesota DVS Home"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39919,10 +39922,10 @@
       "context": "detail",
       "claim": "同日取消后按 receipt + 邮寄流程追踪快递，避免把回执误用为长期替代件",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/Elimination%20of%20Same-Day%20Standard%20Driver%20License%20-%20FAQ.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/same-day-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Same-Day Service FAQ"
+        "对应官方来源：Minnesota Same-Day License and ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -39958,7 +39961,7 @@
       "context": "document",
       "claim": "将车辆新居民和驾照新居民规则分开处理，别把期限混在同一套材料中",
       "sourceUrls": [
-        "https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration-new-mn-resident",
+        "https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration/vehicle-registration-new-mn-resident",
         "https://dps.mn.gov/divisions/dvs/license-and-id/common-transactions-all-dl-and-id-card-types/renew-your-dl-id-card"
       ],
       "sourceLabels": [
@@ -39981,10 +39984,10 @@
       "context": "real-id",
       "claim": "把 Standard 当作 REAL ID 或把 Enhanced 当作普通驾照用途",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Side-by-Side Requirements"
+        "对应官方来源：Minnesota License and ID Types"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -40001,12 +40004,12 @@
       "context": "real-id",
       "claim": "认为 REAL ID 的材料要求和 Standard 的一致",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf",
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information",
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Side-by-Side Requirements",
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota License and ID Types",
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -40023,10 +40026,10 @@
       "context": "document",
       "claim": "用单份居住证明替代两份材料",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -40043,10 +40046,10 @@
       "context": "document",
       "claim": "用 PO Box 作为主要居住证明提交",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -40062,16 +40065,18 @@
       "context": "document",
       "claim": "姓名改动后只提交最后一份证明文件",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/DeputyRegistrarFAQ.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/id-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Deputy Registrar FAQ"
+        "对应官方来源：Minnesota Non-Driver ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document"
+      ],
       "valid": true
     },
     {
@@ -40081,10 +40086,10 @@
       "context": "detail",
       "claim": "在线申请通过后未保留原件去现场核验",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -40100,10 +40105,10 @@
       "context": "detail",
       "claim": "把 2024 年前的同日领证经验直接带到当前流程",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/Elimination%20of%20Same-Day%20Standard%20Driver%20License%20-%20FAQ.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/same-day-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Same-Day Service FAQ"
+        "对应官方来源：Minnesota Same-Day License and ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [],
@@ -40117,7 +40122,7 @@
       "context": "license",
       "claim": "把车辆新居民 60 天期限等同于驾照办理或改址期限",
       "sourceUrls": [
-        "https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration-new-mn-resident"
+        "https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration/vehicle-registration-new-mn-resident"
       ],
       "sourceLabels": [
         "对应官方来源：Minnesota New MN Resident Vehicle Registration"
@@ -40138,10 +40143,10 @@
       "context": "detail",
       "claim": "把 receipt 当作长期可核验的永久身份证明",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/Elimination%20of%20Same-Day%20Standard%20Driver%20License%20-%20FAQ.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/same-day-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Same-Day Service FAQ"
+        "对应官方来源：Minnesota Same-Day License and ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [],
@@ -40155,10 +40160,10 @@
       "context": "detail",
       "claim": "未先确认 office/agent 是否支持所选业务",
       "sourceUrls": [
-        "https://dps.mn.gov/divisions/dvs/contact"
+        "https://dps.mn.gov/divisions/dvs"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota DVS Contact"
+        "对应官方来源：Minnesota DVS Home"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [],
@@ -40172,10 +40177,10 @@
       "context": "document",
       "claim": "过期文书、过旧 SSN/移民材料仍拿去做当前申请",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Updated REAL ID Requirements"
+        "对应官方来源：Minnesota REAL ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -40229,10 +40234,10 @@
       "context": "document",
       "claim": "把同一条材料要求应用到所有证件类型",
       "sourceUrls": [
-        "https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf"
+        "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information"
       ],
       "sourceLabels": [
-        "对应官方来源：Minnesota Side-by-Side Requirements"
+        "对应官方来源：Minnesota License and ID Types"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -56753,7 +56758,7 @@
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/First-Issuance.aspx",
         "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky First Issuance",
@@ -56775,7 +56780,7 @@
       "claim": "新居民通常要在建立 Kentucky residency 后 30 天内转入驾照",
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky New to Kentucky",
@@ -56786,7 +56791,9 @@
         "residency-proof",
         "transfer"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "residency-proof"
+      ],
       "valid": true
     },
     {
@@ -56971,7 +56978,7 @@
       "claim": "有效美国外州驾照或过期不足一年通常可免考试转入",
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky New to Kentucky",
@@ -56992,7 +56999,7 @@
       "claim": "过期超过一年要带最近 30 天内的 certified Driver History Record / clearance letter，并通过 written knowledge 和 vision tests",
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky New to Kentucky",
@@ -57013,7 +57020,7 @@
       "claim": "外州驾照遗失也要带最近 30 天内的 Driver History Record / clearance letter",
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky New to Kentucky",
@@ -57235,7 +57242,7 @@
       "context": "detail",
       "claim": "普通 operator written test 至少 80% 才通过",
       "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky Driver Manual"
@@ -57255,7 +57262,7 @@
       "claim": "oral test 或 interpreter 要特殊安排，road test 车内不允许 interpreter",
       "sourceUrls": [
         "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky State Police Driver Testing",
@@ -57276,7 +57283,7 @@
       "context": "detail",
       "claim": "road test 自备车辆要有有效 registration 和 liability insurance",
       "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf",
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf",
         "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
       ],
       "sourceLabels": [
@@ -57298,7 +57305,7 @@
       "claim": "租车只有在申请人列为 authorized operator 且能证明 insurance 时才接受",
       "sourceUrls": [
         "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky State Police Driver Testing",
@@ -57316,7 +57323,7 @@
       "context": "detail",
       "claim": "road test 未通过要等待至少一周",
       "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky Driver Manual"
@@ -57398,7 +57405,7 @@
       "claim": "driver license 可提前六个月续期，过期不足五年通常不重考，超过五年要按新驾驶人从 permit 开始",
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky License and Permit Renewal",
@@ -57419,7 +57426,7 @@
       "claim": "permit 过期超过一年也要重新开始",
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/License-Permit-Renewal.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky License and Permit Renewal",
@@ -57642,7 +57649,7 @@
       "claim": "地址变化后 10 天内要更新 credential，并建议先改 USPS mailing address",
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/Update-Replace.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky Update or Replace Credential",
@@ -57687,7 +57694,7 @@
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
         "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky Non-U.S. Citizens",
@@ -57729,7 +57736,7 @@
       "claim": "当前 Non-U.S. Citizen 网页对 Taiwan / South Korea 互惠列为 vision-only，而 Driver Manual 仍列不同测试组合",
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky Non-U.S. Citizens",
@@ -58174,7 +58181,7 @@
       "claim": "原卡遗失或过期超过一年时，另带前州最近 30 天内签发的 Driver History Record / clearance letter",
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky New to Kentucky",
@@ -58264,7 +58271,7 @@
       "context": "document",
       "claim": "road test 带 permit、valid registration 和 liability-insurance proof",
       "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf",
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf",
         "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
       ],
       "sourceLabels": [
@@ -58286,7 +58293,7 @@
       "claim": "租车申请人必须列在 rental agreement 上并能证明受保",
       "sourceUrls": [
         "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky State Police Driver Testing",
@@ -58392,7 +58399,7 @@
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
         "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky Non-U.S. Citizens",
@@ -58512,7 +58519,7 @@
       "claim": "需要中文笔试时联系 KSP testing site，确认 Chinese 版本、可用设备、预约和 interpreter 安排",
       "sourceUrls": [
         "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky State Police Driver Testing",
@@ -58693,7 +58700,7 @@
       "context": "detail",
       "claim": "road test 前核对 permit hold period、21 岁以上陪同驾驶人、registration、insurance、rental authorization 和车辆辅助功能限制",
       "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf",
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf",
         "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
       ],
       "sourceLabels": [
@@ -58843,7 +58850,7 @@
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
         "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf",
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf",
         "https://wp.kentuckystatepolice.ky.gov/driver-testing/",
         "https://drive.ky.gov/Pages/Find-An-Office.aspx/"
       ],
@@ -58957,7 +58964,7 @@
       "claim": "外州驾照遗失或过期超过一年，却没有准备最近 30 天内的 Driver History Record / clearance letter",
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/New-To-Kentucky.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky New to Kentucky",
@@ -59149,7 +59156,7 @@
       "context": "detail",
       "claim": "road test 自己无合格陪同驾驶到考点，或车辆 registration、insurance、rental agreement 不符合要求",
       "sourceUrls": [
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf",
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf",
         "https://wp.kentuckystatepolice.ky.gov/driver-testing/"
       ],
       "sourceLabels": [
@@ -59172,7 +59179,7 @@
       "sourceUrls": [
         "https://drive.ky.gov/Drivers/Pages/Non-US-Citizen.aspx",
         "https://drive.ky.gov/RealID/Pages/What-You-Need.aspx",
-        "https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf"
+        "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Kentucky Non-U.S. Citizens",

@@ -1,10 +1,10 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T04:34:10.931Z",
+    "generatedAt": "2026-07-21T05:56:37.107Z",
     "pages": 5,
-    "claims": 819,
+    "claims": 820,
     "statesCovered": 50,
-    "aiAssisted": 786,
+    "aiAssisted": 787,
     "automated": 33,
     "errors": 0,
     "coverage": {
@@ -25,7 +25,7 @@
         "states": 45
       },
       "identity-ssn": {
-        "claims": 182,
+        "claims": 183,
         "states": 49
       }
     }
@@ -5619,8 +5619,8 @@
       "stateId": "minnesota",
       "category": "地址证明",
       "claim": "REAL ID 常见材料包括身份/出生日期、lawful presence、SSN、两份居住证明和姓名链条",
-      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
+      "sourceUrl": "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
+      "sourceLabel": "对应官方来源：Minnesota REAL ID",
       "themes": [
         "residency-documents",
         "ssn",
@@ -5635,8 +5635,8 @@
       "stateId": "minnesota",
       "category": "地址证明",
       "claim": "居住证明应能支持 Minnesota 主居住地址，PO Box 常不足以单独承担主要居住用途",
-      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
+      "sourceUrl": "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
+      "sourceLabel": "对应官方来源：Minnesota REAL ID",
       "themes": [
         "residency-documents"
       ],
@@ -5649,8 +5649,8 @@
       "stateId": "minnesota",
       "category": "地址证明",
       "claim": "高风险事实重点是地址时效、居住证明文件数量与姓名链条，姓名不一致时必须逐段核对每一次法定变更文件",
-      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
+      "sourceUrl": "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
+      "sourceLabel": "对应官方来源：Minnesota REAL ID",
       "themes": [
         "residency-documents"
       ],
@@ -5662,13 +5662,18 @@
       "page": "document-rules",
       "stateId": "minnesota",
       "category": "地址证明",
-      "claim": "优先使用非 PO Box 的住址证明，并准备至少两份居住类文件",
-      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
+      "claim": "按身份、SSN、居住、姓名链条四组建立材料清单，再按页面要求逐项核对",
+      "sourceUrl": "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
+      "sourceLabel": "对应官方来源：Minnesota REAL ID",
       "themes": [
-        "residency-documents"
+        "document-checklist",
+        "ssn"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "document-checklist",
+        "ssn",
+        "explicit-source-title"
+      ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -10600,8 +10605,8 @@
       "stateId": "minnesota",
       "category": "SSN",
       "claim": "REAL ID 常见材料包括身份/出生日期、lawful presence、SSN、两份居住证明和姓名链条",
-      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
+      "sourceUrl": "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
+      "sourceLabel": "对应官方来源：Minnesota REAL ID",
       "themes": [
         "residency-documents",
         "ssn",
@@ -10615,16 +10620,37 @@
       "page": "identity-ssn",
       "stateId": "minnesota",
       "category": "SSN",
+      "claim": "按身份、SSN、居住、姓名链条四组建立材料清单，再按页面要求逐项核对",
+      "sourceUrl": "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
+      "sourceLabel": "对应官方来源：Minnesota REAL ID",
+      "themes": [
+        "document-checklist",
+        "ssn"
+      ],
+      "failedThemes": [
+        "document-checklist",
+        "ssn",
+        "explicit-source-title"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "minnesota",
+      "category": "SSN",
       "claim": "REAL ID 的核心材料通常包含身份和出生日期或 lawful presence 证明、Social Security 相关材料、两份 Minnesota 居住证明以及完整姓名链条，是否接受电子扫描、翻译件或替代形式需以当日 DVS 清单确认",
-      "sourceUrl": "https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf",
-      "sourceLabel": "对应官方来源：Minnesota Updated REAL ID Requirements",
+      "sourceUrl": "https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card",
+      "sourceLabel": "对应官方来源：Minnesota REAL ID",
       "themes": [
         "residency-documents",
         "translation",
         "ssn",
         "lawful-presence"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "translation"
+      ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },

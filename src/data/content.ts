@@ -5723,10 +5723,10 @@ export const states: StateGuide[] = [
     nameEn: 'Minnesota',
     nameZh: '明尼苏达州',
     agency: 'Minnesota Driver and Vehicle Services',
-    agencyUrl: 'https://dps.mn.gov/divisions/dvs/contact',
+    agencyUrl: 'https://dps.mn.gov/divisions/dvs',
     publishedAt: '2026-07-17',
-    modifiedAt: '2026-07-17',
-    reviewedAt: '2026-07-17',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     summary:
       '明尼苏达驾照和 ID 分 Standard、REAL ID 与 Enhanced 三类用途，Standard 主要用于驾驶，REAL ID 与 Enhanced 更偏向联邦用途，是否需要哪类要先按出行或验证用途判断',
     realIdSummary:
@@ -5799,9 +5799,9 @@ export const states: StateGuide[] = [
     ],
     actionLinks: [
       {
-        label: 'Minnesota Updated REAL ID Requirements PDF',
-        url: 'https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf',
-        description: '明尼苏达 DVS 最新 REAL ID 文档要求对比版',
+        label: 'Minnesota REAL ID',
+        url: 'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card',
+        description: '明尼苏达 DVS 当前 REAL ID 用途、材料和办理说明',
       },
       {
         label: 'Minnesota DVS Online Services',
@@ -5819,19 +5819,19 @@ export const states: StateGuide[] = [
         description: '明尼苏达 DVS 官方在线咨询与预约核验入口',
       },
       {
-        label: 'Minnesota Real ID Side-by-Side',
-        url: 'https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf',
+        label: 'Minnesota License and ID Types',
+        url: 'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information',
         description: 'Standard、REAL ID、Enhanced 对比材料类型与办理边界',
       },
       {
         label: 'Minnesota Real ID Infographic',
-        url: 'https://dvsinfohub.dps.mn.gov/Documents/RealIDInfographic.pdf',
-        description: 'Enhanced 与联邦用途边界参考',
+        url: 'https://assets.dps.mn.gov/files/dvs/dvs-real-id-documents-infographic2.pdf',
+        description: 'REAL ID 身份、SSN、居住和姓名链材料图解',
       },
       {
-        label: 'Minnesota Same-Day Service FAQ',
-        url: 'https://dvsinfohub.dps.mn.gov/Documents/Elimination%20of%20Same-Day%20Standard%20Driver%20License%20-%20FAQ.pdf',
-        description: '同日服务取消公告与流程说明',
+        label: 'Minnesota Same-Day License and ID',
+        url: 'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/same-day-dl-and-id-card',
+        description: '2026 年 1 月 30 日同日制卡试点停止后的当前说明',
       },
       {
         label: 'Minnesota REAL ID Checklist PDF',
@@ -5851,20 +5851,24 @@ export const states: StateGuide[] = [
     ],
     sources: [
       {
-        label: 'Minnesota Updated REAL ID Requirements',
-        url: 'https://dvsinfohub.dps.mn.gov/Documents/updated-REALID-identification-requirements.pdf',
+        label: 'Minnesota DVS Home',
+        url: 'https://dps.mn.gov/divisions/dvs',
       },
       {
-        label: 'Minnesota Side-by-Side Requirements',
-        url: 'https://dvsinfohub.dps.mn.gov/resources/Documents/FastDS/Side_by_Side_Requirements.pdf',
+        label: 'Minnesota REAL ID',
+        url: 'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/real-id-dl-and-id-card',
+      },
+      {
+        label: 'Minnesota License and ID Types',
+        url: 'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information',
       },
       {
         label: 'Minnesota Real ID Infographic',
-        url: 'https://dvsinfohub.dps.mn.gov/Documents/RealIDInfographic.pdf',
+        url: 'https://assets.dps.mn.gov/files/dvs/dvs-real-id-documents-infographic2.pdf',
       },
       {
-        label: 'Minnesota Same-Day Service FAQ',
-        url: 'https://dvsinfohub.dps.mn.gov/Documents/Elimination%20of%20Same-Day%20Standard%20Driver%20License%20-%20FAQ.pdf',
+        label: 'Minnesota Same-Day License and ID',
+        url: 'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/same-day-dl-and-id-card',
       },
       {
         label: 'Minnesota Real ID Requirements PDF',
@@ -5896,15 +5900,19 @@ export const states: StateGuide[] = [
       },
       {
         label: 'Minnesota New MN Resident Vehicle Registration',
-        url: 'https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration-new-mn-resident',
+        url: 'https://dps.mn.gov/divisions/dvs/vehicle/vehicle-registration/vehicle-registration-new-mn-resident',
       },
       {
         label: 'Minnesota Non-Driver ID',
         url: 'https://dps.mn.gov/divisions/dvs/license-and-id/dl-and-id-card-information/id-id-card',
       },
       {
-        label: 'Minnesota Deputy Registrar FAQ',
-        url: 'https://dvsinfohub.dps.mn.gov/Documents/DeputyRegistrarFAQ.pdf',
+        label: 'Minnesota ID Card Forms and Documents',
+        url: 'https://dps.mn.gov/id-card-forms-and-documents',
+      },
+      {
+        label: 'Minnesota DVS Locations',
+        url: 'https://dps.mn.gov/divisions/dvs/locations',
       },
       {
         label: 'Minnesota Statutes 171.06',
@@ -8158,7 +8166,7 @@ export const states: StateGuide[] = [
       },
       {
         label: 'Kentucky Driver Manual',
-        url: 'https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf',
+        url: 'https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf',
         description: '普通驾照考试、permit、road test 和转入规则。',
       },
       {
@@ -8243,7 +8251,7 @@ export const states: StateGuide[] = [
       },
       {
         label: 'Kentucky Driver Manual',
-        url: 'https://drive.ky.gov/Drivers/Documents/Kentucky-Driver-Manual.pdf',
+        url: 'https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2023/11/Kentucky-Driver-Manual-10-11-2023.pdf',
       },
       {
         label: 'Kentucky License and Permit Renewal',
@@ -13478,8 +13486,8 @@ export const topics: TopicGuide[] = [
     title: 'REAL ID 到底要不要办',
     eyebrow: '联邦规则',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '先别急着预约。REAL ID 只解决州驾照/ID 的联邦身份用途；如果你有有效护照或其他 TSA 接受证件，很多场景可以先不升级。',
     whoNeedsIt: [
@@ -13492,7 +13500,7 @@ export const topics: TopicGuide[] = [
       '自 2025 年 5 月 7 日起，18 岁及以上旅客不能再把非 REAL ID 合规的州驾照/ID 单独用于 TSA 国内航班安检；有效护照等 TSA 接受证件仍可替代。',
       'REAL ID 是可选项。只开车、投票、看病、去邮局或领取联邦福利，并不会因为没有 REAL ID 就自动受阻；具体设施仍可有自己的进门规则。',
       '国际航空旅行仍通常需要护照；REAL ID 不能替代护照。临时纸质驾照也不在 TSA 的可接受证件清单内。',
-      'USA.gov 2026 年 4 月更新说明：没有 REAL ID 或其他可接受证件的 18 岁及以上旅客，可提前支付 $45 使用 TSA ConfirmID；核验从出发日起有效 10 天。',
+      '自 2026 年 2 月 1 日起，没有 REAL ID 或其他 TSA 可接受证件的 18 岁及以上旅客可支付 $45 使用 TSA ConfirmID。付款不保证身份核验成功；核验仍在机场完成，凭证从所填出发日起有效 10 天。',
       '州政府决定申请路径和材料。即使联邦框架相同，各州对原件、SSN 核验、地址证明、姓名变更、费用和是否可线上预审的做法仍不同。',
     ],
     factChecks: [
@@ -13521,12 +13529,19 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
       },
       {
-        claim: 'USA.gov 2026 年说明将 ConfirmID 列为没有可接受 ID 时的付费身份核验路径，费用为 $45，核验从出发日起有效 10 天。',
-        sourceUrls: ['https://www.usa.gov/real-id'],
+        claim: '自 2026 年 2 月 1 日起，没有可接受 ID 的旅客可支付 $45 使用 TSA ConfirmID；实际核验在机场完成，付款不保证身份能够核实。',
+        sourceUrls: [
+          'https://www.tsa.gov/tsaconfirm-id/about-confirmid',
+          'https://www.tsa.gov/tsaconfirm-id/confirmid-faqs',
+        ],
       },
       {
-        claim: 'TSA ConfirmID 不会把普通州驾照升级成 REAL ID，也不能代替州 DMV 的申请和材料核验。',
-        sourceUrls: ['https://www.usa.gov/real-id', 'https://www.dhs.gov/real-id'],
+        claim: 'TSA ConfirmID 不会把普通州驾照升级成 REAL ID，也不能代替州 DMV 的申请和材料核验；付款凭证只覆盖所填出发日起 10 天。',
+        sourceUrls: [
+          'https://www.tsa.gov/tsaconfirm-id/about-confirmid',
+          'https://www.usa.gov/real-id',
+          'https://www.dhs.gov/real-id',
+        ],
       },
       {
         claim: 'REAL ID 的申请过程和所需文件由各州决定，申请人应回到本州驾驶证签发机构核对。',
@@ -13551,7 +13566,7 @@ export const topics: TopicGuide[] = [
       '第三步：判断是否值得现在升级。有稳定替代证件、近期没有联邦身份用途的人，可以等正常续期；经常飞行的人通常更适合提前办。',
       '第四步：从 USA.gov 州目录进入本州 DMV，再使用该州 REAL ID document guide，不能拿其他州的清单照抄。',
       '第五步：核对实体卡交付时间和临时凭证限制。临近出行时，不要把办证预约当成一定能在航班前拿到卡。',
-      '第六步：没有任何可接受证件且行程已迫近时，再把 TSA ConfirmID 或现场身份核验作为备选，并预留额外时间。',
+      '第六步：没有任何可接受证件且行程已迫近时，查看 TSA ConfirmID 当前规则；可提前或到机场支付 $45，保留付款凭证并准备法定姓名、地址和出生日期，但付款不保证能够通过身份核验。',
     ],
     faqs: [
       {
@@ -13567,7 +13582,7 @@ export const topics: TopicGuide[] = [
       {
         question: 'TSA ConfirmID 是不是等于办了 REAL ID？',
         answer:
-          '不是。USA.gov 把它描述为没有 REAL ID 或其他可接受证件时的付费 TSA 身份核验选项；目前费用为 $45、从出发日起有效 10 天。它不改变你的州驾照或 ID 是否 REAL ID 合规。',
+          '不是。它是没有 TSA 可接受证件时的付费身份核验路径，目前费用为 $45、从所填出发日起有效 10 天；实际核验在机场完成，付款不保证身份能够核实。它不会改变州驾照或 ID 的 REAL ID 状态。',
       },
       {
         question: '孩子坐美国国内航班也必须办 REAL ID 吗？',
@@ -13579,7 +13594,7 @@ export const topics: TopicGuide[] = [
       '这页只解释联邦用途，不判断个人是否必须办。有效护照、护照卡、军人证等 TSA 接受证件常可替代 REAL ID。',
       'REAL ID 不改变驾驶资格本身；没有 REAL ID 通常仍可开车，但不能把普通州证件用于相应联邦身份用途。',
       '具体材料和卡面标记由州 DMV 执行，纽约、华盛顿、佐治亚等州的名称和标记可能不同。',
-      '2026-07-09 复核 USA.gov：该页最后更新为 2026-04-06，并加入 TSA ConfirmID 作为没有可接受 ID 时的身份核验选项。',
+      '2026-07-21 复核 TSA 与 USA.gov：自 2026-02-01 起，无可接受 ID 的现行路径为 $45 ConfirmID；实际核验在机场完成，付款不保证成功，凭证从所填出发日起有效 10 天。',
     ],
     sources: [
       ...federalSources,
@@ -13591,6 +13606,14 @@ export const topics: TopicGuide[] = [
         label: 'Texas.gov REAL ID',
         url: 'https://www.texas.gov/driver-services/texas-real-id/',
       },
+      {
+        label: 'TSA ConfirmID Overview',
+        url: 'https://www.tsa.gov/tsaconfirm-id/about-confirmid',
+      },
+      {
+        label: 'TSA ConfirmID FAQs',
+        url: 'https://www.tsa.gov/tsaconfirm-id/confirmid-faqs',
+      },
     ],
     relatedStateIds: ['california', 'new-york', 'texas', 'michigan'],
   },
@@ -13599,8 +13622,8 @@ export const topics: TopicGuide[] = [
     title: 'REAL ID、Enhanced ID 和普通驾照怎么区分',
     eyebrow: '证件类型',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '选证件前先看用途，不要只看卡面名字。Standard、REAL ID 和 Enhanced Driver License/ID 都可能是州签发的驾照或身份证，但联邦身份用途、申请资格和边境用途不同。',
     whoNeedsIt: [
@@ -13665,7 +13688,7 @@ export const topics: TopicGuide[] = [
       {
         claim: 'Standard 驾照的驾驶资格与 REAL ID 联邦身份用途不同，普通州驾照不会仅因 REAL ID 执行而失去驾驶用途。',
         sourceUrls: [
-          'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl',
+          'https://dol.wa.gov/id-cards/real-id',
           'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
         ],
       },
@@ -13689,7 +13712,7 @@ export const topics: TopicGuide[] = [
         claim: 'New York 和 Washington 的 Enhanced 证件申请均与美国公民身份及本州居住证明要求相关。',
         sourceUrls: [
           'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
-          'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl',
+          'https://dol.wa.gov/id-cards/real-id',
         ],
       },
       {
@@ -13697,16 +13720,16 @@ export const topics: TopicGuide[] = [
         sourceUrls: [
           'https://www.tsa.gov/travel/security-screening/identification',
           'https://dmv.ny.gov/driver-license/enhanced-or-real-id',
-          'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl',
+          'https://dol.wa.gov/id-cards/real-id',
         ],
       },
       {
         claim: 'Enhanced Driver License 不能替代国际航空旅行所需的护照，Washington 明确把其跨境用途限定为陆路或海路。',
-        sourceUrls: ['https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl'],
+        sourceUrls: ['https://dol.wa.gov/id-cards/real-id'],
       },
       {
         claim: 'Washington 的 EDL/EID 以美国国旗而非星标表示其 REAL ID 合规状态，不能只靠“有没有星星”判断。',
-        sourceUrls: ['https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl'],
+        sourceUrls: ['https://dol.wa.gov/id-cards/real-id'],
       },
       {
         claim: '临时驾照不在 TSA 可接受身份证件列表内，办证收据或临时纸张不能默认替代永久 REAL ID。',
@@ -13728,6 +13751,10 @@ export const topics: TopicGuide[] = [
         label: 'WA DOL Enhanced Driver License',
         url: 'https://dol.wa.gov/driver-licenses-and-permits/enhanced-driver-license-edl',
       },
+      {
+        label: 'WA DOL REAL ID',
+        url: 'https://dol.wa.gov/id-cards/real-id',
+      },
     ],
     relatedStateIds: ['new-york', 'washington', 'new-jersey', 'illinois'],
   },
@@ -13737,7 +13764,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '材料准备',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       '各州表述不同，但 REAL ID 材料通常围绕身份/合法身份、SSN、居住地址和姓名变更四类。最终必须用州官方清单核对。',
     whoNeedsIt: [
@@ -13884,7 +13911,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '材料细节',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       '地址证明最容易在“看起来合理、官方却不收”这里出错。办事前要同时核对文件数量、本人姓名、住宅地址、日期范围、打印格式和替代证明路径。',
     whoNeedsIt: [
@@ -14040,8 +14067,8 @@ export const topics: TopicGuide[] = [
     title: '没有自己账单、住亲友家或宿舍，地址证明怎么准备',
     eyebrow: '地址证明',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '地址证明最难的情况，往往不是“没有地址”，而是没有一份写着本人姓名和当前居住地址的官方文件。住亲友家、室友家、宿舍、sublease、P.O. Box 和 mailing address，需要按不同规则判断。',
     whoNeedsIt: [
@@ -14057,7 +14084,7 @@ export const topics: TopicGuide[] = [
       '没有自己账单时，要查州官方是否接受学校、雇主、银行、保险、政府信件、租约、同住人证明、address certification 或 affidavit。',
       '电子账单、打印件、手机截图、翻译件、同一机构两份文件是否接受，州与州差异很大。',
       '官方 affidavit 不是一张通用“担保信”。Texas DL-5 和 Florida HSMV 71120 都要求按本州表格、签署人身份和配套地址材料办理。',
-      '少数 P.O. Box / PMB 例外有严格适用范围。South Dakota 的 full-time traveler 路径要求 affidavit、近期住宿收据和 PMB 证明，不能推广为普通申请规则。',
+      '少数 P.O. Box / PMB 例外有严格适用范围。South Dakota 的 full-time traveler 路径要求填写 Residency Affidavit、提交本人姓名的州内一晚住宿收据（过去一年内）和一份 PMB 证明；virtual address 不被接受。',
     ],
     checklist: [
       '先确认你办的是 standard license、REAL ID、Enhanced/EDL、外州转入还是地址变更；不同业务的地址证明要求可能不同。',
@@ -14149,8 +14176,8 @@ export const topics: TopicGuide[] = [
         ],
       },
       {
-        claim: 'South Dakota 允许 full-time traveler 使用 PMB 的规则要求 residency affidavit、近期住宿收据和 PMB 证明，并不适用于普通住宅地址申请。',
-        sourceUrls: ['https://dps.sd.gov/driver-licensing/renew-and-duplicate/full-time-travelers'],
+        claim: 'South Dakota 的 full-time traveler 路径要求完成 Residency Affidavit、提供过去一年内本人姓名的州内一晚住宿收据和一份 PMB 证明；virtual address 不被接受。',
+        sourceUrls: ['https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395'],
       },
     ],
     editorNotes: [
@@ -14239,7 +14266,7 @@ export const topics: TopicGuide[] = [
       },
       {
         label: 'South Dakota DPS Full-Time Travelers',
-        url: 'https://dps.sd.gov/driver-licensing/renew-and-duplicate/full-time-travelers',
+        url: 'https://www.sd.gov/dps?id=kb_article_view&sysparm_article=KB0044395',
       },
     ],
     relatedStateIds: [
@@ -15051,7 +15078,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '州身份证',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       '不准备开车，也可以在很多州申请 state ID、non-driver ID、photo ID、Mass ID 或 Enhanced ID。先分清普通 ID、REAL ID-compliant ID、Enhanced ID、移动 ID、驾照换 ID、未成年人 ID 和无家可归 / 低收入费用减免，避免把 ID card 当成驾照或护照来用。',
     whoNeedsIt: [
@@ -15385,10 +15412,10 @@ export const topics: TopicGuide[] = [
     title: 'REAL ID 后坐美国国内航班要带什么',
     eyebrow: '机场安检',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
-      'REAL ID 联邦执行已经开始。18 岁及以上旅客通过 TSA 机场安检时，通常需要 REAL ID 合规驾照/ID，或护照、军人证等 TSA 接受的其他证件；没有可接受 ID 时，再查看 TSA 当前身份核验选项。',
+      'REAL ID 联邦执行已经开始。18 岁及以上旅客通常要带 REAL ID 合规驾照/ID 或 TSA 接受的其他证件；没有可接受 ID 时，现行备选是付费 ConfirmID，且不保证核验成功。',
     whoNeedsIt: [
       '计划坐美国国内航班的人。',
       '驾照上没有 REAL ID 星标或不确定是否合规的人。',
@@ -15399,8 +15426,8 @@ export const topics: TopicGuide[] = [
       '自 2025 年 5 月 7 日起，非 REAL ID 合规的州驾照/ID 不再是 TSA 接受的有效州证件；它是否还能用于开车，是另一个州法问题。',
       'TSA 当前接受清单内证件在过期后最多两年，但 temporary driver license 明确不在可接受列表内。州 DMV 的临时驾驶效力不能替 TSA 作保证。',
       'TSA 通常不要求 18 岁以下儿童在美国境内旅行时出示身份证件；航空公司仍可能对未成年人、单独旅行或年龄证明另有要求。',
-      '没有可接受证件时，现场身份核验可能带来额外筛查，也可能因无法确认身份而不能进入安检区；不要把它当成保证登机的常规方案。',
-      'USA.gov 2026 年说明：没有 REAL ID 或其他可接受证件的 18 岁及以上旅客可提前支付 $45 使用 TSA ConfirmID，核验从出发日起有效 10 天。',
+      '自 2026 年 2 月 1 日起，没有可接受证件的 18 岁及以上旅客可支付 $45 使用 TSA ConfirmID；实际身份核验仍在机场完成，付款不保证身份能够核实。',
+      'ConfirmID 可提前或在机场付款，平均处理约 10 至 15 分钟、也可能超过 30 分钟；要保留付款凭证，核验期从所填出发日起持续 10 天。',
     ],
     factChecks: [
       {
@@ -15412,8 +15439,11 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://www.dhs.gov/real-id', 'https://www.usa.gov/real-id'],
       },
       {
-        claim: '没有 REAL ID 或其他可接受证件时，ConfirmID 属于付费身份核验备选；它不是一张临时 REAL ID。',
-        sourceUrls: ['https://www.usa.gov/real-id', 'https://www.tsa.gov/travel/security-screening/identification'],
+        claim: '没有 REAL ID 或其他可接受证件时，ConfirmID 是 $45 的付费身份核验备选；实际核验在机场完成，它不是一张临时 REAL ID。',
+        sourceUrls: [
+          'https://www.tsa.gov/tsaconfirm-id/about-confirmid',
+          'https://www.tsa.gov/tsaconfirm-id/confirmid-faqs',
+        ],
       },
       {
         claim: '自 2025 年 5 月 7 日起，非 REAL ID 合规的州驾照和州 ID 不再被 TSA 接受为有效的州签发机场身份证件。',
@@ -15432,12 +15462,19 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
       },
       {
-        claim: '没有可接受 ID 的旅客可能被要求完成身份核验并接受额外筛查；身份无法确认时不能进入安检区。',
-        sourceUrls: ['https://www.tsa.gov/travel/security-screening/identification'],
+        claim: '支付 ConfirmID 费用不保证 TSA 能确认身份；身份无法核实时，旅客不能进入安检区。',
+        sourceUrls: [
+          'https://www.tsa.gov/tsaconfirm-id/confirmid-faqs',
+          'https://www.tsa.gov/travel/security-screening/identification',
+        ],
       },
       {
-        claim: 'USA.gov 2026 年列出的 ConfirmID 费用为 $45，提前办理可减少机场延误，核验从出发日起有效 10 天。',
-        sourceUrls: ['https://www.usa.gov/real-id'],
+        claim: 'ConfirmID 费用为 $45，平均处理约 10 至 15 分钟但可能超过 30 分钟；付款凭证从所填出发日起有效 10 天。',
+        sourceUrls: [
+          'https://www.tsa.gov/tsaconfirm-id/about-confirmid',
+          'https://www.tsa.gov/tsaconfirm-id/confirmid-faqs',
+          'https://www.usa.gov/real-id',
+        ],
       },
       {
         claim: 'REAL ID 还适用于需要联邦可接受身份文件的部分联邦设施，但设施可以有各自的访问与安保规则。',
@@ -15452,7 +15489,7 @@ export const topics: TopicGuide[] = [
       '如果没有，准备有效护照、护照卡或 TSA 接受的其他证件。',
       '确认姓名与机票姓名一致。',
       '出发前再次查看 TSA identification 页面。',
-      '如果已经临近出发且没有可接受 ID，查看 USA.gov 和 TSA 的 ConfirmID 当前说明，并预留机场核验时间。',
+      '如果已经临近出发且没有可接受 ID，查看 TSA ConfirmID 当前说明，支付后保留凭证，并预留超过 30 分钟的核验余量。',
       '同时查看航空公司的姓名、未成年人和证件规则；TSA 接受证件不等于航空公司所有手续都自动满足。',
     ],
     steps: [
@@ -15461,7 +15498,7 @@ export const topics: TopicGuide[] = [
       '第三步：如果州证件不合规，优先选择仍有效的护照、护照卡、绿卡、EAD、军人证或清单内其他实体证件。',
       '第四步：刚续期或补证时，分清永久卡和 temporary credential；临时纸质驾照不能默认过 TSA。',
       '第五步：核对机票姓名、证件姓名、航班日期和航空公司的未成年人/国际转机规则，并把主要证件放入随身行李。',
-      '第六步：没有任何可接受证件时，再查看 ConfirmID 或 TSA 现场身份核验，并为额外筛查和不能通过核验的风险预留方案。',
+      '第六步：没有任何可接受证件时，按 TSA 现行 ConfirmID 流程付款并保留凭证；到机场仍要完成实际身份核验，并为核验失败、无法进入安检区的风险准备方案。',
     ],
     faqs: [
       {
@@ -15477,7 +15514,7 @@ export const topics: TopicGuide[] = [
       {
         question: '没有 REAL ID、也没有护照，还能飞吗？',
         answer:
-          '可能还有 ConfirmID 或 TSA 身份核验路径，但不是保证。USA.gov 当前列出的 ConfirmID 费用为 $45、从出发日起有效 10 天；身份无法确认时，TSA 可以不让旅客进入安检区。',
+          '现行备选是 TSA ConfirmID，但不是保证。费用为 $45，付款凭证从所填出发日起有效 10 天；实际核验仍在机场完成，身份无法确认时不能进入安检区。',
       },
       {
         question: '过期一年的护照或 REAL ID 还能用吗？',
@@ -15489,7 +15526,7 @@ export const topics: TopicGuide[] = [
       '机场场景优先看 TSA 接受证件列表；州 DMV 页面只解决州证件是否 REAL ID-compliant。',
       '临时纸质驾照、interim license 或刚换证的收据未必能通过 TSA，临近出行时应准备护照等替代证件。',
       'REAL ID 不替代国际旅行护照，也不解决签证、入境或航空公司姓名规则问题。',
-      'ConfirmID 应写成没有可接受 ID 时的身份核验备选，不要写成“可以买一个 REAL ID 替代品”。',
+      '2026-07-21 复核 TSA ConfirmID：这是无可接受 ID 时的 $45 付费核验备选，需保留凭证并在机场完成核验；付款不保证成功，也不是 REAL ID 替代品。',
     ],
     sources: [
       {
@@ -15507,6 +15544,14 @@ export const topics: TopicGuide[] = [
       {
         label: 'USA.gov REAL ID',
         url: 'https://www.usa.gov/real-id',
+      },
+      {
+        label: 'TSA ConfirmID Overview',
+        url: 'https://www.tsa.gov/tsaconfirm-id/about-confirmid',
+      },
+      {
+        label: 'TSA ConfirmID FAQs',
+        url: 'https://www.tsa.gov/tsaconfirm-id/confirmid-faqs',
       },
       {
         label: 'DHS Federal Facilities ID Requirements',
@@ -15529,7 +15574,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '线上/现场分流',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       '续期、补证、地址变更、REAL ID、首次驾照、外州转入和路考，不是都要去同一个 DMV 窗口。先判断能否线上、kiosk、邮寄或必须预约现场，能少跑很多冤枉路。',
     whoNeedsIt: [
@@ -15698,7 +15743,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '防诈骗',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       '收到“DMV 罚单未付”“toll 欠费”“REAL ID 可加急”“驾照将 suspend”的短信、邮件、电话或广告时，先不要点链接。很多州 DMV 和联邦机构都提醒，诈骗信息会伪装成官方页面，诱导你输入驾照号、SSN、银行卡或登录信息。',
     whoNeedsIt: [
@@ -16028,8 +16073,8 @@ export const topics: TopicGuide[] = [
     title: '驾照或 State ID 丢失/被盗后，补证、报案和身份盗用怎么处理',
     eyebrow: '丢证补证',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '驾照、learner permit、State ID、REAL ID 或 Enhanced ID 丢失、被盗、损坏后，最重要的不是只问“能不能马上补一张”。先判断是普通补证、地址/姓名/照片变化、REAL ID 升级、外州旅行，还是已经涉及 identity theft 或 driver license fraud。',
     whoNeedsIt: [
@@ -16047,7 +16092,7 @@ export const topics: TopicGuide[] = [
       '警察报告规则按州和场景不同。New York 对因犯罪丢失/被盗的免费 replacement 要 police agency 的 MV-78B；Texas、Florida、Virginia 等身份盗用场景都强调先联系 law enforcement；Maryland MVA 则说明普通 lost/stolen replacement 不要求 police report。',
       '补证不等于身份盗用问题解决。如果钱包里还有 SSN、银行卡、医保卡、护照、学生证或登录设备，应该按 IdentityTheft.gov、FTC、USA.gov 的步骤处理 fraud alert、credit freeze、银行/信用卡和账户密码。',
       '临时纸质证件和 mobile ID 不能无脑替代实体卡。Illinois temporary secure paper document 有期限；Virginia Mobile ID 设置通常需要扫描实体卡，且官方新闻仍提醒驾驶时继续携带实体 ID 作为 backup。',
-      '临近航班要看 TSA。TSA 的 acceptable ID、forgot-ID FAQ 和 ConfirmID 页面才是机场安检依据；DMV 临时收据、paper credential 或补证确认号不一定能当作可接受 ID。',
+      '临近航班要看 TSA。临时驾照不在 TSA 可接受证件清单内；自 2026 年 2 月 1 日起，没有其他可接受 ID 的成年人可支付 $45 使用 ConfirmID，但实际核验仍在机场完成，付款不保证能够通过。',
       '如果之后找回旧证，不要把它当第二张备用。New Jersey MVC 明确说收到 replacement 后，如果原证还在，应销毁（destroy）原证，不能持有多份 license / permit。',
       '外州转入或人在外州丢证要单独看规则。Washington 支持部分 out-of-state mail replacement；Georgia 转入时若外州卡丢失/被盗，可能要求原签发州的 MVR / driving record；Maryland 新居民也可能要求 certified driving record。',
     ],
@@ -16068,7 +16113,7 @@ export const topics: TopicGuide[] = [
       '第四步：选择线上、电话、邮寄或现场。California、Texas、Florida、Washington、New Jersey、Georgia、Maryland 等州有线上补证路径，但条件不同；Virginia、Washington 等页面列出不能线上补证的情况。',
       '第五步：如果证件被盗或被人使用，联系本地 police / sheriff 取得 report 或 incident number，再按本州 DMV fraud / identity theft 页面提交材料。不要假设新卡会自动阻止旧号码被滥用。',
       '第六步：如果钱包或资料一起丢，联系银行/信用卡、改账户密码、开启多因素认证、查看信用报告，并考虑 fraud alert 或 credit freeze；用 IdentityTheft.gov 生成补救清单。',
-      '第七步：如果临近旅行，优先找 TSA 可接受的其他 ID。没有实体 ID 时，查看 TSA forgot-ID 和 ConfirmID 页面，预留额外时间，并准备可能被拒绝或额外核验。',
+      '第七步：如果临近旅行，优先找 TSA 可接受的其他 ID。确实没有时，按 ConfirmID 当前页面支付 $45、保留付款凭证并预留超过 30 分钟；实际核验在机场完成，仍要准备无法进入安检区的风险方案。',
       '第八步：收到 replacement 后核对姓名、地址、REAL ID / Federal Limits Apply 标记、expiration date 和 class / endorsement。若旧卡找回，按州规则销毁或停用，不要作为备用证件继续使用。',
     ],
     faqs: [
@@ -16090,7 +16135,7 @@ export const topics: TopicGuide[] = [
       {
         question: '补证确认页、receipt 或临时纸质证能坐飞机吗？',
         answer:
-          '不稳。TSA 接受证件清单和 ConfirmID / forgot-ID 页面才是机场依据。临近航班时，优先使用护照、passport card、绿卡、EAD、military ID、Global Entry card 等 TSA 接受证件；没有可接受 ID 时按 TSA 当前身份核验流程处理。',
+          '不稳。临时驾照不在 TSA 可接受证件清单内。临近航班时优先使用护照、passport card、绿卡、EAD、military ID、Global Entry card 等证件；没有可接受 ID 时，现行备选是 $45 ConfirmID，但付款不保证机场身份核验成功。',
       },
       {
         question: '如果我后来找回旧驾照，可以留着备用吗？',
@@ -16143,11 +16188,11 @@ export const topics: TopicGuide[] = [
         ],
       },
       {
-        claim: 'TSA 不接受 temporary driver license 作为其清单内身份证件，没有其他可接受证件时应查看 TSA 当前身份核验说明。',
+        claim: 'TSA 不接受 temporary driver license；没有其他可接受证件的成年人可支付 $45 使用 ConfirmID，但实际核验在机场完成且付款不保证身份能够核实。',
         sourceUrls: [
           'https://www.tsa.gov/travel/security-screening/identification',
-          'https://www.tsa.gov/travel/frequently-asked-questions/i-forgot-my-identification-can-i-still-proceed-through-security',
-          'https://www.tsa.gov/tsaconfirm-id',
+          'https://www.tsa.gov/tsaconfirm-id/about-confirmid',
+          'https://www.tsa.gov/tsaconfirm-id/confirmid-faqs',
         ],
       },
       {
@@ -16161,15 +16206,15 @@ export const topics: TopicGuide[] = [
       {
         claim: '人在外州申请 replacement 与转入新州时的 transfer 是不同业务；Washington 和 Georgia 分别提供对应的外州处理路径。',
         sourceUrls: [
-          'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/replace-your-license-or-learner-permit',
-          'https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid',
+          'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/replace-your-license-or-learner-permit/replace-your-driver-license-while-out-state',
+          'https://dds.georgia.gov/georgia-licenses-ids-and-permits/new-license-id-or-permit/new-georgia-residents-and-out-state/how',
         ],
       },
     ],
     editorNotes: [
       '这页和“续期/补证/地址变更”页分工不同：那页讲顺序，这页讲 lost/stolen/fraud 的风险分流。',
       '不要承诺“换新号码”或“报警一定免费补证”。官方来源显示不同州差异很大，且新号码通常需要 fraud / identity theft 审核。',
-      '旅行相关必须引用 TSA，不要把州 DMV 的 temporary credential 写成 TSA 一定接受。',
+      '2026-07-21 复核 TSA：临时驾照不在接受清单；无其他可接受 ID 时的现行备选为 $45 ConfirmID，付款不保证机场核验成功。',
       '移动 ID 只能写成 companion / limited acceptance，不要把 mobile ID 当实体卡的完整替代。',
       '身份盗用补救以 IdentityTheft.gov、FTC、USA.gov、州 DMV fraud 页面为主，不提供法律意见或信用修复服务推荐。',
     ],
@@ -16208,12 +16253,12 @@ export const topics: TopicGuide[] = [
         url: 'https://www.tsa.gov/travel/security-screening/identification',
       },
       {
-        label: 'TSA Forgot Identification FAQ',
-        url: 'https://www.tsa.gov/travel/frequently-asked-questions/i-forgot-my-identification-can-i-still-proceed-through-security',
+        label: 'TSA ConfirmID Overview',
+        url: 'https://www.tsa.gov/tsaconfirm-id/about-confirmid',
       },
       {
-        label: 'TSA ConfirmID',
-        url: 'https://www.tsa.gov/tsaconfirm-id',
+        label: 'TSA ConfirmID FAQs',
+        url: 'https://www.tsa.gov/tsaconfirm-id/confirmid-faqs',
       },
       {
         label: "California DMV Replace Driver's License or ID Card",
@@ -16270,6 +16315,10 @@ export const topics: TopicGuide[] = [
       {
         label: 'Washington DOL Replace License or Learner Permit',
         url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/replace-your-license-or-learner-permit',
+      },
+      {
+        label: 'Washington DOL Replace Driver License While Out of State',
+        url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/replace-your-license-or-learner-permit/replace-your-driver-license-while-out-state',
       },
       {
         label: 'Washington DOL Replace ID Card',
@@ -16357,7 +16406,7 @@ export const topics: TopicGuide[] = [
       },
       {
         label: 'Georgia DDS Transfer Out-of-State Driver License/ID',
-        url: 'https://dds.georgia.gov/georgia-licenseid/new-licenseid/how-do-i-transfer-out-state-drivers-licenseid',
+        url: 'https://dds.georgia.gov/georgia-licenses-ids-and-permits/new-license-id-or-permit/new-georgia-residents-and-out-state/how',
       },
       {
         label: 'Georgia DDS Online Services FAQs',
@@ -16431,7 +16480,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '费用 / 拿证时间',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       'DMV 办证不只是交一笔固定费用。线上服务费、现场付款方式、补证/续期类别、临时凭证、实体卡邮寄时间和 TSA 是否接受，都可能影响你什么时候真正能用上新证件。',
     whoNeedsIt: [
@@ -16604,8 +16653,8 @@ export const topics: TopicGuide[] = [
     title: '第一次在美国考驾照：permit、笔试和路考顺序',
     eyebrow: '首次驾照',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '第一次在美国考驾照，不要只问“哪里预约路考”。多数州会先要求身份和居住材料、learner / instruction permit、knowledge test、练车或课程，再进入 road test / skills test 和正式 license。',
     whoNeedsIt: [
@@ -16651,7 +16700,7 @@ export const topics: TopicGuide[] = [
       {
         question: '笔试可以用中文吗？',
         answer:
-          '看州。加州、纽约、华盛顿、新泽西、佐治亚、密歇根等州页面都出现过多语言或中文相关资料/考试说明，但德州等州限制更多。应回到州官方 language / knowledge test 页面确认。',
+          '看州、考试类型和考点。中文网页或手册不能证明考场提供中文；应先看本站考试语言专题，再回到本州 knowledge test 页面和具体 testing location 确认。',
       },
       {
         question: '路考车辆需要准备什么？',
@@ -16663,7 +16712,7 @@ export const topics: TopicGuide[] = [
       {
         claim: '首次普通驾照的 permit、knowledge test、练车和 road test 顺序由州分别执行，不能把一个州的流程当成全国规则。',
         sourceUrls: [
-          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/instruction-permits/',
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/learners-permits/',
           'https://dmv.ny.gov/driver-license/get-learner-permit',
           'https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit/driver-license-application-ages-18',
         ],
@@ -16671,7 +16720,7 @@ export const topics: TopicGuide[] = [
       {
         claim: 'California instruction permit 申请和考试准备分别由官方 permit 与 knowledge / drive test 页面说明。',
         sourceUrls: [
-          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/instruction-permits/',
+          'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/learners-permits/',
           'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/preparing-for-knowledge-and-drive-tests/',
         ],
       },
@@ -16724,8 +16773,8 @@ export const topics: TopicGuide[] = [
     },
     sources: [
       {
-        label: 'California DMV Instruction Permits',
-        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/instruction-permits/',
+        label: 'California DMV Learner’s Permits',
+        url: 'https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/learners-permits/',
       },
       {
         label: 'California DMV Preparing for Knowledge and Drive Tests',
@@ -16775,8 +16824,8 @@ export const topics: TopicGuide[] = [
     title: '路考当天带什么：车辆、陪同人、保险、租车和失败重约',
     eyebrow: '路考当天',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '路考预约成功不等于当天一定能开考。Permit、课程证明、陪同驾驶人、registration、insurance、inspection、车辆设备、租车合同、临牌和迟到规则都可能让考试在上路前就被取消或改期。',
     whoNeedsIt: [
@@ -16815,7 +16864,7 @@ export const topics: TopicGuide[] = [
           'https://www.nj.gov/mvc/license/roadtest.htm',
           'https://www.mass.gov/info-details/passenger-class-d-road-tests',
           'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/testing',
-          'https://dds.georgia.gov/how-do-i-make-road-test-appointment',
+          'https://dds.georgia.gov/testing-and-training/road-test',
         ],
       },
       {
@@ -16826,7 +16875,7 @@ export const topics: TopicGuide[] = [
           'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
           'https://www.nj.gov/mvc/license/roadtest.htm',
           'https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test',
-          'https://dds.georgia.gov/how-do-i-make-road-test-appointment',
+          'https://dds.georgia.gov/testing-and-training/road-test',
         ],
       },
       {
@@ -16844,7 +16893,7 @@ export const topics: TopicGuide[] = [
         sourceUrls: [
           'https://dmv.ny.gov/driver-license/schedule-and-take-a-road-test',
           'https://www.dps.texas.gov/section/driver-license/faq/section-2-scheduling-road-test',
-          'https://dds.georgia.gov/how-do-i-make-road-test-appointment',
+          'https://dds.georgia.gov/testing-and-training/road-test',
         ],
       },
       {
@@ -17002,8 +17051,8 @@ export const topics: TopicGuide[] = [
         url: 'https://www.dmv.virginia.gov/licenses-ids/exams/road-skills-test',
       },
       {
-        label: 'Georgia DDS Make a Road Test Appointment',
-        url: 'https://dds.georgia.gov/how-do-i-make-road-test-appointment',
+        label: 'Georgia DDS Road Test Appointments',
+        url: 'https://dds.georgia.gov/testing-and-training/road-test',
       },
     ],
     relatedStateIds: ['california', 'new-york', 'texas', 'florida', 'washington', 'new-jersey', 'massachusetts', 'pennsylvania', 'virginia', 'georgia'],
@@ -17013,8 +17062,8 @@ export const topics: TopicGuide[] = [
     title: '未成年人考驾照：parent consent、driver education 和 GDL 限制怎么准备',
     eyebrow: '青少年驾照',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '美国青少年考驾照通常不是“考过笔试和路考就结束”。未满 18 或未满 21 的申请人可能要走 graduated driver license (GDL)、父母/监护人签字、driver education、supervised driving hours、夜间练车、乘客限制、curfew、学校证明、保险和路考车辆要求。家长和学生需要逐项核对本州规则。',
     whoNeedsIt: [
@@ -17134,6 +17183,19 @@ export const topics: TopicGuide[] = [
       {
         claim: 'Georgia Joshua’s Law 对 16–17 岁 Class D 路径要求认可课程，并要求 40 小时监督驾驶、其中至少 6 小时夜间。',
         sourceUrls: ['https://dds.georgia.gov/georgia-licenseid/new-licenseid/joshuas-law-requirements'],
+      },
+      {
+        claim: 'Florida 未满 18 岁申请 learner license 要有合格家长或监护人同意；Washington 16–17 岁线上或现场申领也要求家长、监护人或符合条件的责任成年人参与。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/',
+          'https://dol.wa.gov/driver-licenses-and-permits/get-your-first-license-or-permit/driver-license-application-ages-16-17',
+        ],
+      },
+      {
+        claim: 'Florida 青少年路考车辆要有有效 registration、保险并通过基本车辆检查；预约成功不能替代这些车辆要求。',
+        sourceUrls: [
+          'https://www.flhsmv.gov/driver-licenses-id-cards/licensing-requirements-teens-graduated-driver-license-laws-driving-curfews/',
+        ],
       },
     ],
     editorNotes: [
@@ -17848,8 +17910,8 @@ export const topics: TopicGuide[] = [
     title: 'DMV 中文笔试、文件翻译和口译怎么判断',
     eyebrow: '语言 / 翻译',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '美国 DMV 的语言规则不能只问“有没有中文”。网页翻译、中文手册、knowledge test 语言、road test 口译、CDL / Hazmat 限制、外文文件 certified translation，常常是几套完全不同的规则。',
     whoNeedsIt: [
@@ -17887,9 +17949,9 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://www.nj.gov/mvc/license/knowledgetest.htm'],
       },
       {
-        claim: 'North Carolina 将多语言笔试、oral test 和 interpreter services 分开说明，口译需求应在到场前确认。',
+        claim: 'North Carolina 官方手册说明阅读困难者可按请求使用 audio knowledge test；DMV 另有语言与 ASL interpreter 服务入口，具体服务应在到场前申请。',
         sourceUrls: [
-          'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+          'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf',
           'https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx',
         ],
       },
@@ -17906,9 +17968,9 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://www.nj.gov/mvc/license/knowledgetest.htm'],
       },
       {
-        claim: 'North Carolina 普通知识考试提供不同语言并可按请求提供 oral test，语言 interpreter 则要通过独立服务入口申请。',
+        claim: 'North Carolina 的 audio knowledge test 与语言 interpreter 是不同服务；当前官方材料不能据此推定每种语言都能用于每类考试。',
         sourceUrls: [
-          'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+          'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf',
           'https://www.ncdot.gov/dmv/license-id/driver-licenses/Pages/interpreter-services.aspx',
         ],
       },
@@ -18009,8 +18071,8 @@ export const topics: TopicGuide[] = [
         url: 'https://dds.georgia.gov/list-languages',
       },
       {
-        label: 'NCDMV Driver License Tests',
-        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx',
+        label: 'NCDMV Driver Handbook',
+        url: 'https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf',
       },
       {
         label: 'NCDMV Interpreter Services',
@@ -18032,8 +18094,8 @@ export const topics: TopicGuide[] = [
     title: '中国/外国驾照、IDP 和美国州驾照怎么衔接',
     eyebrow: '外国驾照',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '持中国或其他外国驾照来美国，先分清自己是短期访客、学生/临时居民，还是已经成为某州居民。IDP 通常只是翻译辅助文件，换成本州驾照仍要看州 DMV 的测试、翻译、身份和互惠规则。',
     whoNeedsIt: [
@@ -18121,6 +18183,22 @@ export const topics: TopicGuide[] = [
         sourceUrls: ['https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test'],
       },
       {
+        claim: 'New Jersey 当前互惠路径限 Taiwan 与 South Korea，并附有年龄、非商业驾照、翻译、居住、SSN 和 lawful-presence 等条件。',
+        sourceUrls: ['https://www.nj.gov/mvc/drivertopics/movetonj.htm'],
+      },
+      {
+        claim: 'Pennsylvania 当前列出的非商业驾照互惠国家为 France、Germany、Korea 和 Taiwan，可免 knowledge 与 road test，但仍要 vision test。',
+        sourceUrls: [
+          'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/applying-for-a-learners-permit',
+        ],
+      },
+      {
+        claim: 'Texas 当前列出的互惠来源为 France、Germany、South Korea、United Arab Emirates 和 Taiwan；有效未过期证件持有人可能免 knowledge 与 skills exams，是否交回原证会影响路径。',
+        sourceUrls: [
+          'https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids',
+        ],
+      },
+      {
         claim: 'Michigan SOS-428 将外国驾照视为 driving experience 证明，而不是 legal presence 或 identity 证明。',
         sourceUrls: ['https://www.michigan.gov/sos/-/media/Project/Websites/sos/License-and-ID/Applying_for_lic_or_ID_SOS_428.pdf?hash=0B64297F20E284527C47A01B0D4C5B0B&rev=159d4055424640e092b8f748acc50bfa'],
       },
@@ -18178,8 +18256,16 @@ export const topics: TopicGuide[] = [
         url: 'https://www.pa.gov/agencies/dmv/driver-services/driving-in-pennsylvania-with-a-foreign-driver-s-license',
       },
       {
+        label: 'PennDOT Learner Permit and Foreign Reciprocity',
+        url: 'https://www.pa.gov/agencies/dmv/driver-services/pennsylvania-drivers-manual/online-drivers-manual/applying-for-a-learners-permit',
+      },
+      {
         label: 'Washington DOL Do I Need to Take a Test',
         url: 'https://dol.wa.gov/driver-licenses-and-permits/driver-training-and-testing/do-i-need-take-test',
+      },
+      {
+        label: 'Texas DPS Moving to Texas Guide',
+        url: 'https://www.dps.texas.gov/section/driver-license/moving-texas-guide-driver-licenses-and-ids',
       },
       {
         label: 'Michigan SOS Driver License or ID Requirements PDF',
@@ -18481,7 +18567,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '搬州',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       '搬州要同时处理“人”和“车”：新州驾照/ID、地址证明、保险、title、registration、inspection、车牌，以及旧州登记和保险收尾。正确顺序取决于新州，不是永远先换驾照。',
     whoNeedsIt: [
@@ -20014,7 +20100,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '车辆登记',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       'DMV 不只管驾照。买车、搬州或从外州带车时，title、registration、insurance、inspection / emissions、license plates 和 driver license 可能互相卡住，办理顺序需要按州和交易类型确认。',
     whoNeedsIt: [
@@ -20230,8 +20316,8 @@ export const topics: TopicGuide[] = [
     title: '车辆 registration 续期：过期、车检和停驶',
     eyebrow: '车辆登记续期',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '车牌 sticker / decal / tab 快过期、registration 已过期、没收到 renewal notice、线上续不了，或车辆准备长期停驶时，先确认登记州和准确截止日，再处理地址、保险、inspection / emissions、税费或 hold，最后选择 renewal、重新登记、补 sticker，还是本州认可的 non-operation / plate deactivation 路径。',
     whoNeedsIt: [
@@ -20337,7 +20423,7 @@ export const topics: TopicGuide[] = [
           '长期停驶不是简单让 registration 过期：California PNO、Virginia plate deactivation、Pennsylvania 与 North Carolina 的 plate / insurance 顺序各不相同。',
         sourceUrls: [
           'https://www.dmv.ca.gov/portal/vehicle-registration/vehicle-registration-renewal/file-for-planned-non-operation/',
-          'https://www.dmv.virginia.gov/licenses-ids/license/outside-va',
+          'https://www.dmv.virginia.gov/vehicles/license-plates/surrender',
           'https://www.pa.gov/agencies/dmv/vehicle-services/insurance-overview',
           'https://www.ncdot.gov/dmv/title-registration/license-plates/Pages/default.aspx',
         ],
@@ -20493,8 +20579,8 @@ export const topics: TopicGuide[] = [
         url: 'https://www.dmv.virginia.gov/vehicles/insurance-requirements',
       },
       {
-        label: 'Virginia DMV Temporarily Outside Virginia',
-        url: 'https://www.dmv.virginia.gov/licenses-ids/license/outside-va',
+        label: 'Virginia DMV What to Do with Your License Plates',
+        url: 'https://www.dmv.virginia.gov/vehicles/license-plates/surrender',
       },
       {
         label: 'Georgia DOR Renew Vehicle Registration',
@@ -20536,7 +20622,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '车牌补办',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       '车辆凭证丢失时，先别只问“能不能补一个 sticker”。License plate、registration card、registration sticker / decal / tab、inspection sticker 和 title 是不同事项；被盗、没收到邮件、车牌损坏、地址错误、toll / parking / insurance hold 的处理路径也不同。',
     whoNeedsIt: [
@@ -20880,8 +20966,8 @@ export const topics: TopicGuide[] = [
     title: '临时牌照、temporary tag 和 trip permit：买车、搬州或没牌上路怎么办',
     eyebrow: '临时牌照',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '买车当天、跨州开回家、正式 plates / sticker 没到、车辆还没完成 smog / inspection / registration 时，常见词有 temporary tag、temporary operating permit、trip permit、transit permit、one-trip permit 和 dealer temp tag。它们不是全国通用通行证，也不能替代 title、insurance 或正式 registration。',
     whoNeedsIt: [
@@ -20969,7 +21055,7 @@ export const topics: TopicGuide[] = [
       },
       {
         claim:
-          'Texas 的 30-Day 和 One-Trip Permit 仍存在，但 HB 718 后由 county tax office 或 TxDMV regional service center 签发 Temporary Registration metal plate。',
+          'Texas 的 30-Day 和 One-Trip 临时登记业务仍保留，但 HB 718 淘汰旧式纸质 permit 展示方式，改由 county tax office 或 TxDMV regional service center 签发 Temporary Registration metal plate。',
         sourceUrls: [
           'https://www.txdmv.gov/dealers/HB718',
           'https://www.txdmv.gov/motorists/register-your-vehicle/temporary-permits',
@@ -21194,7 +21280,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '车辆检查',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       '美国没有全国统一的车辆年检规则。买车、搬州、续 registration 或从外州带车时，先分清 safety inspection、emissions / smog check、VIN verification 和 registration hold，才能知道该找 DMV、排放项目、检查站还是 county office。',
     whoNeedsIt: [
@@ -21455,8 +21541,8 @@ export const topics: TopicGuide[] = [
     title: '卖车、捐车或报废后，DMV 责任解除、车牌和保险怎么收尾',
     eyebrow: '车辆收尾',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '卖车不是把钥匙和 title 交出去就结束。很多州还要提交 sold notice / release of liability、移除或退还车牌、确认买方 title transfer，并按正确顺序取消保险。',
     whoNeedsIt: [
@@ -21538,6 +21624,7 @@ export const topics: TopicGuide[] = [
           'Washington 卖方应在成交后 5 个 business days 内提交 Vehicle Report of Sale，买方 title/registration 是另一项手续。',
         sourceUrls: [
           'https://dol.wa.gov/vehicles-and-boats/vehicles/buying-and-selling-vehicle/sell-vehicle',
+          'https://dol.wa.gov/forms/view/420062/download?inline=',
         ],
       },
       {
@@ -21636,6 +21723,10 @@ export const topics: TopicGuide[] = [
       {
         label: 'Washington DOL Sell a Vehicle',
         url: 'https://dol.wa.gov/vehicles-and-boats/vehicles/buying-and-selling-vehicle/sell-vehicle',
+      },
+      {
+        label: 'Washington DOL Vehicle Report of Sale Form',
+        url: 'https://dol.wa.gov/forms/view/420062/download?inline=',
       },
       {
         label: 'PennDOT Types of Insurance Letters',
@@ -21950,8 +22041,8 @@ export const topics: TopicGuide[] = [
     title: '驾照记录、points 和 traffic school：怎么查、怎么影响保险和停牌',
     eyebrow: '驾照记录',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    modifiedAt: '2026-07-21',
+    reviewedAt: '2026-07-21',
     description:
       '收到交通罚单、想查 driving record / MVR、担心 points、想上 traffic school / defensive driving / driver improvement，或雇主/保险要看驾驶记录时，不要只问“能不能消分”。不同州把驾驶记录、扣分、课程、保险折扣、停牌和商业驾照规则分得很细。',
     whoNeedsIt: [
@@ -22030,7 +22121,7 @@ export const topics: TopicGuide[] = [
       },
       {
         claim:
-          'Texas Type 3A 是 defensive driving course 可接受的 certified complete history；Type 2A 和 Type AR 官方说明为不适用于该用途。',
+          'Texas Type 3A 是官方明确标为 defensive driving course 可接受的 certified complete history；Type 2A 明确不适用于该用途，Type AR 则是单独的 certified abstract，不能在未获法院确认时自行替代 3A。',
         sourceUrls: [
           'https://txapps.texas.gov/apps/dps/txldr/html/recordTypes.html',
           'https://txapps.texas.gov/apps/dps/txldr/html/faq.html',
@@ -22636,7 +22727,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '线上服务',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-13',
+    reviewedAt: '2026-07-21',
     description:
       '最常见的坑是顺序错了：搬家后直接补证，结果新卡寄到旧地址；想线上续期，系统又因为 REAL ID、身份状态或过期时间把你挡住。',
     whoNeedsIt: [

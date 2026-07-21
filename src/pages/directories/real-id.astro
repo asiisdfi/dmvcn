@@ -1,14 +1,28 @@
 ---
-import { SITE_LAUNCH_DATE } from '../../data/editorial';
+import { DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
 import StatusFilter from '../../components/StatusFilter.astro';
-import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
+import { getStatePublicStatus, states } from '../../data/content';
+
+const realIdPattern = /real.?id|star.?id|star.?card|travel.?id|secure.?id|enhanced|federal/i;
+const documentPattern = /required documents?|document verification|document list|checklist|材料|文件/i;
+
+function pickRealIdLink(state: (typeof states)[number]) {
+  const stateLinks = state.actionLinks.filter((link) => !/tsa\.gov/i.test(link.url));
+  return (
+    stateLinks.find((link) => realIdPattern.test(`${link.label} ${link.url}`)) ??
+    stateLinks.find((link) => documentPattern.test(link.label)) ??
+    stateLinks.find((link) => realIdPattern.test(link.description)) ??
+    stateLinks.find((link) => documentPattern.test(link.description)) ??
+    stateLinks[0]
+  );
+}
 
 const rows = states.map((state) => {
   const status = getStatePublicStatus(state);
-  const realIdLink = state.actionLinks[0];
+  const realIdLink = pickRealIdLink(state);
   return {
     state,
     status,
@@ -21,7 +35,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: '50 州 REAL ID 官方入口表',
   description: '按州整理美国 50 州 REAL ID、Star Card、Travel ID 或州身份证明材料官方入口。',
-  dateModified: REVIEW_DATE,
+  dateModified: DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -36,7 +50,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="50 州 REAL ID 官方入口表" description="按州查找 REAL ID、Star Card、Travel ID 或州身份证明材料官方入口，并进入中文材料清单。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE}
+<BaseLayout title="50 州 REAL ID 官方入口表" description="按州查找 REAL ID、Star Card、Travel ID 或州身份证明材料官方入口，并进入中文材料清单。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DIRECTORY_REVIEW_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">
@@ -58,7 +72,7 @@ const schema = {
           <span>需浏览器点验</span>
         </div>
         <div>
-          <strong>{REVIEW_DATE}</strong>
+          <strong>{DIRECTORY_REVIEW_DATE}</strong>
           <span>表格核对</span>
         </div>
       </div>
@@ -82,7 +96,14 @@ const schema = {
         <span>中文页</span>
       </div>
       {rows.map((row) => (
-        <article class="directory-row" role="listitem" data-directory-row data-status={row.status.tone} data-search={row.searchText}>
+        <article
+          class="directory-row"
+          role="listitem"
+          data-directory-row
+          data-status={row.status.tone}
+          data-search={row.searchText}
+          data-official-real-id-url={row.realIdLink.url}
+        >
           <a class="directory-state" href={`/states/${row.state.id}/real-id/`}>
             <span class="state-badge">{row.state.abbr}</span>
             <span>
@@ -98,7 +119,7 @@ const schema = {
             <span class={`status-chip ${row.status.tone}`}>{row.status.label}</span>
           </div>
           <div class="directory-date">
-            <strong>{row.state.reviewedAt ?? REVIEW_DATE}</strong>
+            <strong>{row.state.reviewedAt ?? DIRECTORY_REVIEW_DATE}</strong>
             <small>{row.state.sources.length} 个来源</small>
           </div>
           <div class="directory-actions">

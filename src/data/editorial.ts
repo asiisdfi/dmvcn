@@ -1,7 +1,8 @@
 export const SITE_LAUNCH_DATE = '2026-07-13';
 export const EDITORIAL_POLICY_DATE = '2026-07-17';
 export const EDITORIAL_POLICY_MODIFIED_DATE = '2026-07-19';
-export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-17';
+export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-21';
+export const DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
 
 export const EDITORIAL_AUTHOR = {
@@ -32,6 +33,66 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-21',
+    title: '修复 Minnesota 与 Kentucky 官方来源迁移',
+    summary:
+      '根据当前州政府导航和页面实际链接，将 Minnesota 旧 dvsinfohub PDF 替换为 DVS 当前 REAL ID、证件类型、同日制卡说明与 assets.dps.mn.gov 材料图解，修正新居民车辆登记路径；Kentucky 驾驶手册改用 KSP 当前办事页实际引用的官方 PDF。',
+    scope: [
+      'Minnesota REAL ID 与证件类型来源',
+      'Minnesota 同日制卡、新居民车辆登记与 DVS 服务点',
+      'Kentucky State Police Driver Manual',
+      '官方链接可达性审计',
+    ],
+  },
+  {
+    date: '2026-07-21',
+    title: '完成最后 8 个中风险驾驶与车辆专题语义核对',
+    summary:
+      '逐条回查联邦与州政府正文，核对 DMV 诈骗、搬州后车辆登记、registration 续期、车牌补办、临时牌照、车辆检查、卖车收尾和驾驶记录共 79 条关键声明；修正 Virginia plate deactivation 入口，明确 Texas HB 718 后 30-Day / One-Trip 的金属临时登记牌路径，并补齐 Washington Report of Sale 工作日期限的表格证据。',
+    scope: [
+      '诈骗短信与身份保护',
+      '车辆 title、registration、inspection 与临时牌照',
+      '卖车、退牌、保险与责任解除',
+      'driving record、points 与 traffic school',
+    ],
+  },
+  {
+    date: '2026-07-21',
+    title: '完成 5 个首次驾照、路考与考试语言专题语义核对',
+    summary:
+      '逐条回查联邦与九州政府页面，核对首次驾照顺序、路考车辆与陪同人、青少年 GDL、考试语言、外国驾照与互惠免试；更新 California learner-permit 与 Georgia road-test 入口，移除 North Carolina 无法由当前官方正文确认的多语言笔试泛化，并补齐 New Jersey、Pennsylvania、Texas 外国驾照互惠的逐条来源。',
+    scope: [
+      '首次驾照与 learner permit',
+      '路考车辆、租车、口译与重考',
+      '青少年 GDL 与家长清单',
+      '考试语言、外国驾照、IDP 与互惠免试',
+    ],
+  },
+  {
+    date: '2026-07-21',
+    title: '完成 6 个证件办理生命周期专题语义核对',
+    summary:
+      '逐条回查 59 个联邦与州政府入口，核对 State ID、线上和现场分流、丢失补证、费用与寄卡、搬州、续期和改址共 60 条关键声明；将丢证旅行说明更新为 2026 年 $45 TSA ConfirmID 流程，并把 Washington 外州邮寄补证绑定到专门办理页。',
+    scope: [
+      'State ID 与 non-driver ID',
+      '线上、现场与预约分流',
+      '丢证、补证与身份盗用',
+      '费用、邮寄、搬州与改址顺序',
+    ],
+  },
+  {
+    date: '2026-07-21',
+    title: '完成首批 6 个 REAL ID 与地址材料专题语义核对',
+    summary:
+      '逐条比对 TSA、DHS、USA.gov 以及 California、New York、Washington、Texas、Pennsylvania、Florida、New Jersey、Iowa 和 South Dakota 当前官方资料；修正无可接受证件时的 2026 TSA ConfirmID 付费流程、失败风险和处理时间，替换 South Dakota full-time traveler 失效入口，并为 60 条关键声明保留就近来源。',
+    scope: [
+      'REAL ID 基础与证件类型比较',
+      'REAL ID 材料与地址证明',
+      '无本人账单、P.O. Box 与 PMB 特例',
+      '国内航班与 TSA ConfirmID 当前流程',
+    ],
+  },
   {
     date: '2026-07-21',
     title: '完成 West Virginia 两页州法、外国驾照与考试路线核对',

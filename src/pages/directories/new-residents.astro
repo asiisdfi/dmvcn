@@ -1,10 +1,10 @@
 ---
-import { SITE_LAUNCH_DATE } from '../../data/editorial';
+import { DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
 import StatusFilter from '../../components/StatusFilter.astro';
-import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
+import { getStatePublicStatus, states } from '../../data/content';
 
 const movingPattern = /new|moving|resident|transfer|out[- ]of[- ]state|address|change|license|driver|搬|新居民|外州|转入|地址|首次/i;
 
@@ -58,7 +58,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: '搬到新州后 DMV 办事入口表',
   description: '按州整理搬到新州后换驾照、外州驾照转入、地址更新和车辆登记相关官方入口。',
-  dateModified: REVIEW_DATE,
+  dateModified: DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -73,7 +73,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="搬到新州后 DMV 办事入口表" description="按州查找搬到新州后的驾照转入、地址更新、车辆登记顺序和 DMV 官方入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SITE_LAUNCH_DATE} reviewedAt={REVIEW_DATE}
+<BaseLayout title="搬到新州后 DMV 办事入口表" description="按州查找搬到新州后的驾照转入、地址更新、车辆登记顺序和 DMV 官方入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DIRECTORY_REVIEW_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">

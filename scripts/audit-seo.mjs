@@ -171,6 +171,22 @@ if (homepage) {
   if (!html.includes('50 个州')) errors.push('index.html: homepage should show 50-state coverage');
 }
 
+const realIdDirectory = htmlFiles.find((file) => file.relative === 'directories/real-id/index.html');
+if (realIdDirectory) {
+  const html = await readFile(realIdDirectory.url, 'utf8');
+  const officialUrls = [...html.matchAll(/data-official-real-id-url="([^"]+)"/g)].map((match) => match[1]);
+
+  if (officialUrls.length !== 50) {
+    errors.push(`directories/real-id/index.html: found ${officialUrls.length} state official links; expected 50`);
+  }
+  if (officialUrls.some((url) => !url.startsWith('https://'))) {
+    errors.push('directories/real-id/index.html: every state official link must use HTTPS');
+  }
+  if (officialUrls.some((url) => /tsa\.gov/i.test(url))) {
+    errors.push('directories/real-id/index.html: a TSA general page was selected as a state official link');
+  }
+}
+
 if (!(await exists(new URL('sitemap.xml', distDir)))) {
   errors.push('sitemap.xml is missing');
 }
