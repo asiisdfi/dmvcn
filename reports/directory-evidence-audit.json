@@ -1,32 +1,32 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T02:43:11.542Z",
+    "generatedAt": "2026-07-21T03:00:35.069Z",
     "pages": 5,
-    "claims": 746,
+    "claims": 761,
     "statesCovered": 50,
-    "aiAssisted": 699,
-    "automated": 47,
+    "aiAssisted": 715,
+    "automated": 46,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 153,
-        "states": 44
+        "claims": 157,
+        "states": 45
       },
       "deadlines": {
-        "claims": 112,
-        "states": 42
+        "claims": 115,
+        "states": 43
       },
       "document-rules": {
-        "claims": 184,
+        "claims": 187,
         "states": 49
       },
       "foreign-license": {
-        "claims": 128,
-        "states": 41
+        "claims": 129,
+        "states": 42
       },
       "identity-ssn": {
-        "claims": 169,
-        "states": 45
+        "claims": 173,
+        "states": 46
       }
     }
   },
@@ -1437,6 +1437,66 @@
       "failedThemes": [
         "fee"
       ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "iowa",
+      "category": "费用",
+      "claim": "Class C 当前为 $4/year，Class C instruction permit $6，non-operator ID $8，online renewal 另有 $1.50 processing fee",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/fees",
+      "sourceLabel": "对应官方来源：Iowa DOT Driver License Fees",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "iowa",
+      "category": "费用",
+      "claim": "在续期之外换卡仍按普通 replacement 收 $10",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID",
+      "themes": [
+        "fee",
+        "renewal"
+      ],
+      "failedThemes": [
+        "fee"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "iowa",
+      "category": "费用",
+      "claim": "付款前核对期限：Class C $4/year、permit $6、ID $8、replacement $10",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/fees",
+      "sourceLabel": "对应官方来源：Iowa DOT Driver License Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "iowa",
+      "category": "付款",
+      "claim": "可用 Social Security card、W-2、1099、pay stub、1095、bank statement 或其他列明 full SSN 的文件",
+      "sourceUrl": "https://ia.iowadot.gov/mvd/realid/success4.aspx",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID SSN Documents",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -3363,6 +3423,50 @@
       "sourceLabel": "对应官方来源：Missouri DOR Required Documents Checklist",
       "themes": [
         "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "iowa",
+      "category": "处理 / 邮寄",
+      "claim": "卡片通常在处理后 30 天内邮寄",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "iowa",
+      "category": "续期 / 到期",
+      "claim": "Iowa license 可提前 180 天续期",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license",
+      "sourceLabel": "对应官方来源：Iowa DOT Renew Driver License",
+      "themes": [
+        "renewal"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "iowa",
+      "category": "处理 / 邮寄",
+      "claim": "mailing address 变化须在 30 天内通知，可线上或邮寄且不自动发新卡",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/other-services/change-information",
+      "sourceLabel": "对应官方来源：Iowa DOT Change Information",
+      "themes": [
+        "processing-or-mail"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
@@ -5488,16 +5592,58 @@
     {
       "page": "document-rules",
       "stateId": "iowa",
-      "category": "清单入口",
-      "claim": "先确认你是 new to Iowa、REAL ID upgrade、renewal、duplicate 还是 change information",
-      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
-      "sourceLabel": "对应官方来源：Iowa DOT REAL ID",
+      "category": "地址证明",
+      "claim": "可用 Social Security card、W-2、1099、pay stub、1095、bank statement 或其他列明 full SSN 的文件",
+      "sourceUrl": "https://ia.iowadot.gov/mvd/realid/success4.aspx",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID SSN Documents",
       "themes": [
-        "renewal"
+        "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "iowa",
+      "category": "地址证明",
+      "claim": "REAL ID 带两份打印文件，均显示 current name 和 current Iowa physical address",
+      "sourceUrl": "https://ia.iowadot.gov/mvd/realid/success5.aspx",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID Residency Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "iowa",
+      "category": "地址证明",
+      "claim": "P.O. Box 不能替代 residential address",
+      "sourceUrl": "https://ia.iowadot.gov/mvd/realid/success5.aspx",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID Residency Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "iowa",
+      "category": "地址证明",
+      "claim": "未成年人由 parent / guardian consent 证明一部分 residency，并另带一份显示未成年人姓名和地址的打印文件",
+      "sourceUrl": "https://ia.iowadot.gov/mvd/realid/success5.aspx",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID Residency Documents",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -7850,6 +7996,20 @@
     },
     {
       "page": "foreign-license",
+      "stateId": "iowa",
+      "category": "材料 / 身份",
+      "claim": "temporary foreign national 另带 current lawful-status document，并为 SAVE additional verification 预留时间",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+      "sourceLabel": "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+      "themes": [
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "foreign-license",
       "stateId": "kansas",
       "category": "外州 / 加拿大转入",
       "claim": "外州转入与首次驾照：有效或过期外州驾照、首次申请和考试要求",
@@ -10002,6 +10162,68 @@
         "ssn"
       ],
       "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "iowa",
+      "category": "无 SSN / SSA",
+      "claim": "本人到场提供 SSN 且能由 SSA 电子核验时可不再交纸质证明",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID FAQ",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "iowa",
+      "category": "无 SSN / SSA",
+      "claim": "没有纸质 SSN 文件但号码可由 SSA 电子核验时，可在现场提供号码",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID FAQ",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "iowa",
+      "category": "无 SSN / SSA",
+      "claim": "有 SSN 资格就先处理 SSA，避免 SAVE / SSOLV 到现场才失败",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID FAQ",
+      "themes": [
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "immigration-verification"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "iowa",
+      "category": "SSN",
+      "claim": "确实未获 employment authorization 者按 USCIS number 核验，不可套用到有资格申请 SSN 但尚未申请的人",
+      "sourceUrl": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+      "sourceLabel": "对应官方来源：Iowa DOT REAL ID FAQ",
+      "themes": [
+        "ssn",
+        "immigration-verification"
+      ],
+      "failedThemes": [
+        "immigration-verification"
+      ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },

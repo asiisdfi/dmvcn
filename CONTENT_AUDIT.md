@@ -2999,3 +2999,39 @@ Validation:
 - Browser QA at 1280 x 720 and 390 x 844 confirmed 54 overview evidence rows and 66 REAL ID evidence rows, 254 rendered official-source links, visible mainland-China, Chinese-test, English-only road-test, residency-clock, SSN-conflict and divorce-decree guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
 - Quality workbook: 42 semantic-review pages and 59 blocked pages remain; weak-intent pages remain 0.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+
+## Round 74 Changes
+
+Date: 2026-07-21
+
+### Iowa Driver License, REAL ID, Chinese Test and SAVE Deep Review
+
+Source scan:
+
+- Opened and checked the Iowa DOT driver-license hub, New to Iowa, Immigrant & Refugee, REAL ID, FAQ and interactive identity / SSN / residency / name checklists; renewal, extension, fee, information-change, replacement, license-type, road-test, manual, practice-test, appointment, location and non-driver-ID pages; current Iowa Administrative Code 761-604; 2026 Iowa Code 321.1A, 321.176 and 321.196; SF 2187, HF 2102's current legislative status and TSA identification guidance.
+- Replaced the unsupported idea of a universal 30-day moving grace period with the actual Iowa-resident triggers in section 321.1A, including voting, public-school enrollment and Iowa employment, while retaining the listed student and military exceptions.
+- Confirmed that the current foreign-license reciprocity list names France, Germany, South Korea and Republic of China (Taiwan), not mainland China. Mainland-China applicants should plan for vision, knowledge and driving tests rather than using the U.S. out-of-state waiver route.
+- Confirmed that the ordinary operator knowledge test currently lists Chinese written and audio translations without promising simplified or traditional script. The manual page separately offers an archived Traditional Chinese manual; interpreter support for an unlisted language or dialect and pre-road-test instructions does not establish a right to a friend translating inside the test vehicle.
+- Confirmed the optional gold-star REAL ID path and its one identity / lawful-status document, one current-name / full-SSN path and two printed physical-address documents. The page now distinguishes electronic SSN verification, the narrow no-employment-authorization route, complete certified name chains, originals / certified copies and minor residency handling.
+- Confirmed renewal windows, the 60-day post-expiration driving provision, the one-year retest threshold, online-renewal eligibility, current Class C / permit / ID / replacement fees, address and name-change routes, road-test vehicle requirements and the current absence of parallel parking from the ordinary drive test.
+- Disclosed two timing boundaries instead of silently choosing a convenient number: the Immigrant & Refugee page currently mentions both a general 45-business-day additional-verification estimate and a usual 3–7-business-day SAVE case estimate; SF 2187's new verification clause applies March 1, 2027, or earlier only after the specified Iowa DOT implementation notice.
+
+Scope:
+
+- Rewrote both `/states/iowa/` and `/states/iowa/real-id/` with separate paths for U.S. transfers, mainland-China and other foreign licenses, first-time applicants, standard versus REAL ID credentials, noncitizen verification, renewal, replacement, address / name changes, non-driver IDs and testing accommodations.
+- Expanded the Iowa source list from 5 to 31 checked official sources and registered all 106 unique claims as AI-assisted explicit mappings. The two rendered pages expose 47 overview and 61 REAL ID evidence records with 214 official-source links without representing the work as human, legal or professional approval.
+- Preserved the original publication date, set separate modification and fact-check dates to the actual review date, added a reader-facing editorial update and retained an Iowa DOT / USA.gov fallback for direct-access problems.
+- Updated the README quality totals, public editorial log, E-E-A-T inventory, quality workbook and Search Console priority reports.
+
+Validation:
+
+- Iowa official-link audit: 32 checked, 8 direct OK, 24 Iowa DOT security-response watch, 0 fail. The 24 official bodies were available during source review; the direct checker records their current Akamai-style 403 behavior without treating it as a dead-link failure.
+- State evidence audit: 4,420 claims, 8,125 official links, 4,307 AI-assisted explicit mappings across 92 pages, 0 errors.
+- Directory evidence audit: 761 claims, 715 inherited explicit mappings, 46 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 109 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 40 automated-source pages and 17 high-risk human approvals still honestly pending. Iowa's overview scores 96 and its REAL ID page scores 99.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,621 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 47 overview evidence rows, 61 REAL ID evidence rows, 214 rendered official-source links, visible mainland-China, Chinese-test, SAVE, SSN, residency and future-law guidance, normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
+- Quality workbook: 40 semantic-review pages and 57 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.

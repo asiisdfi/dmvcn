@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T02:43:13.492Z",
+    "generatedAt": "2026-07-21T03:00:37.010Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 107,
+    "passed": 109,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 42,
-    "aiAssistedReviews": 113,
+    "sourceMappedReviews": 40,
+    "aiAssistedReviews": 115,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 59,
+    "blockedPages": 57,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 220,
+        "sourceCount": 222,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 309,
+        "sourceCount": 311,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 153,
-        "directoryEvidenceLinks": 153,
+        "directoryEvidenceItems": 157,
+        "directoryEvidenceLinks": 157,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 251,
+        "sourceCount": 253,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 112,
-        "directoryEvidenceLinks": 112,
+        "directoryEvidenceItems": 115,
+        "directoryEvidenceLinks": 115,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 653,
+        "sourceCount": 663,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 220,
+        "sourceCount": 224,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -521,8 +521,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 184,
-        "directoryEvidenceLinks": 184,
+        "directoryEvidenceItems": 187,
+        "directoryEvidenceLinks": 187,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 164,
+        "sourceCount": 167,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 128,
-        "directoryEvidenceLinks": 128,
+        "directoryEvidenceItems": 129,
+        "directoryEvidenceLinks": 129,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 246,
+        "sourceCount": 251,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 169,
-        "directoryEvidenceLinks": 169,
+        "directoryEvidenceItems": 173,
+        "directoryEvidenceLinks": 173,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 209,
+        "sourceCount": 212,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -841,7 +841,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 201,
+        "sourceCount": 205,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1498,
+        "sourceCount": 1521,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -2411,21 +2411,21 @@
       "route": "/states/iowa/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 93,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成爱荷华州（Iowa Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Iowa DOT 驾照主页、New to Iowa、Immigrant & Refugee、REAL ID 与五段互动材料清单、renewal、extension、fees、change、replacement、license type、road test、manual、practice test、appointment、location 和 non-driver ID 正文，并核对 current Iowa Administrative Code 761-604、2026 Iowa Code 321.1A / 321.176 / 321.196、SF 2187 法案正文、HF 2102 当前议程状态与 TSA identification guidance。",
+        "notes": "重点核清 Iowa resident 触发条件、中国大陆与 Republic of China (Taiwan) 的互惠边界、Chinese knowledge test 与路考语言边界、lawful-status / SSN / SAVE 流程、REAL ID 1-1-2、续期与过期、考试车辆、费用、地址与姓名变更，以及 SF 2187 的条件适用日期。官方页对 SAVE 等候时间存在两种表述，页面已明确披露；所有映射为 AI 辅助核查，不冒充 Iowa DOT、律师或真实人工专业审核。"
       },
       "scores": {
-        "factsAndSources": 22,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -2435,14 +2435,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 11,
+        "sourceCount": 31,
+        "factCheckCount": 47,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 11,
-        "stateEvidenceLinks": 11,
+        "stateEvidenceItems": 47,
+        "stateEvidenceLinks": 89,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2450,9 +2450,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/iowa/real-id/",
@@ -2460,16 +2458,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成爱荷华州（Iowa Department of Transportation）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Iowa DOT 驾照主页、New to Iowa、Immigrant & Refugee、REAL ID 与五段互动材料清单、renewal、extension、fees、change、replacement、license type、road test、manual、practice test、appointment、location 和 non-driver ID 正文，并核对 current Iowa Administrative Code 761-604、2026 Iowa Code 321.1A / 321.176 / 321.196、SF 2187 法案正文、HF 2102 当前议程状态与 TSA identification guidance。",
+        "notes": "重点核清 Iowa resident 触发条件、中国大陆与 Republic of China (Taiwan) 的互惠边界、Chinese knowledge test 与路考语言边界、lawful-status / SSN / SAVE 流程、REAL ID 1-1-2、续期与过期、考试车辆、费用、地址与姓名变更，以及 SF 2187 的条件适用日期。官方页对 SAVE 等候时间存在两种表述，页面已明确披露；所有映射为 AI 辅助核查，不冒充 Iowa DOT、律师或真实人工专业审核。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2482,14 +2480,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 16,
+        "sourceCount": 31,
+        "factCheckCount": 61,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 16,
-        "stateEvidenceLinks": 17,
+        "stateEvidenceItems": 61,
+        "stateEvidenceLinks": 125,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -2497,9 +2495,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/kansas/",

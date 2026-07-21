@@ -1394,6 +1394,59 @@ const WI_LOCATIONS =
 const WI_MV3001 =
   'https://wisconsindot.gov/Documents/formdocs/mv3001.pdf';
 
+const IA_HUB = 'https://iowadot.gov/drivers-licenses-ids';
+const IA_NEW = 'https://iowadot.gov/drivers-licenses-ids/new-iowa';
+const IA_IMMIGRANT =
+  'https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process';
+const IA_REAL_ID =
+  'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id';
+const IA_REAL_ID_FAQ =
+  'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs';
+const IA_REAL_ID_CHECKLIST = 'https://ia.iowadot.gov/mvd/realid/success.aspx';
+const IA_IDENTITY_CHECKLIST = 'https://ia.iowadot.gov/mvd/realid/success2.aspx';
+const IA_SSN_CHECKLIST = 'https://ia.iowadot.gov/mvd/realid/success4.aspx';
+const IA_RESIDENCY_CHECKLIST = 'https://ia.iowadot.gov/mvd/realid/success5.aspx';
+const IA_NAME_CHECKLIST = 'https://ia.iowadot.gov/mvd/realid/success7.aspx';
+const IA_RENEW =
+  'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license';
+const IA_EXTENSIONS =
+  'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license/extensions';
+const IA_FEES =
+  'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/fees';
+const IA_CHANGE =
+  'https://iowadot.gov/drivers-licenses-ids/other-services/change-information';
+const IA_REPLACE =
+  'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/lost-or-stolen-license';
+const IA_LICENSE_TYPES =
+  'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/drivers-license-types-restrictions-endorsements';
+const IA_DRIVE_TEST =
+  'https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test';
+const IA_MANUAL_PAGE =
+  'https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/drivers-manual';
+const IA_MANUAL = 'https://iowadot.gov/media/7308/download?inline=';
+const IA_MANUAL_SECTION_ONE =
+  'https://ia.iowadot.gov/mvd/driverslicense/dlmanual/section1.pdf';
+const IA_PRACTICE =
+  'https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/take-practice-test';
+const IA_APPOINTMENT =
+  'https://iowadot.gov/drivers-licenses-ids/schedule-appointment';
+const IA_LOCATIONS =
+  'https://iowadot.gov/drivers-licenses-ids/find-dmv-location';
+const IA_ID_CARD =
+  'https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/under-18-permit-license-or-id/non-driver-id-card';
+const IA_RULE_604 =
+  'https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf';
+const IA_CODE_RESIDENCY =
+  'https://www.legis.iowa.gov/docs/code/2026/321.1A.pdf';
+const IA_CODE_APPLICATION =
+  'https://www.legis.iowa.gov/docs/code/2026/321.176.pdf';
+const IA_CODE_EXPIRATION =
+  'https://www.legis.iowa.gov/docs/code/2026/321.196.pdf';
+const IA_SF_2187 =
+  'https://www.legis.iowa.gov/docs/publications/LGE/91/SF2187.pdf';
+const IA_HF_2102 =
+  'https://www.legis.iowa.gov/legislation/billTracking/billHistory?billName=HF2102&ga=91';
+
 const ND_HUB = 'https://www.dot.nd.gov/driver';
 const ND_LICENSE = 'https://www.dot.nd.gov/driver/driver-license';
 const ND_REQUIREMENTS =
@@ -1515,6 +1568,156 @@ const ID_ADDRESS =
   'https://itd.idaho.gov/wp-content/uploads/2025/03/Address.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  iowa: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      IA_HUB,
+      IA_NEW,
+      IA_IMMIGRANT,
+      IA_REAL_ID,
+      IA_REAL_ID_FAQ,
+      IA_REAL_ID_CHECKLIST,
+      IA_IDENTITY_CHECKLIST,
+      IA_SSN_CHECKLIST,
+      IA_RESIDENCY_CHECKLIST,
+      IA_NAME_CHECKLIST,
+      IA_RENEW,
+      IA_EXTENSIONS,
+      IA_FEES,
+      IA_CHANGE,
+      IA_REPLACE,
+      IA_LICENSE_TYPES,
+      IA_DRIVE_TEST,
+      IA_MANUAL_PAGE,
+      IA_MANUAL,
+      IA_MANUAL_SECTION_ONE,
+      IA_PRACTICE,
+      IA_APPOINTMENT,
+      IA_LOCATIONS,
+      IA_ID_CARD,
+      IA_RULE_604,
+      IA_CODE_RESIDENCY,
+      IA_CODE_APPLICATION,
+      IA_CODE_EXPIRATION,
+      IA_SF_2187,
+      IA_HF_2102,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开 Iowa DOT 驾照主页、New to Iowa、Immigrant & Refugee、REAL ID 与五段互动材料清单、renewal、extension、fees、change、replacement、license type、road test、manual、practice test、appointment、location 和 non-driver ID 正文，并核对 current Iowa Administrative Code 761-604、2026 Iowa Code 321.1A / 321.176 / 321.196、SF 2187 法案正文、HF 2102 当前议程状态与 TSA identification guidance。',
+    notes:
+      '重点核清 Iowa resident 触发条件、中国大陆与 Republic of China (Taiwan) 的互惠边界、Chinese knowledge test 与路考语言边界、lawful-status / SSN / SAVE 流程、REAL ID 1-1-2、续期与过期、考试车辆、费用、地址与姓名变更，以及 SF 2187 的条件适用日期。官方页对 SAVE 等候时间存在两种表述，页面已明确披露；所有映射为 AI 辅助核查，不冒充 Iowa DOT、律师或真实人工专业审核。',
+    claims: normalizeReviewedClaims({
+      'Iowa DOT 与部分 county treasurer issuance site 办理驾照和 non-operator ID': [IA_HUB, IA_LOCATIONS, IA_FEES],
+      '车辆 title、registration 和 plates 由 county treasurer 处理': [IA_HUB, IA_LOCATIONS],
+      '搬入、美国外州转入、中国或其他外国驾照、首次学车、REAL ID、续期和补证要走不同路径': [IA_HUB, IA_NEW],
+      'Iowa resident 判断不是统一的“搬来后 30 天宽限”：登记投票、子女进入 Iowa public school、接受州内工作等都可能立即触发，连续居住超过 30 天只是其中一项': [IA_CODE_RESIDENCY],
+      '有效美国外州证件通常可申请 test waiver': [IA_NEW, IA_RULE_604],
+      '中国大陆驾照不在当前四个外国互惠 jurisdiction 内，应预期 vision、knowledge 和 driving test': [IA_NEW, IA_RULE_604],
+      'Iowa REAL ID 看右上角 gold star，属于可选联邦用途证件': [IA_REAL_ID, TSA_IDENTIFICATION],
+      '首次加星本人办理，按 1-1-2 准备：一份 identity / date of birth / lawful-status 文件、一份 current name + full SSN 材料，以及两份打印的 current Iowa physical-address 文件': [IA_REAL_ID, IA_IDENTITY_CHECKLIST, IA_SSN_CHECKLIST, IA_RESIDENCY_CHECKLIST],
+      'Iowa DOT 建议预约以获得最快服务，但当前 location page 明确说 walk-in 也欢迎并按容量安排': [IA_LOCATIONS],
+      'county treasurer 是否预约要问具体办公室': [IA_LOCATIONS, IA_APPOINTMENT],
+      '首次 REAL ID、外国证件、改名和 road test 不应依赖临时 walk-in': [IA_REAL_ID, IA_NEW, IA_CHANGE, IA_DRIVE_TEST, IA_APPOINTMENT],
+      'Iowa Code 321.1A 把登记投票、子女入读州内 public school、接受州内工作、领取州援助、税务申报或连续居住超过 30 天列为 resident 推定因素': [IA_CODE_RESIDENCY],
+      '外州 domicile 的在校大学生和符合条件的驻 Iowa 军人有例外': [IA_CODE_RESIDENCY, IA_NEW],
+      '有效美国外州 Class C 如果允许独立驾驶且过期不超过一年，knowledge 和 driving test 可由 Iowa DOT 豁免': [IA_NEW, IA_RULE_604],
+      '没有驾照、证件 invalid 或过期达到一年时通常要重新测试': [IA_NEW, IA_RENEW, IA_RULE_604],
+      'Iowa 当前外国驾照互惠名单只有 France、Germany、South Korea 和 Republic of China (Taiwan)': [IA_NEW, IA_RULE_604],
+      'mainland China 不在名单内，不能按“台湾互惠”推断免试': [IA_NEW, IA_RULE_604],
+      '普通 operator knowledge test 当前提供 Chinese written 和 audio translation，但页面没有说明简体、繁体或口音': [IA_IMMIGRANT],
+      'Iowa Driver Manual 页面另提供 archived Traditional Chinese 版本': [IA_MANUAL_PAGE],
+      'Iowa DOT 可以为未列出的 knowledge-test language / dialect 预约 interpreter，并为现场、电话及 on-road test 前的 instructions 提供语言协助': [IA_IMMIGRANT],
+      '这不等于路考过程可由亲友随车翻译': [IA_IMMIGRANT, IA_DRIVE_TEST, IA_RULE_604],
+      'Iowa 只向能够证明并通过核验 lawful status 的申请人签发 credential': [IA_CODE_APPLICATION, IA_IMMIGRANT, IA_IDENTITY_CHECKLIST],
+      '首次非公民申请应带 current USCIS document，temporary lawful status 的卡通常不超过两年': [IA_IMMIGRANT, IA_IDENTITY_CHECKLIST, IA_CODE_EXPIRATION],
+      'Immigrant & Refugee 页面同时出现 additional verification 一般 45 business days 和 SAVE case 常见 3–7 business days 两种表述': [IA_IMMIGRANT],
+      '收到 case letter 后应按信上号码和 SAVE CaseCheck 跟踪，不承诺固定完成日': [IA_IMMIGRANT],
+      '2026 Senate File 2187 的新核验条款适用日是 2027-03-01，或 Iowa DOT 更早在 Iowa Administrative Bulletin 发布新 records system 已实施的 statement': [IA_SF_2187],
+      '不能把 2026-07-01 生效日误写成所有申请流程已在当天切换': [IA_SF_2187],
+      'Iowa REAL ID 的 SSN 一般用 current name + full SSN 文件': [IA_SSN_CHECKLIST, IA_REAL_ID],
+      '本人到场提供 SSN 且能由 SSA 电子核验时可不再交纸质证明': [IA_REAL_ID_FAQ],
+      '确实未获 employment authorization 者按 USCIS number 核验，不可套用到有资格申请 SSN 但尚未申请的人': [IA_REAL_ID_FAQ, IA_SSN_CHECKLIST],
+      '两份 residency 证明必须打印，显示 current name 和 current Iowa physical address，不能只写 P.O. Box': [IA_REAL_ID, IA_RESIDENCY_CHECKLIST],
+      '未成年人由 parent / guardian consent 加一份显示未成年人姓名和地址的打印文件': [IA_RESIDENCY_CHECKLIST],
+      '首次 gold-star upgrade 没有额外 REAL ID surcharge': [IA_REAL_ID_FAQ, IA_FEES],
+      '在续期之外换卡仍按普通 replacement 收 $10': [IA_REAL_ID, IA_FEES],
+      'Class C 当前为 $4/year，Class C instruction permit $6，non-operator ID $8，online renewal 另有 $1.50 processing fee': [IA_FEES, IA_RENEW, IA_ID_CARD],
+      'Iowa license 可提前 180 天续期': [IA_RENEW],
+      '正常卡过期后仍有 60 天驾驶效力，但租车或旅行机构可能不接受': [IA_EXTENSIONS, IA_CODE_EXPIRATION],
+      '过期达到一年要重考 knowledge 和 drive test': [IA_RENEW, IA_RULE_604],
+      'online renewal 只适用于 18 至 69 岁、Iowa DOT 记录为 U.S. citizen、当前有效 noncommercial license、每隔一次现场续期且没有列明资料 / restriction / medical 变化的申请人': [IA_RENEW],
+      '首次加 REAL ID 必须现场': [IA_REAL_ID, IA_REAL_ID_FAQ],
+      'road-test vehicle 要通过安全检查并带未过期 registration 和 insurance': [IA_DRIVE_TEST, IA_MANUAL, IA_RULE_604],
+      'Iowa 当前不把 parallel parking 作为普通 drive test 项目': [IA_DRIVE_TEST],
+      'mailing address 变化须在 30 天内通知，可线上或邮寄且不自动发新卡': [IA_CHANGE],
+      'residential address 要显示在新卡上时需现场 replacement，当前收费 $10': [IA_CHANGE, IA_FEES],
+      'name change 也必须现场带 certified hardcopy': [IA_CHANGE, IA_NAME_CHECKLIST],
+      'noncompliant Iowa card 仍是有效 photo ID 和驾驶凭证，但自 2025-05-07 起不能作为普通 TSA domestic-flight ID': [IA_REAL_ID, TSA_IDENTIFICATION],
+      '可使用 passport 等 TSA 当前接受的替代证件': [TSA_IDENTIFICATION],
+      'identity / date of birth / lawful status 使用 valid U.S. passport、certified U.S. birth certificate、current USCIS document 等清单文件': [IA_IDENTITY_CHECKLIST],
+      'hospital birth certificate 不接受': [IA_IDENTITY_CHECKLIST],
+      '外国 passport 路线同时带 approved I-94': [IA_IDENTITY_CHECKLIST],
+      '首次非公民申请不要只带外国驾照': [IA_IMMIGRANT, IA_IDENTITY_CHECKLIST],
+      'SSN 材料显示 current legal name 和 full SSN': [IA_SSN_CHECKLIST],
+      '可用 Social Security card、W-2、1099、pay stub、1095、bank statement 或其他列明 full SSN 的文件': [IA_SSN_CHECKLIST],
+      '没有纸质 SSN 文件但号码可由 SSA 电子核验时，可在现场提供号码': [IA_REAL_ID_FAQ],
+      '有 SSN 资格却未申请者仍要先申请': [IA_REAL_ID_FAQ, IA_SSN_CHECKLIST],
+      'REAL ID 带两份打印文件，均显示 current name 和 current Iowa physical address': [IA_RESIDENCY_CHECKLIST],
+      'P.O. Box 不能替代 residential address': [IA_RESIDENCY_CHECKLIST],
+      '常见地址材料包括 Iowa vehicle registration、insurance、utility / phone bill、financial statement、lease / mortgage、pay stub、government document 或带 postmark / stamped date 的 mail': [IA_RESIDENCY_CHECKLIST],
+      '未成年人由 parent / guardian consent 证明一部分 residency，并另带一份显示未成年人姓名和地址的打印文件': [IA_RESIDENCY_CHECKLIST],
+      'identity 文件姓名不同，带 certified marriage certificate 或带 official court seal 的 name-change / divorce / annulment / adoption order 串起 current legal name': [IA_NAME_CHECKLIST],
+      '全部 identity 和 name-change document 使用 hardcopy original 或 certified copy': [IA_REAL_ID_FAQ, IA_NAME_CHECKLIST],
+      'photocopy 和 fax 不接受': [IA_REAL_ID_FAQ, IA_NAME_CHECKLIST],
+      '美国外州 transfer 带 current physical license': [IA_NEW],
+      '它不能替代 REAL ID identity document，但可能支持 knowledge / drive test waiver': [IA_IDENTITY_CHECKLIST, IA_NEW, IA_RULE_604],
+      '中国大陆驾照路线带 valid foreign license、必要的 English translation / IDP、lawful-status identity、SSN 路径和两份 Iowa address proof': [IA_NEW, IA_IMMIGRANT, IA_IDENTITY_CHECKLIST, IA_SSN_CHECKLIST, IA_RESIDENCY_CHECKLIST],
+      'road test 自备 representative vehicle，带 unexpired registration 和 insurance，并确保 plates、horn、signals、mirrors、doors、seatbelts、brake lights 和适用灯具正常': [IA_DRIVE_TEST, IA_MANUAL, IA_MANUAL_SECTION_ONE, IA_RULE_604],
+      'lost / stolen duplicate 现场准备 certified birth certificate、valid U.S. passport 或 most recent USCIS immigration / refugee document': [IA_REPLACE],
+      'renewal 现场带 current Iowa card': [IA_RENEW],
+      'temporary foreign national 另带 current lawful-status document，并为 SAVE additional verification 预留时间': [IA_IMMIGRANT, IA_RENEW],
+      '领取新卡前保留 temporary document，但不要把 temporary driving permit 当作机场或普通 identity document': [IA_REAL_ID, IA_REPLACE, TSA_IDENTIFICATION],
+      '先定路线：美国外州 transfer、中国 / 外国驾照、首次 permit / Class C、REAL ID upgrade、renewal、duplicate、name / address change 或 non-driver ID': [IA_HUB, IA_NEW, IA_REAL_ID, IA_RENEW, IA_REPLACE, IA_CHANGE],
+      '搬入者按 Iowa Code 321.1A 记录 residency trigger': [IA_CODE_RESIDENCY],
+      '外州 domicile 的学生或军人先确认自己是否属于例外': [IA_CODE_RESIDENCY, IA_NEW],
+      '美国外州卡确认是否 valid 或过期未满一年': [IA_NEW, IA_RULE_604],
+      '中国大陆驾照按 non-reciprocal foreign route 预期 vision、knowledge 和 road test': [IA_NEW, IA_RULE_604],
+      '判断是否需要 gold star': [IA_REAL_ID, TSA_IDENTIFICATION],
+      '有 passport 等 TSA accepted ID 时可以保留 standard noncompliant card 用于驾驶': [IA_REAL_ID, TSA_IDENTIFICATION],
+      '用 Iowa 互动 checklist 生成材料单：identity / lawful status、适用 name chain、full SSN 或合法 exception、two printed physical-address documents': [IA_IDENTITY_CHECKLIST, IA_SSN_CHECKLIST, IA_RESIDENCY_CHECKLIST, IA_NAME_CHECKLIST],
+      '非公民先核对 USCIS document 剩余有效期': [IA_IMMIGRANT, IA_IDENTITY_CHECKLIST],
+      '有 SSN 资格就先处理 SSA，避免 SAVE / SSOLV 到现场才失败': [IA_REAL_ID_FAQ, IA_IMMIGRANT],
+      '需要 knowledge test 时预约 DOT / county site': [IA_IMMIGRANT, IA_APPOINTMENT, IA_LOCATIONS],
+      '使用 Chinese 前先确认显示版本，不在语言名单内时提前申请 interpreter appointment': [IA_IMMIGRANT, IA_MANUAL_PAGE, IA_APPOINTMENT],
+      '需要 road test 时预约并自备合格车辆、current registration 和 insurance': [IA_DRIVE_TEST, IA_APPOINTMENT, IA_RULE_604],
+      '按官方项目练习，不必专门为 parallel parking 备考': [IA_DRIVE_TEST],
+      '用 location page 选择 Iowa DOT 或 county treasurer issuance site，确认该地点的业务、预约和 out-of-county fee': [IA_LOCATIONS, IA_APPOINTMENT, IA_FEES],
+      '付款前核对期限：Class C $4/year、permit $6、ID $8、replacement $10': [IA_FEES, IA_ID_CARD],
+      '卡片通常在处理后 30 天内邮寄': [IA_REAL_ID, IA_RENEW],
+      '续期先检查 180-day window、online eligibility、60-day driving grace 和 one-year retest threshold': [IA_RENEW, IA_EXTENSIONS, IA_RULE_604],
+      '首次加 REAL ID 改为现场': [IA_REAL_ID, IA_REAL_ID_FAQ],
+      '姓名、residential address、mailing address 和 lost / stolen 使用不同入口，不要把免费 mailing-record update 当成新卡': [IA_CHANGE, IA_REPLACE],
+      '把连续居住 30 天当成所有人的换证宽限，忽略 employment、voter registration 或子女入学可能更早触发 Iowa residency': [IA_CODE_RESIDENCY],
+      '看到 Republic of China (Taiwan) 就把 mainland China 放进外国驾照互惠名单': [IA_NEW, IA_RULE_604],
+      '持中国大陆驾照却按美国 out-of-state transfer 假定 knowledge 和 driving test 一定豁免': [IA_NEW, IA_RULE_604],
+      '把 archived Traditional Chinese manual 当作当前题库，或把 Chinese test 当成已承诺简体 / 繁体版本': [IA_IMMIGRANT, IA_MANUAL_PAGE, IA_PRACTICE],
+      '把 on-road test 前可申请语言协助理解成考试中可让亲友随车翻译': [IA_IMMIGRANT, IA_DRIVE_TEST, IA_RULE_604],
+      '两份地址材料只放在手机里，没有打印，或只显示 P.O. Box / mailing address': [IA_RESIDENCY_CHECKLIST],
+      '用 Iowa 或外州 driver license 代替首次 REAL ID 的 identity / date-of-birth document': [IA_IDENTITY_CHECKLIST],
+      'SSN 文件只有后四位，姓名尚未先在 SSA 更新，或有资格申请 SSN 却误走 no-SSN exception': [IA_REAL_ID_FAQ, IA_SSN_CHECKLIST],
+      '改名只带普通复印件、church certificate 或没有 official court seal 的 decree': [IA_REAL_ID_FAQ, IA_NAME_CHECKLIST],
+      '收到 SAVE case letter 后按固定 3–7 天或 45 business days 安排行程，没有持续查 case status': [IA_IMMIGRANT],
+      '证件过期达到一年仍假定可以免 knowledge 和 driving test': [IA_RENEW, IA_RULE_604],
+      '不满足年龄、公民记录、每隔一次现场续期或 restriction 条件，仍直接提交 online renewal': [IA_RENEW],
+      '只在线改 mailing address，误以为实体卡上的 residential address 也会自动更新': [IA_CHANGE],
+      'road-test vehicle 没有 current insurance / registration，设备故障，或花时间只练当前并不要求的 parallel parking': [IA_DRIVE_TEST, IA_MANUAL, IA_RULE_604],
+      '不预约就去办首次 REAL ID、外国驾照或 road test，或反过来认为所有 walk-in 都会被拒绝': [IA_REAL_ID, IA_NEW, IA_DRIVE_TEST, IA_APPOINTMENT, IA_LOCATIONS],
+      '把 SF 2187 的 2026-07-01 effective date 写成已经全面适用，忽略 2027-03-01 / earlier system notice 的条件': [IA_SF_2187],
+    }),
+  },
   'north-dakota': {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',

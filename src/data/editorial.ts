@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Iowa 两页官方正文、行政规则与州法语义核对',
+    summary:
+      '逐条比对 Iowa DOT 的 driver-license hub、New to Iowa、Immigrant & Refugee、REAL ID 与互动材料清单、renewal、fees、change、replacement、test、manual、appointment、location 和 ID-card 正文，current Iowa Administrative Code 761-604、2026 Iowa Code 321.1A / 321.176 / 321.196、SF 2187、HF 2102 当前状态与 TSA 页面；登记 106 条独立声明的显式来源，并补齐中国大陆与 Taiwan 互惠边界、Chinese knowledge test、residency triggers、SSN / SAVE、1-1-2 材料、考试、费用和未来核验条款。',
+    scope: [
+      '爱荷华州办事总览',
+      '爱荷华州 REAL ID',
+      '106 条独立声明显式核对',
+      '中国驾照、中文考试、SAVE 与州法适用日期',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 North Dakota 两页官方正文、手册与州法语义核对',
     summary:
       '逐条比对 NDDOT 的 driver license、requirements、U.S. transfer、foreign driver、permit、REAL ID、renewal、online renewal、replacement、ID、sites、classes 与 IDP 正文，current REAL ID / proof PDFs、2025–2027 Class D manual、2026 SFN 6763 application、current NDCC Chapter 39-06 和 TSA 页面；登记 118 条独立声明的显式来源，并补齐中国大陆驾照、Chinese knowledge / English road test、residency 双时钟、SSN exception 官方冲突、standard / REAL ID 文件差异、当前费用和线上资格。',

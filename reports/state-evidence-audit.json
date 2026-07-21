@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T02:43:12.443Z",
+    "generatedAt": "2026-07-21T03:00:35.995Z",
     "pages": 100,
     "states": 50,
-    "claims": 4339,
-    "links": 7939,
-    "aiAssistedClaims": 4199,
-    "aiAssistedPages": 90,
+    "claims": 4420,
+    "links": 8125,
+    "aiAssistedClaims": 4307,
+    "aiAssistedPages": 92,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 2032,
-        "links": 3620,
+        "claims": 2068,
+        "links": 3698,
         "states": 50
       },
       "real-id": {
-        "claims": 2307,
-        "links": 4319,
+        "claims": 2352,
+        "links": 4427,
         "states": 50
       }
     }
@@ -50548,14 +50548,37 @@
       "surface": "overview",
       "field": "summary",
       "context": "license",
-      "claim": "爱荷华驾照和 ID 由 Iowa DOT 管理",
+      "claim": "Iowa DOT 与部分 county treasurer issuance site 办理驾照和 non-operator ID",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license"
+        "https://iowadot.gov/drivers-licenses-ids",
+        "https://iowadot.gov/drivers-licenses-ids/find-dmv-location",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT Renew Driver License"
+        "对应官方来源：Iowa DOT Driver Licenses & IDs",
+        "对应官方来源：Iowa DOT Find a DMV Location",
+        "对应官方来源：Iowa DOT Driver License Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "summary",
+      "context": "overview",
+      "claim": "车辆 title、registration 和 plates 由 county treasurer 处理",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids",
+        "https://iowadot.gov/drivers-licenses-ids/find-dmv-location"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Driver Licenses & IDs",
+        "对应官方来源：Iowa DOT Find a DMV Location"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -50565,19 +50588,60 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "REAL ID、new to Iowa、renewal、change information、lost/stolen duplicate、预约和 DMV location 都有独立官方入口",
+      "claim": "搬入、美国外州转入、中国或其他外国驾照、首次学车、REAL ID、续期和补证要走不同路径",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://iowadot.gov/drivers-licenses-ids",
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT Driver Licenses & IDs",
+        "对应官方来源：Iowa DOT New to Iowa"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal",
         "replacement",
-        "appointment"
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "document",
+      "claim": "Iowa resident 判断不是统一的“搬来后 30 天宽限”：登记投票、子女进入 Iowa public school、接受州内工作等都可能立即触发，连续居住超过 30 天只是其中一项",
+      "sourceUrls": [
+        "https://www.legis.iowa.gov/docs/code/2026/321.1A.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa Code 321.1A"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "有效美国外州证件通常可申请 test waiver",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -50587,57 +50651,18 @@
       "surface": "overview",
       "field": "licenseSummary",
       "context": "license",
-      "claim": "搬到 Iowa 后先看 New to Iowa",
+      "claim": "中国大陆驾照不在当前四个外国互惠 jurisdiction 内，应预期 vision、knowledge 和 driving test",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license"
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT Renew Driver License"
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa Administrative Code 761-604"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "iowa",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "document",
-      "claim": "续期、补证、姓名或地址变化要分开处理",
-      "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "renewal",
-        "replacement"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "iowa",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "document",
-      "claim": "Iowa DOT 页面说明姓名变化通常要预约并到 DMV 现场办理，补证和部分服务有独立费用和资格要求",
-      "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "name-change",
-        "replacement",
-        "appointment",
-        "fee"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -50647,16 +50672,43 @@
       "surface": "overview",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "Iowa REAL ID 页面要求准备身份、date of birth、lawful status、SSN，以及两份打印的当前 Iowa residential address 证明",
+      "claim": "Iowa REAL ID 看右上角 gold star，属于可选联邦用途证件",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "document",
+      "claim": "首次加星本人办理，按 1-1-2 准备：一份 identity / date of birth / lawful-status 文件、一份 current name + full SSN 材料，以及两份打印的 current Iowa physical-address 文件",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx",
+        "https://ia.iowadot.gov/mvd/realid/success4.aspx",
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT REAL ID Identity Documents",
+        "对应官方来源：Iowa DOT REAL ID SSN Documents",
+        "对应官方来源：Iowa DOT REAL ID Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -50665,16 +50717,468 @@
     {
       "stateId": "iowa",
       "surface": "overview",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "地址必须是实际居住地址，不能只用 PO Box",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "Iowa DOT 建议预约以获得最快服务，但当前 location page 明确说 walk-in 也欢迎并按容量安排",
       "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/find-dmv-location"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Find a DMV Location"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "county treasurer 是否预约要问具体办公室",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/find-dmv-location",
+        "https://iowadot.gov/drivers-licenses-ids/schedule-appointment"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Find a DMV Location",
+        "对应官方来源：Iowa DOT Schedule Appointment"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "real-id",
+      "claim": "首次 REAL ID、外国证件、改名和 road test 不应依赖临时 walk-in",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://iowadot.gov/drivers-licenses-ids/other-services/change-information",
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test",
+        "https://iowadot.gov/drivers-licenses-ids/schedule-appointment"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa DOT Change Information",
+        "对应官方来源：Iowa DOT Prepare for Driving Test",
+        "对应官方来源：Iowa DOT Schedule Appointment"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "name-change",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Iowa Code 321.1A 把登记投票、子女入读州内 public school、接受州内工作、领取州援助、税务申报或连续居住超过 30 天列为 resident 推定因素",
+      "sourceUrls": [
+        "https://www.legis.iowa.gov/docs/code/2026/321.1A.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa Code 321.1A"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "外州 domicile 的在校大学生和符合条件的驻 Iowa 军人有例外",
+      "sourceUrls": [
+        "https://www.legis.iowa.gov/docs/code/2026/321.1A.pdf",
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa Code 321.1A",
+        "对应官方来源：Iowa DOT New to Iowa"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "有效美国外州 Class C 如果允许独立驾驶且过期不超过一年，knowledge 和 driving test 可由 Iowa DOT 豁免",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "没有驾照、证件 invalid 或过期达到一年时通常要重新测试",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa DOT Renew Driver License",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Iowa 当前外国驾照互惠名单只有 France、Germany、South Korea 和 Republic of China (Taiwan)",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "mainland China 不在名单内，不能按“台湾互惠”推断免试",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "普通 operator knowledge test 当前提供 Chinese written 和 audio translation，但页面没有说明简体、繁体或口音",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Iowa Driver Manual 页面另提供 archived Traditional Chinese 版本",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/drivers-manual"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Driver Manual Page"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "Iowa DOT 可以为未列出的 knowledge-test language / dialect 预约 interpreter，并为现场、电话及 on-road test 前的 instructions 提供语言协助",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "这不等于路考过程可由亲友随车翻译",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT Prepare for Driving Test",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Iowa 只向能够证明并通过核验 lawful status 的申请人签发 credential",
+      "sourceUrls": [
+        "https://www.legis.iowa.gov/docs/code/2026/321.176.pdf",
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa Code 321.176",
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT REAL ID Identity Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "首次非公民申请应带 current USCIS document，temporary lawful status 的卡通常不超过两年",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx",
+        "https://www.legis.iowa.gov/docs/code/2026/321.196.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT REAL ID Identity Documents",
+        "对应官方来源：Iowa Code 321.196"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Immigrant & Refugee 页面同时出现 additional verification 一般 45 business days 和 SAVE case 常见 3–7 business days 两种表述",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "收到 case letter 后应按信上号码和 SAVE CaseCheck 跟踪，不承诺固定完成日",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "2026 Senate File 2187 的新核验条款适用日是 2027-03-01，或 Iowa DOT 更早在 Iowa Administrative Bulletin 发布新 records system 已实施的 statement",
+      "sourceUrls": [
+        "https://www.legis.iowa.gov/docs/publications/LGE/91/SF2187.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa Senate File 2187"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "不能把 2026-07-01 生效日误写成所有申请流程已在当天切换",
+      "sourceUrls": [
+        "https://www.legis.iowa.gov/docs/publications/LGE/91/SF2187.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa Senate File 2187"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "Iowa REAL ID 的 SSN 一般用 current name + full SSN 文件",
+      "sourceUrls": [
+        "https://ia.iowadot.gov/mvd/realid/success4.aspx",
         "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
       ],
       "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID SSN Documents",
         "对应官方来源：Iowa DOT REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "本人到场提供 SSN 且能由 SSA 电子核验时可不再交纸质证明",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "确实未获 employment authorization 者按 USCIS number 核验，不可套用到有资格申请 SSN 但尚未申请的人",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+        "https://ia.iowadot.gov/mvd/realid/success4.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID FAQ",
+        "对应官方来源：Iowa DOT REAL ID SSN Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "两份 residency 证明必须打印，显示 current name 和 current Iowa physical address，不能只写 P.O. Box",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT REAL ID Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -50684,56 +51188,17 @@
     {
       "stateId": "iowa",
       "surface": "overview",
-      "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "Iowa DOT 支持预约和地点查询",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "未成年人由 parent / guardian consent 加一份显示未成年人姓名和地址的打印文件",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/schedule-appointment"
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT Schedule Appointment"
+        "对应官方来源：Iowa DOT REAL ID Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "iowa",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "appointment",
-      "claim": "部分 DMV 可以 walk-in，但官方仍建议预约以获得更稳定的服务时间",
-      "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/schedule-appointment"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Iowa DOT Schedule Appointment"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "iowa",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "REAL ID 第一次加金星通常需要现场带材料",
-      "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
         "document"
       ],
       "uncoveredThemes": [],
@@ -50744,17 +51209,332 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "New to Iowa、renewal、change information 和 lost/stolen license 是不同路径，不应让用户直接从 REAL ID 页面处理所有业务",
+      "claim": "首次 gold-star upgrade 没有额外 REAL ID surcharge",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT REAL ID FAQ",
+        "对应官方来源：Iowa DOT Driver License Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "在续期之外换卡仍按普通 replacement 收 $10",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Class C 当前为 $4/year，Class C instruction permit $6，non-operator ID $8，online renewal 另有 $1.50 processing fee",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/fees",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/under-18-permit-license-or-id/non-driver-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Driver License Fees",
+        "对应官方来源：Iowa DOT Renew Driver License",
+        "对应官方来源：Iowa DOT Non-driver ID Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Iowa license 可提前 180 天续期",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Renew Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "正常卡过期后仍有 60 天驾驶效力，但租车或旅行机构可能不接受",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license/extensions",
+        "https://www.legis.iowa.gov/docs/code/2026/321.196.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Driver License Extensions",
+        "对应官方来源：Iowa Code 321.196"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "过期达到一年要重考 knowledge 和 drive test",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Renew Driver License",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "online renewal 只适用于 18 至 69 岁、Iowa DOT 记录为 U.S. citizen、当前有效 noncommercial license、每隔一次现场续期且没有列明资料 / restriction / medical 变化的申请人",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Renew Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "首次加 REAL ID 必须现场",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "road-test vehicle 要通过安全检查并带未过期 registration 和 insurance",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test",
+        "https://iowadot.gov/media/7308/download?inline=",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Prepare for Driving Test",
+        "对应官方来源：Iowa Driver Manual",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Iowa 当前不把 parallel parking 作为普通 drive test 项目",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Prepare for Driving Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "mailing address 变化须在 30 天内通知，可线上或邮寄且不自动发新卡",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/other-services/change-information"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "residential address 要显示在新卡上时需现场 replacement，当前收费 $10",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/other-services/change-information",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Change Information",
+        "对应官方来源：Iowa DOT Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "name change 也必须现场带 certified hardcopy",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/other-services/change-information",
+        "https://ia.iowadot.gov/mvd/realid/success7.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Change Information",
+        "对应官方来源：Iowa DOT REAL ID Final Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "noncompliant Iowa card 仍是有效 photo ID 和驾驶凭证，但自 2025-05-07 起不能作为普通 TSA domestic-flight ID",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "可使用 passport 等 TSA 当前接受的替代证件",
+      "sourceUrls": [
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Iowa REAL ID 看右上角 gold star，属于可选联邦用途证件",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -50763,17 +51543,23 @@
       "stateId": "iowa",
       "surface": "real-id",
       "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "Iowa REAL ID 页面要求准备身份、date of birth、lawful status、SSN，以及两份打印的当前 Iowa residential address 证明",
+      "context": "document",
+      "claim": "首次加星本人办理，按 1-1-2 准备：一份 identity / date of birth / lawful-status 文件、一份 current name + full SSN 材料，以及两份打印的 current Iowa physical-address 文件",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx",
+        "https://ia.iowadot.gov/mvd/realid/success4.aspx",
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT REAL ID Identity Documents",
+        "对应官方来源：Iowa DOT REAL ID SSN Documents",
+        "对应官方来源：Iowa DOT REAL ID Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
+        "document",
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -50782,16 +51568,201 @@
     {
       "stateId": "iowa",
       "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "地址必须是实际居住地址，不能只用 PO Box",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "identity / date of birth / lawful status 使用 valid U.S. passport、certified U.S. birth certificate、current USCIS document 等清单文件",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT REAL ID Identity Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "hospital birth certificate 不接受",
+      "sourceUrls": [
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID Identity Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "外国 passport 路线同时带 approved I-94",
+      "sourceUrls": [
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID Identity Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "首次非公民申请不要只带外国驾照",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT REAL ID Identity Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "SSN 材料显示 current legal name 和 full SSN",
+      "sourceUrls": [
+        "https://ia.iowadot.gov/mvd/realid/success4.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID SSN Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "可用 Social Security card、W-2、1099、pay stub、1095、bank statement 或其他列明 full SSN 的文件",
+      "sourceUrls": [
+        "https://ia.iowadot.gov/mvd/realid/success4.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID SSN Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "没有纸质 SSN 文件但号码可由 SSA 电子核验时，可在现场提供号码",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "有 SSN 资格却未申请者仍要先申请",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+        "https://ia.iowadot.gov/mvd/realid/success4.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID FAQ",
+        "对应官方来源：Iowa DOT REAL ID SSN Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID 带两份打印文件，均显示 current name 和 current Iowa physical address",
+      "sourceUrls": [
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "P.O. Box 不能替代 residential address",
+      "sourceUrls": [
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -50803,14 +51774,14 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "identity、date of birth 和 lawful status 文件",
+      "claim": "常见地址材料包括 Iowa vehicle registration、insurance、utility / phone bill、financial statement、lease / mortgage、pay stub、government document 或带 postmark / stamped date 的 mail",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT REAL ID Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -50822,16 +51793,17 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Social Security Number 证明",
+      "claim": "未成年人由 parent / guardian consent 证明一部分 residency，并另带一份显示未成年人姓名和地址的打印文件",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT REAL ID Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "ssn"
+        "document",
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -50841,14 +51813,56 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份打印的 Iowa residential address 证明，地址应为当前实际居住地址",
+      "claim": "identity 文件姓名不同，带 certified marriage certificate 或带 official court seal 的 name-change / divorce / annulment / adoption order 串起 current legal name",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://ia.iowadot.gov/mvd/realid/success7.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT REAL ID Final Checklist"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "全部 identity 和 name-change document 使用 hardcopy original 或 certified copy",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+        "https://ia.iowadot.gov/mvd/realid/success7.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID FAQ",
+        "对应官方来源：Iowa DOT REAL ID Final Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "photocopy 和 fax 不接受",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+        "https://ia.iowadot.gov/mvd/realid/success7.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID FAQ",
+        "对应官方来源：Iowa DOT REAL ID Final Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -50858,19 +51872,41 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名变化时，准备能证明 legal name change 的文件",
+      "claim": "美国外州 transfer 带 current physical license",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/other-services/change-information",
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT Change Information",
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT New to Iowa"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "它不能替代 REAL ID identity document，但可能支持 knowledge / drive test waiver",
+      "sourceUrls": [
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx",
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID Identity Documents",
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
         "document",
-        "name-change"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -50880,14 +51916,135 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "新居民或外州证件持有人准备当前证件和 Iowa 地址材料",
+      "claim": "中国大陆驾照路线带 valid foreign license、必要的 English translation / IDP、lawful-status identity、SSN 路径和两份 Iowa address proof",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx",
+        "https://ia.iowadot.gov/mvd/realid/success4.aspx",
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT REAL ID Identity Documents",
+        "对应官方来源：Iowa DOT REAL ID SSN Documents",
+        "对应官方来源：Iowa DOT REAL ID Residency Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "road test 自备 representative vehicle，带 unexpired registration 和 insurance，并确保 plates、horn、signals、mirrors、doors、seatbelts、brake lights 和适用灯具正常",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test",
+        "https://iowadot.gov/media/7308/download?inline=",
+        "https://ia.iowadot.gov/mvd/driverslicense/dlmanual/section1.pdf",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Prepare for Driving Test",
+        "对应官方来源：Iowa Driver Manual",
+        "对应官方来源：Iowa Driver Manual Chapter 1",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "lost / stolen duplicate 现场准备 certified birth certificate、valid U.S. passport 或 most recent USCIS immigration / refugee document",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/lost-or-stolen-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Lost or Stolen License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "renewal 现场带 current Iowa card",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Renew Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "temporary foreign national 另带 current lawful-status document，并为 SAVE additional verification 预留时间",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT Renew Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "领取新卡前保留 temporary document，但不要把 temporary driving permit 当作机场或普通 identity document",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/lost-or-stolen-license",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT Lost or Stolen License",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
@@ -50899,18 +52056,31 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "先确认你是 new to Iowa、REAL ID upgrade、renewal、duplicate 还是 change information",
+      "claim": "先定路线：美国外州 transfer、中国 / 外国驾照、首次 permit / Class C、REAL ID upgrade、renewal、duplicate、name / address change 或 non-driver ID",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://iowadot.gov/drivers-licenses-ids",
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/lost-or-stolen-license",
+        "https://iowadot.gov/drivers-licenses-ids/other-services/change-information"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT Driver Licenses & IDs",
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT Renew Driver License",
+        "对应官方来源：Iowa DOT Lost or Stolen License",
+        "对应官方来源：Iowa DOT Change Information"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
+        "address-change",
         "renewal",
-        "replacement"
+        "replacement",
+        "transfer",
+        "foreign-license"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -50919,19 +52089,141 @@
       "stateId": "iowa",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "REAL ID 用户打开 Iowa DOT REAL ID 页面，按身份、SSN 和两份地址证明整理材料",
+      "context": "document",
+      "claim": "搬入者按 Iowa Code 321.1A 记录 residency trigger",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://www.legis.iowa.gov/docs/code/2026/321.1A.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa Code 321.1A"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "外州 domicile 的学生或军人先确认自己是否属于例外",
+      "sourceUrls": [
+        "https://www.legis.iowa.gov/docs/code/2026/321.1A.pdf",
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa Code 321.1A",
+        "对应官方来源：Iowa DOT New to Iowa"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "美国外州卡确认是否 valid 或过期未满一年",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "中国大陆驾照按 non-reciprocal foreign route 预期 vision、knowledge 和 road test",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "判断是否需要 gold star",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "有 passport 等 TSA accepted ID 时可以保留 standard noncompliant card 用于驾驶",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "用 Iowa 互动 checklist 生成材料单：identity / lawful status、适用 name chain、full SSN 或合法 exception、two printed physical-address documents",
+      "sourceUrls": [
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx",
+        "https://ia.iowadot.gov/mvd/realid/success4.aspx",
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx",
+        "https://ia.iowadot.gov/mvd/realid/success7.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID Identity Documents",
+        "对应官方来源：Iowa DOT REAL ID SSN Documents",
+        "对应官方来源：Iowa DOT REAL ID Residency Documents",
+        "对应官方来源：Iowa DOT REAL ID Final Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "document",
-        "residency-proof",
         "ssn"
       ],
       "uncoveredThemes": [],
@@ -50941,15 +52233,240 @@
       "stateId": "iowa",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "新居民先看 New to Iowa，再决定是否同时处理 REAL ID",
+      "context": "document",
+      "claim": "非公民先核对 USCIS document 剩余有效期",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT REAL ID Identity Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "有 SSN 资格就先处理 SSA，避免 SAVE / SSOLV 到现场才失败",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID FAQ",
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "需要 knowledge test 时预约 DOT / county site",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://iowadot.gov/drivers-licenses-ids/schedule-appointment",
+        "https://iowadot.gov/drivers-licenses-ids/find-dmv-location"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT Schedule Appointment",
+        "对应官方来源：Iowa DOT Find a DMV Location"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "使用 Chinese 前先确认显示版本，不在语言名单内时提前申请 interpreter appointment",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/drivers-manual",
+        "https://iowadot.gov/drivers-licenses-ids/schedule-appointment"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT Driver Manual Page",
+        "对应官方来源：Iowa DOT Schedule Appointment"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "需要 road test 时预约并自备合格车辆、current registration 和 insurance",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test",
+        "https://iowadot.gov/drivers-licenses-ids/schedule-appointment",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Prepare for Driving Test",
+        "对应官方来源：Iowa DOT Schedule Appointment",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "按官方项目练习，不必专门为 parallel parking 备考",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Prepare for Driving Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "用 location page 选择 Iowa DOT 或 county treasurer issuance site，确认该地点的业务、预约和 out-of-county fee",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/find-dmv-location",
+        "https://iowadot.gov/drivers-licenses-ids/schedule-appointment",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/fees"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Find a DMV Location",
+        "对应官方来源：Iowa DOT Schedule Appointment",
+        "对应官方来源：Iowa DOT Driver License Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "付款前核对期限：Class C $4/year、permit $6、ID $8、replacement $10",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/fees",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/under-18-permit-license-or-id/non-driver-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Driver License Fees",
+        "对应官方来源：Iowa DOT Non-driver ID Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "卡片通常在处理后 30 天内邮寄",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT Renew Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期先检查 180-day window、online eligibility、60-day driving grace 和 one-year retest threshold",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license/extensions",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Renew Driver License",
+        "对应官方来源：Iowa DOT Driver License Extensions",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "首次加 REAL ID 改为现场",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT REAL ID FAQ"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -50961,36 +52478,19 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "姓名或地址变化时查看 Change Information 页面，并预约需要现场处理的业务",
+      "claim": "姓名、residential address、mailing address 和 lost / stolen 使用不同入口，不要把免费 mailing-record update 当成新卡",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/other-services/change-information"
+        "https://iowadot.gov/drivers-licenses-ids/other-services/change-information",
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/lost-or-stolen-license"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT Change Information"
+        "对应官方来源：Iowa DOT Change Information",
+        "对应官方来源：Iowa DOT Lost or Stolen License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "iowa",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "appointment",
-      "claim": "用 Iowa DOT schedule appointment 或 location 页面确认最近 DMV 的服务方式",
-      "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/schedule-appointment"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Iowa DOT Schedule Appointment"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "appointment"
+        "fee",
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -50999,15 +52499,15 @@
       "stateId": "iowa",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "detail",
-      "claim": "带电子账单但没有打印版本",
+      "context": "document",
+      "claim": "把连续居住 30 天当成所有人的换证宽限，忽略 employment、voter registration 或子女入学可能更早触发 Iowa residency",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://www.legis.iowa.gov/docs/code/2026/321.1A.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa Code 321.1A"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -51018,15 +52518,106 @@
       "stateId": "iowa",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "地址文件只显示 PO Box 或 mailing address",
+      "context": "license",
+      "claim": "看到 Republic of China (Taiwan) 就把 mainland China 放进外国驾照互惠名单",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa Administrative Code 761-604"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "持中国大陆驾照却按美国 out-of-state transfer 假定 knowledge 和 driving test 一定豁免",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "把 archived Traditional Chinese manual 当作当前题库，或把 Chinese test 当成已承诺简体 / 繁体版本",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/drivers-manual",
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/take-practice-test"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT Driver Manual Page",
+        "对应官方来源：Iowa DOT Practice Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "把 on-road test 前可申请语言协助理解成考试中可让亲友随车翻译",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process",
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process",
+        "对应官方来源：Iowa DOT Prepare for Driving Test",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "两份地址材料只放在手机里，没有打印，或只显示 P.O. Box / mailing address",
+      "sourceUrls": [
+        "https://ia.iowadot.gov/mvd/realid/success5.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID Residency Documents"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "residency-proof",
@@ -51039,17 +52630,18 @@
       "stateId": "iowa",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "license",
-      "claim": "搬到 Iowa 后直接按普通 renewal 操作，没有先看 New to Iowa",
+      "context": "real-id",
+      "claim": "用 Iowa 或外州 driver license 代替首次 REAL ID 的 identity / date-of-birth document",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license"
+        "https://ia.iowadot.gov/mvd/realid/success2.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT Renew Driver License"
+        "对应官方来源：Iowa DOT REAL ID Identity Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "renewal"
+        "real-id",
+        "document"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -51059,18 +52651,190 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "姓名变化以为可以完全线上处理",
+      "claim": "SSN 文件只有后四位，姓名尚未先在 SSA 更新，或有资格申请 SSN 却误走 no-SSN exception",
       "sourceUrls": [
-        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id"
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+        "https://ia.iowadot.gov/mvd/realid/success4.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：Iowa DOT REAL ID"
+        "对应官方来源：Iowa DOT REAL ID FAQ",
+        "对应官方来源：Iowa DOT REAL ID SSN Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "name-change",
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "改名只带普通复印件、church certificate 或没有 official court seal 的 decree",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id/faqs",
+        "https://ia.iowadot.gov/mvd/realid/success7.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID FAQ",
+        "对应官方来源：Iowa DOT REAL ID Final Checklist"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "收到 SAVE case letter 后按固定 3–7 天或 45 business days 安排行程，没有持续查 case status",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa/immigrant-refugee-process"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Immigrant & Refugee Process"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "证件过期达到一年仍假定可以免 knowledge 和 driving test",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Renew Driver License",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "不满足年龄、公民记录、每隔一次现场续期或 restriction 条件，仍直接提交 online renewal",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/renew-drivers-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Renew Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
         "online-service"
       ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只在线改 mailing address，误以为实体卡上的 residential address 也会自动更新",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/other-services/change-information"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Change Information"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "road-test vehicle 没有 current insurance / registration，设备故障，或花时间只练当前并不要求的 parallel parking",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test",
+        "https://iowadot.gov/media/7308/download?inline=",
+        "https://www.legis.iowa.gov/docs/iac/chapter/04-01-2026.761.604.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT Prepare for Driving Test",
+        "对应官方来源：Iowa Driver Manual",
+        "对应官方来源：Iowa Administrative Code 761-604"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "不预约就去办首次 REAL ID、外国驾照或 road test，或反过来认为所有 walk-in 都会被拒绝",
+      "sourceUrls": [
+        "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/real-id",
+        "https://iowadot.gov/drivers-licenses-ids/new-iowa",
+        "https://iowadot.gov/drivers-licenses-ids/driver-education/manuals-practice-tests/prepare-your-driving-test",
+        "https://iowadot.gov/drivers-licenses-ids/schedule-appointment",
+        "https://iowadot.gov/drivers-licenses-ids/find-dmv-location"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa DOT REAL ID",
+        "对应官方来源：Iowa DOT New to Iowa",
+        "对应官方来源：Iowa DOT Prepare for Driving Test",
+        "对应官方来源：Iowa DOT Schedule Appointment",
+        "对应官方来源：Iowa DOT Find a DMV Location"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "appointment",
+        "foreign-license",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "iowa",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "把 SF 2187 的 2026-07-01 effective date 写成已经全面适用，忽略 2027-03-01 / earlier system notice 的条件",
+      "sourceUrls": [
+        "https://www.legis.iowa.gov/docs/publications/LGE/91/SF2187.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Iowa Senate File 2187"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
       "uncoveredThemes": [],
       "valid": true
     },
