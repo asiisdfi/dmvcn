@@ -1522,6 +1522,58 @@ const VT_STAT_634 =
   'https://legislature.vermont.gov/statutes/section/23/009/00634';
 const VT_ACT_66 =
   'https://legislature.vermont.gov/Documents/2026/Docs/ACTS/ACT066/ACT066%20As%20Enacted.pdf';
+const WV_HOME = 'https://transportation.wv.gov/DMV/Pages/default.aspx';
+const WV_DRIVER =
+  'https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx';
+const WV_REAL_ID =
+  'https://transportation.wv.gov/DMV/realid/Pages/default.aspx';
+const WV_MOVING =
+  'https://transportation.wv.gov/DMV/Pages/movingtowv.aspx';
+const WV_MANUAL =
+  'https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf';
+const WV_APPLICATION =
+  'https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf';
+const WV_BROCHURE =
+  'https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf';
+const WV_RESIDENCY =
+  'https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf';
+const WV_INTERPRETER =
+  'https://transportation.wv.gov/DMV/DMVFormSearch/DMV-8-FL_Interpreter-Translator-Form-wf.pdf';
+const WV_TRANSLATION =
+  'https://transportation.wv.gov/DMV/DMVFormSearch/DMV-10-DLT_Driver%27s-License-Certified-Translation.pdf';
+const WV_ONLINE_TEST =
+  'https://transportation.wv.gov/DMV/Drivers/Pages/KnowToDrive.aspx';
+const WV_TEST_TIPS =
+  'https://transportation.wv.gov/DMV/Drivers/Pages/What-You-Should-Know.aspx';
+const WV_SAMPLE =
+  'https://transportation.wv.gov/DMV/Drivers/Pages/Sample-Test.aspx';
+const WV_APPT_DOCS =
+  'https://transportation.wv.gov/DMV/Pages/Appt-Documents-Knowledge-Testing.aspx';
+const WV_RENEWAL_FEES =
+  'https://transportation.wv.gov/DMV/Drivers/Pages/Renewal-Fees.aspx';
+const WV_ONLINE_RENEW = 'https://apps.wv.gov/dmv/selfservice/dl';
+const WV_SELF_SERVICE = 'https://go.wv.gov/selfservice';
+const WV_HEADSTART = 'https://go.wv.gov/realidheadstart';
+const WV_APPOINTMENTS = 'https://apps.wv.gov/Appt/DMV';
+const WV_LOCATIONS =
+  'https://transportation.wv.gov/DMV/locations/Pages/default.aspx';
+const WV_FORMS =
+  'https://transportation.wv.gov/DMV/Forms/Pages/default.aspx';
+const WV_ADDRESS =
+  'https://transportation.wv.gov/DMV/DMVFormSearch/DMV-98-TRB-wf.pdf';
+const WV_DISABILITY =
+  'https://transportation.wv.gov/DMV/Pages/disability.aspx';
+const WV_TAIWAN =
+  'https://transportation.wv.gov/DMV/News/Pages/DMV-Announces-Driver%E2%80%99s-License-Reciprocal-Agreement-with-Taiwan-.aspx';
+const WV_STAT_TRANSFER = 'https://code.wvlegislature.gov/17B-2-1A/';
+const WV_STAT_NONRESIDENT = 'https://code.wvlegislature.gov/17B-2-2/';
+const WV_STAT_RETEST = 'https://code.wvlegislature.gov/17B-2-6/';
+const WV_STAT_FEES = 'https://code.wvlegislature.gov/17B-2-8/';
+const WV_STAT_DUPLICATE = 'https://code.wvlegislature.gov/17B-2-11/';
+const WV_STAT_EXPIRATION = 'https://code.wvlegislature.gov/17B-2-12/';
+const WV_STAT_RENEWAL = 'https://code.wvlegislature.gov/17B-2-12A/';
+const WV_STAT_CHANGE = 'https://code.wvlegislature.gov/17B-2-13/';
+const WV_STAT_RECIPROCITY = 'https://code.wvlegislature.gov/17A-2-10B/';
 const CBP_US_CITIZEN_DOCUMENTS =
   'https://www.help.cbp.gov/s/article/Article-1467?language=en_US';
 
@@ -2128,6 +2180,217 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         '补证先判断是否在过去 12 个月内已 online duplicate，首次升级 REAL ID 则改为本人带材料到 branch',
         '在线补证时误以为会把从未办理过的 standard card 自动升级成 REAL ID',
       ], [SC_REPLACE, SC_DRIVER, SC_ONLINE]),
+    }),
+  },
+  'west-virginia': {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      WV_HOME,
+      WV_DRIVER,
+      WV_REAL_ID,
+      WV_MOVING,
+      WV_MANUAL,
+      WV_APPLICATION,
+      WV_BROCHURE,
+      WV_RESIDENCY,
+      WV_INTERPRETER,
+      WV_TRANSLATION,
+      WV_ONLINE_TEST,
+      WV_TEST_TIPS,
+      WV_SAMPLE,
+      WV_APPT_DOCS,
+      WV_RENEWAL_FEES,
+      WV_ONLINE_RENEW,
+      WV_SELF_SERVICE,
+      WV_HEADSTART,
+      WV_APPOINTMENTS,
+      WV_LOCATIONS,
+      WV_FORMS,
+      WV_ADDRESS,
+      WV_DISABILITY,
+      WV_TAIWAN,
+      WV_STAT_TRANSFER,
+      WV_STAT_NONRESIDENT,
+      WV_STAT_RETEST,
+      WV_STAT_FEES,
+      WV_STAT_DUPLICATE,
+      WV_STAT_EXPIRATION,
+      WV_STAT_RENEWAL,
+      WV_STAT_CHANGE,
+      WV_STAT_RECIPROCITY,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条比对 West Virginia DMV 当前 Driver Licenses、REAL ID、Moving to WV、2026 Driver Licensing Handbook、2026 DMV-DS-23P、REAL ID brochure、residency affidavit、DMV-8-FL 口译表、DMV-10-DLT 外国驾照翻译表、线上与现场考试、续期、HeadStart、预约、办公室、改址和 disability assistance；同时核对 W. Va. Code §§ 17B-2-1a、17B-2-2、17B-2-6、17B-2-8、17B-2-11、17B-2-12、17B-2-12a、17B-2-13、17A-2-10b 与 TSA 当前规则。',
+    notes:
+      '重写 West Virginia 两页，补齐 Not for Federal / REAL ID、新居民、外州与中国大陆驾照、口译、笔试和路考、permit、续期补证、改名改址、费用、临时凭证与非公民路线。公开标出 Drive for Five 与现行八年州法、过期重考 3 年与 6 个月、permit 180 天与 90 天、renewal / duplicate 材料之间的官方冲突；未虚构固定中文试卷、中国大陆互惠、Ireland / Japan 已生效协议或人工专业审核。',
+    claims: normalizeReviewedClaims({
+      ...mapReviewedClaims([
+        'West Virginia 同时签发 Not for Federal Identification 普通驾照 / ID 和带金色星标的 REAL ID / For Federal Use 证件',
+        '再决定 Not for Federal Identification 还是 REAL ID',
+        '已有 passport 且只需要登机时，先比较是否必须为此升级州证件',
+      ], [WV_DRIVER, WV_REAL_ID, TSA_IDENTIFICATION]),
+      ...mapReviewedClaims([
+        '新居民要在建立 West Virginia residency 后 30 天内申请州驾照',
+        '持有效、未过期美国外州驾照者通常完成 vision screening、简短 DUI awareness course 并交回旧证，外州证件已过期则按首次申请准备完整考试',
+        '持有效、未过期美国外州驾照的新居民通常免 knowledge / road tests，但仍要在 30 天内转入、做 vision screening、完成简短 DUI awareness course、交回旧证并通过 PDPS',
+        '旧证不在手时准备 30 天内的 certified driving record',
+        '外州证件一旦过期，Moving to WV 页面要求 vision、written 和 road tests',
+        '若过期超过 36 个月或证件不在手，还要 30 天内出具的 certified driving record',
+        '存在 suspension / revocation 或 PDPS block 时不会签发',
+        '有效美国外州驾照转入带实体卡',
+        '没有卡或证件过期超过 36 个月时，带原州或原 jurisdiction 在申请前 30 天内出具的 certified driving record',
+        '有效美国外州证件在 residency 后 30 天内预约',
+        '证件遗失或过期超过 36 个月时另取 30 天内 certified driving record，并先清掉 PDPS block',
+        '外州证件已过期仍按有效外州卡免考路线预约，没有准备 full examination 和 certified driving record',
+      ], [WV_MOVING, WV_DRIVER, WV_MANUAL, WV_STAT_TRANSFER]),
+      ...mapReviewedClaims([
+        '中国大陆驾照不在 WV DMV 已公开的台湾、德国、韩国互惠公告中，也不在 2026 州法授权寻求协议的爱尔兰、日本名单中',
+        '不要把台湾互惠套用到中国大陆',
+        '2015 WV DMV 公告明确当时台湾、德国、韩国已有 reciprocal licensing agreements，台湾路线限 18 岁以上且不适用于 CDL 或 motorcycle',
+        '2026 §17A-2-10b 只授权 commissioner 寻求 Ireland 和 Japan 协议，必须等协议实际订立并按其条款执行',
+        '把中国大陆驾照当作台湾驾照使用 reciprocal exchange，或看到 2026 Ireland / Japan 授权就认定协议已经生效',
+      ], [WV_TAIWAN, WV_STAT_RECIPROCITY]),
+      ...mapReviewedClaims([
+        '准备 foreign-license certified translation、身份和居住材料，并向 WV DMV 确认 vision、knowledge、road tests 的范围',
+        'DMV-10-DLT 是仍由官方表格库提供的 foreign driver license certified translation：填写证件号、签发国、日期和类别，译者声明能使用原语言和 English，经过 notary，并附申请人和译者驾照副本',
+        '中国大陆及其他非英文外国驾照准备原件和 DMV-10-DLT certified translation，并把 foreign-license translation 与身份 / lawful-status translation 分开处理',
+        '中国大陆驾照先准备 DMV-10-DLT certified translation，并致电 1-800-642-9066 确认考试、permit 和 DMV-8-FL foreign-language interpreter 安排',
+        '非英文外国驾照只带普通翻译，没有使用 DMV-10-DLT、notary 和双方证件副本',
+      ], [WV_TRANSLATION, WV_FORMS, WV_DRIVER, WV_MANUAL]),
+      ...mapReviewedClaims([
+        '需要中文考试协助时，可按 DMV-8-FL 预约现场 foreign-language interpreter 路径，官网没有承诺固定中文试卷',
+        '外语口译服务要按 DMV-8-FL 致电 1-800-642-9066 预约',
+        '官网未承诺固定 Chinese written test',
+        'DMV-8-FL 允许申请人预约现场 foreign-language interpreter / translator',
+        '口译人员须持当前有效 WV driver license 或 photo ID，不能改写、解释或提示答案，考试会被录制复核',
+      ], [WV_INTERPRETER, WV_MANUAL, WV_DISABILITY]),
+      ...mapReviewedClaims([
+        '首次申请、转入或升级 West Virginia REAL ID 时，准备一份 identity、SSN 或适用的 SSA denial、两份显示姓名和 physical WV address 的 residency，以及能连接每次姓名变化的 certified documents',
+        '按 current Driver Licenses page 把材料分成 identity、SSN / SSA denial、two physical residency、complete name chain、lawful status 五组',
+        'REAL ID upgrade / first issue 再核对一份 identity、一份 SSN、两份 residency、完整 name chain，并预留额外 $10',
+      ], [WV_DRIVER, WV_REAL_ID, WV_APPLICATION, WV_BROCHURE, WV_RESIDENCY]),
+      ...mapReviewedClaims([
+        'REAL ID 比同类普通证件另加 $10',
+      ], [WV_DRIVER, WV_REAL_ID, WV_STAT_FEES]),
+      ...mapReviewedClaims([
+        'HeadStart 只能预审并预约，最终仍要本人到 Regional Office',
+        '线上 knowledge test 和 REAL ID HeadStart 都不能代替最终到场签发',
+        'REAL ID 可先用 HeadStart 预审，但仍预约 Regional Office',
+        '把 HeadStart 当成完全线上签发，上传材料后没有预约 Regional Office',
+      ], [WV_REAL_ID, WV_HEADSTART, WV_APPOINTMENTS]),
+      ...mapReviewedClaims([
+        '新驾照办理官方建议预约，REAL ID 页面称预约 strongly encouraged，可在线预约或致电 304-558-3938',
+      ], [WV_DRIVER, WV_REAL_ID, WV_APPOINTMENTS, WV_LOCATIONS]),
+      ...mapReviewedClaims([
+        '现行州法列 Class E 驾照每个有效年 $5、knowledge test 每次 $7.50、duplicate $7.50、REAL ID 另加 $10',
+        '过期后续期另加 $5',
+        '实际总额随 DMV 签发年限和线上服务费变化，以 renewal notice 或结算页为准',
+      ], [WV_MANUAL, WV_RENEWAL_FEES, WV_STAT_FEES, WV_STAT_DUPLICATE, WV_STAT_RENEWAL]),
+      ...mapReviewedClaims([
+        '当前 DMV Renewal Fees 页面和 2026 Driver Handbook 仍使用 Drive for Five，写普通驾照按 5 年周期并可能先签 3-7 年',
+        '现行 §17B-2-12 却写一般驾照自签发日起 8 年',
+        '页面不替 DMV 决定执行口径，续期时应以卡面、renewal notice 和 DMV 结算结果为准',
+        '根据 Drive for Five 页面自行计算续期总额和到期年限，没有核对卡面、renewal notice 与现行 8 年州法冲突',
+      ], [WV_RENEWAL_FEES, WV_MANUAL, WV_STAT_EXPIRATION, WV_STAT_RENEWAL]),
+      ...mapReviewedClaims([
+        '当前 Driver Licenses 页面把过期超过 3 年列为 first-time applicant，但 2026 Driver Handbook 把过期 6 个月以上列为必须 retest',
+        '证件已过期 6 个月或以上时，不要仅凭网页推断免考，应按 full examination 预约并让 Regional Office 确认',
+      ], [WV_DRIVER, WV_MANUAL, WV_LOCATIONS]),
+      ...mapReviewedClaims([
+        '当前 Driver Licenses 页面与 2026 Driver Handbook 对 unchanged renewal / duplicate 所需材料也不完全一致',
+        'REAL ID 续期或补证最稳妥是带 current card、identity、SSN、两份 WV residency 和完整 name chain，并在预约前确认是否可减材料',
+        '因 renewal / duplicate 材料口径冲突，带齐 full document set',
+        '只带 current card，忽略 REAL ID renewal / duplicate 官方材料口径不一致，现场无法补出 identity、SSN、two residency 或 name chain',
+      ], [WV_DRIVER, WV_MANUAL, WV_REAL_ID, WV_RESIDENCY]),
+      ...mapReviewedClaims([
+        'West Virginia knowledge examination 至少 25 题，25 题版本要答对 19 题',
+        '各考点使用自动考试，reading impaired 可申请 headphones audio version，但 DMV 员工不会重述或解释题目',
+      ], [WV_MANUAL, WV_APPT_DOCS, WV_SAMPLE]),
+      ...mapReviewedClaims([
+        '线上 knowledge test 需要带摄像头、鼠标或触控板的电脑，不能使用手机或 touchscreen',
+        '通过后只获得 Completion Certificate，不是驾驶许可',
+        '须带证书和材料到 DMV 领 permit，成绩有效 6 个月',
+        '需要 knowledge test 时选择现场或官方 online route',
+        '线上考试使用 webcam + mouse computer，自己完成，保存 Completion Certificate 并在 6 个月内到 DMV',
+      ], [WV_ONLINE_TEST, WV_TEST_TIPS, WV_SELF_SERVICE]),
+      ...mapReviewedClaims([
+        '线上或现场 knowledge test 未通过后至少等 7 天',
+        '现行 §17B-2-6 还规定 18 岁以上 permit 申请人在 90 天内最多使用两次 written 和三次 road attempts，任何 written 或 road 失败都不能在同一周内再次测试',
+        '从未持证的 18 岁以上申请人要先取得 Class E instruction permit，至少持有 30 天再参加 road skills test',
+      ], [WV_MANUAL, WV_TEST_TIPS, WV_STAT_RETEST]),
+      ...mapReviewedClaims([
+        '当前网页写 permit 有效 180 天，2026 手册仍写 90 天，签发时要以 permit 卡面和 DMV 指示为准',
+      ], [WV_DRIVER, WV_MANUAL]),
+      ...mapReviewedClaims([
+        'Road test 车辆必须有有效 registration、inspection sticker 和 insurance，并能演示灯光、wipers、hazard lights、brakes、horn 等安全设备',
+        '已知未修复 safety recall 的车辆不能考试',
+        '同日可在仍有时间时换一辆无 recall 的车',
+        'Road test 当天带 instruction permit、车辆 registration card、valid insurance 和 current inspection sticker',
+        '提前检查 safety recall 与全部安全设备',
+        'Road test 前确认 permit holding period、registration、inspection、insurance、安全设备和 recall 状态，失败后至少等一周再约',
+        '路考车辆缺 current inspection、insurance、registration，存在未修复 recall，或不会演示安全设备',
+      ], [WV_MANUAL, WV_STAT_RETEST]),
+      ...mapReviewedClaims([
+        '非居民年满 16 岁、随身持有有效 home-state 或 home-country 驾照时，现行 §17B-2-2 的普通 noncommercial 例外最多为每个 calendar year 90 天，并受互惠条件限制',
+        '访客驾驶例外不等于成为 WV resident 后可跳过转入',
+      ], [WV_STAT_NONRESIDENT, WV_STAT_TRANSFER]),
+      ...mapReviewedClaims([
+        '非美国公民按当前 DMV 类别提交 passport、I-94、visa、I-20 / school verification、DS-2019 或 employer verification 等适用原件',
+        '证件有效期受 authorized stay 限制且最长不超过州法的一般期限',
+        '非公民按身份带当前 passport、I-94、visa、I-551 / I-766、I-20、DS-2019 和近期 school / employer verification 中适用的原件，不要只带 EAD 或只带学校信',
+      ], [WV_DRIVER, WV_MANUAL, WV_APPLICATION, WV_STAT_EXPIRATION]),
+      ...mapReviewedClaims([
+        '姓名与 identity 文件不一致时，DMV 必须能连接每次变化，可要求每段 certified marriage certificate、divorce decree、amended birth certificate 或 court order',
+        'SSA 姓名和出生日期不一致会阻止签发',
+        '姓名变化带齐每一段 certified marriage certificate、certified divorce decree、court order 或 amended birth certificate',
+        '50 岁以上的特定既有 WV 持证人可能有 signed-statement 例外，但要先让 DMV 确认',
+      ], [WV_DRIVER, WV_MANUAL, WV_APPLICATION]),
+      ...mapReviewedClaims([
+        '驾照姓名或地址变化后 20 天内通知 DMV',
+      ], [WV_APPLICATION, WV_STAT_CHANGE]),
+      ...mapReviewedClaims([
+        'DMV-98-TRB 只更新 mailing address 和数据库，不改 residential address、不收费、也不会自动寄一张新卡',
+        '要新卡需走 reissue / duplicate 路线',
+        '只向 USPS 改地址，没有在 20 天内更新 DMV，或以为 DMV-98-TRB 会自动寄新卡',
+      ], [WV_ADDRESS, WV_DRIVER, WV_STAT_CHANGE]),
+      ...mapReviewedClaims([
+        '线上 renewal 不能改姓名、地址或照片，也不能把 Not for Federal Use 升级为 REAL ID',
+        '没有 renewal notice / PIN 时要到 Regional Office',
+        '在线续期页面当前要求预留 30-45 天收卡',
+        '续期先用 portal 检查资格和 PIN',
+        '有姓名、地址、照片变化或 REAL ID upgrade 时直接改走 Regional Office',
+        '尝试在线把 Not for Federal Use 升级成 REAL ID，或在线续期时同时改姓名、地址或照片',
+      ], [WV_ONLINE_RENEW, WV_SELF_SERVICE, WV_DRIVER, WV_REAL_ID]),
+      ...mapReviewedClaims([
+        'Regional Office 接受申请后会给可作临时驾驶证明的 receipt，中央制证实体卡通常写 10-15 个工作日寄到',
+        '线上续期页面另写 30-45 天，两条时限对应不同办理渠道',
+        '办结后保存 60-day temporary receipt，普通 office issuance 预留 10-15 个工作日，online renewal 预留 30-45 天',
+        '逾期未到再联系 WV DMV',
+      ], [WV_DRIVER, WV_ONLINE_RENEW, WV_LOCATIONS]),
+      ...mapReviewedClaims([
+        'Identity 可从 original / certified U.S. birth certificate、valid U.S. passport / passport card、I-551、I-766、naturalization / citizenship certificate，或 foreign passport + valid visa + approved I-94 等适用项目选择',
+        'SSN 证明可用 current legal name 下的 original Social Security card、original W-2 / payroll stub 或显示 full SSN 和姓名的 1099',
+        '没有资格取得 SSN 时准备 SSA denial letter',
+      ], [WV_DRIVER, WV_MANUAL, WV_APPLICATION, WV_BROCHURE]),
+      ...mapReviewedClaims([
+        '准备两份显示本人姓名和 current physical WV street address 的 residency',
+        'P.O. Box 不接受，utility bill / bank statement 等 recurring document 按当前网页不得超过 60 天，两份不能由同一 company 出具',
+        '两份 residency 只有 P.O. Box、超过当前 60 天窗口，或来自同一 utility / bank company',
+      ], [WV_DRIVER, WV_RESIDENCY, WV_BROCHURE]),
+      ...mapReviewedClaims([
+        '与 homeowner 同住且本人缺少地址材料时，使用 Affidavit of West Virginia Residency',
+        'homeowner 填写相应部分并提供两份其名下 physical-address 证明',
+        '与 homeowner 同住时只填 affidavit，没有让 homeowner 提供两份地址证明',
+      ], [WV_RESIDENCY, WV_APPLICATION]),
+      ...mapReviewedClaims([
+        '先按任务分流：首次无照、有效美国外州转入、过期外州证件、中国大陆 / 其他外国驾照、REAL ID upgrade、renewal、duplicate、name / address change',
+      ], [WV_DRIVER, WV_MOVING, WV_REAL_ID, WV_SELF_SERVICE]),
+      ...mapReviewedClaims([
+        '需要中文协助却直接在线考试，让他人出现在 webcam 或提供提示，触发 fraud failure 和 suspension 风险',
+      ], [WV_ONLINE_TEST, WV_TEST_TIPS]),
     }),
   },
   montana: {

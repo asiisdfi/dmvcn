@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T04:16:23.051Z",
+    "generatedAt": "2026-07-21T04:34:11.984Z",
     "pages": 100,
     "states": 50,
-    "claims": 4653,
-    "links": 8983,
-    "aiAssistedClaims": 4623,
-    "aiAssistedPages": 98,
+    "claims": 4730,
+    "links": 9305,
+    "aiAssistedClaims": 4730,
+    "aiAssistedPages": 100,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 2189,
-        "links": 4105,
+        "claims": 2237,
+        "links": 4289,
         "states": 50
       },
       "real-id": {
-        "claims": 2464,
-        "links": 4878,
+        "claims": 2493,
+        "links": 5016,
         "states": 50
       }
     }
@@ -97926,19 +97926,20 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "西弗吉尼亚州驾照、REAL ID、续期、地址变化和 HeadStart 由 WV Division of Motor Vehicles 处理",
+      "claim": "West Virginia 同时签发 Not for Federal Identification 普通驾照 / ID 和带金色星标的 REAL ID / For Federal Use 证件",
       "sourceUrls": [
-        "https://go.wv.gov/selfservice"
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：WV DMV Skip the Trip"
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "address-change",
-        "renewal",
-        "test"
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -97947,18 +97948,48 @@
       "stateId": "west-virginia",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "REAL ID、Driver Licenses / ID Cards、Renewal、Skip the Trip 和 REAL ID brochure 是核心入口",
+      "context": "document",
+      "claim": "新居民要在建立 West Virginia residency 后 30 天内申请州驾照",
       "sourceUrls": [
-        "https://go.wv.gov/selfservice"
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
       ],
       "sourceLabels": [
-        "对应官方来源：WV DMV Skip the Trip"
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "renewal"
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "summary",
+      "context": "license",
+      "claim": "持有效、未过期美国外州驾照者通常完成 vision screening、简短 DUI awareness course 并交回旧证，外州证件已过期则按首次申请准备完整考试",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -97967,19 +97998,63 @@
       "stateId": "west-virginia",
       "surface": "overview",
       "field": "licenseSummary",
-      "context": "real-id",
-      "claim": "WV online renewal 可以处理部分 driver license / state ID，但不能在线把 Not for Federal Use 升级为 For Federal Use / REAL ID",
+      "context": "license",
+      "claim": "中国大陆驾照不在 WV DMV 已公开的台湾、德国、韩国互惠公告中，也不在 2026 州法授权寻求协议的爱尔兰、日本名单中",
       "sourceUrls": [
-        "https://apps.wv.gov/dmv/selfservice/dl"
+        "https://transportation.wv.gov/DMV/News/Pages/DMV-Announces-Driver%E2%80%99s-License-Reciprocal-Agreement-with-Taiwan-.aspx",
+        "https://code.wvlegislature.gov/17A-2-10B/"
       ],
       "sourceLabels": [
-        "对应官方来源：WV Online Renewal"
+        "对应官方来源：WV DMV Taiwan Reciprocity Announcement",
+        "对应官方来源：WV Code §17A-2-10b Foreign Reciprocity Authority"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "不要把台湾互惠套用到中国大陆",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/News/Pages/DMV-Announces-Driver%E2%80%99s-License-Reciprocal-Agreement-with-Taiwan-.aspx",
+        "https://code.wvlegislature.gov/17A-2-10B/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Taiwan Reciprocity Announcement",
+        "对应官方来源：WV Code §17A-2-10b Foreign Reciprocity Authority"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "document",
+      "claim": "准备 foreign-license certified translation、身份和居住材料，并向 WV DMV 确认 vision、knowledge、road tests 的范围",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-10-DLT_Driver%27s-License-Certified-Translation.pdf",
+        "https://transportation.wv.gov/DMV/Forms/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Foreign Driver License Translation DMV-10-DLT",
+        "对应官方来源：WV DMV Forms",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "renewal",
-        "online-service"
+        "document",
+        "test",
+        "language"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -97988,17 +98063,124 @@
       "stateId": "west-virginia",
       "surface": "overview",
       "field": "licenseSummary",
+      "context": "appointment",
+      "claim": "需要中文考试协助时，可按 DMV-8-FL 预约现场 foreign-language interpreter 路径，官网没有承诺固定中文试卷",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-8-FL_Interpreter-Translator-Form-wf.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Pages/disability.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Foreign Language Interpreter DMV-8-FL",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV Disability and Communication Assistance"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "realIdSummary",
       "context": "real-id",
-      "claim": "升级 REAL ID 要预约 regional office",
+      "claim": "首次申请、转入或升级 West Virginia REAL ID 时，准备一份 identity、SSN 或适用的 SSA denial、两份显示姓名和 physical WV address 的 residency，以及能连接每次姓名变化的 certified documents",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
+        "对应官方来源：WV REAL ID Brochure",
+        "对应官方来源：WV Affidavit of Residency"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "REAL ID 比同类普通证件另加 $10",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://code.wvlegislature.gov/17B-2-8/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV Code §17B-2-8 License and REAL ID Fees"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "appointment",
+      "claim": "HeadStart 只能预审并预约，最终仍要本人到 Regional Office",
       "sourceUrls": [
         "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
-        "https://apps.wv.gov/dmv/selfservice/dl"
+        "https://go.wv.gov/realidheadstart",
+        "https://apps.wv.gov/Appt/DMV"
       ],
       "sourceLabels": [
         "对应官方来源：WV DMV REAL ID",
-        "对应官方来源：WV Online Renewal"
+        "对应官方来源：WV REAL ID HeadStart",
+        "对应官方来源：WV DMV Appointments"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "real-id",
+      "claim": "新驾照办理官方建议预约，REAL ID 页面称预约 strongly encouraged，可在线预约或致电 304-558-3938",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://apps.wv.gov/Appt/DMV",
+        "https://transportation.wv.gov/DMV/locations/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV DMV Appointments",
+        "对应官方来源：WV DMV Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "appointment"
@@ -98009,60 +98191,24 @@
     {
       "stateId": "west-virginia",
       "surface": "overview",
-      "field": "licenseSummary",
+      "field": "appointmentNote",
       "context": "real-id",
-      "claim": "REAL ID HeadStart 可先上传材料，减少现场时间",
+      "claim": "线上 knowledge test 和 REAL ID HeadStart 都不能代替最终到场签发",
       "sourceUrls": [
-        "https://go.wv.gov/selfservice"
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://go.wv.gov/realidheadstart",
+        "https://apps.wv.gov/Appt/DMV"
       ],
       "sourceLabels": [
-        "对应官方来源：WV DMV Skip the Trip"
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV REAL ID HeadStart",
+        "对应官方来源：WV DMV Appointments"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "document"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "west-virginia",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "real-id",
-      "claim": "West Virginia REAL ID / For Federal Use card 要到 Regional Office 带 proof of identity、proof of Social Security Number、两份 physical residency",
-      "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "residency-proof",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "west-virginia",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "如果姓名和 identity document 不一致，要带 name change documents 建立 link",
-      "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "name-change"
+        "online-service",
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -98072,36 +98218,21 @@
       "surface": "overview",
       "field": "appointmentNote",
       "context": "appointment",
-      "claim": "WV DMV 官方页面提示 appointments strongly encouraged",
+      "claim": "外语口译服务要按 DMV-8-FL 致电 1-800-642-9066 预约",
       "sourceUrls": [
-        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx"
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-8-FL_Interpreter-Translator-Form-wf.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Pages/disability.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：WV DMV REAL ID"
+        "对应官方来源：WV Foreign Language Interpreter DMV-8-FL",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV Disability and Communication Assistance"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "west-virginia",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "real-id",
-      "claim": "首次申请人或需要 REAL ID re-enrollment 的用户要按 brochure 准备 identity、two residency、legal name change 等文件",
-      "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document",
-        "residency-proof",
-        "name-change"
+        "appointment",
+        "language"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -98111,14 +98242,997 @@
       "surface": "overview",
       "field": "editorNotes",
       "context": "real-id",
-      "claim": "West Virginia 不能在 online renewal 中升级 REAL ID",
+      "claim": "现行州法列 Class E 驾照每个有效年 $5、knowledge test 每次 $7.50、duplicate $7.50、REAL ID 另加 $10",
       "sourceUrls": [
-        "https://apps.wv.gov/dmv/selfservice/dl"
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Renewal-Fees.aspx",
+        "https://code.wvlegislature.gov/17B-2-8/",
+        "https://code.wvlegislature.gov/17B-2-11/",
+        "https://code.wvlegislature.gov/17B-2-12A/"
       ],
       "sourceLabels": [
-        "对应官方来源：WV Online Renewal"
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV License and Renewal Fees",
+        "对应官方来源：WV Code §17B-2-8 License and REAL ID Fees",
+        "对应官方来源：WV Code §17B-2-11 Duplicate License Fee",
+        "对应官方来源：WV Code §17B-2-12a Renewal and Vision"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "replacement",
+        "test",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "过期后续期另加 $5",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Renewal-Fees.aspx",
+        "https://code.wvlegislature.gov/17B-2-8/",
+        "https://code.wvlegislature.gov/17B-2-11/",
+        "https://code.wvlegislature.gov/17B-2-12A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV License and Renewal Fees",
+        "对应官方来源：WV Code §17B-2-8 License and REAL ID Fees",
+        "对应官方来源：WV Code §17B-2-11 Duplicate License Fee",
+        "对应官方来源：WV Code §17B-2-12a Renewal and Vision"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "实际总额随 DMV 签发年限和线上服务费变化，以 renewal notice 或结算页为准",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Renewal-Fees.aspx",
+        "https://code.wvlegislature.gov/17B-2-8/",
+        "https://code.wvlegislature.gov/17B-2-11/",
+        "https://code.wvlegislature.gov/17B-2-12A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV License and Renewal Fees",
+        "对应官方来源：WV Code §17B-2-8 License and REAL ID Fees",
+        "对应官方来源：WV Code §17B-2-11 Duplicate License Fee",
+        "对应官方来源：WV Code §17B-2-12a Renewal and Vision"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "当前 DMV Renewal Fees 页面和 2026 Driver Handbook 仍使用 Drive for Five，写普通驾照按 5 年周期并可能先签 3-7 年",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Renewal-Fees.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-12/",
+        "https://code.wvlegislature.gov/17B-2-12A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV License and Renewal Fees",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-12 License Expiration",
+        "对应官方来源：WV Code §17B-2-12a Renewal and Vision"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "现行 §17B-2-12 却写一般驾照自签发日起 8 年",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Renewal-Fees.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-12/",
+        "https://code.wvlegislature.gov/17B-2-12A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV License and Renewal Fees",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-12 License Expiration",
+        "对应官方来源：WV Code §17B-2-12a Renewal and Vision"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "页面不替 DMV 决定执行口径，续期时应以卡面、renewal notice 和 DMV 结算结果为准",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Renewal-Fees.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-12/",
+        "https://code.wvlegislature.gov/17B-2-12A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV License and Renewal Fees",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-12 License Expiration",
+        "对应官方来源：WV Code §17B-2-12a Renewal and Vision"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "当前 Driver Licenses 页面把过期超过 3 年列为 first-time applicant，但 2026 Driver Handbook 把过期 6 个月以上列为必须 retest",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/locations/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "证件已过期 6 个月或以上时，不要仅凭网页推断免考，应按 full examination 预约并让 Regional Office 确认",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/locations/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "当前 Driver Licenses 页面与 2026 Driver Handbook 对 unchanged renewal / duplicate 所需材料也不完全一致",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV Affidavit of Residency"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "REAL ID 续期或补证最稳妥是带 current card、identity、SSN、两份 WV residency 和完整 name chain，并在预约前确认是否可减材料",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV Affidavit of Residency"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn",
+        "renewal",
+        "replacement",
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "West Virginia knowledge examination 至少 25 题，25 题版本要答对 19 题",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Pages/Appt-Documents-Knowledge-Testing.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Sample-Test.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Knowledge Testing Appointment Documents",
+        "对应官方来源：WV Official Sample Driver Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "各考点使用自动考试，reading impaired 可申请 headphones audio version，但 DMV 员工不会重述或解释题目",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Pages/Appt-Documents-Knowledge-Testing.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Sample-Test.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Knowledge Testing Appointment Documents",
+        "对应官方来源：WV Official Sample Driver Test"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "官网未承诺固定 Chinese written test",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-8-FL_Interpreter-Translator-Form-wf.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Pages/disability.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Foreign Language Interpreter DMV-8-FL",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV Disability and Communication Assistance"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "appointment",
+      "claim": "DMV-8-FL 允许申请人预约现场 foreign-language interpreter / translator",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-8-FL_Interpreter-Translator-Form-wf.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Pages/disability.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Foreign Language Interpreter DMV-8-FL",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV Disability and Communication Assistance"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "口译人员须持当前有效 WV driver license 或 photo ID，不能改写、解释或提示答案，考试会被录制复核",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-8-FL_Interpreter-Translator-Form-wf.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Pages/disability.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Foreign Language Interpreter DMV-8-FL",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV Disability and Communication Assistance"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "线上 knowledge test 需要带摄像头、鼠标或触控板的电脑，不能使用手机或 touchscreen",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/KnowToDrive.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/What-You-Should-Know.aspx",
+        "https://go.wv.gov/selfservice"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Know to Drive Online Testing",
+        "对应官方来源：WV Online Knowledge Test Requirements",
+        "对应官方来源：WV DMV Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "通过后只获得 Completion Certificate，不是驾驶许可",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/KnowToDrive.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/What-You-Should-Know.aspx",
+        "https://go.wv.gov/selfservice"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Know to Drive Online Testing",
+        "对应官方来源：WV Online Knowledge Test Requirements",
+        "对应官方来源：WV DMV Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "须带证书和材料到 DMV 领 permit，成绩有效 6 个月",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/KnowToDrive.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/What-You-Should-Know.aspx",
+        "https://go.wv.gov/selfservice"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Know to Drive Online Testing",
+        "对应官方来源：WV Online Knowledge Test Requirements",
+        "对应官方来源：WV DMV Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "线上或现场 knowledge test 未通过后至少等 7 天",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/What-You-Should-Know.aspx",
+        "https://code.wvlegislature.gov/17B-2-6/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Online Knowledge Test Requirements",
+        "对应官方来源：WV Code §17B-2-6 Permit and Retest Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "现行 §17B-2-6 还规定 18 岁以上 permit 申请人在 90 天内最多使用两次 written 和三次 road attempts，任何 written 或 road 失败都不能在同一周内再次测试",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/What-You-Should-Know.aspx",
+        "https://code.wvlegislature.gov/17B-2-6/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Online Knowledge Test Requirements",
+        "对应官方来源：WV Code §17B-2-6 Permit and Retest Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "从未持证的 18 岁以上申请人要先取得 Class E instruction permit，至少持有 30 天再参加 road skills test",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/What-You-Should-Know.aspx",
+        "https://code.wvlegislature.gov/17B-2-6/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Online Knowledge Test Requirements",
+        "对应官方来源：WV Code §17B-2-6 Permit and Retest Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "当前网页写 permit 有效 180 天，2026 手册仍写 90 天，签发时要以 permit 卡面和 DMV 指示为准",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Road test 车辆必须有有效 registration、inspection sticker 和 insurance，并能演示灯光、wipers、hazard lights、brakes、horn 等安全设备",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-6/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-6 Permit and Retest Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "已知未修复 safety recall 的车辆不能考试",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-6/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-6 Permit and Retest Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "同日可在仍有时间时换一辆无 recall 的车",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-6/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-6 Permit and Retest Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "持有效、未过期美国外州驾照的新居民通常免 knowledge / road tests，但仍要在 30 天内转入、做 vision screening、完成简短 DUI awareness course、交回旧证并通过 PDPS",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "旧证不在手时准备 30 天内的 certified driving record",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "外州证件一旦过期，Moving to WV 页面要求 vision、written 和 road tests",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "若过期超过 36 个月或证件不在手，还要 30 天内出具的 certified driving record",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "存在 suspension / revocation 或 PDPS block 时不会签发",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "非居民年满 16 岁、随身持有有效 home-state 或 home-country 驾照时，现行 §17B-2-2 的普通 noncommercial 例外最多为每个 calendar year 90 天，并受互惠条件限制",
+      "sourceUrls": [
+        "https://code.wvlegislature.gov/17B-2-2/",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Code §17B-2-2 Nonresident License Exceptions",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "访客驾驶例外不等于成为 WV resident 后可跳过转入",
+      "sourceUrls": [
+        "https://code.wvlegislature.gov/17B-2-2/",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Code §17B-2-2 Nonresident License Exceptions",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "2015 WV DMV 公告明确当时台湾、德国、韩国已有 reciprocal licensing agreements，台湾路线限 18 岁以上且不适用于 CDL 或 motorcycle",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/News/Pages/DMV-Announces-Driver%E2%80%99s-License-Reciprocal-Agreement-with-Taiwan-.aspx",
+        "https://code.wvlegislature.gov/17A-2-10B/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Taiwan Reciprocity Announcement",
+        "对应官方来源：WV Code §17A-2-10b Foreign Reciprocity Authority"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "2026 §17A-2-10b 只授权 commissioner 寻求 Ireland 和 Japan 协议，必须等协议实际订立并按其条款执行",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/News/Pages/DMV-Announces-Driver%E2%80%99s-License-Reciprocal-Agreement-with-Taiwan-.aspx",
+        "https://code.wvlegislature.gov/17A-2-10B/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Taiwan Reciprocity Announcement",
+        "对应官方来源：WV Code §17A-2-10b Foreign Reciprocity Authority"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "DMV-10-DLT 是仍由官方表格库提供的 foreign driver license certified translation：填写证件号、签发国、日期和类别，译者声明能使用原语言和 English，经过 notary，并附申请人和译者驾照副本",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-10-DLT_Driver%27s-License-Certified-Translation.pdf",
+        "https://transportation.wv.gov/DMV/Forms/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Foreign Driver License Translation DMV-10-DLT",
+        "对应官方来源：WV DMV Forms",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "非美国公民按当前 DMV 类别提交 passport、I-94、visa、I-20 / school verification、DS-2019 或 employer verification 等适用原件",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
+        "https://code.wvlegislature.gov/17B-2-12/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
+        "对应官方来源：WV Code §17B-2-12 License Expiration"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "证件有效期受 authorized stay 限制且最长不超过州法的一般期限",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
+        "https://code.wvlegislature.gov/17B-2-12/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
+        "对应官方来源：WV Code §17B-2-12 License Expiration"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "姓名与 identity 文件不一致时，DMV 必须能连接每次变化，可要求每段 certified marriage certificate、divorce decree、amended birth certificate 或 court order",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "SSA 姓名和出生日期不一致会阻止签发",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "驾照姓名或地址变化后 20 天内通知 DMV",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
+        "https://code.wvlegislature.gov/17B-2-13/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
+        "对应官方来源：WV Code §17B-2-13 Name and Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "DMV-98-TRB 只更新 mailing address 和数据库，不改 residential address、不收费、也不会自动寄一张新卡",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-98-TRB-wf.pdf",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://code.wvlegislature.gov/17B-2-13/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Change of Address DMV-98-TRB",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Code §17B-2-13 Name and Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "要新卡需走 reissue / duplicate 路线",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-98-TRB-wf.pdf",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://code.wvlegislature.gov/17B-2-13/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Change of Address DMV-98-TRB",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Code §17B-2-13 Name and Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "线上 renewal 不能改姓名、地址或照片，也不能把 Not for Federal Use 升级为 REAL ID",
+      "sourceUrls": [
+        "https://apps.wv.gov/dmv/selfservice/dl",
+        "https://go.wv.gov/selfservice",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Online Renewal",
+        "对应官方来源：WV DMV Online Services",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
         "renewal",
@@ -98131,16 +99245,24 @@
       "stateId": "west-virginia",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "detail",
-      "claim": "需要升级时应改走官方现场办理路径",
+      "context": "license",
+      "claim": "没有 renewal notice / PIN 时要到 Regional Office",
       "sourceUrls": [
+        "https://apps.wv.gov/dmv/selfservice/dl",
+        "https://go.wv.gov/selfservice",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
         "https://transportation.wv.gov/DMV/realid/Pages/default.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：WV Online Renewal",
+        "对应官方来源：WV DMV Online Services",
+        "对应官方来源：WV Driver Licenses and ID Cards",
         "对应官方来源：WV DMV REAL ID"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -98148,18 +99270,70 @@
       "stateId": "west-virginia",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "real-id",
-      "claim": "REAL ID HeadStart 是高价值入口，可帮助用户先上传材料但不是完全在线拿卡",
+      "context": "license",
+      "claim": "在线续期页面当前要求预留 30-45 天收卡",
       "sourceUrls": [
-        "https://go.wv.gov/selfservice"
+        "https://apps.wv.gov/dmv/selfservice/dl",
+        "https://go.wv.gov/selfservice",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：WV DMV Skip the Trip"
+        "对应官方来源：WV Online Renewal",
+        "对应官方来源：WV DMV Online Services",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "document"
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Regional Office 接受申请后会给可作临时驾驶证明的 receipt，中央制证实体卡通常写 10-15 个工作日寄到",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://apps.wv.gov/dmv/selfservice/dl",
+        "https://transportation.wv.gov/DMV/locations/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Online Renewal",
+        "对应官方来源：WV DMV Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "线上续期页面另写 30-45 天，两条时限对应不同办理渠道",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://apps.wv.gov/dmv/selfservice/dl",
+        "https://transportation.wv.gov/DMV/locations/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Online Renewal",
+        "对应官方来源：WV DMV Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -98169,37 +99343,27 @@
       "surface": "real-id",
       "field": "realIdSummary",
       "context": "real-id",
-      "claim": "West Virginia REAL ID / For Federal Use card 要到 Regional Office 带 proof of identity、proof of Social Security Number、两份 physical residency",
+      "claim": "首次申请、转入或升级 West Virginia REAL ID 时，准备一份 identity、SSN 或适用的 SSA denial、两份显示姓名和 physical WV address 的 residency，以及能连接每次姓名变化的 certified documents",
       "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
+        "对应官方来源：WV REAL ID Brochure",
+        "对应官方来源：WV Affidavit of Residency"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "residency-proof",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "west-virginia",
-      "surface": "real-id",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "如果姓名和 identity document 不一致，要带 name change documents 建立 link",
-      "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
         "document",
+        "residency-proof",
+        "ssn",
         "name-change"
       ],
       "uncoveredThemes": [],
@@ -98208,18 +99372,23 @@
     {
       "stateId": "west-virginia",
       "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Proof of identity，例如 birth certificate、passport 或 WV DMV 列出的身份文件",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "REAL ID 比同类普通证件另加 $10",
       "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://code.wvlegislature.gov/17B-2-8/"
       ],
       "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV Code §17B-2-8 License and REAL ID Fees"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "real-id",
+        "fee"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -98227,37 +99396,21 @@
     {
       "stateId": "west-virginia",
       "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "Proof of Social Security Number",
+      "field": "realIdSummary",
+      "context": "appointment",
+      "claim": "HeadStart 只能预审并预约，最终仍要本人到 Regional Office",
       "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://go.wv.gov/realidheadstart",
+        "https://apps.wv.gov/Appt/DMV"
       ],
       "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV REAL ID HeadStart",
+        "对应官方来源：WV DMV Appointments"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "west-virginia",
-      "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "document",
-      "claim": "WV appointment document 页面提示 know your number or bring proof",
-      "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
         "appointment"
       ],
       "uncoveredThemes": [],
@@ -98268,14 +99421,93 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 West Virginia physical residency，显示姓名和 physical address",
+      "claim": "Identity 可从 original / certified U.S. birth certificate、valid U.S. passport / passport card、I-551、I-766、naturalization / citizenship certificate，或 foreign passport + valid visa + approved I-94 等适用项目选择",
       "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
         "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
       ],
       "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
         "对应官方来源：WV REAL ID Brochure"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "SSN 证明可用 current legal name 下的 original Social Security card、original W-2 / payroll stub 或显示 full SSN 和姓名的 1099",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
+        "对应官方来源：WV REAL ID Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "没有资格取得 SSN 时准备 SSA denial letter",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
+        "对应官方来源：WV REAL ID Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "准备两份显示本人姓名和 current physical WV street address 的 residency",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Affidavit of Residency",
+        "对应官方来源：WV REAL ID Brochure"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -98287,14 +99519,85 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名变化时带 marriage、divorce、court order 等 documents，DMV 必须能建立所有 name changes 的 link",
+      "claim": "P.O. Box 不接受，utility bill / bank statement 等 recurring document 按当前网页不得超过 60 天，两份不能由同一 company 出具",
       "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf",
         "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
       ],
       "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Affidavit of Residency",
         "对应官方来源：WV REAL ID Brochure"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "与 homeowner 同住且本人缺少地址材料时，使用 Affidavit of West Virginia Residency",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Affidavit of Residency",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "homeowner 填写相应部分并提供两份其名下 physical-address 证明",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Affidavit of Residency",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "姓名变化带齐每一段 certified marriage certificate、certified divorce decree、court order 或 amended birth certificate",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "name-change"
@@ -98306,16 +99609,191 @@
       "stateId": "west-virginia",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "license",
-      "claim": "外州转入还要带 previous state driver license 或 driving record",
+      "context": "document",
+      "claim": "50 岁以上的特定既有 WV 持证人可能有 signed-statement 例外，但要先让 DMV 确认",
       "sourceUrls": [
-        "https://transportation.wv.gov/DMV/drivers-licenses/Pages/default.aspx"
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：WV Driver Licenses and ID Cards"
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "有效美国外州驾照转入带实体卡",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "没有卡或证件过期超过 36 个月时，带原州或原 jurisdiction 在申请前 30 天内出具的 certified driving record",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "中国大陆及其他非英文外国驾照准备原件和 DMV-10-DLT certified translation，并把 foreign-license translation 与身份 / lawful-status translation 分开处理",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-10-DLT_Driver%27s-License-Certified-Translation.pdf",
+        "https://transportation.wv.gov/DMV/Forms/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Foreign Driver License Translation DMV-10-DLT",
+        "对应官方来源：WV DMV Forms",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "非公民按身份带当前 passport、I-94、visa、I-551 / I-766、I-20、DS-2019 和近期 school / employer verification 中适用的原件，不要只带 EAD 或只带学校信",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
+        "https://code.wvlegislature.gov/17B-2-12/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
+        "对应官方来源：WV Code §17B-2-12 License Expiration"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "Road test 当天带 instruction permit、车辆 registration card、valid insurance 和 current inspection sticker",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-6/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-6 Permit and Retest Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "提前检查 safety recall 与全部安全设备",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-6/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-6 Permit and Retest Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "real-id",
+      "claim": "REAL ID upgrade / first issue 再核对一份 identity、一份 SSN、两份 residency、完整 name chain，并预留额外 $10",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
+        "对应官方来源：WV REAL ID Brochure",
+        "对应官方来源：WV Affidavit of Residency"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "residency-proof",
+        "ssn",
+        "fee"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -98324,14 +99802,48 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "先看 WV REAL ID 页面，判断是否需要 For Federal Use card",
+      "claim": "先按任务分流：首次无照、有效美国外州转入、过期外州证件、中国大陆 / 其他外国驾照、REAL ID upgrade、renewal、duplicate、name / address change",
       "sourceUrls": [
-        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx"
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://go.wv.gov/selfservice"
       ],
       "sourceLabels": [
-        "对应官方来源：WV DMV REAL ID"
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV DMV Online Services"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "address-change",
+        "renewal",
+        "replacement",
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "再决定 Not for Federal Identification 还是 REAL ID",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -98343,37 +99855,19 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "document",
-      "claim": "用 Driver Licenses / ID Cards 或 brochure 核对 identity、SSN、two residency、name changes",
+      "claim": "已有 passport 且只需要登机时，先比较是否必须为此升级州证件",
       "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof",
-        "ssn",
-        "name-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "west-virginia",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "real-id",
-      "claim": "想节省现场时间时先用 REAL ID HeadStart 上传材料",
-      "sourceUrls": [
-        "https://go.wv.gov/selfservice"
-      ],
-      "sourceLabels": [
-        "对应官方来源：WV DMV Skip the Trip"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
         "document"
       ],
       "uncoveredThemes": [],
@@ -98383,17 +99877,245 @@
       "stateId": "west-virginia",
       "surface": "real-id",
       "field": "recommendedSteps",
-      "context": "license",
-      "claim": "续期先看 Online Renewal，确认是否能 online",
+      "context": "document",
+      "claim": "按 current Driver Licenses page 把材料分成 identity、SSN / SSA denial、two physical residency、complete name chain、lawful status 五组",
       "sourceUrls": [
-        "https://transportation.wv.gov/DMV/drivers-licenses/Pages/default.aspx",
-        "https://apps.wv.gov/dmv/selfservice/dl"
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：WV Driver Licenses and ID Cards",
-        "对应官方来源：WV Online Renewal"
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P",
+        "对应官方来源：WV REAL ID Brochure",
+        "对应官方来源：WV Affidavit of Residency"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "中国大陆驾照先准备 DMV-10-DLT certified translation，并致电 1-800-642-9066 确认考试、permit 和 DMV-8-FL foreign-language interpreter 安排",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-10-DLT_Driver%27s-License-Certified-Translation.pdf",
+        "https://transportation.wv.gov/DMV/Forms/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Foreign Driver License Translation DMV-10-DLT",
+        "对应官方来源：WV DMV Forms",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "有效美国外州证件在 residency 后 30 天内预约",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "证件遗失或过期超过 36 个月时另取 30 天内 certified driving record，并先清掉 PDPS block",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "需要 knowledge test 时选择现场或官方 online route",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/KnowToDrive.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/What-You-Should-Know.aspx",
+        "https://go.wv.gov/selfservice"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Know to Drive Online Testing",
+        "对应官方来源：WV Online Knowledge Test Requirements",
+        "对应官方来源：WV DMV Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "线上考试使用 webcam + mouse computer，自己完成，保存 Completion Certificate 并在 6 个月内到 DMV",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/KnowToDrive.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/What-You-Should-Know.aspx",
+        "https://go.wv.gov/selfservice"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Know to Drive Online Testing",
+        "对应官方来源：WV Online Knowledge Test Requirements",
+        "对应官方来源：WV DMV Online Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "Road test 前确认 permit holding period、registration、inspection、insurance、安全设备和 recall 状态，失败后至少等一周再约",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-6/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-6 Permit and Retest Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "real-id",
+      "claim": "REAL ID 可先用 HeadStart 预审，但仍预约 Regional Office",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://go.wv.gov/realidheadstart",
+        "https://apps.wv.gov/Appt/DMV"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV REAL ID HeadStart",
+        "对应官方来源：WV DMV Appointments"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "因 renewal / duplicate 材料口径冲突，带齐 full document set",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV Affidavit of Residency"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期先用 portal 检查资格和 PIN",
+      "sourceUrls": [
+        "https://apps.wv.gov/dmv/selfservice/dl",
+        "https://go.wv.gov/selfservice",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Online Renewal",
+        "对应官方来源：WV DMV Online Services",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "renewal",
         "online-service"
@@ -98406,54 +100128,20 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "real-id",
-      "claim": "REAL ID upgrade 直接预约 Regional Office",
+      "claim": "有姓名、地址、照片变化或 REAL ID upgrade 时直接改走 Regional Office",
       "sourceUrls": [
-        "https://apps.wv.gov/dmv/selfservice/dl"
-      ],
-      "sourceLabels": [
-        "对应官方来源：WV Online Renewal"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "west-virginia",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "外州转入按 appointment documents 准备 previous license / driving record",
-      "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
-      ],
-      "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "appointment"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "west-virginia",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "想在线把 Not for Federal Use 升级成 REAL ID",
-      "sourceUrls": [
+        "https://apps.wv.gov/dmv/selfservice/dl",
+        "https://go.wv.gov/selfservice",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
         "https://transportation.wv.gov/DMV/realid/Pages/default.aspx"
       ],
       "sourceLabels": [
+        "对应官方来源：WV Online Renewal",
+        "对应官方来源：WV DMV Online Services",
+        "对应官方来源：WV Driver Licenses and ID Cards",
         "对应官方来源：WV DMV REAL ID"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "real-id"
       ],
@@ -98463,18 +100151,125 @@
     {
       "stateId": "west-virginia",
       "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "document",
-      "claim": "只上传 HeadStart 文件，以为不用去 regional office",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "办结后保存 60-day temporary receipt，普通 office issuance 预留 10-15 个工作日，online renewal 预留 30-45 天",
       "sourceUrls": [
-        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://apps.wv.gov/dmv/selfservice/dl",
+        "https://transportation.wv.gov/DMV/locations/Pages/default.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：WV REAL ID Brochure"
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Online Renewal",
+        "对应官方来源：WV DMV Regional Offices"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document"
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "逾期未到再联系 WV DMV",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://apps.wv.gov/dmv/selfservice/dl",
+        "https://transportation.wv.gov/DMV/locations/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Online Renewal",
+        "对应官方来源：WV DMV Regional Offices"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "把 HeadStart 当成完全线上签发，上传材料后没有预约 Regional Office",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://go.wv.gov/realidheadstart",
+        "https://apps.wv.gov/Appt/DMV"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV REAL ID HeadStart",
+        "对应官方来源：WV DMV Appointments"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "appointment",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "尝试在线把 Not for Federal Use 升级成 REAL ID，或在线续期时同时改姓名、地址或照片",
+      "sourceUrls": [
+        "https://apps.wv.gov/dmv/selfservice/dl",
+        "https://go.wv.gov/selfservice",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Online Renewal",
+        "对应官方来源：WV DMV Online Services",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV DMV REAL ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "只带 current card，忽略 REAL ID renewal / duplicate 官方材料口径不一致，现场无法补出 identity、SSN、two residency 或 name chain",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://transportation.wv.gov/DMV/realid/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV DMV REAL ID",
+        "对应官方来源：WV Affidavit of Residency"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "residency-proof",
+        "ssn",
+        "renewal",
+        "replacement"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -98484,19 +100279,41 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "document",
-      "claim": "地址变化或姓名变化时没有准备两份 WV residence 或 name-change documents",
+      "claim": "两份 residency 只有 P.O. Box、超过当前 60 天窗口，或来自同一 utility / bank company",
       "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf",
         "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licenses_REAL_ID_cards_brochure.pdf"
       ],
       "sourceLabels": [
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Affidavit of Residency",
         "对应官方来源：WV REAL ID Brochure"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
-        "residency-proof",
-        "address-change",
-        "name-change"
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "与 homeowner 同住时只填 affidavit，没有让 homeowner 提供两份地址证明",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Res-Aff_Affidavit%20of%20WV%20Residency-WF.pdf",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-DS-23P_Application-for-a-Drivers-License-or-Photo-ID-Card-WF.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Affidavit of Residency",
+        "对应官方来源：WV Driver License and ID Application DMV-DS-23P"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -98506,16 +100323,155 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "license",
-      "claim": "外州转入忘记带旧 license 或 driving record",
+      "claim": "把中国大陆驾照当作台湾驾照使用 reciprocal exchange，或看到 2026 Ireland / Japan 授权就认定协议已经生效",
       "sourceUrls": [
-        "https://transportation.wv.gov/DMV/drivers-licenses/Pages/default.aspx"
+        "https://transportation.wv.gov/DMV/News/Pages/DMV-Announces-Driver%E2%80%99s-License-Reciprocal-Agreement-with-Taiwan-.aspx",
+        "https://code.wvlegislature.gov/17A-2-10B/"
       ],
       "sourceLabels": [
-        "对应官方来源：WV Driver Licenses and ID Cards"
+        "对应官方来源：WV DMV Taiwan Reciprocity Announcement",
+        "对应官方来源：WV Code §17A-2-10b Foreign Reciprocity Authority"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "非英文外国驾照只带普通翻译，没有使用 DMV-10-DLT、notary 和双方证件副本",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-10-DLT_Driver%27s-License-Certified-Translation.pdf",
+        "https://transportation.wv.gov/DMV/Forms/Pages/default.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Foreign Driver License Translation DMV-10-DLT",
+        "对应官方来源：WV DMV Forms",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "transfer"
+        "foreign-license",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "需要中文协助却直接在线考试，让他人出现在 webcam 或提供提示，触发 fraud failure 和 suspension 风险",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/KnowToDrive.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/What-You-Should-Know.aspx"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Know to Drive Online Testing",
+        "对应官方来源：WV Online Knowledge Test Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "appointment",
+      "claim": "外州证件已过期仍按有效外州卡免考路线预约，没有准备 full examination 和 certified driving record",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Pages/movingtowv.aspx",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-1A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV DMV Moving to West Virginia",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-1a New Resident Transfer"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "路考车辆缺 current inspection、insurance、registration，存在未修复 recall，或不会演示安全设备",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-6/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-6 Permit and Retest Rules"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "只向 USPS 改地址，没有在 20 天内更新 DMV，或以为 DMV-98-TRB 会自动寄新卡",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/DMVFormSearch/DMV-98-TRB-wf.pdf",
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Drivers-Licenses.aspx",
+        "https://code.wvlegislature.gov/17B-2-13/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV Change of Address DMV-98-TRB",
+        "对应官方来源：WV Driver Licenses and ID Cards",
+        "对应官方来源：WV Code §17B-2-13 Name and Address Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "west-virginia",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "根据 Drive for Five 页面自行计算续期总额和到期年限，没有核对卡面、renewal notice 与现行 8 年州法冲突",
+      "sourceUrls": [
+        "https://transportation.wv.gov/DMV/Drivers/Pages/Renewal-Fees.aspx",
+        "https://transportation.wv.gov/DMV/DMVFormSearch/Drivers_Licensing_Handbook_web.pdf",
+        "https://code.wvlegislature.gov/17B-2-12/",
+        "https://code.wvlegislature.gov/17B-2-12A/"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WV License and Renewal Fees",
+        "对应官方来源：WV Driver Licensing Handbook 2026",
+        "对应官方来源：WV Code §17B-2-12 License Expiration",
+        "对应官方来源：WV Code §17B-2-12a Renewal and Vision"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
       ],
       "uncoveredThemes": [],
       "valid": true

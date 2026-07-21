@@ -2,8 +2,8 @@
 
 - 页面数：166
 - 高风险待人工签字：17
-- 待逐页官方正文语义核对：34
-- 阻塞项：51
+- 待逐页官方正文语义核对：32
+- 阻塞项：49
 - 弱意图待处理：0
 
 ## 人工签字队列（高风险）
@@ -39,8 +39,6 @@
 | /directories/real-id/ | directory | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /directories/service-paths/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /directories/tests-permits/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/west-virginia/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/west-virginia/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/airport-travel-after-real-id/ | topic | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/dmv-fees-mailing-temporary-license/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/dmv-scam-text-fake-ticket-toll-real-id-phishing/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -83,8 +81,6 @@
 | /directories/real-id/ | standard | 92 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /directories/service-paths/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /directories/tests-permits/ | standard | 97 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/west-virginia/ | medium | 91 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/west-virginia/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/airport-travel-after-real-id/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/disabled-parking-placard-plates/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
 | /topics/dmv-fees-mailing-temporary-license/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
@@ -101,6 +97,8 @@
 | /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
 | /topics/moving-to-new-state/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/name-change-chain/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
+| /topics/non-citizen-license-id/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
+| /topics/older-driver-license-renewal-medical-review/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
 
 ## 执行节奏
 1. **第1-2周**：完成高风险人工签字，目标产出 8 条，检查点：未签字的高风险页不得用于新内容发布

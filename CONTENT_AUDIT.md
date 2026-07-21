@@ -3137,3 +3137,37 @@ Validation:
 - Browser QA at 1280 x 720 and 390 x 844 confirmed 45 evidence rows on each page, 134 overview and 169 REAL ID statement-level source links, visible mainland-China, interpreter, EDL, $29 fee and official-conflict guidance, separate publication / modification / fact-check dates, normal mobile title wrapping and no horizontal clipping. Browser logs contained no page warnings or errors.
 - Quality workbook: 34 semantic-review pages and 51 blocked pages remain; weak-intent pages remain 0.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+## Round 78 Changes
+
+Date: 2026-07-21
+
+### West Virginia Driver License, REAL ID, Foreign License and Testing Deep Review
+
+Source scan:
+
+- Checked West Virginia DMV's Driver Licenses, REAL ID, Moving to WV, online-service, HeadStart, appointment, location, renewal, address, disability-assistance and testing pages; the June 2026 DMV-DS-23P application, 2026 Driver Licensing Handbook, REAL ID brochure, residency affidavit, DMV-8-FL interpreter form and DMV-10-DLT foreign-license translation form; current W. Va. Code sections 17B-2-1a, 17B-2-2, 17B-2-6, 17B-2-8, 17B-2-11, 17B-2-12, 17B-2-12a, 17B-2-13 and 17A-2-10b; and TSA identification guidance.
+- Confirmed the 30-day new-resident route, valid versus expired U.S. out-of-state handling, PDPS and driving-record boundaries, the nonresident foreign-license exception, and the difference between visitor driving and resident transfer.
+- Kept mainland China separate from the published Taiwan, Germany and South Korea reciprocity announcement. The 2026 statute only authorizes the commissioner to seek Ireland and Japan agreements, so the page does not claim those agreements are active.
+- Confirmed the DMV-10-DLT certified-translation route and DMV-8-FL in-person interpreter rules without inventing a fixed Chinese written test. The online test section explains device, anti-fraud, certificate, seven-day retest and six-month validity boundaries.
+- Disclosed four material official conflicts instead of silently selecting one answer: Drive for Five versus the current eight-year statute, expired-license retesting after three years versus six months, permit validity of 180 versus 90 days, and unchanged renewal / duplicate material requirements.
+- Confirmed current REAL ID identity, SSN, two-residency and name-chain requirements; homeowner affidavit handling; noncitizen documents; testing and road-test vehicle requirements; fees; address-change timing; online-renewal limits; temporary receipts and mailing windows.
+
+Scope:
+
+- Rewrote both `/states/west-virginia/` and `/states/west-virginia/real-id/` with separate paths for valid and expired U.S. transfers, mainland-China and other foreign licenses, first-time applicants, Not for Federal versus REAL ID credentials, testing, renewal, replacement, address and name changes.
+- Expanded West Virginia's registered source set from 5 to 34 live official sources and mapped 104 unique claims as AI-assisted explicit evidence. The rendered pages expose 107 evidence rows: 60 overview rows with 197 statement-level links and 47 REAL ID rows with 157 links.
+- Replaced the deleted `/DMV/Pages/Regional-Offices.aspx` source with the live `/DMV/locations/Pages/default.aspx` page before release.
+- Preserved the original publication date, set separate modification and fact-check dates to the actual review date, added a public editorial update, and updated README, E-E-A-T inventory, quality workbook and 90-day execution status.
+
+Validation:
+
+- West Virginia official-link audit: 34 checked, 34 direct OK, 0 watch, 0 fail.
+- State evidence audit: 4,730 claims, 9,305 official links, 4,730 AI-assisted explicit mappings across all 100 pages, 0 errors. This completes the first explicit evidence-review pass for every state overview and REAL ID page.
+- Directory evidence audit: 819 claims, 786 inherited explicit mappings, 33 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO, sitemap and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 117 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 32 automated-source pages and 17 high-risk human approvals still honestly pending.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,705 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed 60 overview evidence rows with 197 links and 47 REAL ID rows with 157 links, visible mainland-China, interpreter, official-conflict, HeadStart, document and mailing guidance, separate publication / modification / fact-check dates, normal mobile title wrapping and no horizontal overflow.
+- Quality workbook: 32 semantic-review pages and 49 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.

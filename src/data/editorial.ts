@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 West Virginia 两页州法、外国驾照与考试路线核对',
+    summary:
+      '逐条比对 West Virginia DMV 的 Driver Licenses、REAL ID、Moving to WV、2026 Driver Licensing Handbook、DMV-DS-23P、residency affidavit、DMV-8-FL、DMV-10-DLT、线上与现场考试、续期、改址、HeadStart 和办公室页面，以及九项现行州法与 TSA 规则；登记 104 条去重声明的显式来源，并公开保留 Drive for Five 与八年州法、过期重考 3 年与 6 个月、permit 180 天与 90 天、续期补证材料之间的官方口径冲突。',
+    scope: [
+      '西弗吉尼亚州办事总览',
+      '西弗吉尼亚州 REAL ID',
+      '104 条去重声明显式核对',
+      '中国大陆驾照、口译、考试、费用与官方冲突',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Vermont 两页州法、三类证件与口译路线核对',
     summary:
       '逐条比对 Vermont DMV 的 Driver License、REAL ID、Enhanced Driver License / ID、Driver Privilege Card、VL-011 / VL-021 / VL-017 / VL-002 / VL-040 / VN-142 / VT-009、Driver Manual、当前州法与 2025 Act 66，以及 TSA 和 CBP 页面；登记 90 条独立声明的显式来源，并补齐 2025 年口译规则、DPC 居住证明组合、2026 年 7 月路考预约费、中国大陆与其他外国驾照路线，以及州法三年和申请表一年口径不一致的处理方式。',

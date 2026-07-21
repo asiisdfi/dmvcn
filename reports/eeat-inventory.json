@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T04:16:24.045Z",
+    "generatedAt": "2026-07-21T04:34:13.071Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 115,
+    "passed": 117,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 34,
-    "aiAssistedReviews": 121,
+    "sourceMappedReviews": 32,
+    "aiAssistedReviews": 123,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 51,
+    "blockedPages": 49,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 229,
+        "sourceCount": 230,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 320,
+        "sourceCount": 321,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 167,
-        "directoryEvidenceLinks": 167,
+        "directoryEvidenceItems": 171,
+        "directoryEvidenceLinks": 171,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 261,
+        "sourceCount": 262,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 124,
-        "directoryEvidenceLinks": 124,
+        "directoryEvidenceItems": 126,
+        "directoryEvidenceLinks": 126,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 686,
+        "sourceCount": 697,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 231,
+        "sourceCount": 233,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -521,8 +521,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 194,
-        "directoryEvidenceLinks": 194,
+        "directoryEvidenceItems": 196,
+        "directoryEvidenceLinks": 196,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 140,
-        "directoryEvidenceLinks": 140,
+        "directoryEvidenceItems": 144,
+        "directoryEvidenceLinks": 144,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 263,
+        "sourceCount": 264,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 180,
-        "directoryEvidenceLinks": 180,
+        "directoryEvidenceItems": 182,
+        "directoryEvidenceLinks": 182,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1585,
+        "sourceCount": 1612,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -5381,21 +5381,21 @@
       "route": "/states/west-virginia/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 91,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成西弗吉尼亚州（West Virginia Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 West Virginia DMV 当前 Driver Licenses、REAL ID、Moving to WV、2026 Driver Licensing Handbook、2026 DMV-DS-23P、REAL ID brochure、residency affidavit、DMV-8-FL 口译表、DMV-10-DLT 外国驾照翻译表、线上与现场考试、续期、HeadStart、预约、办公室、改址和 disability assistance；同时核对 W. Va. Code §§ 17B-2-1a、17B-2-2、17B-2-6、17B-2-8、17B-2-11、17B-2-12、17B-2-12a、17B-2-13、17A-2-10b 与 TSA 当前规则。",
+        "notes": "重写 West Virginia 两页，补齐 Not for Federal / REAL ID、新居民、外州与中国大陆驾照、口译、笔试和路考、permit、续期补证、改名改址、费用、临时凭证与非公民路线。公开标出 Drive for Five 与现行八年州法、过期重考 3 年与 6 个月、permit 180 天与 90 天、renewal / duplicate 材料之间的官方冲突；未虚构固定中文试卷、中国大陆互惠、Ireland / Japan 已生效协议或人工专业审核。"
       },
       "scores": {
-        "factsAndSources": 20,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -5405,14 +5405,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 12,
+        "sourceCount": 34,
+        "factCheckCount": 60,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 12,
-        "stateEvidenceLinks": 13,
+        "stateEvidenceItems": 60,
+        "stateEvidenceLinks": 197,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5420,9 +5420,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/west-virginia/real-id/",
@@ -5430,16 +5428,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成西弗吉尼亚州（West Virginia Division of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条比对 West Virginia DMV 当前 Driver Licenses、REAL ID、Moving to WV、2026 Driver Licensing Handbook、2026 DMV-DS-23P、REAL ID brochure、residency affidavit、DMV-8-FL 口译表、DMV-10-DLT 外国驾照翻译表、线上与现场考试、续期、HeadStart、预约、办公室、改址和 disability assistance；同时核对 W. Va. Code §§ 17B-2-1a、17B-2-2、17B-2-6、17B-2-8、17B-2-11、17B-2-12、17B-2-12a、17B-2-13、17A-2-10b 与 TSA 当前规则。",
+        "notes": "重写 West Virginia 两页，补齐 Not for Federal / REAL ID、新居民、外州与中国大陆驾照、口译、笔试和路考、permit、续期补证、改名改址、费用、临时凭证与非公民路线。公开标出 Drive for Five 与现行八年州法、过期重考 3 年与 6 个月、permit 180 天与 90 天、renewal / duplicate 材料之间的官方冲突；未虚构固定中文试卷、中国大陆互惠、Ireland / Japan 已生效协议或人工专业审核。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5452,14 +5450,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 18,
+        "sourceCount": 34,
+        "factCheckCount": 47,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 18,
-        "stateEvidenceLinks": 19,
+        "stateEvidenceItems": 47,
+        "stateEvidenceLinks": 157,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5467,9 +5465,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/wisconsin/",
