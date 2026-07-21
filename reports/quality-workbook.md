@@ -2,8 +2,8 @@
 
 - 页面数：166
 - 高风险待人工签字：17
-- 待逐页官方正文语义核对：46
-- 阻塞项：63
+- 待逐页官方正文语义核对：44
+- 阻塞项：61
 - 弱意图待处理：0
 
 ## 人工签字队列（高风险）
@@ -41,14 +41,12 @@
 | /directories/tests-permits/ | directory | 97 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/iowa/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/montana/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/nebraska/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/north-dakota/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/south-carolina/ | state-overview | 93 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/vermont/ | state-overview | 92 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/west-virginia/ | state-overview | 91 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/iowa/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/montana/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
-| /states/nebraska/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/north-dakota/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/south-carolina/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /states/vermont/real-id/ | state-real-id | 99 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
@@ -72,6 +70,8 @@
 | /topics/residency-proof-no-bills-po-box/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/road-test-day-vehicle-sponsor-insurance-rental-retest/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 | /topics/sold-car-release-liability-plates-insurance/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /topics/state-id-non-driver-id-real-id-card/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
+| /topics/teen-driver-permit-gdl-parent-guide/ | topic | 96 | source-mapped | 逐页打开官方正文，比对声明限定条件并记录修改 |
 
 ## 阻塞项优先处理
 
@@ -93,8 +93,6 @@
 | /states/iowa/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/montana/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/montana/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/nebraska/ | medium | 91 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
-| /states/nebraska/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/north-dakota/ | medium | 91 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/north-dakota/real-id/ | medium | 99 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /states/south-carolina/ | medium | 93 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
@@ -107,6 +105,8 @@
 | /topics/disabled-parking-placard-plates/ | high | 97 | 已完成 AI 辅助证据核对，仍待真实人工语义签字 |
 | /topics/dmv-fees-mailing-temporary-license/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 | /topics/dmv-scam-text-fake-ticket-toll-real-id-phishing/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /topics/dmv-test-language-translation-interpreter/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
+| /topics/document-checklist/ | medium | 96 | 已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对 |
 
 ## 执行节奏
 1. **第1-2周**：完成高风险人工签字，目标产出 8 条，检查点：未签字的高风险页不得用于新内容发布

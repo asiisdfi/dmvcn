@@ -1,18 +1,18 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T01:53:47.640Z",
+    "generatedAt": "2026-07-21T02:21:22.529Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 103,
+    "passed": 105,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
-    "sourceMappedReviews": 46,
-    "aiAssistedReviews": 109,
+    "sourceMappedReviews": 44,
+    "aiAssistedReviews": 111,
     "humanApprovedReviews": 0,
     "highRiskHumanApprovalPending": 17,
     "criticalPages": 0,
-    "blockedPages": 63,
+    "blockedPages": 61,
     "averageScore": 97
   },
   "pages": [
@@ -324,7 +324,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 219,
+        "sourceCount": 218,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -371,7 +371,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 304,
+        "sourceCount": 306,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -380,8 +380,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 147,
-        "directoryEvidenceLinks": 147,
+        "directoryEvidenceItems": 149,
+        "directoryEvidenceLinks": 149,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -418,7 +418,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 249,
+        "sourceCount": 250,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -427,8 +427,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 109,
-        "directoryEvidenceLinks": 109,
+        "directoryEvidenceItems": 110,
+        "directoryEvidenceLinks": 110,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -465,7 +465,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 636,
+        "sourceCount": 644,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -512,7 +512,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 216,
+        "sourceCount": 218,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -559,7 +559,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 161,
+        "sourceCount": 162,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -568,8 +568,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 126,
-        "directoryEvidenceLinks": 126,
+        "directoryEvidenceItems": 125,
+        "directoryEvidenceLinks": 125,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -606,7 +606,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 240,
+        "sourceCount": 243,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -615,8 +615,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 167,
-        "directoryEvidenceLinks": 167,
+        "directoryEvidenceItems": 168,
+        "directoryEvidenceLinks": 168,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -653,7 +653,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 205,
+        "sourceCount": 209,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1085,7 +1085,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1470,
+        "sourceCount": 1484,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -3499,21 +3499,21 @@
       "route": "/states/nebraska/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 91,
+      "score": 96,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成内布拉斯加州（Nebraska Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Nebraska DMV 的 Class O、document verification、new resident、renewal、replacement、address、name、State ID、LPD、practice test、manual、location、non-federal credential 与 licensing-services 正文，并核对 2024 Document Verification Form、2025 Class O Driver Manual、2025 Driver Licensing Examiner Manual、2026 redesigned-card notice、REAL ID history 和 TSA identification 页面。",
+        "notes": "重点补齐中国大陆驾照不在 foreign drive-test waiver 名单、无官方 Chinese written test、non-verbal picture test、外国字典与翻译边界、外州卡遗失 / 过期的 test table、SAVE 最长处理提示、2026 新星标、parolee non-federal credential、费用和领卡时限。所有映射为 AI 辅助核查，不冒充 Nebraska DMV、律师或真实人工专业审核。"
       },
       "scores": {
-        "factsAndSources": 20,
+        "factsAndSources": 25,
         "evidenceMapping": 15,
         "taskCompletion": 12,
         "uniqueValue": 10,
@@ -3523,14 +3523,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 10,
+        "sourceCount": 21,
+        "factCheckCount": 55,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 10,
-        "stateEvidenceLinks": 13,
+        "stateEvidenceItems": 55,
+        "stateEvidenceLinks": 97,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3538,9 +3538,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/nebraska/real-id/",
@@ -3548,16 +3546,16 @@
       "risk": "medium",
       "score": 99,
       "threshold": 85,
-      "pass": false,
-      "reviewStatus": "source-mapped",
-      "reviewMethod": "automated",
+      "pass": true,
+      "reviewStatus": "ai-assisted",
+      "reviewMethod": "ai-assisted",
       "semanticReview": {
-        "status": "source-mapped",
-        "method": "automated",
-        "reviewedAt": "2026-07-18",
-        "reviewer": "站内证据映射审计",
-        "scope": "完成内布拉斯加州（Nebraska Department of Motor Vehicles）州别页的事实项语义复核与官方入口映射。\n    ",
-        "notes": "当前只通过官方来源映射与结构一致性核验；逐页打开官方正文并完成显式声明核对后，才能升级为 AI 辅助证据核对。"
+        "status": "evidence-checked",
+        "method": "ai-assisted",
+        "reviewedAt": "2026-07-21",
+        "reviewer": "Codex AI 辅助证据核查",
+        "scope": "逐条打开 Nebraska DMV 的 Class O、document verification、new resident、renewal、replacement、address、name、State ID、LPD、practice test、manual、location、non-federal credential 与 licensing-services 正文，并核对 2024 Document Verification Form、2025 Class O Driver Manual、2025 Driver Licensing Examiner Manual、2026 redesigned-card notice、REAL ID history 和 TSA identification 页面。",
+        "notes": "重点补齐中国大陆驾照不在 foreign drive-test waiver 名单、无官方 Chinese written test、non-verbal picture test、外国字典与翻译边界、外州卡遗失 / 过期的 test table、SAVE 最长处理提示、2026 新星标、parolee non-federal credential、费用和领卡时限。所有映射为 AI 辅助核查，不冒充 Nebraska DMV、律师或真实人工专业审核。"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3570,14 +3568,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 6,
-        "factCheckCount": 16,
+        "sourceCount": 21,
+        "factCheckCount": 63,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 16,
-        "stateEvidenceLinks": 19,
+        "stateEvidenceItems": 63,
+        "stateEvidenceLinks": 128,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3585,9 +3583,7 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": [
-        "已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对"
-      ]
+      "blockers": []
     },
     {
       "route": "/states/nevada/",

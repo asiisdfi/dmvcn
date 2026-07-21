@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-21',
+    title: '完成 Nebraska 两页官方正文与手册语义核对',
+    summary:
+      '逐条比对 Nebraska DMV 的 Class O、document verification、new resident、renewal、replacement、address、name、State ID、LPD、practice test、locations、non-federal credential 与 licensing-services 正文，2024 Document Verification Form、2025 Class O / examiner manuals、2026 card notice 和 TSA 页面；登记 114 条独立声明的显式来源，并补齐中国大陆驾照、无官方 Chinese written test、non-verbal picture test、外州卡遗失 / 过期、SAVE、2026 REAL ID 星标、当前费用和领卡时限。',
+    scope: [
+      '内布拉斯加州办事总览',
+      '内布拉斯加州 REAL ID',
+      '114 条独立声明显式核对',
+      '中国驾照、考试语言、SAVE 与 2026 星标',
+    ],
+  },
+  {
+    date: '2026-07-21',
     title: '完成 Kentucky 两页官方正文语义核对',
     summary:
       '逐条比对 Kentucky DRIVE 的 REAL ID、材料 PDF、standard 对比、upgrade、pricing、first issuance、new resident、non-U.S. citizen、外国驾照国家名单、renewal、vision、update / replace、ID card、Regional Office、myDrive，KSP testing、当前 Driver Manual 与 TSA 正文；登记 110 条独立声明的显式来源，并补齐中国大陆驾照、Chinese standard-operator test、2026 Letter ID、视力续期、当前费用，以及非公民 REAL ID、互惠考试和 permit online renewal 的官方冲突。',

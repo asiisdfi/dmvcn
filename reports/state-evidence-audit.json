@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T01:53:46.722Z",
+    "generatedAt": "2026-07-21T02:21:21.613Z",
     "pages": 100,
     "states": 50,
-    "claims": 4154,
-    "links": 7525,
-    "aiAssistedClaims": 3961,
-    "aiAssistedPages": 86,
+    "claims": 4246,
+    "links": 7718,
+    "aiAssistedClaims": 4079,
+    "aiAssistedPages": 88,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 1943,
-        "links": 3434,
+        "claims": 1988,
+        "links": 3518,
         "states": 50
       },
       "real-id": {
-        "claims": 2211,
-        "links": 4091,
+        "claims": 2258,
+        "links": 4200,
         "states": 50
       }
     }
@@ -82677,138 +82677,19 @@
       "stateId": "nebraska",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "内布拉斯加州驾照、REAL ID、续期、地址变化和新居民换证由 Nebraska DMV Driver Licensing 处理",
+      "context": "document",
+      "claim": "Nebraska DMV Driver Licensing Office 负责驾照、permit、State ID 的材料核验和考试",
       "sourceUrls": [
         "https://dmv.nebraska.gov/dl/driver-license",
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Driver License",
-        "对应官方来源：Nebraska Document Verification Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "real-id",
-        "address-change",
-        "renewal",
-        "transfer"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "overview",
-      "field": "summary",
-      "context": "document",
-      "claim": "Driver License、Document Verification Requirements、New Resident、Renewals 和 Change Address 是核心入口",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "address-change"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "license",
-      "claim": "Nebraska 新居民持有效外州 license 时，需要在 30 天内取得 Nebraska license",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/driver-license"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Driver License"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "transfer"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "overview",
-      "field": "licenseSummary",
-      "context": "document",
-      "claim": "续期或地址变化时，如果地址未曾验证或已经搬家，通常要提供两份 proof of address",
-      "sourceUrls": [
         "https://dmv.nebraska.gov/dl/document-verification-requirements",
-        "https://dmv.nebraska.gov/dl/renewals"
+        "https://dmv.nebraska.gov/locations"
       ],
       "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver License",
         "对应官方来源：Nebraska Document Verification Requirements",
-        "对应官方来源：Nebraska Renewals"
+        "对应官方来源：Nebraska DMV Locations"
       ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof",
-        "address-change",
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "overview",
-      "field": "realIdSummary",
-      "context": "document",
-      "claim": "Nebraska 初次申请或外州文件转入时，需要一次性提供 U.S. citizenship 或 lawful status、identity、两份 Nebraska principal address，以及可由 SSA 核验的 valid Social Security number 或豁免证明",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "document",
-      "claim": "Nebraska DMV 多个页面都把 Data Form、Acceptable Proof of Identification、Identification / Address Verification Requirements 串在一起",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "overview",
-      "field": "appointmentNote",
-      "context": "document",
-      "claim": "出发前先把表格和地址文件准备好，现场还会拍新照片，并可能要 vision / medical requirements",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/renewals"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Renewals"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "test"
@@ -82819,16 +82700,18 @@
     {
       "stateId": "nebraska",
       "surface": "overview",
-      "field": "editorNotes",
-      "context": "document",
-      "claim": "Nebraska 的 one-time citizenship proof 适合解释成“首次或外州转入时做一次身份/合法状态建档”",
+      "field": "summary",
+      "context": "license",
+      "claim": "新居民可在任一 Driver Licensing Office 办驾照，但车辆 title / registration 要在居住县办理",
       "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+        "https://dmv.nebraska.gov/locations",
+        "https://dmv.nebraska.gov/driver-license"
       ],
       "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
+        "对应官方来源：Nebraska DMV Locations",
+        "对应官方来源：Nebraska Driver License Hub"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -82836,16 +82719,242 @@
     {
       "stateId": "nebraska",
       "surface": "overview",
-      "field": "editorNotes",
-      "context": "detail",
-      "claim": "新居民 30 天换证规则要写进搬州路径",
+      "field": "summary",
+      "context": "license",
+      "claim": "持有效美国外州驾照的新居民通常要在 30 天内转入",
       "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
         "https://dmv.nebraska.gov/dl/driver-license"
       ],
       "sourceLabels": [
-        "对应官方来源：Nebraska Driver License"
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Class O Driver License"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "中国大陆驾照不在 Nebraska 当前 examiner manual 列出的 Mexico、Germany、Canada 与部分 U.S. territories 驾驶考试豁免名单",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "中国驾照持有人应按首次 Nebraska applicant 准备 vision、Class O written 和 drive tests",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/driver-license",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver License",
+        "对应官方来源：Nebraska Class O Driver Manual",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "licenseSummary",
+      "context": "license",
+      "claim": "官方没有承诺中文笔试，但提供面向非英语/西语申请人的 non-verbal picture test",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Nebraska 自 2013 年起签发 REAL ID compliant credential",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/news/nebraskans-ready-real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska REAL ID Issuance History"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "当前卡片看右上角星标",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/dl/not-federal-identification-documents"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Not for Federal Identification Documents"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "2026 年 3 月后签发的是黑圈白星，仍在有效期内的旧卡可能是金圈白星",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/news/nebraska-dmv-unveils-newly-redesigned-driver-license-and-state-id-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Redesigned License and ID Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "符合特殊 parolee 路线的卡会标注 NOT FOR FEDERAL IDENTIFICATION 且没有星",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/not-federal-identification-documents",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Not for Federal Identification Documents",
+        "对应官方来源：Nebraska Class O Driver Manual",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "Bellevue、Grand Island、Norfolk、Lincoln 和 Omaha 的 car / motorcycle drive test 要预约，其他驾照或 ID 业务也强烈建议预约",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/driver-license",
+        "https://dmv.nebraska.gov/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Hub",
+        "对应官方来源：Nebraska DMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "Omaha North 56th Street office 不做 drive test",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/driver-license",
+        "https://dmv.nebraska.gov/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Hub",
+        "对应官方来源：Nebraska DMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "appointmentNote",
+      "context": "appointment",
+      "claim": "县级 office 的开放日和截止考试时间不同，出发前应查当天 location / closing 信息",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska DMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "持有效美国外州驾照的新居民要在 30 天内换 Nebraska license",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/dl/driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Class O Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "transfer"
       ],
@@ -82856,21 +82965,882 @@
       "stateId": "nebraska",
       "surface": "overview",
       "field": "editorNotes",
+      "context": "detail",
+      "claim": "18 岁以上交出有效外州卡通常做 vision test，drive test 由 staff 决定",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/dl/driver-license",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Class O Driver License",
+        "对应官方来源：Nebraska Class O Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "无法交出外州卡时，当前新居民页面要求 written 和 drive tests",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/dl/driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Class O Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "外州卡过期不足一年时，drive test 可能豁免，但 written test 仍要做",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/dl/driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Class O Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "没有外州实体卡时，examiner manual 允许用最近 30 天内的 driving record 证明驾照有效或过期不足一年，以申请 drive-test waiver",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [
+        "processing-or-mail"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "是否接受仍由现场 staff 核验",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf",
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual",
+        "对应官方来源：Nebraska New Resident Driver Licensing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "中国大陆驾照不在 Mexico、Germany、Canada 和列明 U.S. territories 的 drive-test waiver 名单，因此中国驾照持有人应计划参加 drive test",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "外国驾照会退还申请人，不附在 issuance certificate 上",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
       "context": "document",
-      "claim": "地址变化/续期时的两份地址证明是条件触发：地址未验证或已搬家时需要",
+      "claim": "外国驾照本身不能替代 lawful status、Nebraska address 和 SSN / exemption 文件",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "Class O written test 是 25 题、最多错 5 题，最低 80%",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "non-verbal picture test 是 24 题、最多错 4 题",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "当前 examiner manual 只列 English、Spanish 和 American Sign Language 的 written / audio test，没有承诺 Chinese",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "非英语或西语申请人可请求 non-verbal picture test",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "纸质或电子 foreign-language dictionary 可在 examiner 检查没有笔记后使用",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "这不等于允许翻译人员代答 written test",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "written test 第 1 至第 5 次失败之间要隔一天",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "第 6 次失败后要完成 approved driver training 或从最后一次失败起等待 90 天",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "非商业业务可用人工或数字翻译协助 application、vision check、drive-test instructions 和结果解释",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "drive test 车内只能有 staff 和 applicant",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "drive-test 车辆由申请人提供，须车况良好、brake lights 和 speedometer 正常，适用年份的安全带可用，车内清洁",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "连续三次 drive test 失败后，必须完成含至少 6 小时课堂和 6 小时驾驶的 approved training，或持 LPD 至少 90 天，才能再申请",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/driver-license",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver License",
+        "对应官方来源：Nebraska Class O Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "美国公民的新申请人通常只做一次 citizenship 建档",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "lawful-status applicant 初次及以后每次到 exam office 都要带 USCIS 文件",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "USCIS / SAVE verification 可能需要最多 20 个 federal workdays",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "非公民应利用 90 天 renewal window，不要等到证件临近到期",
       "sourceUrls": [
         "https://dmv.nebraska.gov/dl/document-verification-requirements",
         "https://dmv.nebraska.gov/dl/renewals"
       ],
       "sourceLabels": [
         "对应官方来源：Nebraska Document Verification Requirements",
-        "对应官方来源：Nebraska Renewals"
+        "对应官方来源：Nebraska Driver License Renewals"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof",
-        "address-change",
+        "lawful-presence",
         "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "real-id",
+      "claim": "持 I-94 + foreign passport、I-766，或以外州 REAL ID 表示非公民身份的申请人，当前页面还要求第二份 lawful-status 文件或 I-797 等补充证明",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "Nebraska credential 使用 USCIS 文件时，证件期限会跟随 USCIS document expiration，而不一定获得完整五年",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/driver-license",
+        "https://dmv.nebraska.gov/dl/state-identification-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver License",
+        "对应官方来源：Nebraska State Identification Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "首次或返回 Nebraska 建档要一份 citizenship / lawful-status identity、完整 SSN 或 I-94 exemption、两份来自不同来源的 principal-address 文件，以及完整姓名变化链",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska New Resident Driver Licensing"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn",
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "地址文件要显示 first / last name 和 current residential address",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "P.O. Box 不接受，多数账单 / statement / mail 类材料要求最近 90 天",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "外国语言文件可能被要求由 DMV-approved translator 翻译",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf",
+        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual",
+        "对应官方来源：Nebraska Document Verification Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "当前 examiner manual 的可使用翻译规则只明确列 foreign marriage license，且要同时交原件和翻译",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "地址或姓名变化要在 60 天内更新",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/change-address",
+        "https://dmv.nebraska.gov/dl/name-change",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Address Change",
+        "对应官方来源：Nebraska Driver License Name Change",
+        "对应官方来源：Nebraska Class O Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "地址可在符合条件时线上补卡，姓名变化不能线上办，必须到 Driver Licensing Office",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/change-address",
+        "https://dmv.nebraska.gov/dl/name-change"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Address Change",
+        "对应官方来源：Nebraska Driver License Name Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Class O 五年卡当前总费用 $29，replacement 总费用 $16",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "replacement",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "未满 21 岁、USCIS 到期日或特定 restriction 可能导致较短期限和按期费用",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/driver-license",
+        "https://dmv.nebraska.gov/dl/state-identification-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver License",
+        "对应官方来源：Nebraska State Identification Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "21 岁以上一般可提前 90 天续期",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/renewals",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Renewals",
+        "对应官方来源：Nebraska Class O Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "线上 Class O / M renewal 在 72 岁生日之前到期时，最多可连续两轮，姓名或显著外貌变化会失去线上资格",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/renewals"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Renewals"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "现场通过后先拿 30-day receipt，永久卡邮寄",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/renewals",
+        "https://dmv.nebraska.gov/dl/replacement",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Renewals",
+        "对应官方来源：Nebraska Replacement License, Permit and ID",
+        "对应官方来源：Nebraska Class O Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "不同业务页面写 14 或 20 business days，且 30-day receipt 不能作为 TSA 登机身份证件",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/renewals",
+        "https://dmv.nebraska.gov/dl/replacement",
+        "https://dmv.nebraska.gov/dl/change-address",
+        "https://dmv.nebraska.gov/dl/name-change",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Renewals",
+        "对应官方来源：Nebraska Replacement License, Permit and ID",
+        "对应官方来源：Nebraska Driver License Address Change",
+        "对应官方来源：Nebraska Driver License Name Change",
+        "对应官方来源：Nebraska Class O Driver Manual",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "U.S. citizen 的 Nebraska State ID 当前免费",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/state-identification-card",
+        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska State Identification Card",
+        "对应官方来源：Nebraska Document Verification Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "document",
+      "claim": "non-U.S. citizen State ID 按期限收费，并可能受 USCIS 文件到期日限制",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/state-identification-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska State Identification Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [
+        "document"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "Nebraska 自 2013 年起签发 REAL ID compliant credential",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/news/nebraskans-ready-real-id"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska REAL ID Issuance History"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -82879,15 +83849,168 @@
       "stateId": "nebraska",
       "surface": "real-id",
       "field": "realIdSummary",
-      "context": "document",
-      "claim": "Nebraska 初次申请或外州文件转入时，需要一次性提供 U.S. citizenship 或 lawful status、identity、两份 Nebraska principal address，以及可由 SSA 核验的 valid Social Security number 或豁免证明",
+      "context": "real-id",
+      "claim": "当前卡片看右上角星标",
       "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/dl/not-federal-identification-documents"
       ],
       "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Not for Federal Identification Documents"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "2026 年 3 月后签发的是黑圈白星，仍在有效期内的旧卡可能是金圈白星",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/news/nebraska-dmv-unveils-newly-redesigned-driver-license-and-state-id-cards"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Redesigned License and ID Cards"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "realIdSummary",
+      "context": "real-id",
+      "claim": "符合特殊 parolee 路线的卡会标注 NOT FOR FEDERAL IDENTIFICATION 且没有星",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/not-federal-identification-documents",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Not for Federal Identification Documents",
+        "对应官方来源：Nebraska Class O Driver Manual",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "citizenship / lawful-status identity 准备一份清单文件，例如 certified U.S. birth certificate、valid U.S. passport、I-551、I-766，或带 supporting documents 的 valid I-94 + foreign passport",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "普通 hospital birth certificate 不接受",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "fax 和 photocopy 不接受，DMV staff 也不会替申请人打印 citizenship、lawful status、address 或 SSN 文件",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "ssn"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "在 data form 写完整 SSN，由 SSA 核验",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/dl/driver-licensing-services"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Driver Licensing Services"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "没有 SSN 资格时，按清单带 valid unexpired I-94 / I-94A 和 valid foreign passport",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/dl/driver-licensing-services"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Driver Licensing Services"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "ssn"
@@ -82899,16 +84022,20 @@
       "stateId": "nebraska",
       "surface": "real-id",
       "field": "documentHighlights",
-      "context": "document",
-      "claim": "Proof of U.S. citizenship 或 lawful status，包含姓名、出生日期和 identity",
+      "context": "real-id",
+      "claim": "I-94 + foreign passport、I-766 或非公民外州 REAL ID 路线可能还要第二份 lawful-status document 或 I-797",
       "sourceUrls": [
         "https://dmv.nebraska.gov/dl/document-verification-requirements"
       ],
       "sourceLabels": [
         "对应官方来源：Nebraska Document Verification Requirements"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "lawful-presence"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },
@@ -82917,14 +84044,59 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "两份 Nebraska principal address / proof of address",
+      "claim": "每次 exam-office visit 都带全部 USCIS originals",
       "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "lawful-presence",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "两份 Nebraska principal-address 文件必须来自两个不同 issuing sources，显示 first / last name 和当前 residential address",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "P.O. Box 不接受",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "residency-proof"
       ],
@@ -82936,16 +84108,16 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Valid Social Security number，可由 Social Security Administration 核验",
+      "claim": "bank statement、pay stub、government mail、postmarked envelope、invoice 等通常要在 90 天内",
       "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
+        "对应官方来源：Nebraska Document Verification Form"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "ssn"
+        "residency-proof"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -82955,14 +84127,14 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "不能提供时按 I-94 / I-94A 豁免路径",
+      "claim": "valid vehicle registration、insurance、lease、mortgage 等按当前清单核对",
       "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
+        "对应官方来源：Nebraska Document Verification Form"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [],
       "uncoveredThemes": [],
       "valid": true
@@ -82972,14 +84144,906 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "姓名变化时带 certified marriage license、certified divorce decree 或 court order，把旧名和当前名连接起来",
+      "claim": "未满 21 岁无法独立提供地址时，可使用 parent / guardian 的两份 principal-address 文件",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "identity 名称与 current legal name 不同，要用 certified marriage license / certificate、divorce decree、court order、amended birth certificate 或其他清单文件串起全部变化",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/dl/name-change"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Driver License Name Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "foreign marriage license 如被用于姓名链，准备原件和 typed / printed、dated、signed translation",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "name-change",
+        "language"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "name-change"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "是否需要 DMV-approved translator 先向 office 确认",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "美国外州转入带实体 license",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/dl/driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Class O Driver License"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "卡片遗失时准备最近 30 天 driving record，并预期 staff 决定能否免 drive test",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "中国驾照路线带有效 foreign license，但同时独立准备 lawful-status identity、SSN / exemption、两份 Nebraska address 和姓名链",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual",
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Document Verification Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "ssn",
+        "name-change",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "不要把驾照或翻译件当作移民身份材料",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "drive test 自备对应 Class O 的车辆，检查 brake lights、speedometer、seat belts、mechanical condition 和车内清洁",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "license",
+      "claim": "续期、replacement、改地址或改名准备 Class O Data Form",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/renewals",
+        "https://dmv.nebraska.gov/dl/replacement",
+        "https://dmv.nebraska.gov/dl/change-address",
+        "https://dmv.nebraska.gov/dl/name-change"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Renewals",
+        "对应官方来源：Nebraska Replacement License, Permit and ID",
+        "对应官方来源：Nebraska Driver License Address Change",
+        "对应官方来源：Nebraska Driver License Name Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change",
+        "renewal",
+        "replacement"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "地址未验证或已经搬家时，再带两份 address verification",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/renewals",
+        "https://dmv.nebraska.gov/dl/replacement",
+        "https://dmv.nebraska.gov/dl/change-address",
+        "https://dmv.nebraska.gov/dl/name-change"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Renewals",
+        "对应官方来源：Nebraska Replacement License, Permit and ID",
+        "对应官方来源：Nebraska Driver License Address Change",
+        "对应官方来源：Nebraska Driver License Name Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "现场通过后保留 issuance certificate / 30-day receipt，并确认 DMV 记录的邮寄地址准确",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+        "https://dmv.nebraska.gov/dl/renewals",
+        "https://dmv.nebraska.gov/dl/replacement"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver Manual",
+        "对应官方来源：Nebraska Driver License Renewals",
+        "对应官方来源：Nebraska Replacement License, Permit and ID"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "documentHighlights",
+      "context": "document",
+      "claim": "永久卡不会由 USPS forward",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "先分清美国外州转入、中国 / 外国驾照、首次 permit / Class O、renewal、replacement、name / address change 还是 State ID",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/driver-license",
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/dl/learners-permit",
+        "https://dmv.nebraska.gov/dl/renewals",
+        "https://dmv.nebraska.gov/dl/replacement",
+        "https://dmv.nebraska.gov/dl/state-identification-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver License",
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Learner’s Permit",
+        "对应官方来源：Nebraska Driver License Renewals",
+        "对应官方来源：Nebraska Replacement License, Permit and ID",
+        "对应官方来源：Nebraska State Identification Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "renewal",
+        "replacement",
+        "transfer",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "新居民记录 residency 起始时间，在 30 天内选择任一 Driver Licensing Office",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska DMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof",
+        "transfer"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "车辆 title / registration 另查居住县 County Treasurer",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska DMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "中国驾照持有人按首次 Nebraska applicant 准备 vision、written 和 drive tests，并向 office 确认 non-verbal picture test 和 language assistance",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/driver-license",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver License",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "美国外州卡遗失时，先向原州取得最近 30 天 driving record",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "外州卡过期不足或超过一年时，按当前 test table 预留相应考试",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/dl/driver-license",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Class O Driver License",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "打开 Document Verification Requirements，把 identity / lawful status、full SSN 或 exemption、两份 address、全部 name chain 分成四组",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Document Verification Form"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "ssn"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "非公民额外核对第二份 lawful-status document / I-797 要求，每次到 exam office 都带 USCIS originals，并为 SAVE 预留最多 20 个 federal workdays",
       "sourceUrls": [
         "https://dmv.nebraska.gov/dl/document-verification-requirements"
       ],
       "sourceLabels": [
         "对应官方来源：Nebraska Document Verification Requirements"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "test"
+      ],
+      "uncoveredThemes": [
+        "test"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "考试前读当前 Class O Driver Manual",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/driver-manuals-practice-tests",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+        "https://dmv.nebraska.gov/dl/practice-drivers-license-exam"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Manuals and Practice Tests",
+        "对应官方来源：Nebraska Class O Driver Manual",
+        "对应官方来源：Nebraska Practice Driver Exam"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "中文申请人联系 office 请求 non-verbal test，字典先交 examiner 检查",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "appointment",
+      "claim": "drive test 前确认预约、office testing hours、合格同行驾驶人和自备车辆的 brake lights、speedometer、安全带及车况",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/driver-license",
+        "https://dmv.nebraska.gov/locations",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+        "https://dmv.nebraska.gov/dl/learners-permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Hub",
+        "对应官方来源：Nebraska DMV Locations",
+        "对应官方来源：Nebraska Class O Driver Manual",
+        "对应官方来源：Nebraska Learner’s Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "appointment",
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "通过后在 90 天内完成 issuance / payment，保留 30-day receipt，并为 TSA 另备 passport、green card 等可接受身份证件",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+        "https://www.tsa.gov/travel/security-screening/identification"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver Manual",
+        "对应官方来源：TSA Acceptable Identification"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "fee"
+      ],
+      "uncoveredThemes": [
+        "document",
+        "fee"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期先看 90-day window 和 online eligibility",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/renewals",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Renewals",
+        "对应官方来源：Nebraska Class O Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "姓名或外貌有变化、年龄 / photo 轮次不符时改走现场",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/renewals"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Renewals"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "地址或姓名变化在 60 天内处理",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/change-address",
+        "https://dmv.nebraska.gov/dl/name-change",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Address Change",
+        "对应官方来源：Nebraska Driver License Name Change",
+        "对应官方来源：Nebraska Class O Driver Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "地址补卡满足条件可在线，name change 带 certified chain 到 office",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/change-address",
+        "https://dmv.nebraska.gov/dl/name-change"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Address Change",
+        "对应官方来源：Nebraska Driver License Name Change"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "name-change"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "document",
+      "claim": "需要 State ID 时比较身份与费用：U.S. citizen State ID 免费，noncitizen 期限和费用跟当前表格及 USCIS 文件",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/state-identification-card",
+        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska State Identification Card",
+        "对应官方来源：Nebraska Document Verification Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "lawful-presence",
+        "fee"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "出发当天再查 locations / closings",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska DMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "县级 office 工作日和 drive-test cutoff 会变化",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska DMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "把中国驾照当作美国 out-of-state license，误以为只做 vision test",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "官网没有写 Chinese 仍默认现场有中文笔试，没有提前询问 non-verbal picture test",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "使用电子翻译或字典时让别人代答 written test，或没有先让 examiner 检查 foreign-language dictionary",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "外州驾照遗失却不准备最近 30 天 driving record，到了现场才发现需要 written / drive tests",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "建立 Nebraska residency 超过 30 天仍未处理驾照，或把车辆 title / registration 当成同一个 office 业务",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
+        "https://dmv.nebraska.gov/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska New Resident Driver Licensing",
+        "对应官方来源：Nebraska DMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "只带一份地址证明，或两份都来自同一 issuing source、只有 P.O. Box、日期超过适用窗口",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "residency-proof"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "把普通复印件、手机照片、hospital birth certificate 或 foreign license 当作合格 identity original",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "foreign-license"
+      ],
+      "uncoveredThemes": [
+        "foreign-license"
+      ],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "real-id",
+      "claim": "非公民只带外州 REAL ID 或 I-766，没有准备第二份 lawful-status document / I-797 和全部 USCIS originals",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Requirements"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "real-id",
+        "document",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "license",
+      "claim": "低估 SAVE 核验最多 20 个 federal workdays，等到 license 即将到期才开始续期",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/dl/renewals"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Driver License Renewals"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "姓名变化文件只显示新名，没有把 identity document 上的旧名和 current name 完整连接",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+        "https://dmv.nebraska.gov/dl/name-change"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Document Verification Form",
+        "对应官方来源：Nebraska Driver License Name Change"
+      ],
+      "mappingMethod": "ai-assisted",
       "themes": [
         "document",
         "name-change"
@@ -82990,22 +85054,41 @@
     {
       "stateId": "nebraska",
       "surface": "real-id",
-      "field": "documentHighlights",
-      "context": "license",
-      "claim": "续期、replacement 或地址变化时准备 data form，并确认是否需要 vision / medical requirements",
+      "field": "commonMistakes",
+      "context": "document",
+      "claim": "拿普通翻译件替代原文件，或假设所有 foreign documents 都能按 marriage-license translation 规则使用",
       "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/driver-license",
-        "https://dmv.nebraska.gov/dl/renewals"
+        "https://dmv.nebraska.gov/dl/document-verification-requirements",
+        "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Nebraska Driver License",
-        "对应官方来源：Nebraska Renewals"
+        "对应官方来源：Nebraska Document Verification Requirements",
+        "对应官方来源：Nebraska Driver Licensing Examiner Manual"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "renewal",
-        "replacement",
+        "document",
+        "language"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "到 Omaha North 56th Street office 才发现不做 drive test，或没查县级 office 当天开放和考试截止时间",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/driver-license",
+        "https://dmv.nebraska.gov/locations"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Driver License Hub",
+        "对应官方来源：Nebraska DMV Locations"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
         "test"
       ],
       "uncoveredThemes": [],
@@ -83014,101 +85097,41 @@
     {
       "stateId": "nebraska",
       "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "license",
-      "claim": "先看 Driver License 页面，确认是初次、外州转入、续期还是地址变化",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "road test 车辆 brake lights、speedometer、安全带或车内状态不合格，且没有安排别人把车开到考点",
+      "sourceUrls": [
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+        "https://dmv.nebraska.gov/dl/learners-permit"
+      ],
+      "sourceLabels": [
+        "对应官方来源：Nebraska Class O Driver Manual",
+        "对应官方来源：Nebraska Learner’s Permit"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "test"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "nebraska",
+      "surface": "real-id",
+      "field": "commonMistakes",
+      "context": "detail",
+      "claim": "连续三次 drive test 失败后直接再次报名，忽略 training / 90-day LPD 条件",
       "sourceUrls": [
         "https://dmv.nebraska.gov/dl/driver-license",
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Nebraska Driver License",
-        "对应官方来源：Nebraska Document Verification Requirements"
+        "对应官方来源：Nebraska Class O Driver License",
+        "对应官方来源：Nebraska Class O Driver Manual"
       ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "address-change",
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "新居民先看 New Nebraska Resident Driver Licensing，按 30 天规则安排",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "用 Document Verification Requirements 核对 citizenship/lawful status、address、SSN",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "document",
-        "ssn"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "document",
-      "claim": "续期或地址变化先看 Renewals / Change Address，确认是否需要两份 proof of address",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements",
-        "https://dmv.nebraska.gov/dl/renewals"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements",
-        "对应官方来源：Nebraska Renewals"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "residency-proof",
-        "address-change",
-        "renewal"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "real-id",
-      "field": "recommendedSteps",
-      "context": "detail",
-      "claim": "到 Driver Licensing Office 前准备 data form、费用和可能的 vision/medical requirement",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/renewals"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Renewals"
-      ],
-      "mappingMethod": "automated",
-      "themes": [
-        "test",
-        "fee"
+        "test"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -83118,70 +85141,42 @@
       "surface": "real-id",
       "field": "commonMistakes",
       "context": "detail",
-      "claim": "搬来 Nebraska 超过 30 天还没换本州 license",
+      "claim": "把 30-day receipt 当作机场安检身份证件，或以为永久卡会自动转寄到新地址",
       "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/driver-license"
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+        "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
-        "对应官方来源：Nebraska Driver License"
+        "对应官方来源：Nebraska Class O Driver Manual",
+        "对应官方来源：TSA Acceptable Identification"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "document",
-      "claim": "地址变化时只带一份地址证明",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "residency-proof",
-        "address-change"
+        "processing-or-mail"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "processing-or-mail"
+      ],
       "valid": true
     },
     {
       "stateId": "nebraska",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "document",
-      "claim": "认为以前在别州提供过 citizenship proof，Nebraska 就一定不用再看",
+      "context": "detail",
+      "claim": "改名或改地址超过 60 天才更新，或试图在线完成必须现场办理的 name change",
       "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
+        "https://dmv.nebraska.gov/dl/change-address",
+        "https://dmv.nebraska.gov/dl/name-change",
+        "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
+        "对应官方来源：Nebraska Driver License Address Change",
+        "对应官方来源：Nebraska Driver License Name Change",
+        "对应官方来源：Nebraska Class O Driver Manual"
       ],
-      "mappingMethod": "automated",
-      "themes": [],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "nebraska",
-      "surface": "real-id",
-      "field": "commonMistakes",
-      "context": "document",
-      "claim": "姓名变化文件无法把两个名字连接起来",
-      "sourceUrls": [
-        "https://dmv.nebraska.gov/dl/document-verification-requirements"
-      ],
-      "sourceLabels": [
-        "对应官方来源：Nebraska Document Verification Requirements"
-      ],
-      "mappingMethod": "automated",
+      "mappingMethod": "ai-assisted",
       "themes": [
-        "document",
         "name-change"
       ],
       "uncoveredThemes": [],

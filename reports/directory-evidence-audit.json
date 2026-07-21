@@ -1,19 +1,19 @@
 {
   "summary": {
-    "generatedAt": "2026-07-21T01:53:45.887Z",
+    "generatedAt": "2026-07-21T02:21:20.772Z",
     "pages": 5,
-    "claims": 733,
+    "claims": 736,
     "statesCovered": 50,
-    "aiAssisted": 669,
-    "automated": 64,
+    "aiAssisted": 683,
+    "automated": 53,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 147,
-        "states": 42
+        "claims": 149,
+        "states": 43
       },
       "deadlines": {
-        "claims": 109,
+        "claims": 110,
         "states": 41
       },
       "document-rules": {
@@ -21,11 +21,11 @@
         "states": 49
       },
       "foreign-license": {
-        "claims": 126,
+        "claims": 125,
         "states": 41
       },
       "identity-ssn": {
-        "claims": 167,
+        "claims": 168,
         "states": 45
       }
     }
@@ -2138,6 +2138,36 @@
     },
     {
       "page": "costs-timing",
+      "stateId": "nebraska",
+      "category": "邮寄 / 卡片",
+      "claim": "P.O. Box 不接受，多数账单 / statement / mail 类材料要求最近 90 天",
+      "sourceUrl": "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Form",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "nebraska",
+      "category": "处理时间",
+      "claim": "县级 office 工作日和 drive-test cutoff 会变化",
+      "sourceUrl": "https://dmv.nebraska.gov/locations",
+      "sourceLabel": "对应官方来源：Nebraska DMV Locations",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
       "stateId": "south-dakota",
       "category": "邮寄 / 卡片",
       "claim": "需要邮寄时按 4–6 周或更久规划，不承诺固定到证日",
@@ -3784,29 +3814,45 @@
       "page": "deadlines",
       "stateId": "nebraska",
       "category": "搬家 / 地址",
-      "claim": "新居民先看 New Nebraska Resident Driver Licensing，按 30 天规则安排",
+      "claim": "新居民记录 residency 起始时间，在 30 天内选择任一 Driver Licensing Office",
       "sourceUrl": "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
       "sourceLabel": "对应官方来源：Nebraska New Resident Driver Licensing",
       "themes": [
+        "residency-documents",
         "new-resident"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
       "stateId": "nebraska",
       "category": "搬家 / 地址",
-      "claim": "Nebraska 新居民持有效外州 license 时，需要在 30 天内取得 Nebraska license",
+      "claim": "持有效美国外州驾照的新居民要在 30 天内换 Nebraska license",
       "sourceUrl": "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
       "sourceLabel": "对应官方来源：Nebraska New Resident Driver Licensing",
       "themes": [
-        "new-resident"
+        "new-resident",
+        "out-of-state"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "nebraska",
+      "category": "材料时效",
+      "claim": "P.O. Box 不接受，多数账单 / statement / mail 类材料要求最近 90 天",
+      "sourceUrl": "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Form",
+      "themes": [
+        "residency-documents"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "deadlines",
@@ -6323,57 +6369,59 @@
       "page": "document-rules",
       "stateId": "nebraska",
       "category": "地址证明",
-      "claim": "两份 Nebraska principal address / proof of address",
-      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
-      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "claim": "fax 和 photocopy 不接受，DMV staff 也不会替申请人打印 citizenship、lawful status、address 或 SSN 文件",
+      "sourceUrl": "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf",
+      "sourceLabel": "对应官方来源：Nebraska Driver Licensing Examiner Manual",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [
+        "ssn"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "document-rules",
+      "stateId": "nebraska",
+      "category": "地址证明",
+      "claim": "两份 Nebraska principal-address 文件必须来自两个不同 issuing sources，显示 first / last name 和当前 residential address",
+      "sourceUrl": "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Form",
       "themes": [
         "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "nebraska",
       "category": "地址证明",
-      "claim": "用 Document Verification Requirements 核对 citizenship/lawful status、address、SSN",
-      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
-      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "claim": "P.O. Box 不接受",
+      "sourceUrl": "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Form",
       "themes": [
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
       "stateId": "nebraska",
       "category": "地址证明",
-      "claim": "Nebraska 初次申请或外州文件转入时，需要一次性提供 U.S. citizenship 或 lawful status、identity、两份 Nebraska principal address，以及可由 SSA 核验的 valid Social Security number 或豁免证明",
-      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
-      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "claim": "未满 21 岁无法独立提供地址时，可使用 parent / guardian 的两份 principal-address 文件",
+      "sourceUrl": "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Form",
       "themes": [
-        "ssn"
+        "residency-documents"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "document-rules",
-      "stateId": "nebraska",
-      "category": "SSN",
-      "claim": "Valid Social Security number，可由 Social Security Administration 核验",
-      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
-      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
-      "themes": [
-        "ssn"
-      ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "document-rules",
@@ -8391,30 +8439,18 @@
     {
       "page": "foreign-license",
       "stateId": "nebraska",
-      "category": "外州 / 加拿大转入",
-      "claim": "New Nebraska Resident：外州搬入 Nebraska 后换证材料",
-      "sourceUrl": "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
-      "sourceLabel": "对应官方来源：Nebraska New Resident Driver Licensing",
+      "category": "翻译要求",
+      "claim": "外国语言文件可能被要求由 DMV-approved translator 翻译",
+      "sourceUrl": "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf",
+      "sourceLabel": "对应官方来源：Nebraska Driver Licensing Examiner Manual",
       "themes": [
-        "new-resident"
+        "translation"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
-    },
-    {
-      "page": "foreign-license",
-      "stateId": "nebraska",
-      "category": "外州 / 加拿大转入",
-      "claim": "Nebraska 新居民持有效外州 license 时，需要在 30 天内取得 Nebraska license",
-      "sourceUrl": "https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing",
-      "sourceLabel": "对应官方来源：Nebraska New Resident Driver Licensing",
-      "themes": [
-        "new-resident"
+      "failedThemes": [
+        "translation"
       ],
-      "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "foreign-license",
@@ -10793,36 +10829,39 @@
     {
       "page": "identity-ssn",
       "stateId": "nebraska",
-      "category": "无 SSN / SSA",
-      "claim": "Nebraska 初次申请或外州文件转入时，需要一次性提供 U.S. citizenship 或 lawful status、identity、两份 Nebraska principal address，以及可由 SSA 核验的 valid Social Security number 或豁免证明",
-      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
-      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "category": "SSN",
+      "claim": "首次或返回 Nebraska 建档要一份 citizenship / lawful-status identity、完整 SSN 或 I-94 exemption、两份来自不同来源的 principal-address 文件，以及完整姓名变化链",
+      "sourceUrl": "https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Form",
       "themes": [
+        "residency-documents",
         "ssn"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "nebraska",
       "category": "SSN",
-      "claim": "Valid Social Security number，可由 Social Security Administration 核验",
-      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
-      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "claim": "fax 和 photocopy 不接受，DMV staff 也不会替申请人打印 citizenship、lawful status、address 或 SSN 文件",
+      "sourceUrl": "https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf",
+      "sourceLabel": "对应官方来源：Nebraska Driver Licensing Examiner Manual",
       "themes": [
         "ssn"
       ],
-      "failedThemes": [],
+      "failedThemes": [
+        "ssn"
+      ],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",
       "stateId": "nebraska",
       "category": "SSN",
-      "claim": "用 Document Verification Requirements 核对 citizenship/lawful status、address、SSN",
+      "claim": "打开 Document Verification Requirements，把 identity / lawful status、full SSN 或 exemption、两份 address、全部 name chain 分成四组",
       "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
       "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
       "themes": [
@@ -10830,7 +10869,21 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
-      "mappingMethod": "automated"
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "nebraska",
+      "category": "lawful presence",
+      "claim": "lawful-status applicant 初次及以后每次到 exam office 都要带 USCIS 文件",
+      "sourceUrl": "https://dmv.nebraska.gov/dl/document-verification-requirements",
+      "sourceLabel": "对应官方来源：Nebraska Document Verification Requirements",
+      "themes": [
+        "immigration-verification"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
     },
     {
       "page": "identity-ssn",

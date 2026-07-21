@@ -2929,3 +2929,38 @@ Validation:
 - Browser QA at 1280 x 720 and 390 x 844 confirmed 52 overview evidence rows and 61 REAL ID evidence rows, visible mainland-China route, Chinese-test availability, Letter ID rule, two-residency-document rule and noncitizen REAL ID conflict, with normal title wrapping and no horizontal overflow. Browser logs contained no page warnings or errors.
 - Quality workbook: 46 semantic-review pages and 63 blocked pages remain; weak-intent pages remain 0.
 - Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.
+
+## Round 72 Changes
+
+Date: 2026-07-21
+
+### Nebraska Driver License, REAL ID, Non-Verbal Test and Foreign-License Deep Review
+
+Source scan:
+
+- Opened and checked the Nebraska DMV driver-license hub, licensing, document-verification, new-resident, renewal, replacement, address, name-change, state-ID, learner-permit, practice-test, manual, location and federal-identification pages; the current document-verification form, Class O Driver's Manual and Driver Licensing Examiner Manual; Nebraska's redesigned-card and REAL ID notices; and TSA identification guidance.
+- Confirmed the 30-day new-resident license deadline. A valid U.S. out-of-state credential normally requires vision screening and may require a drive test at staff discretion; applicants unable to surrender the credential must plan for written and drive tests. A credential expired less than one year requires the written test, while the drive test may be waived under the current examiner rules.
+- Confirmed that mainland China is not among Nebraska's current foreign-license test waivers. A mainland-China license holder should plan for vision, written and drive testing as a first Nebraska applicant; the foreign credential is returned rather than surrendered under the examiner manual.
+- Confirmed that Nebraska does not list a Chinese written test. The standard Class O test has 25 questions and an 80 percent passing threshold; eligible applicants whose primary language is not English or Spanish may request the 24-question non-verbal picture test. A checked paper or electronic foreign-language dictionary may be allowed, and human or digital translation assistance is limited to the application, vision check and explanation of drive-test instructions or results.
+- Confirmed the one-time U.S.-citizenship evidence rule, repeated lawful-status verification, full-SSN or I-94 exemption path, two separate-source Nebraska principal-address documents, complete name chain, original-document requirements and current SAVE delay warning of up to 20 federal workdays.
+- Confirmed the current five-year Class O total fee, replacement fee, renewal windows, online-renewal limits, address and name-change timing, temporary receipt restrictions, mailing rules and free state-ID path for U.S. citizens. The page discloses the official 14-versus-20-business-day delivery wording instead of silently choosing one estimate.
+- Confirmed Nebraska's current REAL ID card marks: cards issued from March 2026 use a white star in a black circle, while still-valid earlier cards may retain the white star in a gold circle through December 2031. The special parolee credential remains marked not for federal identification.
+
+Scope:
+
+- Rewrote both `/states/nebraska/` and `/states/nebraska/real-id/` with routes for U.S. transfers, mainland-China and other foreign licenses, first-time applicants, standard versus REAL ID credentials, lawful-status verification, renewal, replacement, address / name changes, state ID and testing accommodations.
+- Expanded the Nebraska source list from 5 to 21 checked official sources and registered all 114 unique claims as AI-assisted explicit mappings. The two rendered pages expose 55 overview and 63 REAL ID evidence records with 225 official-source links, without representing the work as human, legal or professional approval.
+- Added current test scoring, retest waits, drive-test vehicle requirements, office responsibility and appointment rules, document rejection traps, translated-document limits, noncitizen term rules, card-delivery conflict handling and the March 2026 REAL ID design transition.
+- Preserved the original publication date, set separate modification and fact-check dates to the actual review date, and added a reader-facing editorial update entry.
+
+Validation:
+
+- Nebraska official-link audit: 21 checked, 21 direct OK, 0 watch, 0 fail.
+- State evidence audit: 4,246 claims, 7,718 official links, 4,079 AI-assisted explicit mappings across 88 pages, 0 errors.
+- Directory evidence audit: 736 claims, 683 inherited explicit mappings, 53 automated semantic mappings, 0 errors.
+- Full production-configured `verify:launch`: content, practice tests, build, directory evidence, state evidence, E-E-A-T, site integrity, SEO and launch configuration all passed with 0 errors and 0 warnings.
+- E-E-A-T inventory: 166 indexable pages, 105 passed, average score 97, 0 pages below 85, 0 evidence-review pending, 44 automated-source pages and 17 high-risk human approvals still honestly pending. Nebraska's overview scores 96 and its REAL ID page scores 99.
+- Site integrity audit: 166/166 indexable HTML pages reachable from the homepage, 7,585 internal navigation references, 836 local resources, 637 fragment references, 788 element-ID references, 167 images, 167 canonical URLs and 766 JSON-LD blocks, 0 errors.
+- Browser QA at 1280 x 720 and 390 x 844 confirmed visible mainland-China routing, non-verbal-test guidance, SAVE timing and new star design; both pages wrap normally, have no horizontal overflow and produced no page warnings or errors.
+- Quality workbook: 44 semantic-review pages and 61 blocked pages remain; weak-intent pages remain 0.
+- Search Console priority reports were regenerated. No parseable `reports/search-console-export.csv` was available, so query-based prioritization remains non-blocking and pending real export data.

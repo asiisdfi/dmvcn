@@ -1394,6 +1394,38 @@ const WI_LOCATIONS =
 const WI_MV3001 =
   'https://wisconsindot.gov/Documents/formdocs/mv3001.pdf';
 
+const NE_HUB = 'https://dmv.nebraska.gov/driver-license';
+const NE_CLASS_O = 'https://dmv.nebraska.gov/dl/driver-license';
+const NE_DOC_PAGE =
+  'https://dmv.nebraska.gov/dl/document-verification-requirements';
+const NE_DOC_FORM =
+  'https://dmv.nebraska.gov/sites/default/files/doc/Document%20Verification%20Form%20Color%209Sept24.pdf';
+const NE_NEW =
+  'https://dmv.nebraska.gov/dl/new-nebraska-resident-drivers-licensing';
+const NE_RENEW = 'https://dmv.nebraska.gov/dl/renewals';
+const NE_REPLACE = 'https://dmv.nebraska.gov/dl/replacement';
+const NE_ADDRESS = 'https://dmv.nebraska.gov/dl/change-address';
+const NE_NAME = 'https://dmv.nebraska.gov/dl/name-change';
+const NE_ID = 'https://dmv.nebraska.gov/dl/state-identification-card';
+const NE_LPD = 'https://dmv.nebraska.gov/dl/learners-permit';
+const NE_PRACTICE =
+  'https://dmv.nebraska.gov/dl/practice-drivers-license-exam';
+const NE_MANUALS =
+  'https://dmv.nebraska.gov/driver-manuals-practice-tests';
+const NE_DRIVER_MANUAL =
+  'https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf';
+const NE_EXAMINER_MANUAL =
+  'https://dmv.nebraska.gov/sites/default/files/doc/DLE%20ENTIRE%20MANUAL%2001Jul2025.pdf';
+const NE_LOCATIONS = 'https://dmv.nebraska.gov/locations';
+const NE_NONFEDERAL =
+  'https://dmv.nebraska.gov/dl/not-federal-identification-documents';
+const NE_SERVICES =
+  'https://dmv.nebraska.gov/dl/driver-licensing-services';
+const NE_NEW_CARD =
+  'https://dmv.nebraska.gov/news/nebraska-dmv-unveils-newly-redesigned-driver-license-and-state-id-cards';
+const NE_REAL_ID_HISTORY =
+  'https://dmv.nebraska.gov/news/nebraskans-ready-real-id';
+
 const KY_REAL_ID = 'https://drive.ky.gov/RealID/Pages/default.aspx';
 const KY_WHAT_NEED =
   'https://drive.ky.gov/RealID/Pages/What-You-Need.aspx';
@@ -1452,6 +1484,154 @@ const ID_ADDRESS =
   'https://itd.idaho.gov/wp-content/uploads/2025/03/Address.pdf';
 
 export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
+  nebraska: {
+    reviewedAt: '2026-07-21',
+    reviewer: 'Codex AI 辅助证据核查',
+    surfaces: ['overview', 'real-id'],
+    sourceBodiesChecked: [
+      NE_HUB,
+      NE_CLASS_O,
+      NE_DOC_PAGE,
+      NE_DOC_FORM,
+      NE_NEW,
+      NE_RENEW,
+      NE_REPLACE,
+      NE_ADDRESS,
+      NE_NAME,
+      NE_ID,
+      NE_LPD,
+      NE_PRACTICE,
+      NE_MANUALS,
+      NE_DRIVER_MANUAL,
+      NE_EXAMINER_MANUAL,
+      NE_LOCATIONS,
+      NE_NONFEDERAL,
+      NE_SERVICES,
+      NE_NEW_CARD,
+      NE_REAL_ID_HISTORY,
+      TSA_IDENTIFICATION,
+    ],
+    scope:
+      '逐条打开 Nebraska DMV 的 Class O、document verification、new resident、renewal、replacement、address、name、State ID、LPD、practice test、manual、location、non-federal credential 与 licensing-services 正文，并核对 2024 Document Verification Form、2025 Class O Driver Manual、2025 Driver Licensing Examiner Manual、2026 redesigned-card notice、REAL ID history 和 TSA identification 页面。',
+    notes:
+      '重点补齐中国大陆驾照不在 foreign drive-test waiver 名单、无官方 Chinese written test、non-verbal picture test、外国字典与翻译边界、外州卡遗失 / 过期的 test table、SAVE 最长处理提示、2026 新星标、parolee non-federal credential、费用和领卡时限。所有映射为 AI 辅助核查，不冒充 Nebraska DMV、律师或真实人工专业审核。',
+    claims: normalizeReviewedClaims({
+      'Nebraska DMV Driver Licensing Office 负责驾照、permit、State ID 的材料核验和考试': [NE_CLASS_O, NE_DOC_PAGE, NE_LOCATIONS],
+      '新居民可在任一 Driver Licensing Office 办驾照，但车辆 title / registration 要在居住县办理': [NE_LOCATIONS, NE_HUB],
+      '持有效美国外州驾照的新居民通常要在 30 天内转入': [NE_NEW, NE_CLASS_O],
+      '中国大陆驾照不在 Nebraska 当前 examiner manual 列出的 Mexico、Germany、Canada 与部分 U.S. territories 驾驶考试豁免名单': [NE_EXAMINER_MANUAL],
+      '中国驾照持有人应按首次 Nebraska applicant 准备 vision、Class O written 和 drive tests': [NE_CLASS_O, NE_DRIVER_MANUAL, NE_EXAMINER_MANUAL],
+      '官方没有承诺中文笔试，但提供面向非英语/西语申请人的 non-verbal picture test': [NE_EXAMINER_MANUAL],
+      'Nebraska 自 2013 年起签发 REAL ID compliant credential': [NE_REAL_ID_HISTORY],
+      '当前卡片看右上角星标': [NE_NEW, NE_NONFEDERAL],
+      '2026 年 3 月后签发的是黑圈白星，仍在有效期内的旧卡可能是金圈白星': [NE_NEW, NE_NEW_CARD],
+      '符合特殊 parolee 路线的卡会标注 NOT FOR FEDERAL IDENTIFICATION 且没有星': [NE_NONFEDERAL, NE_DRIVER_MANUAL, NE_EXAMINER_MANUAL],
+      'Bellevue、Grand Island、Norfolk、Lincoln 和 Omaha 的 car / motorcycle drive test 要预约，其他驾照或 ID 业务也强烈建议预约': [NE_HUB, NE_LOCATIONS],
+      'Omaha North 56th Street office 不做 drive test': [NE_HUB, NE_LOCATIONS],
+      '县级 office 的开放日和截止考试时间不同，出发前应查当天 location / closing 信息': [NE_LOCATIONS],
+      '持有效美国外州驾照的新居民要在 30 天内换 Nebraska license': [NE_NEW, NE_CLASS_O],
+      '18 岁以上交出有效外州卡通常做 vision test，drive test 由 staff 决定': [NE_NEW, NE_CLASS_O, NE_DRIVER_MANUAL],
+      '无法交出外州卡时，当前新居民页面要求 written 和 drive tests': [NE_NEW, NE_CLASS_O],
+      '外州卡过期不足一年时，drive test 可能豁免，但 written test 仍要做': [NE_NEW, NE_CLASS_O],
+      '没有外州实体卡时，examiner manual 允许用最近 30 天内的 driving record 证明驾照有效或过期不足一年，以申请 drive-test waiver': [NE_EXAMINER_MANUAL],
+      '是否接受仍由现场 staff 核验': [NE_EXAMINER_MANUAL, NE_NEW],
+      '中国大陆驾照不在 Mexico、Germany、Canada 和列明 U.S. territories 的 drive-test waiver 名单，因此中国驾照持有人应计划参加 drive test': [NE_EXAMINER_MANUAL],
+      '外国驾照会退还申请人，不附在 issuance certificate 上': [NE_EXAMINER_MANUAL],
+      '外国驾照本身不能替代 lawful status、Nebraska address 和 SSN / exemption 文件': [NE_DOC_PAGE, NE_DOC_FORM, NE_EXAMINER_MANUAL],
+      'Class O written test 是 25 题、最多错 5 题，最低 80%': [NE_EXAMINER_MANUAL],
+      'non-verbal picture test 是 24 题、最多错 4 题': [NE_EXAMINER_MANUAL],
+      '当前 examiner manual 只列 English、Spanish 和 American Sign Language 的 written / audio test，没有承诺 Chinese': [NE_EXAMINER_MANUAL],
+      '非英语或西语申请人可请求 non-verbal picture test': [NE_EXAMINER_MANUAL],
+      '纸质或电子 foreign-language dictionary 可在 examiner 检查没有笔记后使用': [NE_EXAMINER_MANUAL],
+      '这不等于允许翻译人员代答 written test': [NE_EXAMINER_MANUAL],
+      'written test 第 1 至第 5 次失败之间要隔一天': [NE_EXAMINER_MANUAL],
+      '第 6 次失败后要完成 approved driver training 或从最后一次失败起等待 90 天': [NE_EXAMINER_MANUAL],
+      '非商业业务可用人工或数字翻译协助 application、vision check、drive-test instructions 和结果解释': [NE_EXAMINER_MANUAL],
+      'drive test 车内只能有 staff 和 applicant': [NE_EXAMINER_MANUAL],
+      'drive-test 车辆由申请人提供，须车况良好、brake lights 和 speedometer 正常，适用年份的安全带可用，车内清洁': [NE_DRIVER_MANUAL],
+      '连续三次 drive test 失败后，必须完成含至少 6 小时课堂和 6 小时驾驶的 approved training，或持 LPD 至少 90 天，才能再申请': [NE_CLASS_O, NE_DRIVER_MANUAL],
+      '美国公民的新申请人通常只做一次 citizenship 建档': [NE_DOC_PAGE, NE_EXAMINER_MANUAL],
+      'lawful-status applicant 初次及以后每次到 exam office 都要带 USCIS 文件': [NE_DOC_PAGE, NE_EXAMINER_MANUAL],
+      'USCIS / SAVE verification 可能需要最多 20 个 federal workdays': [NE_DOC_PAGE],
+      '非公民应利用 90 天 renewal window，不要等到证件临近到期': [NE_DOC_PAGE, NE_RENEW],
+      '持 I-94 + foreign passport、I-766，或以外州 REAL ID 表示非公民身份的申请人，当前页面还要求第二份 lawful-status 文件或 I-797 等补充证明': [NE_DOC_PAGE],
+      'Nebraska credential 使用 USCIS 文件时，证件期限会跟随 USCIS document expiration，而不一定获得完整五年': [NE_CLASS_O, NE_ID],
+      '首次或返回 Nebraska 建档要一份 citizenship / lawful-status identity、完整 SSN 或 I-94 exemption、两份来自不同来源的 principal-address 文件，以及完整姓名变化链': [NE_DOC_FORM, NE_DOC_PAGE, NE_NEW],
+      '地址文件要显示 first / last name 和 current residential address': [NE_DOC_FORM],
+      'P.O. Box 不接受，多数账单 / statement / mail 类材料要求最近 90 天': [NE_DOC_FORM, NE_EXAMINER_MANUAL],
+      '外国语言文件可能被要求由 DMV-approved translator 翻译': [NE_EXAMINER_MANUAL, NE_DOC_PAGE],
+      '当前 examiner manual 的可使用翻译规则只明确列 foreign marriage license，且要同时交原件和翻译': [NE_EXAMINER_MANUAL],
+      '地址或姓名变化要在 60 天内更新': [NE_ADDRESS, NE_NAME, NE_DRIVER_MANUAL],
+      '地址可在符合条件时线上补卡，姓名变化不能线上办，必须到 Driver Licensing Office': [NE_ADDRESS, NE_NAME],
+      'Class O 五年卡当前总费用 $29，replacement 总费用 $16': [NE_CLASS_O],
+      '未满 21 岁、USCIS 到期日或特定 restriction 可能导致较短期限和按期费用': [NE_CLASS_O, NE_ID],
+      '21 岁以上一般可提前 90 天续期': [NE_RENEW, NE_DRIVER_MANUAL],
+      '线上 Class O / M renewal 在 72 岁生日之前到期时，最多可连续两轮，姓名或显著外貌变化会失去线上资格': [NE_RENEW],
+      '现场通过后先拿 30-day receipt，永久卡邮寄': [NE_RENEW, NE_REPLACE, NE_DRIVER_MANUAL],
+      '不同业务页面写 14 或 20 business days，且 30-day receipt 不能作为 TSA 登机身份证件': [NE_RENEW, NE_REPLACE, NE_ADDRESS, NE_NAME, NE_DRIVER_MANUAL, TSA_IDENTIFICATION],
+      'U.S. citizen 的 Nebraska State ID 当前免费': [NE_ID, NE_DOC_PAGE],
+      'non-U.S. citizen State ID 按期限收费，并可能受 USCIS 文件到期日限制': [NE_ID],
+      'citizenship / lawful-status identity 准备一份清单文件，例如 certified U.S. birth certificate、valid U.S. passport、I-551、I-766，或带 supporting documents 的 valid I-94 + foreign passport': [NE_DOC_FORM, NE_DOC_PAGE, NE_EXAMINER_MANUAL],
+      '普通 hospital birth certificate 不接受': [NE_DOC_FORM, NE_EXAMINER_MANUAL],
+      'fax 和 photocopy 不接受，DMV staff 也不会替申请人打印 citizenship、lawful status、address 或 SSN 文件': [NE_EXAMINER_MANUAL],
+      '在 data form 写完整 SSN，由 SSA 核验': [NE_DOC_FORM, NE_SERVICES],
+      '没有 SSN 资格时，按清单带 valid unexpired I-94 / I-94A 和 valid foreign passport': [NE_DOC_FORM, NE_DOC_PAGE, NE_SERVICES],
+      'I-94 + foreign passport、I-766 或非公民外州 REAL ID 路线可能还要第二份 lawful-status document 或 I-797': [NE_DOC_PAGE],
+      '每次 exam-office visit 都带全部 USCIS originals': [NE_DOC_PAGE, NE_EXAMINER_MANUAL],
+      '两份 Nebraska principal-address 文件必须来自两个不同 issuing sources，显示 first / last name 和当前 residential address': [NE_DOC_FORM, NE_EXAMINER_MANUAL],
+      'P.O. Box 不接受': [NE_DOC_FORM, NE_EXAMINER_MANUAL],
+      'bank statement、pay stub、government mail、postmarked envelope、invoice 等通常要在 90 天内': [NE_DOC_FORM],
+      'valid vehicle registration、insurance、lease、mortgage 等按当前清单核对': [NE_DOC_FORM],
+      '未满 21 岁无法独立提供地址时，可使用 parent / guardian 的两份 principal-address 文件': [NE_DOC_FORM, NE_EXAMINER_MANUAL],
+      'identity 名称与 current legal name 不同，要用 certified marriage license / certificate、divorce decree、court order、amended birth certificate 或其他清单文件串起全部变化': [NE_DOC_FORM, NE_NAME],
+      'foreign marriage license 如被用于姓名链，准备原件和 typed / printed、dated、signed translation': [NE_EXAMINER_MANUAL],
+      '是否需要 DMV-approved translator 先向 office 确认': [NE_DOC_PAGE, NE_EXAMINER_MANUAL],
+      '美国外州转入带实体 license': [NE_NEW, NE_CLASS_O],
+      '卡片遗失时准备最近 30 天 driving record，并预期 staff 决定能否免 drive test': [NE_EXAMINER_MANUAL],
+      '中国驾照路线带有效 foreign license，但同时独立准备 lawful-status identity、SSN / exemption、两份 Nebraska address 和姓名链': [NE_EXAMINER_MANUAL, NE_DOC_FORM, NE_DOC_PAGE],
+      '不要把驾照或翻译件当作移民身份材料': [NE_DOC_FORM, NE_DOC_PAGE, NE_EXAMINER_MANUAL],
+      'drive test 自备对应 Class O 的车辆，检查 brake lights、speedometer、seat belts、mechanical condition 和车内清洁': [NE_DRIVER_MANUAL],
+      '续期、replacement、改地址或改名准备 Class O Data Form': [NE_RENEW, NE_REPLACE, NE_ADDRESS, NE_NAME],
+      '地址未验证或已经搬家时，再带两份 address verification': [NE_RENEW, NE_REPLACE, NE_ADDRESS, NE_NAME],
+      '现场通过后保留 issuance certificate / 30-day receipt，并确认 DMV 记录的邮寄地址准确': [NE_DRIVER_MANUAL, NE_RENEW, NE_REPLACE],
+      '永久卡不会由 USPS forward': [NE_DRIVER_MANUAL],
+      '先分清美国外州转入、中国 / 外国驾照、首次 permit / Class O、renewal、replacement、name / address change 还是 State ID': [NE_CLASS_O, NE_NEW, NE_LPD, NE_RENEW, NE_REPLACE, NE_ID],
+      '新居民记录 residency 起始时间，在 30 天内选择任一 Driver Licensing Office': [NE_NEW, NE_LOCATIONS],
+      '车辆 title / registration 另查居住县 County Treasurer': [NE_LOCATIONS],
+      '中国驾照持有人按首次 Nebraska applicant 准备 vision、written 和 drive tests，并向 office 确认 non-verbal picture test 和 language assistance': [NE_CLASS_O, NE_EXAMINER_MANUAL],
+      '美国外州卡遗失时，先向原州取得最近 30 天 driving record': [NE_EXAMINER_MANUAL],
+      '外州卡过期不足或超过一年时，按当前 test table 预留相应考试': [NE_NEW, NE_CLASS_O, NE_EXAMINER_MANUAL],
+      '打开 Document Verification Requirements，把 identity / lawful status、full SSN 或 exemption、两份 address、全部 name chain 分成四组': [NE_DOC_PAGE, NE_DOC_FORM],
+      '非公民额外核对第二份 lawful-status document / I-797 要求，每次到 exam office 都带 USCIS originals，并为 SAVE 预留最多 20 个 federal workdays': [NE_DOC_PAGE],
+      '考试前读当前 Class O Driver Manual': [NE_MANUALS, NE_DRIVER_MANUAL, NE_PRACTICE],
+      '中文申请人联系 office 请求 non-verbal test，字典先交 examiner 检查': [NE_EXAMINER_MANUAL],
+      'drive test 前确认预约、office testing hours、合格同行驾驶人和自备车辆的 brake lights、speedometer、安全带及车况': [NE_HUB, NE_LOCATIONS, NE_DRIVER_MANUAL, NE_LPD],
+      '通过后在 90 天内完成 issuance / payment，保留 30-day receipt，并为 TSA 另备 passport、green card 等可接受身份证件': [NE_DRIVER_MANUAL, TSA_IDENTIFICATION],
+      '续期先看 90-day window 和 online eligibility': [NE_RENEW, NE_DRIVER_MANUAL],
+      '姓名或外貌有变化、年龄 / photo 轮次不符时改走现场': [NE_RENEW],
+      '地址或姓名变化在 60 天内处理': [NE_ADDRESS, NE_NAME, NE_DRIVER_MANUAL],
+      '地址补卡满足条件可在线，name change 带 certified chain 到 office': [NE_ADDRESS, NE_NAME],
+      '需要 State ID 时比较身份与费用：U.S. citizen State ID 免费，noncitizen 期限和费用跟当前表格及 USCIS 文件': [NE_ID, NE_DOC_PAGE],
+      '出发当天再查 locations / closings': [NE_LOCATIONS],
+      '县级 office 工作日和 drive-test cutoff 会变化': [NE_LOCATIONS],
+      '把中国驾照当作美国 out-of-state license，误以为只做 vision test': [NE_NEW, NE_EXAMINER_MANUAL],
+      '官网没有写 Chinese 仍默认现场有中文笔试，没有提前询问 non-verbal picture test': [NE_EXAMINER_MANUAL],
+      '使用电子翻译或字典时让别人代答 written test，或没有先让 examiner 检查 foreign-language dictionary': [NE_EXAMINER_MANUAL],
+      '外州驾照遗失却不准备最近 30 天 driving record，到了现场才发现需要 written / drive tests': [NE_NEW, NE_EXAMINER_MANUAL],
+      '建立 Nebraska residency 超过 30 天仍未处理驾照，或把车辆 title / registration 当成同一个 office 业务': [NE_NEW, NE_LOCATIONS],
+      '只带一份地址证明，或两份都来自同一 issuing source、只有 P.O. Box、日期超过适用窗口': [NE_DOC_FORM, NE_EXAMINER_MANUAL],
+      '把普通复印件、手机照片、hospital birth certificate 或 foreign license 当作合格 identity original': [NE_DOC_FORM, NE_DOC_PAGE, NE_EXAMINER_MANUAL],
+      '非公民只带外州 REAL ID 或 I-766，没有准备第二份 lawful-status document / I-797 和全部 USCIS originals': [NE_DOC_PAGE],
+      '低估 SAVE 核验最多 20 个 federal workdays，等到 license 即将到期才开始续期': [NE_DOC_PAGE, NE_RENEW],
+      '姓名变化文件只显示新名，没有把 identity document 上的旧名和 current name 完整连接': [NE_DOC_FORM, NE_NAME],
+      '拿普通翻译件替代原文件，或假设所有 foreign documents 都能按 marriage-license translation 规则使用': [NE_DOC_PAGE, NE_EXAMINER_MANUAL],
+      '到 Omaha North 56th Street office 才发现不做 drive test，或没查县级 office 当天开放和考试截止时间': [NE_HUB, NE_LOCATIONS],
+      'road test 车辆 brake lights、speedometer、安全带或车内状态不合格，且没有安排别人把车开到考点': [NE_DRIVER_MANUAL, NE_LPD],
+      '连续三次 drive test 失败后直接再次报名，忽略 training / 90-day LPD 条件': [NE_CLASS_O, NE_DRIVER_MANUAL],
+      '把 30-day receipt 当作机场安检身份证件，或以为永久卡会自动转寄到新地址': [NE_DRIVER_MANUAL, TSA_IDENTIFICATION],
+      '改名或改地址超过 60 天才更新，或试图在线完成必须现场办理的 name change': [NE_ADDRESS, NE_NAME, NE_DRIVER_MANUAL],
+    }),
+  },
   kentucky: {
     reviewedAt: '2026-07-21',
     reviewer: 'Codex AI 辅助证据核查',
