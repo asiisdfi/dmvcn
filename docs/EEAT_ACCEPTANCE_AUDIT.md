@@ -28,6 +28,7 @@
 | 10 | 技术 SEO、结构化数据、内链和移动端 | 已完成 | 167 个 HTML、766 个 JSON-LD、163 个 sitemap URL；发布门禁、SEO、站点完整性和移动端检查无错 |
 | 11 | 90 天内容计划 | 已完成 | `docs/CONTENT_PLAN_90_DAYS.md` 含主题、意图、来源、州、时间和复核周期 |
 | 12 | Search Console 月度更新机制 | 已运行 | 真实页面、查询、国家和设备快照已接入；`npm run plan:sc` 和 `npm run plan:growth` 生成容量与增长报告 |
+| 13 | 易变规则复核周期硬门禁 | 已完成 | `reports/review-cycle.*` 覆盖全部页面；60/90/120/180 天到期、最终 HTML 三类日期和月度官方来源基线在构建时强制校验 |
 
 ## 未完成项
 

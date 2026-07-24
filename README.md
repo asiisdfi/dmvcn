@@ -124,6 +124,7 @@ npm run audit:eeat
 后续建议执行（可选）：
 
 - 每周执行一次：`npm run plan:quality`
+- 每月及每次事实复核后：`npm run plan:review-cycles`
 - 每月执行一次：`SC_REPORT_PATH=./reports/search-console-export.csv npm run plan:sc`
 - 每次 Search Console 数据更新后：`npm run plan:growth`
 - 查看 24 小时异常和点击观察队列：`npm run plan:pulse`
@@ -133,11 +134,12 @@ npm run audit:eeat
 生成文件会在 `/quality/` 看板联动展示：
 
 - `reports/quality-workbook.json|csv|md`
+- `reports/review-cycle.json|md`
 - `reports/search-console-priority.json|csv|md`
 - `reports/growth-scorecard.json|md`
 - `reports/search-console-pulse.json|md`
 
-其中 `reviewer` 与 `reviewedAt` 必须由真实审核人员填写。
+其中 `reviewer` 与 `reviewedAt` 必须由真实审核人员填写。`audit:review-cycles` 会核对最终 HTML 里的三类日期，并按高风险 60 天、中风险 90 天、标准 120 天、政策 180 天生成到期队列；任何页面逾期、日期缺失或月度官方链接基线失效时，普通构建和发布都会失败。
 
 `audit:search-console` 会检查数据暂停状态、执行额度、目标查询证据、人工复核队列和 noindex 索引复查日期，并阻止原始查询字段进入公开计划。`audit:growth` 会检查目标常量、30 天验收口径、美国与设备流量占比、查询覆盖、索引噪声和目标完成状态。`audit:pulse` 只检查最近 24 小时的异常国家、设备、历史索引可见性和点击观察队列，并禁止短周期数据绕过查询证据、冷却期或内容额度。三个命令都已纳入 `verify:launch`。
 

@@ -37,6 +37,11 @@
         "scope": "首页/索引结构页：核对搜索入口、目录路径和跳转逻辑。",
         "notes": "该页面已接入可追踪版本，完成规则结构核对与入口映射；高风险页面仍需安排真实人工语义签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-13"
+      },
       "scores": {
         "factsAndSources": 22,
         "evidenceMapping": 15,
@@ -76,6 +81,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -115,6 +125,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-17",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-24"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -154,6 +169,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-17",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-24"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -193,6 +213,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -232,6 +257,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-17",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -277,6 +307,11 @@
         "reviewer": "Codex AI 辅助结构复核",
         "scope": "首页/索引结构页：核对搜索入口、目录路径和跳转逻辑。",
         "notes": "该页面已接入可追踪版本，完成规则结构核对与入口映射；高风险页面仍需安排真实人工语义签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 22,
@@ -324,6 +359,11 @@
         "scope": "核对 50 州 appointmentNote、办理步骤和官方 action links 的预约、walk-in、办公室类型与地点分工抽取；逐项回查已显式核验的州级声明和对应官方入口。",
         "notes": "目录只重排 100 个已完成显式来源核查的州页声明；预约可用不等于该地点可办目标业务，页面保留到场前核对服务类型的限制。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -369,6 +409,11 @@
         "reviewer": "DMVCN 站长",
         "scope": "人工核对各州费用、付款方式、临时凭证和寄送时间，并确认正文提示与所列政府来源一致。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -416,6 +461,11 @@
         "scope": "人工核对地址变更、新居民转入、续期和材料时效等期限，并检查适用范围和例外提示。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -461,6 +511,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "核对 50 州主管机构、appointmentNote 和 action links 的成品输出，确认每个机构与业务入口继承自已显式核验的州级来源集合。",
         "notes": "本页是官方业务入口索引，不替代州级资格判断；复杂材料继续进入对应州指南和政府业务页。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -508,6 +563,11 @@
         "scope": "人工核对身份、住址、姓名链、原件和认证副本要求，以及不同州规则之间的边界。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -553,6 +613,11 @@
         "reviewer": "DMVCN 站长",
         "scope": "人工核对外国驾照、外州驾照、IDP、互惠免试、翻译和交旧证提示及其政府来源。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -600,6 +665,11 @@
         "scope": "人工核对 SSN、无 SSN、ITIN、合法身份和临时访客分流，确认页面没有替读者判断移民身份。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -645,6 +715,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "核对 50 州 Chinese、Mandarin、translated test、interpreter、文件翻译、driver manual 与 English-only / CDL 限制的抽取，并回查已核验官方语言与考试来源。",
         "notes": "页面继续明确区分网页翻译、中文手册、中文笔试、口译和路考 / CDL 语言；没有固定官方依据的州只显示需确认。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -692,6 +767,11 @@
         "scope": "核对 50 州新居民、外州转入、地址和车辆办理的第一步提示与官方入口，逐项回查州级 recommendedSteps、documentHighlights 和 licenseSummary 的显式来源。",
         "notes": "本页只给第一步分流，不把摘要替代具体期限、考试、车辆登记或保险规则；读者仍回州页和官方入口确认。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -737,6 +817,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "核对 50 州 REAL ID、STAR ID、Star Card、Travel ID、Secure ID 或相应材料入口，并逐州比对 action links 与已核验 REAL ID 来源。",
         "notes": "修正原先固定选取第一个 action link 的逻辑：现在优先州级 REAL ID / STAR ID 专页，材料清单兜底，并排除 TSA 通用页作为州级主入口。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -784,6 +869,11 @@
         "scope": "核对 50 州线上、现场、预约、改址、续期、补证和 REAL ID 分流提示的抽取逻辑，并回查每条入选文本在州页显式来源映射中的限定条件。",
         "notes": "页面把线上资格提示与必须到场情形分开；未把 portal 存在扩大为所有申请人都可在线完成。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -830,6 +920,11 @@
         "scope": "核对 50 州 learner permit、knowledge test、road test、first license、GDL、practice test 和第三方考点提示，逐项回查州级手册、考试页和显式声明来源。",
         "notes": "目录不把 practice test 当正式题目，也不把某类考试入口扩大为所有年龄、证件或语言均可使用。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -869,6 +964,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-17",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-24"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -914,6 +1014,11 @@
         "reviewer": "Codex AI 辅助结构复核",
         "scope": "核对州级题库入口、题目数量、官方来源覆盖、发布日期和扩展边界。",
         "notes": "当前只发布已完成逐题来源核对的 Georgia 题库；未核对州不生成占位内容页。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-19",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
       },
       "scores": {
         "factsAndSources": 22,
@@ -961,6 +1066,11 @@
         "scope": "逐题比对 20 道原创练习与 Georgia DDS 考试页、Driver Manual、Road Rules、Road Signs、Safety 和 Sharing the Road 官方正文。",
         "notes": "未使用旧站或第三方题目；已公开正式考试与短练习的区别，并披露 DDS 当前考试页与旧版手册对中文 Road Signs 的冲突。"
       },
+      "dates": {
+        "publishedAt": "2026-07-19",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
+      },
       "scores": {
         "factsAndSources": 22,
         "evidenceMapping": 15,
@@ -1000,6 +1110,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1039,6 +1154,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-24"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1078,6 +1198,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-13"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1123,6 +1248,11 @@
         "reviewer": "Codex AI 辅助结构复核",
         "scope": "首页/索引结构页：核对搜索入口、目录路径和跳转逻辑。",
         "notes": "该页面已接入可追踪版本，完成规则结构核对与入口映射；高风险页面仍需安排真实人工语义签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-13"
       },
       "scores": {
         "factsAndSources": 22,
@@ -1170,6 +1300,11 @@
         "scope": "逐条打开 ALEA 当前 Driver License、STAR ID、document list、FAQ、License and ID Cards、Driver License Information、offices、2024 Driver Manual、GDL、road-test guide、forms、address form、online portal，以及 Alabama 现行州法、行政规则、官方 phishing warning 和 TSA 页面，核对两个成品页的机构分工、材料、期限、资格、考试语言、费用和办理入口。",
         "notes": "本轮重点纠正县级办公室与 ALEA Examining Office 混用、外国驾照误套美国外州免试、遗漏 Chinese written examination，以及非公民网页 160 天与 2024 手册 30 天的官方冲突。所有映射均为 AI 辅助语义核查，不冒充律师、政府人员或真实人工专业签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1215,6 +1350,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 ALEA 当前 Driver License、STAR ID、document list、FAQ、License and ID Cards、Driver License Information、offices、2024 Driver Manual、GDL、road-test guide、forms、address form、online portal，以及 Alabama 现行州法、行政规则、官方 phishing warning 和 TSA 页面，核对两个成品页的机构分工、材料、期限、资格、考试语言、费用和办理入口。",
         "notes": "本轮重点纠正县级办公室与 ALEA Examining Office 混用、外国驾照误套美国外州免试、遗漏 Chinese written examination，以及非公民网页 160 天与 2024 手册 30 天的官方冲突。所有映射均为 AI 辅助语义核查，不冒充律师、政府人员或真实人工专业签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1262,6 +1402,11 @@
         "scope": "逐条打开并比对 Alaska DMV 的新居民/访客说明、REAL ID 与 standard 打印清单、非公民与外国驾照、续补证、改名改址、费用、办公地点、business partners、Rural Outreach、Off-Highway 指南及官方驾驶手册。",
         "notes": "重写 Alaska 两页并建立显式声明级来源；补齐普通/CDL 转入期限、中国大陆驾照的路考边界、standard 与 REAL ID 材料/费用差异、外文翻译、SAVE 二次核验、州外补证、私人 partner 费用和偏远社区专用路径。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1307,6 +1452,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Alaska DMV 的新居民/访客说明、REAL ID 与 standard 打印清单、非公民与外国驾照、续补证、改名改址、费用、办公地点、business partners、Rural Outreach、Off-Highway 指南及官方驾驶手册。",
         "notes": "重写 Alaska 两页并建立显式声明级来源；补齐普通/CDL 转入期限、中国大陆驾照的路考边界、standard 与 REAL ID 材料/费用差异、外文翻译、SAVE 二次核验、州外补证、私人 partner 费用和偏远社区专用路径。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1354,6 +1504,11 @@
         "scope": "逐条比对 Arizona MVD 的 Travel ID、R03/26 材料表、外国申请人、permit/road test、费用、续补证、改址改名、第三方网点与现行 Arizona Revised Statutes。",
         "notes": "重写 Travel/Non-Travel 判断、明确中国大陆与 Taiwan 的免试差异，并补齐 SSN、authorized presence、resident triggers、考试、邮寄和第三方收费边界；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1399,6 +1554,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Arizona MVD 的 Travel ID、R03/26 材料表、外国申请人、permit/road test、费用、续补证、改址改名、第三方网点与现行 Arizona Revised Statutes。",
         "notes": "重写 Travel/Non-Travel 判断、明确中国大陆与 Taiwan 的免试差异，并补齐 SSN、authorized presence、resident triggers、考试、邮寄和第三方收费边界；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1446,6 +1606,11 @@
         "scope": "逐条打开并比对 Arkansas DFA 的 REAL ID、当前打印材料表、首次与续期到场清单、Class D 费用、FAQ、线上服务、改名改址表，以及 Arkansas State Police 的考试入口和 June 2026 Driver License Study Guide。",
         "notes": "重写 Arkansas 两页并建立显式声明级来源；拆开 State Police 考试与 DFA Revenue Office 签发流程，补齐新居民 30 天、外国驾照互惠、续补证和地址路径；公开标注 REAL ID 简介与当前打印清单/FAQ 对 Social Security Card 和 DD214 的表述差异，并移除由旧 Saturday 活动推导出的长期 walk-in 结论。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1491,6 +1656,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Arkansas DFA 的 REAL ID、当前打印材料表、首次与续期到场清单、Class D 费用、FAQ、线上服务、改名改址表，以及 Arkansas State Police 的考试入口和 June 2026 Driver License Study Guide。",
         "notes": "重写 Arkansas 两页并建立显式声明级来源；拆开 State Police 考试与 DFA Revenue Office 签发流程，补齐新居民 30 天、外国驾照互惠、续补证和地址路径；公开标注 REAL ID 简介与当前打印清单/FAQ 对 Social Security Card 和 DD214 的表述差异，并移除由旧 Saturday 活动推导出的长期 walk-in 结论。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1538,6 +1708,11 @@
         "scope": "逐条打开并比对 California DMV 的 REAL ID、材料、预约、地址、费用、处理时间、AB 60、考试、语言和外国驾照正文。",
         "notes": "重写 REAL ID 材料与失败原因，更新当前费用，改用 learner permit 新路径，并把自动匹配错误改成显式来源；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1583,6 +1758,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 California DMV 的 REAL ID、材料、预约、地址、费用、处理时间、AB 60、考试、语言和外国驾照正文。",
         "notes": "重写 REAL ID 材料与失败原因，更新当前费用，改用 learner permit 新路径，并把自动匹配错误改成显式来源；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1630,6 +1810,11 @@
         "scope": "逐条打开并比对 Colorado DMV 的 REAL ID、DR 2300A/B/C、CO-RCSA、材料、预约、费用、新居民、外州与外国驾照、permit、考试语言、第三方路考、续期、改址改名、补证、ID 和邮寄正文。",
         "notes": "重写身份分流与办事路径，纳入 2025-03-31 后 Standard 新规则，区分中国大陆与 Taiwan reciprocity，并把费用、期限、材料、考试和法律后果改为显式来源；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1675,6 +1860,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Colorado DMV 的 REAL ID、DR 2300A/B/C、CO-RCSA、材料、预约、费用、新居民、外州与外国驾照、permit、考试语言、第三方路考、续期、改址改名、补证、ID 和邮寄正文。",
         "notes": "重写身份分流与办事路径，纳入 2025-03-31 后 Standard 新规则，区分中国大陆与 Taiwan reciprocity，并把费用、期限、材料、考试和法律后果改为显式来源；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1722,6 +1912,11 @@
         "scope": "逐条打开并比对 Connecticut DMV 的 REAL ID、材料清单、普通驾照、外州与外国驾照、成人 permit、中英文考试、路考、费用、续补证、改名改址、Drive Only、non-driver ID、central issuance、预约与 office 正文。",
         "notes": "重写金色星标、ordinary non-verified 与 Drive Only 判断路径，补齐中国大陆申请人的成人 permit、90 天等待豁免边界、2026 Work Zone 课程、当前费用和邮寄规则；对 SSN documentation、limited-term eligibility 与首证期限的州方页面冲突作显式风险提示，仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1767,6 +1962,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Connecticut DMV 的 REAL ID、材料清单、普通驾照、外州与外国驾照、成人 permit、中英文考试、路考、费用、续补证、改名改址、Drive Only、non-driver ID、central issuance、预约与 office 正文。",
         "notes": "重写金色星标、ordinary non-verified 与 Drive Only 判断路径，补齐中国大陆申请人的成人 permit、90 天等待豁免边界、2026 Work Zone 课程、当前费用和邮寄规则；对 SSN documentation、limited-term eligibility 与首证期限的州方页面冲突作显式风险提示，仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1814,6 +2014,11 @@
         "scope": "逐条打开 Delaware DMV 当前 Driver Services、SecureID、required documents、noncitizen / SAVE、adult transfer、first license、knowledge / road exam、DPC、renewal、name / address、fee chart、online services、appointments、locations、wait times、July 2025 Driver Manual 与 TSA 页面，核对两个成品页的资格、材料、期限、考试、语言边界、费用和办理入口。",
         "notes": "本轮重点区分美国外州与外国驾照、Taiwan reciprocity 与中国大陆驾照、SecureID 与 non-compliant credential、lawful-presence credential 与 DPC，并以 2025 年 10 月生效的 Fee Chart 覆盖 July 2025 Driver Manual 中的旧金额。官方样题入口只列 English、Spanish、Haitian，未据此虚构中文考试。全部映射为 AI 辅助语义核查，不冒充 DMV、律师或人工专业签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1859,6 +2064,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 Delaware DMV 当前 Driver Services、SecureID、required documents、noncitizen / SAVE、adult transfer、first license、knowledge / road exam、DPC、renewal、name / address、fee chart、online services、appointments、locations、wait times、July 2025 Driver Manual 与 TSA 页面，核对两个成品页的资格、材料、期限、考试、语言边界、费用和办理入口。",
         "notes": "本轮重点区分美国外州与外国驾照、Taiwan reciprocity 与中国大陆驾照、SecureID 与 non-compliant credential、lawful-presence credential 与 DPC，并以 2025 年 10 月生效的 Fee Chart 覆盖 July 2025 Driver Manual 中的旧金额。官方样题入口只列 English、Spanish、Haitian，未据此虚构中文考试。全部映射为 AI 辅助语义核查，不冒充 DMV、律师或人工专业签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1906,6 +2116,11 @@
         "scope": "逐条打开并比对 FLHSMV 的 REAL ID、身份分支、居住证明、续期补证、MyDMV、费用、地址姓名、预约、考试、新居民、外国访客和外州换证正文。",
         "notes": "重写 Florida 总览与 REAL ID 清单，补充 80 岁以上有效期、地址证明替代路径和外州证件边界，并用 2026 年 English-only 公告纠正旧考试页仍显示的历史语言列表；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -1951,6 +2166,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 FLHSMV 的 REAL ID、身份分支、居住证明、续期补证、MyDMV、费用、地址姓名、预约、考试、新居民、外国访客和外州换证正文。",
         "notes": "重写 Florida 总览与 REAL ID 清单，补充 80 岁以上有效期、地址证明替代路径和外州证件边界，并用 2026 年 English-only 公告纠正旧考试页仍显示的历史语言列表；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1998,6 +2218,11 @@
         "scope": "逐条比对 Georgia DDS 的 Secure ID、身份与住址材料、外州转入、非公民、外国驾照、韩国与台湾互惠、续期补证、地址、费用、考试语言、Class C 和 road test 正文。",
         "notes": "重写 Georgia 总览与 REAL ID 页面，补齐 30/60/150 天分界、当前费用、考试与外国驾照路径，并公开标注永久卡 30/45 天、第二次改址费用和 Chinese Road Signs 三组官方页面差异；所有声明已改为显式来源，仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2043,6 +2268,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Georgia DDS 的 Secure ID、身份与住址材料、外州转入、非公民、外国驾照、韩国与台湾互惠、续期补证、地址、费用、考试语言、Class C 和 road test 正文。",
         "notes": "重写 Georgia 总览与 REAL ID 页面，补齐 30/60/150 天分界、当前费用、考试与外国驾照路径，并公开标注永久卡 30/45 天、第二次改址费用和 Chinese Road Signs 三组官方页面差异；所有声明已改为显式来源，仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2090,6 +2320,11 @@
         "scope": "逐条打开并比对 HIDOT 州级 Driver License FAQ、Rev. 3/13/2024 acceptable-documents PDF，以及 Honolulu、Maui County、Hawaii County、Kauai County 的 REAL ID、驾照、外州/外国驾照、续期、考试、预约、office 和费用入口。",
         "notes": "重写 Hawaii 两页并建立显式声明级来源；拆开州级规则与四县办理，更新失效 Honolulu/Hawaii County 入口，增加唯一 REAL ID credential 专属判断，并公开 SSN 统一材料表与县级 transfer 页面、China/Taiwan reciprocity、oral exam 和 6-8 周邮寄边界。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2135,6 +2370,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 HIDOT 州级 Driver License FAQ、Rev. 3/13/2024 acceptable-documents PDF，以及 Honolulu、Maui County、Hawaii County、Kauai County 的 REAL ID、驾照、外州/外国驾照、续期、考试、预约、office 和费用入口。",
         "notes": "重写 Hawaii 两页并建立显式声明级来源；拆开州级规则与四县办理，更新失效 Honolulu/Hawaii County 入口，增加唯一 REAL ID credential 专属判断，并公开 SSN 统一材料表与县级 transfer 页面、China/Taiwan reciprocity、oral exam 和 6-8 周邮寄边界。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2182,6 +2422,11 @@
         "scope": "逐条打开 Idaho ITD 当前 Star Card、acceptable documents、Add the Star、FAQ、New to Idaho、required documents、2026-07-01 identity update、Taking the Driver’s Test、July 2026 Driver’s Handbook、county locations、license / ID、online renewal、online eligibility、ID card 与 TSA 身份证件正文，核对两页的材料、期限、外国驾照、中文考试、费用、线上资格和县级办理路径。",
         "notes": "重点补齐 2026 年新 customer profile 身份规则、中国大陆与 Germany / Korea / Taiwan 互惠边界、Chinese written / aural test、美国外州转入考试、lawful-presence、三天重考、线上续期和地址改名。所有映射为 AI 辅助语义核查，不冒充 ITD、律师或真实人工专业审核。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2227,6 +2472,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 Idaho ITD 当前 Star Card、acceptable documents、Add the Star、FAQ、New to Idaho、required documents、2026-07-01 identity update、Taking the Driver’s Test、July 2026 Driver’s Handbook、county locations、license / ID、online renewal、online eligibility、ID card 与 TSA 身份证件正文，核对两页的材料、期限、外国驾照、中文考试、费用、线上资格和县级办理路径。",
         "notes": "重点补齐 2026 年新 customer profile 身份规则、中国大陆与 Germany / Korea / Taiwan 互惠边界、Chinese written / aural test、美国外州转入考试、lawful-presence、三天重考、线上续期和地址改名。所有映射为 AI 辅助语义核查，不冒充 ITD、律师或真实人工专业审核。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2274,6 +2524,11 @@
         "scope": "逐条比对 Illinois Secretary of State 的 REAL ID、A/B/C/D 文件组、VISA/NONVISA 与原 TVDL、续期补证、地址、新居民、permit、成人教育、费用、预约、2026 Rules of the Road 和老年驾驶新规。",
         "notes": "重写 Illinois 总览与 REAL ID 页面，移除过时 TVDL 逻辑，补充当前 Chicago Supercenter、永久卡邮寄、TSA 临时纸卡边界、90 天新居民测试差异和 2026 年 87 岁 road test 起点，并将所有声明改为显式来源；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2319,6 +2574,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Illinois Secretary of State 的 REAL ID、A/B/C/D 文件组、VISA/NONVISA 与原 TVDL、续期补证、地址、新居民、permit、成人教育、费用、预约、2026 Rules of the Road 和老年驾驶新规。",
         "notes": "重写 Illinois 总览与 REAL ID 页面，移除过时 TVDL 逻辑，补充当前 Chicago Supercenter、永久卡邮寄、TSA 临时纸卡边界、90 天新居民测试差异和 2026 年 87 岁 road test 起点，并将所有声明改为显式来源；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2366,6 +2626,11 @@
         "scope": "逐条打开并比对 Indiana BMV 的 REAL ID、Documentation List、新居民、外州与外国驾照、续补证、改名改址、branch、邮寄、SAVE、driver manual 和 skills test 正文。",
         "notes": "重写 Indiana 两页并建立显式声明级来源；公开标注当前 New Resident/Driver License 页面与旧中央制证 FAQ 对有效外州驾照是否考 written test 的差异，中国大陆驾照不套用 Japan/Taiwan reciprocity。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2411,6 +2676,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Indiana BMV 的 REAL ID、Documentation List、新居民、外州与外国驾照、续补证、改名改址、branch、邮寄、SAVE、driver manual 和 skills test 正文。",
         "notes": "重写 Indiana 两页并建立显式声明级来源；公开标注当前 New Resident/Driver License 页面与旧中央制证 FAQ 对有效外州驾照是否考 written test 的差异，中国大陆驾照不套用 Japan/Taiwan reciprocity。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2458,6 +2728,11 @@
         "scope": "逐条打开 Iowa DOT 驾照主页、New to Iowa、Immigrant & Refugee、REAL ID 与五段互动材料清单、renewal、extension、fees、change、replacement、license type、road test、manual、practice test、appointment、location 和 non-driver ID 正文，并核对 current Iowa Administrative Code 761-604、2026 Iowa Code 321.1A / 321.176 / 321.196、SF 2187 法案正文、HF 2102 当前议程状态与 TSA identification guidance。",
         "notes": "重点核清 Iowa resident 触发条件、中国大陆与 Republic of China (Taiwan) 的互惠边界、Chinese knowledge test 与路考语言边界、lawful-status / SSN / SAVE 流程、REAL ID 1-1-2、续期与过期、考试车辆、费用、地址与姓名变更，以及 SF 2187 的条件适用日期。官方页对 SAVE 等候时间存在两种表述，页面已明确披露；所有映射为 AI 辅助核查，不冒充 Iowa DOT、律师或真实人工专业审核。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2503,6 +2778,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 Iowa DOT 驾照主页、New to Iowa、Immigrant & Refugee、REAL ID 与五段互动材料清单、renewal、extension、fees、change、replacement、license type、road test、manual、practice test、appointment、location 和 non-driver ID 正文，并核对 current Iowa Administrative Code 761-604、2026 Iowa Code 321.1A / 321.176 / 321.196、SF 2187 法案正文、HF 2102 当前议程状态与 TSA identification guidance。",
         "notes": "重点核清 Iowa resident 触发条件、中国大陆与 Republic of China (Taiwan) 的互惠边界、Chinese knowledge test 与路考语言边界、lawful-status / SSN / SAVE 流程、REAL ID 1-1-2、续期与过期、考试车辆、费用、地址与姓名变更，以及 SF 2187 的条件适用日期。官方页对 SAVE 等候时间存在两种表述，页面已明确披露；所有映射为 AI 辅助核查，不冒充 Iowa DOT、律师或真实人工专业审核。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2550,6 +2830,11 @@
         "scope": "逐条比对 Kansas DOR 的 Licensing hub、Required Documents、DE-56A、REAL ID / FAQ、proof of identity、first / out-of-state license、driver FAQ、renewal、online services / iKan、address、appointment、stations、South Korea reciprocity、forms、fee chart 与 TSA 当前身份证件正文。",
         "notes": "重写 Kansas 总览与 REAL ID 页面，拆分首次 / 外州 / 外国驾照 / non-citizen / renewal / address / REAL ID 路线；补齐 90 天、SAVE、Taiwan / South Korea reciprocity、邮寄和地点限制，并公开标记 address-change $8 / $10 官方差异与中文考试未确认边界。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2595,6 +2880,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Kansas DOR 的 Licensing hub、Required Documents、DE-56A、REAL ID / FAQ、proof of identity、first / out-of-state license、driver FAQ、renewal、online services / iKan、address、appointment、stations、South Korea reciprocity、forms、fee chart 与 TSA 当前身份证件正文。",
         "notes": "重写 Kansas 总览与 REAL ID 页面，拆分首次 / 外州 / 外国驾照 / non-citizen / renewal / address / REAL ID 路线；补齐 90 天、SAVE、Taiwan / South Korea reciprocity、邮寄和地点限制，并公开标记 address-change $8 / $10 官方差异与中文考试未确认边界。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2642,6 +2932,11 @@
         "scope": "逐条打开 Kentucky DRIVE 的 REAL ID、材料清单、standard 对比、upgrade、pricing、FAQ、first issuance、new resident、non-U.S. citizen、外国驾照名单、renewal、vision、update / replace、ID card、Regional Office 与 myDrive 正文，以及 KSP testing、当前 Driver Manual 和 TSA 身份证件页面，核对两页的材料、期限、中国驾照、中文考试、费用、线上资格和身份冲突。",
         "notes": "重点补齐中国大陆与 Taiwan / South Korea 互惠边界、KSP Chinese standard-operator test、30 天转入、2026 Letter ID、vision renewal、非公民 REAL ID 和 permit online-renewal 的官方冲突。DRIVE 直连在自动检查中返回 403，但当前官方索引正文与 PDF 均已语义核对；所有映射为 AI 辅助核查，不冒充 KYTC、KSP、律师或真实人工专业审核。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2687,6 +2982,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 Kentucky DRIVE 的 REAL ID、材料清单、standard 对比、upgrade、pricing、FAQ、first issuance、new resident、non-U.S. citizen、外国驾照名单、renewal、vision、update / replace、ID card、Regional Office 与 myDrive 正文，以及 KSP testing、当前 Driver Manual 和 TSA 身份证件页面，核对两页的材料、期限、中国驾照、中文考试、费用、线上资格和身份冲突。",
         "notes": "重点补齐中国大陆与 Taiwan / South Korea 互惠边界、KSP Chinese standard-operator test、30 天转入、2026 Letter ID、vision renewal、非公民 REAL ID 和 permit online-renewal 的官方冲突。DRIVE 直连在自动检查中返回 403，但当前官方索引正文与 PDF 均已语义核对；所有映射为 AI 辅助核查，不冒充 KYTC、KSP、律师或真实人工专业审核。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2734,6 +3034,11 @@
         "scope": "逐条打开 Louisiana OMV 办事页、2025-2026 年现行 policy PDF 与 TSA 页面，核对总览和 REAL ID 两个成品页的材料、期限、身份、考试、语言、费用、线上资格和邮寄边界。",
         "notes": "本轮明确区分美国外州转入、非互惠中国大陆驾照、Taiwan reciprocity、visitor / non-immigrant 身份、Cantonese 笔试、普通 residency 与 REAL ID 双地址证明，并记录当前 fee policy 与较旧 mail-renewal policy 的金额差异；状态为 AI 辅助证据核查，不冒充人工或专业审核。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2779,6 +3084,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 Louisiana OMV 办事页、2025-2026 年现行 policy PDF 与 TSA 页面，核对总览和 REAL ID 两个成品页的材料、期限、身份、考试、语言、费用、线上资格和邮寄边界。",
         "notes": "本轮明确区分美国外州转入、非互惠中国大陆驾照、Taiwan reciprocity、visitor / non-immigrant 身份、Cantonese 笔试、普通 residency 与 REAL ID 双地址证明，并记录当前 fee policy 与较旧 mail-renewal policy 的金额差异；状态为 AI 辅助证据核查，不冒充人工或专业审核。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2826,6 +3136,11 @@
         "scope": "逐条打开并比对 Maine BMV 当前 REAL ID、online transaction、renewal、update、duplicate、new-resident、residency、citizen / non-citizen legal-presence、exam / interpreter、fees、branch、appointment 与 TSA 身份证件页面，并把 2022 brochure 和旧 online FAQ 的冲突表述单独标记。",
         "notes": "重写 Maine 两页并建立显式声明级来源；重点区分首次 / 升级 REAL ID、已有 REAL ID online / AAA、外州 transfer、非公民、地址变更、duplicate 和 interpreter 路线，旧文档只用于解释历史冲突，不作为当前渠道依据。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2871,6 +3186,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Maine BMV 当前 REAL ID、online transaction、renewal、update、duplicate、new-resident、residency、citizen / non-citizen legal-presence、exam / interpreter、fees、branch、appointment 与 TSA 身份证件页面，并把 2022 brochure 和旧 online FAQ 的冲突表述单独标记。",
         "notes": "重写 Maine 两页并建立显式声明级来源；重点区分首次 / 升级 REAL ID、已有 REAL ID online / AAA、外州 transfer、非公民、地址变更、duplicate 和 interpreter 路线，旧文档只用于解释历史冲突，不作为当前渠道依据。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -2918,6 +3238,11 @@
         "scope": "逐条比对 Maryland MVA 的 REAL ID Lookup、材料表、现行费用、续期补证、资料更新、新居民、考试、permit、驾驶教育、外国驾照、非合规证件和 Photo ID 正文。",
         "notes": "重写 Maryland 总览与 REAL ID 页面，补齐 30/60 天、12 个月过期边界、考试语言、外国驾照与非公民路径，并公开标注旧 REAL ID FAQ 和当前费用表的 $20/$30 冲突；所有声明已改为显式来源，仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -2963,6 +3288,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Maryland MVA 的 REAL ID Lookup、材料表、现行费用、续期补证、资料更新、新居民、考试、permit、驾驶教育、外国驾照、非合规证件和 Photo ID 正文。",
         "notes": "重写 Maryland 总览与 REAL ID 页面，补齐 30/60 天、12 个月过期边界、考试语言、外国驾照与非公民路径，并公开标注旧 REAL ID FAQ 和当前费用表的 $20/$30 冲突；所有声明已改为显式来源，仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3010,6 +3340,11 @@
         "scope": "逐条比对 Mass.gov 的 REAL ID、身份清单、WFMA 现行法、续期补证、地址、permit、road test、外州转入、外国驾照、Taiwan conversion、费用和 MyMassGov 正文。",
         "notes": "重写 Massachusetts 总览与 REAL ID 页面，明确 Standard Class D/M 的 WFMA 边界，修正外国驾照记录期限，补充当前线上账户、邮寄、考试语言和台湾转换细节，并将所有声明改为显式来源；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -3055,6 +3390,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Mass.gov 的 REAL ID、身份清单、WFMA 现行法、续期补证、地址、permit、road test、外州转入、外国驾照、Taiwan conversion、费用和 MyMassGov 正文。",
         "notes": "重写 Massachusetts 总览与 REAL ID 页面，明确 Standard Class D/M 的 WFMA 边界，修正外国驾照记录期限，补充当前线上账户、邮寄、考试语言和台湾转换细节，并将所有声明改为显式来源；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3102,6 +3442,11 @@
         "scope": "逐条比对 Michigan SOS 的 REAL ID、Standard/Enhanced 区别、首次与外州转入、材料、SAVE、外国驾照 treaty 规则、成人考试、TIP、路考、续期补证、费用、地址、预约和邮件状态正文。",
         "notes": "重写 Michigan 总览与 REAL ID 页面，补齐首次申请默认 REAL ID 与已有证件转换的分流、SSA-L676 官方冲突、中国大陆/台湾 treaty 差异、线上知识考试、第三方路考、连续远程续期和新居民路径；所有声明已改为显式来源，仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -3147,6 +3492,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Michigan SOS 的 REAL ID、Standard/Enhanced 区别、首次与外州转入、材料、SAVE、外国驾照 treaty 规则、成人考试、TIP、路考、续期补证、费用、地址、预约和邮件状态正文。",
         "notes": "重写 Michigan 总览与 REAL ID 页面，补齐首次申请默认 REAL ID 与已有证件转换的分流、SSA-L676 官方冲突、中国大陆/台湾 treaty 差异、线上知识考试、第三方路考、连续远程续期和新居民路径；所有声明已改为显式来源，仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3194,6 +3544,11 @@
         "scope": "逐条打开并比对 Minnesota DVS 的 REAL ID、Standard/Enhanced 分流、预约、材料、同日服务、地址更新、名称变更、非公民路径、车辆新居民以及州法条款，建立可追溯声明级来源。",
         "notes": "明尼苏达官方站点存在可达性波动，内容中将可达性与政策结论分离，确保“政策事实”都保留到可核验官方来源，地址/同日服务等高风险点已做单条来源映射。"
       },
+      "dates": {
+        "publishedAt": "2026-07-17",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 13.5,
@@ -3239,6 +3594,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Minnesota DVS 的 REAL ID、Standard/Enhanced 分流、预约、材料、同日服务、地址更新、名称变更、非公民路径、车辆新居民以及州法条款，建立可追溯声明级来源。",
         "notes": "明尼苏达官方站点存在可达性波动，内容中将可达性与政策结论分离，确保“政策事实”都保留到可核验官方来源，地址/同日服务等高风险点已做单条来源映射。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-17",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3286,6 +3646,11 @@
         "scope": "逐条打开并比对 Mississippi DSB 的 Class R、2025 Driver Manual / application、Required Documents、renewal、online renewal / duplicate / change address、State ID、non-citizen / SAVE、learner permit、interpreter oath、2026 driver-education update、fees、locations、appointment、FAQ 与 TSA 当前身份证件页面。",
         "notes": "重写 Mississippi 两页并登记显式声明级来源；确认全州 credential 自动 Gold Star，拆分 first / transfer / renewal / duplicate / address / non-citizen / testing 路线，并公开标记过期外州证件考试门槛和旧 2023 REAL ID deadline 两组官方冲突。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -3331,6 +3696,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Mississippi DSB 的 Class R、2025 Driver Manual / application、Required Documents、renewal、online renewal / duplicate / change address、State ID、non-citizen / SAVE、learner permit、interpreter oath、2026 driver-education update、fees、locations、appointment、FAQ 与 TSA 当前身份证件页面。",
         "notes": "重写 Mississippi 两页并登记显式声明级来源；确认全州 credential 自动 Gold Star，拆分 first / transfer / renewal / duplicate / address / non-citizen / testing 路线，并公开标记过期外州证件考试门槛和旧 2023 REAL ID deadline 两组官方冲突。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3378,6 +3748,11 @@
         "scope": "逐条打开并比对 Missouri DOR 的 driver-license hub、required-documents checklist、identity / address requirements、REAL ID / interactive guide / RID、license terms / fees、general / new-card FAQ、2025 law changes，以及 MSHP 的考试 FAQ、DOR-FUSION、Class F language list、exam locator 与 TSA 当前身份证件正文。",
         "notes": "重写 Missouri 总览与 REAL ID 页面，明确 DOR 签发 / MSHP 考试双入口、美国外州 184 天免试边界、外国驾照完整考试路线、中文 Class F 笔试、remote renewal / duplicate、SAVE、same-address self-certification、费用与 temporary credential 限制；所有 105 条独立陈述均登记到已核对官方正文。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -3423,6 +3798,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Missouri DOR 的 driver-license hub、required-documents checklist、identity / address requirements、REAL ID / interactive guide / RID、license terms / fees、general / new-card FAQ、2025 law changes，以及 MSHP 的考试 FAQ、DOR-FUSION、Class F language list、exam locator 与 TSA 当前身份证件正文。",
         "notes": "重写 Missouri 总览与 REAL ID 页面，明确 DOR 签发 / MSHP 考试双入口、美国外州 184 天免试边界、外国驾照完整考试路线、中文 Class F 笔试、remote renewal / duplicate、SAVE、same-address self-certification、费用与 temporary credential 限制；所有 105 条独立陈述均登记到已核对官方正文。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3470,6 +3850,11 @@
         "scope": "逐条比对 Montana MVD 的 driver service、new resident、adult first driver、required documents、REAL ID 与 2026 checklist、renewal、replacement、address、name、fees、ID card、forms、manual、exam stations 和 FAQ；同时核对 Taiwan / Republic of Korea 互惠文件、2025 新卡公告、citizenship marker、2026 年 7 月临时费用公告、Class D / ID application、USCIS SAVE 与 TSA 身份证件规则。部分 mvdmt.gov 深层页限制普通直连，相关事实以可读取官方 PDF、官方页面索引正文和同机构交叉来源复核。",
         "notes": "重写 Montana 两页，拆开美国外州转入、Taiwan / Korea 互惠、中国大陆非互惠首次申请、standard / REAL ID、非公民 SAVE、考试语言、续期、补证、地址与姓名变更。未把中国大陆驾照、中文考试或翻译材料写成官网未公布的豁免或保证；所有映射为 AI 辅助证据核查，不冒充 Montana MVD、律师或人工专业审核。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -3515,6 +3900,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Montana MVD 的 driver service、new resident、adult first driver、required documents、REAL ID 与 2026 checklist、renewal、replacement、address、name、fees、ID card、forms、manual、exam stations 和 FAQ；同时核对 Taiwan / Republic of Korea 互惠文件、2025 新卡公告、citizenship marker、2026 年 7 月临时费用公告、Class D / ID application、USCIS SAVE 与 TSA 身份证件规则。部分 mvdmt.gov 深层页限制普通直连，相关事实以可读取官方 PDF、官方页面索引正文和同机构交叉来源复核。",
         "notes": "重写 Montana 两页，拆开美国外州转入、Taiwan / Korea 互惠、中国大陆非互惠首次申请、standard / REAL ID、非公民 SAVE、考试语言、续期、补证、地址与姓名变更。未把中国大陆驾照、中文考试或翻译材料写成官网未公布的豁免或保证；所有映射为 AI 辅助证据核查，不冒充 Montana MVD、律师或人工专业审核。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3562,6 +3952,11 @@
         "scope": "逐条打开 Nebraska DMV 的 Class O、document verification、new resident、renewal、replacement、address、name、State ID、LPD、practice test、manual、location、non-federal credential 与 licensing-services 正文，并核对 2024 Document Verification Form、2025 Class O Driver Manual、2025 Driver Licensing Examiner Manual、2026 redesigned-card notice、REAL ID history 和 TSA identification 页面。",
         "notes": "重点补齐中国大陆驾照不在 foreign drive-test waiver 名单、无官方 Chinese written test、non-verbal picture test、外国字典与翻译边界、外州卡遗失 / 过期的 test table、SAVE 最长处理提示、2026 新星标、parolee non-federal credential、费用和领卡时限。所有映射为 AI 辅助核查，不冒充 Nebraska DMV、律师或真实人工专业审核。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -3607,6 +4002,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 Nebraska DMV 的 Class O、document verification、new resident、renewal、replacement、address、name、State ID、LPD、practice test、manual、location、non-federal credential 与 licensing-services 正文，并核对 2024 Document Verification Form、2025 Class O Driver Manual、2025 Driver Licensing Examiner Manual、2026 redesigned-card notice、REAL ID history 和 TSA identification 页面。",
         "notes": "重点补齐中国大陆驾照不在 foreign drive-test waiver 名单、无官方 Chinese written test、non-verbal picture test、外国字典与翻译边界、外州卡遗失 / 过期的 test table、SAVE 最长处理提示、2026 新星标、parolee non-federal credential、费用和领卡时限。所有映射为 AI 辅助核查，不冒充 Nebraska DMV、律师或真实人工专业审核。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3654,6 +4054,11 @@
         "scope": "逐条打开并比对 Nevada DMV 的 REAL ID、Standard、DAC、identity/residency、现行 NRS、2026 handbook、新居民、外国驾照、DMV 015、成人 permit、知识与路考、翻译、费用、续期、补证、改名改址、Quick Cards、预约、ID 和邮寄正文。",
         "notes": "重写三类 credential 判断与办事路径，补齐 China/Taiwan/South Korea、无 SSN、Limited Term、口译和 current fee 边界，并公开标注 Taiwan waiver 年龄与 out-of-state REAL ID 模块的官方页面差异；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -3699,6 +4104,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Nevada DMV 的 REAL ID、Standard、DAC、identity/residency、现行 NRS、2026 handbook、新居民、外国驾照、DMV 015、成人 permit、知识与路考、翻译、费用、续期、补证、改名改址、Quick Cards、预约、ID 和邮寄正文。",
         "notes": "重写三类 credential 判断与办事路径，补齐 China/Taiwan/South Korea、无 SSN、Limited Term、口译和 current fee 边界，并公开标注 Taiwan waiver 年龄与 out-of-state REAL ID 模块的官方页面差异；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3746,6 +4156,11 @@
         "scope": "逐条打开 New Hampshire DMV 当前 driver licensing、REAL ID、DSMV634A、DSMV634B、DSMV450、Driver Manual、first license、transfer、renewal、online renewal、personal information、DSMV30、locations、appointments，New Hampshire 现行 Saf-C 1000 行政规则、RSA 263:9、263:10、263:35、263:39-a、263:42、Domicile / Residence FAQ、TSA 和 USA.gov 目录，核对两个成品页的资格、材料、期限、考试语言、费用、非公民路径与官方冲突。",
         "notes": "本轮重点区分美国外州转入、中国大陆等外国驾照与短期游客，补齐 Mandarin Chinese 知识考试、非美国公民身份分类、线上续期隔周期规则，并明确披露 2023 DSMV30 的 $3 地址换卡费与 2026 现行 RSA 263:42 的 $10 冲突。所有映射为 AI 辅助语义核查，不冒充 DMV、律师或真实人工专业签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -3791,6 +4206,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 New Hampshire DMV 当前 driver licensing、REAL ID、DSMV634A、DSMV634B、DSMV450、Driver Manual、first license、transfer、renewal、online renewal、personal information、DSMV30、locations、appointments，New Hampshire 现行 Saf-C 1000 行政规则、RSA 263:9、263:10、263:35、263:39-a、263:42、Domicile / Residence FAQ、TSA 和 USA.gov 目录，核对两个成品页的资格、材料、期限、考试语言、费用、非公民路径与官方冲突。",
         "notes": "本轮重点区分美国外州转入、中国大陆等外国驾照与短期游客，补齐 Mandarin Chinese 知识考试、非美国公民身份分类、线上续期隔周期规则，并明确披露 2023 DSMV30 的 $3 地址换卡费与 2026 现行 RSA 263:42 的 $10 冲突。所有映射为 AI 辅助语义核查，不冒充 DMV、律师或真实人工专业签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3838,6 +4258,11 @@
         "scope": "逐条打开并比对 NJMVC 的 REAL ID、2 + 1 + 6 selector、姓名匹配、Standard 6 Points、线上服务、续期补证、地址、预约、首次驾照、考试语言、路考、新居民和外国驾照互惠正文。",
         "notes": "重写 New Jersey 总览与 REAL ID 页面，分开 Standard 与 REAL ID 的 point 和 residency 规则，补充当前 GDL 练车要求、预约类别、邮寄、地址及台湾/韩国互惠边界，并将所有高风险声明改为显式来源；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -3883,6 +4308,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 NJMVC 的 REAL ID、2 + 1 + 6 selector、姓名匹配、Standard 6 Points、线上服务、续期补证、地址、预约、首次驾照、考试语言、路考、新居民和外国驾照互惠正文。",
         "notes": "重写 New Jersey 总览与 REAL ID 页面，分开 Standard 与 REAL ID 的 point 和 residency 规则，补充当前 GDL 练车要求、预约类别、邮寄、地址及台湾/韩国互惠边界，并将所有高风险声明改为显式来源；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3930,6 +4360,11 @@
         "scope": "逐条比对 New Mexico MVD 的 Driver Licenses、new credential、REAL ID microsite / checklist、Standard checklist、non-commercial / testing procedures、knowledge updates、renewal、replacement、address、name、fees、appointments、closings、locations、online services、card-status 与 TSA 当前身份证件正文。",
         "notes": "重写 New Mexico 总览与 REAL ID 页面，拆开 Standard / REAL ID、美国外州 / 外国驾照、首次 / 续补证路线；补齐中文笔试、None for the Road、费用、45 天 temporary credential、10 天改址和 municipal fee，并公开标注现行 MVD 页面对过期一年或五年重考门槛的冲突。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -3975,6 +4410,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 New Mexico MVD 的 Driver Licenses、new credential、REAL ID microsite / checklist、Standard checklist、non-commercial / testing procedures、knowledge updates、renewal、replacement、address、name、fees、appointments、closings、locations、online services、card-status 与 TSA 当前身份证件正文。",
         "notes": "重写 New Mexico 总览与 REAL ID 页面，拆开 Standard / REAL ID、美国外州 / 外国驾照、首次 / 续补证路线；补齐中文笔试、None for the Road、费用、45 天 temporary credential、10 天改址和 municipal fee，并公开标注现行 MVD 页面对过期一年或五年重考门槛的冲突。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4022,6 +4462,11 @@
         "scope": "逐条打开并比对 New York DMV 的证件类型、ID-44、Social Security、预约、续期、地址、费用、补证、permit test、路考、语言、外国驾照和外州换证正文。",
         "notes": "按办事路径重写纽约州总览与 REAL ID 清单，纠正线上 permit test 的未满 18 岁适用范围，并把费用、期限、材料和身份声明改为显式来源；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4067,6 +4512,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 New York DMV 的证件类型、ID-44、Social Security、预约、续期、地址、费用、补证、permit test、路考、语言、外国驾照和外州换证正文。",
         "notes": "按办事路径重写纽约州总览与 REAL ID 清单，纠正线上 permit test 的未满 18 岁适用范围，并把费用、期限、材料和身份声明改为显式来源；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4114,6 +4564,11 @@
         "scope": "逐条比对 NCDMV 的 REAL ID、材料、legal presence、SSN、保险、首次驾照、考试与口译、road test、续期补证、费用、预约、外州证件注销、新居民与 2026 现场上传变化正文。",
         "notes": "重写 North Carolina 总览与 REAL ID 页面，补齐 60/30 天路线、one-credential 风险、外国驾照与 IDP 边界、不同语言但不保证中文、7 天重考、certified school road test、连续线上续期和 secure upload 适用范围；所有声明已改为显式来源，仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4159,6 +4614,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 NCDMV 的 REAL ID、材料、legal presence、SSN、保险、首次驾照、考试与口译、road test、续期补证、费用、预约、外州证件注销、新居民与 2026 现场上传变化正文。",
         "notes": "重写 North Carolina 总览与 REAL ID 页面，补齐 60/30 天路线、one-credential 风险、外国驾照与 IDP 边界、不同语言但不保证中文、7 天重考、certified school road test、连续线上续期和 secure upload 适用范围；所有声明已改为显式来源，仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4206,6 +4666,11 @@
         "scope": "逐条打开 NDDOT driver hub、license、requirements、U.S. transfer、foreign driver、permit、REAL ID、renewal、online renewal、replacement、ID、site、class 与 IDP 正文，并核对 current REAL ID / proof-of-identification PDFs、2025–2027 Class D manual、2026 SFN 6763 application、current NDCC Chapter 39-06 和 TSA identification guidance。",
         "notes": "重点补齐中国大陆驾照、Chinese knowledge / English road test、90-day residence 与 60-day post-residency rule、SSN exception 官方冲突、standard / REAL ID 文件差异、考试车辆、当前费用、online renewal、补证和 non-driver ID。所有映射为 AI 辅助核查，不冒充 NDDOT、律师或真实人工专业审核。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4251,6 +4716,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 NDDOT driver hub、license、requirements、U.S. transfer、foreign driver、permit、REAL ID、renewal、online renewal、replacement、ID、site、class 与 IDP 正文，并核对 current REAL ID / proof-of-identification PDFs、2025–2027 Class D manual、2026 SFN 6763 application、current NDCC Chapter 39-06 和 TSA identification guidance。",
         "notes": "重点补齐中国大陆驾照、Chinese knowledge / English road test、90-day residence 与 60-day post-residency rule、SSN exception 官方冲突、standard / REAL ID 文件差异、考试车辆、当前费用、online renewal、补证和 non-driver ID。所有映射为 AI 辅助核查，不冒充 NDDOT、律师或真实人工专业审核。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4298,6 +4768,11 @@
         "scope": "逐条比对 Ohio BMV 的 Compliant/Standard、可接受材料、首次申请、中文考试、TIPIC、成人与临时居民训练、外国驾照 reciprocity、SAVE、续期补证、费用、改址、新居民与邮寄正文，并交叉检查现行 Ohio Revised Code。",
         "notes": "重写 Ohio 总览与 REAL ID 页面，补齐 exam station 与 deputy registrar 分工、费用页与旧 ID FAQ 差异、limited-term 新州法与旧页面命名冲突、中国大陆/台湾训练豁免差异、10/30/60/90 天判断路径；所有公开声明已改为显式来源，仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4343,6 +4818,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Ohio BMV 的 Compliant/Standard、可接受材料、首次申请、中文考试、TIPIC、成人与临时居民训练、外国驾照 reciprocity、SAVE、续期补证、费用、改址、新居民与邮寄正文，并交叉检查现行 Ohio Revised Code。",
         "notes": "重写 Ohio 总览与 REAL ID 页面，补齐 exam station 与 deputy registrar 分工、费用页与旧 ID FAQ 差异、limited-term 新州法与旧页面命名冲突、中国大陆/台湾训练豁免差异、10/30/60/90 天判断路径；所有公开声明已改为显式来源，仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4390,6 +4870,11 @@
         "scope": "逐条打开 Service Oklahoma 当前驾照、REAL ID、材料、首次成人、Learner Permit、written test、road test、外州与外国转入、续补证、State ID、改址、Locations 页面、公开业务 SOP、Oklahoma 现行州法和 TSA 页面，核对两个成品页的材料、期限、资格、考试语言、费用、线上办理和邮寄边界。",
         "notes": "本轮明确区分美国外州转入、中国大陆非互惠路线、Taiwan reciprocity、临时访客、成人首次申请、online written test、English-only road test、非公民 SAVE 核验、首次与既有 REAL ID、4 / 8 年费用和 10 天改名改址义务。状态为 AI 辅助证据核查，不冒充人工或专业审核。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4435,6 +4920,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 Service Oklahoma 当前驾照、REAL ID、材料、首次成人、Learner Permit、written test、road test、外州与外国转入、续补证、State ID、改址、Locations 页面、公开业务 SOP、Oklahoma 现行州法和 TSA 页面，核对两个成品页的材料、期限、资格、考试语言、费用、线上办理和邮寄边界。",
         "notes": "本轮明确区分美国外州转入、中国大陆非互惠路线、Taiwan reciprocity、临时访客、成人首次申请、online written test、English-only road test、非公民 SAVE 核验、首次与既有 REAL ID、4 / 8 年费用和 10 天改名改址义务。状态为 AI 辅助证据核查，不冒充人工或专业审核。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4482,6 +4972,11 @@
         "scope": "逐条打开并比对 Oregon DMV 的 Standard、REAL ID、identity/residency、HB 2015、新居民、外国驾照、成人 license、简体中文 online/office knowledge test、drive test、费用、续补证、改名改址、office、ID 与邮寄正文。",
         "notes": "重写 Standard/REAL ID 判断与材料差异，补齐中国大陆与 Taiwan、无 SSN online-test 限制、30 天新居民路径、当前费用及续补证边界，并纠正地址 printout 与 identity 原件不能混用的旧说法；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4527,6 +5022,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Oregon DMV 的 Standard、REAL ID、identity/residency、HB 2015、新居民、外国驾照、成人 license、简体中文 online/office knowledge test、drive test、费用、续补证、改名改址、office、ID 与邮寄正文。",
         "notes": "重写 Standard/REAL ID 判断与材料差异，补齐中国大陆与 Taiwan、无 SSN online-test 限制、30 天新居民路径、当前费用及续补证边界，并纠正地址 printout 与 identity 原件不能混用的旧说法；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4574,6 +5074,11 @@
         "scope": "逐条比对 PennDOT 的 REAL ID、预验证、非公民与 CDL 分支、材料、费用、续期补证、姓名地址、新居民、permit、考试语言、外国驾照和台湾等互惠正文。",
         "notes": "重写 Pennsylvania 总览与 REAL ID 页面，补充不上传证件的预验证边界、camera card、15/60/20 天期限、中文笔试、外国驾照与台湾互惠，并公开指出非公民 REAL ID 页与统一费用页的 duplicate 金额冲突；所有声明已改为显式来源，仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4619,6 +5124,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 PennDOT 的 REAL ID、预验证、非公民与 CDL 分支、材料、费用、续期补证、姓名地址、新居民、permit、考试语言、外国驾照和台湾等互惠正文。",
         "notes": "重写 Pennsylvania 总览与 REAL ID 页面，补充不上传证件的预验证边界、camera card、15/60/20 天期限、中文笔试、外国驾照与台湾互惠，并公开指出非公民 REAL ID 页与统一费用页的 duplicate 金额冲突；所有声明已改为显式来源，仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4666,6 +5176,11 @@
         "scope": "逐条打开 Rhode Island DMV 当前 licenses / permits / IDs、REAL ID、identity and residency documents、LI-1、out-of-state transfer、new resident、permit、knowledge exam、road test、DPC、renewal、name / address、fee、reservation、locations、online services、Driver Manual，Rhode Island Division of Taxation DPC 页面、2025 年生效的成人 permit 州法和 TSA 页面，核对两个成品页的资格、材料、期限、考试语言、费用、冲突与办理入口。",
         "notes": "本轮重点区分美国外州与外国驾照、普通 lawful-presence credential 与 DPC、常规电脑考试与其他语言的两步预约，并记录 DMV permit 页面与 2025-06-06 生效州法在可续次数上的冲突。所有映射为 AI 辅助语义核查，不冒充 DMV、律师或真实人工专业签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4711,6 +5226,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 Rhode Island DMV 当前 licenses / permits / IDs、REAL ID、identity and residency documents、LI-1、out-of-state transfer、new resident、permit、knowledge exam、road test、DPC、renewal、name / address、fee、reservation、locations、online services、Driver Manual，Rhode Island Division of Taxation DPC 页面、2025 年生效的成人 permit 州法和 TSA 页面，核对两个成品页的资格、材料、期限、考试语言、费用、冲突与办理入口。",
         "notes": "本轮重点区分美国外州与外国驾照、普通 lawful-presence credential 与 DPC、常规电脑考试与其他语言的两步预约，并记录 DMV permit 页面与 2025-06-06 生效州法在可续次数上的冲突。所有映射为 AI 辅助语义核查，不冒充 DMV、律师或真实人工专业签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4758,6 +5278,11 @@
         "scope": "逐条比对 SCDMV 当前 Driver License、Moving to SC、lawfully present non-US citizens、2026 MV-93 / MV-94、beginner permit、testing、road test、appointment、2026 Driver Manual、renewal、vision、replacement、address / name、fees、ID、online services、locations、forms、Form 4030、visiting SC、中央制证公告与 FAQ，并交叉核对 TSA 当前机场身份证件规则。SCDMV 深层页在本环境直接抓取时常返回 403，因此以可读取的官方搜索索引正文、官方 PDF 和同机构页面交叉确认。",
         "notes": "重写 South Carolina 两页，拆开有效美国外州转入、外州驾照过期九个月以上、中国大陆与其他非互惠外国驾照、非公民指定网点、permit / testing、standard / REAL ID、续期、补证、地址和姓名变更。普通考试公开资料没有完整语言表，未虚构中文考试、翻译员或当天发卡保证；所有映射为 AI 辅助证据核查，不冒充 SCDMV、律师或人工专业审核。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4803,6 +5328,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 SCDMV 当前 Driver License、Moving to SC、lawfully present non-US citizens、2026 MV-93 / MV-94、beginner permit、testing、road test、appointment、2026 Driver Manual、renewal、vision、replacement、address / name、fees、ID、online services、locations、forms、Form 4030、visiting SC、中央制证公告与 FAQ，并交叉核对 TSA 当前机场身份证件规则。SCDMV 深层页在本环境直接抓取时常返回 403，因此以可读取的官方搜索索引正文、官方 PDF 和同机构页面交叉确认。",
         "notes": "重写 South Carolina 两页，拆开有效美国外州转入、外州驾照过期九个月以上、中国大陆与其他非互惠外国驾照、非公民指定网点、permit / testing、standard / REAL ID、续期、补证、地址和姓名变更。普通考试公开资料没有完整语言表，未虚构中文考试、翻译员或当天发卡保证；所有映射为 AI 辅助证据核查，不冒充 SCDMV、律师或人工专业审核。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4850,6 +5380,11 @@
         "scope": "逐条打开并比对 South Dakota 当前 Required Documents / printable checklist、online / in-person renewal、duplicate / address、testing、FAQ、fees、full-time traveler、locations、appointment、forms、2025 application、2024 Residency Affidavit，以及现行 residency、foreign-license、test-language statutes；旧 dps.sd.gov 页面只用于识别费用冲突。",
         "notes": "重写 South Dakota 两页并登记显式声明级来源；拆分 Section 1 / 2 / 3、首证 / 转入 / 续补证 / non-citizen / testing / full-time traveler 路线，采用当前 $38 / $20 fee，并公开标记旧费用与 3–4 / 4–6 周寄送时间冲突。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4895,6 +5430,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 South Dakota 当前 Required Documents / printable checklist、online / in-person renewal、duplicate / address、testing、FAQ、fees、full-time traveler、locations、appointment、forms、2025 application、2024 Residency Affidavit，以及现行 residency、foreign-license、test-language statutes；旧 dps.sd.gov 页面只用于识别费用冲突。",
         "notes": "重写 South Dakota 两页并登记显式声明级来源；拆分 Section 1 / 2 / 3、首证 / 转入 / 续补证 / non-citizen / testing / full-time traveler 路线，采用当前 $38 / $20 fee，并公开标记旧费用与 3–4 / 4–6 周寄送时间冲突。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4942,6 +5482,11 @@
         "scope": "逐条打开并比对 Tennessee Driver Services 的 REAL ID、新居民、成人首证、Regular 与 Temporary credential、证件类型、ID、居住证明、续补证、改名改址、费用、MVR、地点和现行驾驶手册正文。",
         "notes": "重写 Tennessee 两页并建立显式声明级来源；移除返回 404 的旧 Temporary 页面，改用现行证件类型、Identification License、续期和手册入口；同时公开标注 New Residents 和 MVR Verification 对 Kentucky 是否需要 MVR 的当前页面差异。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -4987,6 +5532,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Tennessee Driver Services 的 REAL ID、新居民、成人首证、Regular 与 Temporary credential、证件类型、ID、居住证明、续补证、改名改址、费用、MVR、地点和现行驾驶手册正文。",
         "notes": "重写 Tennessee 两页并建立显式声明级来源；移除返回 404 的旧 Temporary 页面，改用现行证件类型、Identification License、续期和手册入口；同时公开标注 New Residents 和 MVR Verification 对 Kentucky 是否需要 MVR 的当前页面差异。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5034,6 +5584,11 @@
         "scope": "逐条打开并比对 Texas.gov、Texas DPS 和 TSA 的 REAL ID、线上资格、居住证明、个人化清单、首次申请、预约、费用、地址、身份核验、考试、临时证件、外国驾照与新居民正文。",
         "notes": "重写 Texas 总览与 REAL ID 清单，纠正简版公民材料清单和车辆登记证明的适用范围，更新 2026 年 CDL 语言规则，并为费用、期限、身份和材料声明建立显式来源；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5079,6 +5634,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Texas.gov、Texas DPS 和 TSA 的 REAL ID、线上资格、居住证明、个人化清单、首次申请、预约、费用、地址、身份核验、考试、临时证件、外国驾照与新居民正文。",
         "notes": "重写 Texas 总览与 REAL ID 清单，纠正简版公民材料清单和车辆登记证明的适用范围，更新 2026 年 CDL 语言规则，并为费用、期限、身份和材料声明建立显式来源；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5126,6 +5686,11 @@
         "scope": "逐条比对 Utah DLD 的 required documents、公民 / 非公民 / DPC 材料、Regular / Limited-Term / DPC 证件定义、original / transfer、知识与驾驶考试、现行 2026 handbook、renewal、replacement、address、name、fees、limited-term prequalification、fingerprint、services、office locations 与 TSA 当前身份证件正文。",
         "notes": "重写 Utah 总览与 REAL ID 页面，拆开 Regular、Limited-Term 与 DPC 三条身份路径；补齐外国驾照、50 / 25 题测试、Mandarin Chinese 与 DPC English-only 边界、SAVE / fingerprint、费用、10 天改址、online renewal、temporary license 与 DPC no-privilege receipt。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5171,6 +5736,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Utah DLD 的 required documents、公民 / 非公民 / DPC 材料、Regular / Limited-Term / DPC 证件定义、original / transfer、知识与驾驶考试、现行 2026 handbook、renewal、replacement、address、name、fees、limited-term prequalification、fingerprint、services、office locations 与 TSA 当前身份证件正文。",
         "notes": "重写 Utah 总览与 REAL ID 页面，拆开 Regular、Limited-Term 与 DPC 三条身份路径；补齐外国驾照、50 / 25 题测试、Mandarin Chinese 与 DPC English-only 边界、SAVE / fingerprint、费用、10 天改址、online renewal、temporary license 与 DPC no-privilege receipt。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5218,6 +5788,11 @@
         "scope": "逐条比对 Vermont DMV 当前 REAL ID、EDL、Driver Privilege Card、VL-011 证件对比、VL-021 驾照申请、VL-017 非驾驶 ID、VL-002 居住证明、VL-040 补证、VN-142 外州证件 affidavit、VT-009 改名通知、Driver Manual、新申请、online permit、续期、补证、myDMV、locations 和语言帮助入口；同时核对 23 V.S.A. §§ 7、205、601、603、604、608、610、613、617、631、632、634、2025 Act 66、TSA 与 CBP 当前规则。Vermont DMV 深层页会对自动请求返回 403，因此以可读取的官方搜索索引正文、官方 PDF、州法正文和同机构页面交叉确认。",
         "notes": "重写 Vermont 两页，明确区分 Privilege Card、REAL ID 与 EDL / EID，补入 2025 年口译和 Privilege Card residency 修法、2026 road-test scheduling fee、外州三年免考裁量与 VL-021 一年问题的冲突、外国驾照访客和申请路线、考试、续期、补证及改名改址。未虚构固定中文考试、外国驾照互惠、当场发卡或人工专业审核；所有映射均为 AI 辅助证据核查。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5263,6 +5838,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Vermont DMV 当前 REAL ID、EDL、Driver Privilege Card、VL-011 证件对比、VL-021 驾照申请、VL-017 非驾驶 ID、VL-002 居住证明、VL-040 补证、VN-142 外州证件 affidavit、VT-009 改名通知、Driver Manual、新申请、online permit、续期、补证、myDMV、locations 和语言帮助入口；同时核对 23 V.S.A. §§ 7、205、601、603、604、608、610、613、617、631、632、634、2025 Act 66、TSA 与 CBP 当前规则。Vermont DMV 深层页会对自动请求返回 403，因此以可读取的官方搜索索引正文、官方 PDF、州法正文和同机构页面交叉确认。",
         "notes": "重写 Vermont 两页，明确区分 Privilege Card、REAL ID 与 EDL / EID，补入 2025 年口译和 Privilege Card residency 修法、2026 road-test scheduling fee、外州三年免考裁量与 VL-021 一年问题的冲突、外国驾照访客和申请路线、考试、续期、补证及改名改址。未虚构固定中文考试、外国驾照互惠、当场发卡或人工专业审核；所有映射均为 AI 辅助证据核查。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5310,6 +5890,11 @@
         "scope": "逐条比对 Virginia DMV 的 REAL ID、材料表、驾照申请与资格、续期补证、姓名地址、新居民、knowledge 和 road tests、permit、外国驾照、Driver Privilege Card、legal presence、费用、预约与寄送正文。",
         "notes": "重写 Virginia 总览与 REAL ID 页面，补齐 30/60 天、2027 年训练变化、中文考试、六国互惠与 Taiwan 特例、EAD I-766 限制和 2026 Driver Privilege Card 续期提示；所有声明已改为显式来源，仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5355,6 +5940,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Virginia DMV 的 REAL ID、材料表、驾照申请与资格、续期补证、姓名地址、新居民、knowledge 和 road tests、permit、外国驾照、Driver Privilege Card、legal presence、费用、预约与寄送正文。",
         "notes": "重写 Virginia 总览与 REAL ID 页面，补齐 30/60 天、2027 年训练变化、中文考试、六国互惠与 Taiwan 特例、EAD I-766 限制和 2026 Driver Privilege Card 续期提示；所有声明已改为显式来源，仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5402,6 +5992,11 @@
         "scope": "逐条打开并比对 Washington DOL 的 REAL ID、EDL/EID、enhanced 材料清单、standard 身份文件、预申请、办公室、费用、续期、地址、考试语言、互惠驾照、新居民和临时证件正文。",
         "notes": "重写 Washington 总览与 REAL ID 页面，删除已过时的 403 访问警告，分开 standard 与 EDL/EID 路径，并将资格、材料、费用、期限、考试和出行边界改为显式来源；仍待真实人工签字。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5447,6 +6042,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开并比对 Washington DOL 的 REAL ID、EDL/EID、enhanced 材料清单、standard 身份文件、预申请、办公室、费用、续期、地址、考试语言、互惠驾照、新居民和临时证件正文。",
         "notes": "重写 Washington 总览与 REAL ID 页面，删除已过时的 403 访问警告，分开 standard 与 EDL/EID 路径，并将资格、材料、费用、期限、考试和出行边界改为显式来源；仍待真实人工签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5494,6 +6094,11 @@
         "scope": "逐条比对 West Virginia DMV 当前 Driver Licenses、REAL ID、Moving to WV、2026 Driver Licensing Handbook、2026 DMV-DS-23P、REAL ID brochure、residency affidavit、DMV-8-FL 口译表、DMV-10-DLT 外国驾照翻译表、线上与现场考试、续期、HeadStart、预约、办公室、改址和 disability assistance；同时核对 W. Va. Code §§ 17B-2-1a、17B-2-2、17B-2-6、17B-2-8、17B-2-11、17B-2-12、17B-2-12a、17B-2-13、17A-2-10b 与 TSA 当前规则。",
         "notes": "重写 West Virginia 两页，补齐 Not for Federal / REAL ID、新居民、外州与中国大陆驾照、口译、笔试和路考、permit、续期补证、改名改址、费用、临时凭证与非公民路线。公开标出 Drive for Five 与现行八年州法、过期重考 3 年与 6 个月、permit 180 天与 90 天、renewal / duplicate 材料之间的官方冲突；未虚构固定中文试卷、中国大陆互惠、Ireland / Japan 已生效协议或人工专业审核。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5539,6 +6144,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 West Virginia DMV 当前 Driver Licenses、REAL ID、Moving to WV、2026 Driver Licensing Handbook、2026 DMV-DS-23P、REAL ID brochure、residency affidavit、DMV-8-FL 口译表、DMV-10-DLT 外国驾照翻译表、线上与现场考试、续期、HeadStart、预约、办公室、改址和 disability assistance；同时核对 W. Va. Code §§ 17B-2-1a、17B-2-2、17B-2-6、17B-2-8、17B-2-11、17B-2-12、17B-2-12a、17B-2-13、17A-2-10b 与 TSA 当前规则。",
         "notes": "重写 West Virginia 两页，补齐 Not for Federal / REAL ID、新居民、外州与中国大陆驾照、口译、笔试和路考、permit、续期补证、改名改址、费用、临时凭证与非公民路线。公开标出 Drive for Five 与现行八年州法、过期重考 3 年与 6 个月、permit 180 天与 90 天、renewal / duplicate 材料之间的官方冲突；未虚构固定中文试卷、中国大陆互惠、Ireland / Japan 已生效协议或人工专业审核。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5586,6 +6196,11 @@
         "scope": "逐条比对 Wisconsin DMV 的 REAL ID、documentation、BDS316、name / DOB、identity、legal presence、residency、SSN / SSOLV、new resident / out-of-state、foreign license / reciprocity、knowledge / road tests、Motorists Handbook、renewal、duplicate、address、name、fees、ID card、card status、online services、locations、MV3001 与 TSA 当前身份证件正文。",
         "notes": "重写 Wisconsin 总览与 REAL ID 页面，拆开美国外州、外国驾照和首次驾驶人路线；补齐 60 / 30 天转入、8 年考试门槛、probationary、China / Taiwan 边界、Chinese 现场笔试、teen online test、REAL ID / non-compliant、SSOLV、费用、10 天改址、45 天 receipt 和 10 个工作日寄卡。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5631,6 +6246,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Wisconsin DMV 的 REAL ID、documentation、BDS316、name / DOB、identity、legal presence、residency、SSN / SSOLV、new resident / out-of-state、foreign license / reciprocity、knowledge / road tests、Motorists Handbook、renewal、duplicate、address、name、fees、ID card、card status、online services、locations、MV3001 与 TSA 当前身份证件正文。",
         "notes": "重写 Wisconsin 总览与 REAL ID 页面，拆开美国外州、外国驾照和首次驾驶人路线；补齐 60 / 30 天转入、8 年考试门槛、probationary、China / Taiwan 边界、Chinese 现场笔试、teen online test、REAL ID / non-compliant、SSOLV、费用、10 天改址、45 天 receipt 和 10 个工作日寄卡。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5678,6 +6298,11 @@
         "scope": "逐条打开并比对 WYDOT 的新居民与首次驾照、REAL ID 当前公告、R03/25 公民与非公民材料表、Testing、Lost / Renewal、Add / Change、oneWYO、FAQ/费用、当前材料入口、manuals、exam station locations 和地址表。",
         "notes": "重写 Wyoming 两页并建立显式声明级来源；纠正当前证件不存在 standard/REAL ID 二选一，补齐新居民五州/CDL 例外、中国大陆驾照无公开互惠清单、英文考试与口译、45 天且不同来源的住址材料、非公民每次服务、10 天改址改名、续补证限制、寄送和现行费用。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5724,6 +6349,11 @@
         "scope": "逐条打开并比对 WYDOT 的新居民与首次驾照、REAL ID 当前公告、R03/25 公民与非公民材料表、Testing、Lost / Renewal、Add / Change、oneWYO、FAQ/费用、当前材料入口、manuals、exam station locations 和地址表。",
         "notes": "重写 Wyoming 两页并建立显式声明级来源；纠正当前证件不存在 standard/REAL ID 二选一，补齐新居民五州/CDL 例外、中国大陆驾照无公开互惠清单、英文考试与口译、45 天且不同来源的住址材料、非公民每次服务、10 天改址改名、续补证限制、寄送和现行费用。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-19",
+        "reviewedAt": "2026-07-19"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5763,6 +6393,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5808,6 +6443,11 @@
         "reviewer": "Codex AI 辅助结构复核",
         "scope": "首页/索引结构页：核对搜索入口、目录路径和跳转逻辑。",
         "notes": "该页面已接入可追踪版本，完成规则结构核对与入口映射；高风险页面仍需安排真实人工语义签字。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-13"
       },
       "scores": {
         "factsAndSources": 22,
@@ -5855,6 +6495,11 @@
         "scope": "逐条比对成人与儿童证件、REAL ID 替代证件、过期证件、临时驾照、联邦设施，以及 TSA ConfirmID 的费用、处理时间、付款凭证、机场核验和失败风险。",
         "notes": "已按 2026 年 TSA 正文重写无可接受 ID 的处理路径：$45 ConfirmID 可提前或到机场付款，但实际核验在机场完成且不保证通过。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5900,6 +6545,11 @@
         "reviewer": "DMVCN 站长",
         "scope": "人工核对残疾停车证、车牌、医疗证明、续期、补发、跨州使用和违规风险。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -5947,6 +6597,11 @@
         "scope": "逐条比对 original / renewal / replacement 费用分类、线上附加费、处理时间、实体卡邮寄、receipt、temporary credential 和 TSA 接受范围。",
         "notes": "California、Florida、New Jersey、New York 与 Texas 的费用和寄卡规则均按具体交易表达，页面未给跨州统一价格或把临时驾驶效力扩大为身份用途。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -5992,6 +6647,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 unpaid toll、ticket、REAL ID 加急、付款威胁、短信链接、独立核验、7726 / IC3 报告和身份盗用补救路径。",
         "notes": "FTC、FBI、IdentityTheft.gov 与 California、Florida、Washington、Virginia、Georgia、New York 的当前警告分别提供就近来源；页面未把合法提醒或官方授权合作方一概写成诈骗。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6039,6 +6699,11 @@
         "scope": "逐条比对网页与手册语言、普通 knowledge test、road test、oral / audio test、interpreter、文件翻译及 CDL / Hazmat 限制。",
         "notes": "保留 Florida 2026-02-06 全部驾照考试 English-only 与 Texas 2026-06-01 CDL / CLP knowledge English-only 更新；移除无法由 North Carolina 当前官方正文确认的多语言笔试泛化。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6084,6 +6749,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对身份与 lawful status、SSN、州内地址、姓名链、原件或认证副本、非公民分流和州级互动材料清单。",
         "notes": "通用四组材料只作为分拣框架；数量、文件形式、无 SSN 路径和护照当前姓名例外均保留 Pennsylvania、Texas、Florida 等州的明确边界。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6131,6 +6801,11 @@
         "scope": "人工核对驾照暂停、撤销、恢复、费用、SR-22 或 FR-44 及法院和 DMV 的职责边界。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6176,6 +6851,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 driving record 类型、points 阈值、traffic school / defensive driving、保险评分、CDL 例外和 Texas DRP 废止状态。",
         "notes": "California、Florida、New York、Washington、Georgia 与 Texas 的当前数字均回查官方正文；Texas 仅把 Type 3A 写成明确可用于 DDC，并避免把 Type AR 的用途作无来源断言。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6223,6 +6903,11 @@
         "scope": "逐条比对首次普通驾照、learner permit、knowledge test、年龄路径、课程、练车、road test 和临时凭证等跨州分流。",
         "notes": "页面只提供判断顺序，不给全国统一天数或费用；已切换 California 当前 learner-permit 入口，并把考试语言问题导向按州、考试类型和考点确认。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6268,6 +6953,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对外国访客驾驶、IDP、州居民期限、外文翻译、original-license 路径、交回原证和互惠免试条件。",
         "notes": "明确区分“访客可驾驶”“成为居民后申请”和“特定来源地可免测试”；新增 New Jersey、Pennsylvania 与 Texas 当前互惠国家及限制的显式来源。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6315,6 +7005,11 @@
         "scope": "人工核对赠与、继承、共同车主、遗产、税费、留置权和车辆所有权转移要求。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-24"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6360,6 +7055,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对补证资格、地址与邮寄、被盗号码、警察报告、身份盗用、临时或移动 ID、旧证销毁、外州补证与 TSA 旅行处理。",
         "notes": "已将旅行部分切换为 2026 年 $45 ConfirmID 现行流程，并把 Washington 邮寄补普通驾照的限制绑定专门 out-of-state 页面；没有承诺换新号码或免费补证。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6407,6 +7107,11 @@
         "scope": "逐条比对 plate、registration card、sticker / decal 的补办差异、警方报告、剩余车牌、新号码、未收到邮件与各州办理表格。",
         "notes": "California、New York、Washington、Texas、Florida、North Carolina、Virginia 与 Georgia 的失窃和补发条件分别回查官方正文，未承诺保留原号码或统一免收费用。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6452,6 +7157,11 @@
         "reviewer": "DMVCN 站长",
         "scope": "人工核对遗失车辆所有权证、电子 title、留置权、补发和出售前处理要求。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-24"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6499,6 +7209,11 @@
         "scope": "逐条比对新居民驾照、车辆 title / registration、保险、车牌、办理顺序、期限和 lienholder 文件路径。",
         "notes": "California、New York、New Jersey、Georgia、Texas、Florida 与 Washington 的期限和先后顺序分别回查当前官方正文，未把某州顺序推广到全国。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6544,6 +7259,11 @@
         "reviewer": "DMVCN 站长",
         "scope": "人工核对姓名变更、SSA 同步、身份文件衔接、翻译和各机构办理顺序。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-24"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6591,6 +7311,11 @@
         "scope": "人工核对非公民申请驾照或州身份证的身份文件、有效期、核验和州别差异。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6636,6 +7361,11 @@
         "reviewer": "DMVCN 站长",
         "scope": "人工核对高龄驾驶人续期、视力检查、医疗复核、家属报告和驾驶限制。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6683,6 +7413,11 @@
         "scope": "逐条比对线上资格、kiosk / mail / office 分流、地点服务范围、预约、考试入口、交易供应商和临时证件限制。",
         "notes": "保留“入口可用不等于本人符合资格”和“预约不等于地点可办目标业务”两层限制，并核对 California、New York、Texas、Florida、Washington、New Jersey 当前入口。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6728,6 +7463,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对地址文件数量、本人姓名与住宅地址、电子文件、日期窗口、P.O. Box、关系追溯、affidavit、同一来源限制和预上传边界。",
         "notes": "California、New York、Texas 的不同规则分别绑定州级官方来源，没有把某州的打印件、日期窗口或 P.O. Box 规则推广到全国。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 24,
@@ -6775,6 +7515,11 @@
         "scope": "逐条比对 REAL ID 联邦用途、替代证件、临时驾照、儿童证件、州级申请差异，以及 2026 年 TSA ConfirmID 的费用、机场核验、有效期和失败风险。",
         "notes": "已移除过时的免费现场核验暗示，改为 2026-02-01 起的 $45 ConfirmID 现行流程，并明确付款不保证身份核验成功。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6820,6 +7565,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Standard、REAL ID、Enhanced Driver License / ID 的驾驶用途、联邦用途、公民资格、陆海路边境用途、国际航空限制和卡面标记。",
         "notes": "New York 与 Washington 的州别差异均回查现行官方正文；Washington 声明改绑当前 REAL ID 专页，保留 EDL 业务入口供办理。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 24,
@@ -6867,6 +7617,11 @@
         "scope": "逐条比对续期、补证、地址更新期限、线上资格、实体卡订购，以及驾照与车辆 title / registration 记录是否同步。",
         "notes": "California 10 天与续期前 5 天、New York 10 天、Florida 与 Massachusetts 30 天等易变数字均保留对应州政府来源；地址记录更新与订购新卡分开表达。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -6912,6 +7667,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对无本人账单、同住人证明、学校或雇主文件、P.O. Box / PMB、打印格式、Texas DL-5、Florida HSMV 71120 和 South Dakota full-time traveler 特例。",
         "notes": "替换 South Dakota 已失效旧入口，并按当前知识库限定为过去一年州内一晚住宿收据、PMB 证明和 Residency Affidavit；virtual address 不被接受。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -6959,6 +7719,11 @@
         "scope": "逐条比对 road-test 资格、陪同人、登记与保险、车辆设备、租车、临牌或近期购车、口译、辅助驾驶功能和重考限制。",
         "notes": "California、New York、Texas、Washington、New Jersey、Massachusetts、Pennsylvania、Virginia 与 Georgia 的州别规则分别绑定当前官方正文；Georgia 已切换现行 road-test 入口。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -7004,6 +7769,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 seller notice、release of liability、title transfer、车牌移除或退还、保险取消顺序，以及卖给 dealer 后的记录风险。",
         "notes": "California 5 calendar days、Washington 5 business days、Texas 30 days、Oregon 与 Arizona 10 days 均保留对应官方页面或表格；另以 New York、North Carolina 等来源约束退牌后取消保险的顺序。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7051,6 +7821,11 @@
         "scope": "人工核对 SSN、ITIN、无 SSN 文件和 DMV 身份材料之间的区别与适用条件。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -7096,6 +7871,11 @@
         "reviewer": "DMVCN 站长",
         "scope": "人工核对 standard license、驾驶特权证件、REAL ID 限制、资格和使用边界。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7143,6 +7923,11 @@
         "scope": "逐条比对 State ID 的非驾驶用途、REAL ID / standard / Enhanced 区别、年龄、驾照 surrender、材料、邮寄、临时 ID、费用减免和 mobile ID 边界。",
         "notes": "California、Texas、Washington、Virginia、New Jersey 和 Massachusetts 的年龄、持证关系、材料与寄卡规则分别绑定州级来源，没有写成全国统一资格。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -7188,6 +7973,11 @@
         "reviewer": "DMVCN 站长",
         "scope": "人工核对学生、访问学者、临时居民和访客的驾照、车辆登记与居住身份分流。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7235,6 +8025,11 @@
         "scope": "逐条比对 teen / GDL 阶段、permit 年龄、家长同意、认可课程、监督驾驶与夜间小时、路考车辆和拿证后的限制。",
         "notes": "数值规则均按 California、Florida、Washington、New Jersey、Pennsylvania、Virginia 与 Georgia 当前官方页面表达，并补齐家长参与和 Florida 路考车辆的就近来源。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -7280,6 +8075,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 temporary tag、TOP、trip / transit permit、dealer plate 的用途、期限、跨州限制、保险、车辆类别和正式登记衔接。",
         "notes": "按 Texas HB 718 当前正文明确旧式纸质 30-Day / One-Trip permit 展示方式已由 Temporary Registration metal plate 取代，同时保留其他 permit 类别的区别。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-21",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7327,6 +8127,11 @@
         "scope": "人工核对罚单、收费公路、保险中断、车辆登记限制及不同机构的处理顺序。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -7372,6 +8177,11 @@
         "reviewer": "DMVCN 站长",
         "scope": "人工核对二手车 title、留置权、salvage、里程表、VIN 和交易前风险检查。",
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-17",
+        "reviewedAt": "2026-07-17"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7419,6 +8229,11 @@
         "scope": "逐条比对 safety inspection、emissions / smog、VIN verification、州县适用范围、registration renewal 阻断和失败后处理。",
         "notes": "确认 Texas 2025 safety inspection 变化、当前 17 个 emissions counties 与 Bexar County 2026-11-01 生效日期；Florida 仅按 VIN / odometer verification 表达。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-13",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -7464,6 +8279,11 @@
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 registration renewal、grace period、notice、地址、保险、inspection / emissions、未完成申请、过期窗口、即时凭证和停驶路径。",
         "notes": "保留 California 无宽限期与 North Carolina 15-day valid-through 的差异，并将 Virginia 停驶来源修正为当前 plate surrender / deactivation 页面。"
+      },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-21"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7511,6 +8331,11 @@
         "scope": "逐条比对搬州后 vehicle title、registration、保险、车牌、dealer / private sale、lienholder 文件、县级办理和各州期限。",
         "notes": "California、Florida、New Jersey、Washington、Massachusetts、New York、Texas 与 Pennsylvania 的顺序和期限分别绑定当前州政府页面，没有把一州流程推广为全国规则。"
       },
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-21"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,
@@ -7550,6 +8375,11 @@
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
+      "dates": {
+        "publishedAt": "2026-07-13",
+        "modifiedAt": "2026-07-24",
+        "reviewedAt": "2026-07-24"
+      },
       "scores": {
         "factsAndSources": 25,
         "evidenceMapping": 15,

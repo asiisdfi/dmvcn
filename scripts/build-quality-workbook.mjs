@@ -1,41 +1,18 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  REVIEW_CYCLE_DAYS,
+  addDays,
+  currentCalendarDate,
+  daysBetween,
+} from './lib/review-cycles.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const reportPath = path.join(projectRoot, 'reports', 'eeat-inventory.json');
 const outputDir = path.join(projectRoot, 'reports');
 
-function currentCalendarDate() {
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone: process.env.REPORT_TIME_ZONE || 'Asia/Shanghai',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(new Date());
-  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
-  return `${values.year}-${values.month}-${values.day}`;
-}
-
 const today = (process.env.WORKBOOK_DATE || currentCalendarDate()).slice(0, 10);
-const reviewCycle = {
-  high: 60,
-  medium: 90,
-  standard: 120,
-  policy: 180,
-};
-
-function addDays(dateLike, days) {
-  const date = new Date(`${dateLike}T00:00:00.000Z`);
-  date.setUTCDate(date.getUTCDate() + days);
-  return date.toISOString().slice(0, 10);
-}
-
-function daysBetween(fromDate, toDate) {
-  const from = new Date(`${fromDate}T00:00:00.000Z`).getTime();
-  const to = new Date(`${toDate}T00:00:00.000Z`).getTime();
-  return Math.ceil((to - from) / (24 * 60 * 60 * 1000));
-}
 
 function csvCell(value) {
   const text = String(value ?? '');
@@ -141,7 +118,7 @@ for (const page of pages) {
   const reviewDue = ['pending', 'source-mapped'].includes(page.reviewStatus)
     ? today
     : reviewedAt
-      ? addDays(reviewedAt, reviewCycle[page.risk] ?? 90)
+      ? addDays(reviewedAt, REVIEW_CYCLE_DAYS[page.risk] ?? 90)
       : today;
   const overdueDays = reviewedAt ? daysBetween(today, reviewDue) : 0;
 
@@ -156,7 +133,7 @@ for (const page of pages) {
     reviewStatus: page.reviewStatus,
     reviewMethod: page.reviewMethod,
     reviewedAt: reviewedAt ?? '',
-    reviewCycleDays: reviewCycle[page.risk] ?? 90,
+    reviewCycleDays: REVIEW_CYCLE_DAYS[page.risk] ?? 90,
     reviewDue,
     overdueDays: overdueDays < 0 ? Math.abs(overdueDays) : 0,
     priority,

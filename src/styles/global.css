@@ -3576,6 +3576,66 @@ h3 {
     min-width: 720px;
   }
 
+  .review-cycle-table-wrap {
+    overflow: visible;
+  }
+
+  .review-cycle-table {
+    display: block;
+    min-width: 0;
+  }
+
+  .review-cycle-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .review-cycle-table tbody,
+  .review-cycle-table tr,
+  .review-cycle-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .review-cycle-table tr {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .review-cycle-table tr:last-child {
+    border-bottom: 0;
+  }
+
+  .review-cycle-table td {
+    display: grid;
+    grid-template-columns: minmax(108px, 0.38fr) minmax(0, 1fr);
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .review-cycle-table td::before {
+    color: var(--muted);
+    content: attr(data-label);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .review-cycle-table td:first-child {
+    grid-template-columns: 1fr;
+    padding-bottom: 9px;
+  }
+
+  .review-cycle-table td:first-child::before {
+    display: none;
+  }
+
   .directory-card,
   .directory-card:not(:nth-child(2n + 1)) {
     min-height: 0;

@@ -10,6 +10,10 @@ import {
 } from '../src/data/editorial.ts';
 import { NON_SEARCH_LANDING_ROUTES } from '../src/data/publication-gate.ts';
 import { semanticReviews } from '../src/data/review-registry.ts';
+import {
+  getStatePageModifiedAt,
+  getStateRealIdPageModifiedAt,
+} from '../src/data/state-evidence.ts';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const distDir = path.join(projectRoot, 'dist');
@@ -50,6 +54,27 @@ function nodeText(node) {
   return (node.childNodes ?? []).map(nodeText).join('');
 }
 
+function nodeDateTimes(node) {
+  const dates = [];
+  if (node.tagName === 'time') {
+    dates.push(attrs(node).get('datetime') ?? '');
+  }
+  for (const child of node.childNodes ?? []) {
+    dates.push(...nodeDateTimes(child));
+  }
+  if (node.content) dates.push(...nodeDateTimes(node.content));
+  return dates;
+}
+
+function isCalendarDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(value ?? ''))) return false;
+  const parsed = new Date(`${value}T00:00:00.000Z`);
+  return (
+    !Number.isNaN(parsed.getTime()) &&
+    parsed.toISOString().slice(0, 10) === value
+  );
+}
+
 function inspectHtml(html) {
   const tree = parse(html);
   const result = {
@@ -59,6 +84,7 @@ function inspectHtml(html) {
     metas: new Map(),
     headings: [],
     times: [],
+    contentMetaDates: [],
     jsonLd: [],
     h1Count: 0,
     canonical: '',
@@ -72,6 +98,12 @@ function inspectHtml(html) {
         result.classNames.add(className);
         result.classCounts.set(className, (result.classCounts.get(className) ?? 0) + 1);
       });
+      if (
+        classes.includes('content-meta') &&
+        result.contentMetaDates.length === 0
+      ) {
+        result.contentMetaDates = nodeDateTimes(node);
+      }
 
       if (node.tagName === 'a') {
         result.links.push({
@@ -162,7 +194,11 @@ function contentSignals(identity, route) {
       sourceCount: state ? new Set([...state.sources.map((source) => source.url), state.agencyUrl]).size : 0,
       factCheckCount: 0,
       publishedAt: state?.publishedAt,
-      modifiedAt: state?.modifiedAt,
+      modifiedAt: state
+        ? identity.type === 'state-real-id'
+          ? getStateRealIdPageModifiedAt(state)
+          : getStatePageModifiedAt(state)
+        : undefined,
       reviewedAt: state?.reviewedAt,
     };
   }
@@ -192,7 +228,13 @@ function scorePage(route, document) {
   const signals = contentSignals(identity, route);
   const schema = authoredPageSchema(document);
   const contentPage = ['state-overview', 'state-real-id', 'topic'].includes(identity.type);
-  const visibleThreeDates = document.classNames.has('content-meta') && document.times.filter(Boolean).length >= 3;
+  const [publishedAt = '', modifiedAt = '', reviewedAt = ''] =
+    document.contentMetaDates;
+  const dates = { publishedAt, modifiedAt, reviewedAt };
+  const visibleThreeDates =
+    document.classNames.has('content-meta') &&
+    document.contentMetaDates.length === 3 &&
+    Object.values(dates).every(isCalendarDate);
   const authorLink = document.links.some((link) => link.rel.split(/\s+/).includes('author'));
   const schemaAuthorUrl = Boolean(schema?.author?.url);
   const schemaDates = Boolean(schema?.datePublished && schema?.dateModified);
@@ -310,6 +352,41 @@ function scorePage(route, document) {
   if (contentPage && !schemaAuthorUrl) critical.push('Article schema 缺少 author.url');
   if (contentPage && !visibleThreeDates) critical.push('内容页没有完整显示首次发布、内容更新和事实核对日期');
   if (contentPage && !schemaDates) critical.push('Article schema 没有区分 datePublished 与 dateModified');
+  if (!visibleThreeDates) critical.push('页面三类日期缺失、重复或不是有效日历日期');
+  if (
+    visibleThreeDates &&
+    (publishedAt > modifiedAt ||
+      publishedAt > reviewedAt ||
+      Object.values(dates).some(
+        (date) => date > new Date().toISOString().slice(0, 10),
+      ))
+  ) {
+    critical.push('页面三类日期的先后顺序无效或事实核对日期来自未来');
+  }
+  if (
+    visibleThreeDates &&
+    (document.metas.get('article:published_time') !== publishedAt ||
+      document.metas.get('article:modified_time') !== modifiedAt ||
+      document.metas.get('content-review-date') !== reviewedAt)
+  ) {
+    critical.push('页面显示日期与全站日期元数据不一致');
+  }
+  if (
+    contentPage &&
+    (publishedAt !== signals.publishedAt ||
+      modifiedAt !== signals.modifiedAt ||
+      reviewedAt !== signals.reviewedAt)
+  ) {
+    critical.push('页面显示日期与内容数据中的三类日期不一致');
+  }
+  if (
+    contentPage &&
+    (schema?.datePublished !== publishedAt ||
+      schema?.dateModified !== modifiedAt ||
+      document.metas.get('content-review-date') !== reviewedAt)
+  ) {
+    critical.push('页面显示日期与 Article schema 或事实核对元数据不一致');
+  }
   if (contentPage && !hasSourceSection) critical.push('内容页缺少官方来源区域');
   if (identity.type === 'topic' && signals.factCheckCount === 0) critical.push('专题页没有事实到来源映射');
   if (identity.type.startsWith('state-') && !hasInlineStateEvidence) {
@@ -385,6 +462,7 @@ function scorePage(route, document) {
     reviewStatus,
     reviewMethod: review?.method ?? null,
     semanticReview: review ?? null,
+    dates,
     scores,
     signals: {
       sourceCount: signals.sourceCount || govLinks,
@@ -458,6 +536,9 @@ const csvHeaders = [
   'route',
   'pageType',
   'risk',
+  'publishedAt',
+  'modifiedAt',
+  'reviewedAt',
   'score',
   'pass',
   'indexable',
@@ -470,6 +551,9 @@ const csvRows = pages.map((page) => [
   page.route,
   page.pageType,
   page.risk,
+  page.dates.publishedAt,
+  page.dates.modifiedAt,
+  page.dates.reviewedAt,
   page.score,
   page.pass,
   page.indexable,
