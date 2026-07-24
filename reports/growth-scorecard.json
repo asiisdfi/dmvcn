@@ -1,0 +1,201 @@
+{
+  "generatedAt": "2026-07-24T00:00:00.000Z",
+  "objectiveDeadline": "2027-01-24",
+  "source": {
+    "property": "sc-domain:dmvcn.com",
+    "window": {
+      "label": "过去 28 天",
+      "days": 28,
+      "dataShownFrom": "2026-07-12",
+      "dataShownThrough": "2026-07-21",
+      "timeZone": "Asia/Shanghai"
+    },
+    "pageReport": "reports/search-console-export.csv",
+    "segmentReport": "reports/private/search-console-segments.json",
+    "eeatReport": "reports/eeat-inventory.json",
+    "actionLog": "reports/search-console-actions.json"
+  },
+  "targets": {
+    "clicks": 500,
+    "impressions": 50000,
+    "ctr": 1,
+    "top20Pages": 30,
+    "top10Pages": 15,
+    "usClickShare": 70,
+    "weeklyActions": {
+      "min": 2,
+      "max": 3
+    },
+    "monthlyActions": {
+      "min": 8,
+      "max": 12
+    },
+    "indexablePassRate": 100
+  },
+  "current": {
+    "propertyTotals": {
+      "clicks": 16,
+      "impressions": 5100,
+      "ctr": 0.3,
+      "position": 38.6
+    },
+    "rankedPages": {
+      "rowsWithImpressions": 124,
+      "top20": 21,
+      "top10": 5
+    },
+    "traffic": {
+      "usClicks": 10,
+      "usImpressions": 1610,
+      "usClickShare": 62.5,
+      "countries": [
+        {
+          "code": "US",
+          "label": "美国",
+          "clicks": 10,
+          "impressions": 1610
+        },
+        {
+          "code": "TW",
+          "label": "台湾",
+          "clicks": 3,
+          "impressions": 35
+        },
+        {
+          "code": "JP",
+          "label": "日本",
+          "clicks": 2,
+          "impressions": 19
+        },
+        {
+          "code": "CA",
+          "label": "加拿大",
+          "clicks": 1,
+          "impressions": 22
+        },
+        {
+          "code": "VN",
+          "label": "越南",
+          "clicks": 0,
+          "impressions": 2430
+        }
+      ],
+      "devices": [
+        {
+          "code": "MOBILE",
+          "label": "移动设备",
+          "clicks": 9,
+          "impressions": 332
+        },
+        {
+          "code": "DESKTOP",
+          "label": "桌面",
+          "clicks": 6,
+          "impressions": 4746
+        },
+        {
+          "code": "TABLET",
+          "label": "平板电脑",
+          "clicks": 1,
+          "impressions": 21
+        }
+      ]
+    },
+    "pageDimension": {
+      "indexableRows": 124,
+      "clickSum": 16,
+      "impressionSum": 2985,
+      "note": "仅用于页面排名和页面机会分析，不作为全站总量。"
+    },
+    "cadence": {
+      "month": "2026-07",
+      "completedActions": 19,
+      "targetMin": 8,
+      "targetMax": 12,
+      "status": "above-target",
+      "rollingSevenDays": {
+        "from": "2026-07-18",
+        "through": "2026-07-24",
+        "completedActions": 19,
+        "targetMin": 2,
+        "targetMax": 3,
+        "status": "above-target"
+      },
+      "activeCooldowns": 19,
+      "nextCooldownDate": "2026-08-07"
+    },
+    "quality": {
+      "indexablePages": 163,
+      "indexablePassed": 163,
+      "indexablePassRate": 100,
+      "highRiskHumanApprovalPending": 0,
+      "criticalPages": 0,
+      "blockedPages": 0,
+      "passed": true
+    }
+  },
+  "checks": {
+    "clicks": {
+      "actual": 16,
+      "target": 500,
+      "unit": "clicks",
+      "progressPercent": 3.2,
+      "remaining": 484,
+      "met": false
+    },
+    "impressions": {
+      "actual": 5100,
+      "target": 50000,
+      "unit": "impressions",
+      "progressPercent": 10.2,
+      "remaining": 44900,
+      "met": false
+    },
+    "ctr": {
+      "actual": 0.3,
+      "target": 1,
+      "unit": "percent",
+      "progressPercent": 30,
+      "remaining": 0.7,
+      "met": false
+    },
+    "top20Pages": {
+      "actual": 21,
+      "target": 30,
+      "unit": "pages",
+      "progressPercent": 70,
+      "remaining": 9,
+      "met": false
+    },
+    "top10Pages": {
+      "actual": 5,
+      "target": 15,
+      "unit": "pages",
+      "progressPercent": 33.3,
+      "remaining": 10,
+      "met": false
+    },
+    "usClickShare": {
+      "actual": 62.5,
+      "target": 70,
+      "unit": "percent",
+      "progressPercent": 89.3,
+      "remaining": 7.5,
+      "met": false
+    }
+  },
+  "status": {
+    "completionComparable": false,
+    "growthTargetsMet": false,
+    "qualityGatePassed": true,
+    "weeklyCadenceStatus": "above-target",
+    "cadenceStatus": "above-target",
+    "objectiveEvidenceComplete": false
+  },
+  "warnings": [
+    "当前快照是 28 天窗口，只能跟踪趋势，不能证明 30 天目标完成。",
+    "页面维度与全站属性采用不同聚合口径，本报告还会排除当前 noindex 页面，不能用页面行求和替代全站曝光总量。",
+    "本月已记录 19 个内容动作，超过 8–12 个计划节奏；除规则纠错外应等待冷却数据。",
+    "最近 7 天已记录 19 个内容动作，超过每周 2–3 个节奏；应先观察而不是继续批量修改。"
+  ]
+}
