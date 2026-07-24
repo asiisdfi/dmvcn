@@ -14,7 +14,7 @@
 ## 本轮执行门禁
 
 - 状态：暂停：本周或本月内容额度已用完。
-- 最近 7 天已记录 19 个内容动作，本月已记录 19 个；当前可执行 0 个。
+- 最近 7 天已记录 20 个内容动作，本月已记录 20 个；当前可执行 0 个。
 - 下一次出现内容容量的日期：2026-08-01；当日最多 3 个。
 - 数据快照、查询导出和页面查询映射均通过新鲜度检查。
 
@@ -28,17 +28,13 @@
 
 ## 先补页面查询映射
 
-- /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/（展现 82）— 先在 Search Console 中过滤该页面并采集查询，不先改正文。
-- /topics/vehicle-registration-renewal-expired-tags-non-operation/（展现 246）— 先在 Search Console 中过滤该页面并采集查询，不先改正文。
-- /topics/lost-stolen-license-plates-registration-card-sticker/（展现 180）— 先在 Search Console 中过滤该页面并采集查询，不先改正文。
-- /topics/renewal-replacement-address/（展现 61）— 先在 Search Console 中过滤该页面并采集查询，不先改正文。
-- /topics/gift-inherited-vehicle-title-transfer/（展现 56）— 先在 Search Console 中过滤该页面并采集查询，不先改正文。
+- 当前没有待补查询映射的高曝光页面。
 
 ## 索引清理观察
 
-- /directories/dmv-services/（展现 1669）— 页面已设置 noindex，等待 Google 退出索引，不按这些曝光扩写内容。
-- /sources/（展现 952）— 页面已设置 noindex，等待 Google 退出索引，不按这些曝光扩写内容。
-- /directories/service-paths/（展现 171）— 页面已设置 noindex，等待 Google 退出索引，不按这些曝光扩写内容。
+- /directories/dmv-services/（展现 1669）— 2026-07-24 已设置 noindex，2026-08-21 复查 Google 索引状态；观察期内不按这些曝光扩写内容。
+- /sources/（展现 952）— 2026-07-24 已设置 noindex，2026-08-21 复查 Google 索引状态；观察期内不按这些曝光扩写内容。
+- /directories/service-paths/（展现 171）— 2026-07-24 已设置 noindex，2026-08-21 复查 Google 索引状态；观察期内不按这些曝光扩写内容。
 
 ## 中文查询信号
 - 本月识别 14 个可自动处理信号，优先用于标题、摘要、入口和内部链接校准。
@@ -59,14 +55,14 @@
 ## 规则变化/下滑复核
 
 ## 等待效果复评
-- /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/（本次数据仍建议 needs-query-evidence）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
-- /topics/vehicle-registration-renewal-expired-tags-non-operation/（本次数据仍建议 needs-query-evidence）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
+- /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /topics/vehicle-registration-renewal-expired-tags-non-operation/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/massachusetts/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
 - /directories/new-residents/（本次数据仍建议 improve-answer）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /directories/costs-timing/（本次数据仍建议 human-review）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
-- /topics/lost-stolen-license-plates-registration-card-sticker/（本次数据仍建议 needs-query-evidence）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
-- /topics/renewal-replacement-address/（本次数据仍建议 needs-query-evidence）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
-- /topics/gift-inherited-vehicle-title-transfer/（本次数据仍建议 needs-query-evidence）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /topics/lost-stolen-license-plates-registration-card-sticker/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
+- /topics/renewal-replacement-address/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
+- /topics/gift-inherited-vehicle-title-transfer/（本次数据仍建议 human-review）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/teen-driver-permit-gdl-parent-guide/（本次数据仍建议 observe）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /topics/vehicle-title-registration-insurance-after-move/（本次数据仍建议 observe）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/new-york/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。

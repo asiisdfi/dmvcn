@@ -96,6 +96,14 @@
     "summary": "保留站内分流工具，退出搜索索引和 sitemap，避免英文 REAL ID 问句误匹配。"
   },
   {
+    "route": "/sources/",
+    "action": "noindex",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-21",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "保留政府来源核对库供站内查证，退出搜索索引和 sitemap，避免来源清单承接泛英文机构查询。"
+  },
+  {
     "route": "/states/washington/",
     "action": "improve-answer",
     "completedAt": "2026-07-24",

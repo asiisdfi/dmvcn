@@ -599,16 +599,44 @@ for (const row of rows) {
 const indexingCleanupQueue = [...excludedPageMap.values()]
   .filter((item) => item.impressions > 0)
   .sort((a, b) => b.impressions - a.impressions || a.route.localeCompare(b.route))
-  .map((item) => ({
-    ...item,
-    status: item.knownNoindex ? 'awaiting-deindex' : 'untracked-route',
-    action: item.knownNoindex ? 'observe-deindex' : 'investigate-route',
-  }));
+  .map((item) => {
+    const completedAction = latestActionByRoute.get(item.route);
+    const trackedNoindex =
+      item.knownNoindex &&
+      completedAction?.action === 'noindex';
+    const overdue =
+      trackedNoindex &&
+      completedAction.evaluateAfter <= planDate;
+
+    let status = 'untracked-route';
+    let action = 'investigate-route';
+    if (item.knownNoindex && !trackedNoindex) {
+      status = 'untracked-noindex';
+      action = 'verify-noindex-history';
+    } else if (overdue) {
+      status = 'deindex-overdue';
+      action = 'inspect-indexing';
+    } else if (trackedNoindex) {
+      status = 'deindex-grace';
+      action = 'observe-deindex';
+    }
+
+    return {
+      ...item,
+      status,
+      action,
+      completedAt: trackedNoindex ? completedAction.completedAt : null,
+      evaluateAfter: trackedNoindex ? completedAction.evaluateAfter : null,
+    };
+  });
 dataSnapshot.excludedPageRows = indexingCleanupQueue.length;
 dataSnapshot.excludedPageImpressions = indexingCleanupQueue.reduce(
   (sum, item) => sum + item.impressions,
   0,
 );
+dataSnapshot.indexingCleanupOverdue = indexingCleanupQueue.filter(
+  (item) => item.status === 'deindex-overdue',
+).length;
 
 const allRows = [...pageMap.values()].map((item) => {
   const impressionsCurrent = Math.round(item.impressionsCurrent);
@@ -820,7 +848,17 @@ const report = {
   querySignals: publicQuerySignals,
   dataSnapshot,
   execution,
-  warnings: [queryWarning, pageQueryWarning, segmentWarning].filter(Boolean),
+  warnings: [
+    queryWarning,
+    pageQueryWarning,
+    segmentWarning,
+    ...(indexingCleanupQueue.some((item) => item.status === 'deindex-overdue')
+      ? ['noindex 页面超过复查日期后仍有 Search Console 曝光，需要检查 Google 当前索引状态。']
+      : []),
+    ...(indexingCleanupQueue.some((item) => item.status === 'untracked-noindex')
+      ? ['存在未记录清理日期的 noindex 页面，需要补充索引治理记录。']
+      : []),
+  ].filter(Boolean),
   actions: {
     improveAnswer: publicRows.filter((item) => item.action === 'improve-answer').slice(0, 20),
     improveTitle: publicRows.filter((item) => item.action === 'improve-title').slice(0, 20),
@@ -978,11 +1016,18 @@ const markdown = [
   '## 索引清理观察',
   '',
   ...(execution.indexingCleanupQueue.length
-    ? execution.indexingCleanupQueue.map((item) =>
-        item.knownNoindex
-          ? `- ${item.route}（展现 ${item.impressions}）— 页面已设置 noindex，等待 Google 退出索引，不按这些曝光扩写内容。`
-          : `- ${item.route}（展现 ${item.impressions}）— 当前不在可索引清单中，需要核查路由和 canonical 状态。`,
-      )
+    ? execution.indexingCleanupQueue.map((item) => {
+        if (item.status === 'deindex-grace') {
+          return `- ${item.route}（展现 ${item.impressions}）— ${item.completedAt} 已设置 noindex，${item.evaluateAfter} 复查 Google 索引状态；观察期内不按这些曝光扩写内容。`;
+        }
+        if (item.status === 'deindex-overdue') {
+          return `- ${item.route}（展现 ${item.impressions}）— 已超过 ${item.evaluateAfter} 复查日，需要检查 Google 当前索引状态和抓取结果。`;
+        }
+        if (item.status === 'untracked-noindex') {
+          return `- ${item.route}（展现 ${item.impressions}）— 页面已设置 noindex，但缺少清理日期，需要补充索引治理记录。`;
+        }
+        return `- ${item.route}（展现 ${item.impressions}）— 当前不在可索引清单中，需要核查路由和 canonical 状态。`;
+      })
     : ['- 当前没有已退出可索引清单但仍有曝光的页面。']),
   '',
   '## 中文查询信号',

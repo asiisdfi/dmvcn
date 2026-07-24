@@ -1792,6 +1792,11 @@ h3 {
   overflow-wrap: anywhere;
 }
 
+.quality-search-panel .check-list small {
+  display: block;
+  margin-top: 4px;
+}
+
 .eeat-table-wrap {
   margin-top: 12px;
   overflow-x: auto;

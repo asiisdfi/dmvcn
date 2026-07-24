@@ -26,14 +26,15 @@
     "dataLagDays": 3,
     "pageRows": 127,
     "queryRows": 1000,
-    "pageQuerySignals": 32,
+    "pageQuerySignals": 172,
     "pageQueryObservedFrom": "2026-07-24",
     "pageQueryObservedThrough": "2026-07-24",
     "readyForPlanning": true,
     "completionComparable": false,
     "blockers": [],
     "excludedPageRows": 3,
-    "excludedPageImpressions": 2792
+    "excludedPageImpressions": 2792,
+    "indexingCleanupOverdue": 0
   },
   "execution": {
     "status": "hold-cadence",
@@ -49,8 +50,8 @@
     },
     "currentPeriod": {
       "through": "2026-07-24",
-      "weeklyActions": 19,
-      "monthlyActions": 19,
+      "weeklyActions": 20,
+      "monthlyActions": 20,
       "availableSlots": 0
     },
     "allowedNow": 0,
@@ -58,168 +59,7 @@
     "nextEligibleDate": "2026-08-01",
     "nextEligibleSlots": 3,
     "nextQueue": [],
-    "dataCollectionQueue": [
-      {
-        "route": "/topics/lost-vehicle-title-replacement-electronic-title-lien-sale/",
-        "impressionsCurrent": 82,
-        "clicksCurrent": 2,
-        "ctrCurrent": 2.44,
-        "positionCurrent": 21.65,
-        "impressionsPrevious": 0,
-        "clicksPrevious": 0,
-        "ctrPrevious": 0,
-        "positionPrevious": 0,
-        "impressionsDelta": 100,
-        "clicksDelta": 100,
-        "queryEvidenceCount": 0,
-        "targetQueryEvidenceCount": 0,
-        "nonTargetQueryEvidenceCount": 0,
-        "queryClassifications": [],
-        "action": "cooldown",
-        "suggestedAction": "needs-query-evidence",
-        "reason": "2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。",
-        "score": -1,
-        "reviewDue": "2026-10-01",
-        "completedAction": {
-          "route": "/topics/lost-vehicle-title-replacement-electronic-title-lien-sale/",
-          "action": "improve-title-answer",
-          "completedAt": "2026-07-24",
-          "evaluateAfter": "2026-08-07",
-          "baselinePeriodEnd": "2026-07-21",
-          "summary": "根据已有点击和排名补强遗失车辆 Title 的 record owner、原签发州、lien 与卖车前分流。"
-        },
-        "hasQueryEvidence": false,
-        "requiresHumanReview": false
-      },
-      {
-        "route": "/topics/vehicle-registration-renewal-expired-tags-non-operation/",
-        "impressionsCurrent": 246,
-        "clicksCurrent": 1,
-        "ctrCurrent": 0.41,
-        "positionCurrent": 46.41,
-        "impressionsPrevious": 0,
-        "clicksPrevious": 0,
-        "ctrPrevious": 0,
-        "positionPrevious": 0,
-        "impressionsDelta": 100,
-        "clicksDelta": 100,
-        "queryEvidenceCount": 0,
-        "targetQueryEvidenceCount": 0,
-        "nonTargetQueryEvidenceCount": 0,
-        "queryClassifications": [],
-        "action": "cooldown",
-        "suggestedAction": "needs-query-evidence",
-        "reason": "2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。",
-        "score": -1,
-        "reviewDue": "2026-10-01",
-        "completedAction": {
-          "route": "/topics/vehicle-registration-renewal-expired-tags-non-operation/",
-          "action": "improve-answer",
-          "completedAt": "2026-07-24",
-          "evaluateAfter": "2026-08-07",
-          "baselinePeriodEnd": "2026-07-21",
-          "summary": "增加登记续期、过期标签和停驶车辆的直接判断。"
-        },
-        "hasQueryEvidence": false,
-        "requiresHumanReview": false
-      },
-      {
-        "route": "/topics/lost-stolen-license-plates-registration-card-sticker/",
-        "impressionsCurrent": 180,
-        "clicksCurrent": 0,
-        "ctrCurrent": 0,
-        "positionCurrent": 53.93,
-        "impressionsPrevious": 0,
-        "clicksPrevious": 0,
-        "ctrPrevious": 0,
-        "positionPrevious": 0,
-        "impressionsDelta": 100,
-        "clicksDelta": 0,
-        "queryEvidenceCount": 0,
-        "targetQueryEvidenceCount": 0,
-        "nonTargetQueryEvidenceCount": 0,
-        "queryClassifications": [],
-        "action": "cooldown",
-        "suggestedAction": "needs-query-evidence",
-        "reason": "2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。",
-        "score": -1,
-        "reviewDue": "2026-10-01",
-        "completedAction": {
-          "route": "/topics/lost-stolen-license-plates-registration-card-sticker/",
-          "action": "improve-answer",
-          "completedAt": "2026-07-24",
-          "evaluateAfter": "2026-08-07",
-          "baselinePeriodEnd": "2026-07-21",
-          "summary": "增加车牌、registration card 和 sticker 丢失后的分流。"
-        },
-        "hasQueryEvidence": false,
-        "requiresHumanReview": false
-      },
-      {
-        "route": "/topics/renewal-replacement-address/",
-        "impressionsCurrent": 61,
-        "clicksCurrent": 0,
-        "ctrCurrent": 0,
-        "positionCurrent": 32.92,
-        "impressionsPrevious": 0,
-        "clicksPrevious": 0,
-        "ctrPrevious": 0,
-        "positionPrevious": 0,
-        "impressionsDelta": 100,
-        "clicksDelta": 0,
-        "queryEvidenceCount": 0,
-        "targetQueryEvidenceCount": 0,
-        "nonTargetQueryEvidenceCount": 0,
-        "queryClassifications": [],
-        "action": "cooldown",
-        "suggestedAction": "needs-query-evidence",
-        "reason": "2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。",
-        "score": -1,
-        "reviewDue": "2026-10-01",
-        "completedAction": {
-          "route": "/topics/renewal-replacement-address/",
-          "action": "improve-answer",
-          "completedAt": "2026-07-24",
-          "evaluateAfter": "2026-08-07",
-          "baselinePeriodEnd": "2026-07-21",
-          "summary": "补强驾照续期、补证与改地址的先后顺序。"
-        },
-        "hasQueryEvidence": false,
-        "requiresHumanReview": false
-      },
-      {
-        "route": "/topics/gift-inherited-vehicle-title-transfer/",
-        "impressionsCurrent": 56,
-        "clicksCurrent": 0,
-        "ctrCurrent": 0,
-        "positionCurrent": 28.48,
-        "impressionsPrevious": 0,
-        "clicksPrevious": 0,
-        "ctrPrevious": 0,
-        "positionPrevious": 0,
-        "impressionsDelta": 100,
-        "clicksDelta": 0,
-        "queryEvidenceCount": 0,
-        "targetQueryEvidenceCount": 0,
-        "nonTargetQueryEvidenceCount": 0,
-        "queryClassifications": [],
-        "action": "cooldown",
-        "suggestedAction": "needs-query-evidence",
-        "reason": "2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。",
-        "score": -1,
-        "reviewDue": "2026-10-01",
-        "completedAction": {
-          "route": "/topics/gift-inherited-vehicle-title-transfer/",
-          "action": "improve-title-answer",
-          "completedAt": "2026-07-24",
-          "evaluateAfter": "2026-08-07",
-          "baselinePeriodEnd": "2026-07-21",
-          "summary": "根据页面曝光补强亲属赠车、车主去世和继承车辆的 Title、Lien、税费与签字权限分流。"
-        },
-        "hasQueryEvidence": false,
-        "requiresHumanReview": false
-      }
-    ],
+    "dataCollectionQueue": [],
     "humanReviewQueue": [
       {
         "route": "/topics/older-driver-license-renewal-medical-review/",
@@ -281,6 +121,41 @@
         },
         "hasQueryEvidence": true,
         "requiresHumanReview": true
+      },
+      {
+        "route": "/topics/gift-inherited-vehicle-title-transfer/",
+        "impressionsCurrent": 56,
+        "clicksCurrent": 0,
+        "ctrCurrent": 0,
+        "positionCurrent": 28.48,
+        "impressionsPrevious": 0,
+        "clicksPrevious": 0,
+        "ctrPrevious": 0,
+        "positionPrevious": 0,
+        "impressionsDelta": 100,
+        "clicksDelta": 0,
+        "queryEvidenceCount": 8,
+        "targetQueryEvidenceCount": 0,
+        "nonTargetQueryEvidenceCount": 7,
+        "queryClassifications": [
+          "human-review-legal-liability",
+          "observe-generic-English"
+        ],
+        "action": "cooldown",
+        "suggestedAction": "human-review",
+        "reason": "2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。",
+        "score": -1,
+        "reviewDue": "2026-10-01",
+        "completedAction": {
+          "route": "/topics/gift-inherited-vehicle-title-transfer/",
+          "action": "improve-title-answer",
+          "completedAt": "2026-07-24",
+          "evaluateAfter": "2026-08-07",
+          "baselinePeriodEnd": "2026-07-21",
+          "summary": "根据页面曝光补强亲属赠车、车主去世和继承车辆的 Title、Lien、税费与签字权限分流。"
+        },
+        "hasQueryEvidence": true,
+        "requiresHumanReview": true
       }
     ],
     "indexingCleanupQueue": [
@@ -289,24 +164,30 @@
         "clicks": 0,
         "impressions": 1669,
         "knownNoindex": true,
-        "status": "awaiting-deindex",
-        "action": "observe-deindex"
+        "status": "deindex-grace",
+        "action": "observe-deindex",
+        "completedAt": "2026-07-24",
+        "evaluateAfter": "2026-08-21"
       },
       {
         "route": "/sources/",
         "clicks": 0,
         "impressions": 952,
         "knownNoindex": true,
-        "status": "awaiting-deindex",
-        "action": "observe-deindex"
+        "status": "deindex-grace",
+        "action": "observe-deindex",
+        "completedAt": "2026-07-24",
+        "evaluateAfter": "2026-08-21"
       },
       {
         "route": "/directories/service-paths/",
         "clicks": 0,
         "impressions": 171,
         "knownNoindex": true,
-        "status": "awaiting-deindex",
-        "action": "observe-deindex"
+        "status": "deindex-grace",
+        "action": "observe-deindex",
+        "completedAt": "2026-07-24",
+        "evaluateAfter": "2026-08-21"
       }
     ]
   },
@@ -389,12 +270,14 @@
         "positionPrevious": 0,
         "impressionsDelta": 100,
         "clicksDelta": 100,
-        "queryEvidenceCount": 0,
+        "queryEvidenceCount": 11,
         "targetQueryEvidenceCount": 0,
-        "nonTargetQueryEvidenceCount": 0,
-        "queryClassifications": [],
+        "nonTargetQueryEvidenceCount": 11,
+        "queryClassifications": [
+          "observe-generic-English"
+        ],
         "action": "cooldown",
-        "suggestedAction": "needs-query-evidence",
+        "suggestedAction": "observe-non-target",
         "reason": "2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。",
         "score": -1,
         "reviewDue": "2026-10-01",
@@ -406,7 +289,7 @@
           "baselinePeriodEnd": "2026-07-21",
           "summary": "根据已有点击和排名补强遗失车辆 Title 的 record owner、原签发州、lien 与卖车前分流。"
         },
-        "hasQueryEvidence": false,
+        "hasQueryEvidence": true,
         "requiresHumanReview": false
       },
       {
@@ -421,12 +304,14 @@
         "positionPrevious": 0,
         "impressionsDelta": 100,
         "clicksDelta": 100,
-        "queryEvidenceCount": 0,
+        "queryEvidenceCount": 78,
         "targetQueryEvidenceCount": 0,
-        "nonTargetQueryEvidenceCount": 0,
-        "queryClassifications": [],
+        "nonTargetQueryEvidenceCount": 78,
+        "queryClassifications": [
+          "observe-generic-English"
+        ],
         "action": "cooldown",
-        "suggestedAction": "needs-query-evidence",
+        "suggestedAction": "observe-non-target",
         "reason": "2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。",
         "score": -1,
         "reviewDue": "2026-10-01",
@@ -438,7 +323,7 @@
           "baselinePeriodEnd": "2026-07-21",
           "summary": "增加登记续期、过期标签和停驶车辆的直接判断。"
         },
-        "hasQueryEvidence": false,
+        "hasQueryEvidence": true,
         "requiresHumanReview": false
       },
       {
@@ -557,12 +442,14 @@
         "positionPrevious": 0,
         "impressionsDelta": 100,
         "clicksDelta": 0,
-        "queryEvidenceCount": 0,
+        "queryEvidenceCount": 34,
         "targetQueryEvidenceCount": 0,
-        "nonTargetQueryEvidenceCount": 0,
-        "queryClassifications": [],
+        "nonTargetQueryEvidenceCount": 34,
+        "queryClassifications": [
+          "observe-generic-English"
+        ],
         "action": "cooldown",
-        "suggestedAction": "needs-query-evidence",
+        "suggestedAction": "observe-non-target",
         "reason": "2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。",
         "score": -1,
         "reviewDue": "2026-10-01",
@@ -574,7 +461,7 @@
           "baselinePeriodEnd": "2026-07-21",
           "summary": "增加车牌、registration card 和 sticker 丢失后的分流。"
         },
-        "hasQueryEvidence": false,
+        "hasQueryEvidence": true,
         "requiresHumanReview": false
       },
       {
@@ -589,12 +476,14 @@
         "positionPrevious": 0,
         "impressionsDelta": 100,
         "clicksDelta": 0,
-        "queryEvidenceCount": 0,
+        "queryEvidenceCount": 9,
         "targetQueryEvidenceCount": 0,
-        "nonTargetQueryEvidenceCount": 0,
-        "queryClassifications": [],
+        "nonTargetQueryEvidenceCount": 9,
+        "queryClassifications": [
+          "observe-generic-English"
+        ],
         "action": "cooldown",
-        "suggestedAction": "needs-query-evidence",
+        "suggestedAction": "observe-non-target",
         "reason": "2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。",
         "score": -1,
         "reviewDue": "2026-10-01",
@@ -606,7 +495,7 @@
           "baselinePeriodEnd": "2026-07-21",
           "summary": "补强驾照续期、补证与改地址的先后顺序。"
         },
-        "hasQueryEvidence": false,
+        "hasQueryEvidence": true,
         "requiresHumanReview": false
       },
       {
@@ -621,12 +510,15 @@
         "positionPrevious": 0,
         "impressionsDelta": 100,
         "clicksDelta": 0,
-        "queryEvidenceCount": 0,
+        "queryEvidenceCount": 8,
         "targetQueryEvidenceCount": 0,
-        "nonTargetQueryEvidenceCount": 0,
-        "queryClassifications": [],
+        "nonTargetQueryEvidenceCount": 7,
+        "queryClassifications": [
+          "human-review-legal-liability",
+          "observe-generic-English"
+        ],
         "action": "cooldown",
-        "suggestedAction": "needs-query-evidence",
+        "suggestedAction": "human-review",
         "reason": "2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。",
         "score": -1,
         "reviewDue": "2026-10-01",
@@ -638,8 +530,8 @@
           "baselinePeriodEnd": "2026-07-21",
           "summary": "根据页面曝光补强亲属赠车、车主去世和继承车辆的 Title、Lien、税费与签字权限分流。"
         },
-        "hasQueryEvidence": false,
-        "requiresHumanReview": false
+        "hasQueryEvidence": true,
+        "requiresHumanReview": true
       },
       {
         "route": "/topics/teen-driver-permit-gdl-parent-guide/",

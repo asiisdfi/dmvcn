@@ -112,6 +112,17 @@ type SearchConsoleAction = {
   targetQueryEvidenceCount?: number;
 };
 
+type SearchConsoleIndexingAction = {
+  route: string;
+  clicks: number;
+  impressions: number;
+  knownNoindex: boolean;
+  status: string;
+  action: string;
+  completedAt?: string | null;
+  evaluateAfter?: string | null;
+};
+
 type WorkbookReport = {
   summary?: {
     blockedPages?: number;
@@ -149,6 +160,8 @@ type SearchConsoleReport = {
     executeNow?: SearchConsoleAction[];
     nextQueue?: SearchConsoleAction[];
     dataCollectionQueue?: SearchConsoleAction[];
+    humanReviewQueue?: SearchConsoleAction[];
+    indexingCleanupQueue?: SearchConsoleIndexingAction[];
   };
   totalRows?: number;
   includedRows?: number;
@@ -407,6 +420,12 @@ const scExecution = searchConsolePlan?.execution;
 const scExecuteNow = scExecution?.executeNow ?? [];
 const scNextQueue = scExecution?.nextQueue ?? [];
 const scDataCollectionQueue = scExecution?.dataCollectionQueue ?? [];
+const scHumanReviewQueue = scExecution?.humanReviewQueue ?? [];
+const scIndexingCleanupQueue = scExecution?.indexingCleanupQueue ?? [];
+const scIndexingImpressions = scIndexingCleanupQueue.reduce(
+  (sum, item) => sum + item.impressions,
+  0,
+);
 const scExecutionStatus: Record<string, string> = {
   ready: '当前有符合条件的内容任务',
   'hold-data': '数据需要更新，暂停内容改写',
@@ -746,6 +765,39 @@ const scActionLabel: Record<string, string> = {
                 <ul class="check-list">
                   {scDataCollectionQueue.slice(0, 5).map((item) => (
                     <li><a href={item.route}>{item.route}</a><small>先核对该页面实际匹配的查询，不先扩写正文。</small></li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
+            {scHumanReviewQueue.length > 0 ? (
+              <>
+                <h3>需要人工确认的搜索意图</h3>
+                <ul class="check-list">
+                  {scHumanReviewQueue.slice(0, 5).map((item) => (
+                    <li>
+                      <a href={item.route}>{item.route}</a>
+                      <small>查询涉及医疗、复职或法律责任；完成语义和官方依据复核前，不据此改写页面。</small>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
+            {scIndexingCleanupQueue.length > 0 ? (
+              <>
+                <h3>退出索引观察</h3>
+                <p>当前有 {scIndexingCleanupQueue.length} 个站内工具或来源页已经设置 noindex，但 28 天页面报告中仍保留 {scIndexingImpressions} 次历史曝光。</p>
+                <ul class="check-list">
+                  {scIndexingCleanupQueue.slice(0, 5).map((item) => (
+                    <li>
+                      <a href={item.route}>{item.route}</a>
+                      <small>
+                        {item.status === 'deindex-overdue'
+                          ? `已超过 ${item.evaluateAfter ?? '计划'} 复查日，需检查 Google 当前索引状态。`
+                          : `观察至 ${item.evaluateAfter ?? '下一次快照'}；期间不按这些曝光扩写内容。`}
+                      </small>
+                    </li>
                   ))}
                 </ul>
               </>
