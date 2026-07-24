@@ -19,21 +19,22 @@
 
 ## 改正文内容
 - /states/new-jersey/（展现 57 / 点击 0）— 有展现但无点击，说明内容未直接命中用户决策。先加 FAQ/失败场景/来源映射。
-- /topics/gift-inherited-vehicle-title-transfer/（展现 56 / 点击 0）— 有展现但无点击，说明内容未直接命中用户决策。先加 FAQ/失败场景/来源映射。
-- /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/（展现 82 / 点击 2）— 排名偏后且展现较多，可能命中问题但未提供高识别度答案结构。
 
 ## 规则变化/下滑复核
 
 ## 等待效果复评
+- /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/（本次数据仍建议 improve-answer）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/vehicle-registration-renewal-expired-tags-non-operation/（本次数据仍建议 improve-answer）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/massachusetts/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
 - /directories/new-residents/（本次数据仍建议 improve-answer）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /directories/costs-timing/（本次数据仍建议 improve-answer）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/lost-stolen-license-plates-registration-card-sticker/（本次数据仍建议 improve-answer）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /topics/renewal-replacement-address/（本次数据仍建议 improve-answer）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
+- /topics/gift-inherited-vehicle-title-transfer/（本次数据仍建议 improve-answer）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/teen-driver-permit-gdl-parent-guide/（本次数据仍建议 observe）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /topics/vehicle-title-registration-insurance-after-move/（本次数据仍建议 observe）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/new-york/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
+- /topics/name-change-chain/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /states/florida/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
 - /states/washington/（本次数据仍建议 observe）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/california/real-id/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。

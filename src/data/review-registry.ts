@@ -447,10 +447,10 @@ export const semanticReviews: Record<string, SemanticReview> = {
   '/topics/name-change-chain/': {
     status: 'evidence-checked',
     method: 'ai-assisted',
-    reviewedAt: '2026-07-17',
+    reviewedAt: '2026-07-24',
     reviewer: 'Codex AI 辅助证据核查',
     scope: '逐条比对 SSA corrected card、连续姓名链、SSA/DMV 同步顺序、认证副本和州级姓名变更材料。',
-    notes: '已增加 SSA 两年/四年旧姓名证据规则，并将 SSA 先后顺序限定到 California、Florida 和 New York 具体路径；仍待人工签字。',
+    notes: '按 Search Console 的“哪裡改名”需求补充法律改名完成后的直接判断；SSA/DMV 先后顺序仍限定到各州官方路径，未把昵称或常用名写成可直接办理的 legal name。',
   },
   '/topics/student-temporary-resident-license-registration/': {
     status: 'evidence-checked',
@@ -471,18 +471,18 @@ export const semanticReviews: Record<string, SemanticReview> = {
   '/topics/lost-vehicle-title-replacement-electronic-title-lien-sale/': {
     status: 'evidence-checked',
     method: 'ai-assisted',
-    reviewedAt: '2026-07-17',
+    reviewedAt: '2026-07-24',
     reviewer: 'Codex AI 辅助证据核查',
     scope: '逐条比对 replacement title、record owner、lienholder、electronic title、地址、旧证失效和办理时效。',
-    notes: '已补充 title 与 registration 的证据映射，以及 Washington 全体登记车主签字、公证和 Quick Title 边界；仍待人工签字。',
+    notes: '重新核对 record owner、原签发州、lienholder、寄送地址和现场不等于当天取证等判断，并补充首段办理分流；事实范围未扩大到 bonded 或 court-ordered title。',
   },
   '/topics/gift-inherited-vehicle-title-transfer/': {
     status: 'evidence-checked',
     method: 'ai-assisted',
-    reviewedAt: '2026-07-17',
+    reviewedAt: '2026-07-24',
     reviewer: 'Codex AI 辅助证据核查',
     scope: '逐条比对 gift tax、lien consideration、继承签字权限、TOD beneficiary、title 与 registration 分流。',
-    notes: '已补充 Florida、Pennsylvania 的 gift/lien 税务边界，并限定 Georgia 必须先 title 的具体继承路径；仍待人工签字。',
+    notes: '重新核对 Texas gift eligible-party 与 no-consideration 条件、Georgia 继承人先 title 的特定路径，以及 deceased-owner、lien、registration 的分流；新增首段判断未扩大原人工签字范围。',
   },
   '/topics/older-driver-license-renewal-medical-review/': {
     status: 'evidence-checked',

@@ -36,6 +36,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-24',
+    title: '补强改名、车辆 Title 补发和亲属过户的首段判断',
+    summary:
+      '根据 Search Console 的真实查询和页面表现，改名专题先回答法律改名完成后应如何安排 SSA 与 DMV，车辆 Title 专题先区分原签发州、record owner 与 lienholder，亲属赠车和继承专题先区分 gift、deceased owner 与 estate transfer。三页只重排已经人工核对过的事实范围，并重新检查当前官方材料。',
+    scope: [
+      '改名后的 SSA 与 DMV 顺序',
+      '遗失车辆 Title 的补发路径',
+      '亲属赠车与继承车辆过户',
+      'Search Console 查询归属',
+    ],
+  },
+  {
+    date: '2026-07-24',
     title: '为三个中文办事意图指定唯一落地页',
     summary:
       '按 Search Console 的查询与页面对应关系，把“纽约州 REAL ID 怎么申请”交给纽约州 REAL ID 页，把“加州 REAL ID 和普通驾照区别”交给加州 REAL ID 页，把“考驾照”交给首次驾照流程专题；三页分别补强标题、开头判断和搜索说明。同时拆分州总览与州 REAL ID 的最后修改日期，避免只改总览时另一页也显示成当天更新。',

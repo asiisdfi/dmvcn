@@ -126,5 +126,29 @@
     "evaluateAfter": "2026-08-07",
     "baselinePeriodEnd": "2026-07-21",
     "summary": "承接考驾照查询，明确 Permit、笔试、练车或课程和路考顺序。"
+  },
+  {
+    "route": "/topics/name-change-chain/",
+    "action": "improve-title-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "承接改名后去哪里更新的中文查询，明确法律改名文件、SSA 与 DMV 的州别顺序。"
+  },
+  {
+    "route": "/topics/gift-inherited-vehicle-title-transfer/",
+    "action": "improve-title-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "根据页面曝光补强亲属赠车、车主去世和继承车辆的 Title、Lien、税费与签字权限分流。"
+  },
+  {
+    "route": "/topics/lost-vehicle-title-replacement-electronic-title-lien-sale/",
+    "action": "improve-title-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "根据已有点击和排名补强遗失车辆 Title 的 record owner、原签发州、lien 与卖车前分流。"
   }
 ]

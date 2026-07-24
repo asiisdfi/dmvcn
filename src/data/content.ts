@@ -14524,13 +14524,15 @@ export const topics: TopicGuide[] = [
   },
   {
     slug: 'name-change-chain',
-    title: '姓名变更文件怎么整理',
+    title: '在美国改名后先去哪里更新：SSA、驾照和姓名文件顺序',
     eyebrow: '姓名一致性',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-17',
-    reviewedAt: '2026-07-17',
+    modifiedAt: '2026-07-24',
+    reviewedAt: '2026-07-24',
     description:
-      '姓名材料的目标不是证明“你平时用哪个名字”，而是用政府签发的文件，把原始身份文件上的姓名连续连接到本次申请使用的 current legal name。',
+      '已经因结婚、离婚或法院命令完成法律改名后，先确认姓名变更文件，再按所在州要求安排 SSA 与 DMV 的更新顺序；多次改名要把原始姓名连续连接到 current legal name。',
+    quickAnswer:
+      '还没有法律改名依据时，DMV 不能把昵称或常用英文名直接变成 legal name。已有 marriage certificate、divorce decree、court order 等文件后，先查所在州是否要求 SSA 记录先更新，再带完整姓名链办理驾照或 ID；这个先后顺序不是全国统一规则。',
     whoNeedsIt: [
       '婚后改姓、离婚恢复旧姓或法院改名的人。',
       '英文名、中间名、拼写或顺序在不同文件上不一致的人。',
@@ -19096,13 +19098,15 @@ export const topics: TopicGuide[] = [
   },
   {
     slug: 'lost-vehicle-title-replacement-electronic-title-lien-sale',
-    title: '车辆 title 丢了怎么办：补证、电子 title 和 lien',
+    title: '车辆 Title 丢了怎么补：谁能申请、Lien 与卖车前处理',
     eyebrow: '补车辆 title',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-17',
-    reviewedAt: '2026-07-17',
+    modifiedAt: '2026-07-24',
+    reviewedAt: '2026-07-24',
     description:
-      '纸质 vehicle title、pink slip 或 ownership certificate 丢失、损坏、被盗、一直没收到，或者贷款已还清却发现 title 仍在银行或只保留电子记录时，先确认最后签发州、登记车主、地址和 lien 状态，再决定申请 duplicate / replacement、打印 electronic title、清除 lien，还是走 correction / transfer。',
+      '车辆 Title、pink slip 或 ownership certificate 丢失后，先确认最后签发州、record owner、寄送地址和 lien 状态，再决定申请 duplicate / replacement、打印 electronic title，还是走 correction / transfer。',
+    quickAnswer:
+      '先确认 title 最后由哪个州签发、现在登记在谁名下。仍在卖家或 lienholder 名下时，买方不要把它当作自己的 duplicate 申请；已经在自己名下时，再核对地址、共同车主、贷款 lien 和 electronic title 状态，从原签发州进入 replacement 流程。Registration card 或 bill of sale 通常不能替代有效 title。',
     whoNeedsIt: [
       '车辆已经在自己名下，但纸质 title / pink slip 丢失、被盗、损坏、字迹无法辨认或邮寄后一直没收到的人。',
       '汽车贷款已经还清，却不知道 lender 是否仍持有 title、DMV 记录里是否还有 lien，或手里只有 lien release 的人。',
@@ -19382,13 +19386,15 @@ export const topics: TopicGuide[] = [
   },
   {
     slug: 'gift-inherited-vehicle-title-transfer',
-    title: '亲属赠车、继承车辆和车主去世后，title 怎么转',
+    title: '亲属赠车或继承车辆怎么过户：Title、Lien、税费和车主去世',
     eyebrow: '赠车继承',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-17',
-    reviewedAt: '2026-07-17',
+    modifiedAt: '2026-07-24',
+    reviewedAt: '2026-07-24',
     description:
-      '家里人赠车、车主去世、继承车辆、TOD beneficiary、surviving spouse、estate/probate、title 丢失或仍有 lien 时，车辆 title transfer 不是普通二手车交易。Gift、inheritance、estate、survivorship、tax exemption、registration 和 plate 必须分开判断。',
+      '亲属赠车、车主去世或继承车辆时，先区分 gift、family transfer、surviving spouse、heir、estate 与 TOD beneficiary，再核对 Title、Lien、税费、registration 和保险。',
+    quickAnswer:
+      '先判断是生前赠车，还是车主去世后的继承或 estate transfer。赠车不等于自动免税；继承也不等于任何亲属都能直接签 title 或马上卖车。先看 title 上的车主、共同持有人、survivorship / beneficiary 和 lien，再按本州 gift 或 deceased-owner 路径准备关系、死亡、遗产和税务文件。',
     whoNeedsIt: [
       '父母、配偶、子女、亲属之间赠车，不确定 title、tax、registration 和保险怎么处理的人。',
       '家人去世后要处理车辆 title、registration、plate、保险、parking/toll 或贷款 lien 的人。',
