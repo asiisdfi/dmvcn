@@ -61,6 +61,17 @@ const schema = {
       </section>
 
       <section class="panel">
+        <div class="policy-heading"><RefreshCw size={22} aria-hidden="true" /><h2>来源链接巡检</h2></div>
+        <p>本站每月分批检查内容使用的政府 URL，并记录检查日期、访问状态和来源清单指纹。新增或替换政府 URL 后，必须先完成检查，网站才能通过发布门禁。</p>
+        <ul class="check-list">
+          <li>2xx 和 3xx 只表示入口可以自动访问，不代表正文结论自动得到确认。</li>
+          <li>403、限流、服务器暂时错误和网络超时进入观察，由编辑从机构主页或普通浏览器复查。</li>
+          <li>普通 404、410 和异常跳转需要查找当前官方入口，不能用旧链接继续支撑事实。</li>
+          <li>链接状态检查与页面事实核对分别记录，不能互相替代。</li>
+        </ul>
+      </section>
+
+      <section class="panel">
         <div class="policy-heading"><AlertTriangle size={22} aria-hidden="true" /><h2>高风险事实</h2></div>
         <p>费用、期限、资格、身份文件、SSN、非公民路径、暂停或恢复驾照、处罚、车辆所有权和法律后果属于高风险事实。发布时必须：</p>
         <ul class="check-list">

@@ -14,6 +14,7 @@ import {
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentMeta from '../components/ContentMeta.astro';
 import eeatReportData from '../../reports/eeat-inventory.json';
+import officialLinkAuditData from '../../reports/official-link-audit.json';
 import qualityWorkbookData from '../../reports/quality-workbook.json';
 import searchConsolePlanData from '../../reports/search-console-priority.json';
 import {
@@ -101,12 +102,14 @@ type WorkbookTask = {
 type SearchConsoleAction = {
   route: string;
   action: string;
+  suggestedAction?: string;
   impressionsCurrent: number;
   clicksCurrent: number;
   ctrCurrent: number;
   positionCurrent: number;
   impressionsDelta: number;
   reason: string;
+  targetQueryEvidenceCount?: number;
 };
 
 type WorkbookReport = {
@@ -126,16 +129,60 @@ type WorkbookReport = {
 };
 
 type SearchConsoleReport = {
-  prioritized?: SearchConsoleAction[];
-  actions?: {
-    improveTitle?: SearchConsoleAction[];
-    improveAnswer?: SearchConsoleAction[];
-    refreshRule?: SearchConsoleAction[];
-    newTopics?: SearchConsoleAction[];
+  generatedAt?: string;
+  dataSnapshot?: {
+    readyForPlanning?: boolean;
+    observedAt?: string;
+    dataThrough?: string;
+    blockers?: string[];
+  };
+  execution?: {
+    status?: string;
+    allowedNow?: number;
+    nextEligibleDate?: string;
+    nextEligibleSlots?: number;
+    currentPeriod?: {
+      weeklyActions?: number;
+      monthlyActions?: number;
+      availableSlots?: number;
+    };
+    executeNow?: SearchConsoleAction[];
+    nextQueue?: SearchConsoleAction[];
+    dataCollectionQueue?: SearchConsoleAction[];
   };
   totalRows?: number;
   includedRows?: number;
   source?: string;
+};
+
+type OfficialLinkAuditReport = {
+  auditDate: string;
+  inventory: {
+    urls: number;
+    highRiskUrls: number;
+  };
+  coverage: {
+    fresh: number;
+    percent: number;
+    fullCoverage: boolean;
+  };
+  highRiskCoverage: {
+    fresh: number;
+    total: number;
+    percent: number;
+    gatePassed: boolean;
+  };
+  status: {
+    freshOk: number;
+    freshWatch: number;
+    pendingHardFailures: number;
+    confirmedHardFailures: number;
+    monthlyGatePassed: boolean;
+  };
+  watchByHost?: Array<{
+    host: string;
+    count: number;
+  }>;
 };
 
 type EeatReport = {
@@ -143,8 +190,8 @@ type EeatReport = {
   pages: EeatPage[];
 };
 
-const QUALITY_MODIFIED_AT = '2026-07-21';
-const QUALITY_REVIEWED_AT = '2026-07-21';
+const QUALITY_MODIFIED_AT = '2026-07-24';
+const QUALITY_REVIEWED_AT = '2026-07-24';
 const today = QUALITY_REVIEWED_AT;
 const toIsoDate = (offsetDays: number) =>
   new Date(Date.parse(today) + offsetDays * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
@@ -351,18 +398,34 @@ const qualityWorkbookError = '';
 
 const searchConsolePlan = searchConsolePlanData as SearchConsoleReport;
 const searchConsolePlanError = '';
+const officialLinkAudit = officialLinkAuditData as OfficialLinkAuditReport;
 
 const reviewTaskList = qualityWorkbook?.queues?.humanSignoff ?? [];
 const blockedWorklist = qualityWorkbook?.queues?.blocked ?? [];
 
-const scActionList = searchConsolePlan?.prioritized ?? [];
-const scPlanList = [...scActionList].slice(0, 20);
+const scExecution = searchConsolePlan?.execution;
+const scExecuteNow = scExecution?.executeNow ?? [];
+const scNextQueue = scExecution?.nextQueue ?? [];
+const scDataCollectionQueue = scExecution?.dataCollectionQueue ?? [];
+const scExecutionStatus: Record<string, string> = {
+  ready: '当前有符合条件的内容任务',
+  'hold-data': '数据需要更新，暂停内容改写',
+  'hold-cadence': '本周或本月更新额度已用完',
+  'hold-no-qualified-query': '当前没有足够的目标查询证据',
+};
+const hardFailureCount =
+  officialLinkAudit.status.pendingHardFailures +
+  officialLinkAudit.status.confirmedHardFailures;
 
 const scActionLabel: Record<string, string> = {
   'improve-title': '补标题/描述',
   'improve-answer': '补答案章节',
   'refresh-rule-change': '规则变更复核',
   'new-topic': '评估是否拆新专题',
+  'needs-query-evidence': '先补查询映射',
+  'observe-non-target': '非目标曝光观察',
+  'human-review': '人工复核',
+  cooldown: '等待效果复评',
   observe: '观察',
 };
 ---
@@ -458,6 +521,48 @@ const scActionLabel: Record<string, string> = {
             <p>每篇必须显示“首次发布 / 内容更新 / 事实核对”。“内容更新”与“事实核对”不可混用。</p>
           </article>
         </div>
+
+        <section class="panel">
+          <div class="card-top">
+            <ShieldCheck size={22} aria-hidden="true" />
+            <span class={officialLinkAudit.status.monthlyGatePassed ? 'status-chip ready' : 'status-chip warn'}>
+              {officialLinkAudit.status.monthlyGatePassed ? '本月检查完成' : '本月检查未完成'}
+            </span>
+          </div>
+          <h2>政府来源链接状态</h2>
+          <p>截至 {officialLinkAudit.auditDate}，本站已检查当前内容使用的政府 URL。链接能打开只代表入口可访问，不代表页面里的每项事实自动获得确认；正文结论仍按页面旁的来源和人工复核记录管理。</p>
+          <div class="registry-summary eeat-summary" aria-label="政府来源链接检查概览">
+            <div>
+              <strong>{officialLinkAudit.coverage.fresh}</strong>
+              <span>本月已检查</span>
+            </div>
+            <div>
+              <strong>{officialLinkAudit.inventory.urls}</strong>
+              <span>当前政府 URL</span>
+            </div>
+            <div>
+              <strong>{officialLinkAudit.status.freshOk}</strong>
+              <span>自动访问正常</span>
+            </div>
+            <div>
+              <strong>{officialLinkAudit.status.freshWatch}</strong>
+              <span>自动访问受限</span>
+            </div>
+            <div>
+              <strong>{officialLinkAudit.highRiskCoverage.fresh}/{officialLinkAudit.highRiskCoverage.total}</strong>
+              <span>高风险来源覆盖</span>
+            </div>
+            <div>
+              <strong>{hardFailureCount}</strong>
+              <span>硬失败待处理</span>
+            </div>
+          </div>
+          <p class="small-note">403、限流、服务器暂时错误和网络超时会进入观察，不会被自动写成“来源失效”。当前观察项分布在 {officialLinkAudit.watchByHost?.length ?? 0} 个域名；普通 404、410 或来源 URL 变化会阻止下一次发布，直到完成复查。</p>
+          <div class="policy-links">
+            <a href="/sources/">查看来源清单 <ArrowRight size={15} aria-hidden="true" /></a>
+            <a href={EDITORIAL_LINKS.policy}>查看核对方法 <ArrowRight size={15} aria-hidden="true" /></a>
+          </div>
+        </section>
 
         <section class="panel">
           <h2>每页都要通过的检查</h2>
@@ -576,29 +681,76 @@ const scActionLabel: Record<string, string> = {
             </ul>
           </section>
 
-          <section class="panel">
+          <section class="panel quality-search-panel">
             <h2>按搜索数据安排更新</h2>
             <p>
               {searchConsolePlanError
                 ? searchConsolePlanError
-                : searchConsolePlan?.includedRows
-                  ? `已读取 Search Console 导出数据 ${searchConsolePlan.includedRows}/${searchConsolePlan.totalRows} 条。`
-                  : '本月还没有导入新的 Search Console 查询数据。'}
+                : searchConsolePlan?.dataSnapshot?.readyForPlanning
+                  ? `当前计划使用 ${searchConsolePlan.dataSnapshot.observedAt} 的 Search Console 快照，最新完整数据截至 ${searchConsolePlan.dataSnapshot.dataThrough}。`
+                  : '当前 Search Console 快照不完整或已经过期，本轮不执行内容改写。'}
             </p>
+            <p>
+              <span class={scExecution?.status === 'ready' ? 'status-chip ready' : 'status-chip watch'}>
+                {scExecutionStatus[scExecution?.status ?? 'hold-data'] ?? '暂停执行'}
+              </span>
+            </p>
+            <dl class="definition-list">
+              <div>
+                <dt>最近 7 天</dt>
+                <dd>{scExecution?.currentPeriod?.weeklyActions ?? 0} 个内容动作</dd>
+              </div>
+              <div>
+                <dt>本月累计</dt>
+                <dd>{scExecution?.currentPeriod?.monthlyActions ?? 0} 个内容动作</dd>
+              </div>
+              <div>
+                <dt>当前可执行</dt>
+                <dd>{scExecution?.allowedNow ?? 0} 个</dd>
+              </div>
+              <div>
+                <dt>下一容量日期</dt>
+                <dd>{scExecution?.nextEligibleDate ?? '等待新数据'}</dd>
+              </div>
+            </dl>
+
+            <h3>本轮内容动作</h3>
             <ul class="check-list">
-              {scPlanList.length > 0
-                ? scPlanList.slice(0, 10).map((item) => (
+              {scExecuteNow.length > 0
+                ? scExecuteNow.map((item) => (
                     <li>
                       <a href={item.route}>{item.route}</a> · <strong>{scActionLabel[item.action] ?? item.action}</strong>
                       <small>
-                        （展现 {item.impressionsCurrent} / 点击 {item.clicksCurrent} / 位置 {item.positionCurrent.toFixed(1)} / 展现变化
-                        {item.impressionsDelta.toFixed(1)}%）
+                        （目标查询证据 {item.targetQueryEvidenceCount ?? 0} 条 / 展现 {item.impressionsCurrent} / 点击 {item.clicksCurrent}）
                       </small>
                       <p>{item.reason}</p>
                     </li>
                   ))
-                : <li>导入 Search Console 查询数据后，这里会列出本月最值得更新的页面。</li>}
+                : <li>当前不执行内容改写。只有查询证据、更新额度、冷却期和风险复核同时通过时，页面才会进入这里。</li>}
             </ul>
+
+            {scNextQueue.length > 0 ? (
+              <>
+                <h3>下一轮候选</h3>
+                <ul class="check-list">
+                  {scNextQueue.slice(0, 5).map((item) => (
+                    <li><a href={item.route}>{item.route}</a> · {scActionLabel[item.action] ?? item.action}</li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
+            {scDataCollectionQueue.length > 0 ? (
+              <>
+                <h3>先补查询证据</h3>
+                <ul class="check-list">
+                  {scDataCollectionQueue.slice(0, 5).map((item) => (
+                    <li><a href={item.route}>{item.route}</a><small>先核对该页面实际匹配的查询，不先扩写正文。</small></li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+            <p class="small-note">原始查询词和页面映射保存在私有工作区，公开页面只显示汇总和执行状态。</p>
           </section>
         </div>
 

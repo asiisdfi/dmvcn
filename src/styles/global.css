@@ -1784,6 +1784,14 @@ h3 {
   gap: 18px;
 }
 
+.quality-search-panel {
+  grid-column: 1 / -1;
+}
+
+.quality-search-panel a {
+  overflow-wrap: anywhere;
+}
+
 .eeat-table-wrap {
   margin-top: 12px;
   overflow-x: auto;

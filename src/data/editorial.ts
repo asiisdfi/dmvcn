@@ -1,6 +1,6 @@
 export const SITE_LAUNCH_DATE = '2026-07-13';
 export const EDITORIAL_POLICY_DATE = '2026-07-17';
-export const EDITORIAL_POLICY_MODIFIED_DATE = '2026-07-21';
+export const EDITORIAL_POLICY_MODIFIED_DATE = '2026-07-24';
 export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
@@ -34,6 +34,18 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-24',
+    title: '建立政府来源链接月度检查与发布门禁',
+    summary:
+      '为站内当前使用的 1,659 个政府 URL 建立分批检查、30 天新鲜度和来源指纹门禁。本月已完成全部 URL 检查，其中 316 个属于高风险页面来源；普通 404、410、来源清单变化或月度覆盖不足会阻止发布。403、限流和网络超时单独进入观察，不会被自动写成来源失效，也不会替代正文事实核对。',
+    scope: [
+      '1,659 个政府 URL 月度覆盖',
+      '316 个高风险页面来源',
+      '来源 URL 指纹检查',
+      '自动访问限制与硬失败分流',
+    ],
+  },
   {
     date: '2026-07-24',
     title: '补强改名、车辆 Title 补发和亲属过户的首段判断',
