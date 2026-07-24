@@ -1,10 +1,10 @@
 {
   "summary": {
-    "generatedAt": "2026-07-24T10:29:42.959Z",
+    "generatedAt": "2026-07-24T10:43:34.375Z",
     "pages": 5,
-    "claims": 820,
+    "claims": 821,
     "statesCovered": 50,
-    "aiAssisted": 787,
+    "aiAssisted": 788,
     "automated": 33,
     "errors": 0,
     "coverage": {
@@ -25,7 +25,7 @@
         "states": 45
       },
       "identity-ssn": {
-        "claims": 183,
+        "claims": 184,
         "states": 49
       }
     }
@@ -2779,6 +2779,22 @@
     {
       "page": "deadlines",
       "stateId": "washington",
+      "category": "期限提醒",
+      "claim": "线上收据不能替代带照片的实体身份证，standard ID 正式卡要按 7 至 10 个工作日预留",
+      "sourceUrl": "https://dol.wa.gov/id-cards/renew-id-card",
+      "sourceLabel": "对应官方来源：WA DOL Renew ID Card",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "failedThemes": [
+        "processing-or-mail"
+      ],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "deadlines",
+      "stateId": "washington",
       "category": "续期 / 到期",
       "claim": "Standard license 可提前 1 年续期，并可在过期后最多 8 年内续期",
       "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/renew-driver-license",
@@ -2793,28 +2809,16 @@
     {
       "page": "deadlines",
       "stateId": "washington",
-      "category": "搬家 / 地址",
-      "claim": "搬家后 10 天内要更新 driver license / ID 地址",
-      "sourceUrl": "https://dol.wa.gov/driver-licenses-and-permits/update-driver-license-information/change-your-name-or-address-your-driver-license",
-      "sourceLabel": "对应官方来源：WA DOL Change Name or Address",
+      "category": "期限提醒",
+      "claim": "standard ID 正式卡通常 7 至 10 个工作日寄到 DOL 记录的 Washington 住址",
+      "sourceUrl": "https://dol.wa.gov/id-cards/renew-id-card",
+      "sourceLabel": "对应官方来源：WA DOL Renew ID Card",
       "themes": [
-        "address-change"
+        "processing-or-mail"
       ],
-      "failedThemes": [],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "ai-assisted"
-    },
-    {
-      "page": "deadlines",
-      "stateId": "washington",
-      "category": "搬家 / 地址",
-      "claim": "成为 Washington 新居民后 30 天内要取得 WA driver license，并且要先取得 WA license 才能登记车辆",
-      "sourceUrl": "https://dol.wa.gov/moving-washington",
-      "sourceLabel": "对应官方来源：WA DOL Moving to Washington",
-      "themes": [
-        "new-resident"
+      "failedThemes": [
+        "processing-or-mail"
       ],
-      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -9805,6 +9809,20 @@
       "sourceLabel": "对应官方来源：WA DOL REAL ID",
       "themes": [
         "lawful-presence"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "washington",
+      "category": "公民身份",
+      "claim": "续期身份证时先看卡面是 standard ID 还是 EID",
+      "sourceUrl": "https://dol.wa.gov/id-cards/renew-id-card",
+      "sourceLabel": "对应官方来源：WA DOL Renew ID Card",
+      "themes": [
+        "renewal"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,

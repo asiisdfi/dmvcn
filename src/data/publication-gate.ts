@@ -20,6 +20,8 @@ export const HUMAN_REVIEW_REQUIRED_ROUTES = new Set([
 ]);
 
 export const NON_SEARCH_LANDING_ROUTES = new Set([
+  '/directories/dmv-services/',
+  '/directories/service-paths/',
   '/sources/',
 ]);
 

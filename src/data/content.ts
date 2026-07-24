@@ -1054,8 +1054,12 @@ export const states: StateGuide[] = [
     nameZh: '华盛顿州',
     agency: 'Washington State Department of Licensing',
     agencyUrl: 'https://dol.wa.gov/',
+    seoTitle: '华盛顿州 DOL 中文指南：身份证续期、驾照与 REAL ID',
+    seoDescription:
+      '华盛顿州 DOL 中文办事指南：先区分 standard ID、Enhanced ID 与驾照，再查身份证续期、地址更新、REAL ID、预约和官方办理入口。',
+    pageHeading: '华盛顿州 DOL 中文办事指南',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-17',
+    modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-17',
     summary:
       '华盛顿州同时签发 standard driver license / ID 和 Enhanced Driver License / ID（EDL/EID）。普通驾照仍可驾驶，普通驾照或 ID 仍可作州内身份证明；EDL/EID 才是华盛顿州符合 REAL ID 的州证件。',
@@ -1070,6 +1074,7 @@ export const states: StateGuide[] = [
       '首次同时申领 EDL 的当前总费用为 6 年 $153 或 8 年 $187；把现有 WA driver license 升级为 EDL，按剩余期限收取 $7 至 $56。',
       'Standard license 可提前 1 年续期，并可在过期后最多 8 年内续期；过期超过 60 天加收 $10，达到 8 年则不能续期而要重新开始申请。',
       '70 岁及以上、需要 vision screening、需要新照片或上次已在线续期的人，必须到 driver licensing office 续期。',
+      '身份证到期时先区分 standard ID 与 Enhanced ID（EID）。Standard ID 可在线或到 driver licensing office 续期；EID 有单独续期入口。地址变化要先更新，线上续期收据不含照片或签名，不能当身份证使用；standard ID 正式卡通常 7 至 10 个工作日寄到 DOL 记录的 Washington 住址。',
       '搬家后 10 天内要更新 driver license / ID 地址；更新驾驶记录免费，立即领取显示新地址的新卡为 $20，vehicle registration 地址还要另外更新。',
       'Standard 证件的身份规则允许按一份 stand-alone、两份 A-list、一份 A-list 加两份 B-list、或四份 B-list 组合证明身份。',
       'Standard 证件不接受复印、扫描或拍照文件；申请驾照者必须提供 SSN，没有 SSN 时可签署声明。',
@@ -1108,6 +1113,7 @@ export const states: StateGuide[] = [
       '预约 driver licensing office；DOL 对 EDL 写明预约优先但非强制，并要求最晚在关门前 60 分钟提交申请。',
       '现场接受 document review 和 in-person interview，拍照并支付对应费用；首次同时申领 EDL 当前为 6 年 $153 或 8 年 $187。',
       '领取 temporary EDL 后当场核对信息，但不要把它用于边境通行；正式卡按约 2 至 3 周预留。',
+      '续期身份证时先看卡面是 standard ID 还是 EID；地址变化先更新，再进入对应续期页。线上收据不能替代带照片的实体身份证，standard ID 正式卡要按 7 至 10 个工作日预留。',
     ],
     actionLinks: [
       {
@@ -1154,6 +1160,16 @@ export const states: StateGuide[] = [
         label: '续期驾照',
         url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/renew-driver-license',
         description: '华盛顿州驾照续期、费用、晚续费和现场续期条件。',
+      },
+      {
+        label: '续期 Standard ID',
+        url: 'https://dol.wa.gov/id-cards/renew-id-card',
+        description: '华盛顿州普通身份证线上、现场或符合条件时电话续期，以及地址和寄卡说明。',
+      },
+      {
+        label: '续期 Enhanced ID（EID）',
+        url: 'https://dol.wa.gov/id-cards/enhanced-id-card-eid/renew-enhanced-id-card-eid',
+        description: '华盛顿州 Enhanced ID 的线上、邮寄或现场续期入口。',
       },
       {
         label: '驾照与证件费用表',
@@ -1270,6 +1286,14 @@ export const states: StateGuide[] = [
       {
         label: 'WA DOL Renew Driver License',
         url: 'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/renew-driver-license',
+      },
+      {
+        label: 'WA DOL Renew ID Card',
+        url: 'https://dol.wa.gov/id-cards/renew-id-card',
+      },
+      {
+        label: 'WA DOL Renew Enhanced ID Card',
+        url: 'https://dol.wa.gov/id-cards/enhanced-id-card-eid/renew-enhanced-id-card-eid',
       },
       {
         label: 'WA DOL Driver Licensing Fees',

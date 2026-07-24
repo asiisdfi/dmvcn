@@ -12,6 +12,7 @@ const pageQuerySignalPath = path.join(
   'search-console-page-query-signals.csv',
 );
 const eeatReportPath = path.join(projectRoot, 'reports', 'eeat-inventory.json');
+const actionLogPath = path.join(projectRoot, 'reports', 'search-console-actions.json');
 const outputDir = path.join(projectRoot, 'reports');
 const privateOutputDir = path.join(outputDir, 'private');
 const sourcePath = process.env.SC_REPORT_PATH || reportPath;
@@ -59,6 +60,7 @@ const defaultPlanRows = {
     improveTitle: [],
     refreshRule: [],
     newTopics: [],
+    cooldown: [],
   },
   prioritized: [],
   warnings: ['未检测到可用的 Search Console 导出文件；请先导出后通过 SC_REPORT_PATH 指定。'],
@@ -176,6 +178,27 @@ const siteRoutes = new Set(
     .filter((page) => page.indexable)
     .map((page) => page.route),
 );
+let actionLog = [];
+try {
+  actionLog = JSON.parse(await readFile(actionLogPath, 'utf8'));
+} catch {
+  actionLog = [];
+}
+const latestActionByRoute = new Map();
+for (const entry of actionLog) {
+  const route = normalizeRoute(entry.route);
+  if (
+    !route ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(entry.completedAt ?? '') ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(entry.evaluateAfter ?? '')
+  ) {
+    continue;
+  }
+  const current = latestActionByRoute.get(route);
+  if (!current || current.completedAt < entry.completedAt) {
+    latestActionByRoute.set(route, { ...entry, route });
+  }
+}
 let raw;
 try {
   raw = await readFile(path.resolve(sourcePath), 'utf8');
@@ -428,6 +451,16 @@ const allRows = [...pageMap.values()].map((item) => {
     action = 'new-topic';
     reason = '新出现稳定流量，若现有页面承载不完整则分支新增专题。';
   }
+  const suggestedAction = action;
+  const completedAction = latestActionByRoute.get(item.page);
+  if (
+    completedAction &&
+    completedAction.completedAt <= planDate &&
+    completedAction.evaluateAfter > planDate
+  ) {
+    action = 'cooldown';
+    reason = `${completedAction.completedAt} 已完成 ${completedAction.action}；等待 ${completedAction.evaluateAfter} 后用新数据复评。`;
+  }
 
   return {
     route: item.page,
@@ -444,14 +477,16 @@ const allRows = [...pageMap.values()].map((item) => {
     topQuery: topQuery?.query ?? '',
     querySignals: matchedQuerySignals,
     action,
+    suggestedAction,
     reason,
     score: 0,
     reviewDue: item.page.includes('/states/') ? '2026-10-15' : '2026-10-01',
+    completedAction: completedAction ?? null,
   };
 }).filter((item) => item.impressionsCurrent >= 20 || item.impressionsDelta > 80);
 
 for (const row of allRows) {
-  row.score = priorityScore(row);
+  row.score = row.action === 'cooldown' ? -1 : priorityScore(row);
 }
 
 allRows.sort((a, b) => b.score - a.score);
@@ -480,6 +515,7 @@ const report = {
     improveTitle: publicRows.filter((item) => item.action === 'improve-title').slice(0, 20),
     refreshRule: publicRows.filter((item) => item.action === 'refresh-rule-change').slice(0, 20),
     newTopics: publicRows.filter((item) => item.action === 'new-topic').slice(0, 20),
+    cooldown: publicRows.filter((item) => item.action === 'cooldown').slice(0, 40),
   },
   prioritized: publicRows.slice(0, 60),
 };
@@ -517,11 +553,14 @@ const csvRows = [
     'impressionsDelta',
     'clicksDelta',
     'action',
+    'suggestedAction',
     'reason',
     'hasQueryEvidence',
     'queryEvidenceCount',
     'queryClassifications',
     'reviewDue',
+    'completedAt',
+    'evaluateAfter',
   ],
   ...publicRows.slice(0, 80).map((item) => [
     item.route,
@@ -536,11 +575,14 @@ const csvRows = [
     item.impressionsDelta,
     item.clicksDelta,
     item.action,
+    item.suggestedAction,
     item.reason,
     item.hasQueryEvidence,
     item.queryEvidenceCount,
     item.queryClassifications.join('|'),
     item.reviewDue,
+    item.completedAction?.completedAt ?? '',
+    item.completedAction?.evaluateAfter ?? '',
   ]),
 ];
 
@@ -596,6 +638,12 @@ const markdown = [
   '## 规则变化/下滑复核',
   ...report.actions.refreshRule.map(
     (item) => `- ${item.route}（展现变化 ${item.impressionsDelta.toFixed(1)}%）— ${item.reason}`,
+  ),
+  '',
+  '## 等待效果复评',
+  ...report.actions.cooldown.map(
+    (item) =>
+      `- ${item.route}（本次数据仍建议 ${item.suggestedAction}）— ${item.reason}`,
   ),
   '',
 ];

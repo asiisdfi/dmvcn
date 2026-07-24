@@ -36,6 +36,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-24',
+    title: '清理泛英文曝光并接回华盛顿州身份证续期需求',
+    summary:
+      '页面级 Search Console 查询显示，DMV 服务总表和线上/现场分流表主要被英文 near me、电话和泛 REAL ID 问句误匹配，几乎没有目标中文查询，因此保留站内工具但退出搜索索引和 sitemap。另有一条华盛顿州身份证续期中文查询落在搬州目录，本轮已把 standard ID 与 Enhanced ID 的续期分流、地址顺序、临时收据限制和官方入口补回华盛顿州页；这次是定向内容更新，不代表整页重新事实核对。',
+    scope: [
+      'DMV 服务总表索引策略',
+      '线上、现场与预约分流表索引策略',
+      '华盛顿州 Standard ID 与 Enhanced ID 续期',
+      'Search Console 页面级查询校准',
+    ],
+  },
+  {
+    date: '2026-07-24',
     title: '按中文查询校准三个州级办事入口',
     summary:
       '导入 Search Console 查询数据后，佛罗里达州页出现“车管所”和“驾照”，纽约州页出现 DMV 中文、网上续期和邮寄查询，马萨诸塞州页出现 RMV、续期和 REAL ID 信号。本轮据此重写三页的搜索标题、摘要和页面标题，并为纽约补上官方证件邮寄状态入口；没有把标题更新冒充为整页事实复核。',

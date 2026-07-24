@@ -1,22 +1,22 @@
 {
   "summary": {
-    "generatedAt": "2026-07-24T10:29:44.935Z",
+    "generatedAt": "2026-07-24T10:43:35.731Z",
     "pages": 100,
     "states": 50,
-    "claims": 4730,
-    "links": 9305,
-    "aiAssistedClaims": 4730,
+    "claims": 4738,
+    "links": 9318,
+    "aiAssistedClaims": 4738,
     "aiAssistedPages": 100,
     "errors": 0,
     "coverage": {
       "overview": {
-        "claims": 2237,
-        "links": 4289,
+        "claims": 2242,
+        "links": 4296,
         "states": 50
       },
       "real-id": {
-        "claims": 2493,
-        "links": 5016,
+        "claims": 2496,
+        "links": 5022,
         "states": 50
       }
     }
@@ -4994,6 +4994,108 @@
       "stateId": "washington",
       "surface": "overview",
       "field": "editorNotes",
+      "context": "real-id",
+      "claim": "身份证到期时先区分 standard ID 与 Enhanced ID（EID）",
+      "sourceUrls": [
+        "https://dol.wa.gov/id-cards/renew-id-card",
+        "https://dol.wa.gov/id-cards/enhanced-id-card-eid/renew-enhanced-id-card-eid"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WA DOL Renew ID Card",
+        "对应官方来源：WA DOL Renew Enhanced ID Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "enhanced-id",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "washington",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "Standard ID 可在线或到 driver licensing office 续期",
+      "sourceUrls": [
+        "https://dol.wa.gov/id-cards/renew-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WA DOL Renew ID Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "washington",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "EID 有单独续期入口",
+      "sourceUrls": [
+        "https://dol.wa.gov/id-cards/enhanced-id-card-eid/renew-enhanced-id-card-eid"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WA DOL Renew Enhanced ID Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "washington",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "license",
+      "claim": "地址变化要先更新，线上续期收据不含照片或签名，不能当身份证使用",
+      "sourceUrls": [
+        "https://dol.wa.gov/id-cards/renew-id-card",
+        "https://dol.wa.gov/driver-licenses-and-permits/update-driver-license-information/change-your-name-or-address-your-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WA DOL Renew ID Card",
+        "对应官方来源：WA DOL Change Name or Address"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "renewal",
+        "online-service"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "washington",
+      "surface": "overview",
+      "field": "editorNotes",
+      "context": "detail",
+      "claim": "standard ID 正式卡通常 7 至 10 个工作日寄到 DOL 记录的 Washington 住址",
+      "sourceUrls": [
+        "https://dol.wa.gov/id-cards/renew-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WA DOL Renew ID Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "processing-or-mail"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "washington",
+      "surface": "overview",
+      "field": "editorNotes",
       "context": "license",
       "claim": "搬家后 10 天内要更新 driver license / ID 地址",
       "sourceUrls": [
@@ -5783,6 +5885,70 @@
       ],
       "mappingMethod": "ai-assisted",
       "themes": [],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "washington",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "续期身份证时先看卡面是 standard ID 还是 EID",
+      "sourceUrls": [
+        "https://dol.wa.gov/id-cards/renew-id-card",
+        "https://dol.wa.gov/id-cards/enhanced-id-card-eid/renew-enhanced-id-card-eid"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WA DOL Renew ID Card",
+        "对应官方来源：WA DOL Renew Enhanced ID Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "washington",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "license",
+      "claim": "地址变化先更新，再进入对应续期页",
+      "sourceUrls": [
+        "https://dol.wa.gov/id-cards/renew-id-card",
+        "https://dol.wa.gov/id-cards/enhanced-id-card-eid/renew-enhanced-id-card-eid",
+        "https://dol.wa.gov/driver-licenses-and-permits/update-driver-license-information/change-your-name-or-address-your-driver-license"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WA DOL Renew ID Card",
+        "对应官方来源：WA DOL Renew Enhanced ID Card",
+        "对应官方来源：WA DOL Change Name or Address"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "address-change",
+        "renewal"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "washington",
+      "surface": "real-id",
+      "field": "recommendedSteps",
+      "context": "detail",
+      "claim": "线上收据不能替代带照片的实体身份证，standard ID 正式卡要按 7 至 10 个工作日预留",
+      "sourceUrls": [
+        "https://dol.wa.gov/id-cards/renew-id-card"
+      ],
+      "sourceLabels": [
+        "对应官方来源：WA DOL Renew ID Card"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "online-service"
+      ],
       "uncoveredThemes": [],
       "valid": true
     },

@@ -19,7 +19,6 @@ const featuredTopicSlugs = [
 
 const directoryLinks = [
   ['/directories/real-id/', '50 州 REAL ID 入口', '按州进入 REAL ID、Star Card 或同类官方页面。'],
-  ['/directories/dmv-services/', 'DMV 常用业务入口', '按州查续期、补证、地址变更和线上服务。'],
   ['/directories/document-rules/', '材料规则表', '比较地址证明、SSN、姓名链条、原件和翻译要求。'],
   ['/directories/appointments/', '预约和办公室入口', '查预约系统、办公室类型和现场办理提醒。'],
   ['/directories/tests-permits/', '考试和 Permit 入口', '查 learner permit、笔试、路考和练车路径。'],

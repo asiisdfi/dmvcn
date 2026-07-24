@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-07-24T10:30:51.018Z",
+    "generatedAt": "2026-07-24T10:43:37.367Z",
     "threshold": 85,
-    "strict": true,
+    "strict": false,
     "pages": 166,
     "passed": 166,
-    "indexablePages": 165,
-    "noindexPages": 1,
-    "indexablePassed": 165,
+    "indexablePages": 163,
+    "noindexPages": 3,
+    "indexablePassed": 163,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
     "sourceMappedReviews": 0,
@@ -427,7 +427,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 263,
+        "sourceCount": 262,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -451,7 +451,7 @@
       "score": 92,
       "threshold": 85,
       "pass": true,
-      "indexable": true,
+      "indexable": false,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
       "semanticReview": {
@@ -473,7 +473,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 699,
+        "sourceCount": 701,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -611,7 +611,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 264,
+        "sourceCount": 265,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -620,8 +620,8 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 183,
-        "directoryEvidenceLinks": 183,
+        "directoryEvidenceItems": 184,
+        "directoryEvidenceLinks": 184,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
@@ -773,7 +773,7 @@
       "score": 97,
       "threshold": 85,
       "pass": true,
-      "indexable": true,
+      "indexable": false,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
       "semanticReview": {
@@ -1089,7 +1089,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1616,
+        "sourceCount": 1618,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -5413,14 +5413,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 20,
-        "factCheckCount": 33,
+        "sourceCount": 22,
+        "factCheckCount": 38,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 33,
-        "stateEvidenceLinks": 48,
+        "stateEvidenceItems": 38,
+        "stateEvidenceLinks": 55,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -5459,14 +5459,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 20,
-        "factCheckCount": 36,
+        "sourceCount": 22,
+        "factCheckCount": 39,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 36,
-        "stateEvidenceLinks": 54,
+        "stateEvidenceItems": 39,
+        "stateEvidenceLinks": 60,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,

@@ -1,0 +1,106 @@
+[
+  {
+    "route": "/directories/new-residents/",
+    "action": "improve-title-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "重写搬州后的驾照、地址和车辆办理顺序入口。"
+  },
+  {
+    "route": "/directories/costs-timing/",
+    "action": "improve-title-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "重写费用与时间目录的搜索标题、摘要和使用边界。"
+  },
+  {
+    "route": "/topics/vehicle-registration-renewal-expired-tags-non-operation/",
+    "action": "improve-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "增加登记续期、过期标签和停驶车辆的直接判断。"
+  },
+  {
+    "route": "/topics/lost-stolen-license-plates-registration-card-sticker/",
+    "action": "improve-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "增加车牌、registration card 和 sticker 丢失后的分流。"
+  },
+  {
+    "route": "/topics/renewal-replacement-address/",
+    "action": "improve-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "补强驾照续期、补证与改地址的先后顺序。"
+  },
+  {
+    "route": "/topics/teen-driver-permit-gdl-parent-guide/",
+    "action": "improve-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "补强青少年 permit、驾校、练车与 GDL 判断路径。"
+  },
+  {
+    "route": "/topics/vehicle-title-registration-insurance-after-move/",
+    "action": "improve-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "补强买车或搬州后的保险、title 与 registration 顺序。"
+  },
+  {
+    "route": "/states/new-york/",
+    "action": "improve-title",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "按 DMV 中文、网上续期和邮寄进度查询校准标题与入口。"
+  },
+  {
+    "route": "/states/florida/",
+    "action": "improve-title",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "按车管所和驾照查询校准 FLHSMV 中文标题。"
+  },
+  {
+    "route": "/states/massachusetts/",
+    "action": "improve-title",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "按 RMV、续期和 REAL ID 查询校准标题与摘要。"
+  },
+  {
+    "route": "/directories/dmv-services/",
+    "action": "noindex",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-21",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "保留站内官方入口工具，退出搜索索引和 sitemap，清理泛英文 DMV 曝光。"
+  },
+  {
+    "route": "/directories/service-paths/",
+    "action": "noindex",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-21",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "保留站内分流工具，退出搜索索引和 sitemap，避免英文 REAL ID 问句误匹配。"
+  },
+  {
+    "route": "/states/washington/",
+    "action": "improve-answer",
+    "completedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "baselinePeriodEnd": "2026-07-21",
+    "summary": "把误落在搬州目录的身份证续期中文需求接回州页，并补充官方入口。"
+  }
+]

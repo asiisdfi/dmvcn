@@ -151,6 +151,9 @@ const WA_IDENTITY =
   'https://dol.wa.gov/driver-licenses-and-permits/documents-proof-identity';
 const WA_RENEW =
   'https://dol.wa.gov/driver-licenses-and-permits/renew-or-replace-driver-license/renew-driver-license';
+const WA_RENEW_ID = 'https://dol.wa.gov/id-cards/renew-id-card';
+const WA_RENEW_EID =
+  'https://dol.wa.gov/id-cards/enhanced-id-card-eid/renew-enhanced-id-card-eid';
 const WA_FEES =
   'https://dol.wa.gov/driver-licenses-and-permits/driver-licensing-fees';
 const WA_FIRST_LICENSE =
@@ -8299,6 +8302,8 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       WA_DRIVER_LICENSES,
       WA_IDENTITY,
       WA_RENEW,
+      WA_RENEW_ID,
+      WA_RENEW_EID,
       WA_FEES,
       WA_FIRST_LICENSE,
       WA_TRAINING,
@@ -8383,6 +8388,31 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '70 岁及以上、需要 vision screening、需要新照片或上次已在线续期的人，必须到 driver licensing office 续期': [
         WA_RENEW,
+      ],
+      '身份证到期时先区分 standard ID 与 Enhanced ID（EID）': [
+        WA_RENEW_ID,
+        WA_RENEW_EID,
+      ],
+      'Standard ID 可在线或到 driver licensing office 续期': [WA_RENEW_ID],
+      'EID 有单独续期入口': [WA_RENEW_EID],
+      '地址变化要先更新，线上续期收据不含照片或签名，不能当身份证使用': [
+        WA_RENEW_ID,
+        WA_ADDRESS,
+      ],
+      'standard ID 正式卡通常 7 至 10 个工作日寄到 DOL 记录的 Washington 住址': [
+        WA_RENEW_ID,
+      ],
+      '续期身份证时先看卡面是 standard ID 还是 EID': [
+        WA_RENEW_ID,
+        WA_RENEW_EID,
+      ],
+      '地址变化先更新，再进入对应续期页': [
+        WA_RENEW_ID,
+        WA_RENEW_EID,
+        WA_ADDRESS,
+      ],
+      '线上收据不能替代带照片的实体身份证，standard ID 正式卡要按 7 至 10 个工作日预留': [
+        WA_RENEW_ID,
       ],
       '搬家后 10 天内要更新 driver license / ID 地址': [WA_ADDRESS],
       '更新驾驶记录免费，立即领取显示新地址的新卡为 $20，vehicle registration 地址还要另外更新': [
