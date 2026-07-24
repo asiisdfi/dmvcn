@@ -1,25 +1,36 @@
-# Search Console 月度工作流（站内脚本版本）
+# Search Console 月度工作流
 
-从 2026-07-01 开始，月度决策建议改为“脚本 + 人工判断”两步：
+每次决策使用同一 Search Console 属性和时间窗口的四类证据：
 
-1. 在 Search Console 导出最近 28 天与前 28 天对比 CSV。
-2. 命令：
+1. 页面维度 CSV：`reports/search-console-export.csv`
+2. 查询维度 CSV：`reports/private/search-console-query-export.csv`
+3. 页面与查询映射：`reports/private/search-console-page-query-signals.csv`
+4. 全站、国家和设备快照：`reports/private/search-console-segments.json`
+
+这些原始文件不提交到公开仓库。导出和映射完成后运行：
 
 ```bash
-SC_REPORT_PATH=./reports/your-export.csv npm run plan:sc
+npm run plan:sc
+npm run plan:growth
 ```
 
-3. 脚本生成：
+生成结果：
 
 - `reports/search-console-priority.json`
 - `reports/search-console-priority.csv`
 - `reports/search-console-priority.md`
+- `reports/growth-scorecard.json`
+- `reports/growth-scorecard.md`
 
-4. 打开 `/quality/` 的“Search Console 月度建议”区块，按优先级处理：
+只有以下条件同时满足时才执行内容动作：
 
-- 有展现但无点击、低 CTR：先补答复结构（失败场景、步骤、官方入口）
-- 位置差且展现较高：先补充检索意图匹配标题与内容
-- 近两期下滑大：先复核官方规则变化与来源更新日期
+- `dataSnapshot.readyForPlanning` 为 `true`
+- `execution.allowedNow` 大于 0
+- 页面有目标查询证据，不只是泛英文或本地曝光
+- 页面不在冷却期
+- 高风险查询已完成人工语义复核
+- 本周和本月仍有内容容量
 
-5. 建议与网站已有 `docs/CONTENT_PLAN_90_DAYS.md` 合并更新，并写入 `docs/CONTENT_PLAN_90_DAYS.md` 的新版本。
+没有页面级查询证据时，先在 Search Console 中过滤页面并补映射。已 `noindex` 但仍有曝光的 URL 进入索引清理观察，不作为扩写理由。
 
+每次内容修改后写入 `reports/search-console-actions.json`，至少等待 14 天再用新数据复评。长期指标以完整 30 天自定义窗口验收，28 天窗口只用于趋势判断。

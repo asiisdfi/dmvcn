@@ -1,0 +1,593 @@
+{
+  "generatedAt": "2026-07-24T11:52:14.948Z",
+  "auditDate": "2026-07-24",
+  "inventory": {
+    "fingerprint": "bcc9490fc21861be2c3b87c68fccfd10c69b7705fb29e6d6d7ffc6e57d3ff5fa",
+    "hosts": 147,
+    "highRiskUrls": 316,
+    "urls": 1659
+  },
+  "run": {
+    "batchLimit": 350,
+    "checked": 0,
+    "checkedSummary": {
+      "fail": 0,
+      "ok": 0,
+      "watch": 0
+    },
+    "concurrency": 18,
+    "force": false,
+    "maxAgeDays": 30,
+    "ownerFilter": null,
+    "perHostConcurrency": 2,
+    "timeoutSeconds": 8
+  },
+  "coverage": {
+    "dueRemaining": 0,
+    "fresh": 1659,
+    "fullCoverage": true,
+    "lastFullCoverageAt": "2026-07-24",
+    "percent": 100
+  },
+  "highRiskCoverage": {
+    "fresh": 316,
+    "gatePassed": true,
+    "percent": 100,
+    "total": 316
+  },
+  "status": {
+    "confirmedHardFailures": 0,
+    "freshFail": 0,
+    "freshOk": 935,
+    "freshWatch": 724,
+    "highRiskGatePassed": true,
+    "monthlyGatePassed": true,
+    "pendingHardFailures": 0
+  },
+  "anomalies": [],
+  "watchByHost": [
+    {
+      "count": 83,
+      "highRiskCount": 34,
+      "host": "dmv.ny.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 70,
+      "highRiskCount": 27,
+      "host": "www.mass.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 43,
+      "highRiskCount": 11,
+      "host": "www.dps.texas.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 31,
+      "highRiskCount": 11,
+      "host": "www.dmv.virginia.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 31,
+      "highRiskCount": 1,
+      "host": "www.ncdot.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 27,
+      "highRiskCount": 5,
+      "host": "www.ilsos.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 25,
+      "highRiskCount": 0,
+      "host": "dmv.sc.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 23,
+      "highRiskCount": 6,
+      "host": "dds.georgia.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 23,
+      "highRiskCount": 0,
+      "host": "dmv.ri.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 20,
+      "highRiskCount": 1,
+      "host": "azdot.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 20,
+      "highRiskCount": 1,
+      "host": "mva.maryland.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 20,
+      "highRiskCount": 0,
+      "host": "www.michigan.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 19,
+      "highRiskCount": 0,
+      "host": "mvdmt.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 19,
+      "highRiskCount": 0,
+      "host": "www.ksrevenue.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 18,
+      "highRiskCount": 0,
+      "host": "iowadot.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 18,
+      "highRiskCount": 0,
+      "host": "www.dot.nd.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 17,
+      "highRiskCount": 3,
+      "host": "www.mvd.newmexico.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 15,
+      "highRiskCount": 1,
+      "host": "portal.ct.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 15,
+      "highRiskCount": 0,
+      "host": "www.dmv.nh.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 13,
+      "highRiskCount": 0,
+      "host": "legislature.vermont.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 13,
+      "highRiskCount": 0,
+      "host": "wisconsindot.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 13,
+      "highRiskCount": 1,
+      "host": "www.oregon.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 13,
+      "highRiskCount": 0,
+      "host": "www.tn.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 12,
+      "highRiskCount": 0,
+      "host": "dps.mn.gov",
+      "statuses": [
+        "404"
+      ]
+    },
+    {
+      "count": 11,
+      "highRiskCount": 0,
+      "host": "www.bmv.ohio.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 9,
+      "highRiskCount": 0,
+      "host": "www.alea.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 8,
+      "highRiskCount": 0,
+      "host": "dmv.nebraska.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 8,
+      "highRiskCount": 5,
+      "host": "dor.georgia.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 8,
+      "highRiskCount": 0,
+      "host": "drive.ky.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 7,
+      "highRiskCount": 0,
+      "host": "www.dfa.arkansas.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 6,
+      "highRiskCount": 0,
+      "host": "ia.iowadot.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 5,
+      "highRiskCount": 4,
+      "host": "www.nhtsa.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 4,
+      "highRiskCount": 0,
+      "host": "apps.mshp.dps.mo.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 4,
+      "highRiskCount": 0,
+      "host": "codes.ohio.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 4,
+      "highRiskCount": 0,
+      "host": "dojmt.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 4,
+      "highRiskCount": 0,
+      "host": "www.kauai.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 4,
+      "highRiskCount": 4,
+      "host": "www.ssa.gov",
+      "statuses": [
+        "000",
+        "403"
+      ]
+    },
+    {
+      "count": 4,
+      "highRiskCount": 0,
+      "host": "www.vrl.hawaiicounty.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 3,
+      "highRiskCount": 0,
+      "host": "apps.azdot.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 3,
+      "highRiskCount": 0,
+      "host": "apps.ilsos.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 3,
+      "highRiskCount": 0,
+      "host": "assets.dps.mn.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 2,
+      "highRiskCount": 0,
+      "host": "dps.arkansas.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 2,
+      "highRiskCount": 0,
+      "host": "wp.kentuckystatepolice.ky.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "432201.waitwell.us",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "alabamadl.alea.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "appointments.dmv.de.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "apps.nd.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "atlas-myrmv.massdot.state.ma.us",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "azmvdnow.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "cars.dojmt.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "dmv.alaska.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "dmv.colorado.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "dmv.vermont.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "dmv2u.oregon.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "dsvsesvc.sos.state.mi.us",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "idot.illinois.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "ndlegis.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "olis.oregonlegislature.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "onlineservices.dps.mn.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "realid.mvd.newmexico.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 1,
+      "host": "secure.ssa.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "tax.ri.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "telegov.egov.com",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "vsp.virginia.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "webserver.rilegislature.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "www.fcc.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
+      "host": "www.leg.state.nv.us",
+      "statuses": [
+        "403"
+      ]
+    }
+  ],
+  "limitations": [
+    "HTTP 可访问只证明链接可打开，不证明页面正文仍支持站内每一项事实。",
+    "401、403、408、425、429、5xx 和常见网络超时记为 watch，不自动当作来源失效。",
+    "普通 404 或 410 首次记为待确认硬失败；跨日期连续两次失败后才记为确认失败。",
+    "原始逐链接缓存保存在 reports/private，不提交到公开仓库。"
+  ]
+}
