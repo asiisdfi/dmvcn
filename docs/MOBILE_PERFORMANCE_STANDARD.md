@@ -40,7 +40,9 @@ npm run audit:performance
 
 首页另一次使用 DevTools 慢速移动网络得到 Performance 92、FCP 2.7 秒、LCP 2.7 秒。Accessibility 96 来自三处文字对比度不足；四个页面都存在品牌链接可访问名称与可见文字不一致。
 
-候选构建把页眉标志降到 3,434 字节、touch icon 降到 5,768 字节。相同 Lighthouse 模拟配置下，四页总传输量分别降到约 35 KB、25 KB、25 KB 和 58 KB，品牌名称与颜色对比检查均不再报错。最终仍须在生产部署后复测，不能用本机响应时间代替生产结果。
+候选构建把页眉标志降到 3,434 字节、touch icon 降到 5,768 字节。相同 Lighthouse 模拟配置下，四页总传输量分别降到约 35 KB、25 KB、25 KB 和 58 KB，品牌名称与颜色对比检查均不再报错。
+
+提交 `562b548` 部署后使用生产 URL 复测：首页总传输量为 36,502 字节，Performance、Accessibility、Best Practices 和 SEO 均为 100，TBT 与 CLS 为 0。DevTools 慢速移动网络下，Performance 从 92 升到 98，FCP 与 LCP 从 2.7 秒降到 1.8 秒。单次 Lighthouse 结果会受网络和服务端响应波动影响，因此这里只证明本轮资源优化与无障碍问题已在生产生效，不把它当作真实用户 Core Web Vitals。
 
 ## 月度复核
 
