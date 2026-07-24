@@ -7,6 +7,8 @@
 3. 页面与查询映射：`reports/private/search-console-page-query-signals.csv`
 4. 全站、国家和设备快照：`reports/private/search-console-segments.json`
 
+另外可以记录最近 24 小时脉冲：`reports/private/search-console-pulse.json`。短周期脉冲只用于发现异常国家、设备差异、noindex 历史可见性和有点击页面，不保存原始查询，也不能替代上述四类完整证据。
+
 这些原始文件不提交到公开仓库。导出和映射完成后运行：
 
 ```bash
@@ -14,6 +16,8 @@ npm run plan:sc
 npm run audit:search-console
 npm run plan:growth
 npm run audit:growth
+npm run plan:pulse
+npm run audit:pulse
 ```
 
 生成结果：
@@ -23,6 +27,8 @@ npm run audit:growth
 - `reports/search-console-priority.md`
 - `reports/growth-scorecard.json`
 - `reports/growth-scorecard.md`
+- `reports/search-console-pulse.json`
+- `reports/search-console-pulse.md`
 
 只有以下条件同时满足时才执行内容动作：
 
@@ -38,3 +44,5 @@ npm run audit:growth
 每次内容修改后写入 `reports/search-console-actions.json`，至少等待 14 天再用新数据复评。长期指标以完整 30 天自定义窗口验收，28 天窗口只用于趋势判断。
 
 增长记分卡把美国点击与曝光占比、设备端效率、可见中文查询占比、异常国家流量和 noindex 历史曝光分别记录。页面维度与全站属性维度口径不同，索引噪声只用于判断清理优先级，不得从全站曝光中直接相减。`audit:growth` 会在发布前校验这些比例、长期目标和 30 天验收状态，防止把趋势数据误报为目标完成。
+
+24 小时报告必须保持 `provisional`，并由 `audit:pulse` 检查国家和设备汇总、美国流量占比、noindex 可见性、点击页面观察状态、内容容量以及报告新鲜度。有点击但没有完整页面查询证据的 URL 只能进入观察队列；即使短期 CTR 或点击上升，也不能绕过 `hold-cadence`、冷却期或 30 天验收口径。

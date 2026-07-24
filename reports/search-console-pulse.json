@@ -1,0 +1,180 @@
+{
+  "generatedAt": "2026-07-24T21:04:00+08:00",
+  "source": {
+    "property": "sc-domain:dmvcn.com",
+    "pulseWindow": {
+      "label": "最近 24 小时",
+      "hours": 24,
+      "dataShownFrom": "2026-07-23",
+      "dataShownThrough": "2026-07-24",
+      "timeZone": "Asia/Shanghai",
+      "provisional": true,
+      "lastUpdatedHoursAgo": 4.5
+    },
+    "baselineWindow": {
+      "label": "过去 28 天",
+      "days": 28,
+      "dataShownFrom": "2026-07-12",
+      "dataShownThrough": "2026-07-22",
+      "timeZone": "Asia/Shanghai"
+    },
+    "dataPolicy": "24 小时数据仅用于异常监控和观察队列；不保存原始查询，不替代 30 天目标验收。"
+  },
+  "metrics": {
+    "propertyTotals": {
+      "clicks": 3,
+      "impressions": 868,
+      "ctr": 0.3,
+      "position": 35.9
+    },
+    "unitedStates": {
+      "clicks": 3,
+      "impressions": 193,
+      "ctr": 1.6,
+      "position": 37,
+      "clickShare": 100,
+      "impressionShare": 22.2
+    },
+    "vietnam": {
+      "clicks": 0,
+      "impressions": 591,
+      "ctr": 0,
+      "position": 35.9,
+      "impressionShare": 68.1
+    },
+    "devices": [
+      {
+        "code": "MOBILE",
+        "label": "移动设备",
+        "clicks": 2,
+        "impressions": 67,
+        "ctr": 3,
+        "position": 18.7
+      },
+      {
+        "code": "DESKTOP",
+        "label": "桌面",
+        "clicks": 1,
+        "impressions": 799,
+        "ctr": 0.1,
+        "position": 37.3
+      },
+      {
+        "code": "TABLET",
+        "label": "平板电脑",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 43
+      }
+    ],
+    "unitedStatesDevices": [
+      {
+        "code": "MOBILE",
+        "label": "移动设备",
+        "clicks": 2,
+        "impressions": 64,
+        "ctr": 3.1,
+        "position": 19.2
+      },
+      {
+        "code": "DESKTOP",
+        "label": "桌面",
+        "clicks": 1,
+        "impressions": 127,
+        "ctr": 0.8,
+        "position": 45.9
+      },
+      {
+        "code": "TABLET",
+        "label": "平板电脑",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 43
+      }
+    ]
+  },
+  "diagnostics": {
+    "baselineDaily": {
+      "observedDays": 11,
+      "clicks": 1.6,
+      "impressions": 550,
+      "unitedStatesClicks": 1.1,
+      "unitedStatesImpressions": 164.5,
+      "vietnamImpressions": 280.3
+    },
+    "momentum": {
+      "clicksPercentOfBaselineDaily": 187.5,
+      "impressionsPercentOfBaselineDaily": 157.8,
+      "unitedStatesClicksPercentOfBaselineDaily": 272.7,
+      "unitedStatesImpressionsPercentOfBaselineDaily": 117.3,
+      "vietnamImpressionsPercentOfBaselineDaily": 210.8
+    },
+    "audienceNoise": {
+      "noiseDominated": true,
+      "country": "VN",
+      "impressions": 591,
+      "impressionShare": 68.1
+    },
+    "noindexVisibility": {
+      "routes": 3,
+      "clicks": 0,
+      "impressions": 432,
+      "relativeToPropertyImpressionsPercent": 49.8,
+      "evaluateAfter": "2026-08-21",
+      "note": "这是历史可见性规模提示，页面维度与全站属性口径不同，不能从全站曝光中直接相减。"
+    },
+    "clickedPageQueue": [
+      {
+        "route": "/topics/temporary-tag-trip-permit-dealer-plate/",
+        "clicks": 1,
+        "impressions": 9,
+        "state": "observe-query-needed",
+        "earliestDecisionDate": "2026-08-01",
+        "note": "24 小时点击只进入观察队列；取得完整页面查询证据后才可安排内容动作。"
+      },
+      {
+        "route": "/topics/vehicle-title-registration-insurance-after-move/",
+        "clicks": 1,
+        "impressions": 7,
+        "state": "cooldown",
+        "earliestDecisionDate": "2026-08-07",
+        "note": "已完成内容动作，等待冷却期后使用完整查询数据复评。"
+      },
+      {
+        "route": "/topics/real-id-basics/",
+        "clicks": 1,
+        "impressions": 1,
+        "state": "observe-query-needed",
+        "earliestDecisionDate": "2026-08-01",
+        "note": "24 小时点击只进入观察队列；取得完整页面查询证据后才可安排内容动作。"
+      }
+    ],
+    "visibleRows": {
+      "pages": 95,
+      "queries": 205,
+      "rawQueriesPublished": false
+    }
+  },
+  "execution": {
+    "searchPlanStatus": "hold-cadence",
+    "allowedNow": 0,
+    "nextEligibleDate": "2026-08-01",
+    "nextEligibleSlots": 3
+  },
+  "status": {
+    "provisional": true,
+    "completionComparable": false,
+    "contentActionAllowed": false,
+    "rawTrafficElevated": true,
+    "qualifiedUsExposureTrend": "stable",
+    "noiseDominated": true,
+    "interpretation": "总曝光上升主要受非目标国家和历史索引可见性影响；美国点击信号单独观察。"
+  },
+  "warnings": [
+    "24 小时数据会持续补录和波动，不得用于宣称长期目标达标。",
+    "总曝光不能直接当作合格美国中文流量；国家、设备和 noindex 历史可见性必须分开看。",
+    "点击页面没有完整查询证据时只进入观察队列，不自动改标题或扩写正文。"
+  ]
+}

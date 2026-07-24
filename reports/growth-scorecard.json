@@ -7,7 +7,7 @@
       "label": "过去 28 天",
       "days": 28,
       "dataShownFrom": "2026-07-12",
-      "dataShownThrough": "2026-07-21",
+      "dataShownThrough": "2026-07-22",
       "timeZone": "Asia/Shanghai"
     },
     "pageReport": "reports/search-console-export.csv",
@@ -35,33 +35,33 @@
   },
   "current": {
     "propertyTotals": {
-      "clicks": 16,
-      "impressions": 5100,
+      "clicks": 18,
+      "impressions": 6050,
       "ctr": 0.3,
-      "position": 38.6
+      "position": 38.1
     },
     "rankedPages": {
       "rowsWithImpressions": 124,
-      "top20": 21,
-      "top10": 5
+      "top20": 19,
+      "top10": 4
     },
     "traffic": {
-      "usClicks": 10,
-      "usImpressions": 1610,
-      "usClickShare": 62.5,
-      "usImpressionShare": 31.6,
+      "usClicks": 12,
+      "usImpressions": 1809,
+      "usClickShare": 66.7,
+      "usImpressionShare": 29.9,
       "countries": [
         {
           "code": "US",
           "label": "美国",
-          "clicks": 10,
-          "impressions": 1610
+          "clicks": 12,
+          "impressions": 1809
         },
         {
           "code": "TW",
           "label": "台湾",
           "clicks": 3,
-          "impressions": 35
+          "impressions": 42
         },
         {
           "code": "JP",
@@ -73,13 +73,13 @@
           "code": "CA",
           "label": "加拿大",
           "clicks": 1,
-          "impressions": 22
+          "impressions": 24
         },
         {
           "code": "VN",
           "label": "越南",
           "clicks": 0,
-          "impressions": 2430
+          "impressions": 3083
         }
       ],
       "devices": [
@@ -87,19 +87,19 @@
           "code": "MOBILE",
           "label": "移动设备",
           "clicks": 9,
-          "impressions": 332
+          "impressions": 407
         },
         {
           "code": "DESKTOP",
           "label": "桌面",
-          "clicks": 6,
-          "impressions": 4746
+          "clicks": 8,
+          "impressions": 5619
         },
         {
           "code": "TABLET",
           "label": "平板电脑",
           "clicks": 1,
-          "impressions": 21
+          "impressions": 23
         }
       ]
     },
@@ -107,12 +107,12 @@
       "queryVisibility": {
         "visibleRows": 1000,
         "visibleClicks": 1,
-        "visibleImpressions": 1855,
-        "impressionCoveragePercent": 36.4,
-        "chineseRows": 25,
+        "visibleImpressions": 1952,
+        "impressionCoveragePercent": 32.3,
+        "chineseRows": 29,
         "chineseClicks": 0,
-        "chineseImpressions": 47,
-        "chineseShareOfVisibleImpressions": 2.5,
+        "chineseImpressions": 56,
+        "chineseShareOfVisibleImpressions": 2.9,
         "note": "仅保存汇总值；原始查询留在私有报告，不写入公开记分卡。"
       },
       "devices": [
@@ -120,28 +120,28 @@
           "code": "MOBILE",
           "label": "移动设备",
           "clicks": 9,
-          "impressions": 332,
-          "clickShare": 56.3,
-          "impressionShare": 6.5,
-          "ctr": 2.7
+          "impressions": 407,
+          "clickShare": 50,
+          "impressionShare": 6.7,
+          "ctr": 2.2
         },
         {
           "code": "DESKTOP",
           "label": "桌面",
-          "clicks": 6,
-          "impressions": 4746,
-          "clickShare": 37.5,
-          "impressionShare": 93.1,
+          "clicks": 8,
+          "impressions": 5619,
+          "clickShare": 44.4,
+          "impressionShare": 92.9,
           "ctr": 0.1
         },
         {
           "code": "TABLET",
           "label": "平板电脑",
           "clicks": 1,
-          "impressions": 21,
-          "clickShare": 6.3,
+          "impressions": 23,
+          "clickShare": 5.6,
           "impressionShare": 0.4,
-          "ctr": 4.8
+          "ctr": 4.3
         }
       ],
       "audienceAnomalies": [
@@ -149,22 +149,22 @@
           "code": "VN",
           "label": "越南",
           "clicks": 0,
-          "impressions": 2430,
-          "impressionShare": 47.6
+          "impressions": 3083,
+          "impressionShare": 51
         }
       ],
       "indexingNoise": {
         "routes": 3,
-        "impressions": 2792,
-        "relativeToPropertyImpressionsPercent": 54.7,
+        "impressions": 3278,
+        "relativeToPropertyImpressionsPercent": 54.2,
         "overdue": 0,
         "note": "来自页面维度历史数据，与全站属性总量口径不同，只能观察规模，不能直接相减。"
       }
     },
     "pageDimension": {
       "indexableRows": 124,
-      "clickSum": 16,
-      "impressionSum": 2985,
+      "clickSum": 18,
+      "impressionSum": 3499,
       "note": "仅用于页面排名和页面机会分析，不作为全站总量。"
     },
     "cadence": {
@@ -196,19 +196,19 @@
   },
   "checks": {
     "clicks": {
-      "actual": 16,
+      "actual": 18,
       "target": 500,
       "unit": "clicks",
-      "progressPercent": 3.2,
-      "remaining": 484,
+      "progressPercent": 3.6,
+      "remaining": 482,
       "met": false
     },
     "impressions": {
-      "actual": 5100,
+      "actual": 6050,
       "target": 50000,
       "unit": "impressions",
-      "progressPercent": 10.2,
-      "remaining": 44900,
+      "progressPercent": 12.1,
+      "remaining": 43950,
       "met": false
     },
     "ctr": {
@@ -220,27 +220,27 @@
       "met": false
     },
     "top20Pages": {
-      "actual": 21,
+      "actual": 19,
       "target": 30,
       "unit": "pages",
-      "progressPercent": 70,
-      "remaining": 9,
+      "progressPercent": 63.3,
+      "remaining": 11,
       "met": false
     },
     "top10Pages": {
-      "actual": 5,
+      "actual": 4,
       "target": 15,
       "unit": "pages",
-      "progressPercent": 33.3,
-      "remaining": 10,
+      "progressPercent": 26.7,
+      "remaining": 11,
       "met": false
     },
     "usClickShare": {
-      "actual": 62.5,
+      "actual": 66.7,
       "target": 70,
       "unit": "percent",
-      "progressPercent": 89.3,
-      "remaining": 7.5,
+      "progressPercent": 95.3,
+      "remaining": 3.3,
       "met": false
     }
   },
@@ -254,11 +254,11 @@
   },
   "warnings": [
     "当前快照是 28 天窗口，只能跟踪趋势，不能证明 30 天目标完成。",
-    "设备分段只覆盖 5099/5100 次曝光，设备曝光占比可能有四舍五入或缺失。",
+    "设备分段只覆盖 6049/6050 次曝光，设备曝光占比可能有四舍五入或缺失。",
     "页面维度与全站属性采用不同聚合口径，本报告还会排除当前 noindex 页面，不能用页面行求和替代全站曝光总量。",
-    "3 个已 noindex 页面仍有 2792 次历史页面维度曝光，相当于全站属性曝光的 54.7%；两者口径不同，不能直接相减。",
+    "3 个已 noindex 页面仍有 3278 次历史页面维度曝光，相当于全站属性曝光的 54.2%；两者口径不同，不能直接相减。",
     "发现 1 个非目标国家有大量曝光但没有点击，不应据此扩写泛英文内容。",
-    "移动端仅占 6.5% 曝光，却贡献 56.3% 点击；移动端中文办事体验应作为增长基线。",
+    "移动端仅占 6.7% 曝光，却贡献 50% 点击；移动端中文办事体验应作为增长基线。",
     "本月已记录 20 个内容动作，超过 8–12 个计划节奏；除规则纠错外应等待冷却数据。",
     "最近 7 天已记录 20 个内容动作，超过每周 2–3 个节奏；应先观察而不是继续批量修改。"
   ]

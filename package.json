@@ -15,6 +15,7 @@
     "audit:source-freshness": "node --experimental-strip-types scripts/audit-source-freshness.mjs",
     "audit:search-console": "node scripts/audit-search-console-plan.mjs",
     "audit:growth": "node scripts/audit-growth-scorecard.mjs",
+    "audit:pulse": "node --experimental-strip-types scripts/audit-search-console-pulse.mjs",
     "audit:content": "node --experimental-strip-types scripts/audit-content-quality.mjs",
     "audit:directory-evidence": "node --experimental-strip-types scripts/audit-directory-evidence.mjs",
     "audit:state-evidence": "node --experimental-strip-types scripts/audit-state-evidence.mjs",
@@ -30,8 +31,9 @@
     "plan:quality": "node scripts/build-quality-workbook.mjs",
     "plan:sc": "node scripts/build-search-console-plan.mjs",
     "plan:growth": "node scripts/build-growth-scorecard.mjs",
+    "plan:pulse": "node --experimental-strip-types scripts/build-search-console-pulse.mjs",
     "review:signoffs:import": "node --experimental-strip-types scripts/import-review-signoffs.mjs",
-    "verify:launch": "npm run audit:content && npm run audit:practice && npm run audit:source-freshness && npm run audit:search-console && npm run audit:growth && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:publication && npm run audit:site && npm run audit:internal-links && npm run audit:seo && npm run audit:metadata && npm run audit:performance && npm run audit:launch",
+    "verify:launch": "npm run audit:content && npm run audit:practice && npm run audit:source-freshness && npm run audit:search-console && npm run audit:growth && npm run audit:pulse && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:publication && npm run audit:site && npm run audit:internal-links && npm run audit:seo && npm run audit:metadata && npm run audit:performance && npm run audit:launch",
     "astro": "astro",
     "plan:signoff": "node scripts/build-signoff-template.mjs",
     "audit:publication": "node --experimental-strip-types scripts/audit-publication-gate.mjs"
