@@ -11,6 +11,12 @@ const pageQuerySignalPath = path.join(
   'private',
   'search-console-page-query-signals.csv',
 );
+const segmentReportPath = path.join(
+  projectRoot,
+  'reports',
+  'private',
+  'search-console-segments.json',
+);
 const eeatReportPath = path.join(projectRoot, 'reports', 'eeat-inventory.json');
 const actionLogPath = path.join(projectRoot, 'reports', 'search-console-actions.json');
 const outputDir = path.join(projectRoot, 'reports');
@@ -18,12 +24,17 @@ const privateOutputDir = path.join(outputDir, 'private');
 const sourcePath = process.env.SC_REPORT_PATH || reportPath;
 const querySourcePath = process.env.SC_QUERY_REPORT_PATH || queryReportPath;
 const pageQuerySourcePath = process.env.SC_PAGE_QUERY_REPORT_PATH || pageQuerySignalPath;
+const segmentSourcePath = process.env.SC_SEGMENT_REPORT_PATH || segmentReportPath;
+const eeatSourcePath = process.env.EEAT_REPORT_PATH || eeatReportPath;
+const actionLogSourcePath = process.env.SC_ACTION_LOG_PATH || actionLogPath;
 const resolvedSourcePath = path.resolve(sourcePath);
 const resolvedQuerySourcePath = path.resolve(querySourcePath);
 const resolvedPageQuerySourcePath = path.resolve(pageQuerySourcePath);
+const resolvedSegmentSourcePath = path.resolve(segmentSourcePath);
 const relativeSourcePath = path.relative(projectRoot, resolvedSourcePath);
 const relativeQuerySourcePath = path.relative(projectRoot, resolvedQuerySourcePath);
 const relativePageQuerySourcePath = path.relative(projectRoot, resolvedPageQuerySourcePath);
+const relativeSegmentSourcePath = path.relative(projectRoot, resolvedSegmentSourcePath);
 const sourceLabel = relativeSourcePath && !relativeSourcePath.startsWith('..')
   ? relativeSourcePath
   : sourcePath;
@@ -34,6 +45,15 @@ const pageQuerySourceLabel =
   relativePageQuerySourcePath && !relativePageQuerySourcePath.startsWith('..')
     ? relativePageQuerySourcePath
     : pageQuerySourcePath;
+const segmentSourceLabel =
+  relativeSegmentSourcePath && !relativeSegmentSourcePath.startsWith('..')
+    ? relativeSegmentSourcePath
+    : segmentSourcePath;
+const editorialTargets = {
+  weekly: { min: 2, max: 3 },
+  monthly: { min: 8, max: 12 },
+};
+const expectedProperty = 'sc-domain:dmvcn.com';
 
 function currentCalendarDate() {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -52,14 +72,31 @@ const defaultPlanRows = {
   source: sourceLabel,
   querySource: querySourceLabel,
   pageQuerySource: pageQuerySourceLabel,
+  segmentSource: segmentSourceLabel,
   totalRows: 0,
   includedRows: 0,
   querySignals: null,
+  dataSnapshot: {
+    readyForPlanning: false,
+    blockers: ['缺少页面维度导出。'],
+  },
+  execution: {
+    status: 'hold-data',
+    allowedNow: 0,
+    executeNow: [],
+    nextQueue: [],
+    dataCollectionQueue: [],
+    humanReviewQueue: [],
+    indexingCleanupQueue: [],
+  },
   actions: {
     improveAnswer: [],
     improveTitle: [],
     refreshRule: [],
     newTopics: [],
+    needsQueryEvidence: [],
+    nonTarget: [],
+    humanReview: [],
     cooldown: [],
   },
   prioritized: [],
@@ -147,12 +184,73 @@ function normalizeRoute(value) {
   return trimmed.endsWith('/') ? trimmed : `${trimmed}/`;
 }
 
+function isCalendarDate(value) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(String(value ?? ''));
+}
+
+function calendarDateToMs(value) {
+  return isCalendarDate(value) ? Date.parse(`${value}T00:00:00.000Z`) : Number.NaN;
+}
+
+function daysBetween(earlier, later) {
+  const earlierMs = calendarDateToMs(earlier);
+  const laterMs = calendarDateToMs(later);
+  if (!Number.isFinite(earlierMs) || !Number.isFinite(laterMs)) return null;
+  return Math.round((laterMs - earlierMs) / 86_400_000);
+}
+
+function shiftCalendarDate(value, days) {
+  const date = new Date(calendarDateToMs(value));
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
+}
+
+function actionCountsForDate(actionLog, date) {
+  const month = date.slice(0, 7);
+  const rollingStart = shiftCalendarDate(date, -6);
+  const completed = actionLog.filter(
+    (entry) =>
+      isCalendarDate(entry.completedAt) &&
+      entry.completedAt <= date,
+  );
+  return {
+    weekly: completed.filter((entry) => entry.completedAt >= rollingStart).length,
+    monthly: completed.filter((entry) => entry.completedAt.startsWith(month)).length,
+  };
+}
+
+function availableEditorialSlots(actionLog, date) {
+  const counts = actionCountsForDate(actionLog, date);
+  return {
+    ...counts,
+    slots: Math.max(
+      0,
+      Math.min(
+        editorialTargets.weekly.max - counts.weekly,
+        editorialTargets.monthly.max - counts.monthly,
+      ),
+    ),
+  };
+}
+
+function nextEditorialWindow(actionLog, fromDate) {
+  for (let offset = 0; offset <= 62; offset += 1) {
+    const date = shiftCalendarDate(fromDate, offset);
+    const capacity = availableEditorialSlots(actionLog, date);
+    if (capacity.slots > 0) return { date, ...capacity };
+  }
+  return null;
+}
+
 function priorityScore(item) {
+  if (item.action === 'observe' || item.action === 'observe-non-target') return 0;
   let score = 0;
   if (item.action === 'improve-answer') score += 40;
   if (item.action === 'improve-title') score += 35;
   if (item.action === 'refresh-rule-change') score += 30;
   if (item.action === 'new-topic') score += 20;
+  if (item.action === 'needs-query-evidence') score += 10;
+  if (item.action === 'human-review') score += 15;
 
   if (item.ctrCurrent < 1) score += 12;
   if (item.positionCurrent > 20) score += 10;
@@ -167,7 +265,7 @@ function priorityScore(item) {
 
 let eeat;
 try {
-  eeat = JSON.parse(await readFile(eeatReportPath, 'utf8'));
+  eeat = JSON.parse(await readFile(path.resolve(eeatSourcePath), 'utf8'));
 } catch {
   console.error('未检测到 eeat-inventory.json，请先 npm run build && npm run audit:eeat。');
   throw new Error('missing-eeat');
@@ -178,9 +276,14 @@ const siteRoutes = new Set(
     .filter((page) => page.indexable)
     .map((page) => page.route),
 );
+const knownNoindexRoutes = new Set(
+  (eeat.pages ?? [])
+    .filter((page) => !page.indexable)
+    .map((page) => page.route),
+);
 let actionLog = [];
 try {
-  actionLog = JSON.parse(await readFile(actionLogPath, 'utf8'));
+  actionLog = JSON.parse(await readFile(path.resolve(actionLogSourcePath), 'utf8'));
 } catch {
   actionLog = [];
 }
@@ -268,6 +371,13 @@ try {
 } catch {
   pageQueryWarning = `未找到 Search Console 页面查询映射：${pageQuerySourcePath}`;
 }
+let segmentSnapshot = null;
+let segmentWarning = '';
+try {
+  segmentSnapshot = JSON.parse(await readFile(resolvedSegmentSourcePath, 'utf8'));
+} catch {
+  segmentWarning = `未找到 Search Console 分段快照：${segmentSourcePath}`;
+}
 
 const queryItems = queryRows
   .map((row) => ({
@@ -289,6 +399,15 @@ const isDmvRelevantChineseQuery = (query) =>
   ) && !/^dmv\s*看$/i.test(query.trim());
 const isHighRiskChineseQuery = (query) =>
   /(精神|病史|痊愈|复职|吊销|暂停|债务|承担债务|法律责任)/.test(query);
+const isHumanReviewClassification = (classification) =>
+  String(classification).startsWith('human-review');
+const isTargetQuerySignal = (signal) =>
+  !isHumanReviewClassification(signal.classification) &&
+  signal.classification !== 'overlap-review' &&
+  (
+    isChineseQuery(signal.query) ||
+    ['selected-title', 'misrouted-intent'].includes(signal.classification)
+  );
 const topByImpressions = (items, limit = 25) =>
   [...items]
     .sort((a, b) => b.impressions - a.impressions || a.position - b.position)
@@ -352,13 +471,86 @@ const publicQuerySignals = querySignals
       humanReviewSignals: querySignals.humanReviewSignals.length,
     }
   : null;
+const snapshotObservedAt = segmentSnapshot?.observedAt ?? null;
+const snapshotDataThrough = segmentSnapshot?.window?.dataShownThrough ?? null;
+const snapshotAgeDays = daysBetween(snapshotObservedAt, planDate);
+const snapshotLagDays = daysBetween(snapshotDataThrough, planDate);
+const signalObservedDates = [
+  ...new Set(
+    pageQuerySignals
+      .map((signal) => signal.observedAt)
+      .filter((value) => isCalendarDate(value)),
+  ),
+].sort();
+const oldestSignalAgeDays = signalObservedDates.length
+  ? daysBetween(signalObservedDates[0], planDate)
+  : null;
+const dataBlockers = [];
+if (!segmentSnapshot) dataBlockers.push('缺少分段快照，无法确认属性、时间窗口和全站总量。');
+if (segmentSnapshot && segmentSnapshot.property !== expectedProperty) {
+  dataBlockers.push(`分段快照属性不是 ${expectedProperty}。`);
+}
+if (toNumber(segmentSnapshot?.window?.days) < 28) {
+  dataBlockers.push('Search Console 时间窗口少于 28 天，不用于内容优先级判断。');
+}
+if (snapshotAgeDays === null || snapshotAgeDays < 0 || snapshotAgeDays > 7) {
+  dataBlockers.push('分段快照距计划日期超过 7 天或日期无效。');
+}
+if (snapshotLagDays === null || snapshotLagDays < 0 || snapshotLagDays > 7) {
+  dataBlockers.push('Search Console 最新完整数据距计划日期超过 7 天或日期无效。');
+}
+if (!queryItems.length) dataBlockers.push('缺少查询维度数据，不能证明真实搜索意图。');
+if (!pageQuerySignals.length) {
+  dataBlockers.push('缺少页面与查询映射，不能把查询意图归因到具体页面。');
+}
+if (
+  oldestSignalAgeDays === null ||
+  oldestSignalAgeDays < 0 ||
+  oldestSignalAgeDays > 7
+) {
+  dataBlockers.push('页面查询映射距计划日期超过 7 天或缺少有效观察日期。');
+}
+const dataSnapshot = {
+  property: segmentSnapshot?.property ?? null,
+  observedAt: snapshotObservedAt,
+  ageDays: snapshotAgeDays,
+  windowDays: toNumber(segmentSnapshot?.window?.days),
+  dataThrough: snapshotDataThrough,
+  dataLagDays: snapshotLagDays,
+  pageRows: rows.length,
+  queryRows: queryItems.length,
+  pageQuerySignals: pageQuerySignals.length,
+  pageQueryObservedFrom: signalObservedDates[0] ?? null,
+  pageQueryObservedThrough: signalObservedDates.at(-1) ?? null,
+  readyForPlanning: dataBlockers.length === 0,
+  completionComparable: toNumber(segmentSnapshot?.window?.days) === 30,
+  blockers: dataBlockers,
+};
 
 const pageMap = new Map();
+const excludedPageMap = new Map();
 for (const row of rows) {
   const page = normalizeRoute(
     getCell(row, ['page', 'landingpage', 'link', 'url', '排名靠前的网页']),
   );
-  if (!page || !siteRoutes.has(page)) continue;
+  if (!page) continue;
+  if (!siteRoutes.has(page)) {
+    const excluded = excludedPageMap.get(page) ?? {
+      route: page,
+      clicks: 0,
+      impressions: 0,
+      knownNoindex: knownNoindexRoutes.has(page),
+    };
+    excluded.clicks += pickNumber(row, ['clicks', 'clickscurrent', '点击次数']);
+    excluded.impressions += pickNumber(row, [
+      'impressions',
+      'impressionscurrent',
+      'impression',
+      '展示',
+    ]);
+    excludedPageMap.set(page, excluded);
+    continue;
+  }
 
   const entry = pageMap.get(page) || {
     page,
@@ -404,6 +596,19 @@ for (const row of rows) {
   entry.queriesCount += 1;
   pageMap.set(page, entry);
 }
+const indexingCleanupQueue = [...excludedPageMap.values()]
+  .filter((item) => item.impressions > 0)
+  .sort((a, b) => b.impressions - a.impressions || a.route.localeCompare(b.route))
+  .map((item) => ({
+    ...item,
+    status: item.knownNoindex ? 'awaiting-deindex' : 'untracked-route',
+    action: item.knownNoindex ? 'observe-deindex' : 'investigate-route',
+  }));
+dataSnapshot.excludedPageRows = indexingCleanupQueue.length;
+dataSnapshot.excludedPageImpressions = indexingCleanupQueue.reduce(
+  (sum, item) => sum + item.impressions,
+  0,
+);
 
 const allRows = [...pageMap.values()].map((item) => {
   const impressionsCurrent = Math.round(item.impressionsCurrent);
@@ -419,8 +624,13 @@ const allRows = [...pageMap.values()].map((item) => {
   const impressionsDelta = impressionsPrevious > 0 ? ((impressionsCurrent - impressionsPrevious) / impressionsPrevious) * 100 : 100;
   const clicksDelta = clicksPrevious > 0 ? ((clicksCurrent - clicksPrevious) / clicksPrevious) * 100 : clicksCurrent > 0 ? 100 : 0;
 
-  const matchedQuerySignals = topByImpressions(pageQueryMap.get(item.page) ?? [], 8);
-  const selectedTitleSignal = matchedQuerySignals.find(
+  const allMatchedQuerySignals = pageQueryMap.get(item.page) ?? [];
+  const matchedQuerySignals = topByImpressions(allMatchedQuerySignals, 8);
+  const targetQuerySignals = allMatchedQuerySignals.filter(isTargetQuerySignal);
+  const humanReviewQuerySignals = allMatchedQuerySignals.filter((signal) =>
+    isHumanReviewClassification(signal.classification),
+  );
+  const selectedTitleSignal = targetQuerySignals.find(
     (signal) => signal.classification === 'selected-title',
   );
   const preferredTopQuery = matchedQuerySignals.find((signal) =>
@@ -432,24 +642,54 @@ const allRows = [...pageMap.values()].map((item) => {
 
   let action = 'observe';
   let reason = '维持展示；当前数据稳定。';
-  if (selectedTitleSignal) {
+  if (humanReviewQuerySignals.length > 0) {
+    action = 'human-review';
+    reason = '查询涉及医疗、复职或法律责任，必须先做人工语义和官方依据复核。';
+  } else if (selectedTitleSignal) {
     action = 'improve-title';
     reason = '已出现与州机构或具体业务一致的查询，标题和说明应采用用户实际用词。';
-  } else if (impressionsCurrent >= 50 && clicksCurrent === 0) {
-    action = 'improve-answer';
-    reason = '有展现但无点击，说明内容未直接命中用户决策。先加 FAQ/失败场景/来源映射。';
-  } else if (impressionsCurrent >= 50 && positionCurrent <= 20 && ctrCurrent < 2.5) {
-    action = 'improve-title';
-    reason = '页面排名可见但 CTR 偏低，先优化标题与说明，避免夸张承诺。';
-  } else if (impressionsCurrent >= 60 && positionCurrent > 20) {
-    action = 'improve-answer';
-    reason = '排名偏后且展现较多，可能命中问题但未提供高识别度答案结构。';
-  } else if (impressionsCurrent > 120 && impressionsDelta <= -40) {
+  } else if (
+    impressionsCurrent > 120 &&
+    impressionsPrevious > 0 &&
+    impressionsDelta <= -40
+  ) {
     action = 'refresh-rule-change';
-    reason = '近期展现/点击明显下滑，重点核验官方来源变化及页面语义链路。';
-  } else if (impressionsPrevious === 0 && impressionsCurrent >= 80) {
+    reason = '近期展现明显下滑，先核验官方规则变化和页面语义链路。';
+  } else if (
+    targetQuerySignals.length > 0 &&
+    impressionsCurrent >= 50 &&
+    clicksCurrent === 0
+  ) {
+    action = 'improve-answer';
+    reason = '目标查询已有展现但没有点击，先补直接答案、失败场景和逐条来源映射。';
+  } else if (
+    targetQuerySignals.length > 0 &&
+    impressionsCurrent >= 50 &&
+    positionCurrent <= 20 &&
+    ctrCurrent < 2.5
+  ) {
+    action = 'improve-title';
+    reason = '目标查询已经进入可见排名但 CTR 偏低，先校准标题和说明。';
+  } else if (
+    targetQuerySignals.length > 0 &&
+    impressionsCurrent >= 60 &&
+    positionCurrent > 20
+  ) {
+    action = 'improve-answer';
+    reason = '目标查询展现较多但排名偏后，先补判断路径和高识别度答案结构。';
+  } else if (
+    targetQuerySignals.length > 0 &&
+    impressionsPrevious === 0 &&
+    impressionsCurrent >= 80
+  ) {
     action = 'new-topic';
     reason = '新出现稳定流量，若现有页面承载不完整则分支新增专题。';
+  } else if (matchedQuerySignals.length === 0 && impressionsCurrent >= 50) {
+    action = 'needs-query-evidence';
+    reason = '页面有展现，但还没有页面级查询映射；先在 Search Console 过滤该页并采集查询。';
+  } else if (targetQuerySignals.length === 0 && impressionsCurrent >= 50) {
+    action = 'observe-non-target';
+    reason = '现有页面级信号来自泛英文或本地查询，不为非目标曝光扩写中文内容。';
   }
   const suggestedAction = action;
   const completedAction = latestActionByRoute.get(item.page);
@@ -476,6 +716,16 @@ const allRows = [...pageMap.values()].map((item) => {
     clicksDelta,
     topQuery: topQuery?.query ?? '',
     querySignals: matchedQuerySignals,
+    queryEvidenceCount: allMatchedQuerySignals.length,
+    targetQueryEvidenceCount: targetQuerySignals.length,
+    humanReviewEvidenceCount: humanReviewQuerySignals.length,
+    nonTargetQueryEvidenceCount:
+      allMatchedQuerySignals.length -
+      targetQuerySignals.length -
+      humanReviewQuerySignals.length,
+    queryClassifications: [
+      ...new Set(allMatchedQuerySignals.map((signal) => signal.classification)),
+    ].sort(),
     action,
     suggestedAction,
     reason,
@@ -492,29 +742,99 @@ for (const row of allRows) {
 allRows.sort((a, b) => b.score - a.score);
 
 const toPublicRow = (item) => {
-  const { topQuery, querySignals: itemQuerySignals, ...publicItem } = item;
+  const {
+    topQuery,
+    querySignals: itemQuerySignals,
+    humanReviewEvidenceCount,
+    ...publicItem
+  } = item;
   return {
     ...publicItem,
-    hasQueryEvidence: itemQuerySignals.length > 0,
-    queryEvidenceCount: itemQuerySignals.length,
-    queryClassifications: [...new Set(itemQuerySignals.map((signal) => signal.classification))].sort(),
+    hasQueryEvidence: item.queryEvidenceCount > 0,
+    requiresHumanReview: humanReviewEvidenceCount > 0,
   };
 };
 const publicRows = allRows.map(toPublicRow);
+const contentActionNames = new Set([
+  'improve-answer',
+  'improve-title',
+  'refresh-rule-change',
+  'new-topic',
+]);
+const eligibleContentRows = publicRows.filter(
+  (item) =>
+    contentActionNames.has(item.action) &&
+    item.targetQueryEvidenceCount > 0 &&
+    !item.requiresHumanReview,
+);
+const currentCapacity = availableEditorialSlots(actionLog, planDate);
+const nextWindow = nextEditorialWindow(actionLog, planDate);
+const allowedNow = dataSnapshot.readyForPlanning
+  ? Math.min(currentCapacity.slots, eligibleContentRows.length)
+  : 0;
+let executionStatus = 'ready';
+if (!dataSnapshot.readyForPlanning) {
+  executionStatus = 'hold-data';
+} else if (currentCapacity.slots === 0) {
+  executionStatus = 'hold-cadence';
+} else if (eligibleContentRows.length === 0) {
+  executionStatus = 'hold-no-qualified-query';
+}
+const executeNow = eligibleContentRows.slice(0, allowedNow);
+const nextQueueStart = allowedNow;
+const nextQueue = eligibleContentRows.slice(nextQueueStart, nextQueueStart + 12);
+const execution = {
+  status: executionStatus,
+  targets: editorialTargets,
+  currentPeriod: {
+    through: planDate,
+    weeklyActions: currentCapacity.weekly,
+    monthlyActions: currentCapacity.monthly,
+    availableSlots: currentCapacity.slots,
+  },
+  allowedNow,
+  executeNow,
+  nextEligibleDate: nextWindow?.date ?? null,
+  nextEligibleSlots: nextWindow?.slots ?? 0,
+  nextQueue,
+  dataCollectionQueue: publicRows
+    .filter(
+      (item) =>
+        item.action === 'needs-query-evidence' ||
+        item.suggestedAction === 'needs-query-evidence',
+    )
+    .slice(0, 12),
+  humanReviewQueue: publicRows
+    .filter((item) => item.action === 'human-review' || item.requiresHumanReview)
+    .slice(0, 12),
+  indexingCleanupQueue,
+};
 const report = {
   generatedAt: `${planDate}T00:00:00.000Z`,
   source: sourceLabel,
   querySource: querySignals ? querySourceLabel : null,
   pageQuerySource: pageQuerySignals.length ? pageQuerySourceLabel : null,
+  segmentSource: segmentSnapshot ? segmentSourceLabel : null,
   totalRows: rows.length,
   includedRows: allRows.length,
   querySignals: publicQuerySignals,
-  warnings: [queryWarning, pageQueryWarning].filter(Boolean),
+  dataSnapshot,
+  execution,
+  warnings: [queryWarning, pageQueryWarning, segmentWarning].filter(Boolean),
   actions: {
     improveAnswer: publicRows.filter((item) => item.action === 'improve-answer').slice(0, 20),
     improveTitle: publicRows.filter((item) => item.action === 'improve-title').slice(0, 20),
     refreshRule: publicRows.filter((item) => item.action === 'refresh-rule-change').slice(0, 20),
     newTopics: publicRows.filter((item) => item.action === 'new-topic').slice(0, 20),
+    needsQueryEvidence: publicRows
+      .filter((item) => item.action === 'needs-query-evidence')
+      .slice(0, 20),
+    nonTarget: publicRows
+      .filter((item) => item.action === 'observe-non-target')
+      .slice(0, 20),
+    humanReview: publicRows
+      .filter((item) => item.action === 'human-review')
+      .slice(0, 20),
     cooldown: publicRows.filter((item) => item.action === 'cooldown').slice(0, 40),
   },
   prioritized: publicRows.slice(0, 60),
@@ -557,6 +877,9 @@ const csvRows = [
     'reason',
     'hasQueryEvidence',
     'queryEvidenceCount',
+    'targetQueryEvidenceCount',
+    'nonTargetQueryEvidenceCount',
+    'requiresHumanReview',
     'queryClassifications',
     'reviewDue',
     'completedAt',
@@ -579,6 +902,9 @@ const csvRows = [
     item.reason,
     item.hasQueryEvidence,
     item.queryEvidenceCount,
+    item.targetQueryEvidenceCount,
+    item.nonTargetQueryEvidenceCount,
+    item.requiresHumanReview,
     item.queryClassifications.join('|'),
     item.reviewDue,
     item.completedAction?.completedAt ?? '',
@@ -593,12 +919,22 @@ await writeFile(
 );
 
 const actionReason = (item) => `${item.reason.replace(/[。！？]$/, '')}。`;
+const executionStatusLabels = {
+  ready: '可执行',
+  'hold-data': '暂停：数据不完整或已过期',
+  'hold-cadence': '暂停：本周或本月内容额度已用完',
+  'hold-no-qualified-query': '暂停：没有满足目标查询证据的候选',
+};
+const candidateLine = (item) =>
+  `- ${item.route}（目标查询证据 ${item.targetQueryEvidenceCount} 条；展现 ${item.impressionsCurrent} / 点击 ${item.clicksCurrent}）— ${actionReason(item)}`;
 const markdown = [
   `# Search Console 月度行动建议 (${planDate})`,
   '',
   `- 数据源：${sourceLabel}`,
   `- 查询数据源：${querySignals ? querySourceLabel : '未提供'}`,
   `- 页面查询映射：${pageQuerySignals.length ? pageQuerySourceLabel : '未提供'}`,
+  `- 分段快照：${segmentSnapshot ? segmentSourceLabel : '未提供'}`,
+  `- 数据状态：${dataSnapshot.readyForPlanning ? '可用于规划' : '不可用于规划'}；快照 ${dataSnapshot.observedAt ?? '未知'}，最新完整数据 ${dataSnapshot.dataThrough ?? '未知'}。`,
   `- 纳入页数：${allRows.length}`,
   ...(querySignals
     ? [
@@ -608,6 +944,46 @@ const markdown = [
         '- 原始查询词与页面映射保存在本地 `reports/private/`，不会提交到公开仓库。',
       ]
     : []),
+  '',
+  '## 本轮执行门禁',
+  '',
+  `- 状态：${executionStatusLabels[execution.status]}。`,
+  `- 最近 7 天已记录 ${execution.currentPeriod.weeklyActions} 个内容动作，本月已记录 ${execution.currentPeriod.monthlyActions} 个；当前可执行 ${execution.allowedNow} 个。`,
+  `- 下一次出现内容容量的日期：${execution.nextEligibleDate ?? '尚未计算'}；当日最多 ${execution.nextEligibleSlots} 个。`,
+  ...(dataSnapshot.blockers.length
+    ? dataSnapshot.blockers.map((blocker) => `- 数据阻断：${blocker}`)
+    : ['- 数据快照、查询导出和页面查询映射均通过新鲜度检查。']),
+  '',
+  '## 现在可执行',
+  '',
+  ...(execution.executeNow.length
+    ? execution.executeNow.map(candidateLine)
+    : ['- 本轮不执行内容改写。']),
+  '',
+  '## 下一轮候选',
+  '',
+  ...(execution.nextQueue.length
+    ? execution.nextQueue.map(candidateLine)
+    : ['- 当前没有同时满足目标查询证据、风险门禁和冷却期要求的候选。']),
+  '',
+  '## 先补页面查询映射',
+  '',
+  ...(execution.dataCollectionQueue.length
+    ? execution.dataCollectionQueue.map(
+        (item) =>
+          `- ${item.route}（展现 ${item.impressionsCurrent}）— 先在 Search Console 中过滤该页面并采集查询，不先改正文。`,
+      )
+    : ['- 当前没有待补查询映射的高曝光页面。']),
+  '',
+  '## 索引清理观察',
+  '',
+  ...(execution.indexingCleanupQueue.length
+    ? execution.indexingCleanupQueue.map((item) =>
+        item.knownNoindex
+          ? `- ${item.route}（展现 ${item.impressions}）— 页面已设置 noindex，等待 Google 退出索引，不按这些曝光扩写内容。`
+          : `- ${item.route}（展现 ${item.impressions}）— 当前不在可索引清单中，需要核查路由和 canonical 状态。`,
+      )
+    : ['- 当前没有已退出可索引清单但仍有曝光的页面。']),
   '',
   '## 中文查询信号',
   ...(querySignals
@@ -623,16 +999,28 @@ const markdown = [
       ]
     : ['- 尚未导入查询维度 CSV。']),
   '',
-  '## 改标题/说明',
+  '## 算法建议：改标题/说明',
   ...report.actions.improveTitle.map(
     (item) =>
       `- ${item.route}（展现 ${item.impressionsCurrent} / CTR ${item.ctrCurrent.toFixed(2)} / 位置 ${item.positionCurrent.toFixed(1)}）— ${actionReason(item)}`,
   ),
   '',
-  '## 改正文内容',
+  '## 算法建议：改正文内容',
   ...report.actions.improveAnswer.map(
     (item) =>
       `- ${item.route}（展现 ${item.impressionsCurrent} / 点击 ${item.clicksCurrent}）— ${actionReason(item)}`,
+  ),
+  '',
+  '## 泛英文曝光观察',
+  ...report.actions.nonTarget.map(
+    (item) =>
+      `- ${item.route}（展现 ${item.impressionsCurrent}）— ${actionReason(item)}`,
+  ),
+  '',
+  '## 高风险人工复核',
+  ...report.actions.humanReview.map(
+    (item) =>
+      `- ${item.route}（查询证据 ${item.queryEvidenceCount} 条）— ${actionReason(item)}`,
   ),
   '',
   '## 规则变化/下滑复核',
@@ -657,4 +1045,10 @@ console.log('- reports/search-console-priority.md');
 console.log(`- prioritized items=${allRows.length}`);
 console.log(`- query signals=${querySignals?.totalRows ?? 0}`);
 console.log(`- page-query signals=${pageQuerySignals.length}`);
+console.log(
+  `- execution=${execution.status}, allowedNow=${execution.allowedNow}, nextCapacity=${execution.nextEligibleDate}`,
+);
+console.log(
+  `- deindex watch=${indexingCleanupQueue.length} routes / ${dataSnapshot.excludedPageImpressions} impressions`,
+);
 console.log('- private query details=reports/private/search-console-query-details.json');
