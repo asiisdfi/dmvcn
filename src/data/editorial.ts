@@ -36,6 +36,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-24',
+    title: '为三个中文办事意图指定唯一落地页',
+    summary:
+      '按 Search Console 的查询与页面对应关系，把“纽约州 REAL ID 怎么申请”交给纽约州 REAL ID 页，把“加州 REAL ID 和普通驾照区别”交给加州 REAL ID 页，把“考驾照”交给首次驾照流程专题；三页分别补强标题、开头判断和搜索说明。同时拆分州总览与州 REAL ID 的最后修改日期，避免只改总览时另一页也显示成当天更新。',
+    scope: [
+      '纽约州 REAL ID 申请',
+      '加州 REAL ID 与普通驾照比较',
+      '首次考驾照流程',
+      '州总览与 REAL ID 修改日期拆分',
+    ],
+  },
+  {
+    date: '2026-07-24',
     title: '清理泛英文曝光并接回华盛顿州身份证续期需求',
     summary:
       '页面级 Search Console 查询显示，DMV 服务总表和线上/现场分流表主要被英文 near me、电话和泛 REAL ID 问句误匹配，几乎没有目标中文查询，因此保留站内工具但退出搜索索引和 sitemap。另有一条华盛顿州身份证续期中文查询落在搬州目录，本轮已把 standard ID 与 Enhanced ID 的续期分流、地址顺序、临时收据限制和官方入口补回华盛顿州页；这次是定向内容更新，不代表整页重新事实核对。',

@@ -36,3 +36,6 @@
 - /states/new-york/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
 - /states/florida/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
 - /states/washington/（本次数据仍建议 observe）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
+- /states/california/real-id/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /states/new-york/real-id/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /topics/first-driver-license-road-test/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。

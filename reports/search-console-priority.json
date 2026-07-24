@@ -425,6 +425,99 @@
         "queryClassifications": [
           "observe-generic-English"
         ]
+      },
+      {
+        "route": "/states/california/real-id/",
+        "impressionsCurrent": 6,
+        "clicksCurrent": 0,
+        "ctrCurrent": 0,
+        "positionCurrent": 65.33,
+        "impressionsPrevious": 0,
+        "clicksPrevious": 0,
+        "ctrPrevious": 0,
+        "positionPrevious": 0,
+        "impressionsDelta": 100,
+        "clicksDelta": 0,
+        "action": "cooldown",
+        "suggestedAction": "improve-title",
+        "reason": "2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。",
+        "score": -1,
+        "reviewDue": "2026-10-15",
+        "completedAction": {
+          "route": "/states/california/real-id/",
+          "action": "improve-title-answer",
+          "completedAt": "2026-07-24",
+          "evaluateAfter": "2026-08-07",
+          "baselinePeriodEnd": "2026-07-21",
+          "summary": "承接加州 REAL ID 与普通驾照区别的查询，突出证件用途和申请路径。"
+        },
+        "hasQueryEvidence": true,
+        "queryEvidenceCount": 1,
+        "queryClassifications": [
+          "selected-title"
+        ]
+      },
+      {
+        "route": "/states/new-york/real-id/",
+        "impressionsCurrent": 6,
+        "clicksCurrent": 0,
+        "ctrCurrent": 0,
+        "positionCurrent": 78.33,
+        "impressionsPrevious": 0,
+        "clicksPrevious": 0,
+        "ctrPrevious": 0,
+        "positionPrevious": 0,
+        "impressionsDelta": 100,
+        "clicksDelta": 0,
+        "action": "cooldown",
+        "suggestedAction": "improve-title",
+        "reason": "2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。",
+        "score": -1,
+        "reviewDue": "2026-10-15",
+        "completedAction": {
+          "route": "/states/new-york/real-id/",
+          "action": "improve-title-answer",
+          "completedAt": "2026-07-24",
+          "evaluateAfter": "2026-08-07",
+          "baselinePeriodEnd": "2026-07-21",
+          "summary": "承接纽约州 REAL ID 怎么申请的查询，明确材料、费用、预审和现场步骤。"
+        },
+        "hasQueryEvidence": true,
+        "queryEvidenceCount": 1,
+        "queryClassifications": [
+          "selected-title"
+        ]
+      },
+      {
+        "route": "/topics/first-driver-license-road-test/",
+        "impressionsCurrent": 4,
+        "clicksCurrent": 0,
+        "ctrCurrent": 0,
+        "positionCurrent": 40.75,
+        "impressionsPrevious": 0,
+        "clicksPrevious": 0,
+        "ctrPrevious": 0,
+        "positionPrevious": 0,
+        "impressionsDelta": 100,
+        "clicksDelta": 0,
+        "action": "cooldown",
+        "suggestedAction": "improve-title",
+        "reason": "2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。",
+        "score": -1,
+        "reviewDue": "2026-10-01",
+        "completedAction": {
+          "route": "/topics/first-driver-license-road-test/",
+          "action": "improve-title-answer",
+          "completedAt": "2026-07-24",
+          "evaluateAfter": "2026-08-07",
+          "baselinePeriodEnd": "2026-07-21",
+          "summary": "承接考驾照查询，明确 Permit、笔试、练车或课程和路考顺序。"
+        },
+        "hasQueryEvidence": true,
+        "queryEvidenceCount": 1,
+        "queryClassifications": [
+          "selected-title"
+        ]
       }
     ]
   },

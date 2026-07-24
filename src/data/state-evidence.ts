@@ -31,6 +31,10 @@ export function getStatePageModifiedAt(state: StateGuide) {
     : STATE_EVIDENCE_RELEASE_DATE;
 }
 
+export function getStateRealIdPageModifiedAt(state: StateGuide) {
+  return state.realIdModifiedAt ?? getStatePageModifiedAt(state);
+}
+
 type SemanticRule = {
   id: string;
   claim: RegExp;

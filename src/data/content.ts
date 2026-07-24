@@ -38,6 +38,10 @@ export type StateGuide = {
   seoTitle?: string;
   seoDescription?: string;
   pageHeading?: string;
+  realIdSeoTitle?: string;
+  realIdSeoDescription?: string;
+  realIdPageHeading?: string;
+  realIdModifiedAt?: string;
   publishedAt: string;
   modifiedAt: string;
   reviewedAt: string;
@@ -161,6 +165,11 @@ export const states: StateGuide[] = [
     nameZh: '加州',
     agency: 'California DMV',
     agencyUrl: 'https://www.dmv.ca.gov/',
+    realIdSeoTitle: '加州 REAL ID 和普通驾照有什么区别：申请材料与步骤',
+    realIdSeoDescription:
+      '加州 REAL ID 中文指南：比较 REAL ID 与标有 Federal Limits Apply 的普通驾照，核对护照替代、一份身份证明、两份住址证明、线上申请和现场核验步骤。',
+    realIdPageHeading: '加州 REAL ID 和普通驾照有什么区别',
+    realIdModifiedAt: '2026-07-24',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-17',
     reviewedAt: '2026-07-17',
@@ -377,6 +386,11 @@ export const states: StateGuide[] = [
     seoDescription:
       '纽约州 DMV 中文办事指南：按驾照续期、补证、REAL ID、地址变更、证件邮寄进度、预约和新居民转入进入官方办理页面。',
     pageHeading: '纽约州 DMV 中文办事指南',
+    realIdSeoTitle: '纽约州 REAL ID 怎么申请：材料、费用与预约步骤',
+    realIdSeoDescription:
+      '纽约州 REAL ID 中文申请指南：先比较 Standard、REAL ID 与 Enhanced，再用官方预审准备材料、确认费用并到 DMV office 完成申请。',
+    realIdPageHeading: '纽约州 REAL ID 申请指南',
+    realIdModifiedAt: '2026-07-24',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-17',
@@ -842,6 +856,7 @@ export const states: StateGuide[] = [
     seoDescription:
       '佛罗里达州车管所（FLHSMV）中文办事指南：按驾照、州 ID、REAL ID、地址变更、考试、新居民车辆登记和服务中心进入官方页面。',
     pageHeading: '佛罗里达州车管所（FLHSMV）办事指南',
+    realIdModifiedAt: '2026-07-17',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-17',
@@ -1058,6 +1073,7 @@ export const states: StateGuide[] = [
     seoDescription:
       '华盛顿州 DOL 中文办事指南：先区分 standard ID、Enhanced ID 与驾照，再查身份证续期、地址更新、REAL ID、预约和官方办理入口。',
     pageHeading: '华盛顿州 DOL 中文办事指南',
+    realIdModifiedAt: '2026-07-17',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-17',
@@ -1552,6 +1568,7 @@ export const states: StateGuide[] = [
     seoDescription:
       '马萨诸塞州 RMV 中文办事指南：按驾照续期、REAL ID、Standard license、WFMA、外州转入、预约和证件邮寄进入官方页面。',
     pageHeading: '马萨诸塞州 RMV 中文办事指南',
+    realIdModifiedAt: '2026-07-17',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-17',
@@ -16700,13 +16717,15 @@ export const topics: TopicGuide[] = [
   },
   {
     slug: 'first-driver-license-road-test',
-    title: '第一次在美国考驾照：permit、笔试和路考顺序',
+    title: '第一次在美国考驾照：Permit、笔试、练车和路考流程',
     eyebrow: '首次驾照',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-21',
+    modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-21',
     description:
-      '第一次在美国考驾照，不要只问“哪里预约路考”。多数州会先要求身份和居住材料、learner / instruction permit、knowledge test、练车或课程，再进入 road test / skills test 和正式 license。',
+      '美国考驾照通常不是直接约路考。先按州和年龄选择 first license 或 learner permit 入口，再核对身份与住址材料、knowledge test、练车或课程、road test 和正式驾照步骤。',
+    quickAnswer:
+      '先找所在州的 first license 或 learner permit 官方入口，再按年龄确认材料、笔试、练车或课程和路考顺序。已有外州或外国驾照的人应先查 transfer / exchange，不要直接套首次申请流程。',
     whoNeedsIt: [
       '在美国第一次申请普通非商业驾照的人。',
       '已经会开车，但没有美国州驾照、需要从 permit 或 first license 入口开始的人。',

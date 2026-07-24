@@ -16,7 +16,10 @@ import {
   type StateGuide,
 } from '../../../data/content';
 import { EDITORIAL_AUTHOR } from '../../../data/editorial';
-import { buildStateEvidence, getStatePageModifiedAt } from '../../../data/state-evidence';
+import {
+  buildStateEvidence,
+  getStateRealIdPageModifiedAt,
+} from '../../../data/state-evidence';
 
 export function getStaticPaths() {
   return states.map((state) => ({
@@ -35,11 +38,15 @@ const realIdSource =
   state.actionLinks.find((link) => /real\s*id/i.test(`${link.label} ${link.description}`)) ??
   state.actionLinks[0]!;
 const accessStatus = state.accessStatus ? getStatePublicStatus(state) : undefined;
-const title = `${state.nameZh} REAL ID 中文材料清单`;
-const description = `${state.nameZh} REAL ID 中文清单：材料类别、办理顺序、常见错误和官方来源。`;
+const title = state.realIdSeoTitle ?? `${state.nameZh} REAL ID 中文材料清单`;
+const description =
+  state.realIdSeoDescription ??
+  `${state.nameZh} REAL ID 中文清单：材料类别、办理顺序、常见错误和官方来源。`;
+const pageHeading =
+  state.realIdPageHeading ?? `${state.nameZh} REAL ID 中文材料清单`;
 const officialSources = uniqueSources([...state.sources, ...federalSources]);
 const stateEvidence = buildStateEvidence(state, 'real-id');
-const modifiedAt = getStatePageModifiedAt(state);
+const modifiedAt = getStateRealIdPageModifiedAt(state);
 const realIdEvidence = stateEvidence.filter((item) => item.field === 'realIdSummary');
 const documentEvidence = stateEvidence.filter((item) => item.field === 'documentHighlights');
 const stepEvidence = stateEvidence.filter((item) => item.field === 'recommendedSteps');
@@ -279,7 +286,7 @@ const schema = [
         <a href="/">首页</a><span>/</span><a href="/states/">州指南</a><span>/</span><a href={`/states/${state.id}/`}>{state.nameZh}</a><span>/</span><span>REAL ID</span>
       </nav>
       <p class="eyebrow">{state.abbr} REAL ID</p>
-      <h1>{state.nameZh} REAL ID 中文材料清单</h1>
+      <h1>{pageHeading}</h1>
       <p class="lead">{state.realIdSummary}</p>
       <div class="article-meta">
         <ContentMeta publishedAt={state.publishedAt} modifiedAt={modifiedAt} reviewedAt={state.reviewedAt} />
