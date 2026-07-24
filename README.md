@@ -164,9 +164,12 @@ npm run audit:performance
 ```sh
 npm run build
 npm run audit:site
+npm run audit:internal-links
 ```
 
-脚本使用 HTML 解析器检查所有构建页面的内部链接、本地资源、页内锚点、元素 ID 引用、重复 ID、图片替代文本和尺寸，并确认除 404 外的页面都能从首页到达。
+`audit:site` 使用 HTML 解析器检查所有构建页面的内部链接、本地资源、页内锚点、元素 ID 引用、重复 ID、图片替代文本和尺寸，并确认除 404 外的页面都能从首页到达。
+
+`audit:internal-links` 进一步检查可索引页面的点击深度和正文入口。全部索引页必须在首页两跳内可达；州页、REAL ID 页、专题页和练习题详情页至少需要两个不同正文来源页；Contact、Privacy 和 Terms 可以由全站页脚承接。脚本也会阻止无名称内链、内部 `nofollow`、未登记的 noindex 页面，以及 noindex 工具页进入主导航或 sitemap。三个已登记工具页保留 `noindex,follow`，正文中的真实办事入口不作机械删除。
 
 ## 上线配置体检
 
