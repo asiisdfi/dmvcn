@@ -53,7 +53,7 @@ const organizationSchema: JsonLd = {
   alternateName: SITE.shortName,
   description: SITE.description,
   url: new URL('/', Astro.site).toString(),
-  logo: new URL('/assets/dmvcn-logo.png', Astro.site).toString(),
+  logo: new URL('/assets/dmvcn-mark.png', Astro.site).toString(),
   publishingPrinciples: new URL(EDITORIAL_LINKS.policy, Astro.site).toString(),
   correctionsPolicy: new URL(EDITORIAL_LINKS.corrections, Astro.site).toString(),
   ...(SITE.contactEmail ? { email: SITE.contactEmail } : {}),
@@ -99,8 +99,11 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/assets/dmvcn-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/dmvcn-touch-icon-v2.png" />
+    <meta name="theme-color" content="#165c43" />
     <meta property="og:type" content={isArticle ? 'article' : 'website'} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
@@ -120,7 +123,7 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
     <a class="skip-link" href="#main-content">跳到主要内容</a>
     <header class="site-header">
       <a class="brand" href="/">
-        <img class="brand-mark" src="/assets/dmvcn-logo-72.png" alt="" width="36" height="36" />
+        <img class="brand-mark" src="/assets/dmvcn-mark-72.png" alt="" width="36" height="36" />
         <span>
           <strong>{SITE.name}</strong>
           <small>独立中文整理，不代替政府机构</small>

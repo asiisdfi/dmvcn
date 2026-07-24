@@ -74,8 +74,8 @@ try {
 const htmlFiles = allFiles.filter((filePath) => filePath.endsWith('.html'));
 const cssFiles = allFiles.filter((filePath) => filePath.endsWith('.css'));
 const javascriptFiles = allFiles.filter((filePath) => filePath.endsWith('.js'));
-const headerLogoPath = path.join(distDir, 'assets', 'dmvcn-logo-72.png');
-const touchIconPath = path.join(distDir, 'assets', 'dmvcn-touch-icon.png');
+const headerLogoPath = path.join(distDir, 'assets', 'dmvcn-mark-72.png');
+const touchIconPath = path.join(distDir, 'assets', 'dmvcn-touch-icon-v2.png');
 const assetStats = await Promise.all([
   stat(headerLogoPath).catch(() => null),
   stat(touchIconPath).catch(() => null),
@@ -127,13 +127,13 @@ for (const filePath of htmlFiles) {
     );
   }
 
-  if (/<(?:img|link)\b[^>]*\/assets\/dmvcn-logo\.png/i.test(html)) {
+  if (/<(?:img|link)\b[^>]*\/assets\/dmvcn-mark\.png/i.test(html)) {
     errors.push(`${route}: downloads the 512px source logo in visible page chrome.`);
   }
-  if (!html.includes('rel="apple-touch-icon" href="/assets/dmvcn-touch-icon.png"')) {
+  if (!html.includes('rel="apple-touch-icon" sizes="180x180" href="/assets/dmvcn-touch-icon-v2.png"')) {
     errors.push(`${route}: does not use the optimized touch icon.`);
   }
-  if (!html.includes('class="brand-mark" src="/assets/dmvcn-logo-72.png"')) {
+  if (!html.includes('class="brand-mark" src="/assets/dmvcn-mark-72.png"')) {
     errors.push(`${route}: does not use the optimized header logo.`);
   }
   if (/<a\s+class="brand"[^>]*aria-label=/i.test(html)) {

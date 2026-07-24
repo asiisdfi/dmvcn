@@ -251,7 +251,7 @@ for (const filePath of htmlFiles) {
     if (
       organization['@id'] !== organizationId ||
       organization.url !== siteRoot ||
-      organization.logo !== `${siteOrigin}/assets/dmvcn-logo.png`
+      organization.logo !== `${siteOrigin}/assets/dmvcn-mark.png`
     ) {
       errors.push(`${route}: Organization identity, URL, or logo is inconsistent.`);
     }
@@ -309,7 +309,7 @@ for (const filePath of htmlFiles) {
       article.isAccessibleForFree !== true ||
       article.author?.url !== editorialAuthorUrl ||
       article.publisher?.url !== siteRoot ||
-      article.publisher?.logo !== `${siteOrigin}/assets/dmvcn-logo.png`
+      article.publisher?.logo !== `${siteOrigin}/assets/dmvcn-mark.png`
     ) {
       errors.push(`${route}: Article language, access, author, or publisher is inconsistent.`);
     }
