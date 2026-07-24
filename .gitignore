@@ -28,3 +28,4 @@ pnpm-debug.log*
 
 # local Search Console export; generated priority reports are committed instead
 reports/search-console-export.csv
+reports/private/

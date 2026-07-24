@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-24T10:15:48.946Z",
+    "generatedAt": "2026-07-24T10:30:51.018Z",
     "threshold": 85,
     "strict": true,
     "pages": 166,
@@ -473,7 +473,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 698,
+        "sourceCount": 699,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -611,7 +611,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 263,
+        "sourceCount": 264,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1089,7 +1089,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1615,
+        "sourceCount": 1616,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -4033,7 +4033,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 15,
+        "sourceCount": 16,
         "factCheckCount": 30,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -4079,7 +4079,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 15,
+        "sourceCount": 16,
         "factCheckCount": 25,
         "visibleThreeDates": true,
         "authorLink": true,

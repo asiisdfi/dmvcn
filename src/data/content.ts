@@ -35,6 +35,9 @@ export type StateGuide = {
   nameZh: string;
   agency: string;
   agencyUrl: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  pageHeading?: string;
   publishedAt: string;
   modifiedAt: string;
   reviewedAt: string;
@@ -370,8 +373,12 @@ export const states: StateGuide[] = [
     nameZh: '纽约州',
     agency: 'New York DMV',
     agencyUrl: 'https://dmv.ny.gov/',
+    seoTitle: '纽约州 DMV 中文指南：驾照续期、REAL ID 与邮寄进度',
+    seoDescription:
+      '纽约州 DMV 中文办事指南：按驾照续期、补证、REAL ID、地址变更、证件邮寄进度、预约和新居民转入进入官方办理页面。',
+    pageHeading: '纽约州 DMV 中文办事指南',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-17',
+    modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-17',
     summary:
       '纽约州有 Standard、REAL ID 和 Enhanced 三类照片证件。先按用途选证件，再用官方 pre-screening 生成材料清单；从 Standard 升级为 REAL ID 或 Enhanced 必须到 DMV office。',
@@ -495,6 +502,11 @@ export const states: StateGuide[] = [
         url: 'https://dmv.ny.gov/driver-license/replace-a-license-or-permit',
         description: '纽约补证费用、付款方式、地址和邮寄说明。',
       },
+      {
+        label: '证件邮寄状态',
+        url: 'https://dmv.ny.gov/driver-license/check-license-permit-or-non-driver-id-mailing-status',
+        description: '查询纽约驾照、learner permit 或 non-driver ID 的邮寄进度。',
+      },
     ],
     sources: [
       {
@@ -565,6 +577,11 @@ export const states: StateGuide[] = [
         label: 'NY DMV Replace a License or Permit',
         url: 'https://dmv.ny.gov/driver-license/replace-a-license-or-permit',
         note: '补证方式、$17.50 费用、地址和邮寄限制。',
+      },
+      {
+        label: 'NY DMV Check Photo Document Mailing Status',
+        url: 'https://dmv.ny.gov/driver-license/check-license-permit-or-non-driver-id-mailing-status',
+        note: '驾照、learner permit 和 non-driver ID 的官方邮寄状态查询入口。',
       },
     ],
     relatedTopicSlugs: [
@@ -821,8 +838,12 @@ export const states: StateGuide[] = [
     nameZh: '佛州',
     agency: 'Florida Highway Safety and Motor Vehicles',
     agencyUrl: 'https://www.flhsmv.gov/',
+    seoTitle: '佛罗里达州车管所（FLHSMV）中文指南：驾照、REAL ID 与车辆业务',
+    seoDescription:
+      '佛罗里达州车管所（FLHSMV）中文办事指南：按驾照、州 ID、REAL ID、地址变更、考试、新居民车辆登记和服务中心进入官方页面。',
+    pageHeading: '佛罗里达州车管所（FLHSMV）办事指南',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-17',
+    modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-17',
     summary:
       '佛州驾照和 ID 由 FLHSMV 与各县 driver license service center 或 tax collector office 办理。首次 Florida 证件要走现场路径；续期、补证和改地址可先让 MyDMV Portal 判断线上资格。',
@@ -1503,8 +1524,12 @@ export const states: StateGuide[] = [
     nameZh: '马萨诸塞州',
     agency: 'Massachusetts RMV',
     agencyUrl: 'https://www.mass.gov/orgs/massachusetts-registry-of-motor-vehicles',
+    seoTitle: '马萨诸塞州 RMV 中文指南：驾照续期、REAL ID 与预约',
+    seoDescription:
+      '马萨诸塞州 RMV 中文办事指南：按驾照续期、REAL ID、Standard license、WFMA、外州转入、预约和证件邮寄进入官方页面。',
+    pageHeading: '马萨诸塞州 RMV 中文办事指南',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-17',
+    modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-17',
     summary:
       '马萨诸塞州先分两条路：Standard Class D/M 驾照不作联邦身份证明，WFMA 允许无法提供 lawful presence 的州居民申请；带星标的 REAL ID 可用于国内航班和部分联邦设施，但要走另一套身份材料和现场核验。',

@@ -36,6 +36,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-24',
+    title: '按中文查询校准三个州级办事入口',
+    summary:
+      '导入 Search Console 查询数据后，佛罗里达州页出现“车管所”和“驾照”，纽约州页出现 DMV 中文、网上续期和邮寄查询，马萨诸塞州页出现 RMV、续期和 REAL ID 信号。本轮据此重写三页的搜索标题、摘要和页面标题，并为纽约补上官方证件邮寄状态入口；没有把标题更新冒充为整页事实复核。',
+    scope: [
+      '佛罗里达州 FLHSMV 中文入口',
+      '纽约州驾照续期与证件邮寄入口',
+      '马萨诸塞州 RMV 中文入口',
+      'Search Console 查询维度导入',
+    ],
+  },
+  {
+    date: '2026-07-24',
     title: '补强三篇已有搜索展现的办事路径',
     summary:
       '根据 Search Console 的页面展现与平均排名，为驾照续期、补证和改地址，青少年 permit / GDL，以及买车或搬州后的车辆手续增加直接答案，并重写标题和摘要。车辆 title 补办与医疗复核属于已经人工签字的高风险内容，本轮没有改动事实正文，留待下一次人工复核。',

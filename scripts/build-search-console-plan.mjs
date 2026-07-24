@@ -4,14 +4,35 @@ import { fileURLToPath } from 'node:url';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const reportPath = path.join(projectRoot, 'reports', 'search-console-export.csv');
+const queryReportPath = path.join(projectRoot, 'reports', 'private', 'search-console-query-export.csv');
+const pageQuerySignalPath = path.join(
+  projectRoot,
+  'reports',
+  'private',
+  'search-console-page-query-signals.csv',
+);
 const eeatReportPath = path.join(projectRoot, 'reports', 'eeat-inventory.json');
 const outputDir = path.join(projectRoot, 'reports');
+const privateOutputDir = path.join(outputDir, 'private');
 const sourcePath = process.env.SC_REPORT_PATH || reportPath;
+const querySourcePath = process.env.SC_QUERY_REPORT_PATH || queryReportPath;
+const pageQuerySourcePath = process.env.SC_PAGE_QUERY_REPORT_PATH || pageQuerySignalPath;
 const resolvedSourcePath = path.resolve(sourcePath);
+const resolvedQuerySourcePath = path.resolve(querySourcePath);
+const resolvedPageQuerySourcePath = path.resolve(pageQuerySourcePath);
 const relativeSourcePath = path.relative(projectRoot, resolvedSourcePath);
+const relativeQuerySourcePath = path.relative(projectRoot, resolvedQuerySourcePath);
+const relativePageQuerySourcePath = path.relative(projectRoot, resolvedPageQuerySourcePath);
 const sourceLabel = relativeSourcePath && !relativeSourcePath.startsWith('..')
   ? relativeSourcePath
   : sourcePath;
+const querySourceLabel = relativeQuerySourcePath && !relativeQuerySourcePath.startsWith('..')
+  ? relativeQuerySourcePath
+  : querySourcePath;
+const pageQuerySourceLabel =
+  relativePageQuerySourcePath && !relativePageQuerySourcePath.startsWith('..')
+    ? relativePageQuerySourcePath
+    : pageQuerySourcePath;
 
 function currentCalendarDate() {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -28,8 +49,11 @@ const planDate = (process.env.SC_PLAN_DATE || currentCalendarDate()).slice(0, 10
 const defaultPlanRows = {
   generatedAt: `${planDate}T00:00:00.000Z`,
   source: sourceLabel,
+  querySource: querySourceLabel,
+  pageQuerySource: pageQuerySourceLabel,
   totalRows: 0,
   includedRows: 0,
+  querySignals: null,
   actions: {
     improveAnswer: [],
     improveTitle: [],
@@ -207,6 +231,105 @@ function pickNumber(row, candidates) {
   return toNumber(key ? row[key] : 0);
 }
 
+let queryRows = [];
+let queryWarning = '';
+try {
+  queryRows = parseCsv(await readFile(resolvedQuerySourcePath, 'utf8'));
+} catch {
+  queryWarning = `未找到 Search Console 查询导出文件：${querySourcePath}`;
+}
+let pageQueryRows = [];
+let pageQueryWarning = '';
+try {
+  pageQueryRows = parseCsv(await readFile(resolvedPageQuerySourcePath, 'utf8'));
+} catch {
+  pageQueryWarning = `未找到 Search Console 页面查询映射：${pageQuerySourcePath}`;
+}
+
+const queryItems = queryRows
+  .map((row) => ({
+    query: getCell(row, ['query', 'queries', '热门查询']),
+    clicks: pickNumber(row, ['clicks', '点击次数']),
+    impressions: pickNumber(row, ['impressions', '展示']),
+    ctr: pickNumber(row, ['ctr', '点击率']),
+    position: pickNumber(row, ['position', '排名']),
+  }))
+  .filter((item) => item.query);
+const isChineseQuery = (query) => /\p{Script=Han}/u.test(query);
+const isGenericDmvQuery = (query) =>
+  /^(?:department of motor vehicles(?:\s*\(dmv\))?(?:\s+(?:near me|phone number|customer service))?|dmv(?:\s+near me)?|dept motor vehicles near me)$/i.test(
+    query.trim(),
+  );
+const isDmvRelevantChineseQuery = (query) =>
+  /(dmv|驾照|驾驶证|车管所|车\s*管\s*所|real\s*id|身份证|地址证明|坐飞机|考驾照|车辆|过户)/i.test(
+    query,
+  ) && !/^dmv\s*看$/i.test(query.trim());
+const isHighRiskChineseQuery = (query) =>
+  /(精神|病史|痊愈|复职|吊销|暂停|债务|承担债务|法律责任)/.test(query);
+const topByImpressions = (items, limit = 25) =>
+  [...items]
+    .sort((a, b) => b.impressions - a.impressions || a.position - b.position)
+    .slice(0, limit);
+const chineseQueryItems = queryItems.filter((item) => isChineseQuery(item.query));
+const pageQuerySignals = pageQueryRows
+  .map((row) => ({
+    route: normalizeRoute(getCell(row, ['route', 'page', 'url'])),
+    query: getCell(row, ['query', 'queries', '热门查询']),
+    clicks: pickNumber(row, ['clicks', '点击次数']),
+    impressions: pickNumber(row, ['impressions', '展示']),
+    position: pickNumber(row, ['position', '排名']),
+    classification: getCell(row, ['classification', 'class']),
+    observedAt: getCell(row, ['observedat', 'date']),
+  }))
+  .filter((item) => item.route && item.query && siteRoutes.has(item.route));
+const pageQueryMap = new Map();
+for (const signal of pageQuerySignals) {
+  const signals = pageQueryMap.get(signal.route) ?? [];
+  signals.push(signal);
+  pageQueryMap.set(signal.route, signals);
+}
+const querySignals = queryItems.length
+  ? {
+      totalRows: queryItems.length,
+      visibleClicks: queryItems.reduce((sum, item) => sum + item.clicks, 0),
+      visibleImpressions: queryItems.reduce((sum, item) => sum + item.impressions, 0),
+      chineseRows: chineseQueryItems.length,
+      chineseClicks: chineseQueryItems.reduce((sum, item) => sum + item.clicks, 0),
+      chineseImpressions: chineseQueryItems.reduce((sum, item) => sum + item.impressions, 0),
+      genericDmvImpressions: queryItems
+        .filter((item) => isGenericDmvQuery(item.query))
+        .reduce((sum, item) => sum + item.impressions, 0),
+      topQueries: topByImpressions(queryItems),
+      topChineseQueries: topByImpressions(chineseQueryItems),
+      chineseOpportunities: topByImpressions(
+        chineseQueryItems.filter(
+          (item) =>
+            isDmvRelevantChineseQuery(item.query) &&
+            !isHighRiskChineseQuery(item.query) &&
+            (item.impressions >= 2 || item.position <= 30),
+        ),
+      ),
+      humanReviewSignals: topByImpressions(
+        chineseQueryItems.filter(
+          (item) => isDmvRelevantChineseQuery(item.query) && isHighRiskChineseQuery(item.query),
+        ),
+      ),
+    }
+  : null;
+const publicQuerySignals = querySignals
+  ? {
+      totalRows: querySignals.totalRows,
+      visibleClicks: querySignals.visibleClicks,
+      visibleImpressions: querySignals.visibleImpressions,
+      chineseRows: querySignals.chineseRows,
+      chineseClicks: querySignals.chineseClicks,
+      chineseImpressions: querySignals.chineseImpressions,
+      genericDmvImpressions: querySignals.genericDmvImpressions,
+      chineseOpportunities: querySignals.chineseOpportunities.length,
+      humanReviewSignals: querySignals.humanReviewSignals.length,
+    }
+  : null;
+
 const pageMap = new Map();
 for (const row of rows) {
   const page = normalizeRoute(
@@ -273,11 +396,23 @@ const allRows = [...pageMap.values()].map((item) => {
   const impressionsDelta = impressionsPrevious > 0 ? ((impressionsCurrent - impressionsPrevious) / impressionsPrevious) * 100 : 100;
   const clicksDelta = clicksPrevious > 0 ? ((clicksCurrent - clicksPrevious) / clicksPrevious) * 100 : clicksCurrent > 0 ? 100 : 0;
 
-  const topQuery = item.topQueries.sort((a, b) => b.impressions - a.impressions)[0];
+  const matchedQuerySignals = topByImpressions(pageQueryMap.get(item.page) ?? [], 8);
+  const selectedTitleSignal = matchedQuerySignals.find(
+    (signal) => signal.classification === 'selected-title',
+  );
+  const preferredTopQuery = matchedQuerySignals.find((signal) =>
+    ['selected-title', 'observe-generic-English'].includes(signal.classification),
+  );
+  const topQuery =
+    preferredTopQuery ??
+    item.topQueries.sort((a, b) => b.impressions - a.impressions)[0];
 
   let action = 'observe';
   let reason = '维持展示；当前数据稳定。';
-  if (impressionsCurrent >= 50 && clicksCurrent === 0) {
+  if (selectedTitleSignal) {
+    action = 'improve-title';
+    reason = '已出现与州机构或具体业务一致的查询，标题和说明应采用用户实际用词。';
+  } else if (impressionsCurrent >= 50 && clicksCurrent === 0) {
     action = 'improve-answer';
     reason = '有展现但无点击，说明内容未直接命中用户决策。先加 FAQ/失败场景/来源映射。';
   } else if (impressionsCurrent >= 50 && positionCurrent <= 20 && ctrCurrent < 2.5) {
@@ -307,6 +442,7 @@ const allRows = [...pageMap.values()].map((item) => {
     impressionsDelta,
     clicksDelta,
     topQuery: topQuery?.query ?? '',
+    querySignals: matchedQuerySignals,
     action,
     reason,
     score: 0,
@@ -320,22 +456,52 @@ for (const row of allRows) {
 
 allRows.sort((a, b) => b.score - a.score);
 
+const toPublicRow = (item) => {
+  const { topQuery, querySignals: itemQuerySignals, ...publicItem } = item;
+  return {
+    ...publicItem,
+    hasQueryEvidence: itemQuerySignals.length > 0,
+    queryEvidenceCount: itemQuerySignals.length,
+    queryClassifications: [...new Set(itemQuerySignals.map((signal) => signal.classification))].sort(),
+  };
+};
+const publicRows = allRows.map(toPublicRow);
 const report = {
   generatedAt: `${planDate}T00:00:00.000Z`,
   source: sourceLabel,
+  querySource: querySignals ? querySourceLabel : null,
+  pageQuerySource: pageQuerySignals.length ? pageQuerySourceLabel : null,
   totalRows: rows.length,
   includedRows: allRows.length,
+  querySignals: publicQuerySignals,
+  warnings: [queryWarning, pageQueryWarning].filter(Boolean),
   actions: {
-    improveAnswer: allRows.filter((item) => item.action === 'improve-answer').slice(0, 20),
-    improveTitle: allRows.filter((item) => item.action === 'improve-title').slice(0, 20),
-    refreshRule: allRows.filter((item) => item.action === 'refresh-rule-change').slice(0, 20),
-    newTopics: allRows.filter((item) => item.action === 'new-topic').slice(0, 20),
+    improveAnswer: publicRows.filter((item) => item.action === 'improve-answer').slice(0, 20),
+    improveTitle: publicRows.filter((item) => item.action === 'improve-title').slice(0, 20),
+    refreshRule: publicRows.filter((item) => item.action === 'refresh-rule-change').slice(0, 20),
+    newTopics: publicRows.filter((item) => item.action === 'new-topic').slice(0, 20),
   },
-  prioritized: allRows.slice(0, 60),
+  prioritized: publicRows.slice(0, 60),
 };
 
 await mkdir(outputDir, { recursive: true });
+await mkdir(privateOutputDir, { recursive: true });
 await writeFile(path.join(outputDir, 'search-console-priority.json'), `${JSON.stringify(report, null, 2)}\n`);
+await writeFile(
+  path.join(privateOutputDir, 'search-console-query-details.json'),
+  `${JSON.stringify(
+    {
+      generatedAt: `${planDate}T00:00:00.000Z`,
+      querySource: querySourceLabel,
+      pageQuerySource: pageQuerySourceLabel,
+      querySignals,
+      pageQuerySignals,
+      pageActions: allRows.filter((item) => item.querySignals.length > 0),
+    },
+    null,
+    2,
+  )}\n`,
+);
 
 const csvRows = [
   [
@@ -352,10 +518,12 @@ const csvRows = [
     'clicksDelta',
     'action',
     'reason',
-    'topQuery',
+    'hasQueryEvidence',
+    'queryEvidenceCount',
+    'queryClassifications',
     'reviewDue',
   ],
-  ...allRows.slice(0, 80).map((item) => [
+  ...publicRows.slice(0, 80).map((item) => [
     item.route,
     item.impressionsCurrent,
     item.clicksCurrent,
@@ -369,7 +537,9 @@ const csvRows = [
     item.clicksDelta,
     item.action,
     item.reason,
-    item.topQuery,
+    item.hasQueryEvidence,
+    item.queryEvidenceCount,
+    item.queryClassifications.join('|'),
     item.reviewDue,
   ]),
 ];
@@ -380,20 +550,47 @@ await writeFile(
   `${csvRows.map((line) => line.map(csvCell).join(',')).join('\n')}\n`,
 );
 
+const actionReason = (item) => `${item.reason.replace(/[。！？]$/, '')}。`;
 const markdown = [
   `# Search Console 月度行动建议 (${planDate})`,
   '',
   `- 数据源：${sourceLabel}`,
+  `- 查询数据源：${querySignals ? querySourceLabel : '未提供'}`,
+  `- 页面查询映射：${pageQuerySignals.length ? pageQuerySourceLabel : '未提供'}`,
   `- 纳入页数：${allRows.length}`,
+  ...(querySignals
+    ? [
+        `- 可见查询：${publicQuerySignals.totalRows} 条；中文查询 ${publicQuerySignals.chineseRows} 条 / ${publicQuerySignals.chineseImpressions} 次曝光`,
+        `- 泛英文 DMV 大词曝光：${publicQuerySignals.genericDmvImpressions}`,
+        `- 可自动处理的中文信号：${publicQuerySignals.chineseOpportunities}；需要人工复核：${publicQuerySignals.humanReviewSignals}`,
+        '- 原始查询词与页面映射保存在本地 `reports/private/`，不会提交到公开仓库。',
+      ]
+    : []),
+  '',
+  '## 中文查询信号',
+  ...(querySignals
+    ? [
+        `- 本月识别 ${publicQuerySignals.chineseOpportunities} 个可自动处理信号，优先用于标题、摘要、入口和内部链接校准。`,
+      ]
+    : ['- 尚未导入查询维度 CSV。']),
+  '',
+  '## 需要人工复核的查询信号',
+  ...(querySignals
+    ? [
+        `- 本月识别 ${publicQuerySignals.humanReviewSignals} 个涉及医疗、复职或法律责任的信号；不自动改写对应高风险页面。`,
+      ]
+    : ['- 尚未导入查询维度 CSV。']),
   '',
   '## 改标题/说明',
   ...report.actions.improveTitle.map(
-    (item) => `- ${item.route}（展现 ${item.impressionsCurrent} / CTR ${item.ctrCurrent.toFixed(2)} / 位置 ${item.positionCurrent.toFixed(1)}）— ${item.reason}`,
+    (item) =>
+      `- ${item.route}（展现 ${item.impressionsCurrent} / CTR ${item.ctrCurrent.toFixed(2)} / 位置 ${item.positionCurrent.toFixed(1)}）— ${actionReason(item)}`,
   ),
   '',
   '## 改正文内容',
   ...report.actions.improveAnswer.map(
-    (item) => `- ${item.route}（展现 ${item.impressionsCurrent} / 点击 ${item.clicksCurrent}）— ${item.reason}`,
+    (item) =>
+      `- ${item.route}（展现 ${item.impressionsCurrent} / 点击 ${item.clicksCurrent}）— ${actionReason(item)}`,
   ),
   '',
   '## 规则变化/下滑复核',
@@ -410,3 +607,6 @@ console.log('- reports/search-console-priority.json');
 console.log('- reports/search-console-priority.csv');
 console.log('- reports/search-console-priority.md');
 console.log(`- prioritized items=${allRows.length}`);
+console.log(`- query signals=${querySignals?.totalRows ?? 0}`);
+console.log(`- page-query signals=${pageQuerySignals.length}`);
+console.log('- private query details=reports/private/search-console-query-details.json');

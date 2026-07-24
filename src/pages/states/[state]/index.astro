@@ -35,8 +35,11 @@ const detailEvidence = stateEvidence.filter((item) => item.field === 'editorNote
 const featuredDetailEvidence = detailEvidence.slice(0, 6);
 const additionalDetailEvidence = detailEvidence.slice(6);
 const modifiedAt = getStatePageModifiedAt(state);
-const title = `${state.nameZh} DMV / 驾照 / REAL ID 办事总览`;
-const description = `${state.nameZh} DMV 中文办事总览：官方入口、REAL ID、驾照、地址变更、预约和常见材料提醒。`;
+const title = state.seoTitle ?? `${state.nameZh} DMV / 驾照 / REAL ID 办事总览`;
+const description =
+  state.seoDescription ??
+  `${state.nameZh} DMV 中文办事总览：官方入口、REAL ID、驾照、地址变更、预约和常见材料提醒。`;
+const pageHeading = state.pageHeading ?? `${state.nameZh} DMV 办事总览`;
 const officialSources = uniqueSources(state.sources);
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const isCountyRouted = state.id === 'hawaii';
@@ -209,7 +212,7 @@ const schema = [
         <a href="/">首页</a><span>/</span><a href="/states/">州指南</a><span>/</span><span>{state.nameZh}</span>
       </nav>
       <p class="eyebrow">{state.abbr} / {state.agency}</p>
-      <h1>{state.nameZh} DMV 办事总览</h1>
+      <h1>{pageHeading}</h1>
       <p class="lead">{state.summary}</p>
       <div class="article-meta">
         <ContentMeta publishedAt={state.publishedAt} modifiedAt={modifiedAt} reviewedAt={state.reviewedAt} />
