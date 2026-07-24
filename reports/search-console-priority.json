@@ -164,7 +164,7 @@
         "topQuery": "",
         "action": "improve-answer",
         "reason": "排名偏后且展现较多，可能命中问题但未提供高识别度答案结构。",
-        "score": 68,
+        "score": 80,
         "reviewDue": "2026-10-01"
       },
       {
@@ -350,7 +350,7 @@
       "topQuery": "",
       "action": "improve-answer",
       "reason": "排名偏后且展现较多，可能命中问题但未提供高识别度答案结构。",
-      "score": 68,
+      "score": 80,
       "reviewDue": "2026-10-01"
     },
     {

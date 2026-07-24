@@ -122,6 +122,14 @@ const schema = [
 
   <div class="content-layout">
     <article class="article-stack">
+      {topic.quickAnswer && (
+        <section class="topic-answer-summary" aria-labelledby="topic-answer-title">
+          <p class="eyebrow">先看结论</p>
+          <h2 id="topic-answer-title">先确定办理路径</h2>
+          <p>{topic.quickAnswer}</p>
+        </section>
+      )}
+
       <section class="topic-snapshot" aria-labelledby="topic-snapshot-title">
         <div class="route-board-head">
           <div>

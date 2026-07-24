@@ -36,6 +36,18 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-24',
+    title: '补强三篇已有搜索展现的办事路径',
+    summary:
+      '根据 Search Console 的页面展现与平均排名，为驾照续期、补证和改地址，青少年 permit / GDL，以及买车或搬州后的车辆手续增加直接答案，并重写标题和摘要。车辆 title 补办与医疗复核属于已经人工签字的高风险内容，本轮没有改动事实正文，留待下一次人工复核。',
+    scope: [
+      '驾照续期、补证和改地址顺序',
+      '青少年 permit、驾校、练车与 GDL',
+      '买车和搬州后的保险、title 与 registration',
+      '高风险页面复核边界',
+    ],
+  },
+  {
+    date: '2026-07-24',
     title: '开始按真实搜索数据安排内容更新',
     summary:
       '接入 Search Console 页面数据，优先处理已有曝光但没有解决好搜索问题的页面。来源汇总页继续公开供读者核对，但不再作为搜索落地页；四个州级入口表重新写明中文用户、办理事项和使用范围，并补充车辆登记过期与凭证被盗的直接回答。',

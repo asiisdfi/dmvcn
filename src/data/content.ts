@@ -105,6 +105,7 @@ export type TopicGuide = {
   modifiedAt: string;
   reviewedAt: string;
   description: string;
+  quickAnswer?: string;
   whoNeedsIt: string[];
   keyFacts: string[];
   checklist: string[];
@@ -17059,13 +17060,15 @@ export const topics: TopicGuide[] = [
   },
   {
     slug: 'teen-driver-permit-gdl-parent-guide',
-    title: '未成年人考驾照：parent consent、driver education 和 GDL 限制怎么准备',
+    title: '未成年人考驾照怎么开始：permit、驾校、练车小时和 GDL 限制',
     eyebrow: '青少年驾照',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-21',
+    modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-21',
     description:
-      '美国青少年考驾照通常不是“考过笔试和路考就结束”。未满 18 或未满 21 的申请人可能要走 graduated driver license (GDL)、父母/监护人签字、driver education、supervised driving hours、夜间练车、乘客限制、curfew、学校证明、保险和路考车辆要求。家长和学生需要逐项核对本州规则。',
+      '孩子准备 learner permit 或 provisional license 时，先按州核对最低年龄、家长同意、州认可 driver education、监督练车和 GDL 限制；permit、路考和拿证后的限制不是同一步。',
+    quickAnswer:
+      '先按所在州和孩子年龄找到 teen driver / GDL 路径，再依次确认 permit、州认可课程、监督练车小时、路考车辆和拿证后的夜间或乘客限制。不要先报一个“网上驾校”再补规则：课程能否被州接受、家长如何签字和练车小时要求都不是全国统一。',
     whoNeedsIt: [
       '家里有 15-17 岁孩子，准备申请 learner permit、instruction permit、junior license、provisional license、probationary license 或 Class D license 的家长。',
       '不确定孩子是否必须上 driver education、behind-the-wheel training、parent-taught course、5-hour course、TLSAE/DETS 或 Joshua’s Law 课程的人。',
@@ -20096,13 +20099,15 @@ export const topics: TopicGuide[] = [
   },
   {
     slug: 'vehicle-title-registration-insurance-after-move',
-    title: '买车或搬州后，车辆 title、registration、保险和车牌先办哪个',
+    title: '买车或搬州后先办保险、title 还是 registration：车辆手续顺序',
     eyebrow: '车辆登记',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
+    modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-21',
     description:
-      'DMV 不只管驾照。买车、搬州或从外州带车时，title、registration、insurance、inspection / emissions、license plates 和 driver license 可能互相卡住，办理顺序需要按州和交易类型确认。',
+      '买车或搬州带车时，先按交易类型和新州规则确认保险，再核对 title、registration、inspection 和车牌；dealer 代办、私人交易和外州转入的顺序不同。',
+    quickAnswer:
+      '先分清是 dealer 买车、私人交易还是搬州带车。通常先让符合新州要求的保险生效并核对可转让 title，再按州要求完成 inspection、VIN 或 emissions，最后办理 title transfer、registration 和 plate；拿到新州凭证后，再按旧州规则处理旧牌和旧登记。具体先后必须回到新州 new resident 或 vehicle registration 页面确认。',
     whoNeedsIt: [
       '刚搬到新州并把外州车辆一起带来的人。',
       '在美国第一次买车，分不清 title、registration、plate 和 insurance 的人。',
@@ -22728,13 +22733,15 @@ export const topics: TopicGuide[] = [
   },
   {
     slug: 'renewal-replacement-address',
-    title: '续期、补证、地址变更先后顺序',
+    title: '驾照续期、补证和改地址先做哪个：搬家或丢证办理顺序',
     eyebrow: '线上服务',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
+    modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-21',
     description:
-      '最常见的坑是顺序错了：搬家后直接补证，结果新卡寄到旧地址；想线上续期，系统又因为 REAL ID、身份状态或过期时间把你挡住。',
+      '搬家后又遇到驾照到期、丢失或损坏时，通常先更新 DMV 地址记录，再检查 renewal 或 replacement 的线上资格；同时还要确认车辆 title 和 registration 是否需要单独更新。',
+    quickAnswer:
+      '最稳妥的顺序通常是：先把 DMV 记录中的 residential 和 mailing address 改正确，再判断这次应办 renewal 还是 replacement，最后单独检查车辆 title / registration 地址。首次 REAL ID、姓名变化、CDL、limited-term 证件、身份复核或过期太久时，不要反复重试普通线上入口，应按州页面准备现场或额外材料。',
     whoNeedsIt: [
       '搬家后准备换新驾照的人。',
       '驾照快过期、丢失或损坏的人。',

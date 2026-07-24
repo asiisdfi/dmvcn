@@ -128,7 +128,7 @@ function priorityScore(item) {
   if (item.action === 'refresh-rule-change') score += 30;
   if (item.action === 'new-topic') score += 20;
 
-  if (item.ctrCurrent < 0.02) score += 12;
+  if (item.ctrCurrent < 1) score += 12;
   if (item.positionCurrent > 20) score += 10;
   if (item.impressionsCurrent > 150) score += 8;
   if (item.clicksCurrent === 0 && item.impressionsCurrent > 30) score += 12;

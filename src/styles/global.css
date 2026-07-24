@@ -1121,6 +1121,26 @@ h3 {
   min-width: 0;
 }
 
+.topic-answer-summary {
+  margin-bottom: 30px;
+  padding: 20px 0 24px;
+  border-top: 3px solid var(--green);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.topic-answer-summary h2 {
+  margin-bottom: 8px;
+  font-size: 26px;
+}
+
+.topic-answer-summary > p:last-child {
+  max-width: 740px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
 .article-stack > .panel,
 .article-stack > .source-panel,
 .article-stack > .notice {
