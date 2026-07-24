@@ -23,7 +23,7 @@
 "/practice-tests/georgia/","collection","standard","93","true","true","ai-assisted","ai-assisted","",""
 "/privacy/","trust","policy","98","true","true","not-required","","",""
 "/quality/","trust","policy","98","true","true","not-required","","",""
-"/sources/","trust","policy","98","true","true","not-required","","",""
+"/sources/","trust","policy","98","true","false","not-required","","",""
 "/states/","collection","standard","93","true","true","ai-assisted","ai-assisted","",""
 "/states/alabama/","state-overview","medium","96","true","true","ai-assisted","ai-assisted","",""
 "/states/alabama/real-id/","state-real-id","medium","99","true","true","ai-assisted","ai-assisted","",""

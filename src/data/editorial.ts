@@ -4,6 +4,7 @@ export const EDITORIAL_POLICY_MODIFIED_DATE = '2026-07-21';
 export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
+export const SEARCH_CONSOLE_UPDATE_DATE = '2026-07-24';
 
 export const EDITORIAL_AUTHOR = {
   name: 'DMVCN 官方编辑',
@@ -33,6 +34,19 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-24',
+    title: '开始按真实搜索数据安排内容更新',
+    summary:
+      '接入 Search Console 页面数据，优先处理已有曝光但没有解决好搜索问题的页面。来源汇总页继续公开供读者核对，但不再作为搜索落地页；四个州级入口表重新写明中文用户、办理事项和使用范围，并补充车辆登记过期与凭证被盗的直接回答。',
+    scope: [
+      'Search Console 月度更新清单',
+      'DMV 常用业务、线上/现场、新居民、费用与时间入口表',
+      '车辆登记续期和车辆凭证丢失专题',
+      '来源汇总页索引策略',
+      '标题、摘要与 sitemap',
+    ],
+  },
   {
     date: '2026-07-21',
     title: '完成高风险页面人工复核并恢复索引',

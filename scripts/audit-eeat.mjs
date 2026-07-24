@@ -8,6 +8,7 @@ import {
   HIGH_RISK_TOPIC_SLUGS,
   TRUST_PAGE_PATHS,
 } from '../src/data/editorial.ts';
+import { NON_SEARCH_LANDING_ROUTES } from '../src/data/publication-gate.ts';
 import { semanticReviews } from '../src/data/review-registry.ts';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -357,7 +358,9 @@ function scorePage(route, document) {
     );
   }
   const requiresHumanApproval = identity.risk === 'high' && identity.type !== 'trust';
-  const expectedIndexable = !requiresHumanApproval || reviewStatus === 'human-approved';
+  const expectedIndexable =
+    !NON_SEARCH_LANDING_ROUTES.has(route) &&
+    (!requiresHumanApproval || reviewStatus === 'human-approved');
   if (indexable !== expectedIndexable) {
     critical.push(
       expectedIndexable

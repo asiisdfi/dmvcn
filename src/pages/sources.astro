@@ -2,7 +2,7 @@
 import { ExternalLink } from '@lucide/astro/icons';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { REVIEW_DATE, federalSources, states, topics, uniqueSources } from '../data/content';
-import { SITE_LAUNCH_DATE } from '../data/editorial';
+import { SEARCH_CONSOLE_UPDATE_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
 
 type SourceEntry = {
   label: string;
@@ -63,10 +63,10 @@ const sourceGroups = [
 ---
 
 <BaseLayout
-  title="官方来源库"
-  description="DMV中文办事库引用的 DMV、REAL ID、TSA、USA.gov、州政府来源和官方办理入口。"
+  title="DMVCN 引用的政府来源清单"
+  description="DMV中文办事库编辑核对时使用的 DMV、REAL ID、TSA、USA.gov、州政府来源和官方办理入口清单。"
   publishedAt={SITE_LAUNCH_DATE}
-  modifiedAt={SITE_LAUNCH_DATE}
+  modifiedAt={SEARCH_CONSOLE_UPDATE_DATE}
   reviewedAt={REVIEW_DATE}
   showContentMeta={true}
 >
@@ -74,8 +74,8 @@ const sourceGroups = [
     <div class="section">
       <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>Sources</span></nav>
       <p class="eyebrow">来源库</p>
-      <h1>官方来源库</h1>
-      <p class="lead">这里汇总本站引用的官方来源，方便统一复核和更新。部分政府网站可能要求验证码或需要从机构首页重新进入，实际办理前仍以你能打开的官方页面为准。</p>
+      <h1>DMVCN 引用的政府来源清单</h1>
+      <p class="lead">这不是办事指南，而是本站编辑核对资料时使用的来源清单。需要办理业务时，请先看对应州指南或专题；要复核某条信息时，再来这里查政府原始页面。</p>
       <div class="page-ledger" aria-label="来源库概况">
         {sourceGroups.map((group) => (
           <div>

@@ -25,3 +25,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .vercel
+
+# local Search Console export; generated priority reports are committed instead
+reports/search-console-export.csv

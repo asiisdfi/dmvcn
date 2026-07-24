@@ -20313,10 +20313,10 @@ export const topics: TopicGuide[] = [
   },
   {
     slug: 'vehicle-registration-renewal-expired-tags-non-operation',
-    title: '车辆 registration 续期：过期、车检和停驶',
+    title: '车辆 registration 过期或续期失败怎么办：车检、保险和停驶',
     eyebrow: '车辆登记续期',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-21',
+    modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-21',
     description:
       '车牌 sticker / decal / tab 快过期、registration 已过期、没收到 renewal notice、线上续不了，或车辆准备长期停驶时，先确认登记州和准确截止日，再处理地址、保险、inspection / emissions、税费或 hold，最后选择 renewal、重新登记、补 sticker，还是本州认可的 non-operation / plate deactivation 路径。',
@@ -20618,10 +20618,10 @@ export const topics: TopicGuide[] = [
   },
   {
     slug: 'lost-stolen-license-plates-registration-card-sticker',
-    title: '车牌、registration card 或 sticker 丢失/被盗后怎么补办',
+    title: '车牌、registration card 或 sticker 丢失、被盗怎么办',
     eyebrow: '车牌补办',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
+    modifiedAt: '2026-07-24',
     reviewedAt: '2026-07-21',
     description:
       '车辆凭证丢失时，先别只问“能不能补一个 sticker”。License plate、registration card、registration sticker / decal / tab、inspection sticker 和 title 是不同事项；被盗、没收到邮件、车牌损坏、地址错误、toll / parking / insurance hold 的处理路径也不同。',
@@ -20665,6 +20665,11 @@ export const topics: TopicGuide[] = [
       '第八步：如果之后收到旧 plate 造成的 toll、parking 或 camera ticket，拿 police report、replacement receipt、surrender / status verification、bill of sale 或 registration record 去对应机构申诉。',
     ],
     faqs: [
+      {
+        question: 'Registration card 和 insurance card 一起被偷，先补哪一个？',
+        answer:
+          '这两份文件要分开处理：registration card 由车辆登记州的 DMV、MVC、DOL、DOR 或 county/tag office 补发；insurance card 则向保险公司重新取得电子版或纸质凭证。先确认车牌和 sticker 是否也失窃；如果一起被偷，再按本州要求报警并申请 replacement plate、decal 或 tab。保险卡不能代替 registration card，补 registration card 也不会自动补保险凭证。',
+      },
       {
         question: '车牌被偷，一定要报警吗？',
         answer:

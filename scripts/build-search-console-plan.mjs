@@ -7,6 +7,11 @@ const reportPath = path.join(projectRoot, 'reports', 'search-console-export.csv'
 const eeatReportPath = path.join(projectRoot, 'reports', 'eeat-inventory.json');
 const outputDir = path.join(projectRoot, 'reports');
 const sourcePath = process.env.SC_REPORT_PATH || reportPath;
+const resolvedSourcePath = path.resolve(sourcePath);
+const relativeSourcePath = path.relative(projectRoot, resolvedSourcePath);
+const sourceLabel = relativeSourcePath && !relativeSourcePath.startsWith('..')
+  ? relativeSourcePath
+  : sourcePath;
 
 function currentCalendarDate() {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -22,7 +27,7 @@ function currentCalendarDate() {
 const planDate = (process.env.SC_PLAN_DATE || currentCalendarDate()).slice(0, 10);
 const defaultPlanRows = {
   generatedAt: `${planDate}T00:00:00.000Z`,
-  source: sourcePath,
+  source: sourceLabel,
   totalRows: 0,
   includedRows: 0,
   actions: {
@@ -78,7 +83,7 @@ function parseCsv(text) {
   }
 
   if (rows.length === 0) return [];
-  const header = rows[0].map((item) => item.trim().toLowerCase().replace(/\s+/g, ''));
+  const header = rows[0].map((item) => item.trim().replace(/^\uFEFF/, '').toLowerCase().replace(/\s+/g, ''));
   return rows
     .slice(1)
     .filter((line) => line.some((cell) => (cell ?? '').trim() !== ''))
@@ -142,7 +147,11 @@ try {
   throw new Error('missing-eeat');
 }
 
-const siteRoutes = new Set((eeat.pages ?? []).map((page) => page.route));
+const siteRoutes = new Set(
+  (eeat.pages ?? [])
+    .filter((page) => page.indexable)
+    .map((page) => page.route),
+);
 let raw;
 try {
   raw = await readFile(path.resolve(sourcePath), 'utf8');
@@ -171,7 +180,7 @@ try {
   ];
 
   await writeFile(path.join(outputDir, 'search-console-priority.csv'), 'route,impressionsCurrent,clicksCurrent,action,reason\n');
-  await writeFile(path.join(outputDir, 'search-console-priority.md'), `${markdown.join('\n')}\n`);
+  await writeFile(path.join(outputDir, 'search-console-priority.md'), `${markdown.join('\n').trimEnd()}\n`);
 
   console.log('Search Console priority report generated:');
   console.log('- reports/search-console-priority.json');
@@ -201,7 +210,7 @@ function pickNumber(row, candidates) {
 const pageMap = new Map();
 for (const row of rows) {
   const page = normalizeRoute(
-    getCell(row, ['page', 'landingpage', 'link', 'url']),
+    getCell(row, ['page', 'landingpage', 'link', 'url', '排名靠前的网页']),
   );
   if (!page || !siteRoutes.has(page)) continue;
 
@@ -219,15 +228,15 @@ for (const row of rows) {
     queriesCount: 0,
   };
 
-  const impressionsCurrent = pickNumber(row, ['impressions', 'impressionscurrent', 'impression']);
-  const clicksCurrent = pickNumber(row, ['clicks', 'clickscurrent']);
-  const ctrCurrent = pickNumber(row, ['ctr', 'ctrcurrent']);
-  const positionCurrent = pickNumber(row, ['position', 'positioncurrent']);
+  const impressionsCurrent = pickNumber(row, ['impressions', 'impressionscurrent', 'impression', '展示']);
+  const clicksCurrent = pickNumber(row, ['clicks', 'clickscurrent', '点击次数']);
+  const ctrCurrent = pickNumber(row, ['ctr', 'ctrcurrent', '点击率']);
+  const positionCurrent = pickNumber(row, ['position', 'positioncurrent', '排名']);
   const impressionsPrevious = pickNumber(row, ['impressionsprevious', 'impressions_prev', 'previousimpressions']);
   const clicksPrevious = pickNumber(row, ['clicksprevious', 'clicks_prev', 'previousclicks']);
   const ctrPrevious = pickNumber(row, ['ctrprevious', 'previousctr']);
   const positionPrevious = pickNumber(row, ['positionprevious', 'position_prev', 'previousposition']);
-  const query = getCell(row, ['query', 'queries']);
+  const query = getCell(row, ['query', 'queries', '热门查询']);
 
   if (query) {
     entry.topQueries.push({
@@ -313,7 +322,7 @@ allRows.sort((a, b) => b.score - a.score);
 
 const report = {
   generatedAt: `${planDate}T00:00:00.000Z`,
-  source: sourcePath,
+  source: sourceLabel,
   totalRows: rows.length,
   includedRows: allRows.length,
   actions: {
@@ -374,7 +383,7 @@ await writeFile(
 const markdown = [
   `# Search Console 月度行动建议 (${planDate})`,
   '',
-  `- 数据源：${sourcePath}`,
+  `- 数据源：${sourceLabel}`,
   `- 纳入页数：${allRows.length}`,
   '',
   '## 改标题/说明',
@@ -394,7 +403,7 @@ const markdown = [
   '',
 ];
 
-await writeFile(path.join(outputDir, 'search-console-priority.md'), `${markdown.join('\n')}\n`);
+await writeFile(path.join(outputDir, 'search-console-priority.md'), `${markdown.join('\n').trimEnd()}\n`);
 
 console.log('Search Console priority report generated:');
 console.log('- reports/search-console-priority.json');

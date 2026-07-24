@@ -19,6 +19,10 @@ export const HUMAN_REVIEW_REQUIRED_ROUTES = new Set([
   ...[...HIGH_RISK_TOPIC_SLUGS].map((slug) => `/topics/${slug}/`),
 ]);
 
+export const NON_SEARCH_LANDING_ROUTES = new Set([
+  '/sources/',
+]);
+
 export function getPublicationGate(route: string): PublicationGate {
   const normalizedRoute = normalizeRoute(route);
   const requiresHumanApproval = HUMAN_REVIEW_REQUIRED_ROUTES.has(normalizedRoute);
@@ -29,7 +33,9 @@ export function getPublicationGate(route: string): PublicationGate {
     route: normalizedRoute,
     requiresHumanApproval,
     humanApproved,
-    indexable: !requiresHumanApproval || humanApproved,
+    indexable:
+      !NON_SEARCH_LANDING_ROUTES.has(normalizedRoute) &&
+      (!requiresHumanApproval || humanApproved),
   };
 }
 

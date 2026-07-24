@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   HUMAN_REVIEW_REQUIRED_ROUTES,
+  NON_SEARCH_LANDING_ROUTES,
   getPublicationGate,
   isPlausibleHumanReviewer,
   isValidReviewDate,
@@ -90,7 +91,13 @@ for (const route of HUMAN_REVIEW_REQUIRED_ROUTES) {
 
 for (const [route, html] of htmlByRoute) {
   if (route === '/404/' || HUMAN_REVIEW_REQUIRED_ROUTES.has(route)) continue;
-  if (robotsDirectives(html).has('noindex')) errors.push(`${route}: non-gated page unexpectedly has noindex`);
+  const hasNoindex = robotsDirectives(html).has('noindex');
+  if (NON_SEARCH_LANDING_ROUTES.has(route)) {
+    if (!hasNoindex) errors.push(`${route}: non-search landing page must use noindex,follow`);
+    if (sitemapRoutes.has(route)) errors.push(`${route}: non-search landing page must not appear in sitemap`);
+    continue;
+  }
+  if (hasNoindex) errors.push(`${route}: non-gated page unexpectedly has noindex`);
 }
 
 console.log('# Publication Gate Audit');

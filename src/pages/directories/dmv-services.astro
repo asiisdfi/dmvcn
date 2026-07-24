@@ -1,5 +1,5 @@
 ---
-import { DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
+import { DIRECTORY_REVIEW_DATE, SEARCH_CONSOLE_UPDATE_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
@@ -26,9 +26,9 @@ const serviceLinkCount = rows.reduce((count, row) => count + row.links.length, 0
 const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.status.tone));
 const schema = {
   '@type': 'CollectionPage',
-  name: '50 州 DMV 常用业务入口表',
-  description: '按州整理 DMV、DPS、RMV、MVC、DDS 等官方机构和常用办理入口。',
-  dateModified: DIRECTORY_REVIEW_DATE,
+  name: '美国各州 DMV 中文办事入口',
+  description: '给在美国的中文用户按州查找 DMV、DPS、RMV、MVC、DDS 官方机构和常用办理入口。',
+  dateModified: SEARCH_CONSOLE_UPDATE_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -43,7 +43,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="50 州 DMV 常用业务入口表" description="按州查找 DMV、DPS、RMV、MVC、DDS 官方机构、REAL ID、续期、补证、地址变更、预约和线上服务入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DIRECTORY_REVIEW_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
+<BaseLayout title="美国各州 DMV 中文办事入口：预约、续期、补证" description="给在美国的中文用户按州查找 DMV、DPS、RMV、MVC、DDS 官方机构，以及 REAL ID、续期、补证、改地址、预约和线上服务入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SEARCH_CONSOLE_UPDATE_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">
@@ -52,8 +52,8 @@ const schema = {
         <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>DMV 服务</span>
       </nav>
       <p class="eyebrow">DMV 服务入口</p>
-      <h1>50 州 DMV 常用业务入口表</h1>
-      <p class="lead">按州汇总官方机构首页、REAL ID、驾照/身份证、地址变更、续期、补证、预约和线上服务入口。复杂材料先看中文州指南。</p>
+      <h1>美国各州 DMV 中文办事入口</h1>
+      <p class="lead">给在美国的中文用户按州查官方机构和办理入口。可以直接找 REAL ID、驾照或身份证、改地址、续期、补证和预约；材料较复杂时，再进入对应的中文州指南核对。</p>
       <ReviewBadge />
       <div class="page-ledger" aria-label="DMV 服务入口表概况">
         <div>

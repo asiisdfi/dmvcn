@@ -1,5 +1,5 @@
 ---
-import { DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
+import { DIRECTORY_REVIEW_DATE, SEARCH_CONSOLE_UPDATE_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
@@ -139,9 +139,9 @@ const quickFilters = [
 
 const schema = {
   '@type': 'CollectionPage',
-  name: 'DMV 线上/现场分流表',
-  description: '按州整理 DMV / REAL ID / 驾照续期、补证、地址变更和预约的线上或现场办理路径。',
-  dateModified: DIRECTORY_REVIEW_DATE,
+  name: '美国各州 DMV 中文办理方式：线上、现场与预约',
+  description: '给在美国的中文用户按州判断 DMV、REAL ID、驾照续期、补证和改地址能否线上办理，是否需要现场核验或预约。',
+  dateModified: SEARCH_CONSOLE_UPDATE_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -156,7 +156,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 线上/现场分流表" description="按州查找 DMV / REAL ID / 驾照续期、补证、地址变更和预约的线上或现场办理路径。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DIRECTORY_REVIEW_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
+<BaseLayout title="美国各州 DMV 中文办理方式：线上、现场与预约" description="按州判断 DMV、REAL ID、驾照续期、补证和改地址能否线上办理，是否需要现场核验或预约，并进入对应政府入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SEARCH_CONSOLE_UPDATE_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">
@@ -165,8 +165,8 @@ const schema = {
         <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>线上/现场</span>
       </nav>
       <p class="eyebrow">路径分流</p>
-      <h1>DMV 线上/现场分流表</h1>
-      <p class="lead">先判断这件事能不能线上开始、是否必须到办公室核验、要不要预约、地址是否要先改。减少读完材料才发现走错入口的情况。</p>
+      <h1>美国各州 DMV 线上、现场和预约怎么选</h1>
+      <p class="lead">先按州判断这件事能不能在线开始、是否必须到办公室核验、要不要预约，以及地址是否要先改。确认路径以后，再进入政府网站办理。</p>
       <ReviewBadge />
       <div class="page-ledger" aria-label="线上现场分流表概况">
         <div>

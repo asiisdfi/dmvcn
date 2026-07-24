@@ -1,5 +1,5 @@
 ---
-import { DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
+import { DIRECTORY_REVIEW_DATE, SEARCH_CONSOLE_UPDATE_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
@@ -56,9 +56,9 @@ const manualCheckRows = rows.filter((row) => ['watch', 'risk'].includes(row.stat
 const directTransferRows = rows.filter((row) => /new|moving|resident|transfer|out[- ]of[- ]state|新居民|外州|转入|搬/i.test(row.links.map((link) => link.label).join(' ')));
 const schema = {
   '@type': 'CollectionPage',
-  name: '搬到新州后 DMV 办事入口表',
-  description: '按州整理搬到新州后换驾照、外州驾照转入、地址更新和车辆登记相关官方入口。',
-  dateModified: DIRECTORY_REVIEW_DATE,
+  name: '搬到美国新州后的 DMV 中文办事入口',
+  description: '按州整理搬家后的驾照转入、地址更新、车辆登记和保险办理顺序及政府入口。',
+  dateModified: SEARCH_CONSOLE_UPDATE_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -73,7 +73,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="搬到新州后 DMV 办事入口表" description="按州查找搬到新州后的驾照转入、地址更新、车辆登记顺序和 DMV 官方入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DIRECTORY_REVIEW_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
+<BaseLayout title="搬到美国新州后怎么办 DMV：换驾照、改地址、车辆登记" description="给在美国搬州的中文用户按州查找驾照转入、地址更新、车辆登记和保险办理顺序，并进入 DMV 官方入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SEARCH_CONSOLE_UPDATE_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">
@@ -82,8 +82,8 @@ const schema = {
         <a href="/">首页</a><span>/</span><a href="/directories/">入口表</a><span>/</span><span>新居民</span>
       </nav>
       <p class="eyebrow">新居民入口</p>
-      <h1>搬到新州后 DMV 办事入口表</h1>
-      <p class="lead">刚搬州时，先别急着预约。先确认新州驾照期限、外州驾照转入、地址更新、车辆登记和保险顺序，再回到官方系统办理。</p>
+      <h1>搬到美国新州后，DMV 先办什么</h1>
+      <p class="lead">刚搬州时，不要只约一个 DMV 时段就出发。先确认新州驾照期限、外州驾照转入、改地址、车辆登记和保险顺序，再进入对应的政府系统办理。</p>
       <ReviewBadge />
       <div class="page-ledger" aria-label="新居民入口表概况">
         <div>
