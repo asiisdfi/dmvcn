@@ -40,7 +40,7 @@ PUBLIC_CONTACT_EMAIL=contact@your-domain.com \
 npm run verify:launch
 ```
 
-该命令会检查内容、构建、全站内部链接与资源、SEO、首页 canonical、Contact 邮箱、robots 和 sitemap。正式发布前可另跑 `npm run audit:links`；政府站点的 `403`、`429` 和超时会列为 `watch`，只有 `fail` 是明确硬失败。
+该命令会检查内容、构建、全站内部链接与资源、SEO、移动端资源预算与无障碍基线、首页 canonical、Contact 邮箱、robots 和 sitemap。正式发布前可另跑 `npm run audit:links`；政府站点的 `403`、`429` 和超时会列为 `watch`，只有 `fail` 是明确硬失败。
 
 ## 首次发布后
 

@@ -147,6 +147,17 @@ npm run audit:seo
 
 脚本会检查构建后的 HTML 是否有标题、描述、canonical、JSON-LD、内容修改时间、sitemap，并阻止内部状态、旧州数等过期文案出现在前台。
 
+## 移动端性能体检
+
+```sh
+npm run build
+npm run audit:performance
+```
+
+脚本会检查全部构建页面的 HTML、CSS、JavaScript 和页眉图片预算，要求图片带固有尺寸，阻止页面重新下载 512px 原始标志、第三方阻塞资源和品牌链接无障碍名称退化，并验证首页小标题在三种背景上的文字对比度。该检查已纳入 `verify:launch`。
+
+预算、Lighthouse 基线和月度 Core Web Vitals 复核方法见 `docs/MOBILE_PERFORMANCE_STANDARD.md`。
+
 ## 站点完整性体检
 
 ```sh

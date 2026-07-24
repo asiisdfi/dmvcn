@@ -97,9 +97,8 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="icon" type="image/png" href="/assets/dmvcn-logo.png" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/assets/dmvcn-logo.png" />
+    <link rel="apple-touch-icon" href="/assets/dmvcn-touch-icon.png" />
     <meta property="og:type" content={isArticle ? 'article' : 'website'} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
@@ -116,8 +115,8 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
   <body>
     <a class="skip-link" href="#main-content">跳到主要内容</a>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="回到首页">
-        <img class="brand-mark" src="/assets/dmvcn-logo.png" alt="" width="36" height="36" />
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/assets/dmvcn-logo-72.png" alt="" width="36" height="36" />
         <span>
           <strong>{SITE.name}</strong>
           <small>独立中文整理，不代替政府机构</small>
