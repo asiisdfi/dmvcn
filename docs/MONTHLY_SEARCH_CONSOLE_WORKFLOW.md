@@ -13,6 +13,7 @@
 npm run plan:sc
 npm run audit:search-console
 npm run plan:growth
+npm run audit:growth
 ```
 
 生成结果：
@@ -35,3 +36,5 @@ npm run plan:growth
 没有页面级查询证据时，先在 Search Console 中过滤页面并补映射。已 `noindex` 但仍有曝光的 URL 进入索引清理观察，不作为扩写理由；每项必须记录开始日期和复查日期，逾期后仍有曝光会自动升级为索引状态检查。
 
 每次内容修改后写入 `reports/search-console-actions.json`，至少等待 14 天再用新数据复评。长期指标以完整 30 天自定义窗口验收，28 天窗口只用于趋势判断。
+
+增长记分卡把美国点击与曝光占比、设备端效率、可见中文查询占比、异常国家流量和 noindex 历史曝光分别记录。页面维度与全站属性维度口径不同，索引噪声只用于判断清理优先级，不得从全站曝光中直接相减。`audit:growth` 会在发布前校验这些比例、长期目标和 30 天验收状态，防止把趋势数据误报为目标完成。

@@ -125,7 +125,8 @@ npm run audit:eeat
 
 - 每周执行一次：`npm run plan:quality`
 - 每月执行一次：`SC_REPORT_PATH=./reports/search-console-export.csv npm run plan:sc`
-- 每次发布前执行：`npm run audit:search-console`
+- 每次 Search Console 数据更新后：`npm run plan:growth`
+- 每次发布前执行：`npm run audit:search-console && npm run audit:growth`
 - 人工签字导入：`SIGNOFF_CSV=docs/review-manual-signoff-template.csv npm run review:signoffs:import`
 
 生成文件会在 `/quality/` 看板联动展示：
@@ -135,7 +136,7 @@ npm run audit:eeat
 
 其中 `reviewer` 与 `reviewedAt` 必须由真实审核人员填写。
 
-`audit:search-console` 会检查数据暂停状态、执行额度、目标查询证据、人工复核队列和 noindex 索引复查日期，并阻止原始查询字段进入公开计划。该命令已纳入 `verify:launch`。
+`audit:search-console` 会检查数据暂停状态、执行额度、目标查询证据、人工复核队列和 noindex 索引复查日期，并阻止原始查询字段进入公开计划。`audit:growth` 会检查目标常量、30 天验收口径、美国与设备流量占比、查询覆盖、索引噪声和目标完成状态。两个命令都已纳入 `verify:launch`。
 
 ## SEO 体检
 

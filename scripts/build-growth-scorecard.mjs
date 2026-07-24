@@ -18,6 +18,10 @@ const actionLogPath = path.resolve(
 const eeatReportPath = path.resolve(
   process.env.EEAT_REPORT_PATH ?? path.join(reportsDir, 'eeat-inventory.json'),
 );
+const searchPlanPath = path.resolve(
+  process.env.SEARCH_CONSOLE_PLAN_PATH ??
+    path.join(reportsDir, 'search-console-priority.json'),
+);
 const scorecardDate = (
   process.env.SC_SCORECARD_DATE ??
   new Intl.DateTimeFormat('en-CA', {
@@ -118,6 +122,10 @@ function round(value, digits = 1) {
   return Math.round(value * factor) / factor;
 }
 
+function percentage(part, total) {
+  return total > 0 ? round((part / total) * 100) : 0;
+}
+
 function minimumCheck(actual, target, unit) {
   return {
     actual,
@@ -143,17 +151,19 @@ async function readJson(filePath, fallback = null) {
   }
 }
 
-const [pageCsv, segments, actionLog, eeat] = await Promise.all([
+const [pageCsv, segments, actionLog, eeat, searchPlan] = await Promise.all([
   readFile(pageReportPath, 'utf8').catch(() => ''),
   readJson(segmentReportPath),
   readJson(actionLogPath, []),
   readJson(eeatReportPath),
+  readJson(searchPlanPath),
 ]);
 
 const warnings = [];
 if (!pageCsv) warnings.push(`缺少页面维度导出：${pageReportPath}`);
 if (!segments) warnings.push(`缺少 Search Console 分段快照：${segmentReportPath}`);
 if (!eeat) warnings.push(`缺少 E-E-A-T 报告：${eeatReportPath}`);
+if (!searchPlan) warnings.push(`缺少 Search Console 优先级计划：${searchPlanPath}`);
 
 const indexableRoutes = new Set(
   (eeat?.pages ?? []).filter((page) => page.indexable).map((page) => page.route),
@@ -198,6 +208,10 @@ const usClickShare =
   propertyTotals.clicks > 0 && unitedStates
     ? round((unitedStates.clicks / propertyTotals.clicks) * 100)
     : 0;
+const usImpressionShare = percentage(
+  toNumber(unitedStates?.impressions),
+  toNumber(propertyTotals.impressions),
+);
 const segmentClickTotal = (segments?.countries ?? []).reduce(
   (sum, country) => sum + toNumber(country.clicks),
   0,
@@ -205,6 +219,67 @@ const segmentClickTotal = (segments?.countries ?? []).reduce(
 const deviceClickTotal = (segments?.devices ?? []).reduce(
   (sum, device) => sum + toNumber(device.clicks),
   0,
+);
+const deviceImpressionTotal = (segments?.devices ?? []).reduce(
+  (sum, device) => sum + toNumber(device.impressions),
+  0,
+);
+const deviceDiagnostics = (segments?.devices ?? []).map((device) => {
+  const clicks = toNumber(device.clicks);
+  const impressions = toNumber(device.impressions);
+  return {
+    code: device.code,
+    label: device.label,
+    clicks,
+    impressions,
+    clickShare: percentage(clicks, toNumber(propertyTotals.clicks)),
+    impressionShare: percentage(impressions, toNumber(propertyTotals.impressions)),
+    ctr: percentage(clicks, impressions),
+  };
+});
+const mobileDevice = deviceDiagnostics.find((device) => device.code === 'MOBILE');
+const desktopDevice = deviceDiagnostics.find((device) => device.code === 'DESKTOP');
+const audienceAnomalies = (segments?.countries ?? [])
+  .filter(
+    (country) =>
+      country.code !== 'US' &&
+      toNumber(country.clicks) === 0 &&
+      toNumber(country.impressions) >=
+        Math.max(100, toNumber(unitedStates?.impressions)),
+  )
+  .map((country) => ({
+    code: country.code,
+    label: country.label,
+    clicks: toNumber(country.clicks),
+    impressions: toNumber(country.impressions),
+    impressionShare: percentage(
+      toNumber(country.impressions),
+      toNumber(propertyTotals.impressions),
+    ),
+  }))
+  .sort((left, right) => right.impressions - left.impressions);
+const publicQuerySignals = searchPlan?.querySignals ?? {};
+const visibleQueryImpressionCoverage = percentage(
+  toNumber(publicQuerySignals.visibleImpressions),
+  toNumber(propertyTotals.impressions),
+);
+const visibleChineseImpressionShare = percentage(
+  toNumber(publicQuerySignals.chineseImpressions),
+  toNumber(publicQuerySignals.visibleImpressions),
+);
+const indexingCleanup = searchPlan?.execution?.indexingCleanupQueue ?? [];
+const indexingNoiseImpressions = indexingCleanup.reduce(
+  (sum, entry) => sum + toNumber(entry.impressions),
+  0,
+);
+const indexingNoiseRatio = percentage(
+  indexingNoiseImpressions,
+  toNumber(propertyTotals.impressions),
+);
+const overdueIndexingCleanup = indexingCleanup.filter(
+  (entry) =>
+    /^\d{4}-\d{2}-\d{2}$/.test(entry.evaluateAfter ?? '') &&
+    entry.evaluateAfter <= scorecardDate,
 );
 
 const monthPrefix = scorecardDate.slice(0, 7);
@@ -279,9 +354,33 @@ if (deviceClickTotal !== propertyTotals.clicks) {
     `设备分段只覆盖 ${deviceClickTotal}/${propertyTotals.clicks} 次点击，设备占比可能不完整。`,
   );
 }
+if (deviceImpressionTotal !== propertyTotals.impressions) {
+  warnings.push(
+    `设备分段只覆盖 ${deviceImpressionTotal}/${propertyTotals.impressions} 次曝光，设备曝光占比可能有四舍五入或缺失。`,
+  );
+}
 if (pageDimensionImpressions !== propertyTotals.impressions) {
   warnings.push(
     '页面维度与全站属性采用不同聚合口径，本报告还会排除当前 noindex 页面，不能用页面行求和替代全站曝光总量。',
+  );
+}
+if (indexingNoiseRatio >= 20) {
+  warnings.push(
+    `${indexingCleanup.length} 个已 noindex 页面仍有 ${indexingNoiseImpressions} 次历史页面维度曝光，相当于全站属性曝光的 ${indexingNoiseRatio}%；两者口径不同，不能直接相减。`,
+  );
+}
+if (audienceAnomalies.length > 0) {
+  warnings.push(
+    `发现 ${audienceAnomalies.length} 个非目标国家有大量曝光但没有点击，不应据此扩写泛英文内容。`,
+  );
+}
+if (
+  mobileDevice &&
+  mobileDevice.impressionShare > 0 &&
+  mobileDevice.clickShare > mobileDevice.impressionShare * 2
+) {
+  warnings.push(
+    `移动端仅占 ${mobileDevice.impressionShare}% 曝光，却贡献 ${mobileDevice.clickShare}% 点击；移动端中文办事体验应作为增长基线。`,
   );
 }
 if (monthlyActionStatus === 'above-target') {
@@ -305,6 +404,7 @@ const scorecard = {
     segmentReport: path.relative(projectRoot, segmentReportPath),
     eeatReport: path.relative(projectRoot, eeatReportPath),
     actionLog: path.relative(projectRoot, actionLogPath),
+    searchPlan: path.relative(projectRoot, searchPlanPath),
   },
   targets,
   current: {
@@ -318,8 +418,31 @@ const scorecard = {
       usClicks: unitedStates?.clicks ?? 0,
       usImpressions: unitedStates?.impressions ?? 0,
       usClickShare,
+      usImpressionShare,
       countries: segments?.countries ?? [],
       devices: segments?.devices ?? [],
+    },
+    diagnostics: {
+      queryVisibility: {
+        visibleRows: toNumber(publicQuerySignals.totalRows),
+        visibleClicks: toNumber(publicQuerySignals.visibleClicks),
+        visibleImpressions: toNumber(publicQuerySignals.visibleImpressions),
+        impressionCoveragePercent: visibleQueryImpressionCoverage,
+        chineseRows: toNumber(publicQuerySignals.chineseRows),
+        chineseClicks: toNumber(publicQuerySignals.chineseClicks),
+        chineseImpressions: toNumber(publicQuerySignals.chineseImpressions),
+        chineseShareOfVisibleImpressions: visibleChineseImpressionShare,
+        note: '仅保存汇总值；原始查询留在私有报告，不写入公开记分卡。',
+      },
+      devices: deviceDiagnostics,
+      audienceAnomalies,
+      indexingNoise: {
+        routes: indexingCleanup.length,
+        impressions: indexingNoiseImpressions,
+        relativeToPropertyImpressionsPercent: indexingNoiseRatio,
+        overdue: overdueIndexingCleanup.length,
+        note: '来自页面维度历史数据，与全站属性总量口径不同，只能观察规模，不能直接相减。',
+      },
     },
     pageDimension: {
       indexableRows: indexablePageRows.length,
@@ -399,6 +522,19 @@ const markdown = [
   `- 仍在观察期的页面：${activeCooldowns.length} 个；最近可复评日期：${activeCooldowns.map((entry) => entry.evaluateAfter).sort()[0] ?? '无'}。`,
   `- 页面排名：${top20Pages} 页进入前 20，其中 ${top10Pages} 页进入前 10。`,
   `- 美国点击：${unitedStates?.clicks ?? 0}/${propertyTotals.clicks}，占 ${usClickShare}%。`,
+  '',
+  '## 有效流量诊断',
+  '',
+  `- 美国贡献 ${usClickShare}% 点击和 ${usImpressionShare}% 曝光；优先优化美国中文用户，而不是追逐全球泛流量。`,
+  `- 移动端贡献 ${mobileDevice?.clickShare ?? 0}% 点击、${mobileDevice?.impressionShare ?? 0}% 曝光，CTR ${mobileDevice?.ctr ?? 0}%；桌面端贡献 ${desktopDevice?.clickShare ?? 0}% 点击、${desktopDevice?.impressionShare ?? 0}% 曝光，CTR ${desktopDevice?.ctr ?? 0}%。`,
+  `- 当前可见查询 ${toNumber(publicQuerySignals.totalRows)} 行，覆盖 ${visibleQueryImpressionCoverage}% 全站曝光；其中中文查询曝光占可见查询曝光 ${visibleChineseImpressionShare}%。`,
+  `- ${indexingCleanup.length} 个已 noindex 页面仍有 ${indexingNoiseImpressions} 次历史页面维度曝光，复查逾期 ${overdueIndexingCleanup.length} 个。`,
+  ...(audienceAnomalies.length > 0
+    ? audienceAnomalies.map(
+        (country) =>
+          `- 异常受众：${country.label}有 ${country.impressions} 次曝光、${country.clicks} 次点击，占全站曝光 ${country.impressionShare}%。`,
+      )
+    : ['- 未发现达到阈值的非目标国家零点击异常曝光。']),
   '',
   '## 数据边界',
   '',

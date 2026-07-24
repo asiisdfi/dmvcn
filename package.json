@@ -14,6 +14,7 @@
     "audit:links:full": "LINK_AUDIT_FORCE=1 LINK_AUDIT_LIMIT=0 node --experimental-strip-types scripts/audit-official-links.mjs",
     "audit:source-freshness": "node --experimental-strip-types scripts/audit-source-freshness.mjs",
     "audit:search-console": "node scripts/audit-search-console-plan.mjs",
+    "audit:growth": "node scripts/audit-growth-scorecard.mjs",
     "audit:content": "node --experimental-strip-types scripts/audit-content-quality.mjs",
     "audit:directory-evidence": "node --experimental-strip-types scripts/audit-directory-evidence.mjs",
     "audit:state-evidence": "node --experimental-strip-types scripts/audit-state-evidence.mjs",
@@ -27,7 +28,7 @@
     "plan:sc": "node scripts/build-search-console-plan.mjs",
     "plan:growth": "node scripts/build-growth-scorecard.mjs",
     "review:signoffs:import": "node --experimental-strip-types scripts/import-review-signoffs.mjs",
-    "verify:launch": "npm run audit:content && npm run audit:practice && npm run audit:source-freshness && npm run audit:search-console && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:publication && npm run audit:site && npm run audit:seo && npm run audit:launch",
+    "verify:launch": "npm run audit:content && npm run audit:practice && npm run audit:source-freshness && npm run audit:search-console && npm run audit:growth && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:publication && npm run audit:site && npm run audit:seo && npm run audit:launch",
     "astro": "astro",
     "plan:signoff": "node scripts/build-signoff-template.mjs",
     "audit:publication": "node --experimental-strip-types scripts/audit-publication-gate.mjs"

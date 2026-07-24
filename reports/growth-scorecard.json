@@ -13,7 +13,8 @@
     "pageReport": "reports/search-console-export.csv",
     "segmentReport": "reports/private/search-console-segments.json",
     "eeatReport": "reports/eeat-inventory.json",
-    "actionLog": "reports/search-console-actions.json"
+    "actionLog": "reports/search-console-actions.json",
+    "searchPlan": "reports/search-console-priority.json"
   },
   "targets": {
     "clicks": 500,
@@ -48,6 +49,7 @@
       "usClicks": 10,
       "usImpressions": 1610,
       "usClickShare": 62.5,
+      "usImpressionShare": 31.6,
       "countries": [
         {
           "code": "US",
@@ -101,6 +103,64 @@
         }
       ]
     },
+    "diagnostics": {
+      "queryVisibility": {
+        "visibleRows": 1000,
+        "visibleClicks": 1,
+        "visibleImpressions": 1855,
+        "impressionCoveragePercent": 36.4,
+        "chineseRows": 25,
+        "chineseClicks": 0,
+        "chineseImpressions": 47,
+        "chineseShareOfVisibleImpressions": 2.5,
+        "note": "仅保存汇总值；原始查询留在私有报告，不写入公开记分卡。"
+      },
+      "devices": [
+        {
+          "code": "MOBILE",
+          "label": "移动设备",
+          "clicks": 9,
+          "impressions": 332,
+          "clickShare": 56.3,
+          "impressionShare": 6.5,
+          "ctr": 2.7
+        },
+        {
+          "code": "DESKTOP",
+          "label": "桌面",
+          "clicks": 6,
+          "impressions": 4746,
+          "clickShare": 37.5,
+          "impressionShare": 93.1,
+          "ctr": 0.1
+        },
+        {
+          "code": "TABLET",
+          "label": "平板电脑",
+          "clicks": 1,
+          "impressions": 21,
+          "clickShare": 6.3,
+          "impressionShare": 0.4,
+          "ctr": 4.8
+        }
+      ],
+      "audienceAnomalies": [
+        {
+          "code": "VN",
+          "label": "越南",
+          "clicks": 0,
+          "impressions": 2430,
+          "impressionShare": 47.6
+        }
+      ],
+      "indexingNoise": {
+        "routes": 3,
+        "impressions": 2792,
+        "relativeToPropertyImpressionsPercent": 54.7,
+        "overdue": 0,
+        "note": "来自页面维度历史数据，与全站属性总量口径不同，只能观察规模，不能直接相减。"
+      }
+    },
     "pageDimension": {
       "indexableRows": 124,
       "clickSum": 16,
@@ -109,19 +169,19 @@
     },
     "cadence": {
       "month": "2026-07",
-      "completedActions": 19,
+      "completedActions": 20,
       "targetMin": 8,
       "targetMax": 12,
       "status": "above-target",
       "rollingSevenDays": {
         "from": "2026-07-18",
         "through": "2026-07-24",
-        "completedActions": 19,
+        "completedActions": 20,
         "targetMin": 2,
         "targetMax": 3,
         "status": "above-target"
       },
-      "activeCooldowns": 19,
+      "activeCooldowns": 20,
       "nextCooldownDate": "2026-08-07"
     },
     "quality": {
@@ -194,8 +254,12 @@
   },
   "warnings": [
     "当前快照是 28 天窗口，只能跟踪趋势，不能证明 30 天目标完成。",
+    "设备分段只覆盖 5099/5100 次曝光，设备曝光占比可能有四舍五入或缺失。",
     "页面维度与全站属性采用不同聚合口径，本报告还会排除当前 noindex 页面，不能用页面行求和替代全站曝光总量。",
-    "本月已记录 19 个内容动作，超过 8–12 个计划节奏；除规则纠错外应等待冷却数据。",
-    "最近 7 天已记录 19 个内容动作，超过每周 2–3 个节奏；应先观察而不是继续批量修改。"
+    "3 个已 noindex 页面仍有 2792 次历史页面维度曝光，相当于全站属性曝光的 54.7%；两者口径不同，不能直接相减。",
+    "发现 1 个非目标国家有大量曝光但没有点击，不应据此扩写泛英文内容。",
+    "移动端仅占 6.5% 曝光，却贡献 56.3% 点击；移动端中文办事体验应作为增长基线。",
+    "本月已记录 20 个内容动作，超过 8–12 个计划节奏；除规则纠错外应等待冷却数据。",
+    "最近 7 天已记录 20 个内容动作，超过每周 2–3 个节奏；应先观察而不是继续批量修改。"
   ]
 }
