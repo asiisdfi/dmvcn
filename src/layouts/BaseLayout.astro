@@ -43,6 +43,7 @@ const canonicalUrl = canonical
   : new URL(Astro.url.pathname, Astro.site).toString();
 const ogImageUrl = new URL(ogImage, Astro.site).toString();
 const organizationId = new URL('/#organization', Astro.site).toString();
+const websiteId = new URL('/#website', Astro.site).toString();
 const authorUrl = new URL(EDITORIAL_AUTHOR.path, Astro.site).toString();
 const organizationSchema: JsonLd = {
   '@context': 'https://schema.org',
@@ -60,6 +61,7 @@ const organizationSchema: JsonLd = {
 const siteSchema: JsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': websiteId,
   name: SITE.name,
   description: SITE.description,
   url: new URL('/', Astro.site).toString(),
@@ -103,6 +105,8 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={SITE.name} />
     <meta property="og:locale" content="zh_CN" />
     {publishedAt && <meta property="article:published_time" content={publishedAt} />}
     {modifiedAt && <meta property="article:modified_time" content={modifiedAt} />}

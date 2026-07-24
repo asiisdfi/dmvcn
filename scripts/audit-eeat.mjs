@@ -141,8 +141,10 @@ function pageIdentity(route) {
   return { type: 'collection', id: route, risk: 'standard' };
 }
 
-function articleSchema(document) {
-  return document.jsonLd.find((item) => item?.['@type'] === 'Article');
+function authoredPageSchema(document) {
+  return document.jsonLd.find((item) =>
+    ['Article', 'WebPage'].includes(item?.['@type']),
+  );
 }
 
 function officialLinkCount(document) {
@@ -188,7 +190,7 @@ function contentSignals(identity, route) {
 function scorePage(route, document) {
   const identity = pageIdentity(route);
   const signals = contentSignals(identity, route);
-  const schema = articleSchema(document);
+  const schema = authoredPageSchema(document);
   const contentPage = ['state-overview', 'state-real-id', 'topic'].includes(identity.type);
   const visibleThreeDates = document.classNames.has('content-meta') && document.times.filter(Boolean).length >= 3;
   const authorLink = document.links.some((link) => link.rel.split(/\s+/).includes('author'));

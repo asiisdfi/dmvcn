@@ -10,15 +10,25 @@ import {
 } from '../data/editorial';
 
 const schema = {
-  '@type': 'Article',
-  headline: 'DMV中文办事库编辑政策',
-  description: '说明本站如何选题、核对官方来源、处理高风险事实、使用自动化工具和更新内容。',
+  '@type': 'WebPage',
+  name: 'DMV中文办事库编辑政策',
+  description: 'DMV中文办事库编辑政策：选题、政府来源、事实核对、风险分级、更新和上线检查。',
+  url: new URL('/editorial-policy/', Astro.site).toString(),
   datePublished: EDITORIAL_POLICY_DATE,
   dateModified: EDITORIAL_POLICY_MODIFIED_DATE,
+  inLanguage: 'zh-Hans',
   author: {
     '@type': 'Organization',
     name: EDITORIAL_AUTHOR.name,
     url: new URL(EDITORIAL_AUTHOR.path, Astro.site).toString(),
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': new URL('/#organization', Astro.site).toString(),
+  },
+  isPartOf: {
+    '@type': 'WebSite',
+    '@id': new URL('/#website', Astro.site).toString(),
   },
 };
 ---

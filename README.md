@@ -143,9 +143,10 @@ npm run audit:eeat
 ```sh
 npm run build
 npm run audit:seo
+npm run audit:metadata
 ```
 
-脚本会检查构建后的 HTML 是否有标题、描述、canonical、JSON-LD、内容修改时间、sitemap，并阻止内部状态、旧州数等过期文案出现在前台。
+`audit:seo` 会检查构建后的 HTML 是否有标题、描述、canonical、JSON-LD、内容修改时间、sitemap，并阻止内部状态、旧州数等过期文案出现在前台。`audit:metadata` 会进一步检查全部可索引页的标题、描述和 canonical 唯一性，要求 Open Graph 与 canonical 一致，解析全部 JSON-LD，并校验 Organization、WebSite、WebPage、Article、FAQ、Breadcrumb 和 CollectionPage 的核心字段及 sitemap 对应关系。两个检查都已纳入 `verify:launch`。
 
 ## 移动端性能体检
 

@@ -105,11 +105,16 @@ const schema = {
   description: '按州整理 REAL ID、DMV 常用业务、州指南和官方入口的中文目录。',
   dateModified: DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
-  mainEntity: directoryCards.map((card) => ({
-    '@type': 'SiteNavigationElement',
-    name: card.title,
-    url: new URL(card.href, Astro.site).toString(),
-  })),
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: directoryCards.length,
+    itemListElement: directoryCards.map((card, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: card.title,
+      url: new URL(card.href, Astro.site).toString(),
+    })),
+  },
 };
 ---
 
