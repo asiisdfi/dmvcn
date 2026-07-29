@@ -1,17 +1,18 @@
 {
   "generatedAt": "2026-07-29T00:00:00.000Z",
   "summary": {
-    "pages": 144,
+    "pages": 143,
     "countsByClass": {
-      "topic": 34,
+      "topic": 33,
       "directory": 9,
       "state-overview": 50,
       "state-real-id": 50,
       "practice": 1
     },
     "exactDuplicates": 0,
-    "reviewedBoundaries": 5,
-    "monitoredPairs": 36,
+    "reviewedBoundaries": 4,
+    "dormantBoundaries": 1,
+    "monitoredPairs": 35,
     "errors": 0
   },
   "rules": {
@@ -1159,14 +1160,6 @@
       "contentHash": "bf1e5d5fd8b3444a03f2276b680667ee4d7b5ded0730a1ba056bd8f36c39aaff"
     },
     {
-      "route": "/topics/tickets-tolls-insurance-lapse-registration-hold/",
-      "class": "topic",
-      "title": "罚单、toll、保险 lapse 或 registration hold，先查 DMV 还是法院 | DMV中文办事库",
-      "heading": "罚单、toll、保险 lapse 或 registration hold，先查 DMV 还是法院",
-      "contentChars": 6344,
-      "contentHash": "e08915bd8f1cd70a73d6d00a268876234f1a5a5482dea504505d6daf7a1e5388"
-    },
-    {
       "route": "/topics/used-car-title-lien-salvage-odometer-check/",
       "class": "topic",
       "title": "买二手车前，title、lien、salvage 和 odometer 怎么查 | DMV中文办事库",
@@ -1573,17 +1566,6 @@
       "boundaryStatus": "reviewed",
       "reviewedAt": "2026-07-29",
       "distinction": "基础页回答要不要办理及联邦用途；比较页专门区分 Standard、REAL ID 与 Enhanced 三类州证件。"
-    },
-    {
-      "routes": [
-        "/topics/driver-license-suspension-reinstatement-sr22/",
-        "/topics/tickets-tolls-insurance-lapse-registration-hold/"
-      ],
-      "class": "topic",
-      "similarity": 0.145,
-      "boundaryStatus": "reviewed",
-      "reviewedAt": "2026-07-29",
-      "distinction": "吊销复职页处理驾驶资格恢复与 SR-22；罚单和欠费页处理 registration hold、保险中断及先清哪一项。"
     },
     {
       "routes": [

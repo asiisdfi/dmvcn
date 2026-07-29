@@ -439,10 +439,11 @@ export const semanticReviews: Record<string, SemanticReview> = {
   '/topics/tickets-tolls-insurance-lapse-registration-hold/': {
     status: 'evidence-checked',
     method: 'ai-assisted',
-    reviewedAt: '2026-07-17',
+    reviewedAt: '2026-07-29',
     reviewer: 'Codex AI 辅助证据核查',
     scope: '逐条比对 toll threshold、court clearance、insurance lapse、registration hold 和诈骗提醒。',
-    notes: '已修正 Virginia toll invoice 条件并拆分五州保险后果；高风险页面仍待真实人工语义签字。',
+    notes:
+      '已纠正 New York 200 美元门槛只适用于 commercial motor vehicle 的限定，并重新核对 Virginia toll invoice、五州保险后果、court clearance 和诈骗提醒；本次内容改动后须重新完成人工语义签字。',
   },
   '/topics/name-change-chain/': {
     status: 'evidence-checked',

@@ -1,10 +1,11 @@
 # 搜索意图与重复页面审计（2026-07-29）
 
-- 可索引办事页：144
-- 专题 / 目录 / 州总览 / 州 REAL ID / 练习页：34 / 9 / 50 / 50 / 1
+- 可索引办事页：143
+- 专题 / 目录 / 州总览 / 州 REAL ID / 练习页：33 / 9 / 50 / 50 / 1
 - 正文完全重复：0
-- 已复核意图边界：5
-- 观察或复核页面对：36
+- 已复核意图边界：4
+- 因发布门禁暂时休眠的边界：1
+- 观察或复核页面对：35
 - 错误：0
 
 ## 相似页面与分工
@@ -45,7 +46,6 @@
 | /states/new-york/real-id/ | /states/washington/real-id/ | state-real-id | 0.251 | observe | 继续观察 |
 | /topics/airport-travel-after-real-id/ | /topics/real-id-basics/ | topic | 0.174 | reviewed | 机场页解决出行当天带什么证件、临时证件和 ConfirmID；基础页解决是否需要升级 REAL ID 以及可用替代证件。 |
 | /topics/real-id-basics/ | /topics/real-id-vs-standard-license/ | topic | 0.157 | reviewed | 基础页回答要不要办理及联邦用途；比较页专门区分 Standard、REAL ID 与 Enhanced 三类州证件。 |
-| /topics/driver-license-suspension-reinstatement-sr22/ | /topics/tickets-tolls-insurance-lapse-registration-hold/ | topic | 0.145 | reviewed | 吊销复职页处理驾驶资格恢复与 SR-22；罚单和欠费页处理 registration hold、保险中断及先清哪一项。 |
 | /topics/proof-of-residency/ | /topics/residency-proof-no-bills-po-box/ | topic | 0.143 | reviewed | 一般地址证明页解释常规文件组合；特殊地址页只处理没有本人账单、P.O. Box、同住或无固定住址等例外路径。 |
 
 ## 门禁结果

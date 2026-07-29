@@ -67,12 +67,20 @@ function checkRejection(result, expectedMessages, description, failures) {
 try {
   await cp(path.join(projectRoot, 'dist'), tempDist, { recursive: true });
   await mkdir(tempReports, { recursive: true });
+
+  const failures = [];
+  const baselineResult = await runAudit();
+  if (baselineResult.rejected) {
+    failures.push(
+      'Baseline fixture with a publication-gated noindex boundary should pass.',
+    );
+  }
+
   await copyFile(
     routeFile(tempDist, sourceRoute),
     routeFile(tempDist, targetRoute),
   );
 
-  const failures = [];
   const sortedRoutes = [sourceRoute, targetRoute].sort();
   const duplicateResult = await runAudit();
   checkRejection(
@@ -103,6 +111,7 @@ try {
 
   if (failures.length) {
     failures.forEach((failure) => console.error(failure));
+    console.error(baselineResult.output.trim());
     console.error(duplicateResult.output.trim());
     console.error(thinResult.output.trim());
     process.exitCode = 1;

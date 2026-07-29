@@ -4,7 +4,7 @@
 - 当前有效：166；30 天内到期：12；已逾期：0。
 - 易变规则入口：12 个；30 天内到期 12 个；逾期 0 个。
 - 下一最早截止日：2026-08-16。
-- 官方链接月度基线：1662 个 URL，审计日期 2026-07-29，距今 0 天。
+- 官方链接月度基线：1663 个 URL，审计日期 2026-07-29，距今 0 天。
 - 发布门禁：通过。
 
 ## 周期
@@ -23,12 +23,12 @@
 | 页面 | 复核策略 | 风险 | 公开事实核对 | 证据复核 | 计时起点 | 最晚复核 | 剩余/逾期天数 |
 | --- | --- | --- | --- | --- | --- | --- | ---: |
 | /topics/older-driver-license-renewal-medical-review/ | 易变规则：年龄与医疗复核 | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-08-16 | 剩余 18 |
-| /topics/tickets-tolls-insurance-lapse-registration-hold/ | 易变规则：欠费、保险中断与限制 | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-08-16 | 剩余 18 |
 | /directories/costs-timing/ | 易变规则：费用、付款与处理时间 | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/deadlines/ | 易变规则：期限与宽限期 | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/document-rules/ | 易变规则：材料规则 | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/foreign-license/ | 易变规则：外国驾照与 IDP | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/identity-ssn/ | 易变规则：身份与 SSN | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
+| /topics/tickets-tolls-insurance-lapse-registration-hold/ | 易变规则：欠费、保险中断与限制 | high | 2026-07-29 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 | /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 | /topics/temporary-tag-trip-permit-dealer-plate/ | 易变规则：临时牌照与通行许可 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
@@ -44,12 +44,12 @@
 | 页面 | 复核策略 | 风险 | 公开事实核对 | 证据复核 | 计时起点 | 最晚复核 | 剩余/逾期天数 |
 | --- | --- | --- | --- | --- | --- | --- | ---: |
 | /topics/older-driver-license-renewal-medical-review/ | 易变规则：年龄与医疗复核 | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-08-16 | 剩余 18 |
-| /topics/tickets-tolls-insurance-lapse-registration-hold/ | 易变规则：欠费、保险中断与限制 | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-08-16 | 剩余 18 |
 | /directories/costs-timing/ | 易变规则：费用、付款与处理时间 | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/deadlines/ | 易变规则：期限与宽限期 | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/document-rules/ | 易变规则：材料规则 | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/foreign-license/ | 易变规则：外国驾照与 IDP | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/identity-ssn/ | 易变规则：身份与 SSN | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
+| /topics/tickets-tolls-insurance-lapse-registration-hold/ | 易变规则：欠费、保险中断与限制 | high | 2026-07-29 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 | /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 | /topics/temporary-tag-trip-permit-dealer-plate/ | 易变规则：临时牌照与通行许可 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |

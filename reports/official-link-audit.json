@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-07-29T13:57:33.427Z",
+  "generatedAt": "2026-07-29T14:48:15.878Z",
   "auditDate": "2026-07-29",
   "inventory": {
-    "fingerprint": "ec94c58950f04873f6ae698066bbc6b7d94303d7fef5cee2bbbd7d7c3fa1b61e",
-    "hosts": 148,
-    "highRiskUrls": 316,
-    "urls": 1662
+    "fingerprint": "ff5fee5eaeabba901a8421c4df6bade267edc52d258bbe2101dfb1bbf66b1ec4",
+    "hosts": 149,
+    "highRiskUrls": 318,
+    "urls": 1663
   },
   "run": {
     "batchLimit": 350,
     "checked": 1,
     "checkedSummary": {
       "fail": 0,
-      "ok": 1,
-      "watch": 0
+      "ok": 0,
+      "watch": 1
     },
     "concurrency": 18,
     "force": false,
@@ -24,22 +24,22 @@
   },
   "coverage": {
     "dueRemaining": 0,
-    "fresh": 1662,
+    "fresh": 1663,
     "fullCoverage": true,
     "lastFullCoverageAt": "2026-07-29",
     "percent": 100
   },
   "highRiskCoverage": {
-    "fresh": 316,
+    "fresh": 318,
     "gatePassed": true,
     "percent": 100,
-    "total": 316
+    "total": 318
   },
   "status": {
     "confirmedHardFailures": 0,
     "freshFail": 0,
     "freshOk": 938,
-    "freshWatch": 724,
+    "freshWatch": 725,
     "highRiskGatePassed": true,
     "monthlyGatePassed": true,
     "pendingHardFailures": 0
@@ -477,6 +477,14 @@
       "host": "dmv2u.oregon.gov",
       "statuses": [
         "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 1,
+      "host": "dos.ny.gov",
+      "statuses": [
+        "403"
       ]
     },
     {

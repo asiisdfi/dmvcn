@@ -827,10 +827,10 @@
 
 - 页面：/topics/tickets-tolls-insurance-lapse-registration-hold/
 - 类型：高风险专题
-- 当前内容版本日期：2026-07-17
-- 页面公开事实核对日期：2026-07-17
+- 当前内容版本日期：2026-07-29
+- 页面公开事实核对日期：2026-07-29
 - 现有人工签字日期：2026-07-21
-- 本轮原因：30 天易变规则复核窗口
+- 本轮原因：内容版本更新后重新人工核对（旧签字已失效）
 - 既有核对范围：人工核对罚单、收费公路、保险中断、车辆登记限制及不同机构的处理顺序。
 - 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。
 
@@ -854,10 +854,11 @@
 - [ ] 页面给出的行动建议与来源机构的职责相符。
 - 审核备注：
 
-#### 2. New York 可因 5 年内 3 次以上 toll violation，或同一期间未付 toll、fee 和 charge 达到 200 美元，暂停相关 vehicle registration。
+#### 2. New York 可因 5 年内、不同日期 toll transactions 产生的 3 份以上违规通知而拟议暂停 vehicle registration；若涉及 commercial motor vehicle，5 年内未付 toll、fee 和其他 charge 累计达到 200 美元，也可触发拟议暂停。
 
 - 官方来源：
   - https://dmv.ny.gov/registration/registration-suspensions-for-failure-to-pay-tolls
+  - https://dos.ny.gov/january-5-2022vol-xliv-issue-1
 - [ ] 来源正文直接支持这条中文声明。
 - [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
 - [ ] 页面给出的行动建议与来源机构的职责相符。
@@ -935,16 +936,17 @@
 - [ ] 页面给出的行动建议与来源机构的职责相符。
 - 审核备注：
 
-#### 11. Massachusetts Non-Renewal Program 由参与的 municipality 或 authority 报送 unpaid obligation，RMV 不能替发起机构裁定或清除原始欠款。
+#### 11. Massachusetts Non-Renewal Program 由参与的 municipality、authority 或其授权处理方标记并清除 unpaid obligation；parking ticket 或 excise tax 应向 city / town 处理，E-ZPass 违章应向 E-ZPass MA 处理。
 
 - 官方来源：
   - https://www.mass.gov/info-details/non-renewal-program
+  - https://www.mass.gov/how-to/renew-your-real-or-standard-passenger-class-d-or-motorcycle-class-m-drivers-license
 - [ ] 来源正文直接支持这条中文声明。
 - [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
 - [ ] 页面给出的行动建议与来源机构的职责相符。
 - 审核备注：
 
-#### 12. Texas FTA/FTP 记录即使已经付款，也需要 reporting agency 或 court 正确回传 compliance；driver license status 不会只凭付款截图自动恢复。
+#### 12. Texas FTA/FTP 罚单付款后最多可能需要 7 个工作日才从系统清除；若仍列在 Outstanding Violations，应联系收款法院，DPS 只能在 citation 已关闭后继续处理。
 
 - 官方来源：
   - https://www.dps.texas.gov/section/driver-license/faq/section-8-failure-appear-and-failure-pay-ftaftp

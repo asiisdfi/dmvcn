@@ -180,10 +180,13 @@ try {
 }
 
 const pages = [];
+const allTaskRoutes = new Set();
+const noindexTaskRoutes = new Set();
 for (const filePath of htmlFiles) {
   const route = routeForFile(filePath);
   const classification = pageClass(route);
   if (!classification) continue;
+  allTaskRoutes.add(route);
 
   const tree = parse(await readFile(filePath, 'utf8'));
   let robots = '';
@@ -201,7 +204,10 @@ for (const filePath of htmlFiles) {
     for (const child of node.childNodes ?? []) inspect(child);
   }
   inspect(tree);
-  if (robots.toLowerCase().split(/[\s,]+/).includes('noindex')) continue;
+  if (robots.toLowerCase().split(/[\s,]+/).includes('noindex')) {
+    noindexTaskRoutes.add(route);
+    continue;
+  }
 
   const normalized = normalizeText(mainText(tree));
   const rule = classRules[classification];
@@ -271,8 +277,8 @@ for (const boundary of SEARCH_INTENT_BOUNDARIES) {
 const pageRoutes = new Set(pages.map((page) => page.route));
 for (const boundary of SEARCH_INTENT_BOUNDARIES) {
   for (const route of boundary.routes) {
-    if (!pageRoutes.has(route)) {
-      errors.push(`${route}: intent boundary route is missing or not indexable.`);
+    if (!allTaskRoutes.has(route)) {
+      errors.push(`${route}: intent boundary route is missing from the build.`);
     }
   }
 }
@@ -327,6 +333,13 @@ for (let leftIndex = 0; leftIndex < pages.length; leftIndex += 1) {
 }
 
 for (const [key, boundary] of boundaryByPair) {
+  if (
+    boundary.routes.some(
+      (route) => noindexTaskRoutes.has(route) || !allTaskRoutes.has(route),
+    )
+  ) {
+    continue;
+  }
   if (!requiredBoundaryKeys.has(key)) {
     errors.push(
       `${boundary.routes.join(' <> ')}: registered intent boundary no longer meets the review threshold; remove or update the stale record.`,
@@ -346,6 +359,9 @@ const countsByClass = Object.fromEntries(
     pages.filter((page) => page.class === classification).length,
   ]),
 );
+const dormantBoundaries = SEARCH_INTENT_BOUNDARIES.filter((boundary) =>
+  boundary.routes.some((route) => noindexTaskRoutes.has(route)),
+).length;
 const report = {
   generatedAt: `${today}T00:00:00.000Z`,
   summary: {
@@ -355,6 +371,7 @@ const report = {
       (routes) => routes.length > 1,
     ).length,
     reviewedBoundaries: requiredBoundaryKeys.size,
+    dormantBoundaries,
     monitoredPairs: pairs.length,
     errors: errors.length,
   },
@@ -375,6 +392,7 @@ const markdown = [
   `- 专题 / 目录 / 州总览 / 州 REAL ID / 练习页：${countsByClass.topic} / ${countsByClass.directory} / ${countsByClass['state-overview']} / ${countsByClass['state-real-id']} / ${countsByClass.practice}`,
   `- 正文完全重复：${report.summary.exactDuplicates}`,
   `- 已复核意图边界：${report.summary.reviewedBoundaries}`,
+  `- 因发布门禁暂时休眠的边界：${report.summary.dormantBoundaries}`,
   `- 观察或复核页面对：${pairs.length}`,
   `- 错误：${errors.length}`,
   '',
@@ -410,6 +428,7 @@ console.log('');
 console.log(`Indexable task pages: ${pages.length}`);
 console.log(`Exact main-content duplicates: ${report.summary.exactDuplicates}`);
 console.log(`Reviewed intent boundaries: ${report.summary.reviewedBoundaries}`);
+console.log(`Dormant intent boundaries: ${report.summary.dormantBoundaries}`);
 console.log(`Monitored pairs: ${pairs.length}`);
 console.log(`Errors: ${errors.length}`);
 
