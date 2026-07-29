@@ -19395,7 +19395,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '赠车继承',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-24',
-    reviewedAt: '2026-07-24',
+    reviewedAt: '2026-07-29',
     description:
       '亲属赠车、车主去世或继承车辆时，先区分 gift、family transfer、surviving spouse、heir、estate 与 TOD beneficiary，再核对 Title、Lien、税费、registration 和保险。',
     quickAnswer:

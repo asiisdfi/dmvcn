@@ -42,6 +42,19 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-29',
+    title: '不把亲属赠车查询扩大成债务责任答案',
+    summary:
+      '对照 2026-07-21 人工签字版本后确认，亲属赠车与继承车辆专题后续只改过标题、摘要并新增首段，原有 14 条声明和 52 个政府来源没有变化。本轮重新核对 California、Washington、Texas、Georgia、Virginia 与 Pennsylvania 当前正文，首段分流仍有依据。Search Console 出现的债务责任查询缺少州别、生前或死亡后情形、共同责任和 vehicle lien 等关键事实，FTC 与 CFPB 的 deceased-debt 说明也不能被套用于生前赠车，因此本站不自动生成“承担”或“不承担”的法律结论。',
+    scope: [
+      '亲属赠车与继承车辆',
+      'Search Console 法律责任信号',
+      'vehicle lien 与个人债务边界',
+      'FTC 与 CFPB deceased-debt 范围',
+      '高风险差异人工复核',
+    ],
+  },
+  {
+    date: '2026-07-29',
     title: '收紧车辆 Title 补发的车主与 lien 分流',
     summary:
       '对照 2026-07-21 人工签字版本后确认，这一专题后续只改过标题、摘要并新增首段判断，原有 10 条声明和 20 个政府来源没有变化。本轮重新打开 California、Texas、Georgia 与 New York 当前正文，并检查自动访问受限的 Illinois 官方入口；“在 lienholder 名下”会混淆 record owner 与 recorded lien，现已拆成卖家仍是记录车主、记录中仍有 lien 两条路径。页面在真人核对当前差异并签字前继续保持 noindex。',
