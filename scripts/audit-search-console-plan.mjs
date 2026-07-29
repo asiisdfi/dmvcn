@@ -75,10 +75,13 @@ const planAgeDays = daysBetween(planDate, today);
 const snapshot = report.dataSnapshot ?? {};
 const execution = report.execution ?? {};
 const executeNow = execution.executeNow ?? [];
+const routingExecuteNow = execution.routingExecuteNow ?? [];
 const nextQueue = execution.nextQueue ?? [];
 const dataCollectionQueue = execution.dataCollectionQueue ?? [];
 const queryReviewQueue = execution.queryReviewQueue ?? [];
 const routingReviewQueue = execution.routingReviewQueue ?? [];
+const routingActionQueue = execution.routingActionQueue ?? [];
+const routingMonitoringQueue = execution.routingMonitoringQueue ?? [];
 const lowEvidenceQueue = execution.lowEvidenceQueue ?? [];
 const humanReviewQueue = execution.humanReviewQueue ?? [];
 const indexingCleanupQueue = execution.indexingCleanupQueue ?? [];
@@ -97,7 +100,24 @@ if (!allowedStatuses.has(execution.status)) {
 if ((execution.allowedNow ?? 0) !== executeNow.length) {
   errors.push(`allowedNow=${execution.allowedNow ?? 0} but executeNow has ${executeNow.length} items.`);
 }
-if (execution.status !== 'ready' && (execution.allowedNow ?? 0) !== 0) {
+if ((execution.routingAllowedNow ?? 0) !== routingExecuteNow.length) {
+  errors.push(
+    `routingAllowedNow=${execution.routingAllowedNow ?? 0} but routingExecuteNow has ${routingExecuteNow.length} items.`,
+  );
+}
+if (
+  (execution.allowedNow ?? 0) + (execution.routingAllowedNow ?? 0) >
+  (execution.currentPeriod?.availableSlots ?? 0)
+) {
+  errors.push('Current content and routing actions exceed available editorial capacity.');
+}
+if (
+  execution.status !== 'ready' &&
+  (
+    (execution.allowedNow ?? 0) !== 0 ||
+    (execution.routingAllowedNow ?? 0) !== 0
+  )
+) {
   errors.push(`${execution.status} must not allow content actions.`);
 }
 if (snapshot.readyForPlanning && (snapshot.blockers?.length ?? 0) > 0) {
@@ -133,8 +153,8 @@ for (const item of [...executeNow, ...nextQueue]) {
   if (item.requiresQueryReview) {
     errors.push(`${item.route}: executable content action still has unreviewed query intent.`);
   }
-  if (item.requiresRoutingReview) {
-    errors.push(`${item.route}: executable content action still requires routing review.`);
+  if (item.hasRoutingReviewSignal) {
+    errors.push(`${item.route}: executable content action still has a routing or overlap signal.`);
   }
   if (!item.targetQueryEvidenceReady) {
     errors.push(`${item.route}: executable content action has weak target-query evidence.`);
@@ -162,10 +182,100 @@ for (const item of queryReviewQueue) {
 }
 for (const item of routingReviewQueue) {
   if (!item.requiresRoutingReview) {
-    errors.push(`${item.route}: routing-review item has no routing or overlap signal.`);
+    errors.push(`${item.route}: routing-review item has no unresolved routing decision.`);
   }
   if (item.requiresHumanReview || item.requiresQueryReview) {
     errors.push(`${item.route}: higher-risk review must not be hidden in routing review.`);
+  }
+  if (!['routing-review', 'routing-recheck'].includes(item.suggestedAction)) {
+    errors.push(`${item.route}: routing-review queue has an invalid suggested action.`);
+  }
+}
+for (const item of routingActionQueue) {
+  if (
+    !item.hasRoutingReviewSignal ||
+    !item.requiresRoutingAction ||
+    !['scheduled', 'action-due'].includes(item.routingDecisionStatus)
+  ) {
+    errors.push(`${item.route}: routing-action item lacks a current reviewed decision.`);
+  }
+  if (item.requiresHumanReview || item.requiresQueryReview) {
+    errors.push(`${item.route}: higher-risk review must not be hidden in routing action.`);
+  }
+  if (!(item.routingDecision?.targetRoutes?.length > 0)) {
+    errors.push(`${item.route}: routing action has no destination route.`);
+  }
+  if (!isCalendarDate(item.routingDecision?.reviewedThrough)) {
+    errors.push(`${item.route}: routing action lacks a reviewed-through date.`);
+  }
+  if (
+    item.routingDecision?.reviewedThrough <
+    (item.routingEvidenceObservedThrough ?? '')
+  ) {
+    errors.push(`${item.route}: routing action does not cover the latest signal.`);
+  }
+  if (
+    item.routingDecisionStatus === 'scheduled' &&
+    (
+      !isCalendarDate(item.routingDecision?.plannedFor) ||
+      item.routingDecision.plannedFor <= planDate
+    )
+  ) {
+    errors.push(`${item.route}: scheduled routing action has an invalid future date.`);
+  }
+}
+for (const item of routingExecuteNow) {
+  if (
+    !item.hasRoutingReviewSignal ||
+    !item.requiresRoutingAction ||
+    item.routingDecisionStatus !== 'action-due'
+  ) {
+    errors.push(`${item.route}: executable routing item is not due.`);
+  }
+  if (item.requiresHumanReview || item.requiresQueryReview) {
+    errors.push(`${item.route}: executable routing item still requires higher-risk review.`);
+  }
+  if (!(item.routingDecision?.targetRoutes?.length > 0)) {
+    errors.push(`${item.route}: executable routing item has no destination route.`);
+  }
+  if (!isCalendarDate(item.routingDecision?.reviewedThrough)) {
+    errors.push(`${item.route}: executable routing item lacks a reviewed-through date.`);
+  }
+  if (
+    item.routingDecision?.reviewedThrough <
+    (item.routingEvidenceObservedThrough ?? '')
+  ) {
+    errors.push(`${item.route}: executable routing item does not cover the latest signal.`);
+  }
+  if (
+    isCalendarDate(item.routingDecision?.plannedFor) &&
+    item.routingDecision.plannedFor > planDate
+  ) {
+    errors.push(`${item.route}: future routing action entered the current execution queue.`);
+  }
+}
+for (const item of routingMonitoringQueue) {
+  if (
+    !item.hasRoutingReviewSignal ||
+    item.routingDecisionStatus !== 'monitoring'
+  ) {
+    errors.push(`${item.route}: routing-monitor item lacks a current implemented decision.`);
+  }
+  if (item.requiresHumanReview || item.requiresQueryReview) {
+    errors.push(`${item.route}: higher-risk review must not be hidden in routing monitoring.`);
+  }
+  if (
+    !isCalendarDate(item.routingDecision?.implementedAt) ||
+    !isCalendarDate(item.routingDecision?.evaluateAfter) ||
+    item.routingDecision.evaluateAfter <= planDate
+  ) {
+    errors.push(`${item.route}: routing monitoring lacks a valid future review date.`);
+  }
+  if (
+    item.routingDecision?.reviewedThrough <
+    (item.routingEvidenceObservedThrough ?? '')
+  ) {
+    errors.push(`${item.route}: routing monitoring does not cover the latest signal.`);
   }
 }
 for (const item of lowEvidenceQueue) {
@@ -224,10 +334,13 @@ if (
 
 const queueRoutes = [
   ...executeNow,
+  ...routingExecuteNow,
   ...nextQueue,
   ...dataCollectionQueue,
   ...queryReviewQueue,
   ...routingReviewQueue,
+  ...routingActionQueue,
+  ...routingMonitoringQueue,
   ...lowEvidenceQueue,
   ...humanReviewQueue,
   ...indexingCleanupQueue,
@@ -242,6 +355,40 @@ for (const route of duplicateRoutes(queueRoutes)) {
 if (containsRawQueryKey(report)) {
   errors.push('Public Search Console report contains a raw query field.');
 }
+if ((report.routingReviews?.pendingReview ?? 0) !== routingReviewQueue.length) {
+  errors.push('Routing-review summary does not match its execution queue.');
+}
+if (
+  (report.routingReviews?.pendingAction ?? 0) !==
+  routingExecuteNow.length + routingActionQueue.length
+) {
+  errors.push('Routing-action summary does not match its execution queue.');
+}
+if ((report.routingReviews?.executeNow ?? 0) !== routingExecuteNow.length) {
+  errors.push('Routing execution summary does not match its execution queue.');
+}
+if ((report.routingReviews?.monitoring ?? 0) !== routingMonitoringQueue.length) {
+  errors.push('Routing-monitoring summary does not match its execution queue.');
+}
+if (
+  !Number.isInteger(report.routingReviews?.records) ||
+  report.routingReviews.records < 0
+) {
+  errors.push('Routing-review record count is missing or invalid.');
+}
+const scheduledByDate = new Map();
+for (const item of routingActionQueue) {
+  const date = item.routingDecision?.plannedFor;
+  if (!isCalendarDate(date)) continue;
+  scheduledByDate.set(date, (scheduledByDate.get(date) ?? 0) + 1);
+}
+if (
+  isCalendarDate(execution.nextEligibleDate) &&
+  (scheduledByDate.get(execution.nextEligibleDate) ?? 0) >
+    (execution.nextEligibleSlots ?? 0)
+) {
+  errors.push('Scheduled routing actions exceed the next editorial window capacity.');
+}
 
 console.log('# Search Console Execution Gate');
 console.log('');
@@ -249,9 +396,12 @@ console.log(`Plan date: ${planDate || 'missing'}`);
 console.log(`Snapshot ready: ${Boolean(snapshot.readyForPlanning)}`);
 console.log(`Execution: ${execution.status ?? 'missing'}`);
 console.log(`Execute now: ${executeNow.length}`);
+console.log(`Routing execute now: ${routingExecuteNow.length}`);
 console.log(`Query evidence pending: ${dataCollectionQueue.length}`);
 console.log(`Query classification pending: ${queryReviewQueue.length}`);
 console.log(`Routing review: ${routingReviewQueue.length}`);
+console.log(`Routing action: ${routingActionQueue.length}`);
+console.log(`Routing monitoring: ${routingMonitoringQueue.length}`);
 console.log(`Low evidence: ${lowEvidenceQueue.length}`);
 console.log(`Human review: ${humanReviewQueue.length}`);
 console.log(`Index cleanup: ${indexingCleanupQueue.length} (${cleanupOverdue.length} overdue)`);

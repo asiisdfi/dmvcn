@@ -26,6 +26,11 @@ const segmentReportPath = path.join(
 );
 const eeatReportPath = path.join(projectRoot, 'reports', 'eeat-inventory.json');
 const actionLogPath = path.join(projectRoot, 'reports', 'search-console-actions.json');
+const routingReviewLogPath = path.join(
+  projectRoot,
+  'reports',
+  'search-console-routing-reviews.json',
+);
 const outputDir = path.resolve(
   process.env.SC_OUTPUT_DIR || path.join(projectRoot, 'reports'),
 );
@@ -38,14 +43,23 @@ const pageQuerySourcePath = process.env.SC_PAGE_QUERY_REPORT_PATH || pageQuerySi
 const segmentSourcePath = process.env.SC_SEGMENT_REPORT_PATH || segmentReportPath;
 const eeatSourcePath = process.env.EEAT_REPORT_PATH || eeatReportPath;
 const actionLogSourcePath = process.env.SC_ACTION_LOG_PATH || actionLogPath;
+const routingReviewLogSourcePath =
+  process.env.SC_ROUTING_REVIEW_PATH || routingReviewLogPath;
 const resolvedSourcePath = path.resolve(sourcePath);
 const resolvedQuerySourcePath = path.resolve(querySourcePath);
 const resolvedPageQuerySourcePath = path.resolve(pageQuerySourcePath);
 const resolvedSegmentSourcePath = path.resolve(segmentSourcePath);
+const resolvedRoutingReviewLogSourcePath = path.resolve(
+  routingReviewLogSourcePath,
+);
 const relativeSourcePath = path.relative(projectRoot, resolvedSourcePath);
 const relativeQuerySourcePath = path.relative(projectRoot, resolvedQuerySourcePath);
 const relativePageQuerySourcePath = path.relative(projectRoot, resolvedPageQuerySourcePath);
 const relativeSegmentSourcePath = path.relative(projectRoot, resolvedSegmentSourcePath);
+const relativeRoutingReviewLogSourcePath = path.relative(
+  projectRoot,
+  resolvedRoutingReviewLogSourcePath,
+);
 const sourceLabel = relativeSourcePath && !relativeSourcePath.startsWith('..')
   ? relativeSourcePath
   : sourcePath;
@@ -60,6 +74,11 @@ const segmentSourceLabel =
   relativeSegmentSourcePath && !relativeSegmentSourcePath.startsWith('..')
     ? relativeSegmentSourcePath
     : segmentSourcePath;
+const routingReviewSourceLabel =
+  relativeRoutingReviewLogSourcePath &&
+  !relativeRoutingReviewLogSourcePath.startsWith('..')
+    ? relativeRoutingReviewLogSourcePath
+    : routingReviewLogSourcePath;
 const editorialTargets = {
   weekly: { min: 2, max: 3 },
   monthly: { min: 8, max: 12 },
@@ -88,6 +107,14 @@ const defaultPlanRows = {
   querySource: querySourceLabel,
   pageQuerySource: pageQuerySourceLabel,
   segmentSource: segmentSourceLabel,
+  routingReviewSource: routingReviewSourceLabel,
+  routingReviews: {
+    records: 0,
+    pendingReview: 0,
+    pendingAction: 0,
+    executeNow: 0,
+    monitoring: 0,
+  },
   totalRows: 0,
   includedRows: 0,
   querySignals: null,
@@ -100,10 +127,14 @@ const defaultPlanRows = {
     targetEvidenceThresholds,
     allowedNow: 0,
     executeNow: [],
+    routingAllowedNow: 0,
+    routingExecuteNow: [],
     nextQueue: [],
     dataCollectionQueue: [],
     queryReviewQueue: [],
     routingReviewQueue: [],
+    routingActionQueue: [],
+    routingMonitoringQueue: [],
     lowEvidenceQueue: [],
     humanReviewQueue: [],
     indexingCleanupQueue: [],
@@ -116,6 +147,8 @@ const defaultPlanRows = {
     needsQueryEvidence: [],
     queryReview: [],
     routingReview: [],
+    routingAction: [],
+    routingMonitoring: [],
     lowEvidence: [],
     nonTarget: [],
     humanReview: [],
@@ -268,7 +301,8 @@ function priorityScore(item) {
   if (
     item.action === 'observe' ||
     item.action === 'observe-non-target' ||
-    item.action === 'observe-low-evidence'
+    item.action === 'observe-low-evidence' ||
+    item.action === 'routing-monitor'
   ) {
     return 0;
   }
@@ -280,6 +314,8 @@ function priorityScore(item) {
   if (item.action === 'needs-query-evidence') score += 10;
   if (item.action === 'query-review') score += 15;
   if (item.action === 'routing-review') score += 15;
+  if (item.action === 'routing-action') score += 15;
+  if (item.action === 'routing-recheck') score += 15;
   if (item.action === 'human-review') score += 15;
 
   if (item.ctrCurrent < 1) score += 12;
@@ -332,6 +368,138 @@ for (const entry of actionLog) {
     latestActionByRoute.set(route, { ...entry, route });
   }
 }
+
+let rawRoutingReviews = [];
+try {
+  rawRoutingReviews = JSON.parse(
+    await readFile(resolvedRoutingReviewLogSourcePath, 'utf8'),
+  );
+} catch (error) {
+  if (error?.code !== 'ENOENT') throw error;
+}
+if (!Array.isArray(rawRoutingReviews)) {
+  throw new Error('Search Console routing review log must be a JSON array.');
+}
+
+const routingReviewIds = new Set();
+const routingReviews = rawRoutingReviews.map((entry, index) => {
+  const label = `routing review ${index + 1}`;
+  const id = String(entry?.id ?? '').trim();
+  const routes = Array.isArray(entry?.routes)
+    ? [...new Set(entry.routes.map(normalizeRoute))]
+    : [];
+  const targetRoutes = Array.isArray(entry?.targetRoutes)
+    ? [...new Set(entry.targetRoutes.map(normalizeRoute))]
+    : [];
+  const reviewedAt = String(entry?.reviewedAt ?? '');
+  const reviewedThrough = String(entry?.reviewedThrough ?? '');
+  const plannedFor = String(entry?.plannedFor ?? '');
+  const implementedAt = String(entry?.implementedAt ?? '');
+  const evaluateAfter = String(entry?.evaluateAfter ?? '');
+  const action = String(entry?.action ?? '').trim();
+  const summary = String(entry?.summary ?? '').trim();
+
+  if (!id || routingReviewIds.has(id)) {
+    throw new Error(`${label}: missing or duplicate id.`);
+  }
+  routingReviewIds.add(id);
+  if (!routes.length || routes.some((route) => !route)) {
+    throw new Error(`${id}: routes must contain normalized site routes.`);
+  }
+  if (!targetRoutes.length || targetRoutes.some((route) => !route)) {
+    throw new Error(`${id}: targetRoutes must contain normalized site routes.`);
+  }
+  for (const route of routes) {
+    if (!siteRoutes.has(route) && !knownNoindexRoutes.has(route)) {
+      throw new Error(`${id}: unknown source route ${route}.`);
+    }
+  }
+  for (const route of targetRoutes) {
+    if (!siteRoutes.has(route)) {
+      throw new Error(`${id}: target route must be indexable: ${route}.`);
+    }
+  }
+  if (!isCalendarDate(reviewedAt) || !isCalendarDate(reviewedThrough)) {
+    throw new Error(`${id}: reviewedAt and reviewedThrough are required.`);
+  }
+  if (reviewedAt > planDate || reviewedThrough > planDate) {
+    throw new Error(`${id}: review dates cannot be later than the plan date.`);
+  }
+  if (reviewedThrough > reviewedAt) {
+    throw new Error(`${id}: reviewedThrough cannot be later than reviewedAt.`);
+  }
+  if (plannedFor && !isCalendarDate(plannedFor)) {
+    throw new Error(`${id}: plannedFor must be a calendar date.`);
+  }
+  if (plannedFor && plannedFor < reviewedAt) {
+    throw new Error(`${id}: plannedFor cannot precede reviewedAt.`);
+  }
+  if (implementedAt && !isCalendarDate(implementedAt)) {
+    throw new Error(`${id}: implementedAt must be a calendar date.`);
+  }
+  if (implementedAt && implementedAt > planDate) {
+    throw new Error(`${id}: implementedAt cannot be later than the plan date.`);
+  }
+  if (evaluateAfter && !isCalendarDate(evaluateAfter)) {
+    throw new Error(`${id}: evaluateAfter must be a calendar date.`);
+  }
+  if (implementedAt && !evaluateAfter) {
+    throw new Error(`${id}: implemented reviews require evaluateAfter.`);
+  }
+  if (evaluateAfter && !implementedAt) {
+    throw new Error(`${id}: evaluateAfter requires implementedAt.`);
+  }
+  if (implementedAt && implementedAt < reviewedAt) {
+    throw new Error(`${id}: implementedAt cannot precede reviewedAt.`);
+  }
+  if (evaluateAfter && evaluateAfter <= implementedAt) {
+    throw new Error(`${id}: evaluateAfter must be later than implementedAt.`);
+  }
+  if (!action || !summary) {
+    throw new Error(`${id}: action and summary are required.`);
+  }
+  if ('query' in entry || 'queries' in entry) {
+    throw new Error(`${id}: raw queries must stay in reports/private/.`);
+  }
+
+  return {
+    id,
+    routes,
+    targetRoutes,
+    reviewedAt,
+    reviewedThrough,
+    plannedFor,
+    implementedAt,
+    evaluateAfter,
+    action,
+    summary,
+  };
+});
+
+function routingReviewFor(route, observedThrough) {
+  return routingReviews
+    .filter(
+      (review) =>
+        review.routes.includes(route) &&
+        review.reviewedThrough >= observedThrough,
+    )
+    .sort(
+      (a, b) =>
+        b.reviewedThrough.localeCompare(a.reviewedThrough) ||
+        b.reviewedAt.localeCompare(a.reviewedAt),
+    )[0];
+}
+
+function routingDecisionStatus(review) {
+  if (!review) return 'unreviewed';
+  if (!review.implementedAt) {
+    return review.plannedFor && review.plannedFor > planDate
+      ? 'scheduled'
+      : 'action-due';
+  }
+  return review.evaluateAfter > planDate ? 'monitoring' : 'recheck-due';
+}
+
 let raw;
 try {
   raw = await readFile(path.resolve(sourcePath), 'utf8');
@@ -699,6 +867,17 @@ const allRows = [...pageMap.values()].map((item) => {
   const routingReviewQuerySignals = allMatchedQuerySignals.filter(
     isRoutingReviewQuerySignal,
   );
+  const routingEvidenceObservedThrough = routingReviewQuerySignals.reduce(
+    (latest, signal) =>
+      signal.observedAt > latest ? signal.observedAt : latest,
+    '',
+  );
+  const routingDecision = routingReviewQuerySignals.length
+    ? routingReviewFor(item.page, routingEvidenceObservedThrough)
+    : undefined;
+  const routingDecisionState = routingReviewQuerySignals.length
+    ? routingDecisionStatus(routingDecision)
+    : 'none';
   const humanReviewQuerySignals = allMatchedQuerySignals.filter((signal) =>
     isHumanReviewClassification(signal.classification),
   );
@@ -726,8 +905,24 @@ const allRows = [...pageMap.values()].map((item) => {
     action = 'query-review';
     reason = '页面已出现中文查询，但尚未确认它与本页搜索意图一致；完成分类前不改标题或正文。';
   } else if (routingReviewQuerySignals.length > 0) {
-    action = 'routing-review';
-    reason = '查询意图可能落错页面或与其他页面重叠；先核对落地页、内部链接和页面分工，不直接改标题或正文。';
+    if (routingDecisionState === 'scheduled') {
+      action = 'routing-action';
+      reason = `页面分工已经确认，安排在 ${routingDecision.plannedFor} 完成分流调整；执行前不改标题或正文。`;
+    } else if (routingDecisionState === 'action-due') {
+      action = 'routing-action';
+      reason = '页面分工已经确认，分流调整已到执行日期。';
+    } else if (routingDecisionState === 'monitoring') {
+      action = 'routing-monitor';
+      reason = routingDecision.action === 'owner-confirmed'
+        ? `${routingDecision.implementedAt} 已确认现有页面承接正确；等待 ${routingDecision.evaluateAfter} 后用新数据复评。`
+        : `${routingDecision.implementedAt} 已完成分流调整；等待 ${routingDecision.evaluateAfter} 后用新数据复评。`;
+    } else if (routingDecisionState === 'recheck-due') {
+      action = 'routing-recheck';
+      reason = `分流调整的观察期已结束；用最新页面查询数据检查是否仍有误落页或意图重叠。`;
+    } else {
+      action = 'routing-review';
+      reason = '查询意图可能落错页面或与其他页面重叠；先核对落地页、内部链接和页面分工，不直接改标题或正文。';
+    }
   } else if (selectedTitleEvidence.ready) {
     action = 'improve-title';
     reason = '标题型目标查询达到最小证据门槛，可据此校准标题和说明。';
@@ -812,6 +1007,9 @@ const allRows = [...pageMap.values()].map((item) => {
     targetQueryClicks: targetQueryEvidence.clicks,
     targetQueryEvidenceReady: targetQueryEvidence.ready,
     routingReviewEvidenceCount: routingReviewQuerySignals.length,
+    routingEvidenceObservedThrough,
+    routingDecisionStatus: routingDecisionState,
+    routingDecision: routingDecision ?? null,
     humanReviewEvidenceCount: humanReviewQuerySignals.length,
     unreviewedQueryEvidenceCount: unreviewedQuerySignals.length,
     nonTargetQueryEvidenceCount:
@@ -857,7 +1055,13 @@ const toPublicRow = (item) => {
     hasQueryEvidence: item.queryEvidenceCount > 0,
     requiresHumanReview: humanReviewEvidenceCount > 0,
     requiresQueryReview: item.unreviewedQueryEvidenceCount > 0,
-    requiresRoutingReview: item.routingReviewEvidenceCount > 0,
+    hasRoutingReviewSignal: item.routingReviewEvidenceCount > 0,
+    requiresRoutingReview: ['unreviewed', 'recheck-due'].includes(
+      item.routingDecisionStatus,
+    ),
+    requiresRoutingAction: ['scheduled', 'action-due'].includes(
+      item.routingDecisionStatus,
+    ),
   };
 };
 const publicRows = allRows.map(toPublicRow);
@@ -873,19 +1077,46 @@ const eligibleContentRows = publicRows.filter(
     item.targetQueryEvidenceReady &&
     !item.requiresHumanReview &&
     !item.requiresQueryReview &&
-    !item.requiresRoutingReview,
+    !item.hasRoutingReviewSignal,
+);
+const pendingRoutingActionRows = publicRows.filter(
+  (item) =>
+    !item.requiresHumanReview &&
+    !item.requiresQueryReview &&
+    (
+      item.action === 'routing-action' ||
+      item.suggestedAction === 'routing-action' ||
+      item.requiresRoutingAction
+    ),
+);
+const dueRoutingActionRows = pendingRoutingActionRows.filter(
+  (item) => item.routingDecisionStatus === 'action-due',
 );
 const currentCapacity = availableEditorialSlots(actionLog, planDate);
 const nextWindow = nextEditorialWindow(actionLog, planDate);
+const routingAllowedNow = dataSnapshot.readyForPlanning
+  ? Math.min(currentCapacity.slots, dueRoutingActionRows.length)
+  : 0;
+const routingExecuteNow = dueRoutingActionRows.slice(0, routingAllowedNow);
+const routingExecuteRoutes = new Set(
+  routingExecuteNow.map((item) => item.route),
+);
+const remainingEditorialSlots = Math.max(
+  0,
+  currentCapacity.slots - routingAllowedNow,
+);
 const allowedNow = dataSnapshot.readyForPlanning
-  ? Math.min(currentCapacity.slots, eligibleContentRows.length)
+  ? Math.min(remainingEditorialSlots, eligibleContentRows.length)
   : 0;
 let executionStatus = 'ready';
 if (!dataSnapshot.readyForPlanning) {
   executionStatus = 'hold-data';
 } else if (currentCapacity.slots === 0) {
   executionStatus = 'hold-cadence';
-} else if (eligibleContentRows.length === 0) {
+} else if (
+  eligibleContentRows.length === 0 &&
+  dueRoutingActionRows.length === 0
+) {
   executionStatus = 'hold-no-qualified-query';
 }
 const executeNow = eligibleContentRows.slice(0, allowedNow);
@@ -903,6 +1134,8 @@ const execution = {
   },
   allowedNow,
   executeNow,
+  routingAllowedNow,
+  routingExecuteNow,
   nextEligibleDate: nextWindow?.date ?? null,
   nextEligibleSlots: nextWindow?.slots ?? 0,
   nextQueue,
@@ -931,9 +1164,21 @@ const execution = {
         !item.requiresQueryReview &&
         (
           item.action === 'routing-review' ||
+          item.action === 'routing-recheck' ||
           item.suggestedAction === 'routing-review' ||
+          item.suggestedAction === 'routing-recheck' ||
           item.requiresRoutingReview
         ),
+    )
+    .slice(0, 12),
+  routingActionQueue: pendingRoutingActionRows
+    .filter((item) => !routingExecuteRoutes.has(item.route))
+    .slice(0, 12),
+  routingMonitoringQueue: publicRows
+    .filter(
+      (item) =>
+        item.action === 'routing-monitor' ||
+        item.suggestedAction === 'routing-monitor',
     )
     .slice(0, 12),
   lowEvidenceQueue: publicRows
@@ -948,12 +1193,22 @@ const execution = {
     .slice(0, 12),
   indexingCleanupQueue,
 };
+const pendingRoutingActionCount =
+  execution.routingExecuteNow.length + execution.routingActionQueue.length;
 const report = {
   generatedAt: `${planDate}T00:00:00.000Z`,
   source: sourceLabel,
   querySource: querySignals ? querySourceLabel : null,
   pageQuerySource: pageQuerySignals.length ? pageQuerySourceLabel : null,
   segmentSource: segmentSnapshot ? segmentSourceLabel : null,
+  routingReviewSource: routingReviews.length ? routingReviewSourceLabel : null,
+  routingReviews: {
+    records: routingReviews.length,
+    pendingReview: execution.routingReviewQueue.length,
+    pendingAction: pendingRoutingActionCount,
+    executeNow: execution.routingExecuteNow.length,
+    monitoring: execution.routingMonitoringQueue.length,
+  },
   totalRows: rows.length,
   includedRows: allRows.length,
   querySignals: publicQuerySignals,
@@ -974,6 +1229,13 @@ const report = {
       : []),
     ...(execution.routingReviewQueue.length
       ? [`有 ${execution.routingReviewQueue.length} 个页面存在误落页或意图重叠信号，先做路由和页面分工复核。`]
+      : []),
+    ...(pendingRoutingActionCount
+      ? [
+          execution.routingExecuteNow.length
+            ? `有 ${pendingRoutingActionCount} 个页面已经完成分工判断，其中 ${execution.routingExecuteNow.length} 个已进入本轮执行。`
+            : `有 ${pendingRoutingActionCount} 个页面已经完成分工判断，等待按计划实施分流调整。`,
+        ]
       : []),
   ].filter(Boolean),
   actions: {
@@ -999,7 +1261,23 @@ const report = {
       .filter(
         (item) =>
           item.action === 'routing-review' ||
-          item.suggestedAction === 'routing-review',
+          item.action === 'routing-recheck' ||
+          item.suggestedAction === 'routing-review' ||
+          item.suggestedAction === 'routing-recheck',
+      )
+      .slice(0, 20),
+    routingAction: publicRows
+      .filter(
+        (item) =>
+          item.action === 'routing-action' ||
+          item.suggestedAction === 'routing-action',
+      )
+      .slice(0, 20),
+    routingMonitoring: publicRows
+      .filter(
+        (item) =>
+          item.action === 'routing-monitor' ||
+          item.suggestedAction === 'routing-monitor',
       )
       .slice(0, 20),
     lowEvidence: publicRows
@@ -1062,11 +1340,19 @@ const csvRows = [
     'targetQueryClicks',
     'targetQueryEvidenceReady',
     'routingReviewEvidenceCount',
+    'hasRoutingReviewSignal',
+    'routingEvidenceObservedThrough',
+    'routingDecisionStatus',
+    'routingTargetRoutes',
+    'routingPlannedFor',
+    'routingImplementedAt',
+    'routingEvaluateAfter',
     'unreviewedQueryEvidenceCount',
     'nonTargetQueryEvidenceCount',
     'requiresHumanReview',
     'requiresQueryReview',
     'requiresRoutingReview',
+    'requiresRoutingAction',
     'queryClassifications',
     'reviewDue',
     'completedAt',
@@ -1094,11 +1380,19 @@ const csvRows = [
     item.targetQueryClicks,
     item.targetQueryEvidenceReady,
     item.routingReviewEvidenceCount,
+    item.hasRoutingReviewSignal,
+    item.routingEvidenceObservedThrough,
+    item.routingDecisionStatus,
+    item.routingDecision?.targetRoutes.join('|') ?? '',
+    item.routingDecision?.plannedFor ?? '',
+    item.routingDecision?.implementedAt ?? '',
+    item.routingDecision?.evaluateAfter ?? '',
     item.unreviewedQueryEvidenceCount,
     item.nonTargetQueryEvidenceCount,
     item.requiresHumanReview,
     item.requiresQueryReview,
     item.requiresRoutingReview,
+    item.requiresRoutingAction,
     item.queryClassifications.join('|'),
     item.reviewDue,
     item.completedAction?.completedAt ?? '',
@@ -1121,6 +1415,8 @@ const executionStatusLabels = {
 };
 const candidateLine = (item) =>
   `- ${item.route}（目标查询 ${item.targetQueryEvidenceCount} 条；目标曝光 ${item.targetQueryImpressions} / 点击 ${item.targetQueryClicks}；页面曝光 ${item.impressionsCurrent}）— ${actionReason(item)}`;
+const routingCandidateLine = (item) =>
+  `- ${item.route} → ${item.routingDecision.targetRoutes.join('、')}（本轮页面分流）— ${item.routingDecision.summary}`;
 const markdown = [
   `# Search Console 月度行动建议 (${planDate})`,
   '',
@@ -1128,6 +1424,7 @@ const markdown = [
   `- 查询数据源：${querySignals ? querySourceLabel : '未提供'}`,
   `- 页面查询映射：${pageQuerySignals.length ? pageQuerySourceLabel : '未提供'}`,
   `- 分段快照：${segmentSnapshot ? segmentSourceLabel : '未提供'}`,
+  `- 路由决策台账：${routingReviews.length ? routingReviewSourceLabel : '未提供'}`,
   `- 数据状态：${dataSnapshot.readyForPlanning ? '可用于规划' : '不可用于规划'}；快照 ${dataSnapshot.observedAt ?? '未知'}，最新完整数据 ${dataSnapshot.dataThrough ?? '未知'}。`,
   `- 纳入页数：${allRows.length}`,
   ...(querySignals
@@ -1142,7 +1439,7 @@ const markdown = [
   '## 本轮执行门禁',
   '',
   `- 状态：${executionStatusLabels[execution.status]}。`,
-  `- 最近 7 天已记录 ${execution.currentPeriod.weeklyActions} 个内容动作，本月已记录 ${execution.currentPeriod.monthlyActions} 个；当前可执行 ${execution.allowedNow} 个。`,
+  `- 最近 7 天已记录 ${execution.currentPeriod.weeklyActions} 个内容动作，本月已记录 ${execution.currentPeriod.monthlyActions} 个；当前可执行 ${execution.allowedNow + execution.routingAllowedNow} 个，其中页面分流 ${execution.routingAllowedNow} 个。`,
   `- 下一次出现内容容量的日期：${execution.nextEligibleDate ?? '尚未计算'}；当日最多 ${execution.nextEligibleSlots} 个。`,
   ...(dataSnapshot.blockers.length
     ? dataSnapshot.blockers.map((blocker) => `- 数据阻断：${blocker}`)
@@ -1150,9 +1447,13 @@ const markdown = [
   '',
   '## 现在可执行',
   '',
-  ...(execution.executeNow.length
-    ? execution.executeNow.map(candidateLine)
-    : ['- 本轮不执行内容改写。']),
+  ...execution.routingExecuteNow.map(routingCandidateLine),
+  ...execution.executeNow.map(candidateLine),
+  ...(
+    execution.routingExecuteNow.length || execution.executeNow.length
+      ? []
+      : ['- 本轮不执行内容改写或页面分流。']
+  ),
   '',
   '## 下一轮候选',
   '',
@@ -1185,7 +1486,25 @@ const markdown = [
         (item) =>
           `- ${item.route}（路由复核信号 ${item.routingReviewEvidenceCount} 条）— 先判断查询是否落错页面或与其他页面重叠，不据此直接改标题或正文。`,
       )
-    : ['- 当前没有误落页或意图重叠信号。']),
+    : ['- 当前没有尚未完成分工判断的误落页或意图重叠信号。']),
+  '',
+  '## 已判定，等待实施分流',
+  '',
+  ...(execution.routingActionQueue.length
+    ? execution.routingActionQueue.map(
+        (item) =>
+          `- ${item.route} → ${item.routingDecision.targetRoutes.join('、')}（计划 ${item.routingDecision.plannedFor || '尽快处理'}）— ${item.routingDecision.summary}`,
+      )
+    : ['- 当前没有等待实施的路由调整。']),
+  '',
+  '## 已处理，等待效果复评',
+  '',
+  ...(execution.routingMonitoringQueue.length
+    ? execution.routingMonitoringQueue.map(
+        (item) =>
+          `- ${item.route} → ${item.routingDecision.targetRoutes.join('、')}（${item.routingDecision.evaluateAfter} 复评）— ${item.routingDecision.summary}`,
+      )
+    : ['- 当前没有处于观察期的路由调整。']),
   '',
   '## 目标查询样本不足',
   '',
@@ -1263,6 +1582,18 @@ const markdown = [
       `- ${item.route}（路由复核信号 ${item.routingReviewEvidenceCount} 条）— ${actionReason(item)}`,
   ),
   '',
+  '## 路由调整待办',
+  ...report.actions.routingAction.map(
+    (item) =>
+      `- ${item.route} → ${item.routingDecision.targetRoutes.join('、')}（计划 ${item.routingDecision.plannedFor || '尽快处理'}）— ${actionReason(item)}`,
+  ),
+  '',
+  '## 路由调整观察',
+  ...report.actions.routingMonitoring.map(
+    (item) =>
+      `- ${item.route} → ${item.routingDecision.targetRoutes.join('、')}（${item.routingDecision.evaluateAfter} 复评）— ${actionReason(item)}`,
+  ),
+  '',
   '## 低样本目标查询',
   ...report.actions.lowEvidence.map(
     (item) =>
@@ -1292,10 +1623,13 @@ console.log(`- prioritized items=${allRows.length}`);
 console.log(`- query signals=${querySignals?.totalRows ?? 0}`);
 console.log(`- page-query signals=${pageQuerySignals.length}`);
 console.log(
-  `- execution=${execution.status}, allowedNow=${execution.allowedNow}, nextCapacity=${execution.nextEligibleDate}`,
+  `- execution=${execution.status}, allowedNow=${execution.allowedNow}, routingAllowedNow=${execution.routingAllowedNow}, nextCapacity=${execution.nextEligibleDate}`,
 );
 console.log(`- query review=${execution.queryReviewQueue.length}`);
 console.log(`- routing review=${execution.routingReviewQueue.length}`);
+console.log(`- routing execute now=${execution.routingExecuteNow.length}`);
+console.log(`- routing action=${execution.routingActionQueue.length}`);
+console.log(`- routing monitoring=${execution.routingMonitoringQueue.length}`);
 console.log(`- low evidence=${execution.lowEvidenceQueue.length}`);
 console.log(
   `- deindex watch=${indexingCleanupQueue.length} routes / ${dataSnapshot.excludedPageImpressions} impressions`,

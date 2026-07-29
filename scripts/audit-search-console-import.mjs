@@ -240,9 +240,11 @@ try {
   );
 
   const actionLogPath = path.join(inputDir, 'actions.json');
+  const routingReviewLogPath = path.join(inputDir, 'routing-reviews.json');
   const planOutputDir = path.join(outputRoot, 'plan');
   const planPrivateDir = path.join(outputRoot, 'plan-private');
   await writeFile(actionLogPath, '[]\n');
+  await writeFile(routingReviewLogPath, '[]\n');
   await execFileAsync(
     process.execPath,
     [path.join(projectRoot, 'scripts/build-search-console-plan.mjs')],
@@ -261,6 +263,7 @@ try {
         SC_PAGE_QUERY_REPORT_PATH: signalsPath,
         SC_SEGMENT_REPORT_PATH: segmentPath,
         SC_ACTION_LOG_PATH: actionLogPath,
+        SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
         SC_OUTPUT_DIR: planOutputDir,
         SC_PRIVATE_OUTPUT_DIR: planPrivateDir,
         SC_PLAN_DATE: observedAt,
@@ -329,6 +332,242 @@ try {
       env: {
         ...process.env,
         SEARCH_CONSOLE_PLAN_PATH: planPath,
+      },
+    },
+  );
+
+  await writeFile(
+    routingReviewLogPath,
+    `${JSON.stringify(
+      [
+        {
+          id: 'synthetic-misroute',
+          routes: ['/directories/new-residents/'],
+          targetRoutes: ['/states/washington/'],
+          reviewedAt: observedAt,
+          reviewedThrough: observedAt,
+          plannedFor: observedAt,
+          action: 'intent-links',
+          summary: 'Synthetic routing decision.',
+        },
+      ],
+      null,
+      2,
+    )}\n`,
+  );
+  const routingDueOutputDir = path.join(outputRoot, 'plan-routing-due');
+  await execFileAsync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts/build-search-console-plan.mjs')],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SC_REPORT_PATH: path.join(
+          outputRoot,
+          'reports/search-console-export.csv',
+        ),
+        SC_QUERY_REPORT_PATH: path.join(
+          outputRoot,
+          'reports/private/search-console-query-export.csv',
+        ),
+        SC_PAGE_QUERY_REPORT_PATH: signalsPath,
+        SC_SEGMENT_REPORT_PATH: segmentPath,
+        SC_ACTION_LOG_PATH: actionLogPath,
+        SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
+        SC_OUTPUT_DIR: routingDueOutputDir,
+        SC_PRIVATE_OUTPUT_DIR: path.join(
+          outputRoot,
+          'plan-routing-due-private',
+        ),
+        SC_PLAN_DATE: observedAt,
+      },
+    },
+  );
+  const routingDuePlanPath = path.join(
+    routingDueOutputDir,
+    'search-console-priority.json',
+  );
+  const routingDuePlan = JSON.parse(
+    await readFile(routingDuePlanPath, 'utf8'),
+  );
+  check(
+    routingDuePlan.execution.routingAllowedNow === 1,
+    'Due routing action did not consume one editorial slot.',
+  );
+  check(
+    routingDuePlan.execution.routingExecuteNow.some(
+      (item) => item.route === '/directories/new-residents/',
+    ),
+    'Due routing action did not enter the current execution queue.',
+  );
+  check(
+    !routingDuePlan.execution.routingActionQueue.some(
+      (item) => item.route === '/directories/new-residents/',
+    ),
+    'Due routing action remained in the scheduled action queue.',
+  );
+  await execFileAsync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts/audit-search-console-plan.mjs')],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SEARCH_CONSOLE_PLAN_PATH: routingDuePlanPath,
+      },
+    },
+  );
+
+  await writeFile(
+    routingReviewLogPath,
+    `${JSON.stringify(
+      [
+        {
+          id: 'synthetic-misroute',
+          routes: ['/directories/new-residents/'],
+          targetRoutes: ['/states/washington/'],
+          reviewedAt: observedAt,
+          reviewedThrough: observedAt,
+          plannedFor: addDays(observedAt, 1),
+          action: 'intent-links',
+          summary: 'Synthetic routing decision.',
+        },
+      ],
+      null,
+      2,
+    )}\n`,
+  );
+  const routingActionOutputDir = path.join(outputRoot, 'plan-routing-action');
+  await execFileAsync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts/build-search-console-plan.mjs')],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SC_REPORT_PATH: path.join(
+          outputRoot,
+          'reports/search-console-export.csv',
+        ),
+        SC_QUERY_REPORT_PATH: path.join(
+          outputRoot,
+          'reports/private/search-console-query-export.csv',
+        ),
+        SC_PAGE_QUERY_REPORT_PATH: signalsPath,
+        SC_SEGMENT_REPORT_PATH: segmentPath,
+        SC_ACTION_LOG_PATH: actionLogPath,
+        SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
+        SC_OUTPUT_DIR: routingActionOutputDir,
+        SC_PRIVATE_OUTPUT_DIR: path.join(
+          outputRoot,
+          'plan-routing-action-private',
+        ),
+        SC_PLAN_DATE: observedAt,
+      },
+    },
+  );
+  const routingActionPlanPath = path.join(
+    routingActionOutputDir,
+    'search-console-priority.json',
+  );
+  const routingActionPlan = JSON.parse(
+    await readFile(routingActionPlanPath, 'utf8'),
+  );
+  check(
+    routingActionPlan.execution.routingActionQueue.some(
+      (item) => item.route === '/directories/new-residents/',
+    ),
+    'Reviewed misroute did not enter the routing-action queue.',
+  );
+  check(
+    !routingActionPlan.execution.routingReviewQueue.some(
+      (item) => item.route === '/directories/new-residents/',
+    ),
+    'Reviewed misroute remained in the unresolved routing-review queue.',
+  );
+  await execFileAsync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts/audit-search-console-plan.mjs')],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SEARCH_CONSOLE_PLAN_PATH: routingActionPlanPath,
+      },
+    },
+  );
+
+  await writeFile(
+    routingReviewLogPath,
+    `${JSON.stringify(
+      [
+        {
+          id: 'synthetic-misroute',
+          routes: ['/directories/new-residents/'],
+          targetRoutes: ['/states/washington/'],
+          reviewedAt: observedAt,
+          reviewedThrough: observedAt,
+          implementedAt: observedAt,
+          evaluateAfter: addDays(observedAt, 14),
+          action: 'intent-links',
+          summary: 'Synthetic routing decision.',
+        },
+      ],
+      null,
+      2,
+    )}\n`,
+  );
+  const routingMonitorOutputDir = path.join(outputRoot, 'plan-routing-monitor');
+  await execFileAsync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts/build-search-console-plan.mjs')],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SC_REPORT_PATH: path.join(
+          outputRoot,
+          'reports/search-console-export.csv',
+        ),
+        SC_QUERY_REPORT_PATH: path.join(
+          outputRoot,
+          'reports/private/search-console-query-export.csv',
+        ),
+        SC_PAGE_QUERY_REPORT_PATH: signalsPath,
+        SC_SEGMENT_REPORT_PATH: segmentPath,
+        SC_ACTION_LOG_PATH: actionLogPath,
+        SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
+        SC_OUTPUT_DIR: routingMonitorOutputDir,
+        SC_PRIVATE_OUTPUT_DIR: path.join(
+          outputRoot,
+          'plan-routing-monitor-private',
+        ),
+        SC_PLAN_DATE: observedAt,
+      },
+    },
+  );
+  const routingMonitorPlanPath = path.join(
+    routingMonitorOutputDir,
+    'search-console-priority.json',
+  );
+  const routingMonitorPlan = JSON.parse(
+    await readFile(routingMonitorPlanPath, 'utf8'),
+  );
+  check(
+    routingMonitorPlan.execution.routingMonitoringQueue.some(
+      (item) => item.route === '/directories/new-residents/',
+    ),
+    'Implemented misroute did not enter the routing-monitoring queue.',
+  );
+  await execFileAsync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts/audit-search-console-plan.mjs')],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SEARCH_CONSOLE_PLAN_PATH: routingMonitorPlanPath,
       },
     },
   );

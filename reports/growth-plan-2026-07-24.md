@@ -120,9 +120,9 @@ Search Console 过去 28 天：
 
 1. 导出 Search Console 页面、查询、国家和设备数据。
 2. 更新页面与查询映射，并运行 `npm run plan:sc` 与 `npm run plan:growth`。
-3. 只有 `dataSnapshot.readyForPlanning` 为 `true` 且 `execution.allowedNow` 大于 0 时，才从执行队列取内容任务。
+3. 只有 `dataSnapshot.readyForPlanning` 为 `true`，并且 `execution.allowedNow` 或 `execution.routingAllowedNow` 大于 0 时，才从对应执行队列取任务；到期的页面分流先占用内容额度。
 4. 泛英文或本地查询只进入观察队列；目标查询至少有 1 次点击或合计 5 次展示才成为内容候选，没有页面级证据时先补映射。
-5. 查询落错页或多个页面承担同一意图时，先检查内部链接、页面分工、合并和重定向，不据此扩写当前页面。
+5. 查询落错页或多个页面承担同一意图时，先检查内部链接、页面分工、合并和重定向，并把判断、实施日期和复评日期写入路由决策台账。
 6. 更新 2 至 3 个现有页面，或更新 2 个现有页面并新增 1 个明确需求页面。
 7. 运行全部来源、E-E-A-T、SEO、链接、移动端和发布检查。
 

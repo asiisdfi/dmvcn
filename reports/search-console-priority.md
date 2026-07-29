@@ -4,6 +4,7 @@
 - 查询数据源：reports/private/search-console-query-export.csv
 - 页面查询映射：reports/private/search-console-page-query-signals.csv
 - 分段快照：reports/private/search-console-segments.json
+- 路由决策台账：reports/search-console-routing-reviews.json
 - 数据状态：可用于规划；快照 2026-07-29，最新完整数据 2026-07-26。
 - 纳入页数：125
 - 可见查询：1000 条；中文查询 44 条 / 98 次曝光
@@ -14,13 +15,13 @@
 ## 本轮执行门禁
 
 - 状态：暂停：本周或本月内容额度已用完。
-- 最近 7 天已记录 20 个内容动作，本月已记录 20 个；当前可执行 0 个。
+- 最近 7 天已记录 20 个内容动作，本月已记录 20 个；当前可执行 0 个，其中页面分流 0 个。
 - 下一次出现内容容量的日期：2026-08-01；当日最多 3 个。
 - 数据快照、查询导出和页面查询映射均通过新鲜度检查。
 
 ## 现在可执行
 
-- 本轮不执行内容改写。
+- 本轮不执行内容改写或页面分流。
 
 ## 下一轮候选
 
@@ -36,10 +37,17 @@
 
 ## 先复核落地页与页面分工
 
-- /topics/real-id-vs-standard-license/（路由复核信号 1 条）— 先判断查询是否落错页面或与其他页面重叠，不据此直接改标题或正文。
-- /topics/state-id-non-driver-id-real-id-card/（路由复核信号 3 条）— 先判断查询是否落错页面或与其他页面重叠，不据此直接改标题或正文。
-- /topics/real-id-basics/（路由复核信号 1 条）— 先判断查询是否落错页面或与其他页面重叠，不据此直接改标题或正文。
-- /directories/new-residents/（路由复核信号 1 条）— 先判断查询是否落错页面或与其他页面重叠，不据此直接改标题或正文。
+- 当前没有尚未完成分工判断的误落页或意图重叠信号。
+
+## 已判定，等待实施分流
+
+- /topics/state-id-non-driver-id-real-id-card/ → /topics/real-id-vs-standard-license/、/states/california/real-id/（计划 2026-08-01）— State ID 页继续回答不考驾照时如何办理 non-driver ID；通用证件区别引导到比较页，带州名的 REAL ID 需求回到对应州页面。
+- /topics/real-id-basics/ → /topics/real-id-vs-standard-license/（计划 2026-08-01）— REAL ID 基础页继续回答是否需要办理、联邦用途和替代证件；证件类型区别引导到专门比较页，不重复展开。
+
+## 已处理，等待效果复评
+
+- /topics/real-id-vs-standard-license/ → /topics/real-id-vs-standard-license/（2026-08-12 复评）— 通用的 REAL ID、Enhanced ID 与普通驾照区别由比较专题主承接。现有标题、开头和正文范围已经符合该任务，不因少量曝光改写内容，等待新数据验证。
+- /directories/new-residents/ → /states/washington/（2026-08-07 复评）— 华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。
 
 ## 目标查询样本不足
 
@@ -93,10 +101,14 @@
 ## 待分类查询
 
 ## 路由与重叠复核
-- /topics/real-id-vs-standard-license/（路由复核信号 1 条）— 查询意图可能落错页面或与其他页面重叠；先核对落地页、内部链接和页面分工，不直接改标题或正文。
-- /topics/state-id-non-driver-id-real-id-card/（路由复核信号 3 条）— 查询意图可能落错页面或与其他页面重叠；先核对落地页、内部链接和页面分工，不直接改标题或正文。
-- /topics/real-id-basics/（路由复核信号 1 条）— 查询意图可能落错页面或与其他页面重叠；先核对落地页、内部链接和页面分工，不直接改标题或正文。
-- /directories/new-residents/（路由复核信号 1 条）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+
+## 路由调整待办
+- /topics/state-id-non-driver-id-real-id-card/ → /topics/real-id-vs-standard-license/、/states/california/real-id/（计划 2026-08-01）— 页面分工已经确认，安排在 2026-08-01 完成分流调整；执行前不改标题或正文。
+- /topics/real-id-basics/ → /topics/real-id-vs-standard-license/（计划 2026-08-01）— 页面分工已经确认，安排在 2026-08-01 完成分流调整；执行前不改标题或正文。
+
+## 路由调整观察
+- /topics/real-id-vs-standard-license/ → /topics/real-id-vs-standard-license/（2026-08-12 复评）— 2026-07-29 已确认现有页面承接正确；等待 2026-08-12 后用新数据复评。
+- /directories/new-residents/ → /states/washington/（2026-08-07 复评）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 
 ## 低样本目标查询
 - /topics/proof-of-residency/（目标曝光 2 / 点击 0）— 目标查询目前只有 2 次曝光、0 次点击；达到 5 次曝光或 1 次点击前继续观察。
@@ -115,7 +127,7 @@
 - /topics/vehicle-title-registration-insurance-after-move/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/new-york/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
 - /states/new-york/real-id/（本次数据仍建议 observe-low-evidence）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
-- /directories/new-residents/（本次数据仍建议 routing-review）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /directories/new-residents/（本次数据仍建议 routing-monitor）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /directories/costs-timing/（本次数据仍建议 human-review）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/lost-stolen-license-plates-registration-card-sticker/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /topics/renewal-replacement-address/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。

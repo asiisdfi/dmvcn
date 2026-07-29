@@ -115,6 +115,17 @@ type SearchConsoleAction = {
   targetQueryClicks?: number;
   targetQueryEvidenceReady?: boolean;
   routingReviewEvidenceCount?: number;
+  routingDecisionStatus?: string;
+  routingDecision?: {
+    targetRoutes: string[];
+    reviewedAt: string;
+    reviewedThrough: string;
+    plannedFor?: string;
+    implementedAt?: string;
+    evaluateAfter?: string;
+    action: string;
+    summary: string;
+  } | null;
   unreviewedQueryEvidenceCount?: number;
 };
 
@@ -156,6 +167,7 @@ type SearchConsoleReport = {
   execution?: {
     status?: string;
     allowedNow?: number;
+    routingAllowedNow?: number;
     nextEligibleDate?: string;
     nextEligibleSlots?: number;
     currentPeriod?: {
@@ -164,10 +176,13 @@ type SearchConsoleReport = {
       availableSlots?: number;
     };
     executeNow?: SearchConsoleAction[];
+    routingExecuteNow?: SearchConsoleAction[];
     nextQueue?: SearchConsoleAction[];
     dataCollectionQueue?: SearchConsoleAction[];
     queryReviewQueue?: SearchConsoleAction[];
     routingReviewQueue?: SearchConsoleAction[];
+    routingActionQueue?: SearchConsoleAction[];
+    routingMonitoringQueue?: SearchConsoleAction[];
     lowEvidenceQueue?: SearchConsoleAction[];
     humanReviewQueue?: SearchConsoleAction[];
     indexingCleanupQueue?: SearchConsoleIndexingAction[];
@@ -466,10 +481,17 @@ const blockedWorklist = qualityWorkbook?.queues?.blocked ?? [];
 
 const scExecution = searchConsolePlan?.execution;
 const scExecuteNow = scExecution?.executeNow ?? [];
+const scRoutingExecuteNow = scExecution?.routingExecuteNow ?? [];
 const scNextQueue = scExecution?.nextQueue ?? [];
 const scDataCollectionQueue = scExecution?.dataCollectionQueue ?? [];
 const scQueryReviewQueue = scExecution?.queryReviewQueue ?? [];
 const scRoutingReviewQueue = scExecution?.routingReviewQueue ?? [];
+const scRoutingActionQueue = scExecution?.routingActionQueue ?? [];
+const scRoutingMonitoringQueue = scExecution?.routingMonitoringQueue ?? [];
+const scOpenRoutingCount =
+  scRoutingReviewQueue.length +
+  scRoutingExecuteNow.length +
+  scRoutingActionQueue.length;
 const scLowEvidenceQueue = scExecution?.lowEvidenceQueue ?? [];
 const scHumanReviewQueue = scExecution?.humanReviewQueue ?? [];
 const scIndexingCleanupQueue = scExecution?.indexingCleanupQueue ?? [];
@@ -495,6 +517,9 @@ const scActionLabel: Record<string, string> = {
   'needs-query-evidence': '先补查询映射',
   'query-review': '先确认查询意图',
   'routing-review': '先检查落地页',
+  'routing-action': '按已确认分工调整',
+  'routing-monitor': '等待路由效果复评',
+  'routing-recheck': '重新检查页面分工',
   'observe-low-evidence': '等待更多目标查询',
   'observe-non-target': '非目标曝光观察',
   'human-review': '人工复核',
@@ -808,7 +833,11 @@ const scActionLabel: Record<string, string> = {
                       <small>检查它是否与现有专题重复；如果不能单独解决一个问题，就合并或暂不收录。</small>
                 </li>
                   ))
-                : <li>当前未发现明显重复意图冲突项。索引页与详情页分工清晰。</li>}
+                : scOpenRoutingCount > 0
+                  ? <li>页面质量清单没有发现薄弱重复页；Search Console 另识别出 {scOpenRoutingCount} 个落地页分工事项，已在下方列出判断和处理日期。</li>
+                  : scRoutingMonitoringQueue.length > 0
+                    ? <li>当前没有未处理的重复意图；{scRoutingMonitoringQueue.length} 个已完成判断或调整的页面正在等待新数据复评。</li>
+                    : <li>当前未发现明显重复意图冲突项。索引页与详情页分工清晰。</li>}
             </ul>
           </section>
 
@@ -837,13 +866,30 @@ const scActionLabel: Record<string, string> = {
               </div>
               <div>
                 <dt>当前可执行</dt>
-                <dd>{scExecution?.allowedNow ?? 0} 个</dd>
+                <dd>{(scExecution?.allowedNow ?? 0) + (scExecution?.routingAllowedNow ?? 0)} 个</dd>
               </div>
               <div>
                 <dt>下一容量日期</dt>
                 <dd>{scExecution?.nextEligibleDate ?? '等待新数据'}</dd>
               </div>
             </dl>
+
+            {scRoutingExecuteNow.length > 0 ? (
+              <>
+                <h3>本轮页面分流</h3>
+                <ul class="check-list">
+                  {scRoutingExecuteNow.map((item) => (
+                    <li>
+                      <a href={item.route}>{item.route}</a>
+                      <small>
+                        目标页：{item.routingDecision?.targetRoutes.join('、') ?? '等待确认'}；本轮占用 1 个内容名额。
+                      </small>
+                      {item.routingDecision?.summary ? <p>{item.routingDecision.summary}</p> : null}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
 
             <h3>本轮内容动作</h3>
             <ul class="check-list">
@@ -857,7 +903,7 @@ const scActionLabel: Record<string, string> = {
                       <p>{item.reason}</p>
                     </li>
                   ))
-                : <li>当前不执行内容改写。只有查询证据、更新额度、冷却期和风险复核同时通过时，页面才会进入这里。</li>}
+                : <li>{scRoutingExecuteNow.length > 0 ? '本轮没有另行安排正文改写；页面分流已占用上方名额。' : '当前不执行内容改写。只有查询证据、更新额度、冷却期和风险复核同时通过时，页面才会进入这里。'}</li>}
             </ul>
 
             {scNextQueue.length > 0 ? (
@@ -908,6 +954,44 @@ const scActionLabel: Record<string, string> = {
                       <small>
                         当前有 {item.routingReviewEvidenceCount ?? 0} 条查询可能落错页面或与其他页面重叠；先检查落地页、内部链接和页面分工。
                       </small>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
+            {scRoutingActionQueue.length > 0 ? (
+              <>
+                <h3>页面分工已确认，等待实施</h3>
+                <ul class="check-list">
+                  {scRoutingActionQueue.slice(0, 5).map((item) => (
+                    <li>
+                      <a href={item.route}>{item.route}</a>
+                      <small>
+                        目标页：{item.routingDecision?.targetRoutes.join('、') ?? '等待确认'}；
+                        计划 {item.routingDecision?.plannedFor ?? '下一内容窗口'} 处理。
+                      </small>
+                      {item.routingDecision?.summary ? <p>{item.routingDecision.summary}</p> : null}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
+            {scRoutingMonitoringQueue.length > 0 ? (
+              <>
+                <h3>已经调整，等待效果复评</h3>
+                <ul class="check-list">
+                  {scRoutingMonitoringQueue.slice(0, 5).map((item) => (
+                    <li>
+                      <a href={item.route}>{item.route}</a>
+                      <small>
+                        {item.routingDecision?.action === 'owner-confirmed'
+                          ? '已确认当前页为主承接页；'
+                          : `已引导到 ${item.routingDecision?.targetRoutes.join('、') ?? '目标页面'}；`}
+                        {item.routingDecision?.evaluateAfter ?? '下一次完整快照'} 后复评。
+                      </small>
+                      {item.routingDecision?.summary ? <p>{item.routingDecision.summary}</p> : null}
                     </li>
                   ))}
                 </ul>

@@ -31,6 +31,8 @@
 | 刷新 | 展示或排名下跌，同时官方规则或来源发生变化 | 重新核验事实并记录变更 |
 | 低样本观察 | 目标查询没有点击且合计少于 5 次展示 | 保留观察，不改标题或正文 |
 | 路由审查 | 查询落错页面，或多个页面承担同一意图 | 检查内部链接、页面分工、合并和重定向 |
+| 路由实施 | 页面分工已经确认，但调整尚未完成 | 记录目标页和计划日期；到期后自动进入本轮执行并占用内容额度 |
+| 路由观察 | 分流已经完成，尚未经过新数据验证 | 到复评日后重新导出页面查询数据 |
 | 停止索引 | 页面无独立任务、长期无价值或只有重复目录 | 合并、noindex 或删除 |
 
 ## 决策阈值
@@ -57,6 +59,10 @@ impressions_previous
 ctr_current
 position_current
 content_action
+route_target
+route_reviewed_through
+route_implemented_at
+route_evaluate_after
 official_sources_to_recheck
 owner
 due_date

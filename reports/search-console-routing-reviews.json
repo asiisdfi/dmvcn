@@ -1,0 +1,61 @@
+[
+  {
+    "id": "real-id-license-difference-owner",
+    "routes": [
+      "/topics/real-id-vs-standard-license/"
+    ],
+    "targetRoutes": [
+      "/topics/real-id-vs-standard-license/"
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedThrough": "2026-07-29",
+    "implementedAt": "2026-07-29",
+    "evaluateAfter": "2026-08-12",
+    "action": "owner-confirmed",
+    "summary": "通用的 REAL ID、Enhanced ID 与普通驾照区别由比较专题主承接。现有标题、开头和正文范围已经符合该任务，不因少量曝光改写内容，等待新数据验证。"
+  },
+  {
+    "id": "real-id-basics-intent-split",
+    "routes": [
+      "/topics/real-id-basics/"
+    ],
+    "targetRoutes": [
+      "/topics/real-id-vs-standard-license/"
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedThrough": "2026-07-29",
+    "plannedFor": "2026-08-01",
+    "action": "intent-links",
+    "summary": "REAL ID 基础页继续回答是否需要办理、联邦用途和替代证件；证件类型区别引导到专门比较页，不重复展开。"
+  },
+  {
+    "id": "state-id-intent-split",
+    "routes": [
+      "/topics/state-id-non-driver-id-real-id-card/"
+    ],
+    "targetRoutes": [
+      "/topics/real-id-vs-standard-license/",
+      "/states/california/real-id/"
+    ],
+    "reviewedAt": "2026-07-29",
+    "reviewedThrough": "2026-07-29",
+    "plannedFor": "2026-08-01",
+    "action": "intent-links",
+    "summary": "State ID 页继续回答不考驾照时如何办理 non-driver ID；通用证件区别引导到比较页，带州名的 REAL ID 需求回到对应州页面。"
+  },
+  {
+    "id": "washington-id-renewal",
+    "routes": [
+      "/directories/new-residents/"
+    ],
+    "targetRoutes": [
+      "/states/washington/"
+    ],
+    "reviewedAt": "2026-07-24",
+    "reviewedThrough": "2026-07-24",
+    "implementedAt": "2026-07-24",
+    "evaluateAfter": "2026-08-07",
+    "action": "destination-page-update",
+    "summary": "华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。"
+  }
+]
