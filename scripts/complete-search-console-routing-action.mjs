@@ -263,6 +263,21 @@ async function main() {
       );
     }
   }
+  if (review.action === 'intent-links') {
+    const expectedSourceRoutes = new Set(
+      (review.expectedLinks ?? []).map((link) => normalizeRoute(link?.from)),
+    );
+    if (!expectedSourceRoutes.size || expectedSourceRoutes.has('')) {
+      throw new Error(`${options.id} has no valid expected link sources.`);
+    }
+    for (const sourceRoute of expectedSourceRoutes) {
+      if (!changedRoutes.includes(sourceRoute)) {
+        throw new Error(
+          `${options.id} must record its expected link source as changed: ${sourceRoute}.`,
+        );
+      }
+    }
+  }
   if (
     actions.some((entry) => entry?.routingReviewId === options.id)
   ) {

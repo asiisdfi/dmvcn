@@ -8,6 +8,10 @@ const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const distDir = path.resolve(
   process.env.INTERNAL_LINK_DIST_DIR ?? path.join(projectRoot, 'dist'),
 );
+const routingReviewPath = path.resolve(
+  process.env.INTERNAL_LINK_ROUTING_REVIEW_PATH ??
+    path.join(projectRoot, 'reports', 'search-console-routing-reviews.json'),
+);
 const siteOrigin = new URL(process.env.PUBLIC_SITE_URL ?? 'https://dmvcn.com/').origin;
 const footerUtilityRoutes = new Set(['/contact/', '/privacy/', '/terms/']);
 const errors = [];
@@ -81,6 +85,12 @@ function normalizePathname(pathname) {
   if (pathname === '/') return '/';
   if (path.posix.extname(pathname)) return pathname;
   return pathname.endsWith('/') ? pathname : `${pathname}/`;
+}
+
+function normalizeReviewRoute(value) {
+  const route = String(value ?? '').trim();
+  if (!route.startsWith('/')) return '';
+  return normalizePathname(route.replace(/\/{2,}/g, '/'));
 }
 
 function resolveInternalRoute(href, sourceRoute) {
@@ -239,6 +249,75 @@ for (const document of documents.values()) {
   }
 }
 
+let routingReviews = [];
+try {
+  routingReviews = JSON.parse(await readFile(routingReviewPath, 'utf8'));
+  if (!Array.isArray(routingReviews)) {
+    errors.push('Search Console routing review log must be a JSON array.');
+    routingReviews = [];
+  }
+} catch {
+  errors.push(`Search Console routing review log is missing or invalid: ${routingReviewPath}.`);
+}
+
+let implementedRoutingLinks = 0;
+let passingImplementedRoutingLinks = 0;
+let pendingRoutingLinks = 0;
+for (const review of routingReviews) {
+  if (review?.action !== 'intent-links') continue;
+  const reviewId = String(review?.id ?? 'unknown routing review');
+  const sourceRoutes = new Set((review.routes ?? []).map(normalizeReviewRoute));
+  const targetRoutes = new Set((review.targetRoutes ?? []).map(normalizeReviewRoute));
+  const changedRoutes = new Set((review.changedRoutes ?? []).map(normalizeReviewRoute));
+  const expectedLinks = Array.isArray(review.expectedLinks)
+    ? review.expectedLinks.map((link) => ({
+        from: normalizeReviewRoute(link?.from),
+        to: normalizeReviewRoute(link?.to),
+      }))
+    : [];
+
+  if (!expectedLinks.length) {
+    errors.push(`${reviewId}: intent-links routing review has no expectedLinks contract.`);
+    continue;
+  }
+
+  const seenExpectedLinks = new Set();
+  for (const link of expectedLinks) {
+    const key = `${link.from}\t${link.to}`;
+    if (
+      !link.from.startsWith('/') ||
+      !link.to.startsWith('/') ||
+      !sourceRoutes.has(link.from) ||
+      !targetRoutes.has(link.to)
+    ) {
+      errors.push(`${reviewId}: invalid expected routing link ${link.from} -> ${link.to}.`);
+      continue;
+    }
+    if (seenExpectedLinks.has(key)) {
+      errors.push(`${reviewId}: duplicate expected routing link ${link.from} -> ${link.to}.`);
+      continue;
+    }
+    seenExpectedLinks.add(key);
+
+    if (!review.implementedAt) {
+      pendingRoutingLinks += 1;
+      continue;
+    }
+
+    implementedRoutingLinks += 1;
+    if (!changedRoutes.has(link.from)) {
+      errors.push(`${reviewId}: implemented link source is absent from changedRoutes: ${link.from}.`);
+    }
+    if (!mainEdges.get(link.from)?.has(link.to)) {
+      errors.push(
+        `${reviewId}: implemented routing link is missing from main content: ${link.from} -> ${link.to}.`,
+      );
+      continue;
+    }
+    passingImplementedRoutingLinks += 1;
+  }
+}
+
 for (const route of indexableRoutes) {
   if (route !== '/' && !(allInbound.get(route)?.size)) {
     errors.push(`${route}: indexable page has no internal inbound link.`);
@@ -343,6 +422,9 @@ console.log(`Indexable pages reachable through main content: ${mainReachableInde
 console.log(`Content detail pages with 2+ main-content sources: ${contentDetailPassing.length}/${contentDetailRoutes.length}`);
 console.log(`Unique internal page edges: ${uniqueAllEdges.size}`);
 console.log(`Unique main-content page edges: ${uniqueMainEdges.size}`);
+console.log(
+  `Implemented Search Console routing links: ${passingImplementedRoutingLinks}/${implementedRoutingLinks}; pending: ${pendingRoutingLinks}`,
+);
 console.log(`Indexable pages with zero main-content inbound links: ${zeroMainInbound.join(', ') || 'none'}`);
 console.log('');
 console.log('Noindex utility pages linked from main content:');

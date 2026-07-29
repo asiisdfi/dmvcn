@@ -43,7 +43,7 @@ npm run import:sc -- \
 
 没有人工分类的中文页面查询默认写成 `unreviewed-intent`；医疗、复职、吊销、债务或法律责任相关查询默认进入 `human-review-untriaged`。两者都不能触发标题或正文修改。`selected-title` 和 `target-intent` 表示查询确实属于当前页面；`misrouted-intent` 和 `overlap-review` 只用于检查落地页、内部链接或页面分工，不能作为扩写当前页面的依据。刷新某个页面时，导入器会替换该页面上次的查询集合，不会不断追加重复记录。
 
-落错页或意图重叠完成判断后，结论写入 `reports/search-console-routing-reviews.json`。台账不保存原始查询，只记录涉及页面、目标页面、已检查到哪一天、计划实施日、实际完成日和复评日。系统据此区分：
+落错页或意图重叠完成判断后，结论写入 `reports/search-console-routing-reviews.json`。台账不保存原始查询，只记录涉及页面、目标页面、已检查到哪一天、计划实施日、实际完成日和复评日。以内部链接完成分流时，还要用 `expectedLinks` 逐条登记来源页和目标页。系统据此区分：
 
 - 尚未判断：进入路由审查队列。
 - 已判断但未实施：进入路由调整队列；记录判断本身不占内容名额，到了 `plannedFor` 后系统会把任务放入本轮执行，并先于普通内容候选扣减可用名额。
@@ -63,7 +63,7 @@ npm run complete:sc-routing -- \
   --dry-run
 ```
 
-去掉 `--dry-run` 才会写入。命令会拒绝早于 `plannedFor` 的完成记录、少于 14 天的观察期、重复任务、审查范围外的页面，以及会令滚动 7 天超过 3 个或当月超过 12 个的动作。构建器还会逐项核对台账中的 `changedRoutes` 与动作日志中的 `routingReviewId`；两边不一致时停止生成计划。
+去掉 `--dry-run` 才会写入。命令会拒绝早于 `plannedFor` 的完成记录、少于 14 天的观察期、重复任务、审查范围外的页面，以及会令滚动 7 天超过 3 个或当月超过 12 个的动作。`intent-links` 动作还必须把所有预期链接的来源页记入 `changedRoutes`。构建器会逐项核对台账中的 `changedRoutes` 与动作日志中的 `routingReviewId`；内部链接审计则会读取最终 HTML，确认每条已实施的 `expectedLinks` 确实出现在正文区域。任一环节不一致都会停止发布。
 
 需要先检查文件而不写入时增加 `--dry-run`。导入完成后运行：
 

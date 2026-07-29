@@ -58,6 +58,22 @@ function pageExport(route, queryRows) {
 const tempRoot = await mkdtemp(path.join(os.tmpdir(), 'dmvcn-sc-import-'));
 try {
   const observedAt = currentCalendarDate();
+  const syntheticRoutingReview = (plannedFor) => ({
+    id: 'synthetic-misroute',
+    routes: ['/directories/new-residents/'],
+    targetRoutes: ['/states/washington/'],
+    expectedLinks: [
+      {
+        from: '/directories/new-residents/',
+        to: '/states/washington/',
+      },
+    ],
+    reviewedAt: observedAt,
+    reviewedThrough: observedAt,
+    plannedFor,
+    action: 'intent-links',
+    summary: 'Synthetic routing decision.',
+  });
   const inputDir = path.join(tempRoot, 'input');
   const outputRoot = path.join(tempRoot, 'output');
   await mkdir(inputDir, { recursive: true });
@@ -340,16 +356,7 @@ try {
     routingReviewLogPath,
     `${JSON.stringify(
       [
-        {
-          id: 'synthetic-misroute',
-          routes: ['/directories/new-residents/'],
-          targetRoutes: ['/states/washington/'],
-          reviewedAt: observedAt,
-          reviewedThrough: observedAt,
-          plannedFor: observedAt,
-          action: 'intent-links',
-          summary: 'Synthetic routing decision.',
-        },
+        syntheticRoutingReview(observedAt),
       ],
       null,
       2,
@@ -423,16 +430,7 @@ try {
     routingReviewLogPath,
     `${JSON.stringify(
       [
-        {
-          id: 'synthetic-misroute',
-          routes: ['/directories/new-residents/'],
-          targetRoutes: ['/states/washington/'],
-          reviewedAt: observedAt,
-          reviewedThrough: observedAt,
-          plannedFor: addDays(observedAt, 1),
-          action: 'intent-links',
-          summary: 'Synthetic routing decision.',
-        },
+        syntheticRoutingReview(addDays(observedAt, 1)),
       ],
       null,
       2,
@@ -541,16 +539,7 @@ try {
     routingReviewLogPath,
     `${JSON.stringify(
       [
-        {
-          id: 'synthetic-misroute',
-          routes: ['/directories/new-residents/'],
-          targetRoutes: ['/states/washington/'],
-          reviewedAt: observedAt,
-          reviewedThrough: observedAt,
-          plannedFor: observedAt,
-          action: 'intent-links',
-          summary: 'Synthetic routing decision.',
-        },
+        syntheticRoutingReview(observedAt),
       ],
       null,
       2,

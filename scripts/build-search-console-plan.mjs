@@ -380,6 +380,11 @@ if (!Array.isArray(rawRoutingReviews)) {
 }
 
 const routingReviewIds = new Set();
+const allowedRoutingActions = new Set([
+  'owner-confirmed',
+  'intent-links',
+  'destination-page-update',
+]);
 const routingReviews = rawRoutingReviews.map((entry, index) => {
   const label = `routing review ${index + 1}`;
   const id = String(entry?.id ?? '').trim();
@@ -388,6 +393,12 @@ const routingReviews = rawRoutingReviews.map((entry, index) => {
     : [];
   const targetRoutes = Array.isArray(entry?.targetRoutes)
     ? [...new Set(entry.targetRoutes.map(normalizeRoute))]
+    : [];
+  const expectedLinks = Array.isArray(entry?.expectedLinks)
+    ? entry.expectedLinks.map((link) => ({
+        from: normalizeRoute(link?.from),
+        to: normalizeRoute(link?.to),
+      }))
     : [];
   const reviewedAt = String(entry?.reviewedAt ?? '');
   const reviewedThrough = String(entry?.reviewedThrough ?? '');
@@ -407,7 +418,7 @@ const routingReviews = rawRoutingReviews.map((entry, index) => {
     throw new Error(`${label}: missing or duplicate id.`);
   }
   routingReviewIds.add(id);
-  if (!action || !summary) {
+  if (!allowedRoutingActions.has(action) || !summary) {
     throw new Error(`${id}: action and summary are required.`);
   }
   if (!routes.length || routes.some((route) => !route)) {
@@ -425,6 +436,29 @@ const routingReviews = rawRoutingReviews.map((entry, index) => {
     if (!siteRoutes.has(route)) {
       throw new Error(`${id}: target route must be indexable: ${route}.`);
     }
+  }
+  const expectedLinkKeys = new Set();
+  for (const link of expectedLinks) {
+    if (!link.from || !link.to) {
+      throw new Error(`${id}: expectedLinks must use normalized from/to routes.`);
+    }
+    if (!routes.includes(link.from)) {
+      throw new Error(`${id}: expected link source is outside routes: ${link.from}.`);
+    }
+    if (!targetRoutes.includes(link.to)) {
+      throw new Error(`${id}: expected link target is outside targetRoutes: ${link.to}.`);
+    }
+    const key = `${link.from}\t${link.to}`;
+    if (expectedLinkKeys.has(key)) {
+      throw new Error(`${id}: duplicate expected link ${link.from} -> ${link.to}.`);
+    }
+    expectedLinkKeys.add(key);
+  }
+  if (action === 'intent-links' && !expectedLinks.length) {
+    throw new Error(`${id}: intent-links decisions require expectedLinks.`);
+  }
+  if (action !== 'intent-links' && expectedLinks.length) {
+    throw new Error(`${id}: expectedLinks are only valid for intent-links decisions.`);
   }
   if (!isCalendarDate(reviewedAt) || !isCalendarDate(reviewedThrough)) {
     throw new Error(`${id}: reviewedAt and reviewedThrough are required.`);
@@ -509,6 +543,7 @@ const routingReviews = rawRoutingReviews.map((entry, index) => {
     id,
     routes,
     targetRoutes,
+    expectedLinks,
     reviewedAt,
     reviewedThrough,
     plannedFor,

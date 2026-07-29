@@ -23,6 +23,12 @@
     "targetRoutes": [
       "/topics/real-id-vs-standard-license/"
     ],
+    "expectedLinks": [
+      {
+        "from": "/topics/real-id-basics/",
+        "to": "/topics/real-id-vs-standard-license/"
+      }
+    ],
     "reviewedAt": "2026-07-29",
     "reviewedThrough": "2026-07-29",
     "plannedFor": "2026-08-01",
@@ -37,6 +43,16 @@
     "targetRoutes": [
       "/topics/real-id-vs-standard-license/",
       "/states/california/real-id/"
+    ],
+    "expectedLinks": [
+      {
+        "from": "/topics/state-id-non-driver-id-real-id-card/",
+        "to": "/topics/real-id-vs-standard-license/"
+      },
+      {
+        "from": "/topics/state-id-non-driver-id-real-id-card/",
+        "to": "/states/california/real-id/"
+      }
     ],
     "reviewedAt": "2026-07-29",
     "reviewedThrough": "2026-07-29",
