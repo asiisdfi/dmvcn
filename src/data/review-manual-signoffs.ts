@@ -4,6 +4,7 @@ export type ReviewManualSignoff = {
   reviewedAt: string;
   scope: string;
   notes?: string;
+  contentFingerprint?: string;
 };
 
 export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
@@ -13,6 +14,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对各州费用、付款方式、临时凭证和寄送时间，并确认正文提示与所列政府来源一致。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: '4fb3e31643ce713c3db47a2f1040866859c0fd5ccf518a2d933bfd5c1e733746',
   },
   {
     route: '/directories/deadlines/',
@@ -20,6 +22,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对地址变更、新居民转入、续期和材料时效等期限，并检查适用范围和例外提示。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: '7969c567dda577feaa1a7abe29207b5e5271e21ee6f97c218b4ce2d3d762d8fd',
   },
   {
     route: '/directories/document-rules/',
@@ -27,6 +30,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对身份、住址、姓名链、原件和认证副本要求，以及不同州规则之间的边界。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: 'd374a93cd343400d717c3eab0d0ad3fa347e05040dc6599bc90cd185a326b2b3',
   },
   {
     route: '/directories/foreign-license/',
@@ -34,6 +38,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对外国驾照、外州驾照、IDP、互惠免试、翻译和交旧证提示及其政府来源。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: 'a67db58ca93077dfbdb702d265269883d1c39da3cf78111abeccf0187349a4a8',
   },
   {
     route: '/directories/identity-ssn/',
@@ -41,6 +46,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对 SSN、无 SSN、ITIN、合法身份和临时访客分流，确认页面没有替读者判断移民身份。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: '451ff146b364df74a48e60163370b16147809508b7f9af3f2789b4a0f9f2a530',
   },
   {
     route: '/topics/disabled-parking-placard-plates/',

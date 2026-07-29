@@ -2,29 +2,38 @@ import { topics } from './content.ts';
 import {
   COSTS_TIMING_MODIFIED_DATE,
   COSTS_TIMING_REVIEW_DATE,
+  DEADLINES_MODIFIED_DATE,
+  DOCUMENT_RULES_MODIFIED_DATE,
   HIGH_RISK_DIRECTORY_REVIEW_DATE,
   HIGH_RISK_DIRECTORY_ROUTES,
   HIGH_RISK_TOPIC_SLUGS,
+  IDENTITY_SSN_MODIFIED_DATE,
   SEARCH_CONSOLE_UPDATE_DATE,
 } from './editorial.ts';
+import { getHighRiskDirectoryFingerprint } from './high-risk-directory-fingerprints.ts';
 import { semanticReviews } from './review-registry.ts';
 
 export type PublicationGate = {
   route: string;
   requiresHumanApproval: boolean;
   humanApprovalRecorded: boolean;
+  humanApprovalDateCurrent: boolean;
+  humanApprovalFingerprintCurrent: boolean;
   humanApprovalCurrent: boolean;
   humanApproved: boolean;
   indexable: boolean;
   approvalReviewedAt: string | null;
+  approvalContentFingerprint: string | null;
   contentModifiedAt: string | null;
   contentReviewedAt: string | null;
   contentRevisionAt: string | null;
+  contentFingerprint: string | null;
 };
 
 type HighRiskContentRevision = {
   modifiedAt: string;
   reviewedAt: string;
+  contentFingerprint: string | null;
 };
 
 function normalizeRoute(route: string): string {
@@ -50,20 +59,29 @@ const HIGH_RISK_DIRECTORY_REVISIONS = new Map<string, HighRiskContentRevision>([
     {
       modifiedAt: COSTS_TIMING_MODIFIED_DATE,
       reviewedAt: COSTS_TIMING_REVIEW_DATE,
+      contentFingerprint:
+        getHighRiskDirectoryFingerprint('/directories/costs-timing/')
+          ?.currentFingerprint ?? null,
     },
   ],
   [
     '/directories/deadlines/',
     {
-      modifiedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      modifiedAt: DEADLINES_MODIFIED_DATE,
       reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      contentFingerprint:
+        getHighRiskDirectoryFingerprint('/directories/deadlines/')
+          ?.currentFingerprint ?? null,
     },
   ],
   [
     '/directories/document-rules/',
     {
-      modifiedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      modifiedAt: DOCUMENT_RULES_MODIFIED_DATE,
       reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      contentFingerprint:
+        getHighRiskDirectoryFingerprint('/directories/document-rules/')
+          ?.currentFingerprint ?? null,
     },
   ],
   [
@@ -71,13 +89,19 @@ const HIGH_RISK_DIRECTORY_REVISIONS = new Map<string, HighRiskContentRevision>([
     {
       modifiedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
       reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      contentFingerprint:
+        getHighRiskDirectoryFingerprint('/directories/foreign-license/')
+          ?.currentFingerprint ?? null,
     },
   ],
   [
     '/directories/identity-ssn/',
     {
-      modifiedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      modifiedAt: IDENTITY_SSN_MODIFIED_DATE,
       reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      contentFingerprint:
+        getHighRiskDirectoryFingerprint('/directories/identity-ssn/')
+          ?.currentFingerprint ?? null,
     },
   ],
 ]);
@@ -90,6 +114,7 @@ const HIGH_RISK_TOPIC_REVISIONS = new Map<string, HighRiskContentRevision>(
       {
         modifiedAt: topic.modifiedAt,
         reviewedAt: topic.reviewedAt,
+        contentFingerprint: null,
       },
     ]),
 );
@@ -117,24 +142,40 @@ export function getPublicationGate(route: string): PublicationGate {
   const contentRevisionAt = revision
     ? [revision.modifiedAt, revision.reviewedAt].sort().at(-1) ?? null
     : null;
-  const humanApprovalCurrent = Boolean(
+  const contentFingerprint = revision?.contentFingerprint ?? null;
+  const approvalContentFingerprint =
+    humanApprovalRecorded ? review?.contentFingerprint ?? null : null;
+  const humanApprovalDateCurrent = Boolean(
     humanApprovalRecorded &&
       contentRevisionAt &&
       isValidReviewDate(review.reviewedAt) &&
       review.reviewedAt >= contentRevisionAt,
   );
+  const humanApprovalFingerprintCurrent = Boolean(
+    humanApprovalRecorded &&
+      (
+        !contentFingerprint ||
+        approvalContentFingerprint === contentFingerprint
+      ),
+  );
+  const humanApprovalCurrent =
+    humanApprovalDateCurrent && humanApprovalFingerprintCurrent;
   const humanApproved = humanApprovalCurrent;
 
   return {
     route: normalizedRoute,
     requiresHumanApproval,
     humanApprovalRecorded,
+    humanApprovalDateCurrent,
+    humanApprovalFingerprintCurrent,
     humanApprovalCurrent,
     humanApproved,
     approvalReviewedAt: humanApprovalRecorded ? review.reviewedAt : null,
+    approvalContentFingerprint,
     contentModifiedAt: revision?.modifiedAt ?? null,
     contentReviewedAt: revision?.reviewedAt ?? null,
     contentRevisionAt,
+    contentFingerprint,
     indexable:
       !NON_SEARCH_LANDING_ROUTES.has(normalizedRoute) &&
       (!requiresHumanApproval || humanApproved),

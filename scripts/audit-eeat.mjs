@@ -438,7 +438,9 @@ function scorePage(route, document) {
   }
   if (reviewStatus === 'human-approval-stale') {
     blockers.push(
-      `内容版本更新于 ${publicationGate.contentRevisionAt ?? '未知日期'}，晚于 ${publicationGate.approvalReviewedAt ?? '现有'} 人工签字；重新人工语义核查前保持 noindex`,
+      publicationGate.humanApprovalFingerprintCurrent
+        ? `内容版本更新于 ${publicationGate.contentRevisionAt ?? '未知日期'}，晚于 ${publicationGate.approvalReviewedAt ?? '现有'} 人工签字；重新人工语义核查前保持 noindex`
+        : `当前目录内容指纹与 ${publicationGate.approvalReviewedAt ?? '现有'} 人工签字版本不一致；重新人工语义核查前保持 noindex`,
     );
   }
   if (identity.risk === 'high' && reviewStatus !== 'human-approved' && identity.type !== 'trust') {
@@ -491,6 +493,17 @@ function scorePage(route, document) {
       directoryEvidenceLinks,
       hasInlineDirectoryEvidence,
       hasEditorialDisclosure,
+      ...(publicationGate.contentFingerprint
+        ? {
+            humanApprovalDateCurrent:
+              publicationGate.humanApprovalDateCurrent,
+            humanApprovalFingerprintCurrent:
+              publicationGate.humanApprovalFingerprintCurrent,
+            contentFingerprint: publicationGate.contentFingerprint,
+            approvalContentFingerprint:
+              publicationGate.approvalContentFingerprint,
+          }
+        : {}),
     },
     critical,
     blockers,

@@ -1,5 +1,9 @@
 ---
-import { HIGH_RISK_DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
+import {
+  DEADLINES_MODIFIED_DATE,
+  HIGH_RISK_DIRECTORY_REVIEW_DATE,
+  SITE_LAUNCH_DATE,
+} from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
@@ -26,7 +30,9 @@ function classifyDeadline(text: string) {
   }
   if (/地址|搬家|搬入|搬来|新居民|resident|move|moving|transfer/i.test(text)) return '搬家 / 地址';
   if (/续期|renew|到期|expire|expiration/i.test(text)) return '续期 / 到期';
-  if (/邮寄|寄送|处理|processing|mail|receive|card/i.test(text)) return '处理 / 邮寄';
+  if (/邮寄|寄送|寄到|送达|处理|正式卡|实体卡|收据|processing|mail|receive|card/i.test(text)) {
+    return '处理 / 邮寄';
+  }
   if (/residency|居住|proof|document|材料|地址证明/i.test(text)) return '材料时效';
   return '期限提醒';
 }
@@ -80,13 +86,63 @@ function deadlineEvidencePatterns(category: string, text: string) {
   return patterns;
 }
 
+function deadlineSignature(text: string) {
+  const values = text.match(deadlinePattern) ?? [];
+  deadlinePattern.lastIndex = 0;
+  return values
+    .map((value) => value.toLowerCase().replace(/\s+/g, ''))
+    .sort()
+    .join('|');
+}
+
+function bigrams(text: string) {
+  const compact = text.toLowerCase().replace(/[\s\p{P}\p{S}]+/gu, '');
+  const values = new Set<string>();
+  for (let index = 0; index < compact.length - 1; index += 1) {
+    values.add(compact.slice(index, index + 2));
+  }
+  return values;
+}
+
+function isNearDuplicateDeadline(
+  left: { text: string; evidence: { url: string } },
+  right: { text: string; evidence: { url: string } },
+) {
+  const leftSignature = deadlineSignature(left.text);
+  if (
+    !leftSignature ||
+    leftSignature !== deadlineSignature(right.text) ||
+    left.evidence.url !== right.evidence.url
+  ) {
+    return false;
+  }
+
+  const leftBigrams = bigrams(left.text);
+  const rightBigrams = bigrams(right.text);
+  const intersection = [...leftBigrams].filter((value) =>
+    rightBigrams.has(value),
+  ).length;
+  const union = leftBigrams.size + rightBigrams.size - intersection;
+  return union > 0 && intersection / union >= 0.25;
+}
+
 function sourcedDeadlineNotesFor(state: (typeof states)[number]) {
-  return deadlineNotesFor(state)
+  const sourced = deadlineNotesFor(state)
     .flatMap((note) => {
       const evidence = pickDirectoryEvidence(state, note.text, deadlineEvidencePatterns(note.category, note.text));
       return evidence ? [{ ...note, evidence }] : [];
-    })
-    .slice(0, 3);
+    });
+  const selected: typeof sourced = [];
+
+  for (const note of sourced) {
+    if (selected.some((existing) => isNearDuplicateDeadline(existing, note))) {
+      continue;
+    }
+    selected.push(note);
+    if (selected.length === 3) break;
+  }
+
+  return selected;
 }
 
 function pickDeadlineLinks(state: (typeof states)[number]) {
@@ -124,7 +180,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'DMV 期限提醒表',
   description: '按州整理 DMV 地址变更、搬州、续期、材料时效和处理时间等期限提醒。',
-  dateModified: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+  dateModified: DEADLINES_MODIFIED_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -139,7 +195,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 期限提醒表" description="按州查找 DMV 地址变更、搬州、续期、材料时效和处理时间等官方期限提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE}
+<BaseLayout title="DMV 期限提醒表" description="按州查找 DMV 地址变更、搬州、续期、材料时效和处理时间等官方期限提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DEADLINES_MODIFIED_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">

@@ -1,18 +1,18 @@
 {
   "generatedAt": "2026-07-29T00:00:00.000Z",
   "summary": {
-    "pages": 143,
+    "pages": 140,
     "countsByClass": {
       "topic": 33,
-      "directory": 9,
+      "directory": 6,
       "state-overview": 50,
       "state-real-id": 50,
       "practice": 1
     },
     "exactDuplicates": 0,
-    "reviewedBoundaries": 4,
-    "dormantBoundaries": 1,
-    "monitoredPairs": 35,
+    "reviewedBoundaries": 3,
+    "dormantBoundaries": 2,
+    "monitoredPairs": 34,
     "errors": 0
   },
   "rules": {
@@ -56,36 +56,12 @@
       "contentHash": "88a3046bd5197edb539d3f9eeb5fb0feee5abf2a658cbeae0125a91a590f1299"
     },
     {
-      "route": "/directories/deadlines/",
-      "class": "directory",
-      "title": "DMV 期限提醒表 | DMV中文办事库",
-      "heading": "DMV 期限提醒表",
-      "contentChars": 16046,
-      "contentHash": "ee051d5ca4bcfe2803a3a443f9dfa74bb446358a6944578139000d45d3e36c1e"
-    },
-    {
-      "route": "/directories/document-rules/",
-      "class": "directory",
-      "title": "DMV 材料规则表 | DMV中文办事库",
-      "heading": "DMV 材料规则表",
-      "contentChars": 25498,
-      "contentHash": "825dab681a6a2806da9a189eb9ef2d83f8ff5e3b9ab31f8e4645a20c9d696b94"
-    },
-    {
       "route": "/directories/foreign-license/",
       "class": "directory",
       "title": "DMV 外国/外州驾照转入和 IDP 入口表 | DMV中文办事库",
       "heading": "DMV 外国/外州驾照转入和 IDP 入口表",
       "contentChars": 19567,
       "contentHash": "2c4e0e89a5172acecb8ffe4f4ad9c8c002207201c8d2c6cd4f3e639b5164292d"
-    },
-    {
-      "route": "/directories/identity-ssn/",
-      "class": "directory",
-      "title": "DMV SSN 和身份类别分流表 | DMV中文办事库",
-      "heading": "DMV SSN 和身份类别分流表",
-      "contentChars": 25712,
-      "contentHash": "821932271b170387dbd91a01c86116a008f5e3fae3a6ef7fb7e47a1b8735ab5c"
     },
     {
       "route": "/directories/language-access/",
@@ -437,7 +413,7 @@
       "title": "马里兰州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "马里兰州 DMV 办事总览",
       "contentChars": 6381,
-      "contentHash": "46fb60d6a19177f6ce56782a2cc714f832eddced8d602caa2b973bd41f38b70e"
+      "contentHash": "f311265634aa7ea1c022a5bc5e81d62482f1869f988d9c4b53077ebf7d754485"
     },
     {
       "route": "/states/maryland/real-id/",
@@ -445,7 +421,7 @@
       "title": "马里兰州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "马里兰州 REAL ID 中文材料清单",
       "contentChars": 6372,
-      "contentHash": "33f6eb6b7ccf0555a68522c12460ebab1a7bb02a815105225c1ea80f4964d81c"
+      "contentHash": "6173cbe2c0ecfe97a9e708d2e862e96250c2416e4eae774d4791e43805575ee3"
     },
     {
       "route": "/states/massachusetts/",
@@ -1193,17 +1169,6 @@
     }
   ],
   "pairs": [
-    {
-      "routes": [
-        "/directories/document-rules/",
-        "/directories/identity-ssn/"
-      ],
-      "class": "directory",
-      "similarity": 0.357,
-      "boundaryStatus": "reviewed",
-      "reviewedAt": "2026-07-29",
-      "distinction": "材料规则表比较原件、认证副本、地址和翻译要求；身份与 SSN 表比较身份类别、SSN 核验和无 SSN 分支。"
-    },
     {
       "routes": [
         "/states/california/real-id/",

@@ -4,7 +4,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { promisify } from 'node:util';
-import { getHighRiskContentRevision } from '../src/data/publication-gate.ts';
+import {
+  getHighRiskContentRevision,
+  getPublicationGate,
+} from '../src/data/publication-gate.ts';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const execFileAsync = promisify(execFile);
@@ -25,6 +28,24 @@ const staleDate = new Date(
   .toISOString()
   .slice(0, 10);
 const tempRoot = await mkdtemp(path.join(os.tmpdir(), 'dmvcn-signoff-test-'));
+
+const changedDirectoryGate = getPublicationGate('/directories/deadlines/');
+if (
+  changedDirectoryGate.humanApprovalFingerprintCurrent ||
+  changedDirectoryGate.indexable
+) {
+  console.error('A changed high-risk directory kept its old fingerprint approval.');
+  process.exit(1);
+}
+
+const unchangedDirectoryGate = getPublicationGate('/directories/foreign-license/');
+if (
+  !unchangedDirectoryGate.humanApprovalFingerprintCurrent ||
+  !unchangedDirectoryGate.indexable
+) {
+  console.error('An unchanged high-risk directory lost its matching fingerprint approval.');
+  process.exit(1);
+}
 
 try {
   const csvPath = path.join(tempRoot, 'stale-signoff.csv');

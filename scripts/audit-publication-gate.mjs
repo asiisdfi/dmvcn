@@ -8,6 +8,7 @@ import {
   isPlausibleHumanReviewer,
   isValidReviewDate,
 } from '../src/data/publication-gate.ts';
+import { getHighRiskDirectoryFingerprint } from '../src/data/high-risk-directory-fingerprints.ts';
 import { REVIEW_MANUAL_SIGNOFFS } from '../src/data/review-manual-signoffs.ts';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -73,6 +74,12 @@ for (const signoff of REVIEW_MANUAL_SIGNOFFS) {
     errors.push(`${signoff.route}: reviewedAt must be a real, non-future YYYY-MM-DD date`);
   }
   if (signoff.scope.trim().length < 12) errors.push(`${signoff.route}: signoff scope is too short`);
+  if (
+    getHighRiskDirectoryFingerprint(signoff.route) &&
+    !/^[a-f0-9]{64}$/.test(signoff.contentFingerprint ?? '')
+  ) {
+    errors.push(`${signoff.route}: directory signoff is missing its reviewed content fingerprint`);
+  }
 }
 
 let pending = 0;
@@ -101,11 +108,20 @@ for (const route of HUMAN_REVIEW_REQUIRED_ROUTES) {
     visibleReviewedAt,
   ].sort().at(-1) ?? '';
   const recordedSignoff = signoffByRoute.get(route);
-  const expectedApprovalCurrent = Boolean(
+  const expectedApprovalDateCurrent = Boolean(
     recordedSignoff &&
       renderedContentRevisionAt &&
       recordedSignoff.reviewedAt >= renderedContentRevisionAt,
   );
+  const expectedApprovalFingerprintCurrent = Boolean(
+    recordedSignoff &&
+      (
+        !gate.contentFingerprint ||
+        recordedSignoff.contentFingerprint === gate.contentFingerprint
+      ),
+  );
+  const expectedApprovalCurrent =
+    expectedApprovalDateCurrent && expectedApprovalFingerprintCurrent;
   const directives = robotsDirectives(html);
   const hasNoindex = directives.has('noindex');
   const hasFollow = directives.has('follow');
@@ -126,6 +142,15 @@ for (const route of HUMAN_REVIEW_REQUIRED_ROUTES) {
     errors.push(
       `${route}: current human-approval state does not match the rendered content version`,
     );
+  }
+  if (gate.humanApprovalDateCurrent !== expectedApprovalDateCurrent) {
+    errors.push(`${route}: human-approval date state is inconsistent`);
+  }
+  if (
+    gate.humanApprovalFingerprintCurrent !==
+    expectedApprovalFingerprintCurrent
+  ) {
+    errors.push(`${route}: human-approval fingerprint state is inconsistent`);
   }
   if (gate.humanApprovalRecorded && !gate.humanApprovalCurrent) {
     stale += 1;

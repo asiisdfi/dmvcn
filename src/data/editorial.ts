@@ -5,6 +5,9 @@ export const EDITORIAL_IDENTITY_MODIFIED_DATE = '2026-07-24';
 export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const COSTS_TIMING_MODIFIED_DATE = '2026-07-29';
 export const COSTS_TIMING_REVIEW_DATE = '2026-07-29';
+export const DEADLINES_MODIFIED_DATE = '2026-07-24';
+export const DOCUMENT_RULES_MODIFIED_DATE = '2026-07-29';
+export const IDENTITY_SSN_MODIFIED_DATE = '2026-07-29';
 export const DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
 export const SEARCH_CONSOLE_UPDATE_DATE = '2026-07-24';
@@ -37,6 +40,19 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-29',
+    title: '高风险目录增加人工签字内容指纹',
+    summary:
+      '高风险目录现在同时核对签字日期和成品内容指纹。州资料更新导致目录声明、州归属或就近官方来源变化时，旧人工签字会自动失效，页面退出 sitemap 并保持 noindex；CI 还会从成品 HTML 重算指纹，阻止未登记的目录变化上线。本轮因此暂停费用、期限、材料规则及身份与 SSN 四个目录的索引，外国驾照目录因内容与签字版本一致而保持索引。',
+    scope: [
+      '5 个高风险目录',
+      '822 条声明级来源',
+      '人工签字内容指纹',
+      'noindex 与 sitemap 门禁',
+      'CI 构建一致性检查',
+    ],
+  },
   {
     date: '2026-07-29',
     title: '替换 Maryland 已下线的 REAL ID FAQ',

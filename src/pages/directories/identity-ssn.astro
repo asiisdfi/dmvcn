@@ -1,5 +1,9 @@
 ---
-import { HIGH_RISK_DIRECTORY_REVIEW_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
+import {
+  HIGH_RISK_DIRECTORY_REVIEW_DATE,
+  IDENTITY_SSN_MODIFIED_DATE,
+  SITE_LAUNCH_DATE,
+} from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
@@ -186,7 +190,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'DMV SSN 和身份类别分流表',
   description: '按州整理 DMV / REAL ID 办理中的 SSN、无 SSN、SSA ineligibility、ITIN、lawful presence、非公民和临时访客材料入口。',
-  dateModified: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+  dateModified: IDENTITY_SSN_MODIFIED_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -201,7 +205,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV SSN 和身份类别分流表" description="按州查找 DMV / REAL ID 办理中的 SSN、无 SSN、SSA ineligibility、ITIN、lawful presence、非公民和临时访客材料入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE}
+<BaseLayout title="DMV SSN 和身份类别分流表" description="按州查找 DMV / REAL ID 办理中的 SSN、无 SSN、SSA ineligibility、ITIN、lawful presence、非公民和临时访客材料入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={IDENTITY_SSN_MODIFIED_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">

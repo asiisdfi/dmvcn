@@ -9,6 +9,7 @@ export type SemanticReview = {
   reviewer: string;
   scope: string;
   notes: string;
+  contentFingerprint?: string;
 };
 
 const REGISTRY_REVIEW_DATE = '2026-07-18';
@@ -552,6 +553,7 @@ for (const signoff of REVIEW_MANUAL_SIGNOFFS) {
     reviewer: signoff.reviewer,
     scope: signoff.scope,
     notes: signoff.notes ?? '已完成人工语义核对。',
+    contentFingerprint: signoff.contentFingerprint,
   };
 }
 

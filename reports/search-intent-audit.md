@@ -1,18 +1,17 @@
 # 搜索意图与重复页面审计（2026-07-29）
 
-- 可索引办事页：143
-- 专题 / 目录 / 州总览 / 州 REAL ID / 练习页：33 / 9 / 50 / 50 / 1
+- 可索引办事页：140
+- 专题 / 目录 / 州总览 / 州 REAL ID / 练习页：33 / 6 / 50 / 50 / 1
 - 正文完全重复：0
-- 已复核意图边界：4
-- 因发布门禁暂时休眠的边界：1
-- 观察或复核页面对：35
+- 已复核意图边界：3
+- 因发布门禁暂时休眠的边界：2
+- 观察或复核页面对：34
 - 错误：0
 
 ## 相似页面与分工
 
 | 页面 A | 页面 B | 类型 | 相似度 | 状态 | 页面分工 |
 | --- | --- | --- | ---: | --- | --- |
-| /directories/document-rules/ | /directories/identity-ssn/ | directory | 0.357 | reviewed | 材料规则表比较原件、认证副本、地址和翻译要求；身份与 SSN 表比较身份类别、SSN 核验和无 SSN 分支。 |
 | /states/california/real-id/ | /states/new-york/real-id/ | state-real-id | 0.285 | observe | 继续观察 |
 | /states/california/real-id/ | /states/new-jersey/real-id/ | state-real-id | 0.281 | observe | 继续观察 |
 | /states/california/real-id/ | /states/washington/real-id/ | state-real-id | 0.279 | observe | 继续观察 |

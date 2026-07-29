@@ -171,7 +171,14 @@ for (const row of records) {
   }
   seenRoutes.add(route);
 
-  importedSignoffs.push({ route, reviewer, reviewedAt, scope, notes });
+  importedSignoffs.push({
+    route,
+    reviewer,
+    reviewedAt,
+    scope,
+    notes,
+    contentFingerprint: revision.contentFingerprint ?? undefined,
+  });
 }
 
 if (invalid.length) {
@@ -187,7 +194,7 @@ const signoffs = [...signoffsByRoute.values()].sort((a, b) => a.route.localeComp
 await mkdir(path.dirname(targetPath), { recursive: true });
 
 let body = 'export type ReviewManualSignoff = {\n';
-body += '  route: string;\n  reviewer: string;\n  reviewedAt: string;\n  scope: string;\n  notes?: string;\n};\n\n';
+body += '  route: string;\n  reviewer: string;\n  reviewedAt: string;\n  scope: string;\n  notes?: string;\n  contentFingerprint?: string;\n};\n\n';
 body += 'export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [\n';
 for (const signoff of signoffs) {
   body += '  {\n';
@@ -196,6 +203,9 @@ for (const signoff of signoffs) {
   body += `    reviewedAt: ${quote(signoff.reviewedAt)},\n`;
   body += `    scope: ${quote(signoff.scope)},\n`;
   if (signoff.notes) body += `    notes: ${quote(signoff.notes)},\n`;
+  if (signoff.contentFingerprint) {
+    body += `    contentFingerprint: ${quote(signoff.contentFingerprint)},\n`;
+  }
   body += '  },\n';
 }
 body += '];\n';
