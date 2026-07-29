@@ -32,8 +32,8 @@
 | /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/temporary-tag-trip-permit-dealer-plate/ | 易变规则：临时牌照与通行许可 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/vehicle-inspection-emissions-smog-vin-check/ | 易变规则：车辆检查与排放 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
-| /topics/vehicle-registration-renewal-expired-tags-non-operation/ | 易变规则：车辆登记续期 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
+| /topics/vehicle-registration-renewal-expired-tags-non-operation/ | 易变规则：车辆登记续期 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 
 ## 已逾期
 
@@ -53,8 +53,8 @@
 | /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/temporary-tag-trip-permit-dealer-plate/ | 易变规则：临时牌照与通行许可 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/vehicle-inspection-emissions-smog-vin-check/ | 易变规则：车辆检查与排放 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
-| /topics/vehicle-registration-renewal-expired-tags-non-operation/ | 易变规则：车辆登记续期 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
+| /topics/vehicle-registration-renewal-expired-tags-non-operation/ | 易变规则：车辆登记续期 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 
 ## 下一批
 

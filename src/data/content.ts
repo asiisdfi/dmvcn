@@ -20411,7 +20411,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '车辆登记续期',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-24',
-    reviewedAt: '2026-07-21',
+    reviewedAt: '2026-07-29',
     description:
       '车牌 sticker / decal / tab 快过期、registration 已过期、没收到 renewal notice、线上续不了，或车辆准备长期停驶时，先确认登记州和准确截止日，再处理地址、保险、inspection / emissions、税费或 hold，最后选择 renewal、重新登记、补 sticker，还是本州认可的 non-operation / plate deactivation 路径。',
     whoNeedsIt: [

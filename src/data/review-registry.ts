@@ -331,12 +331,12 @@ export const semanticReviews: Record<string, SemanticReview> = {
   '/topics/vehicle-registration-renewal-expired-tags-non-operation/': {
     status: 'evidence-checked',
     method: 'ai-assisted',
-    reviewedAt: '2026-07-21',
+    reviewedAt: '2026-07-29',
     reviewer: 'Codex AI 辅助证据核查',
     scope:
       '逐条比对 registration renewal、grace period、notice、地址、保险、inspection / emissions、未完成申请、过期窗口、即时凭证和停驶路径。',
     notes:
-      '保留 California 无宽限期与 North Carolina 15-day valid-through 的差异，并将 Virginia 停驶来源修正为当前 plate surrender / deactivation 页面。',
+      '2026-07-29 重新打开 10 个州的现行官方正文；宽限期、过期续期窗口、保险与车检前置条件、即时凭证和停驶顺序均未变化。',
   },
   '/topics/lost-stolen-license-plates-registration-card-sticker/': {
     status: 'evidence-checked',
