@@ -6,6 +6,7 @@
 - 分段快照：reports/private/search-console-segments.json
 - 路由决策台账：reports/search-console-routing-reviews.json
 - 数据状态：可用于规划；快照 2026-07-29，最新完整数据 2026-07-26。
+- 页面查询映射：43/43 个页面在 7 天有效期内；过期页面只暂停自身动作。
 - 纳入页数：125
 - 可见查询：1000 条；中文查询 44 条 / 98 次曝光
 - 泛英文 DMV 大词曝光：626

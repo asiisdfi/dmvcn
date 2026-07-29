@@ -114,6 +114,8 @@ type SearchConsoleAction = {
   targetQueryImpressions?: number;
   targetQueryClicks?: number;
   targetQueryEvidenceReady?: boolean;
+  queryEvidenceAgeDays?: number | null;
+  queryEvidenceFresh?: boolean;
   routingReviewEvidenceCount?: number;
   routingDecisionStatus?: string;
   routingDecision?: {
@@ -164,6 +166,10 @@ type SearchConsoleReport = {
     readyForPlanning?: boolean;
     observedAt?: string;
     dataThrough?: string;
+    pageQueryFreshnessDays?: number;
+    pageQueryRoutes?: number;
+    freshPageQueryRoutes?: number;
+    stalePageQueryRoutes?: number;
     blockers?: string[];
   };
   execution?: {
@@ -888,10 +894,19 @@ const scActionLabel: Record<string, string> = {
                 <dd>{(scExecution?.allowedNow ?? 0) + (scExecution?.routingAllowedNow ?? 0)} 个</dd>
               </div>
               <div>
+                <dt>查询映射</dt>
+                <dd>{searchConsolePlan?.dataSnapshot?.freshPageQueryRoutes ?? 0}/{searchConsolePlan?.dataSnapshot?.pageQueryRoutes ?? 0} 个页面有效</dd>
+              </div>
+              <div>
                 <dt>下一容量日期</dt>
                 <dd>{scExecution?.nextEligibleDate ?? '等待新数据'}</dd>
               </div>
             </dl>
+            {(searchConsolePlan?.dataSnapshot?.stalePageQueryRoutes ?? 0) > 0 ? (
+              <p class="small-note">
+                {searchConsolePlan?.dataSnapshot?.stalePageQueryRoutes} 个页面的查询映射已超过 {searchConsolePlan?.dataSnapshot?.pageQueryFreshnessDays ?? 7} 天，只暂停这些页面的内容动作；其他页面仍按自身证据判断。
+              </p>
+            ) : null}
 
             {scRoutingExecuteNow.length > 0 ? (
               <>
@@ -941,7 +956,14 @@ const scActionLabel: Record<string, string> = {
                 <h3>先补查询证据</h3>
                 <ul class="check-list">
                   {scDataCollectionQueue.slice(0, 5).map((item) => (
-                    <li><a href={item.route}>{item.route}</a><small>先核对该页面实际匹配的查询，不先扩写正文。</small></li>
+                    <li>
+                      <a href={item.route}>{item.route}</a>
+                      <small>
+                        {item.queryEvidenceFresh === false && item.queryEvidenceAgeDays !== null
+                          ? `页面查询映射已过去 ${item.queryEvidenceAgeDays} 天，先刷新该页数据，不先扩写正文。`
+                          : '先核对该页面实际匹配的查询，不先扩写正文。'}
+                      </small>
+                    </li>
                   ))}
                 </ul>
               </>

@@ -86,6 +86,7 @@ const lowEvidenceQueue = execution.lowEvidenceQueue ?? [];
 const humanReviewQueue = execution.humanReviewQueue ?? [];
 const indexingCleanupQueue = execution.indexingCleanupQueue ?? [];
 const targetEvidenceThresholds = execution.targetEvidenceThresholds ?? {};
+const pageQueryFreshnessDays = snapshot.pageQueryFreshnessDays;
 
 if (
   planAgeDays === null ||
@@ -150,6 +151,27 @@ if (snapshot.readyForPlanning && execution.status === 'hold-data') {
   errors.push('A ready data snapshot must not use hold-data.');
 }
 if (
+  !Number.isInteger(pageQueryFreshnessDays) ||
+  pageQueryFreshnessDays < 1
+) {
+  errors.push('Missing or invalid page-query freshness window.');
+}
+if (
+  !Number.isInteger(snapshot.pageQueryRoutes) ||
+  !Number.isInteger(snapshot.freshPageQueryRoutes) ||
+  !Number.isInteger(snapshot.stalePageQueryRoutes) ||
+  snapshot.freshPageQueryRoutes + snapshot.stalePageQueryRoutes !==
+    snapshot.pageQueryRoutes
+) {
+  errors.push('Page-query freshness route counts are inconsistent.');
+}
+if (
+  snapshot.readyForPlanning &&
+  (snapshot.invalidPageQueryObservedDates ?? 0) > 0
+) {
+  errors.push('Planning-ready data contains invalid page-query observation dates.');
+}
+if (
   !Number.isFinite(targetEvidenceThresholds.clicks) ||
   targetEvidenceThresholds.clicks < 1 ||
   !Number.isFinite(targetEvidenceThresholds.impressions) ||
@@ -159,6 +181,18 @@ if (
 }
 
 for (const item of [...executeNow, ...nextQueue]) {
+  if (!item.queryEvidenceFresh) {
+    errors.push(`${item.route}: executable content action uses stale page-query evidence.`);
+  }
+  if (
+    !isCalendarDate(item.queryEvidenceObservedFrom) ||
+    !isCalendarDate(item.queryEvidenceObservedThrough) ||
+    !Number.isInteger(item.queryEvidenceAgeDays) ||
+    item.queryEvidenceAgeDays < 0 ||
+    item.queryEvidenceAgeDays > pageQueryFreshnessDays
+  ) {
+    errors.push(`${item.route}: executable content action has invalid query-evidence freshness.`);
+  }
   if ((item.targetQueryEvidenceCount ?? 0) < 1) {
     errors.push(`${item.route}: executable content action lacks target-query evidence.`);
   }
@@ -188,6 +222,9 @@ for (const item of dataCollectionQueue) {
   }
 }
 for (const item of queryReviewQueue) {
+  if (!item.queryEvidenceFresh) {
+    errors.push(`${item.route}: stale query evidence must be refreshed before intent review.`);
+  }
   if (!item.requiresQueryReview) {
     errors.push(`${item.route}: query-review item has no unreviewed query evidence.`);
   }
@@ -219,6 +256,14 @@ for (const item of routingActionQueue) {
   }
   if (!(item.routingDecision?.targetRoutes?.length > 0)) {
     errors.push(`${item.route}: routing action has no destination route.`);
+  }
+  if (
+    !item.routingDecisionFresh ||
+    !Number.isInteger(item.routingDecisionAgeDays) ||
+    item.routingDecisionAgeDays < 0 ||
+    item.routingDecisionAgeDays > pageQueryFreshnessDays
+  ) {
+    errors.push(`${item.route}: routing action uses a stale reviewed decision.`);
   }
   if (!isCalendarDate(item.routingDecision?.reviewedThrough)) {
     errors.push(`${item.route}: routing action lacks a reviewed-through date.`);
@@ -252,6 +297,14 @@ for (const item of routingExecuteNow) {
   }
   if (!(item.routingDecision?.targetRoutes?.length > 0)) {
     errors.push(`${item.route}: executable routing item has no destination route.`);
+  }
+  if (
+    !item.routingDecisionFresh ||
+    !Number.isInteger(item.routingDecisionAgeDays) ||
+    item.routingDecisionAgeDays < 0 ||
+    item.routingDecisionAgeDays > pageQueryFreshnessDays
+  ) {
+    errors.push(`${item.route}: executable routing item uses a stale reviewed decision.`);
   }
   if (!isCalendarDate(item.routingDecision?.reviewedThrough)) {
     errors.push(`${item.route}: executable routing item lacks a reviewed-through date.`);
@@ -303,6 +356,9 @@ for (const item of routingMonitoringQueue) {
   }
 }
 for (const item of lowEvidenceQueue) {
+  if (!item.queryEvidenceFresh) {
+    errors.push(`${item.route}: stale query evidence is incorrectly marked low evidence.`);
+  }
   if ((item.targetQueryEvidenceCount ?? 0) < 1) {
     errors.push(`${item.route}: low-evidence item has no target-query signal.`);
   }
@@ -318,6 +374,9 @@ for (const item of lowEvidenceQueue) {
   }
 }
 for (const item of humanReviewQueue) {
+  if (!item.queryEvidenceFresh) {
+    errors.push(`${item.route}: stale query evidence entered the human-review queue.`);
+  }
   if (!item.requiresHumanReview) {
     errors.push(`${item.route}: human-review queue item is not marked as requiring review.`);
   }
@@ -418,6 +477,9 @@ console.log('# Search Console Execution Gate');
 console.log('');
 console.log(`Plan date: ${planDate || 'missing'}`);
 console.log(`Snapshot ready: ${Boolean(snapshot.readyForPlanning)}`);
+console.log(
+  `Fresh page-query routes: ${snapshot.freshPageQueryRoutes ?? 0}/${snapshot.pageQueryRoutes ?? 0} (${snapshot.stalePageQueryRoutes ?? 0} stale)`,
+);
 console.log(`Execution: ${execution.status ?? 'missing'}`);
 console.log(`Execute now: ${executeNow.length}`);
 console.log(`Routing execute now: ${routingExecuteNow.length}`);

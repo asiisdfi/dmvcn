@@ -87,6 +87,7 @@ const targetEvidenceThresholds = {
   clicks: 1,
   impressions: 5,
 };
+const pageQueryFreshnessDays = 7;
 
 function currentCalendarDate() {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -773,12 +774,47 @@ const pageQuerySignals = pageQueryRows
 const invalidPageQueryClassifications = pageQuerySignals.filter(
   (signal) => !ALLOWED_QUERY_CLASSIFICATIONS.has(signal.classification),
 );
+const invalidPageQueryObservedDates = pageQuerySignals.filter(
+  (signal) => !isCalendarDate(signal.observedAt),
+);
 const pageQueryMap = new Map();
 for (const signal of pageQuerySignals) {
   const signals = pageQueryMap.get(signal.route) ?? [];
   signals.push(signal);
   pageQueryMap.set(signal.route, signals);
 }
+const pageQueryRouteFreshness = [...pageQueryMap.entries()].map(
+  ([route, signals]) => {
+    const observedDates = [
+      ...new Set(
+        signals
+          .map((signal) => signal.observedAt)
+          .filter((value) => isCalendarDate(value)),
+      ),
+    ].sort();
+    const observedFrom = observedDates[0] ?? null;
+    const observedThrough = observedDates.at(-1) ?? null;
+    const ageDays = observedFrom
+      ? daysBetween(observedFrom, planDate)
+      : null;
+    return {
+      route,
+      signals: signals.length,
+      observedFrom,
+      observedThrough,
+      ageDays,
+      fresh:
+        observedDates.length > 0 &&
+        signals.every((signal) => isCalendarDate(signal.observedAt)) &&
+        ageDays !== null &&
+        ageDays >= 0 &&
+        ageDays <= pageQueryFreshnessDays,
+    };
+  },
+);
+const pageQueryFreshnessByRoute = new Map(
+  pageQueryRouteFreshness.map((item) => [item.route, item]),
+);
 const querySignals = queryItems.length
   ? {
       totalRows: queryItems.length,
@@ -832,9 +868,12 @@ const signalObservedDates = [
       .filter((value) => isCalendarDate(value)),
   ),
 ].sort();
-const oldestSignalAgeDays = signalObservedDates.length
-  ? daysBetween(signalObservedDates[0], planDate)
-  : null;
+const freshPageQueryRoutes = pageQueryRouteFreshness.filter(
+  (item) => item.fresh,
+);
+const stalePageQueryRoutes = pageQueryRouteFreshness.filter(
+  (item) => !item.fresh,
+);
 const dataBlockers = [];
 if (!segmentSnapshot) dataBlockers.push('缺少分段快照，无法确认属性、时间窗口和全站总量。');
 if (segmentSnapshot && segmentSnapshot.property !== expectedProperty) {
@@ -861,12 +900,10 @@ if (invalidPageQueryClassifications.length > 0) {
     `有 ${invalidPageQueryClassifications.length} 条页面查询缺少有效分类，不能用于内容决策。`,
   );
 }
-if (
-  oldestSignalAgeDays === null ||
-  oldestSignalAgeDays < 0 ||
-  oldestSignalAgeDays > 7
-) {
-  dataBlockers.push('页面查询映射距计划日期超过 7 天或缺少有效观察日期。');
+if (invalidPageQueryObservedDates.length > 0) {
+  dataBlockers.push(
+    `有 ${invalidPageQueryObservedDates.length} 条页面查询缺少有效观察日期。`,
+  );
 }
 const dataSnapshot = {
   property: segmentSnapshot?.property ?? null,
@@ -881,6 +918,15 @@ const dataSnapshot = {
   queryRows: queryItems.length,
   pageQuerySignals: pageQuerySignals.length,
   invalidPageQueryClassifications: invalidPageQueryClassifications.length,
+  invalidPageQueryObservedDates: invalidPageQueryObservedDates.length,
+  pageQueryFreshnessDays,
+  pageQueryRoutes: pageQueryRouteFreshness.length,
+  freshPageQueryRoutes: freshPageQueryRoutes.length,
+  stalePageQueryRoutes: stalePageQueryRoutes.length,
+  stalePageQuerySignals: stalePageQueryRoutes.reduce(
+    (sum, item) => sum + item.signals,
+    0,
+  ),
   pageQueryObservedFrom: signalObservedDates[0] ?? null,
   pageQueryObservedThrough: signalObservedDates.at(-1) ?? null,
   readyForPlanning: dataBlockers.length === 0,
@@ -1016,6 +1062,13 @@ const allRows = [...pageMap.values()].map((item) => {
   const clicksDelta = clicksPrevious > 0 ? ((clicksCurrent - clicksPrevious) / clicksPrevious) * 100 : clicksCurrent > 0 ? 100 : 0;
 
   const allMatchedQuerySignals = pageQueryMap.get(item.page) ?? [];
+  const queryEvidenceFreshness =
+    pageQueryFreshnessByRoute.get(item.page) ?? {
+      observedFrom: null,
+      observedThrough: null,
+      ageDays: null,
+      fresh: false,
+    };
   const matchedQuerySignals = topByImpressions(allMatchedQuerySignals, 8);
   const targetQuerySignals = allMatchedQuerySignals.filter(isTargetQuerySignal);
   const routingReviewQuerySignals = allMatchedQuerySignals.filter(
@@ -1032,6 +1085,13 @@ const allRows = [...pageMap.values()].map((item) => {
   const routingDecisionState = routingReviewQuerySignals.length
     ? routingDecisionStatus(routingDecision)
     : 'none';
+  const routingDecisionAgeDays = routingDecision?.reviewedThrough
+    ? daysBetween(routingDecision.reviewedThrough, planDate)
+    : null;
+  const routingDecisionFresh =
+    routingDecisionAgeDays !== null &&
+    routingDecisionAgeDays >= 0 &&
+    routingDecisionAgeDays <= pageQueryFreshnessDays;
   const humanReviewQuerySignals = allMatchedQuerySignals.filter((signal) =>
     isHumanReviewClassification(signal.classification),
   );
@@ -1130,6 +1190,21 @@ const allRows = [...pageMap.values()].map((item) => {
     action = 'observe-non-target';
     reason = '现有页面级信号来自泛英文或本地查询，不为非目标曝光扩写中文内容。';
   }
+  if (
+    routingReviewQuerySignals.length > 0 &&
+    ['scheduled', 'action-due'].includes(routingDecisionState) &&
+    !routingDecisionFresh
+  ) {
+    action = 'routing-review';
+    reason = `页面分流判断距计划日期超过 ${pageQueryFreshnessDays} 天；先刷新该页查询并重新确认分工。`;
+  } else if (
+    allMatchedQuerySignals.length > 0 &&
+    !queryEvidenceFreshness.fresh &&
+    routingReviewQuerySignals.length === 0
+  ) {
+    action = 'needs-query-evidence';
+    reason = `该页查询映射距计划日期超过 ${pageQueryFreshnessDays} 天；先刷新该页数据，旧映射不能触发内容修改。`;
+  }
   const suggestedAction = action;
   const completedAction = latestActionByRoute.get(item.page);
   if (
@@ -1156,12 +1231,18 @@ const allRows = [...pageMap.values()].map((item) => {
     topQuery: topQuery?.query ?? '',
     querySignals: matchedQuerySignals,
     queryEvidenceCount: allMatchedQuerySignals.length,
+    queryEvidenceObservedFrom: queryEvidenceFreshness.observedFrom,
+    queryEvidenceObservedThrough: queryEvidenceFreshness.observedThrough,
+    queryEvidenceAgeDays: queryEvidenceFreshness.ageDays,
+    queryEvidenceFresh: queryEvidenceFreshness.fresh,
     targetQueryEvidenceCount: targetQuerySignals.length,
     targetQueryImpressions: targetQueryEvidence.impressions,
     targetQueryClicks: targetQueryEvidence.clicks,
     targetQueryEvidenceReady: targetQueryEvidence.ready,
     routingReviewEvidenceCount: routingReviewQuerySignals.length,
     routingEvidenceObservedThrough,
+    routingDecisionAgeDays,
+    routingDecisionFresh,
     routingDecisionStatus: routingDecisionState,
     routingDecision: routingDecision ?? null,
     humanReviewEvidenceCount: humanReviewQuerySignals.length,
@@ -1210,12 +1291,15 @@ const toPublicRow = (item) => {
     requiresHumanReview: humanReviewEvidenceCount > 0,
     requiresQueryReview: item.unreviewedQueryEvidenceCount > 0,
     hasRoutingReviewSignal: item.routingReviewEvidenceCount > 0,
-    requiresRoutingReview: ['unreviewed', 'recheck-due'].includes(
-      item.routingDecisionStatus,
-    ),
-    requiresRoutingAction: ['scheduled', 'action-due'].includes(
-      item.routingDecisionStatus,
-    ),
+    requiresRoutingReview:
+      ['unreviewed', 'recheck-due'].includes(item.routingDecisionStatus) ||
+      (
+        ['scheduled', 'action-due'].includes(item.routingDecisionStatus) &&
+        !item.routingDecisionFresh
+      ),
+    requiresRoutingAction:
+      ['scheduled', 'action-due'].includes(item.routingDecisionStatus) &&
+      item.routingDecisionFresh,
   };
 };
 const publicRows = allRows.map(toPublicRow);
@@ -1229,6 +1313,7 @@ const eligibleContentRows = publicRows.filter(
   (item) =>
     contentActionNames.has(item.action) &&
     item.targetQueryEvidenceReady &&
+    item.queryEvidenceFresh &&
     !item.requiresHumanReview &&
     !item.requiresQueryReview &&
     !item.hasRoutingReviewSignal,
@@ -1237,6 +1322,7 @@ const pendingRoutingActionRows = publicRows.filter(
   (item) =>
     !item.requiresHumanReview &&
     !item.requiresQueryReview &&
+    item.routingDecisionFresh &&
     (
       item.action === 'routing-action' ||
       item.suggestedAction === 'routing-action' ||
@@ -1303,6 +1389,7 @@ const execution = {
   queryReviewQueue: publicRows
     .filter(
       (item) =>
+        item.queryEvidenceFresh &&
         !item.requiresHumanReview &&
         (
           item.action === 'query-review' ||
@@ -1338,12 +1425,19 @@ const execution = {
   lowEvidenceQueue: publicRows
     .filter(
       (item) =>
-        item.action === 'observe-low-evidence' ||
-        item.suggestedAction === 'observe-low-evidence',
+        item.queryEvidenceFresh &&
+        (
+          item.action === 'observe-low-evidence' ||
+          item.suggestedAction === 'observe-low-evidence'
+        ),
     )
     .slice(0, 12),
   humanReviewQueue: publicRows
-    .filter((item) => item.action === 'human-review' || item.requiresHumanReview)
+    .filter(
+      (item) =>
+        item.queryEvidenceFresh &&
+        (item.action === 'human-review' || item.requiresHumanReview),
+    )
     .slice(0, 12),
   indexingCleanupQueue,
 };
@@ -1372,6 +1466,11 @@ const report = {
     queryWarning,
     pageQueryWarning,
     segmentWarning,
+    ...(dataSnapshot.stalePageQueryRoutes > 0
+      ? [
+          `有 ${dataSnapshot.stalePageQueryRoutes} 个页面的查询映射超过 ${pageQueryFreshnessDays} 天；这些页面必须单独刷新，但不会冻结证据仍有效的其他页面。`,
+        ]
+      : []),
     ...(indexingCleanupQueue.some((item) => item.status === 'deindex-overdue')
       ? ['noindex 页面超过复查日期后仍有 Search Console 曝光，需要检查 Google 当前索引状态。']
       : []),
@@ -1403,6 +1502,7 @@ const report = {
     queryReview: publicRows
       .filter(
         (item) =>
+          item.queryEvidenceFresh &&
           !item.requiresHumanReview &&
           (
             item.action === 'query-review' ||
@@ -1489,6 +1589,10 @@ const csvRows = [
     'reason',
     'hasQueryEvidence',
     'queryEvidenceCount',
+    'queryEvidenceObservedFrom',
+    'queryEvidenceObservedThrough',
+    'queryEvidenceAgeDays',
+    'queryEvidenceFresh',
     'targetQueryEvidenceCount',
     'targetQueryImpressions',
     'targetQueryClicks',
@@ -1496,6 +1600,8 @@ const csvRows = [
     'routingReviewEvidenceCount',
     'hasRoutingReviewSignal',
     'routingEvidenceObservedThrough',
+    'routingDecisionAgeDays',
+    'routingDecisionFresh',
     'routingDecisionStatus',
     'routingTargetRoutes',
     'routingPlannedFor',
@@ -1531,6 +1637,10 @@ const csvRows = [
     item.reason,
     item.hasQueryEvidence,
     item.queryEvidenceCount,
+    item.queryEvidenceObservedFrom,
+    item.queryEvidenceObservedThrough,
+    item.queryEvidenceAgeDays,
+    item.queryEvidenceFresh,
     item.targetQueryEvidenceCount,
     item.targetQueryImpressions,
     item.targetQueryClicks,
@@ -1538,6 +1648,8 @@ const csvRows = [
     item.routingReviewEvidenceCount,
     item.hasRoutingReviewSignal,
     item.routingEvidenceObservedThrough,
+    item.routingDecisionAgeDays,
+    item.routingDecisionFresh,
     item.routingDecisionStatus,
     item.routingDecision?.targetRoutes.join('|') ?? '',
     item.routingDecision?.plannedFor ?? '',
@@ -1584,6 +1696,7 @@ const markdown = [
   `- 分段快照：${segmentSnapshot ? segmentSourceLabel : '未提供'}`,
   `- 路由决策台账：${routingReviews.length ? routingReviewSourceLabel : '未提供'}`,
   `- 数据状态：${dataSnapshot.readyForPlanning ? '可用于规划' : '不可用于规划'}；快照 ${dataSnapshot.observedAt ?? '未知'}，最新完整数据 ${dataSnapshot.dataThrough ?? '未知'}。`,
+  `- 页面查询映射：${dataSnapshot.freshPageQueryRoutes}/${dataSnapshot.pageQueryRoutes} 个页面在 ${pageQueryFreshnessDays} 天有效期内；过期页面只暂停自身动作。`,
   `- 纳入页数：${allRows.length}`,
   ...(querySignals
     ? [

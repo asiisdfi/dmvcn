@@ -56,6 +56,22 @@ function pageExport(route, queryRows) {
   };
 }
 
+function replaceSignalDate(csv, route, observedAt) {
+  let replacements = 0;
+  const next = csv
+    .split('\n')
+    .map((line) => {
+      if (!line.startsWith(`${route},`)) return line;
+      replacements += 1;
+      return line.replace(/,\d{4}-\d{2}-\d{2}$/, `,${observedAt}`);
+    })
+    .join('\n');
+  if (!replacements) {
+    throw new Error(`Synthetic signal route was not found: ${route}`);
+  }
+  return next;
+}
+
 const tempRoot = await mkdtemp(path.join(os.tmpdir(), 'dmvcn-sc-import-'));
 try {
   const observedAt = currentCalendarDate();
@@ -410,6 +426,87 @@ try {
       env: {
         ...process.env,
         SEARCH_CONSOLE_PLAN_PATH: planPath,
+      },
+    },
+  );
+
+  const staleSignalsPath = path.join(inputDir, 'stale-page-signals.csv');
+  const freshSignalsCsv = await readFile(signalsPath, 'utf8');
+  await writeFile(
+    staleSignalsPath,
+    replaceSignalDate(
+      freshSignalsCsv,
+      '/topics/real-id-basics/',
+      addDays(observedAt, -8),
+    ),
+  );
+  const routeFreshnessOutputDir = path.join(
+    outputRoot,
+    'plan-route-freshness',
+  );
+  await execFileAsync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts/build-search-console-plan.mjs')],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SC_REPORT_PATH: path.join(
+          outputRoot,
+          'reports/search-console-export.csv',
+        ),
+        SC_QUERY_REPORT_PATH: path.join(
+          outputRoot,
+          'reports/private/search-console-query-export.csv',
+        ),
+        SC_PAGE_QUERY_REPORT_PATH: staleSignalsPath,
+        SC_SEGMENT_REPORT_PATH: segmentPath,
+        SC_ACTION_LOG_PATH: actionLogPath,
+        SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
+        SC_OUTPUT_DIR: routeFreshnessOutputDir,
+        SC_PRIVATE_OUTPUT_DIR: path.join(
+          outputRoot,
+          'plan-route-freshness-private',
+        ),
+        SC_PLAN_DATE: observedAt,
+      },
+    },
+  );
+  const routeFreshnessPlanPath = path.join(
+    routeFreshnessOutputDir,
+    'search-console-priority.json',
+  );
+  const routeFreshnessPlan = JSON.parse(
+    await readFile(routeFreshnessPlanPath, 'utf8'),
+  );
+  check(
+    routeFreshnessPlan.dataSnapshot.readyForPlanning &&
+      routeFreshnessPlan.dataSnapshot.stalePageQueryRoutes === 1,
+    'One stale page-query mapping incorrectly froze the global snapshot.',
+  );
+  check(
+    routeFreshnessPlan.execution.executeNow.some(
+      (item) => item.route === '/topics/proof-of-residency/',
+    ),
+    'A fresh route was blocked by another page stale query mapping.',
+  );
+  check(
+    routeFreshnessPlan.execution.dataCollectionQueue.some(
+      (item) => item.route === '/topics/real-id-basics/',
+    ) &&
+      !routeFreshnessPlan.execution.lowEvidenceQueue.some(
+        (item) => item.route === '/topics/real-id-basics/',
+      ),
+    'The stale route was not isolated in the page-query refresh queue.',
+  );
+  await execFileAsync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts/audit-search-console-plan.mjs')],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SEARCH_CONSOLE_PLAN_PATH: routeFreshnessPlanPath,
       },
     },
   );
