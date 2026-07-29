@@ -11,6 +11,7 @@ import {
   SEARCH_CONSOLE_EDITORIAL_TARGETS,
   countsTowardEditorialCadence,
 } from './lib/search-console-cadence.mjs';
+import { routingAnchorTextIssue } from './lib/search-console-routing.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const routingReviewPath = path.resolve(
@@ -267,6 +268,14 @@ async function main() {
     }
   }
   if (review.action === 'intent-links') {
+    for (const link of review.expectedLinks ?? []) {
+      const anchorIssue = routingAnchorTextIssue(link?.anchorText);
+      if (anchorIssue) {
+        throw new Error(
+          `${options.id} has an invalid expected link anchor: ${anchorIssue}.`,
+        );
+      }
+    }
     const expectedSourceRoutes = new Set(
       (review.expectedLinks ?? []).map((link) => normalizeRoute(link?.from)),
     );

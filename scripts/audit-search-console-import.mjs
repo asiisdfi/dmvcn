@@ -83,6 +83,7 @@ try {
       {
         from: '/directories/new-residents/',
         to: '/states/washington/',
+        anchorText: '查看华盛顿州身份证续期办理步骤',
       },
     ],
     reviewedAt: observedAt,
@@ -586,6 +587,52 @@ try {
         SEARCH_CONSOLE_PLAN_PATH: forgedPlanPath,
       },
     },
+  );
+
+  const invalidAnchorReview = syntheticRoutingReview(observedAt);
+  invalidAnchorReview.expectedLinks[0].anchorText = '点击这里查看详情';
+  await writeFile(
+    routingReviewLogPath,
+    `${JSON.stringify([invalidAnchorReview], null, 2)}\n`,
+  );
+  let genericAnchorContractRejected = false;
+  try {
+    await execFileAsync(
+      process.execPath,
+      [path.join(projectRoot, 'scripts/build-search-console-plan.mjs')],
+      {
+        cwd: projectRoot,
+        env: {
+          ...process.env,
+          SC_REPORT_PATH: path.join(
+            outputRoot,
+            'reports/search-console-export.csv',
+          ),
+          SC_QUERY_REPORT_PATH: path.join(
+            outputRoot,
+            'reports/private/search-console-query-export.csv',
+          ),
+          SC_PAGE_QUERY_REPORT_PATH: signalsPath,
+          SC_SEGMENT_REPORT_PATH: segmentPath,
+          SC_ACTION_LOG_PATH: actionLogPath,
+          SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
+          SC_OUTPUT_DIR: path.join(outputRoot, 'plan-routing-invalid-anchor'),
+          SC_PRIVATE_OUTPUT_DIR: path.join(
+            outputRoot,
+            'plan-routing-invalid-anchor-private',
+          ),
+          SC_PLAN_DATE: observedAt,
+        },
+      },
+    );
+  } catch (error) {
+    genericAnchorContractRejected = String(
+      error?.stderr ?? error?.message ?? error,
+    ).includes('anchorText');
+  }
+  check(
+    genericAnchorContractRejected,
+    'Planner accepted a generic intent-links anchor as reviewed text.',
   );
 
   await writeFile(

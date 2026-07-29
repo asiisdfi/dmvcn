@@ -29,6 +29,7 @@
     "audit:review-cycles:test": "node scripts/audit-review-cycles-test.mjs",
     "audit:site": "node scripts/audit-site-integrity.mjs",
     "audit:internal-links": "node --experimental-strip-types scripts/audit-internal-link-architecture.mjs",
+    "audit:internal-links:test": "node scripts/audit-internal-link-architecture-test.mjs",
     "audit:intent": "node --experimental-strip-types scripts/audit-search-intent-overlap.mjs",
     "audit:intent:test": "node scripts/audit-search-intent-overlap-test.mjs",
     "audit:seo": "node scripts/audit-seo.mjs",
@@ -43,7 +44,7 @@
     "import:sc": "node scripts/import-search-console-export.mjs",
     "complete:sc-routing": "node scripts/complete-search-console-routing-action.mjs",
     "review:signoffs:import": "node --experimental-strip-types scripts/import-review-signoffs.mjs",
-    "verify:launch": "npm run audit:content && npm run audit:practice && npm run audit:source-freshness && npm run audit:search-console-import && npm run audit:search-console && npm run audit:growth && npm run audit:pulse && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:review-cycles && npm run audit:review-cycles:test && npm run audit:publication && npm run audit:publication:test && npm run audit:site && npm run audit:internal-links && npm run audit:intent && npm run audit:intent:test && npm run audit:seo && npm run audit:metadata && npm run audit:performance && npm run audit:launch",
+    "verify:launch": "npm run audit:content && npm run audit:practice && npm run audit:source-freshness && npm run audit:search-console-import && npm run audit:search-console && npm run audit:growth && npm run audit:pulse && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:review-cycles && npm run audit:review-cycles:test && npm run audit:publication && npm run audit:publication:test && npm run audit:site && npm run audit:internal-links && npm run audit:internal-links:test && npm run audit:intent && npm run audit:intent:test && npm run audit:seo && npm run audit:metadata && npm run audit:performance && npm run audit:launch",
     "astro": "astro",
     "plan:signoff": "node --experimental-strip-types scripts/build-signoff-template.mjs",
     "audit:publication": "node --experimental-strip-types scripts/audit-publication-gate.mjs"

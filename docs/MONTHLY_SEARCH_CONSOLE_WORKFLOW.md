@@ -47,7 +47,7 @@ npm run import:sc -- \
 
 计划报告虽然允许在 7 天内重复使用，但日期事件没有宽限期。`plannedFor`、`evaluateAfter`、noindex 索引复查日或下一内容容量日一旦到达，定时质量门禁会立即要求按当天日期重建计划；旧报告不能继续把已经到期的任务显示为“未来安排”。
 
-落错页或意图重叠完成判断后，结论写入 `reports/search-console-routing-reviews.json`。台账不保存原始查询，只记录涉及页面、目标页面、已检查到哪一天、计划实施日、实际完成日和复评日。以内部链接完成分流时，还要用 `expectedLinks` 逐条登记来源页和目标页。系统据此区分：
+落错页或意图重叠完成判断后，结论写入 `reports/search-console-routing-reviews.json`。台账不保存原始查询，只记录涉及页面、目标页面、已检查到哪一天、计划实施日、实际完成日和复评日。以内部链接完成分流时，还要用 `expectedLinks` 逐条登记来源页、目标页和具体中文 `anchorText`；“查看详情”“了解更多”等泛化锚文本不能作为意图分流合同。系统据此区分：
 
 - 尚未判断：进入路由审查队列。
 - 已判断但未实施：进入路由调整队列；记录判断本身不占内容名额，到了 `plannedFor` 后系统会把任务放入本轮执行，并先于普通内容候选扣减可用名额。
@@ -67,7 +67,7 @@ npm run complete:sc-routing -- \
   --dry-run
 ```
 
-去掉 `--dry-run` 才会写入。命令会拒绝早于 `plannedFor` 的完成记录、少于 14 天的观察期、重复任务、审查范围外的页面，以及会令滚动 7 天超过 3 个或当月超过 12 个的动作。`intent-links` 动作还必须把所有预期链接的来源页记入 `changedRoutes`。构建器会逐项核对台账中的 `changedRoutes` 与动作日志中的 `routingReviewId`；内部链接审计则会读取最终 HTML，确认每条已实施的 `expectedLinks` 确实出现在正文区域。任一环节不一致都会停止发布。
+去掉 `--dry-run` 才会写入。命令会拒绝早于 `plannedFor` 的完成记录、少于 14 天的观察期、重复任务、审查范围外的页面，以及会令滚动 7 天超过 3 个或当月超过 12 个的动作。`intent-links` 动作还必须把所有预期链接的来源页记入 `changedRoutes`。构建器会逐项核对台账中的 `changedRoutes` 与动作日志中的 `routingReviewId`；内部链接审计则会读取最终 HTML，确认每条已实施的 `expectedLinks` 位于正文区域，并逐字使用审查过的中文 `anchorText`。任一环节不一致都会停止发布。
 
 需要先检查文件而不写入时增加 `--dry-run`。导入完成后运行：
 

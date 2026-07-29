@@ -12,6 +12,10 @@ import {
   SEARCH_CONSOLE_EDITORIAL_TARGETS,
   countsTowardEditorialCadence,
 } from './lib/search-console-cadence.mjs';
+import {
+  normalizeRoutingAnchorText,
+  routingAnchorTextIssue,
+} from './lib/search-console-routing.mjs';
 import { evaluateSerializedWindow } from './lib/search-console-window.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -412,6 +416,7 @@ const routingReviews = rawRoutingReviews.map((entry, index) => {
     ? entry.expectedLinks.map((link) => ({
         from: normalizeRoute(link?.from),
         to: normalizeRoute(link?.to),
+        anchorText: normalizeRoutingAnchorText(link?.anchorText),
       }))
     : [];
   const reviewedAt = String(entry?.reviewedAt ?? '');
@@ -455,6 +460,10 @@ const routingReviews = rawRoutingReviews.map((entry, index) => {
   for (const link of expectedLinks) {
     if (!link.from || !link.to) {
       throw new Error(`${id}: expectedLinks must use normalized from/to routes.`);
+    }
+    const anchorIssue = routingAnchorTextIssue(link.anchorText);
+    if (anchorIssue) {
+      throw new Error(`${id}: ${link.from} -> ${link.to} ${anchorIssue}.`);
     }
     if (!routes.includes(link.from)) {
       throw new Error(`${id}: expected link source is outside routes: ${link.from}.`);

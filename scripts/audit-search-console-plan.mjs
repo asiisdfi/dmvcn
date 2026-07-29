@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { routingAnchorTextIssue } from './lib/search-console-routing.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const reportPath = path.resolve(
@@ -61,6 +62,26 @@ function containsRawQueryKey(value) {
       ['query', 'topQuery'].includes(key) ||
       containsRawQueryKey(nested),
   );
+}
+
+function validateRoutingLinkContract(item, errors) {
+  const decision = item.routingDecision;
+  if (decision?.action !== 'intent-links') return;
+  const expectedLinks = Array.isArray(decision.expectedLinks)
+    ? decision.expectedLinks
+    : [];
+  if (!expectedLinks.length) {
+    errors.push(`${item.route}: intent-links routing action has no expectedLinks contract.`);
+    return;
+  }
+  for (const link of expectedLinks) {
+    const anchorIssue = routingAnchorTextIssue(link?.anchorText);
+    if (anchorIssue) {
+      errors.push(
+        `${item.route}: invalid routing anchor for ${link?.from ?? 'missing source'} -> ${link?.to ?? 'missing target'}: ${anchorIssue}.`,
+      );
+    }
+  }
 }
 
 let report;
@@ -257,6 +278,7 @@ for (const item of routingReviewQueue) {
   }
 }
 for (const item of routingActionQueue) {
+  validateRoutingLinkContract(item, errors);
   if (
     !item.hasRoutingReviewSignal ||
     !item.requiresRoutingAction ||
@@ -300,6 +322,7 @@ for (const item of routingActionQueue) {
   }
 }
 for (const item of routingExecuteNow) {
+  validateRoutingLinkContract(item, errors);
   if (
     !item.hasRoutingReviewSignal ||
     !item.requiresRoutingAction ||
@@ -338,6 +361,7 @@ for (const item of routingExecuteNow) {
   }
 }
 for (const item of routingMonitoringQueue) {
+  validateRoutingLinkContract(item, errors);
   if (
     !item.hasRoutingReviewSignal ||
     item.routingDecisionStatus !== 'monitoring'

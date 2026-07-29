@@ -3,6 +3,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'parse5';
 import { getPublicationGate } from '../src/data/publication-gate.ts';
+import {
+  normalizeRoutingAnchorText,
+  routingAnchorTextIssue,
+} from './lib/search-console-routing.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const distDir = path.resolve(
@@ -273,6 +277,7 @@ for (const review of routingReviews) {
     ? review.expectedLinks.map((link) => ({
         from: normalizeReviewRoute(link?.from),
         to: normalizeReviewRoute(link?.to),
+        anchorText: normalizeRoutingAnchorText(link?.anchorText),
       }))
     : [];
 
@@ -284,6 +289,7 @@ for (const review of routingReviews) {
   const seenExpectedLinks = new Set();
   for (const link of expectedLinks) {
     const key = `${link.from}\t${link.to}`;
+    const anchorIssue = routingAnchorTextIssue(link.anchorText);
     if (
       !link.from.startsWith('/') ||
       !link.to.startsWith('/') ||
@@ -291,6 +297,12 @@ for (const review of routingReviews) {
       !targetRoutes.has(link.to)
     ) {
       errors.push(`${reviewId}: invalid expected routing link ${link.from} -> ${link.to}.`);
+      continue;
+    }
+    if (anchorIssue) {
+      errors.push(
+        `${reviewId}: invalid anchorText for ${link.from} -> ${link.to}: ${anchorIssue}.`,
+      );
       continue;
     }
     if (seenExpectedLinks.has(key)) {
@@ -311,6 +323,20 @@ for (const review of routingReviews) {
     if (!mainEdges.get(link.from)?.has(link.to)) {
       errors.push(
         `${reviewId}: implemented routing link is missing from main content: ${link.from} -> ${link.to}.`,
+      );
+      continue;
+    }
+    const matchingAnchor = documents
+      .get(link.from)
+      ?.links.some(
+        (renderedLink) =>
+          renderedLink.landmark === 'main' &&
+          resolveInternalRoute(renderedLink.href, link.from) === link.to &&
+          normalizeRoutingAnchorText(renderedLink.name) === link.anchorText,
+      );
+    if (!matchingAnchor) {
+      errors.push(
+        `${reviewId}: implemented routing link must use the reviewed anchor text "${link.anchorText}": ${link.from} -> ${link.to}.`,
       );
       continue;
     }

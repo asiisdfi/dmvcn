@@ -26,7 +26,8 @@
     "expectedLinks": [
       {
         "from": "/topics/real-id-basics/",
-        "to": "/topics/real-id-vs-standard-license/"
+        "to": "/topics/real-id-vs-standard-license/",
+        "anchorText": "比较 REAL ID、Enhanced ID 和普通驾照"
       }
     ],
     "reviewedAt": "2026-07-29",
@@ -47,11 +48,13 @@
     "expectedLinks": [
       {
         "from": "/topics/state-id-non-driver-id-real-id-card/",
-        "to": "/topics/real-id-vs-standard-license/"
+        "to": "/topics/real-id-vs-standard-license/",
+        "anchorText": "查看 REAL ID、Enhanced ID 和普通驾照的区别"
       },
       {
         "from": "/topics/state-id-non-driver-id-real-id-card/",
-        "to": "/states/california/real-id/"
+        "to": "/states/california/real-id/",
+        "anchorText": "查看加州 REAL ID 与普通驾照申请指南"
       }
     ],
     "reviewedAt": "2026-07-29",
