@@ -1,9 +1,9 @@
-# 页面事实复核周期 (2026-07-24)
+# 页面事实复核周期 (2026-07-29)
 
 - 纳入页面：166；日期完整：是。
 - 当前有效：166；30 天内到期：0；已逾期：0。
 - 下一最早截止日：2026-09-15。
-- 官方链接月度基线：1659 个 URL，审计日期 2026-07-24，距今 0 天。
+- 官方链接月度基线：1659 个 URL，审计日期 2026-07-24，距今 5 天。
 - 发布门禁：通过。
 
 ## 周期
@@ -27,31 +27,31 @@
 
 | 页面 | 风险 | 公开事实核对 | 证据复核 | 计时起点 | 最晚复核 | 剩余/逾期天数 |
 | --- | --- | --- | --- | --- | --- | ---: |
-| /topics/disabled-parking-placard-plates/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 53 |
-| /topics/driver-license-suspension-reinstatement-sr22/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 53 |
-| /topics/non-citizen-license-id/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 53 |
-| /topics/older-driver-license-renewal-medical-review/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 53 |
-| /topics/ssn-and-itin/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 53 |
-| /topics/standard-license-driving-privilege-no-lawful-status/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 53 |
-| /topics/student-temporary-resident-license-registration/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 53 |
-| /topics/tickets-tolls-insurance-lapse-registration-hold/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 53 |
-| /topics/used-car-title-lien-salvage-odometer-check/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 53 |
-| /directories/costs-timing/ | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 57 |
-| /directories/deadlines/ | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 57 |
-| /directories/document-rules/ | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 57 |
-| /directories/foreign-license/ | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 57 |
-| /directories/identity-ssn/ | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 57 |
-| /topics/gift-inherited-vehicle-title-transfer/ | high | 2026-07-24 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 57 |
-| /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/ | high | 2026-07-24 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 57 |
-| /topics/name-change-chain/ | high | 2026-07-24 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 57 |
-| /states/arizona/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 83 |
-| /states/arizona/real-id/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 83 |
-| /states/california/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 83 |
-| /states/california/real-id/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 83 |
-| /states/colorado/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 83 |
-| /states/colorado/real-id/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 83 |
-| /states/connecticut/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 83 |
-| /states/connecticut/real-id/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 83 |
+| /topics/disabled-parking-placard-plates/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
+| /topics/driver-license-suspension-reinstatement-sr22/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
+| /topics/non-citizen-license-id/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
+| /topics/older-driver-license-renewal-medical-review/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
+| /topics/ssn-and-itin/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
+| /topics/standard-license-driving-privilege-no-lawful-status/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
+| /topics/student-temporary-resident-license-registration/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
+| /topics/tickets-tolls-insurance-lapse-registration-hold/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
+| /topics/used-car-title-lien-salvage-odometer-check/ | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
+| /directories/costs-timing/ | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
+| /directories/deadlines/ | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
+| /directories/document-rules/ | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
+| /directories/foreign-license/ | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
+| /directories/identity-ssn/ | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
+| /topics/gift-inherited-vehicle-title-transfer/ | high | 2026-07-24 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
+| /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/ | high | 2026-07-24 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
+| /topics/name-change-chain/ | high | 2026-07-24 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
+| /states/arizona/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 78 |
+| /states/arizona/real-id/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 78 |
+| /states/california/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 78 |
+| /states/california/real-id/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 78 |
+| /states/colorado/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 78 |
+| /states/colorado/real-id/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 78 |
+| /states/connecticut/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 78 |
+| /states/connecticut/real-id/ | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 78 |
 
 ## 执行规则
 
