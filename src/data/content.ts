@@ -15492,8 +15492,8 @@ export const topics: TopicGuide[] = [
     title: 'REAL ID 后坐美国国内航班要带什么',
     eyebrow: '机场安检',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-21',
-    reviewedAt: '2026-07-21',
+    modifiedAt: '2026-07-29',
+    reviewedAt: '2026-07-29',
     description:
       'REAL ID 联邦执行已经开始。18 岁及以上旅客通常要带 REAL ID 合规驾照/ID 或 TSA 接受的其他证件；没有可接受 ID 时，现行备选是付费 ConfirmID，且不保证核验成功。',
     whoNeedsIt: [
@@ -15516,7 +15516,7 @@ export const topics: TopicGuide[] = [
       },
       {
         claim: 'REAL ID 只解决相应联邦身份用途，不能替代国际旅行所需的护照。',
-        sourceUrls: ['https://www.dhs.gov/real-id', 'https://www.usa.gov/real-id'],
+        sourceUrls: ['https://www.tsa.gov/realid/realid-faqs'],
       },
       {
         claim: '没有 REAL ID 或其他可接受证件时，ConfirmID 是 $45 的付费身份核验备选；实际核验在机场完成，它不是一张临时 REAL ID。',
@@ -15606,7 +15606,7 @@ export const topics: TopicGuide[] = [
       '机场场景优先看 TSA 接受证件列表；州 DMV 页面只解决州证件是否 REAL ID-compliant。',
       '临时纸质驾照、interim license 或刚换证的收据未必能通过 TSA，临近出行时应准备护照等替代证件。',
       'REAL ID 不替代国际旅行护照，也不解决签证、入境或航空公司姓名规则问题。',
-      '2026-07-21 复核 TSA ConfirmID：这是无可接受 ID 时的 $45 付费核验备选，需保留凭证并在机场完成核验；付款不保证成功，也不是 REAL ID 替代品。',
+      '2026-07-29 复核 TSA 的 REAL ID、acceptable identification、REAL ID FAQ 与 ConfirmID 正文：费用、处理时间、10 天凭证、机场核验、失败风险、临时驾照、过期证件和未成年人规则均未变化。',
     ],
     sources: [
       {
@@ -15616,6 +15616,10 @@ export const topics: TopicGuide[] = [
       {
         label: 'TSA Identification',
         url: 'https://www.tsa.gov/travel/security-screening/identification',
+      },
+      {
+        label: 'TSA REAL ID FAQs',
+        url: 'https://www.tsa.gov/realid/realid-faqs',
       },
       {
         label: 'DHS REAL ID',

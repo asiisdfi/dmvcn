@@ -191,12 +191,12 @@ export const semanticReviews: Record<string, SemanticReview> = {
   '/topics/airport-travel-after-real-id/': {
     status: 'evidence-checked',
     method: 'ai-assisted',
-    reviewedAt: '2026-07-21',
+    reviewedAt: '2026-07-29',
     reviewer: 'Codex AI 辅助证据核查',
     scope:
-      '逐条比对成人与儿童证件、REAL ID 替代证件、过期证件、临时驾照、联邦设施，以及 TSA ConfirmID 的费用、处理时间、付款凭证、机场核验和失败风险。',
+      '逐条比对 TSA REAL ID、REAL ID FAQ、acceptable identification、ConfirmID 与联邦设施文件中的成人和儿童证件、国际旅行、替代证件、过期证件、临时驾照、费用、处理时间、付款凭证、机场核验和失败风险。',
     notes:
-      '已按 2026 年 TSA 正文重写无可接受 ID 的处理路径：$45 ConfirmID 可提前或到机场付款，但实际核验在机场完成且不保证通过。',
+      '2026-07-29 重新打开现行官方正文，规则未变化；把国际旅行必须使用护照的声明改为直接对应 TSA REAL ID FAQ，不再依赖已重定向的 DHS 概览入口。',
   },
   '/topics/state-id-non-driver-id-real-id-card/': {
     status: 'evidence-checked',

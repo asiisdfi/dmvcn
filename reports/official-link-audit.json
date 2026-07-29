@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-07-29T12:04:40.296Z",
+  "generatedAt": "2026-07-29T13:57:33.427Z",
   "auditDate": "2026-07-29",
   "inventory": {
-    "fingerprint": "b2cfd9e82312faf89724c76530aada98d91deb8277d17347f9a7d6216939647d",
+    "fingerprint": "ec94c58950f04873f6ae698066bbc6b7d94303d7fef5cee2bbbd7d7c3fa1b61e",
     "hosts": 148,
     "highRiskUrls": 316,
-    "urls": 1661
+    "urls": 1662
   },
   "run": {
     "batchLimit": 350,
-    "checked": 2,
+    "checked": 1,
     "checkedSummary": {
       "fail": 0,
-      "ok": 0,
-      "watch": 2
+      "ok": 1,
+      "watch": 0
     },
     "concurrency": 18,
     "force": false,
@@ -24,7 +24,7 @@
   },
   "coverage": {
     "dueRemaining": 0,
-    "fresh": 1661,
+    "fresh": 1662,
     "fullCoverage": true,
     "lastFullCoverageAt": "2026-07-29",
     "percent": 100
@@ -38,7 +38,7 @@
   "status": {
     "confirmedHardFailures": 0,
     "freshFail": 0,
-    "freshOk": 937,
+    "freshOk": 938,
     "freshWatch": 724,
     "highRiskGatePassed": true,
     "monthlyGatePassed": true,

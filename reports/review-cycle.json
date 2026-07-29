@@ -92,12 +92,12 @@
     "reviewAnchor": "办事页使用公开事实核对日期与证据复核日期中较早的一天计时；政策页使用公开事实核对日期。"
   },
   "source": {
-    "eeatGeneratedAt": "2026-07-29T13:38:56.966Z",
+    "eeatGeneratedAt": "2026-07-29T13:59:43.984Z",
     "officialAuditAgeDays": 0,
     "officialAuditDate": "2026-07-29",
-    "officialInventoryFingerprint": "b2cfd9e82312faf89724c76530aada98d91deb8277d17347f9a7d6216939647d",
-    "officialUrls": 1661,
-    "pageFingerprint": "b18a1c64446c4705a2db5afede621dee930a0581722a224faf9dd6c21b81360b"
+    "officialInventoryFingerprint": "ec94c58950f04873f6ae698066bbc6b7d94303d7fef5cee2bbbd7d7c3fa1b61e",
+    "officialUrls": 1662,
+    "pageFingerprint": "3042d916cb420990ef79e5a304a8a3ee1fe2b707da874e2cb1430c37b25dec56"
   },
   "summary": {
     "current": 154,
@@ -303,26 +303,6 @@
         "reviewPolicy": "monthly-volatile",
         "reviewStatus": "ai-assisted",
         "risk": "medium",
-        "route": "/topics/airport-travel-after-real-id/",
-        "state": "due-within-30-days",
-        "volatileCategory": "federal-travel-id",
-        "volatileLabel": "联邦旅行证件",
-        "volatileScope": "国内航班证件、REAL ID、替代证件和 TSA 身份确认流程",
-        "visibleReviewedAt": "2026-07-21"
-      },
-      {
-        "cycleDays": 30,
-        "daysUntilDue": 22,
-        "indexable": true,
-        "overdueDays": 0,
-        "pageType": "topic",
-        "evidenceReviewedAt": "2026-07-21",
-        "reviewAnchorDate": "2026-07-21",
-        "reviewDue": "2026-08-20",
-        "reviewMethod": "ai-assisted",
-        "reviewPolicy": "monthly-volatile",
-        "reviewStatus": "ai-assisted",
-        "risk": "medium",
         "route": "/topics/dmv-test-language-translation-interpreter/",
         "state": "due-within-30-days",
         "volatileCategory": "testing-language",
@@ -389,6 +369,26 @@
         "volatileLabel": "车辆登记续期",
         "volatileScope": "registration renewal、过期标签、宽限期和停驶路径",
         "visibleReviewedAt": "2026-07-21"
+      },
+      {
+        "cycleDays": 30,
+        "daysUntilDue": 30,
+        "indexable": true,
+        "overdueDays": 0,
+        "pageType": "topic",
+        "evidenceReviewedAt": "2026-07-29",
+        "reviewAnchorDate": "2026-07-29",
+        "reviewDue": "2026-08-28",
+        "reviewMethod": "ai-assisted",
+        "reviewPolicy": "monthly-volatile",
+        "reviewStatus": "ai-assisted",
+        "risk": "medium",
+        "route": "/topics/airport-travel-after-real-id/",
+        "state": "due-within-30-days",
+        "volatileCategory": "federal-travel-id",
+        "volatileLabel": "联邦旅行证件",
+        "volatileScope": "国内航班证件、REAL ID、替代证件和 TSA 身份确认流程",
+        "visibleReviewedAt": "2026-07-29"
       }
     ],
     "monthlyVolatile": [
@@ -545,26 +545,6 @@
         "reviewPolicy": "monthly-volatile",
         "reviewStatus": "ai-assisted",
         "risk": "medium",
-        "route": "/topics/airport-travel-after-real-id/",
-        "state": "due-within-30-days",
-        "volatileCategory": "federal-travel-id",
-        "volatileLabel": "联邦旅行证件",
-        "volatileScope": "国内航班证件、REAL ID、替代证件和 TSA 身份确认流程",
-        "visibleReviewedAt": "2026-07-21"
-      },
-      {
-        "cycleDays": 30,
-        "daysUntilDue": 22,
-        "indexable": true,
-        "overdueDays": 0,
-        "pageType": "topic",
-        "evidenceReviewedAt": "2026-07-21",
-        "reviewAnchorDate": "2026-07-21",
-        "reviewDue": "2026-08-20",
-        "reviewMethod": "ai-assisted",
-        "reviewPolicy": "monthly-volatile",
-        "reviewStatus": "ai-assisted",
-        "risk": "medium",
         "route": "/topics/dmv-test-language-translation-interpreter/",
         "state": "due-within-30-days",
         "volatileCategory": "testing-language",
@@ -631,6 +611,26 @@
         "volatileLabel": "车辆登记续期",
         "volatileScope": "registration renewal、过期标签、宽限期和停驶路径",
         "visibleReviewedAt": "2026-07-21"
+      },
+      {
+        "cycleDays": 30,
+        "daysUntilDue": 30,
+        "indexable": true,
+        "overdueDays": 0,
+        "pageType": "topic",
+        "evidenceReviewedAt": "2026-07-29",
+        "reviewAnchorDate": "2026-07-29",
+        "reviewDue": "2026-08-28",
+        "reviewMethod": "ai-assisted",
+        "reviewPolicy": "monthly-volatile",
+        "reviewStatus": "ai-assisted",
+        "risk": "medium",
+        "route": "/topics/airport-travel-after-real-id/",
+        "state": "due-within-30-days",
+        "volatileCategory": "federal-travel-id",
+        "volatileLabel": "联邦旅行证件",
+        "volatileScope": "国内航班证件、REAL ID、替代证件和 TSA 身份确认流程",
+        "visibleReviewedAt": "2026-07-29"
       }
     ],
     "upcoming": [
@@ -3699,13 +3699,13 @@
     },
     {
       "cycleDays": 30,
-      "daysUntilDue": 22,
+      "daysUntilDue": 30,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "topic",
-      "evidenceReviewedAt": "2026-07-21",
-      "reviewAnchorDate": "2026-07-21",
-      "reviewDue": "2026-08-20",
+      "evidenceReviewedAt": "2026-07-29",
+      "reviewAnchorDate": "2026-07-29",
+      "reviewDue": "2026-08-28",
       "reviewMethod": "ai-assisted",
       "reviewPolicy": "monthly-volatile",
       "reviewStatus": "ai-assisted",
@@ -3715,7 +3715,7 @@
       "volatileCategory": "federal-travel-id",
       "volatileLabel": "联邦旅行证件",
       "volatileScope": "国内航班证件、REAL ID、替代证件和 TSA 身份确认流程",
-      "visibleReviewedAt": "2026-07-21"
+      "visibleReviewedAt": "2026-07-29"
     },
     {
       "cycleDays": 60,

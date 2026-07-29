@@ -3325,9 +3325,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-21",
+      "reviewedAt": "2026-07-29",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-19",
+      "reviewDue": "2026-10-27",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -3336,7 +3336,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "已按 2026 年 TSA 正文重写无可接受 ID 的处理路径：$45 ConfirmID 可提前或到机场付款，但实际核验在机场完成且不保证通过。",
+      "notes": "2026-07-29 重新打开现行官方正文，规则未变化；把国际旅行必须使用护照的声明改为直接对应 TSA REAL ID FAQ，不再依赖已重定向的 DHS 概览入口。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {

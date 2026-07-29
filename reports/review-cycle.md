@@ -4,7 +4,7 @@
 - 当前有效：166；30 天内到期：12；已逾期：0。
 - 易变规则入口：12 个；30 天内到期 12 个；逾期 0 个。
 - 下一最早截止日：2026-08-16。
-- 官方链接月度基线：1661 个 URL，审计日期 2026-07-29，距今 0 天。
+- 官方链接月度基线：1662 个 URL，审计日期 2026-07-29，距今 0 天。
 - 发布门禁：通过。
 
 ## 周期
@@ -29,11 +29,11 @@
 | /directories/document-rules/ | 易变规则：材料规则 | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/foreign-license/ | 易变规则：外国驾照与 IDP | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/identity-ssn/ | 易变规则：身份与 SSN | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
-| /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/temporary-tag-trip-permit-dealer-plate/ | 易变规则：临时牌照与通行许可 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/vehicle-inspection-emissions-smog-vin-check/ | 易变规则：车辆检查与排放 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/vehicle-registration-renewal-expired-tags-non-operation/ | 易变规则：车辆登记续期 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
+| /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 
 ## 已逾期
 
@@ -50,11 +50,11 @@
 | /directories/document-rules/ | 易变规则：材料规则 | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/foreign-license/ | 易变规则：外国驾照与 IDP | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/identity-ssn/ | 易变规则：身份与 SSN | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
-| /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/temporary-tag-trip-permit-dealer-plate/ | 易变规则：临时牌照与通行许可 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/vehicle-inspection-emissions-smog-vin-check/ | 易变规则：车辆检查与排放 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/vehicle-registration-renewal-expired-tags-non-operation/ | 易变规则：车辆登记续期 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
+| /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 
 ## 下一批
 

@@ -931,8 +931,8 @@
       "class": "topic",
       "title": "REAL ID 后坐美国国内航班要带什么 | DMV中文办事库",
       "heading": "REAL ID 后坐美国国内航班要带什么",
-      "contentChars": 2549,
-      "contentHash": "26af70eda96d637c2964ff29a31243426c33d4cc47154e2c04a2311e920a6d7f"
+      "contentChars": 2555,
+      "contentHash": "b0049701f4616bd6668cd5b93503d9ffc836ccc25bcc5d17536a26c19a0d0468"
     },
     {
       "route": "/topics/disabled-parking-placard-plates/",
@@ -1558,7 +1558,7 @@
         "/topics/real-id-basics/"
       ],
       "class": "topic",
-      "similarity": 0.175,
+      "similarity": 0.174,
       "boundaryStatus": "reviewed",
       "reviewedAt": "2026-07-29",
       "distinction": "机场页解决出行当天带什么证件、临时证件和 ConfirmID；基础页解决是否需要升级 REAL ID 以及可用替代证件。"
