@@ -123,8 +123,10 @@ type SearchConsoleAction = {
     plannedFor?: string;
     implementedAt?: string;
     evaluateAfter?: string;
+    changedRoutes?: string[];
     action: string;
     summary: string;
+    implementationSummary?: string;
   } | null;
   unreviewedQueryEvidenceCount?: number;
 };
@@ -988,10 +990,12 @@ const scActionLabel: Record<string, string> = {
                       <small>
                         {item.routingDecision?.action === 'owner-confirmed'
                           ? '已确认当前页为主承接页；'
-                          : `已引导到 ${item.routingDecision?.targetRoutes.join('、') ?? '目标页面'}；`}
+                          : `实际改动页：${item.routingDecision?.changedRoutes?.join('、') ?? '等待记录'}；`}
                         {item.routingDecision?.evaluateAfter ?? '下一次完整快照'} 后复评。
                       </small>
-                      {item.routingDecision?.summary ? <p>{item.routingDecision.summary}</p> : null}
+                      {item.routingDecision?.implementationSummary || item.routingDecision?.summary
+                        ? <p>{item.routingDecision.implementationSummary ?? item.routingDecision.summary}</p>
+                        : null}
                     </li>
                   ))}
                 </ul>

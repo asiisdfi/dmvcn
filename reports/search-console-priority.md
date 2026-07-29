@@ -47,7 +47,7 @@
 ## 已处理，等待效果复评
 
 - /topics/real-id-vs-standard-license/ → /topics/real-id-vs-standard-license/（2026-08-12 复评）— 通用的 REAL ID、Enhanced ID 与普通驾照区别由比较专题主承接。现有标题、开头和正文范围已经符合该任务，不因少量曝光改写内容，等待新数据验证。
-- /directories/new-residents/ → /states/washington/（2026-08-07 复评）— 华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。
+- /directories/new-residents/ → /states/washington/（2026-08-07 复评）— 把误落在搬州目录的身份证续期中文需求接回华盛顿州页，并补充 Standard ID、Enhanced ID、续期分流和官方入口。
 
 ## 目标查询样本不足
 
@@ -108,7 +108,7 @@
 
 ## 路由调整观察
 - /topics/real-id-vs-standard-license/ → /topics/real-id-vs-standard-license/（2026-08-12 复评）— 2026-07-29 已确认现有页面承接正确；等待 2026-08-12 后用新数据复评。
-- /directories/new-residents/ → /states/washington/（2026-08-07 复评）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /directories/new-residents/ → /states/washington/（2026-08-07 复评）— 把误落在搬州目录的身份证续期中文需求接回华盛顿州页，并补充 Standard ID、Enhanced ID、续期分流和官方入口。
 
 ## 低样本目标查询
 - /topics/proof-of-residency/（目标曝光 2 / 点击 0）— 目标查询目前只有 2 次曝光、0 次点击；达到 5 次曝光或 1 次点击前继续观察。

@@ -106,10 +106,14 @@
   {
     "route": "/states/washington/",
     "action": "improve-answer",
+    "routingReviewId": "washington-id-renewal",
+    "targetRoutes": [
+      "/states/washington/"
+    ],
     "completedAt": "2026-07-24",
     "evaluateAfter": "2026-08-07",
     "baselinePeriodEnd": "2026-07-21",
-    "summary": "把误落在搬州目录的身份证续期中文需求接回州页，并补充官方入口。"
+    "summary": "把误落在搬州目录的身份证续期中文需求接回华盛顿州页，并补充 Standard ID、Enhanced ID、续期分流和官方入口。"
   },
   {
     "route": "/states/new-york/real-id/",

@@ -277,6 +277,15 @@ for (const item of routingMonitoringQueue) {
   ) {
     errors.push(`${item.route}: routing monitoring does not cover the latest signal.`);
   }
+  if (
+    item.routingDecision?.action !== 'owner-confirmed' &&
+    (
+      !(item.routingDecision?.changedRoutes?.length > 0) ||
+      !item.routingDecision?.implementationSummary
+    )
+  ) {
+    errors.push(`${item.route}: implemented routing action lacks completion evidence.`);
+  }
 }
 for (const item of lowEvidenceQueue) {
   if ((item.targetQueryEvidenceCount ?? 0) < 1) {

@@ -112,8 +112,10 @@
           "plannedFor": "2026-08-01",
           "implementedAt": "",
           "evaluateAfter": "",
+          "changedRoutes": [],
           "action": "intent-links",
-          "summary": "State ID 页继续回答不考驾照时如何办理 non-driver ID；通用证件区别引导到比较页，带州名的 REAL ID 需求回到对应州页面。"
+          "summary": "State ID 页继续回答不考驾照时如何办理 non-driver ID；通用证件区别引导到比较页，带州名的 REAL ID 需求回到对应州页面。",
+          "implementationSummary": ""
         },
         "unreviewedQueryEvidenceCount": 0,
         "nonTargetQueryEvidenceCount": 7,
@@ -167,8 +169,10 @@
           "plannedFor": "2026-08-01",
           "implementedAt": "",
           "evaluateAfter": "",
+          "changedRoutes": [],
           "action": "intent-links",
-          "summary": "REAL ID 基础页继续回答是否需要办理、联邦用途和替代证件；证件类型区别引导到专门比较页，不重复展开。"
+          "summary": "REAL ID 基础页继续回答是否需要办理、联邦用途和替代证件；证件类型区别引导到专门比较页，不重复展开。",
+          "implementationSummary": ""
         },
         "unreviewedQueryEvidenceCount": 0,
         "nonTargetQueryEvidenceCount": 0,
@@ -223,8 +227,10 @@
           "plannedFor": "",
           "implementedAt": "2026-07-29",
           "evaluateAfter": "2026-08-12",
+          "changedRoutes": [],
           "action": "owner-confirmed",
-          "summary": "通用的 REAL ID、Enhanced ID 与普通驾照区别由比较专题主承接。现有标题、开头和正文范围已经符合该任务，不因少量曝光改写内容，等待新数据验证。"
+          "summary": "通用的 REAL ID、Enhanced ID 与普通驾照区别由比较专题主承接。现有标题、开头和正文范围已经符合该任务，不因少量曝光改写内容，等待新数据验证。",
+          "implementationSummary": ""
         },
         "unreviewedQueryEvidenceCount": 0,
         "nonTargetQueryEvidenceCount": 0,
@@ -274,11 +280,15 @@
           ],
           "reviewedAt": "2026-07-24",
           "reviewedThrough": "2026-07-24",
-          "plannedFor": "",
+          "plannedFor": "2026-07-24",
           "implementedAt": "2026-07-24",
           "evaluateAfter": "2026-08-07",
+          "changedRoutes": [
+            "/states/washington/"
+          ],
           "action": "destination-page-update",
-          "summary": "华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。"
+          "summary": "华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。",
+          "implementationSummary": "把误落在搬州目录的身份证续期中文需求接回华盛顿州页，并补充 Standard ID、Enhanced ID、续期分流和官方入口。"
         },
         "unreviewedQueryEvidenceCount": 0,
         "nonTargetQueryEvidenceCount": 0,
@@ -786,8 +796,10 @@
           "plannedFor": "2026-08-01",
           "implementedAt": "",
           "evaluateAfter": "",
+          "changedRoutes": [],
           "action": "intent-links",
-          "summary": "State ID 页继续回答不考驾照时如何办理 non-driver ID；通用证件区别引导到比较页，带州名的 REAL ID 需求回到对应州页面。"
+          "summary": "State ID 页继续回答不考驾照时如何办理 non-driver ID；通用证件区别引导到比较页，带州名的 REAL ID 需求回到对应州页面。",
+          "implementationSummary": ""
         },
         "unreviewedQueryEvidenceCount": 0,
         "nonTargetQueryEvidenceCount": 7,
@@ -841,8 +853,10 @@
           "plannedFor": "2026-08-01",
           "implementedAt": "",
           "evaluateAfter": "",
+          "changedRoutes": [],
           "action": "intent-links",
-          "summary": "REAL ID 基础页继续回答是否需要办理、联邦用途和替代证件；证件类型区别引导到专门比较页，不重复展开。"
+          "summary": "REAL ID 基础页继续回答是否需要办理、联邦用途和替代证件；证件类型区别引导到专门比较页，不重复展开。",
+          "implementationSummary": ""
         },
         "unreviewedQueryEvidenceCount": 0,
         "nonTargetQueryEvidenceCount": 0,
@@ -897,8 +911,10 @@
           "plannedFor": "",
           "implementedAt": "2026-07-29",
           "evaluateAfter": "2026-08-12",
+          "changedRoutes": [],
           "action": "owner-confirmed",
-          "summary": "通用的 REAL ID、Enhanced ID 与普通驾照区别由比较专题主承接。现有标题、开头和正文范围已经符合该任务，不因少量曝光改写内容，等待新数据验证。"
+          "summary": "通用的 REAL ID、Enhanced ID 与普通驾照区别由比较专题主承接。现有标题、开头和正文范围已经符合该任务，不因少量曝光改写内容，等待新数据验证。",
+          "implementationSummary": ""
         },
         "unreviewedQueryEvidenceCount": 0,
         "nonTargetQueryEvidenceCount": 0,
@@ -948,11 +964,15 @@
           ],
           "reviewedAt": "2026-07-24",
           "reviewedThrough": "2026-07-24",
-          "plannedFor": "",
+          "plannedFor": "2026-07-24",
           "implementedAt": "2026-07-24",
           "evaluateAfter": "2026-08-07",
+          "changedRoutes": [
+            "/states/washington/"
+          ],
           "action": "destination-page-update",
-          "summary": "华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。"
+          "summary": "华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。",
+          "implementationSummary": "把误落在搬州目录的身份证续期中文需求接回华盛顿州页，并补充 Standard ID、Enhanced ID、续期分流和官方入口。"
         },
         "unreviewedQueryEvidenceCount": 0,
         "nonTargetQueryEvidenceCount": 0,
@@ -2350,11 +2370,15 @@
           ],
           "reviewedAt": "2026-07-24",
           "reviewedThrough": "2026-07-24",
-          "plannedFor": "",
+          "plannedFor": "2026-07-24",
           "implementedAt": "2026-07-24",
           "evaluateAfter": "2026-08-07",
+          "changedRoutes": [
+            "/states/washington/"
+          ],
           "action": "destination-page-update",
-          "summary": "华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。"
+          "summary": "华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。",
+          "implementationSummary": "把误落在搬州目录的身份证续期中文需求接回华盛顿州页，并补充 Standard ID、Enhanced ID、续期分流和官方入口。"
         },
         "unreviewedQueryEvidenceCount": 0,
         "nonTargetQueryEvidenceCount": 0,
@@ -2646,10 +2670,14 @@
         "completedAction": {
           "route": "/states/washington/",
           "action": "improve-answer",
+          "routingReviewId": "washington-id-renewal",
+          "targetRoutes": [
+            "/states/washington/"
+          ],
           "completedAt": "2026-07-24",
           "evaluateAfter": "2026-08-07",
           "baselinePeriodEnd": "2026-07-21",
-          "summary": "把误落在搬州目录的身份证续期中文需求接回州页，并补充官方入口。"
+          "summary": "把误落在搬州目录的身份证续期中文需求接回华盛顿州页，并补充 Standard ID、Enhanced ID、续期分流和官方入口。"
         },
         "hasQueryEvidence": true,
         "requiresHumanReview": false,
@@ -2879,8 +2907,10 @@
         "plannedFor": "2026-08-01",
         "implementedAt": "",
         "evaluateAfter": "",
+        "changedRoutes": [],
         "action": "intent-links",
-        "summary": "State ID 页继续回答不考驾照时如何办理 non-driver ID；通用证件区别引导到比较页，带州名的 REAL ID 需求回到对应州页面。"
+        "summary": "State ID 页继续回答不考驾照时如何办理 non-driver ID；通用证件区别引导到比较页，带州名的 REAL ID 需求回到对应州页面。",
+        "implementationSummary": ""
       },
       "unreviewedQueryEvidenceCount": 0,
       "nonTargetQueryEvidenceCount": 7,
@@ -2934,8 +2964,10 @@
         "plannedFor": "2026-08-01",
         "implementedAt": "",
         "evaluateAfter": "",
+        "changedRoutes": [],
         "action": "intent-links",
-        "summary": "REAL ID 基础页继续回答是否需要办理、联邦用途和替代证件；证件类型区别引导到专门比较页，不重复展开。"
+        "summary": "REAL ID 基础页继续回答是否需要办理、联邦用途和替代证件；证件类型区别引导到专门比较页，不重复展开。",
+        "implementationSummary": ""
       },
       "unreviewedQueryEvidenceCount": 0,
       "nonTargetQueryEvidenceCount": 0,
@@ -5156,8 +5188,10 @@
         "plannedFor": "",
         "implementedAt": "2026-07-29",
         "evaluateAfter": "2026-08-12",
+        "changedRoutes": [],
         "action": "owner-confirmed",
-        "summary": "通用的 REAL ID、Enhanced ID 与普通驾照区别由比较专题主承接。现有标题、开头和正文范围已经符合该任务，不因少量曝光改写内容，等待新数据验证。"
+        "summary": "通用的 REAL ID、Enhanced ID 与普通驾照区别由比较专题主承接。现有标题、开头和正文范围已经符合该任务，不因少量曝光改写内容，等待新数据验证。",
+        "implementationSummary": ""
       },
       "unreviewedQueryEvidenceCount": 0,
       "nonTargetQueryEvidenceCount": 0,

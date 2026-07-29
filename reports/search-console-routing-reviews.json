@@ -11,6 +11,7 @@
     "reviewedThrough": "2026-07-29",
     "implementedAt": "2026-07-29",
     "evaluateAfter": "2026-08-12",
+    "changedRoutes": [],
     "action": "owner-confirmed",
     "summary": "通用的 REAL ID、Enhanced ID 与普通驾照区别由比较专题主承接。现有标题、开头和正文范围已经符合该任务，不因少量曝光改写内容，等待新数据验证。"
   },
@@ -53,9 +54,14 @@
     ],
     "reviewedAt": "2026-07-24",
     "reviewedThrough": "2026-07-24",
+    "plannedFor": "2026-07-24",
     "implementedAt": "2026-07-24",
     "evaluateAfter": "2026-08-07",
+    "changedRoutes": [
+      "/states/washington/"
+    ],
     "action": "destination-page-update",
-    "summary": "华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。"
+    "summary": "华盛顿州身份证续期需求应由华盛顿州指南承接；目标页已补充 Standard ID、Enhanced ID、续期分流和官方入口，搬州目录保持导航用途。",
+    "implementationSummary": "把误落在搬州目录的身份证续期中文需求接回华盛顿州页，并补充 Standard ID、Enhanced ID、续期分流和官方入口。"
   }
 ]

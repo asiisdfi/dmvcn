@@ -50,6 +50,21 @@ npm run import:sc -- \
 - 已实施：进入观察队列，到 `evaluateAfter` 后必须用新页面查询数据复评。
 - 审查之后出现新信号：旧结论不再覆盖，问题自动重新进入审查。
 
+页面修改完成后，不要分别手改路由台账和内容动作日志。先用 `--dry-run` 检查，再由同一个命令写入实际改动页、完成日、基线截止日和复评日：
+
+```bash
+npm run complete:sc-routing -- \
+  --id <routing-review-id> \
+  --changed-route </changed/page/> \
+  --completed-at <YYYY-MM-DD> \
+  --baseline-period-end <YYYY-MM-DD> \
+  --evaluate-after <YYYY-MM-DD> \
+  --summary "<实际完成的改动>" \
+  --dry-run
+```
+
+去掉 `--dry-run` 才会写入。命令会拒绝早于 `plannedFor` 的完成记录、少于 14 天的观察期、重复任务、审查范围外的页面，以及会令滚动 7 天超过 3 个或当月超过 12 个的动作。构建器还会逐项核对台账中的 `changedRoutes` 与动作日志中的 `routingReviewId`；两边不一致时停止生成计划。
+
 需要先检查文件而不写入时增加 `--dry-run`。导入完成后运行：
 
 ```bash

@@ -498,6 +498,45 @@ try {
     },
   );
 
+  const completionScript = path.join(
+    projectRoot,
+    'scripts/complete-search-console-routing-action.mjs',
+  );
+  const completionArgs = [
+    completionScript,
+    '--id',
+    'synthetic-misroute',
+    '--changed-route',
+    '/directories/new-residents/',
+    '--completed-at',
+    observedAt,
+    '--baseline-period-end',
+    addDays(observedAt, -1),
+    '--evaluate-after',
+    addDays(observedAt, 14),
+    '--summary',
+    'Synthetic routing implementation completed.',
+  ];
+  let earlyCompletionRejected = false;
+  try {
+    await execFileAsync(process.execPath, [...completionArgs, '--dry-run'], {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SC_ACTION_LOG_PATH: actionLogPath,
+        SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
+      },
+    });
+  } catch (error) {
+    earlyCompletionRejected = String(
+      error?.stderr ?? error?.message ?? error,
+    ).includes('cannot be completed before');
+  }
+  check(
+    earlyCompletionRejected,
+    'Routing completion command allowed work before its planned date.',
+  );
+
   await writeFile(
     routingReviewLogPath,
     `${JSON.stringify(
@@ -508,8 +547,7 @@ try {
           targetRoutes: ['/states/washington/'],
           reviewedAt: observedAt,
           reviewedThrough: observedAt,
-          implementedAt: observedAt,
-          evaluateAfter: addDays(observedAt, 14),
+          plannedFor: observedAt,
           action: 'intent-links',
           summary: 'Synthetic routing decision.',
         },
@@ -517,6 +555,82 @@ try {
       null,
       2,
     )}\n`,
+  );
+  await writeFile(
+    actionLogPath,
+    `${JSON.stringify(
+      [
+        {
+          route: '/states/alabama/',
+          action: 'synthetic',
+          completedAt: observedAt,
+          evaluateAfter: addDays(observedAt, 14),
+        },
+        {
+          route: '/states/alaska/',
+          action: 'synthetic',
+          completedAt: observedAt,
+          evaluateAfter: addDays(observedAt, 14),
+        },
+        {
+          route: '/states/arizona/',
+          action: 'synthetic',
+          completedAt: observedAt,
+          evaluateAfter: addDays(observedAt, 14),
+        },
+      ],
+      null,
+      2,
+    )}\n`,
+  );
+  let overCapacityCompletionRejected = false;
+  try {
+    await execFileAsync(process.execPath, [...completionArgs, '--dry-run'], {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SC_ACTION_LOG_PATH: actionLogPath,
+        SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
+      },
+    });
+  } catch (error) {
+    overCapacityCompletionRejected = String(
+      error?.stderr ?? error?.message ?? error,
+    ).includes('rolling 7-day limit');
+  }
+  check(
+    overCapacityCompletionRejected,
+    'Routing completion command allowed work beyond weekly capacity.',
+  );
+  await writeFile(actionLogPath, '[]\n');
+  await execFileAsync(process.execPath, completionArgs, {
+    cwd: projectRoot,
+    env: {
+      ...process.env,
+      SC_ACTION_LOG_PATH: actionLogPath,
+      SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
+    },
+  });
+  const completedRoutingReviews = JSON.parse(
+    await readFile(routingReviewLogPath, 'utf8'),
+  );
+  const completedRoutingActions = JSON.parse(
+    await readFile(actionLogPath, 'utf8'),
+  );
+  check(
+    completedRoutingReviews[0]?.implementedAt === observedAt &&
+      completedRoutingReviews[0]?.changedRoutes?.includes(
+        '/directories/new-residents/',
+      ),
+    'Routing completion command did not update the decision log.',
+  );
+  check(
+    completedRoutingActions.some(
+      (item) =>
+        item.routingReviewId === 'synthetic-misroute' &&
+        item.route === '/directories/new-residents/',
+    ),
+    'Routing completion command did not append a matching action-log record.',
   );
   const routingMonitorOutputDir = path.join(outputRoot, 'plan-routing-monitor');
   await execFileAsync(
@@ -560,6 +674,10 @@ try {
     ),
     'Implemented misroute did not enter the routing-monitoring queue.',
   );
+  check(
+    routingMonitorPlan.execution.currentPeriod.weeklyActions === 1,
+    'Completed routing action was not counted against editorial cadence.',
+  );
   await execFileAsync(
     process.execPath,
     [path.join(projectRoot, 'scripts/audit-search-console-plan.mjs')],
@@ -570,6 +688,60 @@ try {
         SEARCH_CONSOLE_PLAN_PATH: routingMonitorPlanPath,
       },
     },
+  );
+  await writeFile(
+    actionLogPath,
+    `${JSON.stringify(
+      completedRoutingActions.map((item) => ({
+        ...item,
+        summary: 'Mismatched synthetic implementation record.',
+      })),
+      null,
+      2,
+    )}\n`,
+  );
+  let mismatchedCompletionRejected = false;
+  try {
+    await execFileAsync(
+      process.execPath,
+      [path.join(projectRoot, 'scripts/build-search-console-plan.mjs')],
+      {
+        cwd: projectRoot,
+        env: {
+          ...process.env,
+          SC_REPORT_PATH: path.join(
+            outputRoot,
+            'reports/search-console-export.csv',
+          ),
+          SC_QUERY_REPORT_PATH: path.join(
+            outputRoot,
+            'reports/private/search-console-query-export.csv',
+          ),
+          SC_PAGE_QUERY_REPORT_PATH: signalsPath,
+          SC_SEGMENT_REPORT_PATH: segmentPath,
+          SC_ACTION_LOG_PATH: actionLogPath,
+          SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
+          SC_OUTPUT_DIR: path.join(outputRoot, 'plan-routing-mismatch'),
+          SC_PRIVATE_OUTPUT_DIR: path.join(
+            outputRoot,
+            'plan-routing-mismatch-private',
+          ),
+          SC_PLAN_DATE: observedAt,
+        },
+      },
+    );
+  } catch (error) {
+    mismatchedCompletionRejected = String(
+      error?.stderr ?? error?.message ?? error,
+    ).includes('action-log record does not match');
+  }
+  check(
+    mismatchedCompletionRejected,
+    'Planner accepted a routing decision and action-log mismatch.',
+  );
+  await writeFile(
+    actionLogPath,
+    `${JSON.stringify(completedRoutingActions, null, 2)}\n`,
   );
 
   const filteredGlobalZip = path.join(inputDir, 'filtered-global.zip');

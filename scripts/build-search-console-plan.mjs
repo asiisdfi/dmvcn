@@ -8,6 +8,7 @@ import {
   isTargetQuerySignal,
   isUnreviewedClassification,
 } from './lib/search-console-query-policy.mjs';
+import { SEARCH_CONSOLE_EDITORIAL_TARGETS } from './lib/search-console-cadence.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const reportPath = path.join(projectRoot, 'reports', 'search-console-export.csv');
@@ -79,10 +80,7 @@ const routingReviewSourceLabel =
   !relativeRoutingReviewLogSourcePath.startsWith('..')
     ? relativeRoutingReviewLogSourcePath
     : routingReviewLogSourcePath;
-const editorialTargets = {
-  weekly: { min: 2, max: 3 },
-  monthly: { min: 8, max: 12 },
-};
+const editorialTargets = SEARCH_CONSOLE_EDITORIAL_TARGETS;
 const expectedProperty = 'sc-domain:dmvcn.com';
 const targetEvidenceThresholds = {
   clicks: 1,
@@ -396,13 +394,22 @@ const routingReviews = rawRoutingReviews.map((entry, index) => {
   const plannedFor = String(entry?.plannedFor ?? '');
   const implementedAt = String(entry?.implementedAt ?? '');
   const evaluateAfter = String(entry?.evaluateAfter ?? '');
+  const changedRoutes = Array.isArray(entry?.changedRoutes)
+    ? [...new Set(entry.changedRoutes.map(normalizeRoute))]
+    : [];
   const action = String(entry?.action ?? '').trim();
   const summary = String(entry?.summary ?? '').trim();
+  const implementationSummary = String(
+    entry?.implementationSummary ?? '',
+  ).trim();
 
   if (!id || routingReviewIds.has(id)) {
     throw new Error(`${label}: missing or duplicate id.`);
   }
   routingReviewIds.add(id);
+  if (!action || !summary) {
+    throw new Error(`${id}: action and summary are required.`);
+  }
   if (!routes.length || routes.some((route) => !route)) {
     throw new Error(`${id}: routes must contain normalized site routes.`);
   }
@@ -434,6 +441,9 @@ const routingReviews = rawRoutingReviews.map((entry, index) => {
   if (plannedFor && plannedFor < reviewedAt) {
     throw new Error(`${id}: plannedFor cannot precede reviewedAt.`);
   }
+  if (action !== 'owner-confirmed' && !isCalendarDate(plannedFor)) {
+    throw new Error(`${id}: page-routing actions require plannedFor.`);
+  }
   if (implementedAt && !isCalendarDate(implementedAt)) {
     throw new Error(`${id}: implementedAt must be a calendar date.`);
   }
@@ -452,11 +462,44 @@ const routingReviews = rawRoutingReviews.map((entry, index) => {
   if (implementedAt && implementedAt < reviewedAt) {
     throw new Error(`${id}: implementedAt cannot precede reviewedAt.`);
   }
-  if (evaluateAfter && evaluateAfter <= implementedAt) {
-    throw new Error(`${id}: evaluateAfter must be later than implementedAt.`);
+  if (implementedAt && plannedFor && implementedAt < plannedFor) {
+    throw new Error(`${id}: implementedAt cannot precede plannedFor.`);
   }
-  if (!action || !summary) {
-    throw new Error(`${id}: action and summary are required.`);
+  if (
+    evaluateAfter &&
+    daysBetween(implementedAt, evaluateAfter) < 14
+  ) {
+    throw new Error(
+      `${id}: evaluateAfter must be at least 14 days after implementedAt.`,
+    );
+  }
+  if (action === 'owner-confirmed' && !implementedAt) {
+    throw new Error(`${id}: owner-confirmed decisions must be recorded as implemented.`);
+  }
+  if (
+    changedRoutes.some((route) => !route) ||
+    changedRoutes.some(
+      (route) => !routes.includes(route) && !targetRoutes.includes(route),
+    )
+  ) {
+    throw new Error(
+      `${id}: changedRoutes must stay within the reviewed source and target routes.`,
+    );
+  }
+  if (!implementedAt && (changedRoutes.length || implementationSummary)) {
+    throw new Error(`${id}: unimplemented reviews cannot claim changed routes.`);
+  }
+  if (
+    implementedAt &&
+    action !== 'owner-confirmed' &&
+    (!changedRoutes.length || implementationSummary.length < 12)
+  ) {
+    throw new Error(
+      `${id}: implemented page-routing actions require changedRoutes and an implementationSummary.`,
+    );
+  }
+  if (action === 'owner-confirmed' && changedRoutes.length) {
+    throw new Error(`${id}: owner-confirmed decisions cannot claim page changes.`);
   }
   if ('query' in entry || 'queries' in entry) {
     throw new Error(`${id}: raw queries must stay in reports/private/.`);
@@ -471,10 +514,77 @@ const routingReviews = rawRoutingReviews.map((entry, index) => {
     plannedFor,
     implementedAt,
     evaluateAfter,
+    changedRoutes,
     action,
     summary,
+    implementationSummary,
   };
 });
+
+const routingReviewsById = new Map(
+  routingReviews.map((review) => [review.id, review]),
+);
+for (const entry of actionLog) {
+  const routingReviewId = String(entry?.routingReviewId ?? '').trim();
+  if (!routingReviewId) continue;
+  const review = routingReviewsById.get(routingReviewId);
+  if (!review) {
+    throw new Error(
+      `Search Console action log references unknown routing review ${routingReviewId}.`,
+    );
+  }
+  const route = normalizeRoute(entry.route);
+  const loggedTargetRoutes = Array.isArray(entry?.targetRoutes)
+    ? [...new Set(entry.targetRoutes.map(normalizeRoute))]
+    : [];
+  const targetRoutesMatch =
+    loggedTargetRoutes.length === review.targetRoutes.length &&
+    review.targetRoutes.every((targetRoute) =>
+      loggedTargetRoutes.includes(targetRoute),
+    );
+  if (
+    !review.implementedAt ||
+    !review.changedRoutes.includes(route) ||
+    entry.completedAt !== review.implementedAt ||
+    entry.evaluateAfter !== review.evaluateAfter ||
+    !isCalendarDate(entry.baselinePeriodEnd) ||
+    entry.baselinePeriodEnd > entry.completedAt ||
+    !targetRoutesMatch ||
+    String(entry.summary ?? '').trim() !== review.implementationSummary
+  ) {
+    throw new Error(
+      `${routingReviewId}: action-log record does not match the implemented routing decision.`,
+    );
+  }
+}
+for (const review of routingReviews) {
+  const matchingActions = actionLog.filter(
+    (entry) => entry?.routingReviewId === review.id,
+  );
+  if (!review.implementedAt || review.action === 'owner-confirmed') {
+    if (matchingActions.length) {
+      throw new Error(
+        `${review.id}: decision-only review cannot have implementation action records.`,
+      );
+    }
+    continue;
+  }
+  const matchedRoutes = matchingActions.map((entry) =>
+    normalizeRoute(entry.route),
+  );
+  if (
+    matchingActions.length !== review.changedRoutes.length ||
+    review.changedRoutes.some(
+      (route) =>
+        matchedRoutes.filter((matchedRoute) => matchedRoute === route).length !==
+        1,
+    )
+  ) {
+    throw new Error(
+      `${review.id}: every changed route requires exactly one matching action-log record.`,
+    );
+  }
+}
 
 function routingReviewFor(route, observedThrough) {
   return routingReviews
@@ -1347,6 +1457,8 @@ const csvRows = [
     'routingPlannedFor',
     'routingImplementedAt',
     'routingEvaluateAfter',
+    'routingChangedRoutes',
+    'routingImplementationSummary',
     'unreviewedQueryEvidenceCount',
     'nonTargetQueryEvidenceCount',
     'requiresHumanReview',
@@ -1387,6 +1499,8 @@ const csvRows = [
     item.routingDecision?.plannedFor ?? '',
     item.routingDecision?.implementedAt ?? '',
     item.routingDecision?.evaluateAfter ?? '',
+    item.routingDecision?.changedRoutes?.join('|') ?? '',
+    item.routingDecision?.implementationSummary ?? '',
     item.unreviewedQueryEvidenceCount,
     item.nonTargetQueryEvidenceCount,
     item.requiresHumanReview,
@@ -1502,7 +1616,7 @@ const markdown = [
   ...(execution.routingMonitoringQueue.length
     ? execution.routingMonitoringQueue.map(
         (item) =>
-          `- ${item.route} → ${item.routingDecision.targetRoutes.join('、')}（${item.routingDecision.evaluateAfter} 复评）— ${item.routingDecision.summary}`,
+          `- ${item.route} → ${item.routingDecision.targetRoutes.join('、')}（${item.routingDecision.evaluateAfter} 复评）— ${item.routingDecision.implementationSummary || item.routingDecision.summary}`,
       )
     : ['- 当前没有处于观察期的路由调整。']),
   '',
@@ -1591,7 +1705,7 @@ const markdown = [
   '## 路由调整观察',
   ...report.actions.routingMonitoring.map(
     (item) =>
-      `- ${item.route} → ${item.routingDecision.targetRoutes.join('、')}（${item.routingDecision.evaluateAfter} 复评）— ${actionReason(item)}`,
+      `- ${item.route} → ${item.routingDecision.targetRoutes.join('、')}（${item.routingDecision.evaluateAfter} 复评）— ${item.routingDecision.implementationSummary || actionReason(item)}`,
   ),
   '',
   '## 低样本目标查询',

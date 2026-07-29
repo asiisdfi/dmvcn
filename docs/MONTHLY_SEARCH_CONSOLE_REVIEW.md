@@ -63,6 +63,8 @@ route_target
 route_reviewed_through
 route_implemented_at
 route_evaluate_after
+changed_routes
+implementation_summary
 official_sources_to_recheck
 owner
 due_date
