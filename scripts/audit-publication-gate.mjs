@@ -38,6 +38,15 @@ function robotsDirectives(html) {
   return new Set(content.toLowerCase().split(',').map((item) => item.trim()).filter(Boolean));
 }
 
+function metaContent(html, attribute, value) {
+  return html.match(
+    new RegExp(
+      `<meta\\s+${attribute}="${value}"\\s+content="([^"]+)"`,
+      'i',
+    ),
+  )?.[1] ?? '';
+}
+
 const htmlFiles = await collectHtmlFiles(distDir);
 const htmlByRoute = new Map();
 for (const file of htmlFiles) htmlByRoute.set(routeFromFile(file), await readFile(file, 'utf8'));
@@ -48,6 +57,9 @@ const sitemapRoutes = new Set(
 );
 
 const seenSignoffs = new Set();
+const signoffByRoute = new Map(
+  REVIEW_MANUAL_SIGNOFFS.map((signoff) => [signoff.route, signoff]),
+);
 for (const signoff of REVIEW_MANUAL_SIGNOFFS) {
   if (seenSignoffs.has(signoff.route)) errors.push(`${signoff.route}: duplicate manual signoff`);
   seenSignoffs.add(signoff.route);
@@ -65,6 +77,7 @@ for (const signoff of REVIEW_MANUAL_SIGNOFFS) {
 
 let pending = 0;
 let approved = 0;
+let stale = 0;
 for (const route of HUMAN_REVIEW_REQUIRED_ROUTES) {
   const html = htmlByRoute.get(route);
   if (!html) {
@@ -73,10 +86,50 @@ for (const route of HUMAN_REVIEW_REQUIRED_ROUTES) {
   }
 
   const gate = getPublicationGate(route);
+  const visibleModifiedAt = metaContent(
+    html,
+    'property',
+    'article:modified_time',
+  );
+  const visibleReviewedAt = metaContent(
+    html,
+    'name',
+    'content-review-date',
+  );
+  const renderedContentRevisionAt = [
+    visibleModifiedAt,
+    visibleReviewedAt,
+  ].sort().at(-1) ?? '';
+  const recordedSignoff = signoffByRoute.get(route);
+  const expectedApprovalCurrent = Boolean(
+    recordedSignoff &&
+      renderedContentRevisionAt &&
+      recordedSignoff.reviewedAt >= renderedContentRevisionAt,
+  );
   const directives = robotsDirectives(html);
   const hasNoindex = directives.has('noindex');
   const hasFollow = directives.has('follow');
   const inSitemap = sitemapRoutes.has(route);
+
+  if (!gate.contentRevisionAt) {
+    errors.push(`${route}: high-risk content revision is not registered`);
+  }
+  if (
+    gate.contentModifiedAt !== visibleModifiedAt ||
+    gate.contentReviewedAt !== visibleReviewedAt
+  ) {
+    errors.push(
+      `${route}: publication-gate revision does not match the rendered content dates`,
+    );
+  }
+  if (gate.humanApprovalCurrent !== expectedApprovalCurrent) {
+    errors.push(
+      `${route}: current human-approval state does not match the rendered content version`,
+    );
+  }
+  if (gate.humanApprovalRecorded && !gate.humanApprovalCurrent) {
+    stale += 1;
+  }
 
   if (gate.indexable) {
     approved += 1;
@@ -105,6 +158,7 @@ console.log('');
 console.log(`Human-review routes: ${HUMAN_REVIEW_REQUIRED_ROUTES.size}`);
 console.log(`Human approved and indexable: ${approved}`);
 console.log(`Pending and noindex: ${pending}`);
+console.log(`Stale approvals held noindex: ${stale}`);
 console.log(`Manual signoff records: ${REVIEW_MANUAL_SIGNOFFS.length}`);
 console.log(`Errors: ${errors.length}`);
 console.log('');

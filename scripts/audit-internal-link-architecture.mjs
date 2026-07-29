@@ -2,7 +2,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'parse5';
-import { NON_SEARCH_LANDING_ROUTES } from '../src/data/publication-gate.ts';
+import { getPublicationGate } from '../src/data/publication-gate.ts';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const distDir = path.resolve(
@@ -244,7 +244,7 @@ for (const document of documents.values()) {
     }
 
     if (link.landmark === 'header' && noindexRoutes.has(target)) {
-      errors.push(`${label}: noindex utility route ${target} must not appear in the primary header.`);
+      errors.push(`${label}: noindex route ${target} must not appear in the primary header.`);
     }
   }
 }
@@ -358,10 +358,16 @@ for (const route of contentDetailRoutes) {
   }
 }
 
-const expectedNoindexRoutes = new Set(NON_SEARCH_LANDING_ROUTES);
+const expectedNoindexRoutes = new Set(
+  [...documents.keys()].filter(
+    (route) =>
+      route !== '/404/' &&
+      !getPublicationGate(route).indexable,
+  ),
+);
 for (const route of noindexRoutes) {
   if (!expectedNoindexRoutes.has(route)) {
-    errors.push(`${route}: noindex route is not registered in NON_SEARCH_LANDING_ROUTES.`);
+    errors.push(`${route}: rendered noindex state does not match the publication gate.`);
   }
 }
 for (const route of expectedNoindexRoutes) {
@@ -374,10 +380,10 @@ for (const route of expectedNoindexRoutes) {
     errors.push(`${route}: registered noindex route is missing the noindex directive.`);
   }
   if (!document.robots.has('follow')) {
-    errors.push(`${route}: noindex utility route must explicitly use follow.`);
+    errors.push(`${route}: noindex route must explicitly use follow.`);
   }
   if (document.canonical !== `${siteOrigin}${route}`) {
-    errors.push(`${route}: noindex utility canonical must be self-referencing.`);
+    errors.push(`${route}: noindex canonical must be self-referencing.`);
   }
 }
 
@@ -415,7 +421,7 @@ console.log('# Internal Link Architecture Audit');
 console.log('');
 console.log(`HTML pages: ${documents.size}`);
 console.log(`Indexable pages: ${indexableRoutes.size}`);
-console.log(`Registered noindex utility pages: ${noindexRoutes.size}`);
+console.log(`Publication-gated noindex pages: ${noindexRoutes.size}`);
 console.log(`Indexable pages reachable from home: ${reachableIndexable.length}/${indexableRoutes.size}`);
 console.log(`Maximum indexable click depth: ${maxDepth}`);
 console.log(`Indexable pages reachable through main content: ${mainReachableIndexable.length}/${indexableRoutes.size}`);
@@ -427,7 +433,7 @@ console.log(
 );
 console.log(`Indexable pages with zero main-content inbound links: ${zeroMainInbound.join(', ') || 'none'}`);
 console.log('');
-console.log('Noindex utility pages linked from main content:');
+console.log('Noindex pages linked from main content:');
 for (const route of [...noindexRoutes].sort()) {
   console.log(`- ${route}: ${noindexMainSources.get(route)?.size ?? 0} source page(s)`);
 }

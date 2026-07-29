@@ -8,7 +8,10 @@ import {
   isTargetQuerySignal,
   isUnreviewedClassification,
 } from './lib/search-console-query-policy.mjs';
-import { SEARCH_CONSOLE_EDITORIAL_TARGETS } from './lib/search-console-cadence.mjs';
+import {
+  SEARCH_CONSOLE_EDITORIAL_TARGETS,
+  countsTowardEditorialCadence,
+} from './lib/search-console-cadence.mjs';
 import { evaluateSerializedWindow } from './lib/search-console-window.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -265,6 +268,7 @@ function actionCountsForDate(actionLog, date) {
   const rollingStart = shiftCalendarDate(date, -6);
   const completed = actionLog.filter(
     (entry) =>
+      countsTowardEditorialCadence(entry) &&
       isCalendarDate(entry.completedAt) &&
       entry.completedAt <= date,
   );
@@ -355,6 +359,14 @@ try {
 }
 const latestActionByRoute = new Map();
 for (const entry of actionLog) {
+  if (
+    entry?.countsTowardCadence === false &&
+    entry?.action !== 'noindex'
+  ) {
+    throw new Error(
+      `${entry?.route ?? 'Unknown route'}: only noindex governance records may opt out of editorial cadence.`,
+    );
+  }
   const route = normalizeRoute(entry.route);
   if (
     !route ||

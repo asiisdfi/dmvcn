@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { REVIEW_MANUAL_SIGNOFFS as existingSignoffs } from '../src/data/review-manual-signoffs.ts';
 import {
   HUMAN_REVIEW_REQUIRED_ROUTES,
+  getHighRiskContentRevision,
   isPlausibleHumanReviewer,
   isValidReviewDate,
 } from '../src/data/publication-gate.ts';
@@ -143,6 +144,21 @@ for (const row of records) {
   }
   if (!HUMAN_REVIEW_REQUIRED_ROUTES.has(route)) {
     invalid.push({ route, reason: '该路由不属于高风险人工签字清单' });
+    continue;
+  }
+  const revision = getHighRiskContentRevision(route);
+  const currentContentDate = revision
+    ? [revision.modifiedAt, revision.reviewedAt].sort().at(-1)
+    : '';
+  if (!currentContentDate) {
+    invalid.push({ route, reason: '未登记当前高风险内容版本' });
+    continue;
+  }
+  if (reviewedAt < currentContentDate) {
+    invalid.push({
+      route,
+      reason: `reviewedAt 早于当前内容版本 ${currentContentDate}，旧签字不能覆盖后续修改`,
+    });
     continue;
   }
   if (scope.length < 12) {

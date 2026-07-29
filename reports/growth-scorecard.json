@@ -48,7 +48,7 @@
       "position": 38.1
     },
     "rankedPages": {
-      "rowsWithImpressions": 125,
+      "rowsWithImpressions": 121,
       "top20": 15,
       "top10": 4
     },
@@ -605,17 +605,17 @@
         }
       ],
       "indexingNoise": {
-        "routes": 3,
-        "impressions": 5056,
-        "relativeToPropertyImpressionsPercent": 50.4,
+        "routes": 7,
+        "impressions": 5733,
+        "relativeToPropertyImpressionsPercent": 57.2,
         "overdue": 0,
         "note": "来自页面维度历史数据，与全站属性总量口径不同，只能观察规模，不能直接相减。"
       }
     },
     "pageDimension": {
-      "indexableRows": 125,
-      "clickSum": 26,
-      "impressionSum": 5892,
+      "indexableRows": 121,
+      "clickSum": 24,
+      "impressionSum": 5215,
       "note": "仅用于页面排名和页面机会分析，不作为全站总量。"
     },
     "cadence": {
@@ -632,16 +632,18 @@
         "targetMax": 3,
         "status": "above-target"
       },
-      "activeCooldowns": 20,
+      "activeCooldowns": 24,
       "nextCooldownDate": "2026-08-07"
     },
     "quality": {
-      "indexablePages": 163,
-      "indexablePassed": 163,
+      "indexablePages": 159,
+      "indexablePassed": 159,
       "indexablePassRate": 100,
-      "highRiskHumanApprovalPending": 0,
+      "highRiskHumanApprovalPending": 4,
       "criticalPages": 0,
-      "blockedPages": 0,
+      "blockedPages": 4,
+      "indexableCriticalPages": 0,
+      "indexableBlockedPages": 0,
       "passed": true
     }
   },
@@ -705,9 +707,10 @@
     "objectiveEvidenceComplete": false
   },
   "warnings": [
+    "4 个高风险页面正在等待当前内容版本的人工复核；这些页面保持 noindex，不计入可索引页面质量通过率。",
     "当前快照是 28 天窗口，只能跟踪趋势，不能证明 30 天目标完成。",
     "页面维度与全站属性采用不同聚合口径，本报告还会排除当前 noindex 页面，不能用页面行求和替代全站曝光总量。",
-    "3 个已 noindex 页面仍有 5056 次历史页面维度曝光，相当于全站属性曝光的 50.4%；两者口径不同，不能直接相减。",
+    "7 个已 noindex 页面仍有 5733 次历史页面维度曝光，相当于全站属性曝光的 57.2%；两者口径不同，不能直接相减。",
     "发现 1 个非目标国家有大量曝光但没有点击，不应据此扩写泛英文内容。",
     "移动端仅占 6.7% 曝光，却贡献 53.8% 点击；移动端中文办事体验应作为增长基线。",
     "本月已记录 20 个内容动作，超过 8–12 个计划节奏；除规则纠错外应等待冷却数据。",

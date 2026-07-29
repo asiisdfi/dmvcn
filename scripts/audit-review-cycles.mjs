@@ -72,8 +72,8 @@ if (!same(report.status, expected.status)) {
 if (!same(report.errors, expected.errors)) {
   errors.push('Monthly volatile-review policy errors are inconsistent.');
 }
-if ((eeat.pages ?? []).some((page) => !page.pass)) {
-  errors.push('E-E-A-T inventory contains pages that do not pass.');
+if ((eeat.pages ?? []).some((page) => page.indexable && !page.pass)) {
+  errors.push('E-E-A-T inventory contains indexable pages that do not pass.');
 }
 if (expected.summary.missingReviewDate > 0) {
   errors.push(

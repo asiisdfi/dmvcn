@@ -141,6 +141,34 @@ check(
   'A missing volatile-review owner route must fail the policy gate.',
 );
 
+const staleApprovalInventory = inventory();
+const staleApprovalPage = staleApprovalInventory.pages.find(
+  (page) => page.route === '/directories/costs-timing/',
+);
+staleApprovalPage.indexable = false;
+staleApprovalPage.pass = false;
+staleApprovalPage.reviewStatus = 'human-approval-stale';
+const staleApprovalHeld = deriveReviewCycleReport({
+  asOf: '2026-07-29',
+  eeat: staleApprovalInventory,
+  officialLinkAudit: officialLinks('2026-07-29'),
+});
+check(
+  staleApprovalHeld.status.gatePassed,
+  'A stale human approval held noindex should not block unrelated publication.',
+);
+
+staleApprovalPage.indexable = true;
+const staleApprovalLeaked = deriveReviewCycleReport({
+  asOf: '2026-07-29',
+  eeat: staleApprovalInventory,
+  officialLinkAudit: officialLinks('2026-07-29'),
+});
+check(
+  !staleApprovalLeaked.status.gatePassed,
+  'A stale human approval must fail when its page remains indexable.',
+);
+
 if (failures.length) {
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);

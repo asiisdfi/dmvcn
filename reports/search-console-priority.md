@@ -6,8 +6,8 @@
 - 分段快照：reports/private/search-console-segments.json
 - 路由决策台账：reports/search-console-routing-reviews.json
 - 数据状态：可用于规划；快照 2026-07-29，最新完整数据 2026-07-26。
-- 页面查询映射：43/43 个页面在 7 天有效期内；过期页面只暂停自身动作。
-- 纳入页数：125
+- 页面查询映射：39/39 个页面在 7 天有效期内；过期页面只暂停自身动作。
+- 纳入页数：121
 - 可见查询：1000 条；中文查询 44 条 / 98 次曝光
 - 泛英文 DMV 大词曝光：626
 - 中文候选信号：25；需要人工复核：3
@@ -64,6 +64,10 @@
 - /directories/dmv-services/（展现 2737）— 2026-07-24 已设置 noindex，2026-08-21 复查 Google 索引状态；观察期内不按这些曝光扩写内容。
 - /sources/（展现 1388）— 2026-07-24 已设置 noindex，2026-08-21 复查 Google 索引状态；观察期内不按这些曝光扩写内容。
 - /directories/service-paths/（展现 931）— 2026-07-24 已设置 noindex，2026-08-21 复查 Google 索引状态；观察期内不按这些曝光扩写内容。
+- /directories/costs-timing/（展现 433）— 2026-07-29 已设置 noindex，2026-08-26 复查 Google 索引状态；观察期内不按这些曝光扩写内容。
+- /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/（展现 140）— 2026-07-29 已设置 noindex，2026-08-26 复查 Google 索引状态；观察期内不按这些曝光扩写内容。
+- /topics/gift-inherited-vehicle-title-transfer/（展现 79）— 2026-07-29 已设置 noindex，2026-08-26 复查 Google 索引状态；观察期内不按这些曝光扩写内容。
+- /topics/name-change-chain/（展现 25）— 2026-07-29 已设置 noindex，2026-08-26 复查 Google 索引状态；观察期内不按这些曝光扩写内容。
 
 ## 中文查询信号
 - 本月识别 25 个中文候选信号；只有完成页面归属分类的信号才用于标题、摘要、入口和内部链接校准。
@@ -122,20 +126,16 @@
 ## 规则变化/下滑复核
 
 ## 等待效果复评
-- /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/vehicle-registration-renewal-expired-tags-non-operation/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/massachusetts/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
 - /topics/vehicle-title-registration-insurance-after-move/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/new-york/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
 - /states/new-york/real-id/（本次数据仍建议 observe-low-evidence）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /directories/new-residents/（本次数据仍建议 routing-monitor）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
-- /directories/costs-timing/（本次数据仍建议 human-review）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/lost-stolen-license-plates-registration-card-sticker/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /topics/renewal-replacement-address/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
-- /topics/gift-inherited-vehicle-title-transfer/（本次数据仍建议 human-review）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/teen-driver-permit-gdl-parent-guide/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/washington/（本次数据仍建议 observe）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/florida/（本次数据仍建议 observe-low-evidence）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
-- /topics/name-change-chain/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /states/california/real-id/（本次数据仍建议 observe-low-evidence）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/first-driver-license-road-test/（本次数据仍建议 observe-low-evidence）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。

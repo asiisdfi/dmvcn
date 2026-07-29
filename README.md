@@ -11,7 +11,7 @@
 - 13 个入口目录页：入口表首页、50 州 REAL ID 官方入口表、50 州 DMV 常用业务入口表、DMV 线上/现场分流表、DMV 预约和办公室入口表、DMV 笔试、路考和 learner permit 入口表、DMV 考试语言、翻译和口译入口表、DMV 费用和拿证时间表、DMV SSN 和身份类别分流表、搬到新州后 DMV 办事入口表、DMV 外国/外州驾照转入和 IDP 入口表、DMV 材料规则表、DMV 期限提醒表。
 - 中文练习题：Georgia 官方来源原型，含 20 道原创 Road Rules / Road Signs 练习题、逐题解释和官方依据；不收录或改写来历不明的旧题库。
 - 合规页：About、Contact、Privacy、Terms、来源与更新、官方来源库。
-- SEO：静态页面、canonical、Open Graph、修改时间、JSON-LD、robots.txt，以及直接列出全部 163 个可索引页面的单文件 sitemap。
+- SEO：静态页面、canonical、Open Graph、修改时间、JSON-LD、robots.txt，以及直接列出全部当前可索引页面的单文件 sitemap。
 - 内容审计记录：见 `CONTENT_AUDIT.md`。
 
 ## 内容原则
@@ -126,7 +126,7 @@ npm run build
 npm run audit:eeat
 ```
 
-脚本会为全部可索引页面生成 `reports/eeat-inventory.json` 和 `reports/eeat-inventory.csv`，记录页面类型、风险等级、八项分数、作者和日期信号、事实来源映射，以及 `pending`、`source-mapped`、`ai-assisted`、`human-approved` 等核查状态。自动来源映射和 AI 辅助证据核对都不会被统计成人工审核；高风险页面没有真实人员签字时仍保持阻塞。普通模式用于持续盘点并阻止结构性关键错误；全部页面整改完成后使用 `npm run audit:eeat:strict` 作为最终门禁。
+脚本会为全部页面生成 `reports/eeat-inventory.json` 和 `reports/eeat-inventory.csv`，记录页面类型、风险等级、八项分数、作者和日期信号、事实来源映射，以及 `pending`、`source-mapped`、`ai-assisted`、`human-approved`、`human-approval-stale` 等核查状态。自动来源映射和 AI 辅助证据核对都不会被统计成人工审核；高风险页面没有当前内容版本的真实人员签字时保持 `noindex` 并从 sitemap 排除。普通模式要求所有可索引页面通过门禁；`npm run audit:eeat:strict` 还会要求待复核工作区一并清零。
 
 执行标准、90 天计划和月度 Search Console 流程分别见：
 
@@ -152,7 +152,7 @@ npm run audit:eeat
 - `reports/growth-scorecard.json|md`
 - `reports/search-console-pulse.json|md`
 
-其中 `reviewer` 与 `reviewedAt` 必须由真实审核人员填写。`audit:review-cycles` 会核对最终 HTML 里的三类日期，并按高风险 60 天、中风险 90 天、标准 120 天、政策 180 天生成到期队列；费用、期限、材料、身份、考试、旅行证件和车辆规则等 12 个易变入口另用 30 天滚动周期。系统从页面公开事实核对日期与证据复核日期中较早的一天开始计时，任何页面逾期、日期缺失或月度官方链接基线失效时，普通构建和发布都会失败。
+其中 `reviewer` 与 `reviewedAt` 必须由真实审核人员填写。高风险页面签字后再修改，旧签字会立即失效，页面自动退出 sitemap，直到真实人员对当前版本重新签字。`audit:review-cycles` 会核对最终 HTML 里的三类日期，并按高风险 60 天、中风险 90 天、标准 120 天、政策 180 天生成到期队列；费用、期限、材料、身份、考试、旅行证件和车辆规则等 12 个易变入口另用 30 天滚动周期。系统从页面公开事实核对日期与证据复核日期中较早的一天开始计时，任何页面逾期、日期缺失或月度官方链接基线失效时，普通构建和发布都会失败。
 
 `audit:search-console` 会检查数据暂停状态、执行额度、目标查询证据、人工复核队列和 noindex 索引复查日期，并阻止原始查询字段进入公开计划。页面级查询映射使用 7 天有效期：过期只暂停对应页面并要求重新采集，不会冻结证据仍有效的其他页面；任何进入内容或分流执行队列的页面仍须通过本页新鲜度检查。计划实施日、复评日、索引复查日或下一内容容量日到达时，即使报告本身尚未超过 7 天，定时门禁也会要求按当天日期重建。`audit:growth` 会检查目标常量、30 天验收口径、美国与设备流量占比、查询覆盖、索引噪声和目标完成状态。`audit:pulse` 只检查最近 24 小时的异常国家、设备、历史索引可见性和点击观察队列，并禁止短周期数据绕过查询证据、冷却期或内容额度。三个命令都已纳入 `verify:launch`。
 

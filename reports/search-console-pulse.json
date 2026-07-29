@@ -15,7 +15,7 @@
       "label": "过去 28 天",
       "days": 28,
       "dataShownFrom": "2026-07-12",
-      "dataShownThrough": "2026-07-22",
+      "dataShownThrough": "2026-07-26",
       "timeZone": "Asia/Shanghai"
     },
     "dataPolicy": "24 小时数据仅用于异常监控和观察队列；不保存原始查询，不替代 30 天目标验收。"
@@ -97,19 +97,19 @@
   },
   "diagnostics": {
     "baselineDaily": {
-      "observedDays": 11,
-      "clicks": 1.6,
-      "impressions": 550,
-      "unitedStatesClicks": 1.1,
-      "unitedStatesImpressions": 164.5,
-      "vietnamImpressions": 280.3
+      "observedDays": 15,
+      "clicks": 1.7,
+      "impressions": 668.7,
+      "unitedStatesClicks": 1.3,
+      "unitedStatesImpressions": 180.7,
+      "vietnamImpressions": 287.3
     },
     "momentum": {
-      "clicksPercentOfBaselineDaily": 187.5,
-      "impressionsPercentOfBaselineDaily": 157.8,
-      "unitedStatesClicksPercentOfBaselineDaily": 272.7,
-      "unitedStatesImpressionsPercentOfBaselineDaily": 117.3,
-      "vietnamImpressionsPercentOfBaselineDaily": 210.8
+      "clicksPercentOfBaselineDaily": 176.5,
+      "impressionsPercentOfBaselineDaily": 129.8,
+      "unitedStatesClicksPercentOfBaselineDaily": 230.8,
+      "unitedStatesImpressionsPercentOfBaselineDaily": 106.8,
+      "vietnamImpressionsPercentOfBaselineDaily": 205.7
     },
     "audienceNoise": {
       "noiseDominated": true,
@@ -167,7 +167,7 @@
     "provisional": true,
     "completionComparable": false,
     "contentActionAllowed": false,
-    "rawTrafficElevated": true,
+    "rawTrafficElevated": false,
     "qualifiedUsExposureTrend": "stable",
     "noiseDominated": true,
     "interpretation": "总曝光上升主要受非目标国家和历史索引可见性影响；美国点击信号单独观察。"

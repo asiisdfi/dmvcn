@@ -322,9 +322,8 @@ if (!approximatelyEqual(quality.indexablePassRate, expectedIndexablePassRate)) {
 }
 const expectedQualityPass =
   expectedIndexablePassRate === expectedTargets.indexablePassRate &&
-  toNumber(quality.highRiskHumanApprovalPending) === 0 &&
-  toNumber(quality.criticalPages) === 0 &&
-  toNumber(quality.blockedPages) === 0;
+  toNumber(quality.indexableCriticalPages) === 0 &&
+  toNumber(quality.indexableBlockedPages) === 0;
 if (
   quality.passed !== expectedQualityPass ||
   status.qualityGatePassed !== expectedQualityPass

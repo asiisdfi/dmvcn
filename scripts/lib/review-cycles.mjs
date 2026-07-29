@@ -119,8 +119,17 @@ export function deriveReviewCycleReport({ asOf, eeat, officialLinkAudit }) {
       policyErrors.push(`${entry.route}: monthly volatile-review route is missing.`);
       continue;
     }
-    if (!page.indexable || !page.pass) {
-      policyErrors.push(`${entry.route}: monthly volatile-review route must be indexable and pass E-E-A-T.`);
+    const heldForHumanApproval =
+      !page.indexable &&
+      page.risk === 'high' &&
+      page.reviewStatus !== 'human-approved';
+    if (
+      (page.indexable && !page.pass) ||
+      (!page.indexable && !heldForHumanApproval)
+    ) {
+      policyErrors.push(
+        `${entry.route}: monthly volatile-review route must either pass as indexable or be held noindex for human approval.`,
+      );
     }
     if (
       !['ai-assisted', 'human'].includes(page.reviewMethod) ||
@@ -128,7 +137,11 @@ export function deriveReviewCycleReport({ asOf, eeat, officialLinkAudit }) {
     ) {
       policyErrors.push(`${entry.route}: monthly volatile review requires a semantic evidence review.`);
     }
-    if (page.risk === 'high' && page.reviewStatus !== 'human-approved') {
+    if (
+      page.risk === 'high' &&
+      page.indexable &&
+      page.reviewStatus !== 'human-approved'
+    ) {
       policyErrors.push(`${entry.route}: high-risk monthly review route requires human approval.`);
     }
     if ((page.signals?.sourceCount ?? 0) < 1) {

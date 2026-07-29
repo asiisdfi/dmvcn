@@ -1,10 +1,10 @@
 {
   "generatedAt": "2026-07-29T00:00:00.000Z",
   "summary": {
-    "pages": 148,
+    "pages": 144,
     "countsByClass": {
-      "topic": 37,
-      "directory": 10,
+      "topic": 34,
+      "directory": 9,
       "state-overview": 50,
       "state-real-id": 50,
       "practice": 1
@@ -53,14 +53,6 @@
       "heading": "DMV 预约和办公室入口表",
       "contentChars": 27237,
       "contentHash": "5f175c905ee70ee89e05b847410361d859e3ecb46c5fd3f6f9eb0f63bd3c78a8"
-    },
-    {
-      "route": "/directories/costs-timing/",
-      "class": "directory",
-      "title": "美国各州 DMV 费用与拿证时间：付款、临时凭证、邮寄 | DMV中文办事库",
-      "heading": "美国各州 DMV 费用、付款和拿证时间",
-      "contentChars": 20461,
-      "contentHash": "14910e7bd2f56ff4028634ee5919de7589d7b277708cd5b70a29bab61c04b6bd"
     },
     {
       "route": "/directories/deadlines/",
@@ -1015,14 +1007,6 @@
       "contentHash": "3626c097827bf3633cfeab490eac30c2b4b660025028ba786973045f5542a0f8"
     },
     {
-      "route": "/topics/gift-inherited-vehicle-title-transfer/",
-      "class": "topic",
-      "title": "亲属赠车或继承车辆怎么过户：Title、Lien、税费和车主去世 | DMV中文办事库",
-      "heading": "亲属赠车或继承车辆怎么过户：Title、Lien、税费和车主去世",
-      "contentChars": 9201,
-      "contentHash": "d1d45c848963fc985bb7d60ba33fdc24cb8a2d59f83f7029eee22989b969a70a"
-    },
-    {
       "route": "/topics/lost-stolen-license-id-replacement-identity-theft/",
       "class": "topic",
       "title": "驾照或 State ID 丢失/被盗后，补证、报案和身份盗用怎么处理 | DMV中文办事库",
@@ -1039,28 +1023,12 @@
       "contentHash": "13b028656dd81cc1ed0ab1093c2663474407914e93472cb9ec1b2fa9a77426c0"
     },
     {
-      "route": "/topics/lost-vehicle-title-replacement-electronic-title-lien-sale/",
-      "class": "topic",
-      "title": "车辆 Title 丢了怎么补：谁能申请、Lien 与卖车前处理 | DMV中文办事库",
-      "heading": "车辆 Title 丢了怎么补：谁能申请、Lien 与卖车前处理",
-      "contentChars": 7546,
-      "contentHash": "0da4086390207c663d1cee8e7e77265a8e93d9dbe7da9605ca47cb8ae7a4e84d"
-    },
-    {
       "route": "/topics/moving-to-new-state/",
       "class": "topic",
       "title": "搬到新州后先办哪件事 | DMV中文办事库",
       "heading": "搬到新州后先办哪件事",
       "contentChars": 4134,
       "contentHash": "b36c9716b41acfe9fe6c28239c2dd7ba5a5251846c55496028ba37a72c75ffc9"
-    },
-    {
-      "route": "/topics/name-change-chain/",
-      "class": "topic",
-      "title": "在美国改名后先去哪里更新：SSA、驾照和姓名文件顺序 | DMV中文办事库",
-      "heading": "在美国改名后先去哪里更新：SSA、驾照和姓名文件顺序",
-      "contentChars": 4375,
-      "contentHash": "88f930a7719ada9748e5f36f56397f6628581a21e9f76d3fdf12a0caf096f936"
     },
     {
       "route": "/topics/non-citizen-license-id/",

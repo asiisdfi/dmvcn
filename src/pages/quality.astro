@@ -25,7 +25,7 @@ import {
 } from '../data/editorial';
 import { federalSources, getStatePublicStatus, states, topics } from '../data/content';
 
-type ReviewStatus = 'human-approved' | 'ai-assisted' | 'source-mapped' | 'pending' | 'invalid' | 'not-required';
+type ReviewStatus = 'human-approved' | 'human-approval-stale' | 'ai-assisted' | 'source-mapped' | 'pending' | 'invalid' | 'not-required';
 type Risk = 'standard' | 'medium' | 'high' | 'policy';
 type PageType = 'state-overview' | 'state-real-id' | 'topic' | 'directory' | 'collection' | 'trust';
 
@@ -72,8 +72,10 @@ type EeatSummary = {
   noindexPages: number;
   indexablePassed: number;
   blockedPages: number;
+  indexableBlockedPages: number;
   threshold: number;
   highRiskHumanApprovalPending: number;
+  staleHumanApprovals: number;
   aiAssistedReviews: number;
   humanApprovedReviews: number;
   sourceMappedReviews: number;
@@ -82,6 +84,7 @@ type EeatSummary = {
   averageScore: number;
   strict: boolean;
   criticalPages: number;
+  indexableCriticalPages: number;
 };
 
 type WorkbookTask = {
@@ -296,8 +299,10 @@ const defaultSummary: EeatSummary = {
   noindexPages: 0,
   indexablePassed: 0,
   blockedPages: 0,
+  indexableBlockedPages: 0,
   threshold: 85,
   highRiskHumanApprovalPending: 0,
+  staleHumanApprovals: 0,
   aiAssistedReviews: 0,
   humanApprovedReviews: 0,
   sourceMappedReviews: 0,
@@ -306,6 +311,7 @@ const defaultSummary: EeatSummary = {
   averageScore: 0,
   strict: false,
   criticalPages: 0,
+  indexableCriticalPages: 0,
 };
 
 const report = eeatReportData as EeatReport;
@@ -325,6 +331,7 @@ const pageTypeName: Record<PageType, string> = {
 
 const pageStatusLabel: Record<ReviewStatus, string> = {
   'human-approved': '人工复核完成',
+  'human-approval-stale': '内容更新后待重新复核',
   'ai-assisted': '来源已核对',
   'source-mapped': '来源已登记',
   pending: '等待复核',
@@ -623,7 +630,7 @@ const scActionLabel: Record<string, string> = {
           <article class="card">
             <div class="card-top"><CircleCheck size={22} aria-hidden="true" /><span class="small-badge">复核状态</span></div>
             <h2>人工复核与来源核对</h2>
-            <p>人工复核 <strong>{summary.humanApprovedReviews}</strong> 页；其余 <strong>{summary.aiAssistedReviews + summary.sourceMappedReviews}</strong> 页已完成来源或页面结构核对；等待复核 <strong>{summary.highRiskHumanApprovalPending}</strong> 页。</p>
+            <p>当前版本人工复核 <strong>{summary.humanApprovedReviews}</strong> 页；其余 <strong>{summary.aiAssistedReviews + summary.sourceMappedReviews}</strong> 页已完成来源或页面结构核对；等待复核 <strong>{summary.highRiskHumanApprovalPending}</strong> 页，其中 <strong>{summary.staleHumanApprovals}</strong> 页因签字后又修改而自动退出索引。</p>
           </article>
 
           <article class="card">

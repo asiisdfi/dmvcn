@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { countsTowardEditorialCadence } from './lib/search-console-cadence.mjs';
 import { evaluateSerializedWindow } from './lib/search-console-window.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -284,8 +285,10 @@ const overdueIndexingCleanup = indexingCleanup.filter(
 );
 
 const monthPrefix = scorecardDate.slice(0, 7);
-const monthlyActions = (actionLog ?? []).filter((entry) =>
-  String(entry.completedAt ?? '').startsWith(monthPrefix),
+const monthlyActions = (actionLog ?? []).filter(
+  (entry) =>
+    countsTowardEditorialCadence(entry) &&
+    String(entry.completedAt ?? '').startsWith(monthPrefix),
 );
 const scorecardDay = new Date(`${scorecardDate}T00:00:00.000Z`);
 const rollingWindowStart = new Date(scorecardDay);
@@ -293,6 +296,7 @@ rollingWindowStart.setUTCDate(rollingWindowStart.getUTCDate() - 6);
 const rollingWindowStartDate = rollingWindowStart.toISOString().slice(0, 10);
 const rollingSevenDayActions = (actionLog ?? []).filter(
   (entry) =>
+    countsTowardEditorialCadence(entry) &&
     /^\d{4}-\d{2}-\d{2}$/.test(entry.completedAt ?? '') &&
     entry.completedAt >= rollingWindowStartDate &&
     entry.completedAt <= scorecardDate,
@@ -316,11 +320,22 @@ const indexablePassRate =
   eeatSummary.indexablePages > 0
     ? round((eeatSummary.indexablePassed / eeatSummary.indexablePages) * 100)
     : 0;
+const indexableCriticalPages = toNumber(
+  eeatSummary.indexableCriticalPages,
+);
+const indexableBlockedPages = toNumber(
+  eeatSummary.indexableBlockedPages,
+);
 const qualityGatePassed =
   indexablePassRate === 100 &&
-  eeatSummary.highRiskHumanApprovalPending === 0 &&
-  eeatSummary.criticalPages === 0 &&
-  eeatSummary.blockedPages === 0;
+  indexableCriticalPages === 0 &&
+  indexableBlockedPages === 0;
+
+if (toNumber(eeatSummary.highRiskHumanApprovalPending) > 0) {
+  warnings.push(
+    `${eeatSummary.highRiskHumanApprovalPending} 个高风险页面正在等待当前内容版本的人工复核；这些页面保持 noindex，不计入可索引页面质量通过率。`,
+  );
+}
 
 const metricChecks = {
   clicks: minimumCheck(propertyTotals.clicks, targets.clicks, 'clicks'),
@@ -483,6 +498,8 @@ const scorecard = {
       highRiskHumanApprovalPending: eeatSummary.highRiskHumanApprovalPending ?? 0,
       criticalPages: eeatSummary.criticalPages ?? 0,
       blockedPages: eeatSummary.blockedPages ?? 0,
+      indexableCriticalPages,
+      indexableBlockedPages,
       passed: qualityGatePassed,
     },
   },

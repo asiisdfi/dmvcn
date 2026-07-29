@@ -1,21 +1,24 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T12:05:49.749Z",
+    "generatedAt": "2026-07-29T13:39:03.439Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 166,
-    "indexablePages": 163,
-    "noindexPages": 3,
-    "indexablePassed": 163,
+    "passed": 162,
+    "indexablePages": 159,
+    "noindexPages": 7,
+    "indexablePassed": 159,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
     "sourceMappedReviews": 0,
     "aiAssistedReviews": 138,
-    "humanApprovedReviews": 17,
-    "highRiskHumanApprovalPending": 0,
+    "humanApprovedReviews": 13,
+    "staleHumanApprovals": 4,
+    "highRiskHumanApprovalPending": 4,
     "criticalPages": 0,
-    "blockedPages": 0,
+    "blockedPages": 4,
+    "indexableCriticalPages": 0,
+    "indexableBlockedPages": 0,
     "averageScore": 97
   },
   "pages": [
@@ -398,9 +401,9 @@
       "risk": "high",
       "score": 98,
       "threshold": 85,
-      "pass": true,
-      "indexable": true,
-      "reviewStatus": "human-approved",
+      "pass": false,
+      "indexable": false,
+      "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
         "status": "human-approved",
@@ -441,7 +444,9 @@
         "hasEditorialDisclosure": false
       },
       "critical": [],
-      "blockers": []
+      "blockers": [
+        "内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
+      ]
     },
     {
       "route": "/directories/deadlines/",
@@ -6993,9 +6998,9 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": true,
-      "indexable": true,
-      "reviewStatus": "human-approved",
+      "pass": false,
+      "indexable": false,
+      "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
         "status": "human-approved",
@@ -7036,7 +7041,9 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": []
+      "blockers": [
+        "内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
+      ]
     },
     {
       "route": "/topics/lost-stolen-license-id-replacement-identity-theft/",
@@ -7146,9 +7153,9 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": true,
-      "indexable": true,
-      "reviewStatus": "human-approved",
+      "pass": false,
+      "indexable": false,
+      "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
         "status": "human-approved",
@@ -7189,7 +7196,9 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": []
+      "blockers": [
+        "内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
+      ]
     },
     {
       "route": "/topics/moving-to-new-state/",
@@ -7248,9 +7257,9 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": true,
-      "indexable": true,
-      "reviewStatus": "human-approved",
+      "pass": false,
+      "indexable": false,
+      "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
         "status": "human-approved",
@@ -7291,7 +7300,9 @@
         "hasEditorialDisclosure": true
       },
       "critical": [],
-      "blockers": []
+      "blockers": [
+        "内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
+      ]
     },
     {
       "route": "/topics/non-citizen-license-id/",

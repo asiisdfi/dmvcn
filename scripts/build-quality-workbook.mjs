@@ -28,6 +28,14 @@ function priorityForPage(page) {
 }
 
 function actionForPage(page) {
+  if (page.risk === 'high' && page.reviewStatus === 'human-approval-stale') {
+    return {
+      action: 'renew-human-signoff',
+      method: '对照当前修改后的正文与逐条政府来源重新人工核查',
+      expectedOutcome: '新签字日期覆盖当前内容版本后恢复索引',
+    };
+  }
+
   if (page.risk === 'high' && page.reviewStatus !== 'human-approved') {
     return {
       action: 'human-signoff',

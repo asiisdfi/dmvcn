@@ -8,7 +8,7 @@ import {
   HIGH_RISK_TOPIC_SLUGS,
   TRUST_PAGE_PATHS,
 } from '../src/data/editorial.ts';
-import { NON_SEARCH_LANDING_ROUTES } from '../src/data/publication-gate.ts';
+import { getPublicationGate } from '../src/data/publication-gate.ts';
 import { semanticReviews } from '../src/data/review-registry.ts';
 import {
   getStatePageModifiedAt,
@@ -278,6 +278,7 @@ function scorePage(route, document) {
     document.classNames.has('directory-table') &&
     (identity.risk !== 'high' || hasInlineDirectoryEvidence);
   const review = semanticReviews[route];
+  const publicationGate = getPublicationGate(route);
   const robotsDirectives = (document.metas.get('robots') ?? '')
     .toLowerCase()
     .split(',')
@@ -403,12 +404,20 @@ function scorePage(route, document) {
   if (identity.risk === 'high' && !hasFactMapping && !hasDirectDirectoryEvidence && identity.type !== 'trust') {
     blockers.push('高风险页面缺少正文事实来源映射');
   }
+  if (
+    publicationGate.requiresHumanApproval &&
+    !publicationGate.contentRevisionAt
+  ) {
+    critical.push('高风险页面没有登记当前内容版本，无法判断人工签字是否仍然有效');
+  }
   const reviewStatus = identity.type === 'trust'
     ? 'not-required'
     : !review
       ? 'pending'
       : review.status === 'human-approved' && review.method === 'human'
-        ? 'human-approved'
+        ? publicationGate.humanApprovalCurrent
+          ? 'human-approved'
+          : 'human-approval-stale'
         : review.status === 'evidence-checked' && review.method === 'ai-assisted'
           ? 'ai-assisted'
           : review.status === 'source-mapped' && review.method === 'automated'
@@ -427,19 +436,23 @@ function scorePage(route, document) {
   if (reviewStatus === 'invalid') {
     critical.push('语义核查状态与核查方法不一致');
   }
-  if (identity.risk === 'high' && reviewStatus !== 'human-approved' && identity.type !== 'trust') {
+  if (reviewStatus === 'human-approval-stale') {
     blockers.push(
-      reviewStatus === 'ai-assisted'
-        ? '已完成 AI 辅助证据核对，仍待真实人工语义签字'
-        : reviewStatus === 'source-mapped'
-          ? '已完成自动来源映射，仍待 AI 辅助核对和真实人工语义签字'
-        : '高风险页面尚未完成人工语义签字',
+      `内容版本更新于 ${publicationGate.contentRevisionAt ?? '未知日期'}，晚于 ${publicationGate.approvalReviewedAt ?? '现有'} 人工签字；重新人工语义核查前保持 noindex`,
     );
   }
-  const requiresHumanApproval = identity.risk === 'high' && identity.type !== 'trust';
-  const expectedIndexable =
-    !NON_SEARCH_LANDING_ROUTES.has(route) &&
-    (!requiresHumanApproval || reviewStatus === 'human-approved');
+  if (identity.risk === 'high' && reviewStatus !== 'human-approved' && identity.type !== 'trust') {
+    if (reviewStatus !== 'human-approval-stale') {
+      blockers.push(
+        reviewStatus === 'ai-assisted'
+          ? '已完成 AI 辅助证据核对，仍待真实人工语义签字'
+          : reviewStatus === 'source-mapped'
+            ? '已完成自动来源映射，仍待 AI 辅助核对和真实人工语义签字'
+            : '高风险页面尚未完成人工语义签字',
+      );
+    }
+  }
+  const expectedIndexable = publicationGate.indexable;
   if (indexable !== expectedIndexable) {
     critical.push(
       expectedIndexable
@@ -521,11 +534,20 @@ const summary = {
   sourceMappedReviews: pages.filter((page) => page.reviewStatus === 'source-mapped').length,
   aiAssistedReviews: pages.filter((page) => page.reviewStatus === 'ai-assisted').length,
   humanApprovedReviews: pages.filter((page) => page.reviewStatus === 'human-approved').length,
+  staleHumanApprovals: pages.filter(
+    (page) => page.reviewStatus === 'human-approval-stale',
+  ).length,
   highRiskHumanApprovalPending: pages.filter(
     (page) => page.risk === 'high' && page.reviewStatus !== 'human-approved',
   ).length,
   criticalPages: pages.filter((page) => page.critical.length > 0).length,
   blockedPages: pages.filter((page) => page.blockers.length > 0).length,
+  indexableCriticalPages: pages.filter(
+    (page) => page.indexable && page.critical.length > 0,
+  ).length,
+  indexableBlockedPages: pages.filter(
+    (page) => page.indexable && page.blockers.length > 0,
+  ).length,
   averageScore: Math.round(pages.reduce((total, page) => total + page.score, 0) / Math.max(1, pages.length)),
 };
 
@@ -580,9 +602,12 @@ console.log(`Evidence review pending: ${summary.evidenceReviewPending}`);
 console.log(`Automated source mappings: ${summary.sourceMappedReviews}`);
 console.log(`AI-assisted evidence checks: ${summary.aiAssistedReviews}`);
 console.log(`Human-approved reviews: ${summary.humanApprovedReviews}`);
+console.log(`Stale human approvals: ${summary.staleHumanApprovals}`);
 console.log(`High-risk human approval pending: ${summary.highRiskHumanApprovalPending}`);
 console.log(`Critical pages: ${summary.criticalPages}`);
 console.log(`Blocked pages: ${summary.blockedPages}`);
+console.log(`Indexable critical pages: ${summary.indexableCriticalPages}`);
+console.log(`Indexable blocked pages: ${summary.indexableBlockedPages}`);
 console.log('');
 console.log('Reports: reports/eeat-inventory.json, reports/eeat-inventory.csv');
 

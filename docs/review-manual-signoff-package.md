@@ -9,6 +9,7 @@
 - 每条声明至少检查适用州、适用人群、期限或金额、例外、法律后果、来源是否仍有效，以及中文是否扩大了官方原意。
 - 发现一条关键事实无法由现行官方正文支持时，应选择“退回修改”或“部分通过”，不能为了让严格审计变绿而签字。
 - 月度复核日期保持空白，只有完成本轮核对后才能填写；不得沿用上一次日期。
+- 高风险正文一旦晚于签字日期发生修改，旧签字会自动失效，页面保持 noindex；新签字日期不得早于当前内容版本。
 - 审核完成后，把签字表 CSV 填好，再执行 `SIGNOFF_CSV=docs/review-manual-signoff-template.csv npm run review:signoffs:import`。
 - 导入签字后，还要把页面公开的“事实核对”日期更新为同一真实日期；两处日期中任一处未更新，30 天门禁都不会延期。
 - 初次通过导入后，页面会在下一次构建时自动移除 `noindex` 并重新进入 sitemap；未签字页继续保留访问入口，但不提交搜索引擎收录。
@@ -17,8 +18,10 @@
 
 - 页面：/directories/costs-timing/
 - 类型：高风险目录
-- 上次证据复核日期：2026-07-21
-- 本轮原因：30 天易变规则复核窗口
+- 当前内容版本日期：2026-07-24
+- 页面公开事实核对日期：2026-07-21
+- 现有人工签字日期：2026-07-21
+- 本轮原因：内容版本更新后重新人工核对（旧签字已失效）
 - 既有核对范围：人工核对各州费用、付款方式、临时凭证和寄送时间，并确认正文提示与所列政府来源一致。
 - 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。
 
@@ -54,7 +57,9 @@
 
 - 页面：/directories/deadlines/
 - 类型：高风险目录
-- 上次证据复核日期：2026-07-21
+- 当前内容版本日期：2026-07-21
+- 页面公开事实核对日期：2026-07-21
+- 现有人工签字日期：2026-07-21
 - 本轮原因：30 天易变规则复核窗口
 - 既有核对范围：人工核对地址变更、新居民转入、续期和材料时效等期限，并检查适用范围和例外提示。
 - 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。
@@ -91,7 +96,9 @@
 
 - 页面：/directories/document-rules/
 - 类型：高风险目录
-- 上次证据复核日期：2026-07-21
+- 当前内容版本日期：2026-07-21
+- 页面公开事实核对日期：2026-07-21
+- 现有人工签字日期：2026-07-21
 - 本轮原因：30 天易变规则复核窗口
 - 既有核对范围：人工核对身份、住址、姓名链、原件和认证副本要求，以及不同州规则之间的边界。
 - 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。
@@ -128,7 +135,9 @@
 
 - 页面：/directories/foreign-license/
 - 类型：高风险目录
-- 上次证据复核日期：2026-07-21
+- 当前内容版本日期：2026-07-21
+- 页面公开事实核对日期：2026-07-21
+- 现有人工签字日期：2026-07-21
 - 本轮原因：30 天易变规则复核窗口
 - 既有核对范围：人工核对外国驾照、外州驾照、IDP、互惠免试、翻译和交旧证提示及其政府来源。
 - 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。
@@ -165,7 +174,9 @@
 
 - 页面：/directories/identity-ssn/
 - 类型：高风险目录
-- 上次证据复核日期：2026-07-21
+- 当前内容版本日期：2026-07-21
+- 页面公开事实核对日期：2026-07-21
+- 现有人工签字日期：2026-07-21
 - 本轮原因：30 天易变规则复核窗口
 - 既有核对范围：人工核对 SSN、无 SSN、ITIN、合法身份和临时访客分流，确认页面没有替读者判断移民身份。
 - 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。
@@ -198,11 +209,465 @@
 - 审核范围：
 - 结论与修改备注：
 
-## 6. 老人/高龄驾驶人续驾照、视力测试和医疗审查怎么处理
+## 6. 亲属赠车或继承车辆怎么过户：Title、Lien、税费和车主去世
+
+- 页面：/topics/gift-inherited-vehicle-title-transfer/
+- 类型：高风险专题
+- 当前内容版本日期：2026-07-24
+- 页面公开事实核对日期：2026-07-24
+- 现有人工签字日期：2026-07-21
+- 本轮原因：内容版本更新后重新人工核对（旧签字已失效）
+- 既有核对范围：人工核对赠与、继承、共同车主、遗产、税费、留置权和车辆所有权转移要求。
+- 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。
+
+### 页面级检查
+
+- [ ] 页面标题、搜索意图和目标用户一致。
+- [ ] 办理步骤没有把州级规则写成全国统一规则。
+- [ ] 费用、期限、资格、材料、身份要求和法律后果均有就近官方来源。
+- [ ] 例外、失败原因和“不能代替政府/法律意见”的风险表达充分。
+- [ ] 官方入口仍可打开，且链接指向声明对应的业务正文或表格。
+
+### 逐条声明（14 条）
+
+#### 1. California 将普通 title transfer、gift、family transfer、inheritance 和 deceased-owner transfer 分成不同材料路径，不能只用一张 bill of sale 处理所有情况。
+
+- 官方来源：
+  - https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/
+  - https://www.dmv.ca.gov/portal/vehicle-registration/new-registration/special-circumstances/handling-a-deceased-persons-dmv-matters/
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 2. California 赠车受让人通常要用 REG 256 声明 gift 或适用的 family transfer 事实，赠与人仍应完成卖方责任解除步骤。
+
+- 官方来源：
+  - https://dmv.ca.gov/portal/file/statement-of-facts-reg-256-pdf/
+  - https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 3. Texas 机动车赠与 title application 必须配套 Form 14-317；只在 title 的价格栏写 gift 不能替代该州赠与申报。
+
+- 官方来源：
+  - https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle
+  - https://www.txdmv.gov/sites/default/files/form_files/14-317.pdf
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 4. Texas 在适用的无遗嘱继承场景提供 VTR-262 Affidavit of Heirship，但表格资格、签名和证明要求必须逐项满足。
+
+- 官方来源：
+  - https://www.txdmv.gov/sites/default/files/form_files/VTR-262.pdf
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 5. Washington 对 gift vehicle 仍要求单独判断 use tax；车辆被称为礼物并不自动证明整笔转移免税。
+
+- 官方来源：
+  - https://dol.wa.gov/vehicles-and-boats/vehicles/taxes-and-fees/use-tax
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 6. Florida 的一般 gift 免税规则要求转移时没有付款且新车主不承接 outstanding lien，并要在 title / registration 申请中申报适用 exemption。
+
+- 官方来源：
+  - https://www.flhsmv.gov/pdf/proc/tl/tl-08.pdf
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 7. Pennsylvania 要求赠车税务豁免使用 MV-13ST；受让人承接现有 lien 余额时，该余额属于 consideration 并可能产生 sales tax。
+
+- 官方来源：
+  - https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/use-tax/motor-vehicle-understated-value-program
+  - https://www.pa.gov/agencies/dmv/vehicle-services/title-and-registration/buying-or-selling-a-vehicle
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 8. Florida 为 surviving spouse 或适用继承人设置 HSMV 82152 等专用文件，死亡后转 title 不能直接套用普通私人出售表格。
+
+- 官方来源：
+  - https://www.flhsmv.gov/pdf/forms/82152.pdf
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 9. Pennsylvania 把 MV-13ST gift affidavit 与 deceased-owner transfer 文件分开；赠与、共同车主和死亡后转移应分别核对。
+
+- 官方来源：
+  - https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-forms/mv-13st.pdf
+  - https://www.pa.gov/content/dam/copapwp-pagov/en/penndot/documents/public/dvspubsforms/bmv/bmv-fact-sheets/fs-vehtrans.pdf
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 10. Virginia 将 deceased owner 的 ownership transfer 和 registration transfer 分成不同业务；完成 title 变更不自动完成 plate、registration 或保险处理。
+
+- 官方来源：
+  - https://www.dmv.virginia.gov/records/family-deceased/transfer-ownership
+  - https://www.dmv.virginia.gov/records/family-deceased/transfer-registration
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 11. Georgia 的 estate/inheritance 路径会根据 executor、administrator、heirship affidavit 和是否已有法院文件决定谁能签字及是否应先取得新 title。
+
+- 官方来源：
+  - https://dor.georgia.gov/vehicle-inherited-or-purchased-estate
+  - https://dor.georgia.gov/document/form/form-t-20-affidavit-inheritance/download
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 12. Georgia 使用 T-20 Affidavit of Inheritance，或没有 Letters of Testamentary 的继承人，必须先把车辆 title 到自己名下再出售或转让。
+
+- 官方来源：
+  - https://dor.georgia.gov/vehicle-inherited-or-purchased-estate
+  - https://dor.georgia.gov/document/form/form-t-20-affidavit-inheritance/download
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 13. New Jersey 的 vehicle gift、sales-tax exemption 和 transfer-on-death beneficiary 是不同规则，申请人应分别核对 title、税务和 beneficiary 文件。
+
+- 官方来源：
+  - https://www.nj.gov/mvc/vehicles/transowner.htm
+  - https://www.nj.gov/mvc/vehicletopics/taxexempt.htm
+  - https://www.nj.gov/mvc/pdf/vehicles/beneficiary_transfer_form.pdf
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 14. New Jersey TOD beneficiary 要在车主死亡后连同 title、death certificate 和 title application 使用；原 title 上的 lien 要先清偿，或按规则转到 sole owner。
+
+- 官方来源：
+  - https://www.nj.gov/mvc/vehicles/transowner.htm
+  - https://www.nj.gov/mvc/pdf/vehicles/beneficiary_transfer_form.pdf
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+### 签字结论
+
+- [ ] 通过
+- [ ] 退回修改
+- [ ] 部分通过（在备注中列出未通过声明）
+- 审核人真实姓名：
+- 审核日期：
+- 审核范围：
+- 结论与修改备注：
+
+## 7. 车辆 Title 丢了怎么补：谁能申请、Lien 与卖车前处理
+
+- 页面：/topics/lost-vehicle-title-replacement-electronic-title-lien-sale/
+- 类型：高风险专题
+- 当前内容版本日期：2026-07-24
+- 页面公开事实核对日期：2026-07-24
+- 现有人工签字日期：2026-07-21
+- 本轮原因：内容版本更新后重新人工核对（旧签字已失效）
+- 既有核对范围：人工核对遗失车辆所有权证、电子 title、留置权、补发和出售前处理要求。
+- 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。
+
+### 页面级检查
+
+- [ ] 页面标题、搜索意图和目标用户一致。
+- [ ] 办理步骤没有把州级规则写成全国统一规则。
+- [ ] 费用、期限、资格、材料、身份要求和法律后果均有就近官方来源。
+- [ ] 例外、失败原因和“不能代替政府/法律意见”的风险表达充分。
+- [ ] 官方入口仍可打开，且链接指向声明对应的业务正文或表格。
+
+### 逐条声明（10 条）
+
+#### 1. Title 与 registration 作用不同：registration 允许车辆按登记状态上路，title certificate 用来证明车辆所有权；补 registration 不会自动补出 ownership title。
+
+- 官方来源：
+  - https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-3-owning-a-vehicle
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 2. Replacement title 应从最后签发或记录所有权的州开始办理；车辆现在所在州通常不能直接替另一个州补发 title。
+
+- 官方来源：
+  - https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/
+  - https://www.txdmv.gov/faqs
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 3. Title 在卖方名下、转让尚未完成时丢失，通常应由记录中的原车主先补证，买方不能把它当作自己的 duplicate 申请。
+
+- 官方来源：
+  - https://dor.georgia.gov/replace-lost-or-stolen-title
+  - https://www.ilsos.gov/departments/vehicles/title-and-registration/duplicate-titles.html
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 4. Duplicate 或 replacement title 签发后，原 title 和此前 duplicate 通常失效；后来找回的旧证不能继续用于转让。
+
+- 官方来源：
+  - https://dmv.ny.gov/titles/certificate-of-title
+  - https://www.flhsmv.gov/motor-vehicles-tags-titles/liens-and-titles/paper-liens-and-titles/
+  - https://www.dmv.virginia.gov/vehicles/title/replacement
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 5. 补发件会按机动车或 title 记录中的地址寄送；地址已变更时，应先按签发州要求更新并等待记录生效。
+
+- 官方来源：
+  - https://dmv.ny.gov/titles/replace-a-title-certificate
+  - https://www.dmv.virginia.gov/online-services/replace-title
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 6. 记录中仍有 lien 时，申请人、lien release 形式和收件人会改变；部分州要求 lienholder 申请或把 replacement 寄给 lienholder。
+
+- 官方来源：
+  - https://www.txdmv.gov/motorists/buying-or-selling-a-vehicle/get-a-copy-of-your-title
+  - https://dol.wa.gov/vehicles-and-boats/vehicles/vehicle-registration/vehicle-title/replace-lost-title-or-registration
+  - https://www.nj.gov/mvc/vehicles/duptitle.htm
+  - https://www.mass.gov/how-to/replace-your-vehicles-certificate-of-title
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 7. Florida electronic title 是州数据库中的有效所有权记录；无 lien 时可转成纸质，私人出售与交给 Florida dealer trade-in 的纸质要求不同。
+
+- 官方来源：
+  - https://www.flhsmv.gov/motor-vehicles-tags-titles/liens-and-titles/paper-liens-and-titles/
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 8. 只补一张相同信息的 title 与修改姓名、owner、lienholder 或车辆信息不是同一事务，后者可能要走 corrected、substitute 或 transfer。
+
+- 官方来源：
+  - https://www.dmv.virginia.gov/vehicles/title/replacement
+  - https://www.dmv.virginia.gov/online-services/replace-title
+  - https://azdot.gov/faq/how-do-i-apply-duplicate-title-and-what-fee
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 9. Title 补发不一定现场交付：New York 明确现场不发证，California、Massachusetts 和 Virginia 也分别公布邮寄或处理时效。
+
+- 官方来源：
+  - https://dmv.ny.gov/titles/replace-a-title-certificate
+  - https://www.dmv.ca.gov/portal/vehicle-registration/titles/title-transfers-and-changes/
+  - https://www.mass.gov/how-to/replace-your-vehicles-certificate-of-title
+  - https://www.dmv.virginia.gov/online-services/replace-title
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 10. Washington 普通 lost-title 路径要求所有 registered owners 在 notary 面前签 Affidavit of Loss；仍在还贷时由 lienholder 申请，并另有费用更高且有资格限制的 Quick Title 路径。
+
+- 官方来源：
+  - https://dol.wa.gov/vehicles-and-boats/vehicles/vehicle-registration/vehicle-title/replace-lost-title-or-registration
+  - https://dol.wa.gov/vehicles-and-boats/vehicles/renew-or-replace-vehicle-tabs/affidavit-lossrelease-interest
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+### 签字结论
+
+- [ ] 通过
+- [ ] 退回修改
+- [ ] 部分通过（在备注中列出未通过声明）
+- 审核人真实姓名：
+- 审核日期：
+- 审核范围：
+- 结论与修改备注：
+
+## 8. 在美国改名后先去哪里更新：SSA、驾照和姓名文件顺序
+
+- 页面：/topics/name-change-chain/
+- 类型：高风险专题
+- 当前内容版本日期：2026-07-24
+- 页面公开事实核对日期：2026-07-24
+- 现有人工签字日期：2026-07-21
+- 本轮原因：内容版本更新后重新人工核对（旧签字已失效）
+- 既有核对范围：人工核对姓名变更、SSA 同步、身份文件衔接、翻译和各机构办理顺序。
+- 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。
+
+### 页面级检查
+
+- [ ] 页面标题、搜索意图和目标用户一致。
+- [ ] 办理步骤没有把州级规则写成全国统一规则。
+- [ ] 费用、期限、资格、材料、身份要求和法律后果均有就近官方来源。
+- [ ] 例外、失败原因和“不能代替政府/法律意见”的风险表达充分。
+- [ ] 官方入口仍可打开，且链接指向声明对应的业务正文或表格。
+
+### 逐条声明（13 条）
+
+#### 1. SSA 要求因结婚、离婚、法院命令等依法改名的人更新 Social Security 记录并申请姓名正确的 replacement card。
+
+- 官方来源：
+  - https://www.ssa.gov/faqs/en/questions/KA-01981.html
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 2. SSA corrected-card 申请通常要提供身份、新法定姓名和改名事件证据，并可能要证明公民身份或 lawful noncitizen status。
+
+- 官方来源：
+  - https://www.ssa.gov/faqs/en/questions/KA-01981.html
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 3. 改名文件不足以识别本人，或改名已超过两年（未满 18 岁为四年）时，SSA 会要求旧姓名身份证明，并可接受已经过期的旧姓名证件。
+
+- 官方来源：
+  - https://www.ssa.gov/ssnumber/ss5doc.htm
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 4. SSA 不接受普通 photocopy 或仅由 notary 认证的副本，要求原件或由记录保管机构认证的副本。
+
+- 官方来源：
+  - https://www.ssa.gov/ssnumber/ss5doc.htm
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 5. New York REAL ID / Enhanced 只能显示 full legal name，昵称、缩写名或 confirmation name 可能需要额外证明。
+
+- 官方来源：
+  - https://dmv.ny.gov/driver-license/enhanced-or-real-id
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 6. New York 因一次或多次婚姻、离婚等变更姓名时，要求提供每一次变更的文件来证明连续连接。
+
+- 官方来源：
+  - https://dmv.ny.gov/driver-license/enhanced-or-real-id
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 7. New York Standard document 的部分姓名变更路径要求新姓名已经在 SSA 记录中更新并与请求的 DMV 姓名准确匹配。
+
+- 官方来源：
+  - https://dmv.ny.gov/driver-license/change-information-on-dmv-photo-documents
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 8. California REAL ID 的 identity document 姓名与申请姓名不同时，需要相应 legal name change document。
+
+- 官方来源：
+  - https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 9. California 居住文件姓名因婚姻、离婚或法院命令而与关系追溯文件不同时，会要求额外姓名变更证明。
+
+- 官方来源：
+  - https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/real-id/real-id-checklist/
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 10. California 办理 DL/ID 姓名变更时会先与 SSA 核验新姓名；SSA 信息不匹配会导致申请不能按新姓名完成。
+
+- 官方来源：
+  - https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/updating-information-on-your-driver-license-or-identification-dl-id-card/
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 11. Florida 驾照或 ID 姓名变更要求先更新 SSA，并建议等待 24 至 48 小时；婚姻、离婚或法院改名要提交原件或 certified copy，church-issued marriage certificate 不被接受。
+
+- 官方来源：
+  - https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/u-s-citizen/
+  - https://www.flhsmv.gov/name-and-address-changes/
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 12. Massachusetts REAL ID 要求当前姓名与提交文件一致，不一致时要提供 marriage certificate 或 court document 等证明。
+
+- 官方来源：
+  - https://www.mass.gov/info-details/massachusetts-identification-id-requirements
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+#### 13. Pennsylvania REAL ID document requirements 将姓名变更文件作为身份材料不一致时的独立证明类别。
+
+- 官方来源：
+  - https://www.pa.gov/agencies/dmv/driver-services/real-id/real-id-document-check
+- [ ] 来源正文直接支持这条中文声明。
+- [ ] 数字、日期、适用对象、州别和例外均未被扩大或省略。
+- [ ] 页面给出的行动建议与来源机构的职责相符。
+- 审核备注：
+
+### 签字结论
+
+- [ ] 通过
+- [ ] 退回修改
+- [ ] 部分通过（在备注中列出未通过声明）
+- 审核人真实姓名：
+- 审核日期：
+- 审核范围：
+- 结论与修改备注：
+
+## 9. 老人/高龄驾驶人续驾照、视力测试和医疗审查怎么处理
 
 - 页面：/topics/older-driver-license-renewal-medical-review/
 - 类型：高风险专题
-- 上次证据复核日期：2026-07-21
+- 当前内容版本日期：2026-07-17
+- 页面公开事实核对日期：2026-07-17
+- 现有人工签字日期：2026-07-21
 - 本轮原因：30 天易变规则复核窗口
 - 既有核对范围：人工核对高龄驾驶人续期、视力检查、医疗复核、家属报告和驾驶限制。
 - 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。
@@ -358,11 +823,13 @@
 - 审核范围：
 - 结论与修改备注：
 
-## 7. 罚单、toll、保险 lapse 或 registration hold，先查 DMV 还是法院
+## 10. 罚单、toll、保险 lapse 或 registration hold，先查 DMV 还是法院
 
 - 页面：/topics/tickets-tolls-insurance-lapse-registration-hold/
 - 类型：高风险专题
-- 上次证据复核日期：2026-07-21
+- 当前内容版本日期：2026-07-17
+- 页面公开事实核对日期：2026-07-17
+- 现有人工签字日期：2026-07-21
 - 本轮原因：30 天易变规则复核窗口
 - 既有核对范围：人工核对罚单、收费公路、保险中断、车辆登记限制及不同机构的处理顺序。
 - 既有注意事项：站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。

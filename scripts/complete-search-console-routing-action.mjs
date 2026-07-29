@@ -7,7 +7,10 @@ import {
 } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SEARCH_CONSOLE_EDITORIAL_TARGETS } from './lib/search-console-cadence.mjs';
+import {
+  SEARCH_CONSOLE_EDITORIAL_TARGETS,
+  countsTowardEditorialCadence,
+} from './lib/search-console-cadence.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const routingReviewPath = path.resolve(
@@ -299,8 +302,10 @@ async function main() {
 
   const rollingStart = shiftCalendarDate(options.completedAt, -6);
   const month = options.completedAt.slice(0, 7);
-  const completedActions = actions.filter((entry) =>
-    isCalendarDate(entry?.completedAt),
+  const completedActions = actions.filter(
+    (entry) =>
+      countsTowardEditorialCadence(entry) &&
+      isCalendarDate(entry?.completedAt),
   );
   const weeklyCount = completedActions.filter(
     (entry) =>

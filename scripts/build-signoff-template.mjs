@@ -56,6 +56,23 @@ const title = {
 };
 const topicsByRoute = new Map(topics.map((topic) => [`/topics/${topic.slug}/`, topic]));
 
+function currentContentDate(page) {
+  return [page.dates?.modifiedAt, page.dates?.reviewedAt]
+    .filter(Boolean)
+    .sort()
+    .at(-1) ?? '未记录';
+}
+
+function reviewReason(page) {
+  if (page.reviewStatus === 'human-approval-stale') {
+    return '内容版本更新后重新人工核对（旧签字已失效）';
+  }
+  if (monthlyDueRoutes.has(page.route)) {
+    return '30 天易变规则复核窗口';
+  }
+  return '首次高风险人工核对';
+}
+
 const csvLines = [headers.join(',')];
 for (const page of highRiskPages) {
   const scopePrefix = page.pageType === 'topic' ? '专题：' : page.pageType === 'directory' ? '目录：' : '高风险页：';
@@ -63,7 +80,9 @@ for (const page of highRiskPages) {
     page.semanticReview?.scope ??
     `${scopePrefix}${page.route}`;
   const notes =
-    (monthlyDueRoutes.has(page.route)
+    (page.reviewStatus === 'human-approval-stale'
+      ? `现有人工签字日期为 ${page.semanticReview?.reviewedAt ?? '未记录'}，早于当前内容版本 ${currentContentDate(page)}。请对照当前正文重新打开逐条政府来源核对；发现问题先退回修改，完成当前版本核对后再填写新签字。`
+      : monthlyDueRoutes.has(page.route)
       ? `本页已进入 30 天易变规则复核窗口。请重新打开页面所列政府来源，记录规则是否变化；若有变化，先退回修改，再对修改后的内容签字。`
       : page.semanticReview?.notes) ||
     `请完成高风险事实逐条语义核查并确认：\n- 适用州范围\n- 适用身份/期限边界\n- 法律后果与失败场景\n- 官方来源逐条映射是否可追溯`;
@@ -94,6 +113,7 @@ const markdown = [
   '- 每条声明至少检查适用州、适用人群、期限或金额、例外、法律后果、来源是否仍有效，以及中文是否扩大了官方原意。',
   '- 发现一条关键事实无法由现行官方正文支持时，应选择“退回修改”或“部分通过”，不能为了让严格审计变绿而签字。',
   '- 月度复核日期保持空白，只有完成本轮核对后才能填写；不得沿用上一次日期。',
+  '- 高风险正文一旦晚于签字日期发生修改，旧签字会自动失效，页面保持 noindex；新签字日期不得早于当前内容版本。',
   '- 审核完成后，把签字表 CSV 填好，再执行 `SIGNOFF_CSV=docs/review-manual-signoff-template.csv npm run review:signoffs:import`。',
   '- 导入签字后，还要把页面公开的“事实核对”日期更新为同一真实日期；两处日期中任一处未更新，30 天门禁都不会延期。',
   '- 初次通过导入后，页面会在下一次构建时自动移除 `noindex` 并重新进入 sitemap；未签字页继续保留访问入口，但不提交搜索引擎收录。',
@@ -112,8 +132,10 @@ for (const [pageIndex, page] of highRiskPages.entries()) {
     '',
     `- 页面：${page.route}`,
     `- 类型：${page.pageType === 'topic' ? '高风险专题' : '高风险目录'}`,
-    `- 上次证据复核日期：${review.reviewedAt ?? '未记录'}`,
-    `- 本轮原因：${monthlyDueRoutes.has(page.route) ? '30 天易变规则复核窗口' : '首次高风险人工核对'}`,
+    `- 当前内容版本日期：${currentContentDate(page)}`,
+    `- 页面公开事实核对日期：${page.dates?.reviewedAt ?? '未记录'}`,
+    `- 现有人工签字日期：${review.reviewedAt ?? '未记录'}`,
+    `- 本轮原因：${reviewReason(page)}`,
     `- 既有核对范围：${review.scope ?? '未记录'}`,
     `- 既有注意事项：${review.notes ?? '未记录'}`,
     '',

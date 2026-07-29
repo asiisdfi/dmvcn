@@ -1,11 +1,28 @@
-import { HIGH_RISK_DIRECTORY_ROUTES, HIGH_RISK_TOPIC_SLUGS } from './editorial.ts';
+import { topics } from './content.ts';
+import {
+  HIGH_RISK_DIRECTORY_REVIEW_DATE,
+  HIGH_RISK_DIRECTORY_ROUTES,
+  HIGH_RISK_TOPIC_SLUGS,
+  SEARCH_CONSOLE_UPDATE_DATE,
+} from './editorial.ts';
 import { semanticReviews } from './review-registry.ts';
 
 export type PublicationGate = {
   route: string;
   requiresHumanApproval: boolean;
+  humanApprovalRecorded: boolean;
+  humanApprovalCurrent: boolean;
   humanApproved: boolean;
   indexable: boolean;
+  approvalReviewedAt: string | null;
+  contentModifiedAt: string | null;
+  contentReviewedAt: string | null;
+  contentRevisionAt: string | null;
+};
+
+type HighRiskContentRevision = {
+  modifiedAt: string;
+  reviewedAt: string;
 };
 
 function normalizeRoute(route: string): string {
@@ -25,16 +42,97 @@ export const NON_SEARCH_LANDING_ROUTES = new Set([
   '/sources/',
 ]);
 
+const HIGH_RISK_DIRECTORY_REVISIONS = new Map<string, HighRiskContentRevision>([
+  [
+    '/directories/costs-timing/',
+    {
+      modifiedAt: SEARCH_CONSOLE_UPDATE_DATE,
+      reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+    },
+  ],
+  [
+    '/directories/deadlines/',
+    {
+      modifiedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+    },
+  ],
+  [
+    '/directories/document-rules/',
+    {
+      modifiedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+    },
+  ],
+  [
+    '/directories/foreign-license/',
+    {
+      modifiedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+    },
+  ],
+  [
+    '/directories/identity-ssn/',
+    {
+      modifiedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+    },
+  ],
+]);
+
+const HIGH_RISK_TOPIC_REVISIONS = new Map<string, HighRiskContentRevision>(
+  topics
+    .filter((topic) => HIGH_RISK_TOPIC_SLUGS.has(topic.slug))
+    .map((topic) => [
+      `/topics/${topic.slug}/`,
+      {
+        modifiedAt: topic.modifiedAt,
+        reviewedAt: topic.reviewedAt,
+      },
+    ]),
+);
+
+export function getHighRiskContentRevision(
+  route: string,
+): HighRiskContentRevision | null {
+  const normalizedRoute = normalizeRoute(route);
+  return (
+    HIGH_RISK_DIRECTORY_REVISIONS.get(normalizedRoute) ??
+    HIGH_RISK_TOPIC_REVISIONS.get(normalizedRoute) ??
+    null
+  );
+}
+
 export function getPublicationGate(route: string): PublicationGate {
   const normalizedRoute = normalizeRoute(route);
   const requiresHumanApproval = HUMAN_REVIEW_REQUIRED_ROUTES.has(normalizedRoute);
   const review = semanticReviews[normalizedRoute];
-  const humanApproved = review?.status === 'human-approved' && review.method === 'human';
+  const revision = requiresHumanApproval
+    ? getHighRiskContentRevision(normalizedRoute)
+    : null;
+  const humanApprovalRecorded =
+    review?.status === 'human-approved' && review.method === 'human';
+  const contentRevisionAt = revision
+    ? [revision.modifiedAt, revision.reviewedAt].sort().at(-1) ?? null
+    : null;
+  const humanApprovalCurrent = Boolean(
+    humanApprovalRecorded &&
+      contentRevisionAt &&
+      isValidReviewDate(review.reviewedAt) &&
+      review.reviewedAt >= contentRevisionAt,
+  );
+  const humanApproved = humanApprovalCurrent;
 
   return {
     route: normalizedRoute,
     requiresHumanApproval,
+    humanApprovalRecorded,
+    humanApprovalCurrent,
     humanApproved,
+    approvalReviewedAt: humanApprovalRecorded ? review.reviewedAt : null,
+    contentModifiedAt: revision?.modifiedAt ?? null,
+    contentReviewedAt: revision?.reviewedAt ?? null,
+    contentRevisionAt,
     indexable:
       !NON_SEARCH_LANDING_ROUTES.has(normalizedRoute) &&
       (!requiresHumanApproval || humanApproved),
