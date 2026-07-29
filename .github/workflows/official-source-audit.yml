@@ -2,6 +2,11 @@ name: Official source audit
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/official-source-audit.yml
   schedule:
     - cron: '43 7 1,15 * *'
 
@@ -63,4 +68,3 @@ jobs:
             reports/private/official-link-audit-cache.json
           if-no-files-found: error
           retention-days: 45
-
