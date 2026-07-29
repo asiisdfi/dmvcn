@@ -1,6 +1,7 @@
 export const SITE_LAUNCH_DATE = '2026-07-13';
 export const EDITORIAL_POLICY_DATE = '2026-07-17';
-export const EDITORIAL_POLICY_MODIFIED_DATE = '2026-07-24';
+export const EDITORIAL_POLICY_MODIFIED_DATE = '2026-07-29';
+export const EDITORIAL_IDENTITY_MODIFIED_DATE = '2026-07-24';
 export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
@@ -34,6 +35,19 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-29',
+    title: '为易变规则设置 30 天事实复核期限',
+    summary:
+      '费用、期限、材料、身份、外国驾照、考试语言、联邦旅行证件以及车辆规则等 12 个聚合入口改用 30 天滚动复核。系统同时读取页面公开的事实核对日期和证据复核日期，并从较早的一天开始计时；只检查链接、改标题或改样式都不会延后截止日。首轮继续沿用各页已经公开的真实核对日期，没有把建立门禁的日期写成新一次事实复核。',
+    scope: [
+      '12 个易变规则聚合入口',
+      '30 天滚动事实复核',
+      '公开日期与证据日期双重校验',
+      '逾期停止构建和发布',
+      '高风险页面继续保留人工签字门禁',
+    ],
+  },
   {
     date: '2026-07-29',
     title: '更新 Colorado 与 Montana 官方材料并增加定时来源巡检',

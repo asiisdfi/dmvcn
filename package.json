@@ -8,7 +8,7 @@
   "scripts": {
     "build:brand": "node scripts/build-brand-assets.mjs",
     "dev": "astro dev",
-    "build": "npm run build:brand && npm run build:site && npm run audit:eeat && npm run plan:quality && npm run plan:review-cycles && npm run audit:review-cycles && npm run build:site",
+    "build": "npm run build:brand && npm run build:site && npm run audit:eeat && npm run plan:quality && npm run plan:review-cycles && npm run audit:review-cycles && npm run plan:signoff && npm run build:site",
     "build:site": "astro build",
     "preview": "astro preview",
     "audit:links": "node --experimental-strip-types scripts/audit-official-links.mjs",
@@ -25,6 +25,7 @@
     "audit:eeat": "node --experimental-strip-types scripts/audit-eeat.mjs",
     "audit:eeat:strict": "EEAT_STRICT=1 node --experimental-strip-types scripts/audit-eeat.mjs",
     "audit:review-cycles": "node scripts/audit-review-cycles.mjs",
+    "audit:review-cycles:test": "node scripts/audit-review-cycles-test.mjs",
     "audit:site": "node scripts/audit-site-integrity.mjs",
     "audit:internal-links": "node --experimental-strip-types scripts/audit-internal-link-architecture.mjs",
     "audit:intent": "node --experimental-strip-types scripts/audit-search-intent-overlap.mjs",
@@ -41,7 +42,7 @@
     "import:sc": "node scripts/import-search-console-export.mjs",
     "complete:sc-routing": "node scripts/complete-search-console-routing-action.mjs",
     "review:signoffs:import": "node --experimental-strip-types scripts/import-review-signoffs.mjs",
-    "verify:launch": "npm run audit:content && npm run audit:practice && npm run audit:source-freshness && npm run audit:search-console-import && npm run audit:search-console && npm run audit:growth && npm run audit:pulse && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:review-cycles && npm run audit:publication && npm run audit:site && npm run audit:internal-links && npm run audit:intent && npm run audit:intent:test && npm run audit:seo && npm run audit:metadata && npm run audit:performance && npm run audit:launch",
+    "verify:launch": "npm run audit:content && npm run audit:practice && npm run audit:source-freshness && npm run audit:search-console-import && npm run audit:search-console && npm run audit:growth && npm run audit:pulse && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:review-cycles && npm run audit:review-cycles:test && npm run audit:publication && npm run audit:site && npm run audit:internal-links && npm run audit:intent && npm run audit:intent:test && npm run audit:seo && npm run audit:metadata && npm run audit:performance && npm run audit:launch",
     "astro": "astro",
     "plan:signoff": "node scripts/build-signoff-template.mjs",
     "audit:publication": "node --experimental-strip-types scripts/audit-publication-gate.mjs"

@@ -2,15 +2,15 @@
 import { ArrowRight, FileSearch, ShieldCheck, UserRoundCheck, Wrench } from '@lucide/astro/icons';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContentMeta from '../components/ContentMeta.astro';
-import { EDITORIAL_AUTHOR, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, EDITORIAL_POLICY_MODIFIED_DATE } from '../data/editorial';
+import { EDITORIAL_AUTHOR, EDITORIAL_IDENTITY_MODIFIED_DATE, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE } from '../data/editorial';
 ---
 
 <BaseLayout
   title="工具使用说明"
   description="DMV中文办事库如何使用搜索、链接检查和内容整理工具，以及这些工具不能替代什么。"
   publishedAt={EDITORIAL_POLICY_DATE}
-  modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE}
-  reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE}
+  modifiedAt={EDITORIAL_IDENTITY_MODIFIED_DATE}
+  reviewedAt={EDITORIAL_IDENTITY_MODIFIED_DATE}
 >
   <section class="page-hero">
     <div class="section">
@@ -19,7 +19,7 @@ import { EDITORIAL_AUTHOR, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, EDITORIAL_POL
       <h1>工具使用说明</h1>
       <p class="lead">整理过程中会使用搜索、链接检查、脚本和生成式 AI，帮助发现变化、检查结构和准备初稿。最终结论必须回到政府来源，发布、更新与纠错责任由 DMVCN 官方编辑承担。</p>
       <div class="article-meta">
-        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE} reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE} />
+        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_IDENTITY_MODIFIED_DATE} reviewedAt={EDITORIAL_IDENTITY_MODIFIED_DATE} />
       </div>
     </div>
   </section>

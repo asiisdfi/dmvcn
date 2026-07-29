@@ -2,13 +2,17 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { topics } from '../src/data/content.ts';
+import { currentCalendarDate } from './lib/review-cycles.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const reportPath = path.join(projectRoot, 'reports', 'eeat-inventory.json');
+const reviewCyclePath = path.join(projectRoot, 'reports', 'review-cycle.json');
 const docsDir = path.join(projectRoot, 'docs');
 const outputPath = path.join(docsDir, 'review-manual-signoff-template.csv');
 const packagePath = path.join(docsDir, 'review-manual-signoff-package.md');
-const today = (process.env.SIGNOFF_PLAN_DATE || new Date().toISOString()).slice(0, 10);
+const today = (
+  process.env.SIGNOFF_PLAN_DATE || currentCalendarDate()
+).slice(0, 10);
 
 function csvCell(value) {
   const text = String(value ?? '').replace(/"/g, '""');
@@ -18,15 +22,29 @@ function csvCell(value) {
 const headers = ['route', 'reviewer', 'reviewedAt', 'scope', 'notes'];
 
 let eeat;
+let reviewCycle;
 try {
   eeat = JSON.parse(await readFile(reportPath, 'utf8'));
+  reviewCycle = JSON.parse(await readFile(reviewCyclePath, 'utf8'));
 } catch (error) {
-  console.error('请先执行 npm run build && npm run audit:eeat，生成 reports/eeat-inventory.json。');
+  console.error('请先执行 npm run build，生成 E-E-A-T 与事实复核日历。');
   throw error;
 }
 
+const monthlyDueRoutes = new Set(
+  (reviewCycle.queues?.monthlyVolatile ?? [])
+    .filter((item) => ['due-within-30-days', 'overdue'].includes(item.state))
+    .map((item) => item.route),
+);
 const highRiskPages = (eeat.pages ?? [])
-  .filter((page) => page.risk === 'high' && page.reviewStatus !== 'human-approved')
+  .filter(
+    (page) =>
+      page.risk === 'high' &&
+      (
+        page.reviewStatus !== 'human-approved' ||
+        monthlyDueRoutes.has(page.route)
+      ),
+  )
   .sort((a, b) => {
     if (a.pageType !== b.pageType) return a.pageType.localeCompare(b.pageType);
     return a.route.localeCompare(b.route);
@@ -41,16 +59,19 @@ const topicsByRoute = new Map(topics.map((topic) => [`/topics/${topic.slug}/`, t
 const csvLines = [headers.join(',')];
 for (const page of highRiskPages) {
   const scopePrefix = page.pageType === 'topic' ? '专题：' : page.pageType === 'directory' ? '目录：' : '高风险页：';
-  const scope = `${scopePrefix}${page.route}`;
+  const scope =
+    page.semanticReview?.scope ??
+    `${scopePrefix}${page.route}`;
   const notes =
-    page.notes ||
+    (monthlyDueRoutes.has(page.route)
+      ? `本页已进入 30 天易变规则复核窗口。请重新打开页面所列政府来源，记录规则是否变化；若有变化，先退回修改，再对修改后的内容签字。`
+      : page.semanticReview?.notes) ||
     `请完成高风险事实逐条语义核查并确认：\n- 适用州范围\n- 适用身份/期限边界\n- 法律后果与失败场景\n- 官方来源逐条映射是否可追溯`;
-  const reviewedAt = page.semanticReview?.reviewedAt ?? today;
 
   const row = [
     page.route,
     '',
-    reviewedAt,
+    '',
     scope,
     notes,
   ].map(csvCell);
@@ -72,8 +93,10 @@ const markdown = [
   '- 审核人不需要具备虚构的 DMV、律师或移民顾问资历；如无相应资历，不得在姓名或备注中暗示专业背书。',
   '- 每条声明至少检查适用州、适用人群、期限或金额、例外、法律后果、来源是否仍有效，以及中文是否扩大了官方原意。',
   '- 发现一条关键事实无法由现行官方正文支持时，应选择“退回修改”或“部分通过”，不能为了让严格审计变绿而签字。',
+  '- 月度复核日期保持空白，只有完成本轮核对后才能填写；不得沿用上一次日期。',
   '- 审核完成后，把签字表 CSV 填好，再执行 `SIGNOFF_CSV=docs/review-manual-signoff-template.csv npm run review:signoffs:import`。',
-  '- 通过导入后，页面会在下一次构建时自动移除 `noindex` 并重新进入 sitemap；未签字页继续保留访问入口，但不提交搜索引擎收录。',
+  '- 导入签字后，还要把页面公开的“事实核对”日期更新为同一真实日期；两处日期中任一处未更新，30 天门禁都不会延期。',
+  '- 初次通过导入后，页面会在下一次构建时自动移除 `noindex` 并重新进入 sitemap；未签字页继续保留访问入口，但不提交搜索引擎收录。',
   '',
 ];
 
@@ -89,7 +112,8 @@ for (const [pageIndex, page] of highRiskPages.entries()) {
     '',
     `- 页面：${page.route}`,
     `- 类型：${page.pageType === 'topic' ? '高风险专题' : '高风险目录'}`,
-    `- AI 辅助核对日期：${review.reviewedAt ?? '未记录'}`,
+    `- 上次证据复核日期：${review.reviewedAt ?? '未记录'}`,
+    `- 本轮原因：${monthlyDueRoutes.has(page.route) ? '30 天易变规则复核窗口' : '首次高风险人工核对'}`,
     `- 既有核对范围：${review.scope ?? '未记录'}`,
     `- 既有注意事项：${review.notes ?? '未记录'}`,
     '',
@@ -149,5 +173,5 @@ for (const [pageIndex, page] of highRiskPages.entries()) {
 
 await writeFile(packagePath, `${markdown.join('\n').trimEnd()}\n`, 'utf8');
 
-console.log(`已生成 ${highRiskPages.length} 条高风险人工签字模板：${outputPath}`);
+console.log(`已生成 ${highRiskPages.length} 条高风险人工签字模板，其中 ${highRiskPages.filter((page) => monthlyDueRoutes.has(page.route)).length} 条来自月度易变规则队列：${outputPath}`);
 console.log(`已生成逐条人工语义复核包：${packagePath}`);

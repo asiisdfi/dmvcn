@@ -227,11 +227,14 @@ type OfficialLinkAuditReport = {
 type ReviewCycleItem = {
   route: string;
   risk: Risk;
+  cycleDays: number;
   reviewAnchorDate: string;
   reviewDue: string;
   daysUntilDue: number;
   overdueDays: number;
+  reviewPolicy: 'monthly-volatile' | 'risk-based';
   state: 'current' | 'due-within-30-days' | 'overdue' | 'missing-review-date';
+  volatileLabel: string | null;
 };
 
 type ReviewCycleReport = {
@@ -243,9 +246,16 @@ type ReviewCycleReport = {
     overdue: number;
     missingReviewDate: number;
     earliestDue: string | null;
+    monthlyVolatileDueWithin30Days: number;
+    monthlyVolatileOverdue: number;
+    monthlyVolatilePages: number;
+    valid: number;
   };
   policy: {
     cycleDays: Record<Risk, number>;
+    monthlyVolatile: {
+      cycleDays: number;
+    };
   };
   queues: {
     overdue: ReviewCycleItem[];
@@ -254,6 +264,7 @@ type ReviewCycleReport = {
   };
   status: {
     gatePassed: boolean;
+    monthlyVolatileCurrent: boolean;
   };
 };
 
@@ -672,10 +683,10 @@ const scActionLabel: Record<string, string> = {
             </span>
           </div>
           <h2>页面事实复核日历</h2>
-          <p>每个页面按风险级别设置最长复核周期：高风险 {reviewCycle.policy.cycleDays.high} 天、中等 {reviewCycle.policy.cycleDays.medium} 天、标准 {reviewCycle.policy.cycleDays.standard} 天、政策 {reviewCycle.policy.cycleDays.policy} 天。页面超过截止日后会停止下一次构建和发布。</p>
+          <p>每个页面按风险级别设置最长复核周期：高风险 {reviewCycle.policy.cycleDays.high} 天、中等 {reviewCycle.policy.cycleDays.medium} 天、标准 {reviewCycle.policy.cycleDays.standard} 天、政策 {reviewCycle.policy.cycleDays.policy} 天。费用、期限、材料、身份和车辆规则等 {reviewCycle.summary.monthlyVolatilePages} 个易变入口使用更短的 {reviewCycle.policy.monthlyVolatile.cycleDays} 天周期。页面超过截止日后会停止下一次构建和发布。</p>
           <div class="registry-summary eeat-summary" aria-label="页面事实复核周期概览">
             <div>
-              <strong>{reviewCycle.summary.current}</strong>
+              <strong>{reviewCycle.summary.valid}</strong>
               <span>当前有效</span>
             </div>
             <div>
@@ -694,6 +705,10 @@ const scActionLabel: Record<string, string> = {
               <strong>{reviewCycle.summary.earliestDue ?? '—'}</strong>
               <span>下一最早截止</span>
             </div>
+            <div>
+              <strong>{reviewCycle.summary.monthlyVolatileOverdue}/{reviewCycle.summary.monthlyVolatilePages}</strong>
+              <span>易变规则逾期</span>
+            </div>
           </div>
           <div class="eeat-table-wrap review-cycle-table-wrap">
             <table class="eeat-table review-cycle-table">
@@ -701,6 +716,7 @@ const scActionLabel: Record<string, string> = {
                 <tr>
                   <th>下一批页面</th>
                   <th>风险</th>
+                  <th>复核策略</th>
                   <th>复核计时起点</th>
                   <th>最晚复核</th>
                   <th>状态</th>
@@ -709,8 +725,9 @@ const scActionLabel: Record<string, string> = {
               <tbody>
                 {nextReviewPages.map((item) => (
                   <tr>
-                    <td data-label="页面"><a href={item.route}>{formatTitle(inventory.find((page) => page.route === item.route)!)}</a></td>
+                    <td data-label="页面"><a href={item.route}>{item.volatileLabel ?? formatTitle(inventory.find((page) => page.route === item.route)!)}</a></td>
                     <td data-label="风险"><span class={item.state === 'overdue' ? 'status-chip warn' : 'status-chip'}>{riskLabel[item.risk]}</span></td>
+                    <td data-label="复核策略">{item.reviewPolicy === 'monthly-volatile' ? `${item.volatileLabel} / ${item.cycleDays} 天` : `${item.cycleDays} 天`}</td>
                     <td data-label="复核计时起点">{item.reviewAnchorDate}</td>
                     <td data-label="最晚复核">{item.reviewDue}</td>
                     <td data-label="状态">{item.overdueDays > 0 ? `逾期 ${item.overdueDays} 天` : `剩余 ${item.daysUntilDue} 天`}</td>
@@ -719,7 +736,7 @@ const scActionLabel: Record<string, string> = {
               </tbody>
             </table>
           </div>
-          <p class="small-note">办事页同时比较页面公开的事实核对日期和证据复核日期，并从较早的一天开始计时。只修改样式、标题或构建代码不会延后截止日。</p>
+          <p class="small-note">当前有 {reviewCycle.summary.monthlyVolatileDueWithin30Days} 个易变规则入口将在 30 天内到期。办事页同时比较页面公开的事实核对日期和证据复核日期，并从较早的一天开始计时；只修改样式、标题或构建代码不会延后截止日。</p>
         </section>
 
         <section class="panel">

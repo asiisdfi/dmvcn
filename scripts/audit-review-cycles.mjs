@@ -48,7 +48,7 @@ const errors = [];
 if (!isCalendarDate(asOf) || report.asOf !== asOf) {
   errors.push(`Review-cycle report date must be ${asOf}.`);
 }
-if (report.schemaVersion !== 1) {
+if (report.schemaVersion !== 2) {
   errors.push('Unsupported review-cycle schema version.');
 }
 if (!same(report.policy, expected.policy)) {
@@ -69,6 +69,9 @@ if (!same(report.queues, expected.queues)) {
 if (!same(report.status, expected.status)) {
   errors.push('Review-cycle status is inconsistent.');
 }
+if (!same(report.errors, expected.errors)) {
+  errors.push('Monthly volatile-review policy errors are inconsistent.');
+}
 if ((eeat.pages ?? []).some((page) => !page.pass)) {
   errors.push('E-E-A-T inventory contains pages that do not pass.');
 }
@@ -82,6 +85,14 @@ if (expected.summary.overdue > 0) {
     `${expected.summary.overdue} page(s) exceeded their maximum fact-review cycle.`,
   );
 }
+if (expected.summary.monthlyVolatileOverdue > 0) {
+  errors.push(
+    `${expected.summary.monthlyVolatileOverdue} monthly volatile-review page(s) are overdue.`,
+  );
+}
+if (expected.errors.length > 0) {
+  errors.push(...expected.errors);
+}
 if (!expected.status.officialSourceCurrent) {
   errors.push('Monthly official-source coverage is stale or incomplete.');
 }
@@ -93,8 +104,11 @@ console.log('# Fact Review Cycle Gate');
 console.log('');
 console.log(`As of: ${asOf}`);
 console.log(`Pages: ${expected.summary.pages}`);
-console.log(`Current: ${expected.summary.current}`);
+console.log(`Valid: ${expected.summary.valid}`);
 console.log(`Due within 30 days: ${expected.summary.dueWithin30Days}`);
+console.log(
+  `Monthly volatile reviews: ${expected.summary.monthlyVolatilePages} (${expected.summary.monthlyVolatileOverdue} overdue)`,
+);
 console.log(`Overdue: ${expected.summary.overdue}`);
 console.log(`Missing review date: ${expected.summary.missingReviewDate}`);
 console.log(`Earliest due: ${expected.summary.earliestDue ?? 'none'}`);
@@ -110,4 +124,4 @@ if (errors.length > 0) {
 }
 
 console.log('');
-console.log('Visible dates, risk cycles, review queues, and source baseline passed.');
+console.log('Visible dates, monthly volatile reviews, risk cycles, review queues, and source baseline passed.');

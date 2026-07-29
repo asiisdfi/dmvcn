@@ -3,13 +3,13 @@ import { ArrowRight, BadgeCheck, BookOpenCheck, Scale, Wrench } from '@lucide/as
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentMeta from '../../components/ContentMeta.astro';
 import { SITE } from '../../data/content';
-import { EDITORIAL_AUTHOR, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, EDITORIAL_POLICY_MODIFIED_DATE } from '../../data/editorial';
+import { EDITORIAL_AUTHOR, EDITORIAL_IDENTITY_MODIFIED_DATE, EDITORIAL_LINKS, EDITORIAL_POLICY_DATE } from '../../data/editorial';
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const schema = {
   '@type': 'ProfilePage',
   dateCreated: EDITORIAL_POLICY_DATE,
-    dateModified: EDITORIAL_POLICY_MODIFIED_DATE,
+    dateModified: EDITORIAL_IDENTITY_MODIFIED_DATE,
   mainEntity: {
     '@type': 'Organization',
     name: EDITORIAL_AUTHOR.name,
@@ -28,8 +28,8 @@ const schema = {
   title={EDITORIAL_AUTHOR.name}
   description="了解 DMVCN 官方编辑的职责、身份边界、资料整理方法和纠错渠道。"
   publishedAt={EDITORIAL_POLICY_DATE}
-  modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE}
-  reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE}
+  modifiedAt={EDITORIAL_IDENTITY_MODIFIED_DATE}
+  reviewedAt={EDITORIAL_IDENTITY_MODIFIED_DATE}
   schema={schema}
 >
   <section class="page-hero">
@@ -39,7 +39,7 @@ const schema = {
       <h1>{EDITORIAL_AUTHOR.name}</h1>
       <p class="lead">{EDITORIAL_AUTHOR.description}</p>
       <div class="article-meta">
-        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE} reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE} />
+        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_IDENTITY_MODIFIED_DATE} reviewedAt={EDITORIAL_IDENTITY_MODIFIED_DATE} />
       </div>
     </div>
   </section>
