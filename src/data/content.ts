@@ -21379,7 +21379,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '车辆检查',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-13',
-    reviewedAt: '2026-07-21',
+    reviewedAt: '2026-07-29',
     description:
       '美国没有全国统一的车辆年检规则。买车、搬州、续 registration 或从外州带车时，先分清 safety inspection、emissions / smog check、VIN verification 和 registration hold，才能知道该找 DMV、排放项目、检查站还是 county office。',
     whoNeedsIt: [

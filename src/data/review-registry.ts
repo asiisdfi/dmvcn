@@ -361,12 +361,12 @@ export const semanticReviews: Record<string, SemanticReview> = {
   '/topics/vehicle-inspection-emissions-smog-vin-check/': {
     status: 'evidence-checked',
     method: 'ai-assisted',
-    reviewedAt: '2026-07-21',
+    reviewedAt: '2026-07-29',
     reviewer: 'Codex AI 辅助证据核查',
     scope:
       '逐条比对 safety inspection、emissions / smog、VIN verification、州县适用范围、registration renewal 阻断和失败后处理。',
     notes:
-      '确认 Texas 2025 safety inspection 变化、当前 17 个 emissions counties 与 Bexar County 2026-11-01 生效日期；Florida 仅按 VIN / odometer verification 表达。',
+      '2026-07-29 复核后规则未变：Texas 仍为 17 个 emissions counties，Bexar County 仍于 2026-11-01 加入；North Carolina 当前为 19 个 emissions counties，Florida 仍按 VIN / odometer verification 表达。',
   },
   '/topics/sold-car-release-liability-plates-insurance/': {
     status: 'evidence-checked',

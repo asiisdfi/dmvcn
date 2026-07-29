@@ -4147,9 +4147,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-21",
+      "reviewedAt": "2026-07-29",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-19",
+      "reviewDue": "2026-10-27",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -4158,7 +4158,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "确认 Texas 2025 safety inspection 变化、当前 17 个 emissions counties 与 Bexar County 2026-11-01 生效日期；Florida 仅按 VIN / odometer verification 表达。",
+      "notes": "2026-07-29 复核后规则未变：Texas 仍为 17 个 emissions counties，Bexar County 仍于 2026-11-01 加入；North Carolina 当前为 19 个 emissions counties，Florida 仍按 VIN / odometer verification 表达。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {
