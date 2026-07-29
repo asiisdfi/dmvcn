@@ -10,13 +10,13 @@ export const HIGH_RISK_DIRECTORY_FINGERPRINTS: HighRiskDirectoryFingerprint[] = 
     route: '/directories/costs-timing/',
     rowClass: 'cost-timing-row',
     claimCount: 172,
-    currentFingerprint: '5a7c27951f1c74d602e86cb5857746f4c984ba431150161ff4604ab40e3c8507',
+    currentFingerprint: '78d9ebed6895a9fedea0fdf20922905aeed27bda5da1d64252bdb8221ce65a84',
   },
   {
     route: '/directories/deadlines/',
     rowClass: 'deadline-row',
     claimCount: 126,
-    currentFingerprint: '4a4086f3c12f1234b7c13a6cb0062664ab64ee4af3a47fba5506369711f09512',
+    currentFingerprint: '16dd88469e8da47918da3d94e09b71a0e8a3975adb36040a19729fdf7ef262d7',
   },
   {
     route: '/directories/document-rules/',

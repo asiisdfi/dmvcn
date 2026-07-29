@@ -92,12 +92,12 @@
     "reviewAnchor": "办事页使用公开事实核对日期与证据复核日期中较早的一天计时；政策页使用公开事实核对日期。"
   },
   "source": {
-    "eeatGeneratedAt": "2026-07-29T16:00:28.835Z",
+    "eeatGeneratedAt": "2026-07-29T16:21:42.871Z",
     "officialAuditAgeDays": 1,
     "officialAuditDate": "2026-07-29",
     "officialInventoryFingerprint": "3158ac41ad08dc5ec00fef374a4e8ece5cc237031bb52ddc07be23d7c7189de8",
     "officialUrls": 1662,
-    "pageFingerprint": "b8618c7928395937164127c6619ceba39ae53f457b7f6c2b33b0520e070e2ef8"
+    "pageFingerprint": "d035dd21f8c6ac550f0f02b7d0f8aabd6d50d8e76be41796e638b7fe6d4d2fa8"
   },
   "summary": {
     "current": 154,
@@ -208,7 +208,7 @@
         "volatileCategory": "deadlines",
         "volatileLabel": "期限与宽限期",
         "volatileScope": "搬州、改址、续期、转入、材料有效期和宽限期",
-        "visibleReviewedAt": "2026-07-21"
+        "visibleReviewedAt": "2026-07-30"
       },
       {
         "cycleDays": 30,
@@ -450,7 +450,7 @@
         "volatileCategory": "deadlines",
         "volatileLabel": "期限与宽限期",
         "volatileScope": "搬州、改址、续期、转入、材料有效期和宽限期",
-        "visibleReviewedAt": "2026-07-21"
+        "visibleReviewedAt": "2026-07-30"
       },
       {
         "cycleDays": 30,
@@ -1335,7 +1335,7 @@
       "volatileCategory": "deadlines",
       "volatileLabel": "期限与宽限期",
       "volatileScope": "搬州、改址、续期、转入、材料有效期和宽限期",
-      "visibleReviewedAt": "2026-07-21"
+      "visibleReviewedAt": "2026-07-30"
     },
     {
       "cycleDays": 120,
@@ -3059,13 +3059,13 @@
     },
     {
       "cycleDays": 90,
-      "daysUntilDue": 81,
+      "daysUntilDue": 90,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "state-overview",
-      "evidenceReviewedAt": "2026-07-21",
-      "reviewAnchorDate": "2026-07-21",
-      "reviewDue": "2026-10-19",
+      "evidenceReviewedAt": "2026-07-30",
+      "reviewAnchorDate": "2026-07-30",
+      "reviewDue": "2026-10-28",
       "reviewMethod": "ai-assisted",
       "reviewPolicy": "risk-based",
       "reviewStatus": "ai-assisted",
@@ -3075,17 +3075,17 @@
       "volatileCategory": null,
       "volatileLabel": null,
       "volatileScope": null,
-      "visibleReviewedAt": "2026-07-21"
+      "visibleReviewedAt": "2026-07-30"
     },
     {
       "cycleDays": 90,
-      "daysUntilDue": 81,
+      "daysUntilDue": 90,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "state-real-id",
-      "evidenceReviewedAt": "2026-07-21",
-      "reviewAnchorDate": "2026-07-21",
-      "reviewDue": "2026-10-19",
+      "evidenceReviewedAt": "2026-07-30",
+      "reviewAnchorDate": "2026-07-30",
+      "reviewDue": "2026-10-28",
       "reviewMethod": "ai-assisted",
       "reviewPolicy": "risk-based",
       "reviewStatus": "ai-assisted",
@@ -3095,7 +3095,7 @@
       "volatileCategory": null,
       "volatileLabel": null,
       "volatileScope": null,
-      "visibleReviewedAt": "2026-07-21"
+      "visibleReviewedAt": "2026-07-30"
     },
     {
       "cycleDays": 90,
@@ -4439,13 +4439,13 @@
     },
     {
       "cycleDays": 180,
-      "daysUntilDue": 179,
+      "daysUntilDue": 180,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "trust",
       "evidenceReviewedAt": null,
-      "reviewAnchorDate": "2026-07-29",
-      "reviewDue": "2027-01-25",
+      "reviewAnchorDate": "2026-07-30",
+      "reviewDue": "2027-01-26",
       "reviewMethod": null,
       "reviewPolicy": "risk-based",
       "reviewStatus": "not-required",
@@ -4455,7 +4455,7 @@
       "volatileCategory": null,
       "volatileLabel": null,
       "volatileScope": null,
-      "visibleReviewedAt": "2026-07-29"
+      "visibleReviewedAt": "2026-07-30"
     }
   ],
   "status": {

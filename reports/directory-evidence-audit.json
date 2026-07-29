@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T12:04:57.838Z",
+    "generatedAt": "2026-07-29T16:21:46.845Z",
     "pages": 5,
     "claims": 822,
     "statesCovered": 50,
@@ -1731,8 +1731,8 @@
     {
       "page": "costs-timing",
       "stateId": "oklahoma",
-      "category": "临时凭证",
-      "claim": "办结后保存 temporary credential 和交易编号，30 天未收到实体卡时用 Navigate 查状态并联系 Service Oklahoma",
+      "category": "邮寄 / 卡片",
+      "claim": "实体卡通常在 30 天内寄达，现场或线上签发的 temporary paper credential 不能作为 TSA 登机身份证件",
       "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
       "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
       "themes": [
@@ -1748,15 +1748,13 @@
       "page": "costs-timing",
       "stateId": "oklahoma",
       "category": "邮寄 / 卡片",
-      "claim": "实体卡通常在 30 天内寄达，现场或线上签发的 temporary paper credential 不能作为 TSA 登机身份证件",
-      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
+      "claim": "实体卡通常会在 30 天内邮寄到达，超过 30 天仍未收到时，在 Navigate 查看卡片状态并联系 Service Oklahoma",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/new-dl.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma New License and ID",
       "themes": [
-        "temporary-credential"
+        "processing-or-mail"
       ],
-      "failedThemes": [
-        "temporary-credential"
-      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },
@@ -3822,15 +3820,13 @@
       "page": "deadlines",
       "stateId": "oklahoma",
       "category": "处理 / 邮寄",
-      "claim": "办结后保存 temporary credential 和交易编号，30 天未收到实体卡时用 Navigate 查状态并联系 Service Oklahoma",
-      "sourceUrl": "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
-      "sourceLabel": "对应官方来源：Service Oklahoma REAL ID",
+      "claim": "实体卡通常会在 30 天内邮寄到达，超过 30 天仍未收到时，在 Navigate 查看卡片状态并联系 Service Oklahoma",
+      "sourceUrl": "https://oklahoma.gov/service/popular-services/new-dl.html",
+      "sourceLabel": "对应官方来源：Service Oklahoma New License and ID",
       "themes": [
-        "temporary-credential"
+        "processing-or-mail"
       ],
-      "failedThemes": [
-        "temporary-credential"
-      ],
+      "failedThemes": [],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"
     },

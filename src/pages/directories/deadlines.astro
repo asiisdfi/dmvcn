@@ -1,7 +1,7 @@
 ---
 import {
   DEADLINES_MODIFIED_DATE,
-  HIGH_RISK_DIRECTORY_REVIEW_DATE,
+  DEADLINES_REVIEW_DATE,
   SITE_LAUNCH_DATE,
 } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
@@ -195,7 +195,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 期限提醒表" description="按州查找 DMV 地址变更、搬州、续期、材料时效和处理时间等官方期限提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DEADLINES_MODIFIED_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE}
+<BaseLayout title="DMV 期限提醒表" description="按州查找 DMV 地址变更、搬州、续期、材料时效和处理时间等官方期限提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DEADLINES_MODIFIED_DATE} reviewedAt={DEADLINES_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">
@@ -206,7 +206,7 @@ const schema = {
       <p class="eyebrow">期限表</p>
       <h1>DMV 期限提醒表</h1>
       <p class="lead">汇总州资料里最容易错过的天数、月份和处理窗口。先看提醒，再回到州官方页面核对费用、预约和个人资格。</p>
-      <ReviewBadge date={HIGH_RISK_DIRECTORY_REVIEW_DATE} />
+      <ReviewBadge date={DEADLINES_REVIEW_DATE} />
       <div class="page-ledger" aria-label="期限提醒表概况">
         <div>
           <strong>{rows.length} 州</strong>

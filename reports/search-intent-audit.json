@@ -85,7 +85,7 @@
       "title": "50 州 REAL ID 官方入口表 | DMV中文办事库",
       "heading": "50 州 REAL ID 官方入口表",
       "contentChars": 5512,
-      "contentHash": "2248aa8e3cab1cff17a3846d1be9f778a0b1fedc9413a0c80c490b7147ea540c"
+      "contentHash": "7ce562df24e62fcebd4df5d3784b472d344e6dba8d73c886aabded1492234192"
     },
     {
       "route": "/directories/tests-permits/",
@@ -668,16 +668,16 @@
       "class": "state-overview",
       "title": "俄克拉荷马州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "俄克拉荷马州 DMV 办事总览",
-      "contentChars": 8585,
-      "contentHash": "a5cfe6e4e3ad8c5db5dd5b705cf77511d2f063bd634e4e2c0713a0e85e63c5d9"
+      "contentChars": 8610,
+      "contentHash": "8d2074d5625b3c20627640528f59b1d1f9fbbf5a029c4e31c266472c5126bfe8"
     },
     {
       "route": "/states/oklahoma/real-id/",
       "class": "state-real-id",
       "title": "俄克拉荷马州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "俄克拉荷马州 REAL ID 中文材料清单",
-      "contentChars": 9942,
-      "contentHash": "2f9309ee8ac1090802d283832261522b4143abe749b886e85c374151303989c5"
+      "contentChars": 9889,
+      "contentHash": "dd9ef4a831e82d85f5a4e51d06f3c79e9c33ffe0de273800fa0500066b9c8915"
     },
     {
       "route": "/states/oregon/",

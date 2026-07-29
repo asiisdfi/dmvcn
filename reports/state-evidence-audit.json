@@ -1,10 +1,10 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T12:04:58.815Z",
+    "generatedAt": "2026-07-29T16:21:47.851Z",
     "pages": 100,
     "states": 50,
     "claims": 4744,
-    "links": 9323,
+    "links": 9321,
     "aiAssistedClaims": 4744,
     "aiAssistedPages": 100,
     "errors": 0,
@@ -16,7 +16,7 @@
       },
       "real-id": {
         "claims": 2500,
-        "links": 5025,
+        "links": 5023,
         "states": 50
       }
     }
@@ -64121,21 +64121,16 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "办结后保存 temporary credential 和交易编号，30 天未收到实体卡时用 Navigate 查状态并联系 Service Oklahoma",
+      "claim": "实体卡通常会在 30 天内邮寄到达，超过 30 天仍未收到时，在 Navigate 查看卡片状态并联系 Service Oklahoma",
       "sourceUrls": [
-        "https://oklahoma.gov/service/popular-services/real-id-checklist.html",
-        "https://oklahoma.gov/service/all-pages/renew-and-replace-driver-online.html",
         "https://oklahoma.gov/service/popular-services/new-dl.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Service Oklahoma REAL ID",
-        "对应官方来源：Service Oklahoma Renew or Replace Driver License",
         "对应官方来源：Service Oklahoma New License and ID"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
-        "processing-or-mail",
-        "temporary-credential"
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true

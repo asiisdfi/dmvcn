@@ -3,6 +3,7 @@ import {
   COSTS_TIMING_MODIFIED_DATE,
   COSTS_TIMING_REVIEW_DATE,
   DEADLINES_MODIFIED_DATE,
+  DEADLINES_REVIEW_DATE,
   DOCUMENT_RULES_MODIFIED_DATE,
   HIGH_RISK_DIRECTORY_REVIEW_DATE,
   HIGH_RISK_DIRECTORY_ROUTES,
@@ -69,7 +70,7 @@ const HIGH_RISK_DIRECTORY_REVISIONS = new Map<string, HighRiskContentRevision>([
     '/directories/deadlines/',
     {
       modifiedAt: DEADLINES_MODIFIED_DATE,
-      reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      reviewedAt: DEADLINES_REVIEW_DATE,
       contentFingerprint:
         getHighRiskDirectoryFingerprint('/directories/deadlines/')
           ?.currentFingerprint ?? null,
@@ -196,7 +197,23 @@ export function isPlausibleHumanReviewer(reviewer: string): boolean {
   return !/(?:\bcodex\b|\bchatgpt\b|\bopenai\b|\bai\b|人工智能|自动(?:化)?核对|机器人)/i.test(normalized);
 }
 
-export function isValidReviewDate(reviewedAt: string, today = new Date().toISOString().slice(0, 10)): boolean {
+function currentReviewCalendarDate(): string {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Shanghai',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(new Date());
+  const values = Object.fromEntries(
+    parts.map((part) => [part.type, part.value]),
+  );
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+export function isValidReviewDate(
+  reviewedAt: string,
+  today = currentReviewCalendarDate(),
+): boolean {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(reviewedAt) || reviewedAt > today) return false;
   const parsed = new Date(`${reviewedAt}T00:00:00.000Z`);
   return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === reviewedAt;

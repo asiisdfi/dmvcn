@@ -2771,9 +2771,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-21",
+      "reviewedAt": "2026-07-30",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-19",
+      "reviewDue": "2026-10-28",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -2782,7 +2782,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "本轮明确区分美国外州转入、中国大陆非互惠路线、Taiwan reciprocity、临时访客、成人首次申请、online written test、English-only road test、非公民 SAVE 核验、首次与既有 REAL ID、4 / 8 年费用和 10 天改名改址义务。状态为 AI 辅助证据核查，不冒充人工或专业审核。",
+      "notes": "2026-07-30 重新核对 REAL ID、续补证和 New Driver License / State ID FAQ 的邮寄说明，删除官方正文没有写明的“交易编号”，并把超过 30 天未收到实体卡时使用 Navigate 查看状态和联系 Service Oklahoma 的声明直接对应到当前 FAQ。其余范围沿用 2026-07-21 的逐条证据核查；状态为 AI 辅助证据核查，不冒充人工或专业审核。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {
@@ -2795,9 +2795,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-21",
+      "reviewedAt": "2026-07-30",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-19",
+      "reviewDue": "2026-10-28",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -2806,7 +2806,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "本轮明确区分美国外州转入、中国大陆非互惠路线、Taiwan reciprocity、临时访客、成人首次申请、online written test、English-only road test、非公民 SAVE 核验、首次与既有 REAL ID、4 / 8 年费用和 10 天改名改址义务。状态为 AI 辅助证据核查，不冒充人工或专业审核。",
+      "notes": "2026-07-30 重新核对 REAL ID、续补证和 New Driver License / State ID FAQ 的邮寄说明，删除官方正文没有写明的“交易编号”，并把超过 30 天未收到实体卡时使用 Navigate 查看状态和联系 Service Oklahoma 的声明直接对应到当前 FAQ。其余范围沿用 2026-07-21 的逐条证据核查；状态为 AI 辅助证据核查，不冒充人工或专业审核。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {

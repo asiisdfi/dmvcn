@@ -5,7 +5,8 @@ export const EDITORIAL_IDENTITY_MODIFIED_DATE = '2026-07-24';
 export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const COSTS_TIMING_MODIFIED_DATE = '2026-07-29';
 export const COSTS_TIMING_REVIEW_DATE = '2026-07-29';
-export const DEADLINES_MODIFIED_DATE = '2026-07-24';
+export const DEADLINES_MODIFIED_DATE = '2026-07-30';
+export const DEADLINES_REVIEW_DATE = '2026-07-30';
 export const DOCUMENT_RULES_MODIFIED_DATE = '2026-07-29';
 export const IDENTITY_SSN_MODIFIED_DATE = '2026-07-29';
 export const DIRECTORY_REVIEW_DATE = '2026-07-21';
@@ -40,6 +41,13 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-30',
+    title: '修正 Oklahoma 实体卡寄送与状态查询说明',
+    summary:
+      '重新核对 Service Oklahoma 的 REAL ID、续补证和 New Driver License / State ID 页面后，删除政府正文没有写明的“交易编号”。现在只保留官方 FAQ 能直接支持的说明：实体卡通常在 30 天内寄达，超过 30 天仍未收到时，可在 Navigate 查看状态并联系 Service Oklahoma。期限目录也改为直接连接这份 FAQ。',
+    scope: ['Oklahoma 州指南', 'Oklahoma REAL ID', '期限目录', '费用与时间目录'],
+  },
   {
     date: '2026-07-29',
     title: '核对改名后的 SSA 与 DMV 顺序边界',

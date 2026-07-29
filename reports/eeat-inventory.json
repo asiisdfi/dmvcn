@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T16:00:34.962Z",
+    "generatedAt": "2026-07-29T16:21:48.968Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
@@ -430,7 +430,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 321,
+        "sourceCount": 322,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -445,7 +445,7 @@
         "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": false,
         "humanApprovalFingerprintCurrent": false,
-        "contentFingerprint": "5a7c27951f1c74d602e86cb5857746f4c984ba431150161ff4604ab40e3c8507",
+        "contentFingerprint": "78d9ebed6895a9fedea0fdf20922905aeed27bda5da1d64252bdb8221ce65a84",
         "approvalContentFingerprint": "4fb3e31643ce713c3db47a2f1040866859c0fd5ccf518a2d933bfd5c1e733746"
       },
       "critical": [],
@@ -474,8 +474,8 @@
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-21"
+        "modifiedAt": "2026-07-30",
+        "reviewedAt": "2026-07-30"
       },
       "scores": {
         "factsAndSources": 25,
@@ -503,7 +503,7 @@
         "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": false,
         "humanApprovalFingerprintCurrent": false,
-        "contentFingerprint": "4a4086f3c12f1234b7c13a6cb0062664ab64ee4af3a47fba5506369711f09512",
+        "contentFingerprint": "16dd88469e8da47918da3d94e09b71a0e8a3975adb36040a19729fdf7ef262d7",
         "approvalContentFingerprint": "7969c567dda577feaa1a7abe29207b5e5271e21ee6f97c218b4ce2d3d762d8fd"
       },
       "critical": [],
@@ -4901,15 +4901,15 @@
       "semanticReview": {
         "status": "evidence-checked",
         "method": "ai-assisted",
-        "reviewedAt": "2026-07-21",
+        "reviewedAt": "2026-07-30",
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 Service Oklahoma 当前驾照、REAL ID、材料、首次成人、Learner Permit、written test、road test、外州与外国转入、续补证、State ID、改址、Locations 页面、公开业务 SOP、Oklahoma 现行州法和 TSA 页面，核对两个成品页的材料、期限、资格、考试语言、费用、线上办理和邮寄边界。",
-        "notes": "本轮明确区分美国外州转入、中国大陆非互惠路线、Taiwan reciprocity、临时访客、成人首次申请、online written test、English-only road test、非公民 SAVE 核验、首次与既有 REAL ID、4 / 8 年费用和 10 天改名改址义务。状态为 AI 辅助证据核查，不冒充人工或专业审核。"
+        "notes": "2026-07-30 重新核对 REAL ID、续补证和 New Driver License / State ID FAQ 的邮寄说明，删除官方正文没有写明的“交易编号”，并把超过 30 天未收到实体卡时使用 Navigate 查看状态和联系 Service Oklahoma 的声明直接对应到当前 FAQ。其余范围沿用 2026-07-21 的逐条证据核查；状态为 AI 辅助证据核查，不冒充人工或专业审核。"
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-21",
-        "reviewedAt": "2026-07-21"
+        "modifiedAt": "2026-07-30",
+        "reviewedAt": "2026-07-30"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4952,15 +4952,15 @@
       "semanticReview": {
         "status": "evidence-checked",
         "method": "ai-assisted",
-        "reviewedAt": "2026-07-21",
+        "reviewedAt": "2026-07-30",
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条打开 Service Oklahoma 当前驾照、REAL ID、材料、首次成人、Learner Permit、written test、road test、外州与外国转入、续补证、State ID、改址、Locations 页面、公开业务 SOP、Oklahoma 现行州法和 TSA 页面，核对两个成品页的材料、期限、资格、考试语言、费用、线上办理和邮寄边界。",
-        "notes": "本轮明确区分美国外州转入、中国大陆非互惠路线、Taiwan reciprocity、临时访客、成人首次申请、online written test、English-only road test、非公民 SAVE 核验、首次与既有 REAL ID、4 / 8 年费用和 10 天改名改址义务。状态为 AI 辅助证据核查，不冒充人工或专业审核。"
+        "notes": "2026-07-30 重新核对 REAL ID、续补证和 New Driver License / State ID FAQ 的邮寄说明，删除官方正文没有写明的“交易编号”，并把超过 30 天未收到实体卡时使用 Navigate 查看状态和联系 Service Oklahoma 的声明直接对应到当前 FAQ。其余范围沿用 2026-07-21 的逐条证据核查；状态为 AI 辅助证据核查，不冒充人工或专业审核。"
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-21",
-        "reviewedAt": "2026-07-21"
+        "modifiedAt": "2026-07-30",
+        "reviewedAt": "2026-07-30"
       },
       "scores": {
         "factsAndSources": 25,
@@ -4980,7 +4980,7 @@
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
         "stateEvidenceItems": 53,
-        "stateEvidenceLinks": 114,
+        "stateEvidenceLinks": 112,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -8481,8 +8481,8 @@
       "semanticReview": null,
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-29",
-        "reviewedAt": "2026-07-29"
+        "modifiedAt": "2026-07-30",
+        "reviewedAt": "2026-07-30"
       },
       "scores": {
         "factsAndSources": 25,

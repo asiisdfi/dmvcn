@@ -14,12 +14,14 @@ import {
   getStatePageModifiedAt,
   getStateRealIdPageModifiedAt,
 } from '../src/data/state-evidence.ts';
+import { currentCalendarDate } from './lib/review-cycles.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const distDir = path.join(projectRoot, 'dist');
 const reportDir = path.join(projectRoot, 'reports');
 const strict = process.env.EEAT_STRICT === '1';
 const threshold = 85;
+const auditDate = currentCalendarDate();
 
 const stateById = new Map(states.map((state) => [state.id, state]));
 const topicBySlug = new Map(topics.map((topic) => [topic.slug, topic]));
@@ -358,9 +360,7 @@ function scorePage(route, document) {
     visibleThreeDates &&
     (publishedAt > modifiedAt ||
       publishedAt > reviewedAt ||
-      Object.values(dates).some(
-        (date) => date > new Date().toISOString().slice(0, 10),
-      ))
+      Object.values(dates).some((date) => date > auditDate))
   ) {
     critical.push('页面三类日期的先后顺序无效或事实核对日期来自未来');
   }

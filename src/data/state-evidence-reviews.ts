@@ -4017,7 +4017,7 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
     }),
   },
   oklahoma: {
-    reviewedAt: '2026-07-21',
+    reviewedAt: '2026-07-30',
     reviewer: 'Codex AI 辅助证据核查',
     surfaces: ['overview', 'real-id'],
     sourceBodiesChecked: [
@@ -4046,7 +4046,7 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
     scope:
       '逐条打开 Service Oklahoma 当前驾照、REAL ID、材料、首次成人、Learner Permit、written test、road test、外州与外国转入、续补证、State ID、改址、Locations 页面、公开业务 SOP、Oklahoma 现行州法和 TSA 页面，核对两个成品页的材料、期限、资格、考试语言、费用、线上办理和邮寄边界。',
     notes:
-      '本轮明确区分美国外州转入、中国大陆非互惠路线、Taiwan reciprocity、临时访客、成人首次申请、online written test、English-only road test、非公民 SAVE 核验、首次与既有 REAL ID、4 / 8 年费用和 10 天改名改址义务。状态为 AI 辅助证据核查，不冒充人工或专业审核。',
+      '2026-07-30 重新核对 REAL ID、续补证和 New Driver License / State ID FAQ 的邮寄说明，删除官方正文没有写明的“交易编号”，并把超过 30 天未收到实体卡时使用 Navigate 查看状态和联系 Service Oklahoma 的声明直接对应到当前 FAQ。其余范围沿用 2026-07-21 的逐条证据核查；状态为 AI 辅助证据核查，不冒充人工或专业审核。',
     claims: normalizeReviewedClaims({
       'Oklahoma 驾照和 State ID 由 Service Oklahoma 管理，现场服务还可能由 Licensed Operator（原 tag agency）提供': [OK_SERVICES, OK_LOCATIONS],
       '首次成人申请、美国外州转入、外国驾照、续期补证、改名改址和 REAL ID 的资格与办理点不同，出发前要在 Locations 中按具体业务筛选': [OK_SERVICES, OK_LOCATIONS, OK_NEW_HUB, OK_TRANSFER, OK_RENEW, OK_REAL_ID],
@@ -4132,7 +4132,7 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '续补证先检查美国公民身份、Oklahoma 地址、suspension、过期年限、资料变化和是否首次 REAL ID，再决定 online 或 in-person。': [OK_RENEW],
       '姓名或地址变化后在 10 天内申请 replacement，地址还要分别在 Service Oklahoma 和 USPS 更新。': [OK_ADDRESS_STATUTE, OK_ADDRESS, OK_MANUAL],
       '付款前核对 4 年或 8 年选项、renewal / original / replacement 类型、失败次数和 65 岁以上免费资格。': [OK_REAL_ID, OK_RENEW, OK_NEW_ADULT, OK_WRITTEN],
-      '办结后保存 temporary credential 和交易编号，30 天未收到实体卡时用 Navigate 查状态并联系 Service Oklahoma。': [OK_REAL_ID, OK_RENEW, OK_NEW_HUB],
+      '实体卡通常会在 30 天内邮寄到达，超过 30 天仍未收到时，在 Navigate 查看卡片状态并联系 Service Oklahoma。': [OK_NEW_HUB],
       '有近期航班时至少提前 4 周申请 REAL ID，并另备 passport 等 TSA 接受证件，不依赖 temporary paper credential。': [OK_REAL_ID, TSA_IDENTIFICATION],
     }),
   },

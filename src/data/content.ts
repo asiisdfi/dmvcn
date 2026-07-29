@@ -8697,8 +8697,8 @@ export const states: StateGuide[] = [
     agency: 'Service Oklahoma',
     agencyUrl: 'https://oklahoma.gov/service/all-services/driving-and-automobiles.html',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-21',
-    reviewedAt: '2026-07-21',
+    modifiedAt: '2026-07-30',
+    reviewedAt: '2026-07-30',
     summary:
       'Oklahoma 驾照和 State ID 由 Service Oklahoma 管理，现场服务还可能由 Licensed Operator（原 tag agency）提供。首次成人申请、美国外州转入、外国驾照、续期补证、改名改址和 REAL ID 的资格与办理点不同，出发前要在 Locations 中按具体业务筛选。',
     realIdSummary:
@@ -8789,7 +8789,7 @@ export const states: StateGuide[] = [
       '续补证先检查美国公民身份、Oklahoma 地址、suspension、过期年限、资料变化和是否首次 REAL ID，再决定 online 或 in-person。',
       '姓名或地址变化后在 10 天内申请 replacement，地址还要分别在 Service Oklahoma 和 USPS 更新。',
       '付款前核对 4 年或 8 年选项、renewal / original / replacement 类型、失败次数和 65 岁以上免费资格。',
-      '办结后保存 temporary credential 和交易编号，30 天未收到实体卡时用 Navigate 查状态并联系 Service Oklahoma。',
+      '实体卡通常会在 30 天内邮寄到达，超过 30 天仍未收到时，在 Navigate 查看卡片状态并联系 Service Oklahoma。',
       '有近期航班时至少提前 4 周申请 REAL ID，并另备 passport 等 TSA 接受证件，不依赖 temporary paper credential。',
     ],
     actionLinks: [
@@ -8868,7 +8868,7 @@ export const states: StateGuide[] = [
       {
         label: 'Service Oklahoma New License and ID',
         url: 'https://oklahoma.gov/service/popular-services/new-dl.html',
-        note: '成人、teen、State ID、国际许可和 single primary credential 分流。',
+        note: '成人、teen、State ID、国际许可、single primary credential 分流，以及 30 天邮寄、Navigate 卡片状态和超时联系说明。',
       },
       {
         label: 'Service Oklahoma New Driver License 18+',
