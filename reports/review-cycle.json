@@ -92,12 +92,12 @@
     "reviewAnchor": "办事页使用公开事实核对日期与证据复核日期中较早的一天计时；政策页使用公开事实核对日期。"
   },
   "source": {
-    "eeatGeneratedAt": "2026-07-29T14:19:04.101Z",
+    "eeatGeneratedAt": "2026-07-29T14:24:25.968Z",
     "officialAuditAgeDays": 0,
     "officialAuditDate": "2026-07-29",
     "officialInventoryFingerprint": "ec94c58950f04873f6ae698066bbc6b7d94303d7fef5cee2bbbd7d7c3fa1b61e",
     "officialUrls": 1662,
-    "pageFingerprint": "3bf4accb4aecb6e54aecf0b4dd6db3864a93287d71f6b590a5e474cabeb5402b"
+    "pageFingerprint": "2795c4180c8cd7611071936d2a052a60cccabcf8de14648a212e8dff157cef7d"
   },
   "summary": {
     "current": 154,
@@ -312,26 +312,6 @@
       },
       {
         "cycleDays": 30,
-        "daysUntilDue": 22,
-        "indexable": true,
-        "overdueDays": 0,
-        "pageType": "topic",
-        "evidenceReviewedAt": "2026-07-21",
-        "reviewAnchorDate": "2026-07-21",
-        "reviewDue": "2026-08-20",
-        "reviewMethod": "ai-assisted",
-        "reviewPolicy": "monthly-volatile",
-        "reviewStatus": "ai-assisted",
-        "risk": "medium",
-        "route": "/topics/temporary-tag-trip-permit-dealer-plate/",
-        "state": "due-within-30-days",
-        "volatileCategory": "temporary-permits",
-        "volatileLabel": "临时牌照与通行许可",
-        "volatileScope": "temporary tag、trip permit、dealer plate、期限和适用车辆",
-        "visibleReviewedAt": "2026-07-21"
-      },
-      {
-        "cycleDays": 30,
         "daysUntilDue": 30,
         "indexable": true,
         "overdueDays": 0,
@@ -348,6 +328,26 @@
         "volatileCategory": "federal-travel-id",
         "volatileLabel": "联邦旅行证件",
         "volatileScope": "国内航班证件、REAL ID、替代证件和 TSA 身份确认流程",
+        "visibleReviewedAt": "2026-07-29"
+      },
+      {
+        "cycleDays": 30,
+        "daysUntilDue": 30,
+        "indexable": true,
+        "overdueDays": 0,
+        "pageType": "topic",
+        "evidenceReviewedAt": "2026-07-29",
+        "reviewAnchorDate": "2026-07-29",
+        "reviewDue": "2026-08-28",
+        "reviewMethod": "ai-assisted",
+        "reviewPolicy": "monthly-volatile",
+        "reviewStatus": "ai-assisted",
+        "risk": "medium",
+        "route": "/topics/temporary-tag-trip-permit-dealer-plate/",
+        "state": "due-within-30-days",
+        "volatileCategory": "temporary-permits",
+        "volatileLabel": "临时牌照与通行许可",
+        "volatileScope": "temporary tag、trip permit、dealer plate、期限和适用车辆",
         "visibleReviewedAt": "2026-07-29"
       },
       {
@@ -554,26 +554,6 @@
       },
       {
         "cycleDays": 30,
-        "daysUntilDue": 22,
-        "indexable": true,
-        "overdueDays": 0,
-        "pageType": "topic",
-        "evidenceReviewedAt": "2026-07-21",
-        "reviewAnchorDate": "2026-07-21",
-        "reviewDue": "2026-08-20",
-        "reviewMethod": "ai-assisted",
-        "reviewPolicy": "monthly-volatile",
-        "reviewStatus": "ai-assisted",
-        "risk": "medium",
-        "route": "/topics/temporary-tag-trip-permit-dealer-plate/",
-        "state": "due-within-30-days",
-        "volatileCategory": "temporary-permits",
-        "volatileLabel": "临时牌照与通行许可",
-        "volatileScope": "temporary tag、trip permit、dealer plate、期限和适用车辆",
-        "visibleReviewedAt": "2026-07-21"
-      },
-      {
-        "cycleDays": 30,
         "daysUntilDue": 30,
         "indexable": true,
         "overdueDays": 0,
@@ -590,6 +570,26 @@
         "volatileCategory": "federal-travel-id",
         "volatileLabel": "联邦旅行证件",
         "volatileScope": "国内航班证件、REAL ID、替代证件和 TSA 身份确认流程",
+        "visibleReviewedAt": "2026-07-29"
+      },
+      {
+        "cycleDays": 30,
+        "daysUntilDue": 30,
+        "indexable": true,
+        "overdueDays": 0,
+        "pageType": "topic",
+        "evidenceReviewedAt": "2026-07-29",
+        "reviewAnchorDate": "2026-07-29",
+        "reviewDue": "2026-08-28",
+        "reviewMethod": "ai-assisted",
+        "reviewPolicy": "monthly-volatile",
+        "reviewStatus": "ai-assisted",
+        "risk": "medium",
+        "route": "/topics/temporary-tag-trip-permit-dealer-plate/",
+        "state": "due-within-30-days",
+        "volatileCategory": "temporary-permits",
+        "volatileLabel": "临时牌照与通行许可",
+        "volatileScope": "temporary tag、trip permit、dealer plate、期限和适用车辆",
         "visibleReviewedAt": "2026-07-29"
       },
       {
@@ -4319,13 +4319,13 @@
     },
     {
       "cycleDays": 30,
-      "daysUntilDue": 22,
+      "daysUntilDue": 30,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "topic",
-      "evidenceReviewedAt": "2026-07-21",
-      "reviewAnchorDate": "2026-07-21",
-      "reviewDue": "2026-08-20",
+      "evidenceReviewedAt": "2026-07-29",
+      "reviewAnchorDate": "2026-07-29",
+      "reviewDue": "2026-08-28",
       "reviewMethod": "ai-assisted",
       "reviewPolicy": "monthly-volatile",
       "reviewStatus": "ai-assisted",
@@ -4335,7 +4335,7 @@
       "volatileCategory": "temporary-permits",
       "volatileLabel": "临时牌照与通行许可",
       "volatileScope": "temporary tag、trip permit、dealer plate、期限和适用车辆",
-      "visibleReviewedAt": "2026-07-21"
+      "visibleReviewedAt": "2026-07-29"
     },
     {
       "cycleDays": 30,

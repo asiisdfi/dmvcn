@@ -4075,9 +4075,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-21",
+      "reviewedAt": "2026-07-29",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-19",
+      "reviewDue": "2026-10-27",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -4086,7 +4086,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "按 Texas HB 718 当前正文明确旧式纸质 30-Day / One-Trip permit 展示方式已由 Temporary Registration metal plate 取代，同时保留其他 permit 类别的区别。",
+      "notes": "2026-07-29 重新核对 Texas HB 718、temporary permits 及 CA、NY、FL、WA、OR、VA、GA、CO、MA 当前官方入口；现有结论未变。Georgia 官网对 dealer TOP 写有 30 天与 45 天两种口径，正文因此继续不写死期限，并保留“dealer 不得自行续发”的窄化表达。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {

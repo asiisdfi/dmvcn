@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T14:19:10.083Z",
+    "generatedAt": "2026-07-29T14:24:31.926Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
@@ -8082,15 +8082,15 @@
       "semanticReview": {
         "status": "evidence-checked",
         "method": "ai-assisted",
-        "reviewedAt": "2026-07-21",
+        "reviewedAt": "2026-07-29",
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 temporary tag、TOP、trip / transit permit、dealer plate 的用途、期限、跨州限制、保险、车辆类别和正式登记衔接。",
-        "notes": "按 Texas HB 718 当前正文明确旧式纸质 30-Day / One-Trip permit 展示方式已由 Temporary Registration metal plate 取代，同时保留其他 permit 类别的区别。"
+        "notes": "2026-07-29 重新核对 Texas HB 718、temporary permits 及 CA、NY、FL、WA、OR、VA、GA、CO、MA 当前官方入口；现有结论未变。Georgia 官网对 dealer TOP 写有 30 天与 45 天两种口径，正文因此继续不写死期限，并保留“dealer 不得自行续发”的窄化表达。"
       },
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-21",
-        "reviewedAt": "2026-07-21"
+        "reviewedAt": "2026-07-29"
       },
       "scores": {
         "factsAndSources": 25,

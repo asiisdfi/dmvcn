@@ -21066,7 +21066,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '临时牌照',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-21',
-    reviewedAt: '2026-07-21',
+    reviewedAt: '2026-07-29',
     description:
       '买车当天、跨州开回家、正式 plates / sticker 没到、车辆还没完成 smog / inspection / registration 时，常见词有 temporary tag、temporary operating permit、trip permit、transit permit、one-trip permit 和 dealer temp tag。它们不是全国通用通行证，也不能替代 title、insurance 或正式 registration。',
     whoNeedsIt: [
