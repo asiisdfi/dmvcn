@@ -92,12 +92,12 @@
     "reviewAnchor": "办事页使用公开事实核对日期与证据复核日期中较早的一天计时；政策页使用公开事实核对日期。"
   },
   "source": {
-    "eeatGeneratedAt": "2026-07-29T14:31:46.294Z",
+    "eeatGeneratedAt": "2026-07-29T15:47:41.162Z",
     "officialAuditAgeDays": 0,
     "officialAuditDate": "2026-07-29",
     "officialInventoryFingerprint": "3158ac41ad08dc5ec00fef374a4e8ece5cc237031bb52ddc07be23d7c7189de8",
     "officialUrls": 1662,
-    "pageFingerprint": "050159362a90b39a2a9aa1248713335e6a889fc558e21cb41483cbc778f86d9e"
+    "pageFingerprint": "c5179525f958376410f322cebb257dd0b7679a8b1682a9949d909f59f0c74761"
   },
   "summary": {
     "current": 154,
@@ -812,7 +812,7 @@
         "volatileCategory": null,
         "volatileLabel": null,
         "volatileScope": null,
-        "visibleReviewedAt": "2026-07-24"
+        "visibleReviewedAt": "2026-07-29"
       },
       {
         "cycleDays": 60,
@@ -3975,7 +3975,7 @@
       "volatileCategory": null,
       "volatileLabel": null,
       "volatileScope": null,
-      "visibleReviewedAt": "2026-07-24"
+      "visibleReviewedAt": "2026-07-29"
     },
     {
       "cycleDays": 90,

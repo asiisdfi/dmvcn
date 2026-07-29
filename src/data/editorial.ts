@@ -42,6 +42,19 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-29',
+    title: '收紧车辆 Title 补发的车主与 lien 分流',
+    summary:
+      '对照 2026-07-21 人工签字版本后确认，这一专题后续只改过标题、摘要并新增首段判断，原有 10 条声明和 20 个政府来源没有变化。本轮重新打开 California、Texas、Georgia 与 New York 当前正文，并检查自动访问受限的 Illinois 官方入口；“在 lienholder 名下”会混淆 record owner 与 recorded lien，现已拆成卖家仍是记录车主、记录中仍有 lien 两条路径。页面在真人核对当前差异并签字前继续保持 noindex。',
+    scope: [
+      '车辆 Title replacement',
+      'record owner 与 lienholder',
+      '卖家未完成转让',
+      'registration 与 ownership document',
+      '高风险差异人工复核',
+    ],
+  },
+  {
+    date: '2026-07-29',
     title: '高风险目录和专题增加人工签字内容指纹',
     summary:
       '17 个高风险目录和专题现在同时核对签字日期与内容指纹。正文、声明、州归属或就近官方来源变化时，旧人工签字会自动失效，页面退出 sitemap 并保持 noindex；CI 会分别从目录成品和专题结构化内容重算指纹，阻止未登记的变化上线。当前 8 个发生版本变化的页面等待重新人工核对，其余 9 个与签字版本一致的页面保持索引。',

@@ -20,7 +20,7 @@ export const HIGH_RISK_TOPIC_FINGERPRINTS: HighRiskTopicFingerprint[] = [
   },
   {
     route: '/topics/lost-vehicle-title-replacement-electronic-title-lien-sale/',
-    currentFingerprint: '321294e487ed390c91f0b9e2535873c91b1f6ee1d489082b83a60fcd5ac0e67f',
+    currentFingerprint: 'ff859c9bfd0463df385b873d12cc5bdfb24dfe653e7971c67f6527488db43739',
   },
   {
     route: '/topics/name-change-chain/',

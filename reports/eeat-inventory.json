@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T15:38:14.882Z",
+    "generatedAt": "2026-07-29T15:47:46.962Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
@@ -7214,8 +7214,8 @@
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-24"
+        "modifiedAt": "2026-07-29",
+        "reviewedAt": "2026-07-29"
       },
       "scores": {
         "factsAndSources": 25,
@@ -7243,7 +7243,7 @@
         "hasEditorialDisclosure": true,
         "humanApprovalDateCurrent": false,
         "humanApprovalFingerprintCurrent": false,
-        "contentFingerprint": "321294e487ed390c91f0b9e2535873c91b1f6ee1d489082b83a60fcd5ac0e67f",
+        "contentFingerprint": "ff859c9bfd0463df385b873d12cc5bdfb24dfe653e7971c67f6527488db43739",
         "approvalContentFingerprint": "cc6ef372c75eaffec65de4579924ff51c83644a95aca61b6672644b422b4db69"
       },
       "critical": [],

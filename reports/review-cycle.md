@@ -68,7 +68,7 @@
 | /topics/student-temporary-resident-license-registration/ | 60 天 | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
 | /topics/used-car-title-lien-salvage-odometer-check/ | 60 天 | high | 2026-07-17 | 2026-07-21 | 2026-07-17 | 2026-09-15 | 剩余 48 |
 | /topics/gift-inherited-vehicle-title-transfer/ | 60 天 | high | 2026-07-24 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
-| /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/ | 60 天 | high | 2026-07-24 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
+| /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/ | 60 天 | high | 2026-07-29 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
 | /topics/name-change-chain/ | 60 天 | high | 2026-07-24 | 2026-07-21 | 2026-07-21 | 2026-09-19 | 剩余 52 |
 | /states/arizona/ | 90 天 | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 78 |
 | /states/arizona/real-id/ | 90 天 | medium | 2026-07-17 | 2026-07-17 | 2026-07-17 | 2026-10-15 | 剩余 78 |

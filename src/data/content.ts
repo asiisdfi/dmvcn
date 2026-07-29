@@ -19106,12 +19106,12 @@ export const topics: TopicGuide[] = [
     title: '车辆 Title 丢了怎么补：谁能申请、Lien 与卖车前处理',
     eyebrow: '补车辆 title',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-24',
-    reviewedAt: '2026-07-24',
+    modifiedAt: '2026-07-29',
+    reviewedAt: '2026-07-29',
     description:
       '车辆 Title、pink slip 或 ownership certificate 丢失后，先确认最后签发州、record owner、寄送地址和 lien 状态，再决定申请 duplicate / replacement、打印 electronic title，还是走 correction / transfer。',
     quickAnswer:
-      '先确认 title 最后由哪个州签发、现在登记在谁名下。仍在卖家或 lienholder 名下时，买方不要把它当作自己的 duplicate 申请；已经在自己名下时，再核对地址、共同车主、贷款 lien 和 electronic title 状态，从原签发州进入 replacement 流程。Registration card 或 bill of sale 通常不能替代有效 title。',
+      '先确认 title 最后由哪个州签发、当前 record owner 是谁。title 仍登记在卖家名下时，应由记录车主先走 replacement；记录中仍有 lienholder 时，先按原州要求让 lienholder 申请或出具合格的 lien release，不要由买方把它当作自己的 duplicate。已经登记在自己名下时，再核对寄送地址、共同车主和 electronic title 状态，从原签发州进入 replacement 流程。Registration card 或 bill of sale 通常不能代替可转让的 ownership document。',
     whoNeedsIt: [
       '车辆已经在自己名下，但纸质 title / pink slip 丢失、被盗、损坏、字迹无法辨认或邮寄后一直没收到的人。',
       '汽车贷款已经还清，却不知道 lender 是否仍持有 title、DMV 记录里是否还有 lien，或手里只有 lien release 的人。',
