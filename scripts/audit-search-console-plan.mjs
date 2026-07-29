@@ -15,6 +15,9 @@ const allowedStatuses = new Set([
 ]);
 
 function currentCalendarDate() {
+  if (process.env.SC_AUDIT_DATE) {
+    return String(process.env.SC_AUDIT_DATE).slice(0, 10);
+  }
   const parts = new Intl.DateTimeFormat('en-US', {
     timeZone: process.env.REPORT_TIME_ZONE ?? 'Asia/Shanghai',
     year: 'numeric',
@@ -94,6 +97,16 @@ if (
   planAgeDays > 7
 ) {
   errors.push(`Search Console plan was not regenerated in the last 7 days: age=${planAgeDays ?? 'invalid'}.`);
+}
+if (
+  isCalendarDate(planDate) &&
+  planDate < today &&
+  isCalendarDate(execution.nextEligibleDate) &&
+  execution.nextEligibleDate <= today
+) {
+  errors.push(
+    `Search Console plan reached its next editorial-capacity date ${execution.nextEligibleDate}; regenerate it for ${today}.`,
+  );
 }
 if (!allowedStatuses.has(execution.status)) {
   errors.push(`Unknown execution status: ${execution.status ?? 'missing'}.`);
@@ -278,10 +291,12 @@ for (const item of routingActionQueue) {
     item.routingDecisionStatus === 'scheduled' &&
     (
       !isCalendarDate(item.routingDecision?.plannedFor) ||
-      item.routingDecision.plannedFor <= planDate
+      item.routingDecision.plannedFor <= today
     )
   ) {
-    errors.push(`${item.route}: scheduled routing action has an invalid future date.`);
+    errors.push(
+      `${item.route}: scheduled routing action date has arrived; regenerate the plan for ${today}.`,
+    );
   }
 }
 for (const item of routingExecuteNow) {
@@ -335,9 +350,11 @@ for (const item of routingMonitoringQueue) {
   if (
     !isCalendarDate(item.routingDecision?.implementedAt) ||
     !isCalendarDate(item.routingDecision?.evaluateAfter) ||
-    item.routingDecision.evaluateAfter <= planDate
+    item.routingDecision.evaluateAfter <= today
   ) {
-    errors.push(`${item.route}: routing monitoring lacks a valid future review date.`);
+    errors.push(
+      `${item.route}: routing monitoring review date has arrived; regenerate the plan for ${today}.`,
+    );
   }
   if (
     item.routingDecision?.reviewedThrough <
@@ -391,7 +408,7 @@ for (const item of indexingCleanupQueue) {
       errors.push(`${item.route}: tracked noindex exposure lacks cleanup and review dates.`);
       continue;
     }
-    const shouldBeOverdue = item.evaluateAfter <= planDate;
+    const shouldBeOverdue = item.evaluateAfter <= today;
     const expectedStatus = shouldBeOverdue ? 'deindex-overdue' : 'deindex-grace';
     const expectedAction = shouldBeOverdue ? 'inspect-indexing' : 'observe-deindex';
     if (item.status !== expectedStatus || item.action !== expectedAction) {

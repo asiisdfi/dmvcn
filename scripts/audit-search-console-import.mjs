@@ -731,6 +731,29 @@ try {
       },
     },
   );
+  let dueDatePlanRejected = false;
+  try {
+    await execFileAsync(
+      process.execPath,
+      [path.join(projectRoot, 'scripts/audit-search-console-plan.mjs')],
+      {
+        cwd: projectRoot,
+        env: {
+          ...process.env,
+          SEARCH_CONSOLE_PLAN_PATH: routingActionPlanPath,
+          SC_AUDIT_DATE: addDays(observedAt, 1),
+        },
+      },
+    );
+  } catch (error) {
+    dueDatePlanRejected = String(
+      error?.stdout ?? error?.stderr ?? error?.message ?? error,
+    ).includes('scheduled routing action date has arrived');
+  }
+  check(
+    dueDatePlanRejected,
+    'A saved plan stayed green after its scheduled routing date arrived.',
+  );
 
   const completionScript = path.join(
     projectRoot,
