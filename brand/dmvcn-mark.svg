@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">DMVCN brand mark</title>
+  <desc id="description">A geometric white letter D with a brick-red destination marker on a forest-green field.</desc>
+  <rect width="512" height="512" rx="88" fill="#165c43"/>
+  <path
+    fill="#fff"
+    fill-rule="evenodd"
+    d="M120 88h142c92 0 158 70 158 168s-66 168-158 168H120V88Zm92 88v160h45c49 0 79-30 79-80s-30-80-79-80h-45Z"
+  />
+  <rect x="307" y="321" width="77" height="77" rx="18" fill="#b94428"/>
+</svg>

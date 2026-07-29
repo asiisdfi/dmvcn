@@ -1,6 +1,7 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const distDir = path.resolve(
@@ -75,12 +76,36 @@ const htmlFiles = allFiles.filter((filePath) => filePath.endsWith('.html'));
 const cssFiles = allFiles.filter((filePath) => filePath.endsWith('.css'));
 const javascriptFiles = allFiles.filter((filePath) => filePath.endsWith('.js'));
 const headerLogoPath = path.join(distDir, 'assets', 'dmvcn-mark-72.png');
-const touchIconPath = path.join(distDir, 'assets', 'dmvcn-touch-icon-v2.png');
-const assetStats = await Promise.all([
+const touchIconPath = path.join(distDir, 'assets', 'dmvcn-touch-icon-v3.png');
+const faviconAssets = [
+  { path: path.join(distDir, 'favicon-16x16.png'), size: 16 },
+  { path: path.join(distDir, 'favicon-32x32.png'), size: 32 },
+  { path: path.join(distDir, 'favicon-48x48.png'), size: 48 },
+  { path: path.join(distDir, 'favicon-192x192.png'), size: 192 },
+  { path: path.join(distDir, 'favicon-512x512.png'), size: 512 },
+];
+const assetResults = await Promise.all([
   stat(headerLogoPath).catch(() => null),
   stat(touchIconPath).catch(() => null),
+  sharp(headerLogoPath).metadata().catch(() => null),
+  sharp(touchIconPath).metadata().catch(() => null),
+  ...faviconAssets.map(async (asset) => ({
+    ...asset,
+    metadata: await sharp(asset.path).metadata().catch(() => null),
+  })),
+  stat(path.join(distDir, 'favicon.ico')).catch(() => null),
+  readFile(path.join(distDir, 'site.webmanifest'), 'utf8').catch(() => null),
 ]);
-const [headerLogoStat, touchIconStat] = assetStats;
+const [
+  headerLogoStat,
+  touchIconStat,
+  headerLogoMetadata,
+  touchIconMetadata,
+  ...remainingAssetResults
+] = assetResults;
+const faviconResults = remainingAssetResults.slice(0, faviconAssets.length);
+const faviconIcoStat = remainingAssetResults.at(-2);
+const manifestSource = remainingAssetResults.at(-1);
 
 if (!headerLogoStat) {
   errors.push('Missing optimized 72px header logo.');
@@ -89,12 +114,45 @@ if (!headerLogoStat) {
     `Header logo is ${headerLogoStat.size} bytes; budget is ${budgets.headerLogoBytes}.`,
   );
 }
+if (headerLogoMetadata?.width !== 72 || headerLogoMetadata?.height !== 72) {
+  errors.push('Header logo must be a 72x72 PNG.');
+}
 if (!touchIconStat) {
   errors.push('Missing optimized Apple touch icon.');
 } else if (touchIconStat.size > budgets.touchIconBytes) {
   errors.push(
     `Touch icon is ${touchIconStat.size} bytes; budget is ${budgets.touchIconBytes}.`,
   );
+}
+if (touchIconMetadata?.width !== 180 || touchIconMetadata?.height !== 180) {
+  errors.push('Apple touch icon must be a 180x180 PNG.');
+}
+if (touchIconMetadata?.hasAlpha) {
+  errors.push('Apple touch icon must use an opaque background.');
+}
+for (const favicon of faviconResults) {
+  if (
+    favicon.metadata?.width !== favicon.size ||
+    favicon.metadata?.height !== favicon.size
+  ) {
+    errors.push(`Missing or invalid ${favicon.size}x${favicon.size} favicon.`);
+  }
+}
+if (!faviconIcoStat) {
+  errors.push('Missing multi-size favicon.ico.');
+}
+if (!manifestSource) {
+  errors.push('Missing site.webmanifest.');
+} else {
+  try {
+    const manifest = JSON.parse(manifestSource);
+    const manifestSizes = new Set(manifest.icons?.map((icon) => icon.sizes) ?? []);
+    if (!manifestSizes.has('192x192') || !manifestSizes.has('512x512')) {
+      errors.push('Web manifest must declare 192x192 and 512x512 icons.');
+    }
+  } catch {
+    errors.push('site.webmanifest is not valid JSON.');
+  }
 }
 
 let indexablePages = 0;
@@ -130,8 +188,17 @@ for (const filePath of htmlFiles) {
   if (/<(?:img|link)\b[^>]*\/assets\/dmvcn-mark\.png/i.test(html)) {
     errors.push(`${route}: downloads the 512px source logo in visible page chrome.`);
   }
-  if (!html.includes('rel="apple-touch-icon" sizes="180x180" href="/assets/dmvcn-touch-icon-v2.png"')) {
+  if (!html.includes('rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=3"')) {
+    errors.push(`${route}: does not declare the 48px search favicon.`);
+  }
+  if (!html.includes('rel="shortcut icon" href="/favicon.ico?v=3"')) {
+    errors.push(`${route}: does not declare the multi-size favicon.`);
+  }
+  if (!html.includes('rel="apple-touch-icon" sizes="180x180" href="/assets/dmvcn-touch-icon-v3.png"')) {
     errors.push(`${route}: does not use the optimized touch icon.`);
+  }
+  if (!html.includes('rel="manifest" href="/site.webmanifest?v=3"')) {
+    errors.push(`${route}: does not declare the site manifest.`);
   }
   if (!html.includes('class="brand-mark" src="/assets/dmvcn-mark-72.png"')) {
     errors.push(`${route}: does not use the optimized header logo.`);
