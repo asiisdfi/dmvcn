@@ -14529,7 +14529,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '姓名一致性',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-24',
-    reviewedAt: '2026-07-24',
+    reviewedAt: '2026-07-29',
     description:
       '已经因结婚、离婚或法院命令完成法律改名后，先确认姓名变更文件，再按所在州要求安排 SSA 与 DMV 的更新顺序；多次改名要把原始姓名连续连接到 current legal name。',
     quickAnswer:

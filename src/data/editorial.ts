@@ -42,6 +42,19 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-29',
+    title: '核对改名后的 SSA 与 DMV 顺序边界',
+    summary:
+      '对照 2026-07-21 人工签字版本后确认，姓名变更专题后续只改过标题、摘要并新增首段，原有 13 条声明和 11 个政府来源没有变化。本轮重新核对 SSA、California、New York 与 Florida 当前正文，legal name 文件、连续姓名链、California 与 Florida 先同步 SSA、New York 特定邮寄路径和 Florida 24 至 48 小时提示均仍有效。Search Console 的“在哪里改名”查询没有州别，也无法判断用户是否已完成法律改名，因此本站不把 DMV 证件更新页扩写成跨州法院改名指南。',
+    scope: [
+      'SSA corrected card',
+      'DMV 姓名更新',
+      '多次改名文件链',
+      'Search Console 改名意图边界',
+      '高风险差异人工复核',
+    ],
+  },
+  {
+    date: '2026-07-29',
     title: '不把亲属赠车查询扩大成债务责任答案',
     summary:
       '对照 2026-07-21 人工签字版本后确认，亲属赠车与继承车辆专题后续只改过标题、摘要并新增首段，原有 14 条声明和 52 个政府来源没有变化。本轮重新核对 California、Washington、Texas、Georgia、Virginia 与 Pennsylvania 当前正文，首段分流仍有依据。Search Console 出现的债务责任查询缺少州别、生前或死亡后情形、共同责任和 vehicle lien 等关键事实，FTC 与 CFPB 的 deceased-debt 说明也不能被套用于生前赠车，因此本站不自动生成“承担”或“不承担”的法律结论。',

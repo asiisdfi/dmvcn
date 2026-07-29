@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T15:54:35.880Z",
+    "generatedAt": "2026-07-29T16:00:34.962Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
@@ -7324,7 +7324,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-24"
+        "reviewedAt": "2026-07-29"
       },
       "scores": {
         "factsAndSources": 25,
