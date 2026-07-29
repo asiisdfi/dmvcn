@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T16:21:46.845Z",
+    "generatedAt": "2026-07-29T16:38:59.224Z",
     "pages": 5,
     "claims": 822,
     "statesCovered": 50,
@@ -5049,11 +5049,12 @@
       "page": "document-rules",
       "stateId": "maryland",
       "category": "地址证明",
-      "claim": "准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致",
-      "sourceUrl": "https://mva.maryland.gov/Documents/FO-150A.pdf",
-      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
+      "claim": "新居民转入时，准备两份印有本人姓名和 Maryland 地址的住址材料，文件姓名必须与年龄和身份证明上的姓名一致",
+      "sourceUrl": "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card",
+      "sourceLabel": "对应官方来源：Maryland MVA New Resident License or ID",
       "themes": [
-        "residency-documents"
+        "residency-documents",
+        "new-resident"
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,

@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T16:21:48.968Z",
+    "generatedAt": "2026-07-29T16:39:52.348Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
@@ -583,8 +583,8 @@
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-29",
-        "reviewedAt": "2026-07-21"
+        "modifiedAt": "2026-07-30",
+        "reviewedAt": "2026-07-30"
       },
       "scores": {
         "factsAndSources": 25,
@@ -597,7 +597,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 233,
+        "sourceCount": 234,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -612,7 +612,7 @@
         "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": false,
         "humanApprovalFingerprintCurrent": false,
-        "contentFingerprint": "f30fb5095fdb3093ef33eb52bd3fcef69c87d46f091de1d1df750dfc6f0c0d86",
+        "contentFingerprint": "4391ec8044dd55beb3ea01907d6b045e32a97ae718402306d514034272498b78",
         "approvalContentFingerprint": "d374a93cd343400d717c3eab0d0ad3fa347e05040dc6599bc90cd185a326b2b3"
       },
       "critical": [],
@@ -3269,15 +3269,15 @@
       "semanticReview": {
         "status": "evidence-checked",
         "method": "ai-assisted",
-        "reviewedAt": "2026-07-29",
+        "reviewedAt": "2026-07-30",
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Maryland MVA 的 REAL ID Lookup、材料表、现行费用、续期补证、资料更新、新居民、考试、permit、驾驶教育、外国驾照、非合规证件和 Photo ID 正文。",
-        "notes": "2026-07-29 确认 Maryland 2026 官网改版后的旧 REAL ID FAQ 已下线，删除该入口及 $20 旧金额对比；费用声明改由 2025 年 9 月 1 日起生效的现行费用表直接支持，其余州级显式来源映射保持不变。"
+        "notes": "2026-07-30 对照 2026-07-21 人工签字版本复核材料目录差异：三条变化都源于旧 REAL ID FAQ 下线，其中两条只改接 FO-150A，另一条将“姓名与地址要和 MVA 记录一致”收窄为当前新居民页面直接写明的姓名、地址和身份证明匹配规则。费用声明继续由 2025 年 9 月 1 日起生效的现行费用表支持。"
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-29",
-        "reviewedAt": "2026-07-29"
+        "modifiedAt": "2026-07-30",
+        "reviewedAt": "2026-07-30"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3320,15 +3320,15 @@
       "semanticReview": {
         "status": "evidence-checked",
         "method": "ai-assisted",
-        "reviewedAt": "2026-07-29",
+        "reviewedAt": "2026-07-30",
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Maryland MVA 的 REAL ID Lookup、材料表、现行费用、续期补证、资料更新、新居民、考试、permit、驾驶教育、外国驾照、非合规证件和 Photo ID 正文。",
-        "notes": "2026-07-29 确认 Maryland 2026 官网改版后的旧 REAL ID FAQ 已下线，删除该入口及 $20 旧金额对比；费用声明改由 2025 年 9 月 1 日起生效的现行费用表直接支持，其余州级显式来源映射保持不变。"
+        "notes": "2026-07-30 对照 2026-07-21 人工签字版本复核材料目录差异：三条变化都源于旧 REAL ID FAQ 下线，其中两条只改接 FO-150A，另一条将“姓名与地址要和 MVA 记录一致”收窄为当前新居民页面直接写明的姓名、地址和身份证明匹配规则。费用声明继续由 2025 年 9 月 1 日起生效的现行费用表支持。"
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-29",
-        "reviewedAt": "2026-07-29"
+        "modifiedAt": "2026-07-30",
+        "reviewedAt": "2026-07-30"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3348,7 +3348,7 @@
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
         "stateEvidenceItems": 34,
-        "stateEvidenceLinks": 63,
+        "stateEvidenceLinks": 61,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,

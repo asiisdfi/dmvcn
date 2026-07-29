@@ -2003,9 +2003,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-29",
+      "reviewedAt": "2026-07-30",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-27",
+      "reviewDue": "2026-10-28",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -2014,7 +2014,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "2026-07-29 确认 Maryland 2026 官网改版后的旧 REAL ID FAQ 已下线，删除该入口及 $20 旧金额对比；费用声明改由 2025 年 9 月 1 日起生效的现行费用表直接支持，其余州级显式来源映射保持不变。",
+      "notes": "2026-07-30 对照 2026-07-21 人工签字版本复核材料目录差异：三条变化都源于旧 REAL ID FAQ 下线，其中两条只改接 FO-150A，另一条将“姓名与地址要和 MVA 记录一致”收窄为当前新居民页面直接写明的姓名、地址和身份证明匹配规则。费用声明继续由 2025 年 9 月 1 日起生效的现行费用表支持。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {
@@ -2027,9 +2027,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-29",
+      "reviewedAt": "2026-07-30",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-27",
+      "reviewDue": "2026-10-28",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -2038,7 +2038,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "2026-07-29 确认 Maryland 2026 官网改版后的旧 REAL ID FAQ 已下线，删除该入口及 $20 旧金额对比；费用声明改由 2025 年 9 月 1 日起生效的现行费用表直接支持，其余州级显式来源映射保持不变。",
+      "notes": "2026-07-30 对照 2026-07-21 人工签字版本复核材料目录差异：三条变化都源于旧 REAL ID FAQ 下线，其中两条只改接 FO-150A，另一条将“姓名与地址要和 MVA 记录一致”收窄为当前新居民页面直接写明的姓名、地址和身份证明匹配规则。费用声明继续由 2025 年 9 月 1 日起生效的现行费用表支持。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {

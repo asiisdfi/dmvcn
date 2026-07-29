@@ -5,6 +5,7 @@ import {
   DEADLINES_MODIFIED_DATE,
   DEADLINES_REVIEW_DATE,
   DOCUMENT_RULES_MODIFIED_DATE,
+  DOCUMENT_RULES_REVIEW_DATE,
   HIGH_RISK_DIRECTORY_REVIEW_DATE,
   HIGH_RISK_DIRECTORY_ROUTES,
   HIGH_RISK_TOPIC_SLUGS,
@@ -80,7 +81,7 @@ const HIGH_RISK_DIRECTORY_REVISIONS = new Map<string, HighRiskContentRevision>([
     '/directories/document-rules/',
     {
       modifiedAt: DOCUMENT_RULES_MODIFIED_DATE,
-      reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      reviewedAt: DOCUMENT_RULES_REVIEW_DATE,
       contentFingerprint:
         getHighRiskDirectoryFingerprint('/directories/document-rules/')
           ?.currentFingerprint ?? null,

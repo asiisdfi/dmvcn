@@ -26,9 +26,9 @@
 
 | 页面 | 基线声明 | 当前声明 | 2026-07-21 签字指纹 | 当前指纹 | 状态 |
 | --- | ---: | ---: | --- | --- | --- |
-| `/directories/costs-timing/` | 171 | 172 | `4fb3e31643ce713c3db47a2f1040866859c0fd5ccf518a2d933bfd5c1e733746` | `5a7c27951f1c74d602e86cb5857746f4c984ba431150161ff4604ab40e3c8507` | 重新人工核对 |
-| `/directories/deadlines/` | 126 | 126 | `7969c567dda577feaa1a7abe29207b5e5271e21ee6f97c218b4ce2d3d762d8fd` | `4a4086f3c12f1234b7c13a6cb0062664ab64ee4af3a47fba5506369711f09512` | 重新人工核对 |
-| `/directories/document-rules/` | 196 | 196 | `d374a93cd343400d717c3eab0d0ad3fa347e05040dc6599bc90cd185a326b2b3` | `f30fb5095fdb3093ef33eb52bd3fcef69c87d46f091de1d1df750dfc6f0c0d86` | 重新人工核对 |
+| `/directories/costs-timing/` | 171 | 172 | `4fb3e31643ce713c3db47a2f1040866859c0fd5ccf518a2d933bfd5c1e733746` | `78d9ebed6895a9fedea0fdf20922905aeed27bda5da1d64252bdb8221ce65a84` | 重新人工核对 |
+| `/directories/deadlines/` | 126 | 126 | `7969c567dda577feaa1a7abe29207b5e5271e21ee6f97c218b4ce2d3d762d8fd` | `16dd88469e8da47918da3d94e09b71a0e8a3975adb36040a19729fdf7ef262d7` | 重新人工核对 |
+| `/directories/document-rules/` | 196 | 196 | `d374a93cd343400d717c3eab0d0ad3fa347e05040dc6599bc90cd185a326b2b3` | `4391ec8044dd55beb3ea01907d6b045e32a97ae718402306d514034272498b78` | 重新人工核对 |
 | `/directories/foreign-license/` | 144 | 144 | `a67db58ca93077dfbdb702d265269883d1c39da3cf78111abeccf0187349a4a8` | `a67db58ca93077dfbdb702d265269883d1c39da3cf78111abeccf0187349a4a8` | 签字仍覆盖 |
 | `/directories/identity-ssn/` | 183 | 184 | `451ff146b364df74a48e60163370b16147809508b7f9af3f2789b4a0f9f2a530` | `56ea7508a602303250d33d45bda7a8324c41cb4358f0ea1f197ccc6235dfe815` | 重新人工核对 |
 
@@ -51,8 +51,9 @@
 ### 材料规则
 
 - Maryland 三条身份、SSN 和两份住址材料声明不再引用已下线 FAQ。
-- 三条声明当前直接指向 Maryland MVA `FO-150A` 文件要求表。
-- 中文声明本身未扩大，变更集中在就近来源。
+- 两条中文未变的声明当前直接指向 Maryland MVA `FO-150A` 文件要求表。
+- 原“姓名与地址要和 MVA 记录一致”依赖已下线 FAQ，本轮改为当前新居民页面直接写明的规则：两份材料印有本人姓名和 Maryland 地址，姓名与年龄和身份证明一致。
+- 这条收窄后的声明直接指向当前 New Resident License or ID 页面，不再让旧网页的措辞借新来源继续保留。
 
 ### 身份与 SSN
 
@@ -106,3 +107,11 @@
 - 两页声明数仍分别为 126 和 172。
 - 两页继续等待当前版本真人复核，不恢复索引。
 - 详细差异和来源语义核对见 `docs/review-evidence-preaudit-2026-07-30-deadlines.md`。
+
+材料规则目录随后完成独立差异复算。196 条记录中有 193 条与 2026-07-21 签字版本完全一致，三条 Maryland 记录被替换，其中两条只改来源，一条同时收窄中文表述。
+
+- 材料规则目录新指纹：`4391ec8044dd55beb3ea01907d6b045e32a97ae718402306d514034272498b78`
+- 当前声明数仍为 196。
+- 已下线 Maryland REAL ID FAQ 已从内容库存和自动 404 观察白名单移除，今后重新加入会触发硬失败。
+- 页面继续等待当前版本真人复核，不恢复索引。
+- 详细差异和来源语义核对见 `docs/review-evidence-preaudit-2026-07-30-document-rules.md`。

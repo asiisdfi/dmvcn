@@ -2628,8 +2628,8 @@ export const states: StateGuide[] = [
     agency: 'Maryland Motor Vehicle Administration',
     agencyUrl: 'https://mva.maryland.gov/',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-29',
-    reviewedAt: '2026-07-29',
+    modifiedAt: '2026-07-30',
+    reviewedAt: '2026-07-30',
     summary:
       'Maryland 的 REAL ID 办理第一步不是猜卡面，而是打开 MVA REAL ID Lookup 查询个人档案，因为即使卡上有星标或全州合规率很高，旧档案仍可能提示补交材料。',
     realIdSummary:
@@ -2674,7 +2674,7 @@ export const states: StateGuide[] = [
       '年龄与身份文件应使用原件或签发机关认证件，普通 photocopy、手机照片和 digital scan 不被接受。',
       '美国公民常见的年龄与身份证明包括签发机关认证的出生证或有效美国 passport，非公民要按当前身份选择相应 lawful-status 文件。',
       'Social Security 材料要按 Online Document Guide 和个人通知准备，不要把某一份旧清单当成所有交易的统一要求。',
-      '准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致。',
+      '新居民转入时，准备两份印有本人姓名和 Maryland 地址的住址材料，文件姓名必须与年龄和身份证明上的姓名一致。',
       '出生证或其他身份文件姓名与当前姓名不一致时，要用 marriage certificate、divorce decree 或 court order 串起完整变更历史。',
       '临时或其他非公民身份申请人应准备可由 DHS SAVE 核验的当前移民文件，证件期限可能受 lawful stay 限制。',
       '新居民应带当前外州驾照并在现场交回，卡片缺失时要提供原签发州出具且不超过 30 天的 certified driving record。',
@@ -2683,7 +2683,7 @@ export const states: StateGuide[] = [
     ],
     commonMistakes: [
       '因为卡上有星标或看到全州 99% 以上合规率，就跳过个人 REAL ID Lookup。',
-      '只带一份 Maryland 地址证明，或两份文件上的姓名和地址与 MVA 记录不一致。',
+      '新居民转入只带一份 Maryland 地址证明，或两份文件没有印出本人姓名和 Maryland 地址，或姓名与年龄和身份证明不一致。',
       '携带 photocopy、手机照片或自行公证件，误以为它们等同于签发机关认证副本。',
       '改过多次姓名却只带最近一次文件，无法连接出生姓名到 current legal name。',
       '继续按旧网页或搜索摘要中的 $20 估算，没有查看 2025 年 9 月 1 日生效的当前 License & ID Fees 页面。',

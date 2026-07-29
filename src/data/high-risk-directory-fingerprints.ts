@@ -22,7 +22,7 @@ export const HIGH_RISK_DIRECTORY_FINGERPRINTS: HighRiskDirectoryFingerprint[] = 
     route: '/directories/document-rules/',
     rowClass: 'document-rule-row',
     claimCount: 196,
-    currentFingerprint: 'f30fb5095fdb3093ef33eb52bd3fcef69c87d46f091de1d1df750dfc6f0c0d86',
+    currentFingerprint: '4391ec8044dd55beb3ea01907d6b045e32a97ae718402306d514034272498b78',
   },
   {
     route: '/directories/foreign-license/',

@@ -9974,7 +9974,7 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
     },
   },
   maryland: {
-    reviewedAt: '2026-07-29',
+    reviewedAt: '2026-07-30',
     reviewer: 'Codex AI 辅助证据核查',
     surfaces: ['overview', 'real-id'],
     sourceBodiesChecked: [
@@ -10001,7 +10001,7 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
     scope:
       '逐条比对 Maryland MVA 的 REAL ID Lookup、材料表、现行费用、续期补证、资料更新、新居民、考试、permit、驾驶教育、外国驾照、非合规证件和 Photo ID 正文。',
     notes:
-      '2026-07-29 确认 Maryland 2026 官网改版后的旧 REAL ID FAQ 已下线，删除该入口及 $20 旧金额对比；费用声明改由 2025 年 9 月 1 日起生效的现行费用表直接支持，其余州级显式来源映射保持不变。',
+      '2026-07-30 对照 2026-07-21 人工签字版本复核材料目录差异：三条变化都源于旧 REAL ID FAQ 下线，其中两条只改接 FO-150A，另一条将“姓名与地址要和 MVA 记录一致”收窄为当前新居民页面直接写明的姓名、地址和身份证明匹配规则。费用声明继续由 2025 年 9 月 1 日起生效的现行费用表支持。',
     claims: {
       'Maryland 的 REAL ID 办理第一步不是猜卡面，而是打开 MVA REAL ID Lookup 查询个人档案，因为即使卡上有星标或全州合规率很高，旧档案仍可能提示补交材料': [
         MD_REAL_ID_LOOKUP,
@@ -10114,10 +10114,9 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         MD_RENEW,
         MD_LICENSES_IDS,
       ],
-      '准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致': [
-        MD_DOCUMENT_REQUIREMENTS,
-        MD_ID_CARD,
+      '新居民转入时，准备两份印有本人姓名和 Maryland 地址的住址材料，文件姓名必须与年龄和身份证明上的姓名一致': [
         MD_TRANSFER_LICENSE,
+        MD_DOCUMENT_REQUIREMENTS,
       ],
       '出生证或其他身份文件姓名与当前姓名不一致时，要用 marriage certificate、divorce decree 或 court order 串起完整变更历史': [
         MD_ID_CARD,
@@ -10141,9 +10140,8 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         MD_LICENSES_IDS,
         MD_REAL_ID_LOOKUP,
       ],
-      '只带一份 Maryland 地址证明，或两份文件上的姓名和地址与 MVA 记录不一致': [
-        MD_ID_CARD,
-        MD_DOCUMENT_REQUIREMENTS,
+      '新居民转入只带一份 Maryland 地址证明，或两份文件没有印出本人姓名和 Maryland 地址，或姓名与年龄和身份证明不一致': [
+        MD_TRANSFER_LICENSE,
       ],
       '携带 photocopy、手机照片或自行公证件，误以为它们等同于签发机关认证副本': [
         MD_ID_CARD,

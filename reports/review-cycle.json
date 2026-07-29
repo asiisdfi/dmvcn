@@ -92,12 +92,12 @@
     "reviewAnchor": "办事页使用公开事实核对日期与证据复核日期中较早的一天计时；政策页使用公开事实核对日期。"
   },
   "source": {
-    "eeatGeneratedAt": "2026-07-29T16:21:42.871Z",
+    "eeatGeneratedAt": "2026-07-29T16:38:55.471Z",
     "officialAuditAgeDays": 1,
     "officialAuditDate": "2026-07-29",
     "officialInventoryFingerprint": "3158ac41ad08dc5ec00fef374a4e8ece5cc237031bb52ddc07be23d7c7189de8",
     "officialUrls": 1662,
-    "pageFingerprint": "d035dd21f8c6ac550f0f02b7d0f8aabd6d50d8e76be41796e638b7fe6d4d2fa8"
+    "pageFingerprint": "6cbfbc0b0bd93298a376b3042883ff339b33ddf85aa55baad8012e4c81eccfe8"
   },
   "summary": {
     "current": 154,
@@ -228,7 +228,7 @@
         "volatileCategory": "document-rules",
         "volatileLabel": "材料规则",
         "volatileScope": "地址证明、姓名链、原件、认证副本和翻译要求",
-        "visibleReviewedAt": "2026-07-21"
+        "visibleReviewedAt": "2026-07-30"
       },
       {
         "cycleDays": 30,
@@ -470,7 +470,7 @@
         "volatileCategory": "document-rules",
         "volatileLabel": "材料规则",
         "volatileScope": "地址证明、姓名链、原件、认证副本和翻译要求",
-        "visibleReviewedAt": "2026-07-21"
+        "visibleReviewedAt": "2026-07-30"
       },
       {
         "cycleDays": 30,
@@ -1375,7 +1375,7 @@
       "volatileCategory": "document-rules",
       "volatileLabel": "材料规则",
       "volatileScope": "地址证明、姓名链、原件、认证副本和翻译要求",
-      "visibleReviewedAt": "2026-07-21"
+      "visibleReviewedAt": "2026-07-30"
     },
     {
       "cycleDays": 30,
@@ -2419,13 +2419,13 @@
     },
     {
       "cycleDays": 90,
-      "daysUntilDue": 89,
+      "daysUntilDue": 90,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "state-overview",
-      "evidenceReviewedAt": "2026-07-29",
-      "reviewAnchorDate": "2026-07-29",
-      "reviewDue": "2026-10-27",
+      "evidenceReviewedAt": "2026-07-30",
+      "reviewAnchorDate": "2026-07-30",
+      "reviewDue": "2026-10-28",
       "reviewMethod": "ai-assisted",
       "reviewPolicy": "risk-based",
       "reviewStatus": "ai-assisted",
@@ -2435,17 +2435,17 @@
       "volatileCategory": null,
       "volatileLabel": null,
       "volatileScope": null,
-      "visibleReviewedAt": "2026-07-29"
+      "visibleReviewedAt": "2026-07-30"
     },
     {
       "cycleDays": 90,
-      "daysUntilDue": 89,
+      "daysUntilDue": 90,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "state-real-id",
-      "evidenceReviewedAt": "2026-07-29",
-      "reviewAnchorDate": "2026-07-29",
-      "reviewDue": "2026-10-27",
+      "evidenceReviewedAt": "2026-07-30",
+      "reviewAnchorDate": "2026-07-30",
+      "reviewDue": "2026-10-28",
       "reviewMethod": "ai-assisted",
       "reviewPolicy": "risk-based",
       "reviewStatus": "ai-assisted",
@@ -2455,7 +2455,7 @@
       "volatileCategory": null,
       "volatileLabel": null,
       "volatileScope": null,
-      "visibleReviewedAt": "2026-07-29"
+      "visibleReviewedAt": "2026-07-30"
     },
     {
       "cycleDays": 90,

@@ -72,10 +72,9 @@ const automated404WatchHosts = new Set([
   'dps.mn.gov',
 ]);
 const automated404WatchUrls = new Set([
-  // These current official resources return 404 from GitHub runner IPs but are
-  // still linked or indexed by their agencies. Keep this allowlist URL-specific.
+  // This current official PDF returns 404 from GitHub runner IPs but remains
+  // indexed by the agency. Keep this allowlist URL-specific.
   'https://mva.maryland.gov/Documents/FO-150A.pdf',
-  'https://mva.maryland.gov/Pages/realidfaq.aspx',
 ]);
 const temporaryHttpStatuses = new Set([
   '401',

@@ -1,7 +1,7 @@
 ---
 import {
   DOCUMENT_RULES_MODIFIED_DATE,
-  HIGH_RISK_DIRECTORY_REVIEW_DATE,
+  DOCUMENT_RULES_REVIEW_DATE,
   SITE_LAUNCH_DATE,
 } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
@@ -160,7 +160,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 材料规则表" description="按州查找 DMV / REAL ID 地址证明、SSN、姓名链条、原件或认证副本、P.O. Box 和非公民材料提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DOCUMENT_RULES_MODIFIED_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE}
+<BaseLayout title="DMV 材料规则表" description="按州查找 DMV / REAL ID 地址证明、SSN、姓名链条、原件或认证副本、P.O. Box 和非公民材料提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DOCUMENT_RULES_MODIFIED_DATE} reviewedAt={DOCUMENT_RULES_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">
@@ -171,7 +171,7 @@ const schema = {
       <p class="eyebrow">材料规则表</p>
       <h1>DMV 材料规则表</h1>
       <p class="lead">汇总各州容易遗漏的材料细节：地址证明、SSN、姓名链条、原件或认证副本、P.O. Box、文件日期和身份类别。先用中文确认重点，再回官方清单逐项核对。</p>
-      <ReviewBadge date={HIGH_RISK_DIRECTORY_REVIEW_DATE} />
+      <ReviewBadge date={DOCUMENT_RULES_REVIEW_DATE} />
       <div class="page-ledger" aria-label="材料规则表概况">
         <div>
           <strong>{rows.length} 州</strong>

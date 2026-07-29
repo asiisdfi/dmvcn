@@ -76,8 +76,8 @@
       "class": "directory",
       "title": "搬到美国新州后怎么办 DMV：换驾照、改地址、车辆登记 | DMV中文办事库",
       "heading": "搬到美国新州后，DMV 先办什么",
-      "contentChars": 15663,
-      "contentHash": "c5f2cb0974ed681978a95de81fd28a0de6809ff448dc581d0f9dcdb0bd9ce280"
+      "contentChars": 15662,
+      "contentHash": "2e1e29e2818b4fe03c17dc8adce81375a1c8fc3ed199e4ae9e19dddd70adf4d8"
     },
     {
       "route": "/directories/real-id/",
@@ -85,7 +85,7 @@
       "title": "50 州 REAL ID 官方入口表 | DMV中文办事库",
       "heading": "50 州 REAL ID 官方入口表",
       "contentChars": 5512,
-      "contentHash": "7ce562df24e62fcebd4df5d3784b472d344e6dba8d73c886aabded1492234192"
+      "contentHash": "baa3f4db469f4302f997c3b2d7ebef64ef55e2d21588e0ec580d30f989423a0c"
     },
     {
       "route": "/directories/tests-permits/",
@@ -413,15 +413,15 @@
       "title": "马里兰州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "马里兰州 DMV 办事总览",
       "contentChars": 6381,
-      "contentHash": "f311265634aa7ea1c022a5bc5e81d62482f1869f988d9c4b53077ebf7d754485"
+      "contentHash": "1a3f5f0e39b70e1b86540fcb9c7fcf0dc486d618aff49a70a94ca4807fe23e80"
     },
     {
       "route": "/states/maryland/real-id/",
       "class": "state-real-id",
       "title": "马里兰州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "马里兰州 REAL ID 中文材料清单",
-      "contentChars": 6372,
-      "contentHash": "6173cbe2c0ecfe97a9e708d2e862e96250c2416e4eae774d4791e43805575ee3"
+      "contentChars": 6327,
+      "contentHash": "dac215d4a62c0e83e9e8550660da8a1c22afdebc92f219c85b53bd0b1a434a9b"
     },
     {
       "route": "/states/massachusetts/",

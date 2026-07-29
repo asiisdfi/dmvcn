@@ -7,7 +7,8 @@ export const COSTS_TIMING_MODIFIED_DATE = '2026-07-29';
 export const COSTS_TIMING_REVIEW_DATE = '2026-07-29';
 export const DEADLINES_MODIFIED_DATE = '2026-07-30';
 export const DEADLINES_REVIEW_DATE = '2026-07-30';
-export const DOCUMENT_RULES_MODIFIED_DATE = '2026-07-29';
+export const DOCUMENT_RULES_MODIFIED_DATE = '2026-07-30';
+export const DOCUMENT_RULES_REVIEW_DATE = '2026-07-30';
 export const IDENTITY_SSN_MODIFIED_DATE = '2026-07-29';
 export const DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
@@ -41,6 +42,13 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-30',
+    title: '校正 Maryland 新居民地址证明说明',
+    summary:
+      '重新核对 Maryland MVA 当前的新居民页面、Identification Card 页面和 FO-150A 材料表后，将“姓名与地址要和 MVA 记录一致”改为现行页面直接写明的要求：新居民的两份住址材料要印有本人姓名和 Maryland 地址，姓名须与年龄和身份证明一致。已下线的旧 REAL ID FAQ 不再作为可恢复来源；另外两条材料声明只改接当前 FO-150A，中文要求没有扩大。',
+    scope: ['Maryland 州指南', 'Maryland REAL ID', '材料规则目录'],
+  },
   {
     date: '2026-07-30',
     title: '修正 Oklahoma 实体卡寄送与状态查询说明',
