@@ -291,12 +291,12 @@ export const semanticReviews: Record<string, SemanticReview> = {
   '/topics/dmv-test-language-translation-interpreter/': {
     status: 'evidence-checked',
     method: 'ai-assisted',
-    reviewedAt: '2026-07-21',
+    reviewedAt: '2026-07-29',
     reviewer: 'Codex AI 辅助证据核查',
     scope:
       '逐条比对网页与手册语言、普通 knowledge test、road test、oral / audio test、interpreter、文件翻译及 CDL / Hazmat 限制。',
     notes:
-      '保留 Florida 2026-02-06 全部驾照考试 English-only 与 Texas 2026-06-01 CDL / CLP knowledge English-only 更新；移除无法由 North Carolina 当前官方正文确认的多语言笔试泛化。',
+      '2026-07-29 重新核对 CA、NY、TX、FL、WA、NJ、PA、GA、NC 与 MI 当前官方正文；Florida 全部驾照考试 English-only、Texas CDL / CLP knowledge English-only、各州中文或多语言考试及口译边界均未变化。',
   },
   '/topics/foreign-license-idp-transfer/': {
     status: 'evidence-checked',

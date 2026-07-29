@@ -17999,7 +17999,7 @@ export const topics: TopicGuide[] = [
     eyebrow: '语言 / 翻译',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-21',
-    reviewedAt: '2026-07-21',
+    reviewedAt: '2026-07-29',
     description:
       '美国 DMV 的语言规则不能只问“有没有中文”。网页翻译、中文手册、knowledge test 语言、road test 口译、CDL / Hazmat 限制、外文文件 certified translation，常常是几套完全不同的规则。',
     whoNeedsIt: [

@@ -3421,9 +3421,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-21",
+      "reviewedAt": "2026-07-29",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-19",
+      "reviewDue": "2026-10-27",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -3432,7 +3432,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "保留 Florida 2026-02-06 全部驾照考试 English-only 与 Texas 2026-06-01 CDL / CLP knowledge English-only 更新；移除无法由 North Carolina 当前官方正文确认的多语言笔试泛化。",
+      "notes": "2026-07-29 重新核对 CA、NY、TX、FL、WA、NJ、PA、GA、NC 与 MI 当前官方正文；Florida 全部驾照考试 English-only、Texas CDL / CLP knowledge English-only、各州中文或多语言考试及口译边界均未变化。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {

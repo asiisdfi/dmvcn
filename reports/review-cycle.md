@@ -12,7 +12,7 @@
 | 风险 | 页面数 | 最长周期 | 最早到期 | 30 天内到期 | 已逾期 |
 | --- | ---: | ---: | --- | ---: | ---: |
 | high | 17 | 60 天 | 2026-08-16 | 7 | 0 |
-| medium | 125 | 90 天 | 2026-08-20 | 5 | 0 |
+| medium | 125 | 90 天 | 2026-08-28 | 5 | 0 |
 | standard | 13 | 120 天 | 2026-11-10 | 0 | 0 |
 | policy | 11 | 180 天 | 2027-01-09 | 0 | 0 |
 
@@ -29,8 +29,8 @@
 | /directories/document-rules/ | 易变规则：材料规则 | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/foreign-license/ | 易变规则：外国驾照与 IDP | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/identity-ssn/ | 易变规则：身份与 SSN | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
-| /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
+| /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 | /topics/temporary-tag-trip-permit-dealer-plate/ | 易变规则：临时牌照与通行许可 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 | /topics/vehicle-inspection-emissions-smog-vin-check/ | 易变规则：车辆检查与排放 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 | /topics/vehicle-registration-renewal-expired-tags-non-operation/ | 易变规则：车辆登记续期 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
@@ -50,8 +50,8 @@
 | /directories/document-rules/ | 易变规则：材料规则 | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/foreign-license/ | 易变规则：外国驾照与 IDP | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /directories/identity-ssn/ | 易变规则：身份与 SSN | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
-| /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 22 |
 | /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
+| /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 | /topics/temporary-tag-trip-permit-dealer-plate/ | 易变规则：临时牌照与通行许可 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 | /topics/vehicle-inspection-emissions-smog-vin-check/ | 易变规则：车辆检查与排放 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
 | /topics/vehicle-registration-renewal-expired-tags-non-operation/ | 易变规则：车辆登记续期 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 30 |
