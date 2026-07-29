@@ -8,6 +8,7 @@ import {
   isTargetQuerySignal,
   isUnreviewedClassification,
 } from './search-console-query-policy.mjs';
+import { resolveImportedWindow } from './search-console-window.mjs';
 
 const COUNTRY_CODES = new Map(Object.entries({
   美国: 'US',
@@ -320,24 +321,6 @@ function exportFilterNames(filters) {
     .filter(Boolean);
 }
 
-function inferWindowDays(label, chartRows) {
-  const dayMatch = String(label).match(/(\d+)\s*(?:天|days?)/i);
-  if (dayMatch) return Number(dayMatch[1]);
-  if (/3\s*(?:个月|months?)/i.test(String(label))) return 90;
-  const dates = chartRows
-    .map((row) => cell(row, ['日期', 'date']))
-    .filter(isCalendarDate)
-    .sort();
-  if (dates.length < 2) return dates.length;
-  return (
-    Math.round(
-      (Date.parse(`${dates.at(-1)}T00:00:00.000Z`) -
-        Date.parse(`${dates[0]}T00:00:00.000Z`)) /
-        86_400_000,
-    ) + 1
-  );
-}
-
 function buildPropertyTotals(chartRows) {
   const clicks = chartRows.reduce(
     (sum, row) => sum + toNumber(cell(row, ['点击次数', 'clicks'])),
@@ -522,12 +505,12 @@ export async function importSearchConsoleExport({
   }
 
   const windowLabel = getWindowLabel(globalFiles.filters);
-  const windowDays =
-    Number(requestedWindowDays) ||
-    inferWindowDays(windowLabel, globalFiles.chart.rows);
-  if (!Number.isInteger(windowDays) || windowDays < 1) {
-    throw new Error('Unable to determine the Search Console window length.');
-  }
+  const importedWindow = resolveImportedWindow({
+    label: windowLabel,
+    requestedDays: requestedWindowDays,
+    chartDates,
+  });
+  const windowDays = importedWindow.days;
 
   const reportsDir = path.join(outputRoot, 'reports');
   const privateDir = path.join(reportsDir, 'private');
@@ -573,6 +556,7 @@ export async function importSearchConsoleExport({
       dataShownFrom: chartDates[0],
       dataShownThrough: chartDates.at(-1),
       timeZone: 'Asia/Shanghai',
+      verification: importedWindow.verification,
     },
     propertyTotals,
     countries,

@@ -15,7 +15,7 @@
 npm run import:sc -- --global "/path/to/dmvcn.com-Performance-on-Search-YYYY-MM-DD.zip"
 ```
 
-导入器直接读取 Google 导出的 ZIP 或解压目录，自动识别页面、查询、日期、国家、设备和过滤器 CSV，按日期曝光加权计算平均排名，并要求国家与设备汇总分别和全站点击、曝光完全一致。ZIP 文件名没有导出日期时，必须增加 `--observed-at YYYY-MM-DD`；自定义日期标签无法识别时才使用 `--window-days 30`。
+导入器直接读取 Google 导出的 ZIP 或解压目录，自动识别页面、查询、日期、国家、设备和过滤器 CSV，按日期曝光加权计算平均排名，并要求国家与设备汇总分别和全站点击、曝光完全一致。ZIP 文件名没有导出日期时，必须增加 `--observed-at YYYY-MM-DD`；自定义日期标签无法识别时才使用 `--window-days 30`。这个参数只是一项校验声明，必须与导出筛选标签或图表首尾日期的 30 天跨度相符，不能把较短导出强行标成 30 天。
 
 需要刷新页面级查询映射时，在私有目录准备 manifest：
 

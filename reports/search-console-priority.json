@@ -30,6 +30,8 @@
     "observedAt": "2026-07-29",
     "ageDays": 0,
     "windowDays": 28,
+    "windowVerified": true,
+    "windowVerificationMethod": "filter-label",
     "dataThrough": "2026-07-26",
     "dataLagDays": 3,
     "pageRows": 128,

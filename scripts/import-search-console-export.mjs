@@ -13,7 +13,7 @@ Options:
   --classifications <review.csv>  Reviewed overrides: route,query,classification
   --observed-at <YYYY-MM-DD>      Export date; inferred from ZIP name when possible
   --property <property>           Defaults to sc-domain:dmvcn.com
-  --window-days <number>          Override only when the filter label is ambiguous
+  --window-days <number>          Assert an ambiguous custom window; chart span must match
   --output-root <directory>       Test/output root; defaults to the repository
   --dry-run                       Validate and summarize without writing files
   --help                          Show this help
@@ -70,6 +70,7 @@ try {
   console.log('');
   console.log(`Observed: ${summary.observedAt}`);
   console.log(`Window: ${summary.window.label} (${summary.window.days} days)`);
+  console.log(`Window evidence: ${summary.window.verification.method}`);
   console.log(
     `Property clicks / impressions: ${summary.propertyTotals.clicks} / ${summary.propertyTotals.impressions}`,
   );

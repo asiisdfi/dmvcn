@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { evaluateSerializedWindow } from './lib/search-console-window.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const reportsDir = path.join(projectRoot, 'reports');
@@ -330,7 +331,10 @@ const metricChecks = {
   usClickShare: minimumCheck(usClickShare, targets.usClickShare, 'percent'),
 };
 const requestedWindowDays = toNumber(segments?.window?.days);
-const completionComparable = requestedWindowDays === 30;
+const windowEvidence = evaluateSerializedWindow(segments?.window);
+const completionComparable =
+  requestedWindowDays === 30 &&
+  windowEvidence.verified;
 const growthTargetsMet = Object.values(metricChecks).every((check) => check.met);
 const objectiveEvidenceComplete =
   completionComparable &&
@@ -343,6 +347,9 @@ if (!completionComparable) {
   warnings.push(
     `当前快照是 ${requestedWindowDays || '未知'} 天窗口，只能跟踪趋势，不能证明 30 天目标完成。`,
   );
+}
+if (!windowEvidence.verified) {
+  warnings.push('Search Console 时间窗口缺少可核对的筛选标签或图表日期跨度。');
 }
 if (segmentClickTotal !== propertyTotals.clicks) {
   warnings.push(
@@ -400,6 +407,7 @@ const scorecard = {
   source: {
     property: segments?.property ?? 'sc-domain:dmvcn.com',
     window: segments?.window ?? null,
+    windowEvidence,
     pageReport: path.relative(projectRoot, pageReportPath),
     segmentReport: path.relative(projectRoot, segmentReportPath),
     eeatReport: path.relative(projectRoot, eeatReportPath),
@@ -480,6 +488,7 @@ const scorecard = {
   },
   checks: metricChecks,
   status: {
+    windowVerified: windowEvidence.verified,
     completionComparable,
     growthTargetsMet,
     qualityGatePassed,
@@ -504,6 +513,7 @@ const markdown = [
   `# DMVCN 增长 Scorecard (${scorecardDate})`,
   '',
   `- Search Console 窗口：${segments?.window?.label ?? '未知'}；界面可见数据 ${segments?.window?.dataShownFrom ?? '未知'} 至 ${segments?.window?.dataShownThrough ?? '未知'}。`,
+  `- 窗口证据：${windowEvidence.verified ? `已核对（${windowEvidence.method}）` : '未核对'}。`,
   `- 完成证据可比性：${completionComparable ? '可用于 30 天目标验收' : '仅作趋势代理，尚不能用于 30 天目标验收'}。`,
   `- 质量门禁：${qualityGatePassed ? '通过' : '未通过'}；可索引页面 ${eeatSummary.indexablePassed ?? 0}/${eeatSummary.indexablePages ?? 0}。`,
   '',

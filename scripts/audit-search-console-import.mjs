@@ -15,6 +15,7 @@ import {
   isTargetQuerySignal,
   isUnreviewedClassification,
 } from './lib/search-console-query-policy.mjs';
+import { evaluateSerializedWindow } from './lib/search-console-window.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const execFileAsync = promisify(execFile);
@@ -178,6 +179,10 @@ try {
 
   check(summary.observedAt === observedAt, 'Export date was not inferred.');
   check(summary.window.days === 28, '28-day filter was not recognized.');
+  check(
+    summary.window.verification?.method === 'filter-label',
+    'Preset window was not verified from the export filter.',
+  );
   check(summary.propertyTotals.clicks === 3, 'Click total is incorrect.');
   check(summary.propertyTotals.impressions === 300, 'Impression total is incorrect.');
   check(summary.propertyTotals.ctr === 1, 'CTR total is incorrect.');
@@ -189,6 +194,63 @@ try {
   check(summary.classifications.unreviewed === 1, 'Unreviewed count is incorrect.');
   check(summary.classifications.humanReview === 1, 'Human-review count is incorrect.');
   check(summary.classifications.observed === 1, 'Observed count is incorrect.');
+
+  let mismatchedWindowRejected = false;
+  try {
+    await importSearchConsoleExport({
+      projectRoot,
+      outputRoot,
+      globalExportPath: globalZip,
+      windowDays: 30,
+      dryRun: true,
+    });
+  } catch (error) {
+    mismatchedWindowRejected = String(
+      error instanceof Error ? error.message : error,
+    ).includes('conflicts with the 28-day export filter label');
+  }
+  check(
+    mismatchedWindowRejected,
+    'A 28-day export was allowed to masquerade as a 30-day window.',
+  );
+
+  const customWindowZip = path.join(
+    inputDir,
+    `custom-window-${observedAt}.zip`,
+  );
+  await writeZip(customWindowZip, {
+    ...globalFiles,
+    '图表.csv':
+      '日期,点击次数,展示,点击率,排名\n' +
+      `${addDays(observedAt, -29)},1,100,1%,10\n` +
+      `${observedAt},2,200,1%,20\n`,
+    '过滤器.csv': '过滤器,值\n搜索类型,网络\n日期,自定义\n',
+  });
+  const customWindowSummary = await importSearchConsoleExport({
+    projectRoot,
+    outputRoot,
+    globalExportPath: customWindowZip,
+    windowDays: 30,
+    dryRun: true,
+  });
+  check(
+    customWindowSummary.window.days === 30 &&
+      customWindowSummary.window.verification?.method === 'chart-span',
+    'A genuine custom 30-day export was not verified from its chart span.',
+  );
+  check(
+    !evaluateSerializedWindow({
+      label: '自定义',
+      days: 30,
+      dataShownFrom: addDays(observedAt, -14),
+      dataShownThrough: observedAt,
+      verification: {
+        verified: true,
+        method: 'manual-override',
+      },
+    }).verified,
+    'A manual flag could forge 30-day completion evidence.',
+  );
 
   const segmentPath = path.join(
     outputRoot,
@@ -348,6 +410,83 @@ try {
       env: {
         ...process.env,
         SEARCH_CONSOLE_PLAN_PATH: planPath,
+      },
+    },
+  );
+
+  const forgedSegmentPath = path.join(
+    outputRoot,
+    'reports/private/forged-window-segments.json',
+  );
+  await writeFile(
+    forgedSegmentPath,
+    `${JSON.stringify(
+      {
+        ...segments,
+        window: {
+          ...segments.window,
+          label: '自定义',
+          days: 30,
+          dataShownFrom: addDays(observedAt, -14),
+          dataShownThrough: observedAt,
+          verification: {
+            verified: true,
+            method: 'manual-override',
+          },
+        },
+      },
+      null,
+      2,
+    )}\n`,
+  );
+  const forgedPlanOutputDir = path.join(outputRoot, 'plan-forged-window');
+  await execFileAsync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts/build-search-console-plan.mjs')],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SC_REPORT_PATH: path.join(
+          outputRoot,
+          'reports/search-console-export.csv',
+        ),
+        SC_QUERY_REPORT_PATH: path.join(
+          outputRoot,
+          'reports/private/search-console-query-export.csv',
+        ),
+        SC_PAGE_QUERY_REPORT_PATH: signalsPath,
+        SC_SEGMENT_REPORT_PATH: forgedSegmentPath,
+        SC_ACTION_LOG_PATH: actionLogPath,
+        SC_ROUTING_REVIEW_PATH: routingReviewLogPath,
+        SC_OUTPUT_DIR: forgedPlanOutputDir,
+        SC_PRIVATE_OUTPUT_DIR: path.join(
+          outputRoot,
+          'plan-forged-window-private',
+        ),
+        SC_PLAN_DATE: observedAt,
+      },
+    },
+  );
+  const forgedPlanPath = path.join(
+    forgedPlanOutputDir,
+    'search-console-priority.json',
+  );
+  const forgedPlan = JSON.parse(await readFile(forgedPlanPath, 'utf8'));
+  check(
+    !forgedPlan.dataSnapshot.readyForPlanning &&
+      !forgedPlan.dataSnapshot.completionComparable &&
+      forgedPlan.execution.status === 'hold-data',
+    'A forged 30-day window remained eligible for planning or completion.',
+  );
+  await execFileAsync(
+    process.execPath,
+    [path.join(projectRoot, 'scripts/audit-search-console-plan.mjs')],
+    {
+      cwd: projectRoot,
+      env: {
+        ...process.env,
+        SEARCH_CONSOLE_PLAN_PATH: forgedPlanPath,
       },
     },
   );
@@ -793,7 +932,7 @@ try {
 
 console.log('# Search Console Import Gate');
 console.log('');
-console.log('Synthetic ZIP exports: 8');
+console.log('Synthetic ZIP exports: 9');
 console.log('Property totals: 3 clicks / 300 impressions');
 console.log('Page-query signals: 6');
 console.log(`Errors: ${errors.length}`);
@@ -805,4 +944,4 @@ if (errors.length) {
 }
 
 console.log('');
-console.log('ZIP parsing, totals, refresh, privacy classification, and target gating passed.');
+console.log('ZIP parsing, window evidence, totals, refresh, privacy classification, and target gating passed.');

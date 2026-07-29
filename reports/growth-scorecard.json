@@ -10,6 +10,13 @@
       "dataShownThrough": "2026-07-26",
       "timeZone": "Asia/Shanghai"
     },
+    "windowEvidence": {
+      "verified": true,
+      "method": "filter-label",
+      "days": 28,
+      "labelDays": 28,
+      "chartSpanDays": 15
+    },
     "pageReport": "reports/search-console-export.csv",
     "segmentReport": "reports/private/search-console-segments.json",
     "eeatReport": "reports/eeat-inventory.json",
@@ -689,6 +696,7 @@
     }
   },
   "status": {
+    "windowVerified": true,
     "completionComparable": false,
     "growthTargetsMet": false,
     "qualityGatePassed": true,

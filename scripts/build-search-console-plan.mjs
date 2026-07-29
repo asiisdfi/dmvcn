@@ -9,6 +9,7 @@ import {
   isUnreviewedClassification,
 } from './lib/search-console-query-policy.mjs';
 import { SEARCH_CONSOLE_EDITORIAL_TARGETS } from './lib/search-console-cadence.mjs';
+import { evaluateSerializedWindow } from './lib/search-console-window.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const reportPath = path.join(projectRoot, 'reports', 'search-console-export.csv');
@@ -821,6 +822,7 @@ const publicQuerySignals = querySignals
   : null;
 const snapshotObservedAt = segmentSnapshot?.observedAt ?? null;
 const snapshotDataThrough = segmentSnapshot?.window?.dataShownThrough ?? null;
+const windowEvidence = evaluateSerializedWindow(segmentSnapshot?.window);
 const snapshotAgeDays = daysBetween(snapshotObservedAt, planDate);
 const snapshotLagDays = daysBetween(snapshotDataThrough, planDate);
 const signalObservedDates = [
@@ -840,6 +842,9 @@ if (segmentSnapshot && segmentSnapshot.property !== expectedProperty) {
 }
 if (toNumber(segmentSnapshot?.window?.days) < 28) {
   dataBlockers.push('Search Console 时间窗口少于 28 天，不用于内容优先级判断。');
+}
+if (segmentSnapshot && !windowEvidence.verified) {
+  dataBlockers.push('Search Console 时间窗口缺少可核对的筛选标签或图表日期跨度。');
 }
 if (snapshotAgeDays === null || snapshotAgeDays < 0 || snapshotAgeDays > 7) {
   dataBlockers.push('分段快照距计划日期超过 7 天或日期无效。');
@@ -868,6 +873,8 @@ const dataSnapshot = {
   observedAt: snapshotObservedAt,
   ageDays: snapshotAgeDays,
   windowDays: toNumber(segmentSnapshot?.window?.days),
+  windowVerified: windowEvidence.verified,
+  windowVerificationMethod: windowEvidence.method,
   dataThrough: snapshotDataThrough,
   dataLagDays: snapshotLagDays,
   pageRows: rows.length,
@@ -877,7 +884,9 @@ const dataSnapshot = {
   pageQueryObservedFrom: signalObservedDates[0] ?? null,
   pageQueryObservedThrough: signalObservedDates.at(-1) ?? null,
   readyForPlanning: dataBlockers.length === 0,
-  completionComparable: toNumber(segmentSnapshot?.window?.days) === 30,
+  completionComparable:
+    toNumber(segmentSnapshot?.window?.days) === 30 &&
+    windowEvidence.verified,
   blockers: dataBlockers,
 };
 

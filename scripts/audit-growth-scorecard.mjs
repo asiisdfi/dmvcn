@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { evaluateSerializedWindow } from './lib/search-console-window.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const scorecardPath = path.resolve(
@@ -334,7 +335,19 @@ const expectedGrowthTargetsMet = Object.values(checks).every((check) => check.me
 if (status.growthTargetsMet !== expectedGrowthTargetsMet) {
   errors.push('Growth-target status is inconsistent.');
 }
-const completionComparable = toNumber(scorecard.source?.window?.days) === 30;
+const windowEvidence = evaluateSerializedWindow(scorecard.source?.window);
+if (
+  JSON.stringify(scorecard.source?.windowEvidence) !==
+  JSON.stringify(windowEvidence)
+) {
+  errors.push('Search Console window evidence is inconsistent.');
+}
+if (status.windowVerified !== windowEvidence.verified) {
+  errors.push('Window-verification status is inconsistent.');
+}
+const completionComparable =
+  toNumber(scorecard.source?.window?.days) === 30 &&
+  windowEvidence.verified;
 if (status.completionComparable !== completionComparable) {
   errors.push('Completion comparability does not match the Search Console window.');
 }

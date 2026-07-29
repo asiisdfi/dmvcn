@@ -123,6 +123,21 @@ if (
 if (snapshot.readyForPlanning && (snapshot.blockers?.length ?? 0) > 0) {
   errors.push('readyForPlanning cannot be true while data blockers remain.');
 }
+if (snapshot.readyForPlanning && !snapshot.windowVerified) {
+  errors.push('A planning-ready snapshot must have a verified Search Console window.');
+}
+if (
+  snapshot.windowVerified &&
+  !['filter-label', 'chart-span'].includes(snapshot.windowVerificationMethod)
+) {
+  errors.push('Verified Search Console data has an unknown window-evidence method.');
+}
+if (
+  snapshot.completionComparable &&
+  (snapshot.windowDays !== 30 || !snapshot.windowVerified)
+) {
+  errors.push('Completion-comparable data must be a verified 30-day window.');
+}
 if (!snapshot.readyForPlanning) {
   if ((snapshot.blockers?.length ?? 0) === 0) {
     errors.push('A held data snapshot must explain at least one blocker.');
