@@ -11,7 +11,7 @@
 - 13 个入口目录页：入口表首页、50 州 REAL ID 官方入口表、50 州 DMV 常用业务入口表、DMV 线上/现场分流表、DMV 预约和办公室入口表、DMV 笔试、路考和 learner permit 入口表、DMV 考试语言、翻译和口译入口表、DMV 费用和拿证时间表、DMV SSN 和身份类别分流表、搬到新州后 DMV 办事入口表、DMV 外国/外州驾照转入和 IDP 入口表、DMV 材料规则表、DMV 期限提醒表。
 - 中文练习题：Georgia 官方来源原型，含 20 道原创 Road Rules / Road Signs 练习题、逐题解释和官方依据；不收录或改写来历不明的旧题库。
 - 合规页：About、Contact、Privacy、Terms、来源与更新、官方来源库。
-- SEO：静态页面、canonical、Open Graph、修改时间、JSON-LD、robots.txt，以及直接列出全部 166 个可索引页面的单文件 sitemap。
+- SEO：静态页面、canonical、Open Graph、修改时间、JSON-LD、robots.txt，以及直接列出全部 163 个可索引页面的单文件 sitemap。
 - 内容审计记录：见 `CONTENT_AUDIT.md`。
 
 ## 内容原则
@@ -53,6 +53,17 @@
    ```
 
 完整的托管参数、发布后检查和 Search Console 步骤见 `DEPLOYMENT.md`；可配置变量模板见 `.env.example`。
+
+## 自动质量门禁
+
+`.github/workflows/quality-gates.yml` 会在以下情况使用干净的 Node.js 22.12 环境执行 `npm ci` 和 `npm run verify:launch`：
+
+- `main` 收到推送；
+- pull request 新建或更新；
+- 每天 07:17 UTC 的定时检查；
+- GitHub Actions 页面手动触发。
+
+工作流只有仓库只读权限，所用 Action 均来自 GitHub 官方仓库，并固定到发布版本对应的完整提交 SHA。原始 Search Console 查询、页面查询映射、环境文件和 Vercel 配置均被 `.gitignore` 排除，不会上传到 Actions；CI 只核对已经脱敏并提交的计划、来源基线和成品页面。定时任务若因官方来源基线超过 30 天、事实复核逾期或任何发布门禁失败而变红，必须先更新对应证据和报告，不能跳过检查继续发布。
 
 ## 本地运行
 
