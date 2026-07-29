@@ -83,7 +83,7 @@ for (const page of highRiskPages) {
     (page.reviewStatus === 'human-approval-stale'
       ? page.signals?.humanApprovalFingerprintCurrent === false &&
         page.signals?.contentFingerprint
-        ? `现有人工签字对应的目录内容指纹与当前构建不一致。请对照当前正文重新打开逐条政府来源核对；发现问题先退回修改，完成当前版本核对后再填写新签字。`
+        ? `现有人工签字对应的内容指纹与当前构建不一致。请对照当前正文重新打开逐条政府来源核对；发现问题先退回修改，完成当前版本核对后再填写新签字。`
         : `现有人工签字日期为 ${page.semanticReview?.reviewedAt ?? '未记录'}，早于当前内容版本 ${currentContentDate(page)}。请对照当前正文重新打开逐条政府来源核对；发现问题先退回修改，完成当前版本核对后再填写新签字。`
       : monthlyDueRoutes.has(page.route)
       ? `本页已进入 30 天易变规则复核窗口。请重新打开页面所列政府来源，记录规则是否变化；若有变化，先退回修改，再对修改后的内容签字。`
@@ -116,7 +116,7 @@ const markdown = [
   '- 每条声明至少检查适用州、适用人群、期限或金额、例外、法律后果、来源是否仍有效，以及中文是否扩大了官方原意。',
   '- 发现一条关键事实无法由现行官方正文支持时，应选择“退回修改”或“部分通过”，不能为了让严格审计变绿而签字。',
   '- 月度复核日期保持空白，只有完成本轮核对后才能填写；不得沿用上一次日期。',
-  '- 高风险正文一旦晚于签字日期发生修改，或目录声明、州归属、就近来源的指纹发生变化，旧签字会自动失效，页面保持 noindex。',
+  '- 高风险正文、声明、州归属或就近来源的内容指纹发生变化时，旧签字会自动失效，页面保持 noindex；修改日期仍会单独复核。',
   '- 审核完成后，把签字表 CSV 填好，再执行 `SIGNOFF_CSV=docs/review-manual-signoff-template.csv npm run review:signoffs:import`。',
   '- 导入签字后，还要把页面公开的“事实核对”日期更新为同一真实日期；两处日期中任一处未更新，30 天门禁都不会延期。',
   '- 初次通过导入后，页面会在下一次构建时自动移除 `noindex` 并重新进入 sitemap；未签字页继续保留访问入口，但不提交搜索引擎收录。',
@@ -138,9 +138,9 @@ for (const [pageIndex, page] of highRiskPages.entries()) {
     `- 当前内容版本日期：${currentContentDate(page)}`,
     `- 页面公开事实核对日期：${page.dates?.reviewedAt ?? '未记录'}`,
     `- 现有人工签字日期：${review.reviewedAt ?? '未记录'}`,
-    ...(page.pageType === 'directory'
+    ...(page.signals?.contentFingerprint
       ? [
-          `- 当前目录内容指纹：${page.signals?.contentFingerprint ?? '未记录'}`,
+          `- 当前内容指纹：${page.signals.contentFingerprint}`,
           `- 人工签字内容指纹：${page.signals?.approvalContentFingerprint ?? '未记录'}`,
         ]
       : []),

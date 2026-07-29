@@ -11,6 +11,7 @@ import {
   SEARCH_CONSOLE_UPDATE_DATE,
 } from './editorial.ts';
 import { getHighRiskDirectoryFingerprint } from './high-risk-directory-fingerprints.ts';
+import { getHighRiskTopicFingerprint } from './high-risk-topic-fingerprints.ts';
 import { semanticReviews } from './review-registry.ts';
 
 export type PublicationGate = {
@@ -114,7 +115,9 @@ const HIGH_RISK_TOPIC_REVISIONS = new Map<string, HighRiskContentRevision>(
       {
         modifiedAt: topic.modifiedAt,
         reviewedAt: topic.reviewedAt,
-        contentFingerprint: null,
+        contentFingerprint:
+          getHighRiskTopicFingerprint(`/topics/${topic.slug}/`)
+            ?.currentFingerprint ?? null,
       },
     ]),
 );

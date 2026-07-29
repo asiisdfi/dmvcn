@@ -54,6 +54,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对残疾停车证、车牌、医疗证明、续期、补发、跨州使用和违规风险。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: '825a5b44f9ddf420e1d2b94fc286eb61a5e85a84f7f506ff084d8a3ce9ee800b',
   },
   {
     route: '/topics/driver-license-suspension-reinstatement-sr22/',
@@ -61,6 +62,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对驾照暂停、撤销、恢复、费用、SR-22 或 FR-44 及法院和 DMV 的职责边界。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: '3c6e740a4e47b8c11a1927de8e4b5ee9b484ed96fa59c851da3ea9ad3d34a9b2',
   },
   {
     route: '/topics/gift-inherited-vehicle-title-transfer/',
@@ -68,6 +70,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对赠与、继承、共同车主、遗产、税费、留置权和车辆所有权转移要求。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: 'ee3982002d0145de263573d45eea31f4bca66cbf474da4618aa83800be4d4c3a',
   },
   {
     route: '/topics/lost-vehicle-title-replacement-electronic-title-lien-sale/',
@@ -75,6 +78,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对遗失车辆所有权证、电子 title、留置权、补发和出售前处理要求。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: 'cc6ef372c75eaffec65de4579924ff51c83644a95aca61b6672644b422b4db69',
   },
   {
     route: '/topics/name-change-chain/',
@@ -82,6 +86,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对姓名变更、SSA 同步、身份文件衔接、翻译和各机构办理顺序。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: 'a18e0b6a5e2719c9ac54302f0e54da0073a55f83e5e7606c624c92fde49b599b',
   },
   {
     route: '/topics/non-citizen-license-id/',
@@ -89,6 +94,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对非公民申请驾照或州身份证的身份文件、有效期、核验和州别差异。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: 'aeac1ae2907135a6ee98e09c19879e6d3360d6e3edd9d5ae744080f869740411',
   },
   {
     route: '/topics/older-driver-license-renewal-medical-review/',
@@ -96,6 +102,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对高龄驾驶人续期、视力检查、医疗复核、家属报告和驾驶限制。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: '794e6fad9ad41ed84427a7a0444f23405515700953679aefff58166b2b4072d9',
   },
   {
     route: '/topics/ssn-and-itin/',
@@ -103,6 +110,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对 SSN、ITIN、无 SSN 文件和 DMV 身份材料之间的区别与适用条件。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: '548a166b0aebf6f9746b62e15abd14698207d80845cd235a1613890c84b08a3e',
   },
   {
     route: '/topics/standard-license-driving-privilege-no-lawful-status/',
@@ -110,6 +118,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对 standard license、驾驶特权证件、REAL ID 限制、资格和使用边界。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: 'f61021702982da0c32ea3c417a5c29d68c415842d261763b652f0d3074a723d0',
   },
   {
     route: '/topics/student-temporary-resident-license-registration/',
@@ -117,6 +126,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对学生、访问学者、临时居民和访客的驾照、车辆登记与居住身份分流。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: '700ce8486872b1d03359de44911307279cade5727b1c6491c1835047bf3a74e5',
   },
   {
     route: '/topics/tickets-tolls-insurance-lapse-registration-hold/',
@@ -124,6 +134,7 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对罚单、收费公路、保险中断、车辆登记限制及不同机构的处理顺序。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: '1c8c1345a21df576bc6489914d3a74256a6e3c2e1e4c22788e4cf303c57334e0',
   },
   {
     route: '/topics/used-car-title-lien-salvage-odometer-check/',
@@ -131,5 +142,6 @@ export const REVIEW_MANUAL_SIGNOFFS: ReviewManualSignoff[] = [
     reviewedAt: '2026-07-21',
     scope: '人工核对二手车 title、留置权、salvage、里程表、VIN 和交易前风险检查。',
     notes: '站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。',
+    contentFingerprint: '34726acab0be4fb876341daf43e9388ed8381a547b79695975f0fba0d2756401',
   },
 ];

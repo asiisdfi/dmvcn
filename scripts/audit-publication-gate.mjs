@@ -4,11 +4,11 @@ import { fileURLToPath } from 'node:url';
 import {
   HUMAN_REVIEW_REQUIRED_ROUTES,
   NON_SEARCH_LANDING_ROUTES,
+  getHighRiskContentRevision,
   getPublicationGate,
   isPlausibleHumanReviewer,
   isValidReviewDate,
 } from '../src/data/publication-gate.ts';
-import { getHighRiskDirectoryFingerprint } from '../src/data/high-risk-directory-fingerprints.ts';
 import { REVIEW_MANUAL_SIGNOFFS } from '../src/data/review-manual-signoffs.ts';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
@@ -75,10 +75,10 @@ for (const signoff of REVIEW_MANUAL_SIGNOFFS) {
   }
   if (signoff.scope.trim().length < 12) errors.push(`${signoff.route}: signoff scope is too short`);
   if (
-    getHighRiskDirectoryFingerprint(signoff.route) &&
+    getHighRiskContentRevision(signoff.route)?.contentFingerprint &&
     !/^[a-f0-9]{64}$/.test(signoff.contentFingerprint ?? '')
   ) {
-    errors.push(`${signoff.route}: directory signoff is missing its reviewed content fingerprint`);
+    errors.push(`${signoff.route}: signoff is missing its reviewed content fingerprint`);
   }
 }
 

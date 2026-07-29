@@ -440,7 +440,7 @@ function scorePage(route, document) {
     blockers.push(
       publicationGate.humanApprovalFingerprintCurrent
         ? `内容版本更新于 ${publicationGate.contentRevisionAt ?? '未知日期'}，晚于 ${publicationGate.approvalReviewedAt ?? '现有'} 人工签字；重新人工语义核查前保持 noindex`
-        : `当前目录内容指纹与 ${publicationGate.approvalReviewedAt ?? '现有'} 人工签字版本不一致；重新人工语义核查前保持 noindex`,
+        : `当前内容指纹与 ${publicationGate.approvalReviewedAt ?? '现有'} 人工签字版本不一致；重新人工语义核查前保持 noindex`,
     );
   }
   if (identity.risk === 'high' && reviewStatus !== 'human-approved' && identity.type !== 'trust') {

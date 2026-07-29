@@ -30,14 +30,14 @@
 
 | 路由 | 风险 | 分数 | 阻塞点 |
 | --- | --- | --- | --- |
-| /directories/costs-timing/ | high | 98 | 当前目录内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
-| /directories/deadlines/ | high | 98 | 当前目录内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
-| /directories/document-rules/ | high | 98 | 当前目录内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
-| /directories/identity-ssn/ | high | 98 | 当前目录内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
-| /topics/gift-inherited-vehicle-title-transfer/ | high | 97 | 内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex |
-| /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/ | high | 97 | 内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex |
-| /topics/name-change-chain/ | high | 97 | 内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex |
-| /topics/tickets-tolls-insurance-lapse-registration-hold/ | high | 97 | 内容版本更新于 2026-07-29，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex |
+| /directories/costs-timing/ | high | 98 | 当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
+| /directories/deadlines/ | high | 98 | 当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
+| /directories/document-rules/ | high | 98 | 当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
+| /directories/identity-ssn/ | high | 98 | 当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
+| /topics/gift-inherited-vehicle-title-transfer/ | high | 97 | 当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
+| /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/ | high | 97 | 当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
+| /topics/name-change-chain/ | high | 97 | 当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
+| /topics/tickets-tolls-insurance-lapse-registration-hold/ | high | 97 | 当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex |
 
 ## 执行节奏
 1. **第1-2周**：完成高风险人工签字，目标产出 8 条，检查点：未签字的高风险页必须保持 noindex 并从 sitemap 排除

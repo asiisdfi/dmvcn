@@ -8,7 +8,7 @@
   "scripts": {
     "build:brand": "node scripts/build-brand-assets.mjs",
     "dev": "astro dev",
-    "build": "npm run build:brand && npm run build:site && npm run audit:directory-fingerprints && npm run audit:eeat && npm run plan:quality && npm run plan:review-cycles && npm run audit:review-cycles && npm run plan:signoff && npm run build:site",
+    "build": "npm run build:brand && npm run build:site && npm run audit:directory-fingerprints && npm run audit:topic-fingerprints && npm run audit:eeat && npm run plan:quality && npm run plan:review-cycles && npm run audit:review-cycles && npm run plan:signoff && npm run build:site",
     "build:site": "astro build",
     "preview": "astro preview",
     "audit:links": "node --experimental-strip-types scripts/audit-official-links.mjs",
@@ -21,6 +21,7 @@
     "audit:content": "node --experimental-strip-types scripts/audit-content-quality.mjs",
     "audit:directory-evidence": "node --experimental-strip-types scripts/audit-directory-evidence.mjs",
     "audit:directory-fingerprints": "node --experimental-strip-types scripts/audit-high-risk-directory-fingerprints.mjs",
+    "audit:topic-fingerprints": "node --experimental-strip-types scripts/audit-high-risk-topic-fingerprints.mjs",
     "audit:state-evidence": "node --experimental-strip-types scripts/audit-state-evidence.mjs",
     "audit:practice": "node --experimental-strip-types scripts/audit-practice-tests.mjs",
     "audit:eeat": "node --experimental-strip-types scripts/audit-eeat.mjs",

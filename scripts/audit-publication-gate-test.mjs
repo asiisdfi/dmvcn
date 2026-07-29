@@ -47,6 +47,28 @@ if (
   process.exit(1);
 }
 
+const changedTopicGate = getPublicationGate(
+  '/topics/gift-inherited-vehicle-title-transfer/',
+);
+if (
+  changedTopicGate.humanApprovalFingerprintCurrent ||
+  changedTopicGate.indexable
+) {
+  console.error('A changed high-risk topic kept its old fingerprint approval.');
+  process.exit(1);
+}
+
+const unchangedTopicGate = getPublicationGate(
+  '/topics/older-driver-license-renewal-medical-review/',
+);
+if (
+  !unchangedTopicGate.humanApprovalFingerprintCurrent ||
+  !unchangedTopicGate.indexable
+) {
+  console.error('An unchanged high-risk topic lost its matching fingerprint approval.');
+  process.exit(1);
+}
+
 try {
   const csvPath = path.join(tempRoot, 'stale-signoff.csv');
   await writeFile(
