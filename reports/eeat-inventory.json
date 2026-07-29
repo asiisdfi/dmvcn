@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T16:39:52.348Z",
+    "generatedAt": "2026-07-29T17:05:03.137Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
@@ -697,8 +697,8 @@
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-29",
-        "reviewedAt": "2026-07-21"
+        "modifiedAt": "2026-07-30",
+        "reviewedAt": "2026-07-30"
       },
       "scores": {
         "factsAndSources": 25,
@@ -711,7 +711,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 266,
+        "sourceCount": 265,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -720,13 +720,13 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 184,
-        "directoryEvidenceLinks": 184,
+        "directoryEvidenceItems": 186,
+        "directoryEvidenceLinks": 186,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": false,
         "humanApprovalFingerprintCurrent": false,
-        "contentFingerprint": "56ea7508a602303250d33d45bda7a8324c41cb4358f0ea1f197ccc6235dfe815",
+        "contentFingerprint": "b3d1d7462f8c5ed2241a95581c1543def77ad4f5787b3c7db7da37a726c6de93",
         "approvalContentFingerprint": "451ff146b364df74a48e60163370b16147809508b7f9af3f2789b4a0f9f2a530"
       },
       "critical": [],

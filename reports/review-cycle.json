@@ -92,12 +92,12 @@
     "reviewAnchor": "办事页使用公开事实核对日期与证据复核日期中较早的一天计时；政策页使用公开事实核对日期。"
   },
   "source": {
-    "eeatGeneratedAt": "2026-07-29T16:38:55.471Z",
+    "eeatGeneratedAt": "2026-07-29T17:05:03.137Z",
     "officialAuditAgeDays": 1,
     "officialAuditDate": "2026-07-29",
     "officialInventoryFingerprint": "3158ac41ad08dc5ec00fef374a4e8ece5cc237031bb52ddc07be23d7c7189de8",
     "officialUrls": 1662,
-    "pageFingerprint": "6cbfbc0b0bd93298a376b3042883ff339b33ddf85aa55baad8012e4c81eccfe8"
+    "pageFingerprint": "d12ae2ba606eb1c946a86e354221b988f3280f77b73bc97717c631d92376dbea"
   },
   "summary": {
     "current": 154,
@@ -268,7 +268,7 @@
         "volatileCategory": "identity-ssn",
         "volatileLabel": "身份与 SSN",
         "volatileScope": "SSN、无 SSN、ITIN、lawful presence 和临时访客分流",
-        "visibleReviewedAt": "2026-07-21"
+        "visibleReviewedAt": "2026-07-30"
       },
       {
         "cycleDays": 30,
@@ -510,7 +510,7 @@
         "volatileCategory": "identity-ssn",
         "volatileLabel": "身份与 SSN",
         "volatileScope": "SSN、无 SSN、ITIN、lawful presence 和临时访客分流",
-        "visibleReviewedAt": "2026-07-21"
+        "visibleReviewedAt": "2026-07-30"
       },
       {
         "cycleDays": 30,
@@ -1415,7 +1415,7 @@
       "volatileCategory": "identity-ssn",
       "volatileLabel": "身份与 SSN",
       "volatileScope": "SSN、无 SSN、ITIN、lawful presence 和临时访客分流",
-      "visibleReviewedAt": "2026-07-21"
+      "visibleReviewedAt": "2026-07-30"
     },
     {
       "cycleDays": 120,

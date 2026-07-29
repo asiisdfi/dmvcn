@@ -33,8 +33,8 @@ export const HIGH_RISK_DIRECTORY_FINGERPRINTS: HighRiskDirectoryFingerprint[] = 
   {
     route: '/directories/identity-ssn/',
     rowClass: 'identity-ssn-row',
-    claimCount: 184,
-    currentFingerprint: '56ea7508a602303250d33d45bda7a8324c41cb4358f0ea1f197ccc6235dfe815',
+    claimCount: 186,
+    currentFingerprint: 'b3d1d7462f8c5ed2241a95581c1543def77ad4f5787b3c7db7da37a726c6de93',
   },
 ];
 

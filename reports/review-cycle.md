@@ -27,7 +27,7 @@
 | /directories/deadlines/ | 易变规则：期限与宽限期 | high | 2026-07-30 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
 | /directories/document-rules/ | 易变规则：材料规则 | high | 2026-07-30 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
 | /directories/foreign-license/ | 易变规则：外国驾照与 IDP | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
-| /directories/identity-ssn/ | 易变规则：身份与 SSN | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
+| /directories/identity-ssn/ | 易变规则：身份与 SSN | high | 2026-07-30 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
 | /topics/tickets-tolls-insurance-lapse-registration-hold/ | 易变规则：欠费、保险中断与限制 | high | 2026-07-29 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
 | /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 29 |
 | /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 29 |
@@ -48,7 +48,7 @@
 | /directories/deadlines/ | 易变规则：期限与宽限期 | high | 2026-07-30 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
 | /directories/document-rules/ | 易变规则：材料规则 | high | 2026-07-30 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
 | /directories/foreign-license/ | 易变规则：外国驾照与 IDP | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
-| /directories/identity-ssn/ | 易变规则：身份与 SSN | high | 2026-07-21 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
+| /directories/identity-ssn/ | 易变规则：身份与 SSN | high | 2026-07-30 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
 | /topics/tickets-tolls-insurance-lapse-registration-hold/ | 易变规则：欠费、保险中断与限制 | high | 2026-07-29 | 2026-07-21 | 2026-07-21 | 2026-08-20 | 剩余 21 |
 | /topics/airport-travel-after-real-id/ | 易变规则：联邦旅行证件 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 29 |
 | /topics/dmv-test-language-translation-interpreter/ | 易变规则：考试语言与口译 | medium | 2026-07-29 | 2026-07-29 | 2026-07-29 | 2026-08-28 | 剩余 29 |

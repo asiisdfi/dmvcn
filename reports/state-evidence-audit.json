@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T16:39:00.199Z",
+    "generatedAt": "2026-07-29T17:03:34.608Z",
     "pages": 100,
     "states": 50,
     "claims": 4744,
@@ -17472,12 +17472,12 @@
       "context": "real-id",
       "claim": "REAL ID 的 SSN 证明必须显示 full Social Security number，Social Security card 不接受 photocopy、laminated card 或金属/塑料复制品",
       "sourceUrls": [
-        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx",
-        "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx"
+        "https://www.ncdot.gov/dmv/help/Pages/proving-social-security.aspx",
+        "https://www.ncdot.gov/dmv/license-id/nc-real-id/Pages/requirements.aspx"
       ],
       "sourceLabels": [
-        "对应官方来源：NCDMV REAL ID Requirements",
-        "对应官方来源：NCDMV Proving Social Security"
+        "对应官方来源：NCDMV Proving Social Security",
+        "对应官方来源：NCDMV REAL ID Requirements"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -49268,12 +49268,12 @@
       "context": "document",
       "claim": "当前 Missouri 记录中 SSN 已核验的人可能可以口头提供号码",
       "sourceUrls": [
-        "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html",
-        "https://dor.mo.gov/driver-license/issuance/id-requirements.html"
+        "https://dor.mo.gov/driver-license/issuance/id-requirements.html",
+        "https://dor.mo.gov/driver-license/issuance/required-documents-checklist.html"
       ],
       "sourceLabels": [
-        "对应官方来源：Missouri DOR Required Documents Checklist",
-        "对应官方来源：Missouri DOR Identity and Address Requirements"
+        "对应官方来源：Missouri DOR Identity and Address Requirements",
+        "对应官方来源：Missouri DOR Required Documents Checklist"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [

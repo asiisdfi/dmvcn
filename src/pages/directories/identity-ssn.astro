@@ -1,7 +1,7 @@
 ---
 import {
-  HIGH_RISK_DIRECTORY_REVIEW_DATE,
   IDENTITY_SSN_MODIFIED_DATE,
+  IDENTITY_SSN_REVIEW_DATE,
   SITE_LAUNCH_DATE,
 } from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
@@ -10,6 +10,7 @@ import ReviewBadge from '../../components/ReviewBadge.astro';
 import StatusFilter from '../../components/StatusFilter.astro';
 import { getPublicEditorialNotes, getStatePublicStatus, states } from '../../data/content';
 import { pickDirectoryEvidence, splitDirectoryClaims } from '../../data/directory-evidence';
+import { getReviewedStateClaimSources } from '../../data/state-evidence-reviews';
 
 type StateGuide = (typeof states)[number];
 
@@ -23,10 +24,48 @@ function hasIdentityCue(text: string) {
   if (/temporary|临时/i.test(text) && !/visitor|paper permit|legal status|lawful|driver license|license|I-94|visa|non.?citizen|非公民|临时访客/i.test(text)) {
     return false;
   }
+  if (
+    /renew|续期/i.test(text) &&
+    !/SSN|Social Security|无 SSN|没有 SSN|ITIN|affidavit|lawful|legal presence|legal status|non.?citizen|non.?immigrant|temporary visitor|visa|I-94|I-20|DS-2019|EAD|USCIS|SAVE|citizen|citizenship|公民|非公民|移民|合法/i.test(
+      text,
+    )
+  ) {
+    return false;
+  }
+  if (
+    /affidavit|宣誓/i.test(text) &&
+    !/SSN|Social Security|\bSSA\b|\bITIN\b|identity|身份|lawful|legal presence|legal status|citizen|citizenship|公民|非公民|移民/i.test(
+      text,
+    )
+  ) {
+    return false;
+  }
   return !nonIdentityPattern.test(text) || /SSN|\bSSA\b|ITIN|lawful|legal|citizen|immigrant|visa|I-94|身份|合法|非公民|移民|公民|AB 60/i.test(text);
 }
 
 function classifyIdentityCue(text: string) {
+  if (/AB 60/i.test(text)) return 'AB 60';
+  if (/\bITIN\b|affidavit|宣誓/i.test(text)) return 'ITIN / affidavit';
+  if (
+    /无 SSN|没有 SSN|不具(?:备)? SSN 资格|不符合(?:取得)? SSN 资格|没有资格取得 SSN|无资格取得 SSN|不能取得 SSN|未获分配 SSN|没有获分配 SSN|ineligibility|not eligible|denial|denied|not issued|SSA-L676|拒信|不可取得/i.test(
+      text,
+    )
+  ) {
+    return '无 SSN / SSA';
+  }
+  if (/(?:仅向|仅限|只限|只供).*公民|只列美国公民|only.{0,30}citizen/i.test(text)) return '公民身份';
+  if (/SSN|Social Security|full 9|完整 9 位/i.test(text)) return 'SSN';
+  if (/lawful|legal presence|legal status|authorized presence|合法/i.test(text)) return 'lawful presence';
+  if (/non.?citizen|non.?immigrant|immigrant|非公民|非美国公民|非移民|移民|temporary visitor|Limited Term|临时访客/i.test(text)) return '非公民 / 临时访客';
+  if (/name|姓名|改名|translation|翻译|match|一致/i.test(text)) return '姓名 / 翻译';
+  if (/visa|I-94|I-20|DS-2019|EAD|green card|USCIS|SAVE/i.test(text)) return '移民文件';
+  if (/citizenship|citizen|公民|EDL|EID/i.test(text)) return '公民身份';
+  if (/\bSSA\b/i.test(text)) return 'SSN';
+  return '身份核验';
+}
+
+// Keep legacy buckets for stable ranking; display labels are corrected after evidence selection.
+function classifyIdentitySelectionCue(text: string) {
   if (/AB 60/i.test(text)) return 'AB 60';
   if (/\bITIN\b|affidavit|宣誓/i.test(text)) return 'ITIN / affidavit';
   if (/无 SSN|没有 SSN|ineligibility|not eligible|\bSSA\b|拒信|不可取得/i.test(text)) return '无 SSN / SSA';
@@ -68,7 +107,7 @@ function identityNotesFor(state: StateGuide) {
     for (const compact of splitDirectoryClaims(candidate.text)) {
       if (!compact || seen.has(compact) || !hasIdentityCue(compact)) continue;
       seen.add(compact);
-      const category = classifyIdentityCue(compact);
+      const category = classifyIdentitySelectionCue(compact);
       notes.push({ category, text: compact, score: identityNoteScore(compact, category) + candidate.sourceScore, index });
     }
   }
@@ -95,6 +134,21 @@ function identityNotesFor(state: StateGuide) {
 
 function identityBadges(notes: { category: string; text: string }[]) {
   return [...new Set(notes.map((note) => note.category))].slice(0, 4);
+}
+
+function pickReviewedIdentityEvidence(state: StateGuide, text: string) {
+  const reviewedUrls = getReviewedStateClaimSources(state.id, text);
+  if (!reviewedUrls?.length) return null;
+
+  for (const url of reviewedUrls) {
+    const source = state.sources.find((candidate) => candidate.url === url);
+    if (source) return { label: source.label, url: source.url };
+
+    const actionLink = state.actionLinks.find((candidate) => candidate.url === url);
+    if (actionLink) return { label: actionLink.label, url: actionLink.url };
+  }
+
+  return null;
 }
 
 function identityEvidencePatterns(category: string, text: string) {
@@ -129,13 +183,25 @@ function identityEvidencePatterns(category: string, text: string) {
 }
 
 function sourcedIdentityNotesFor(state: StateGuide) {
-  return identityNotesFor(state)
+  const notes = identityNotesFor(state);
+  const automaticallySourced = notes
     .flatMap((note) => {
       if (note.category === '身份核验') return [];
       const evidence = pickDirectoryEvidence(state, note.text, identityEvidencePatterns(note.category, note.text));
       return evidence ? [{ ...note, evidence }] : [];
-    })
-    .slice(0, 4);
+    });
+  const sourced =
+    automaticallySourced.length > 0
+      ? automaticallySourced
+      : notes.flatMap((note) => {
+          if (note.category === '身份核验') return [];
+          const evidence = pickReviewedIdentityEvidence(state, note.text);
+          return evidence ? [{ ...note, evidence }] : [];
+        });
+
+  return sourced
+    .slice(0, 4)
+    .map((note) => ({ ...note, category: classifyIdentityCue(note.text) }));
 }
 
 function pickIdentityLinks(state: StateGuide) {
@@ -205,7 +271,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV SSN 和身份类别分流表" description="按州查找 DMV / REAL ID 办理中的 SSN、无 SSN、SSA ineligibility、ITIN、lawful presence、非公民和临时访客材料入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={IDENTITY_SSN_MODIFIED_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE}
+<BaseLayout title="DMV SSN 和身份类别分流表" description="按州查找 DMV / REAL ID 办理中的 SSN、无 SSN、SSA ineligibility、ITIN、lawful presence、非公民和临时访客材料入口。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={IDENTITY_SSN_MODIFIED_DATE} reviewedAt={IDENTITY_SSN_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">
@@ -216,7 +282,7 @@ const schema = {
       <p class="eyebrow">SSN / 身份类别</p>
       <h1>DMV SSN 和身份类别分流表</h1>
       <p class="lead">先判断你走的是 SSN、无 SSN、ITIN、lawful presence、非公民、临时访客还是州内特殊路径。这里不替你判断移民身份，只把官方入口和容易卡住的材料点放在一张表里。</p>
-      <ReviewBadge date={HIGH_RISK_DIRECTORY_REVIEW_DATE} />
+      <ReviewBadge date={IDENTITY_SSN_REVIEW_DATE} />
       <div class="page-ledger" aria-label="SSN 和身份类别分流表概况">
         <div>
           <strong>{rows.length} 州</strong>

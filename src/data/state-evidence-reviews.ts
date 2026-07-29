@@ -5409,7 +5409,7 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '远程续期还要求在申请前 12 个月内完成视力检查，credential 必须仍有效或过期不超过 184 天': [MO_CHECKLIST],
       '地址未变并且先前核验文件已扫描保存时，部分现有持证人可以 self-certify 地址': [MO_CHECKLIST, MO_ID_REQUIREMENTS],
       '地址或 mailing address 已变时仍要提交当前证明': [MO_CHECKLIST, MO_ID_REQUIREMENTS],
-      '当前 Missouri 记录中 SSN 已核验的人可能可以口头提供号码': [MO_CHECKLIST, MO_ID_REQUIREMENTS],
+      '当前 Missouri 记录中 SSN 已核验的人可能可以口头提供号码': [MO_ID_REQUIREMENTS, MO_CHECKLIST],
       '电子核验失败时仍须出示实体证明或向 SSA 处理': [MO_CHECKLIST],
       '21 至 69 岁的普通驾照通常为 6 年，18 至 20 岁和 70 岁以上通常为 3 年': [MO_LICENSE, MO_FAQ],
       '非公民证件可能随 lawful-status 文件提前到期': [MO_LICENSE],
@@ -10623,8 +10623,8 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         NC_REAL_ID_REQUIREMENTS,
       ],
       'REAL ID 的 SSN 证明必须显示 full Social Security number，Social Security card 不接受 photocopy、laminated card 或金属/塑料复制品': [
-        NC_REAL_ID_REQUIREMENTS,
         NC_SSN,
+        NC_REAL_ID_REQUIREMENTS,
       ],
       '1099、W-2 或 payroll record 可作为 REAL ID SSN 证明，但必须显示 full SSN，且姓名要和 identity document 对得上': [
         NC_REAL_ID_REQUIREMENTS,

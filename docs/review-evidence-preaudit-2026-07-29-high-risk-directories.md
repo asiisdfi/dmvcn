@@ -30,7 +30,7 @@
 | `/directories/deadlines/` | 126 | 126 | `7969c567dda577feaa1a7abe29207b5e5271e21ee6f97c218b4ce2d3d762d8fd` | `16dd88469e8da47918da3d94e09b71a0e8a3975adb36040a19729fdf7ef262d7` | 重新人工核对 |
 | `/directories/document-rules/` | 196 | 196 | `d374a93cd343400d717c3eab0d0ad3fa347e05040dc6599bc90cd185a326b2b3` | `4391ec8044dd55beb3ea01907d6b045e32a97ae718402306d514034272498b78` | 重新人工核对 |
 | `/directories/foreign-license/` | 144 | 144 | `a67db58ca93077dfbdb702d265269883d1c39da3cf78111abeccf0187349a4a8` | `a67db58ca93077dfbdb702d265269883d1c39da3cf78111abeccf0187349a4a8` | 签字仍覆盖 |
-| `/directories/identity-ssn/` | 183 | 184 | `451ff146b364df74a48e60163370b16147809508b7f9af3f2789b4a0f9f2a530` | `56ea7508a602303250d33d45bda7a8324c41cb4358f0ea1f197ccc6235dfe815` | 重新人工核对 |
+| `/directories/identity-ssn/` | 183 | 186 | `451ff146b364df74a48e60163370b16147809508b7f9af3f2789b4a0f9f2a530` | `b3d1d7462f8c5ed2241a95581c1543def77ad4f5787b3c7db7da37a726c6de93` | 重新人工核对 |
 
 ## 当前差异
 
@@ -59,7 +59,10 @@
 
 - Colorado 增加 2026 年 7 月版 DR 2300A 对口头提供 SSN、可携带 SSN 文件及 SSA 核验的当前说明。
 - Maryland 两条身份与 SSN 声明改由 `FO-150A` 支持。
-- Washington 新增 standard ID 与仅向美国公民签发的 EID 分流线索；真人复核时应重点确认该行是否足够具体，不能让“先看卡面”替代公民资格判断。
+- 删除 Washington 只提示“先看卡面”的弱记录，保留 EDL/EID 公民资格、SSN 和 Standard credential 身份边界。
+- 修正旧规则把正常 SSN、SSA 核验和改名记录归入“无 SSN / SSA”的分类错误。
+- Maine、South Dakota 与 West Virginia 的纯住址 affidavit 不再混入身份目录。
+- North Carolina 与 Missouri 的替代记录改连到能完整支持整句说明的官方专页。
 
 ### 外国驾照
 
@@ -115,3 +118,13 @@
 - 已下线 Maryland REAL ID FAQ 已从内容库存和自动 404 观察白名单移除，今后重新加入会触发硬失败。
 - 页面继续等待当前版本真人复核，不恢复索引。
 - 详细差异和来源语义核对见 `docs/review-evidence-preaudit-2026-07-30-document-rules.md`。
+
+身份与 SSN 目录随后完成独立分类和搜索意图复核。旧规则把任何出现 `SSA` 的记录都归入“无 SSN / SSA”，也把纯住址 affidavit 当作身份线索；当前版本已按实际含义重分，并删除 Washington“先看卡面”的弱提示。
+
+- 身份与 SSN 目录新指纹：`b3d1d7462f8c5ed2241a95581c1543def77ad4f5787b3c7db7da37a726c6de93`
+- 当前声明数由 184 调整为 186。
+- 相对本轮开始前有 36 条只改标签、7 条弱或错意图记录删除、9 条更直接的身份 / SSN 记录加入。
+- North Carolina 与 Missouri 的新增记录已改接能完整支持整句说明的官方专页。
+- Georgia 原先只有官方入口、没有可见证据行；当前以已登记的逐条来源映射补入 4 条，目录现覆盖全部 50 州。
+- 页面继续等待当前版本真人复核，不恢复索引。
+- 详细差异和来源语义核对见 `docs/review-evidence-preaudit-2026-07-30-identity-ssn.md`。

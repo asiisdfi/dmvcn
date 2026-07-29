@@ -9,7 +9,8 @@ export const DEADLINES_MODIFIED_DATE = '2026-07-30';
 export const DEADLINES_REVIEW_DATE = '2026-07-30';
 export const DOCUMENT_RULES_MODIFIED_DATE = '2026-07-30';
 export const DOCUMENT_RULES_REVIEW_DATE = '2026-07-30';
-export const IDENTITY_SSN_MODIFIED_DATE = '2026-07-29';
+export const IDENTITY_SSN_MODIFIED_DATE = '2026-07-30';
+export const IDENTITY_SSN_REVIEW_DATE = '2026-07-30';
 export const DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
 export const SEARCH_CONSOLE_UPDATE_DATE = '2026-07-24';
@@ -42,6 +43,20 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-30',
+    title: '清理身份与 SSN 目录的错误分类',
+    summary:
+      '逐州复核身份与 SSN 目录后，修正了旧规则把正常 SSN 证明、SSA 姓名更新一律归入“无 SSN”的问题；只谈住址的 affidavit 不再混入身份目录，Washington“先看卡面”的弱提示也已删除。North Carolina、Missouri、Maine 和 South Dakota 改为显示更直接的身份或 SSN 规则，Georgia 补齐 SSN、DDS-351 和 REAL ID 材料说明，目录现在有 50 州的逐条官方来源。该目录在当前版本完成真人核对前继续保持 noindex。',
+    scope: [
+      '身份与 SSN 目录',
+      'SSN、无 SSN、姓名与公民身份分类',
+      '住址 affidavit 排除',
+      'North Carolina 与 Missouri 就近来源',
+      'Georgia 身份与 SSN 证据',
+      '高风险人工复核门禁',
+    ],
+  },
   {
     date: '2026-07-30',
     title: '校正 Maryland 新居民地址证明说明',

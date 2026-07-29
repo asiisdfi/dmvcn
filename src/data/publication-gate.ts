@@ -10,6 +10,7 @@ import {
   HIGH_RISK_DIRECTORY_ROUTES,
   HIGH_RISK_TOPIC_SLUGS,
   IDENTITY_SSN_MODIFIED_DATE,
+  IDENTITY_SSN_REVIEW_DATE,
   SEARCH_CONSOLE_UPDATE_DATE,
 } from './editorial.ts';
 import { getHighRiskDirectoryFingerprint } from './high-risk-directory-fingerprints.ts';
@@ -101,7 +102,7 @@ const HIGH_RISK_DIRECTORY_REVISIONS = new Map<string, HighRiskContentRevision>([
     '/directories/identity-ssn/',
     {
       modifiedAt: IDENTITY_SSN_MODIFIED_DATE,
-      reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      reviewedAt: IDENTITY_SSN_REVIEW_DATE,
       contentFingerprint:
         getHighRiskDirectoryFingerprint('/directories/identity-ssn/')
           ?.currentFingerprint ?? null,
