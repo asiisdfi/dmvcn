@@ -89,6 +89,7 @@ const temporaryHttpStatuses = new Set([
   '504',
 ]);
 const temporaryCurlErrors = new Set([
+  '7',
   '23',
   '28',
   '35',
