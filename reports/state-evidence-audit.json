@@ -4,19 +4,19 @@
     "pages": 100,
     "states": 50,
     "claims": 4744,
-    "links": 9329,
+    "links": 9323,
     "aiAssistedClaims": 4744,
     "aiAssistedPages": 100,
     "errors": 0,
     "coverage": {
       "overview": {
         "claims": 2244,
-        "links": 4300,
+        "links": 4298,
         "states": 50
       },
       "real-id": {
         "claims": 2500,
-        "links": 5029,
+        "links": 5025,
         "states": 50
       }
     }
@@ -14229,12 +14229,10 @@
       "claim": "Maryland 的 REAL ID 办理第一步不是猜卡面，而是打开 MVA REAL ID Lookup 查询个人档案，因为即使卡上有星标或全州合规率很高，旧档案仍可能提示补交材料",
       "sourceUrls": [
         "https://realid.mva.maryland.gov/",
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
         "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000"
       ],
       "sourceLabels": [
         "对应官方来源：Maryland MVA REAL ID Lookup",
-        "对应官方来源：Maryland MVA REAL ID FAQ",
         "对应官方来源：Maryland MVA Licenses & IDs"
       ],
       "mappingMethod": "ai-assisted",
@@ -14290,12 +14288,12 @@
       "context": "real-id",
       "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/Documents/FO-150A.pdf"
+        "https://mva.maryland.gov/Documents/FO-150A.pdf",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
-        "对应官方来源：Maryland MVA Document Requirements FO-150A"
+        "对应官方来源：Maryland MVA Document Requirements FO-150A",
+        "对应官方来源：Maryland MVA Identification Card"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -14318,7 +14316,7 @@
         "https://mva.maryland.gov/licenses-ids/replace-license-or-id",
         "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info",
         "https://mva.maryland.gov/your-mva-guide/new-maryland-residents",
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000",
         "https://mva.maryland.gov/licenses-ids/prepare-drivers-license-test"
       ],
       "sourceLabels": [
@@ -14326,7 +14324,7 @@
         "对应官方来源：Maryland MVA Replace License or ID",
         "对应官方来源：Maryland MVA Update Name, Address or License Info",
         "对应官方来源：Maryland MVA New Resident Guide",
-        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Licenses & IDs",
         "对应官方来源：Maryland MVA Driver License Tests"
       ],
       "mappingMethod": "ai-assisted",
@@ -14391,19 +14389,16 @@
       "stateId": "maryland",
       "surface": "overview",
       "field": "editorNotes",
-      "context": "real-id",
-      "claim": "旧 REAL ID FAQ 仍写升级费 $20，而 2025 年 9 月 1 日生效的当前 license fee 表把 duplicate 和 corrected license 都列为 $30，付款前应以当前费用表和交易报价再次确认",
+      "context": "license",
+      "claim": "Maryland 现行 License & ID Fees 页面自 2025 年 9 月 1 日起列出普通驾照 duplicate 和 corrected fee 均为 $30，实际金额仍应按证件类型、有效期和交易报价确认",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
         "https://mva.maryland.gov/licenses-ids/license-id-fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
         "对应官方来源：Maryland MVA License & ID Fees"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "replacement",
         "fee"
       ],
@@ -14805,12 +14800,12 @@
       "context": "real-id",
       "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/Documents/FO-150A.pdf"
+        "https://mva.maryland.gov/Documents/FO-150A.pdf",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
-        "对应官方来源：Maryland MVA Document Requirements FO-150A"
+        "对应官方来源：Maryland MVA Document Requirements FO-150A",
+        "对应官方来源：Maryland MVA Identification Card"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -14830,11 +14825,11 @@
       "claim": "先用 REAL ID Lookup 判断 MVA 是否已收齐自己的文件，再用 Online Document Guide 生成与个人身份和业务对应的清单",
       "sourceUrls": [
         "https://realid.mva.maryland.gov/",
-        "https://mva.maryland.gov/Pages/realidfaq.aspx"
+        "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000"
       ],
       "sourceLabels": [
         "对应官方来源：Maryland MVA REAL ID Lookup",
-        "对应官方来源：Maryland MVA REAL ID FAQ"
+        "对应官方来源：Maryland MVA Licenses & IDs"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -14854,12 +14849,12 @@
       "context": "document",
       "claim": "年龄与身份文件应使用原件或签发机关认证件，普通 photocopy、手机照片和 digital scan 不被接受",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card",
         "https://mva.maryland.gov/Documents/FO-150A.pdf",
         "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Identification Card",
         "对应官方来源：Maryland MVA Document Requirements FO-150A",
         "对应官方来源：Maryland MVA New Resident License or ID"
       ],
@@ -14877,12 +14872,10 @@
       "context": "document",
       "claim": "美国公民常见的年龄与身份证明包括签发机关认证的出生证或有效美国 passport，非公民要按当前身份选择相应 lawful-status 文件",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
         "https://mva.maryland.gov/Documents/FO-150A.pdf",
         "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
         "对应官方来源：Maryland MVA Document Requirements FO-150A",
         "对应官方来源：Maryland MVA Identification Card"
       ],
@@ -14891,7 +14884,9 @@
         "document",
         "lawful-presence"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "lawful-presence"
+      ],
       "valid": true
     },
     {
@@ -14899,16 +14894,16 @@
       "surface": "real-id",
       "field": "documentHighlights",
       "context": "document",
-      "claim": "Social Security 材料要按 Online Document Guide 和个人通知准备，不要只凭旧 FAQ 推断可接受的文件或时效",
+      "claim": "Social Security 材料要按 Online Document Guide 和个人通知准备，不要把某一份旧清单当成所有交易的统一要求",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
         "https://mva.maryland.gov/Documents/FO-150A.pdf",
-        "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
+        "https://mva.maryland.gov/licenses-ids/renew-license-or-id",
+        "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
         "对应官方来源：Maryland MVA Document Requirements FO-150A",
-        "对应官方来源：Maryland MVA Renew License or ID"
+        "对应官方来源：Maryland MVA Renew License or ID",
+        "对应官方来源：Maryland MVA Licenses & IDs"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -14926,13 +14921,13 @@
       "context": "document",
       "claim": "准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
         "https://mva.maryland.gov/Documents/FO-150A.pdf",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card",
         "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
         "对应官方来源：Maryland MVA Document Requirements FO-150A",
+        "对应官方来源：Maryland MVA Identification Card",
         "对应官方来源：Maryland MVA New Resident License or ID"
       ],
       "mappingMethod": "ai-assisted",
@@ -14950,18 +14945,20 @@
       "context": "document",
       "claim": "出生证或其他身份文件姓名与当前姓名不一致时，要用 marriage certificate、divorce decree 或 court order 串起完整变更历史",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card",
         "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Identification Card",
         "对应官方来源：Maryland MVA Update Name, Address or License Info"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document"
+      ],
       "valid": true
     },
     {
@@ -15092,11 +15089,11 @@
       "claim": "涉及 REAL ID 时先运行 REAL ID Lookup，再根据结果打开 Online Document Guide，而不是直接照抄通用材料示例",
       "sourceUrls": [
         "https://realid.mva.maryland.gov/",
-        "https://mva.maryland.gov/Pages/realidfaq.aspx"
+        "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000"
       ],
       "sourceLabels": [
         "对应官方来源：Maryland MVA REAL ID Lookup",
-        "对应官方来源：Maryland MVA REAL ID FAQ"
+        "对应官方来源：Maryland MVA Licenses & IDs"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -15116,13 +15113,13 @@
       "context": "document",
       "claim": "逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
         "https://mva.maryland.gov/Documents/FO-150A.pdf",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card",
         "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
         "对应官方来源：Maryland MVA Document Requirements FO-150A",
+        "对应官方来源：Maryland MVA Identification Card",
         "对应官方来源：Maryland MVA International Movers"
       ],
       "mappingMethod": "ai-assisted",
@@ -15254,14 +15251,12 @@
       "surface": "real-id",
       "field": "recommendedSteps",
       "context": "detail",
-      "claim": "付款前打开当前 License & ID Fees 表并查看实际交易报价，尤其不要把旧 FAQ 的 $20 当作现行 duplicate 或 corrected fee",
+      "claim": "付款前打开当前 License & ID Fees 表并查看实际交易报价，不要把旧网页或搜索摘要中的 $20 当作现行 duplicate 或 corrected fee",
       "sourceUrls": [
-        "https://mva.maryland.gov/licenses-ids/license-id-fees",
-        "https://mva.maryland.gov/Pages/realidfaq.aspx"
+        "https://mva.maryland.gov/licenses-ids/license-id-fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA License & ID Fees",
-        "对应官方来源：Maryland MVA REAL ID FAQ"
+        "对应官方来源：Maryland MVA License & ID Fees"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -15317,13 +15312,11 @@
       "claim": "因为卡上有星标或看到全州 99% 以上合规率，就跳过个人 REAL ID Lookup",
       "sourceUrls": [
         "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000",
-        "https://realid.mva.maryland.gov/",
-        "https://mva.maryland.gov/Pages/realidfaq.aspx"
+        "https://realid.mva.maryland.gov/"
       ],
       "sourceLabels": [
         "对应官方来源：Maryland MVA Licenses & IDs",
-        "对应官方来源：Maryland MVA REAL ID Lookup",
-        "对应官方来源：Maryland MVA REAL ID FAQ"
+        "对应官方来源：Maryland MVA REAL ID Lookup"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
@@ -15339,11 +15332,11 @@
       "context": "document",
       "claim": "只带一份 Maryland 地址证明，或两份文件上的姓名和地址与 MVA 记录不一致",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card",
         "https://mva.maryland.gov/Documents/FO-150A.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Identification Card",
         "对应官方来源：Maryland MVA Document Requirements FO-150A"
       ],
       "mappingMethod": "ai-assisted",
@@ -15361,11 +15354,11 @@
       "context": "detail",
       "claim": "携带 photocopy、手机照片或自行公证件，误以为它们等同于签发机关认证副本",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card",
         "https://mva.maryland.gov/Documents/FO-150A.pdf"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Identification Card",
         "对应官方来源：Maryland MVA Document Requirements FO-150A"
       ],
       "mappingMethod": "ai-assisted",
@@ -15382,37 +15375,36 @@
       "context": "document",
       "claim": "改过多次姓名却只带最近一次文件，无法连接出生姓名到 current legal name",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
+        "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card",
         "https://mva.maryland.gov/licenses-ids/update-name-address-or-other-license-info"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
+        "对应官方来源：Maryland MVA Identification Card",
         "对应官方来源：Maryland MVA Update Name, Address or License Info"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
         "document"
       ],
-      "uncoveredThemes": [],
+      "uncoveredThemes": [
+        "document"
+      ],
       "valid": true
     },
     {
       "stateId": "maryland",
       "surface": "real-id",
       "field": "commonMistakes",
-      "context": "real-id",
-      "claim": "沿用旧 REAL ID FAQ 或费用页下方旧表中的 $20 金额，没有查看 2025 年 9 月 1 日生效的当前 license fee 表",
+      "context": "detail",
+      "claim": "继续按旧网页或搜索摘要中的 $20 估算，没有查看 2025 年 9 月 1 日生效的当前 License & ID Fees 页面",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidfaq.aspx",
         "https://mva.maryland.gov/licenses-ids/license-id-fees"
       ],
       "sourceLabels": [
-        "对应官方来源：Maryland MVA REAL ID FAQ",
         "对应官方来源：Maryland MVA License & ID Fees"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
         "fee"
       ],
       "uncoveredThemes": [],

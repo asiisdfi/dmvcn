@@ -2,14 +2,14 @@
   "summary": {
     "generatedAt": "2026-07-29T12:04:57.838Z",
     "pages": 5,
-    "claims": 821,
+    "claims": 822,
     "statesCovered": 50,
-    "aiAssisted": 788,
+    "aiAssisted": 789,
     "automated": 33,
     "errors": 0,
     "coverage": {
       "costs-timing": {
-        "claims": 171,
+        "claims": 172,
         "states": 47
       },
       "deadlines": {
@@ -594,9 +594,9 @@
       "page": "costs-timing",
       "stateId": "maryland",
       "category": "费用",
-      "claim": "旧 REAL ID FAQ 仍写升级费 $20，而 2025 年 9 月 1 日生效的当前 license fee 表把 duplicate 和 corrected license 都列为 $30，付款前应以当前费用表和交易报价再次确认",
-      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
-      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
+      "claim": "Maryland 现行 License & ID Fees 页面自 2025 年 9 月 1 日起列出普通驾照 duplicate 和 corrected fee 均为 $30，实际金额仍应按证件类型、有效期和交易报价确认",
+      "sourceUrl": "https://mva.maryland.gov/licenses-ids/license-id-fees",
+      "sourceLabel": "对应官方来源：Maryland MVA License & ID Fees",
       "themes": [
         "fee"
       ],
@@ -616,6 +616,20 @@
       ],
       "failedThemes": [],
       "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "costs-timing",
+      "stateId": "maryland",
+      "category": "费用",
+      "claim": "付款前打开当前 License & ID Fees 表并查看实际交易报价，不要把旧网页或搜索摘要中的 $20 当作现行 duplicate 或 corrected fee",
+      "sourceUrl": "https://mva.maryland.gov/licenses-ids/license-id-fees",
+      "sourceLabel": "对应官方来源：Maryland MVA License & ID Fees",
+      "themes": [
+        "fee"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": true,
       "mappingMethod": "ai-assisted"
     },
     {
@@ -5044,8 +5058,8 @@
       "stateId": "maryland",
       "category": "地址证明",
       "claim": "准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致",
-      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
-      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
+      "sourceUrl": "https://mva.maryland.gov/Documents/FO-150A.pdf",
+      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
       "themes": [
         "residency-documents"
       ],
@@ -5058,8 +5072,8 @@
       "stateId": "maryland",
       "category": "地址证明",
       "claim": "逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件",
-      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
-      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
+      "sourceUrl": "https://mva.maryland.gov/Documents/FO-150A.pdf",
+      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
       "themes": [
         "residency-documents",
         "ssn"
@@ -5073,8 +5087,8 @@
       "stateId": "maryland",
       "category": "SSN",
       "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
-      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
-      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
+      "sourceUrl": "https://mva.maryland.gov/Documents/FO-150A.pdf",
+      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
       "themes": [
         "ssn"
       ],
@@ -10065,8 +10079,8 @@
       "stateId": "maryland",
       "category": "SSN",
       "claim": "逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件",
-      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
-      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
+      "sourceUrl": "https://mva.maryland.gov/Documents/FO-150A.pdf",
+      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
       "themes": [
         "residency-documents",
         "ssn"
@@ -10080,8 +10094,8 @@
       "stateId": "maryland",
       "category": "SSN",
       "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
-      "sourceUrl": "https://mva.maryland.gov/Pages/realidfaq.aspx",
-      "sourceLabel": "对应官方来源：Maryland MVA REAL ID FAQ",
+      "sourceUrl": "https://mva.maryland.gov/Documents/FO-150A.pdf",
+      "sourceLabel": "对应官方来源：Maryland MVA Document Requirements FO-150A",
       "themes": [
         "ssn"
       ],

@@ -27,7 +27,7 @@
 
 | 路由 | 风险 | 分数 | 阻塞点 |
 | --- | --- | --- | --- |
-| /directories/costs-timing/ | high | 98 | 内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex |
+| /directories/costs-timing/ | high | 98 | 内容版本更新于 2026-07-29，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex |
 | /topics/gift-inherited-vehicle-title-transfer/ | high | 97 | 内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex |
 | /topics/lost-vehicle-title-replacement-electronic-title-lien-sale/ | high | 97 | 内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex |
 | /topics/name-change-chain/ | high | 97 | 内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex |

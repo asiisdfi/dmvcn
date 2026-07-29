@@ -2629,7 +2629,7 @@ export const states: StateGuide[] = [
     agencyUrl: 'https://mva.maryland.gov/',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-29',
-    reviewedAt: '2026-07-17',
+    reviewedAt: '2026-07-29',
     summary:
       'Maryland 的 REAL ID 办理第一步不是猜卡面，而是打开 MVA REAL ID Lookup 查询个人档案，因为即使卡上有星标或全州合规率很高，旧档案仍可能提示补交材料。',
     realIdSummary:
@@ -2640,7 +2640,7 @@ export const states: StateGuide[] = [
       '续期、补证和地址更新先查看 myMVA 线上资格，新居民转入、REAL ID 补材料、姓名变更和驾驶考试则按对应页面预约。Maryland MVA 说明有 60 多项常见业务可以线上处理，但是否可用仍取决于个人记录和通知。',
     editorNotes: [
       'Maryland MVA 公布全州 REAL ID 合规率超过 99%，这个比例不能替代个人 REAL ID Lookup 结果。',
-      '旧 REAL ID FAQ 仍写升级费 $20，而 2025 年 9 月 1 日生效的当前 license fee 表把 duplicate 和 corrected license 都列为 $30，付款前应以当前费用表和交易报价再次确认。',
+      'Maryland 现行 License & ID Fees 页面自 2025 年 9 月 1 日起列出普通驾照 duplicate 和 corrected fee 均为 $30，实际金额仍应按证件类型、有效期和交易报价确认。',
       '当前费用表列出普通驾照续期 $64 并对应最长 8 年，新申请人 21 岁及以上为 $88 或按每年 $11 计费。',
       '当前费用表列出 Photo ID 新办或续期 $40、补发或更正 $30，65 岁及以上或有影响 major life activity 的 disability 可免 ID card fee。',
       'limited-term driver license 的有效期只覆盖获准在美国停留的期限，费用会按该期限调整。',
@@ -2673,7 +2673,7 @@ export const states: StateGuide[] = [
       '先用 REAL ID Lookup 判断 MVA 是否已收齐自己的文件，再用 Online Document Guide 生成与个人身份和业务对应的清单。',
       '年龄与身份文件应使用原件或签发机关认证件，普通 photocopy、手机照片和 digital scan 不被接受。',
       '美国公民常见的年龄与身份证明包括签发机关认证的出生证或有效美国 passport，非公民要按当前身份选择相应 lawful-status 文件。',
-      'Social Security 材料要按 Online Document Guide 和个人通知准备，不要只凭旧 FAQ 推断可接受的文件或时效。',
+      'Social Security 材料要按 Online Document Guide 和个人通知准备，不要把某一份旧清单当成所有交易的统一要求。',
       '准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致。',
       '出生证或其他身份文件姓名与当前姓名不一致时，要用 marriage certificate、divorce decree 或 court order 串起完整变更历史。',
       '临时或其他非公民身份申请人应准备可由 DHS SAVE 核验的当前移民文件，证件期限可能受 lawful stay 限制。',
@@ -2686,7 +2686,7 @@ export const states: StateGuide[] = [
       '只带一份 Maryland 地址证明，或两份文件上的姓名和地址与 MVA 记录不一致。',
       '携带 photocopy、手机照片或自行公证件，误以为它们等同于签发机关认证副本。',
       '改过多次姓名却只带最近一次文件，无法连接出生姓名到 current legal name。',
-      '沿用旧 REAL ID FAQ 或费用页下方旧表中的 $20 金额，没有查看 2025 年 9 月 1 日生效的当前 license fee 表。',
+      '继续按旧网页或搜索摘要中的 $20 估算，没有查看 2025 年 9 月 1 日生效的当前 License & ID Fees 页面。',
       '驾照过期至少一年仍尝试普通续期，忽略此时要按新申请人重新完成 vision、knowledge 和 skills tests。',
       '只向 USPS 提交转寄，没有先更新 MVA 地址，导致实体卡寄往旧地址且无法被 USPS forward。',
       '外州新居民走 Maryland 普通续期入口，错过普通驾照 60 天或 CDL 30 天的转入期限。',
@@ -2704,7 +2704,7 @@ export const states: StateGuide[] = [
       '普通续期、补证或地址更新先登录 myMVA 检查线上资格，并以 renewal notice 和账户提示为准。',
       '首次驾照申请人先取得 learner permit、完成 Driver Education 和规定练车时数，再预约 skills test。',
       '需要考试时先确认 knowledge test 语言、等待期和车辆材料，繁体中文只适用于 noncommercial Class C knowledge test。',
-      '付款前打开当前 License & ID Fees 表并查看实际交易报价，尤其不要把旧 FAQ 的 $20 当作现行 duplicate 或 corrected fee。',
+      '付款前打开当前 License & ID Fees 表并查看实际交易报价，不要把旧网页或搜索摘要中的 $20 当作现行 duplicate 或 corrected fee。',
       '交易完成后保留 receipt，并用 Product Tracking Tool 跟踪邮寄卡片，超过官方时限再联系 MVA。',
       '有车的新居民同时安排 Maryland insurance、title、registration 和可能需要的 safety inspection，不要只完成驾照换领。',
     ],
@@ -2718,11 +2718,6 @@ export const states: StateGuide[] = [
         label: 'MVA Licenses & IDs',
         url: 'https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000',
         description: '驾照、ID、REAL ID 和其他证件业务总入口。',
-      },
-      {
-        label: 'REAL ID FAQ 与材料说明',
-        url: 'https://mva.maryland.gov/Pages/realidfaq.aspx',
-        description: '查看个人状态、典型材料、姓名链和现场核验说明，旧费用信息需与当前费用表交叉核对。',
       },
       {
         label: 'MVA 文件要求表 FO-150A',
@@ -2825,11 +2820,6 @@ export const states: StateGuide[] = [
         label: 'Maryland MVA Licenses & IDs',
         url: 'https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000',
         note: '驾照与 ID 服务总览，并提示个人使用 REAL ID Check。',
-      },
-      {
-        label: 'Maryland MVA REAL ID FAQ',
-        url: 'https://mva.maryland.gov/Pages/realidfaq.aspx',
-        note: '材料、姓名链和现场核验说明，页面含过时日期与费用，使用时已和当前费用页交叉核对。',
       },
       {
         label: 'Maryland MVA Document Requirements FO-150A',

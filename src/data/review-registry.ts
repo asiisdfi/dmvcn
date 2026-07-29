@@ -504,10 +504,11 @@ export const semanticReviews: Record<string, SemanticReview> = {
   '/directories/costs-timing/': {
     status: 'evidence-checked',
     method: 'ai-assisted',
-    reviewedAt: '2026-07-17',
+    reviewedAt: '2026-07-29',
     reviewer: 'Codex AI 辅助证据核查',
     scope: '核查 50 州费用、付款、临时凭证、邮寄和处理时间提示的抽取规则，并给每条保留提示绑定政府来源。',
-    notes: '目录只显示能够匹配到州级官方费用、处理、续期或补证页面的具体提示；仍待人工签字。',
+    notes:
+      '171 条目录声明与 2026-07-21 人工签字基线逐条比对后发现一条失效来源：Maryland 旧 REAL ID FAQ 已下线。已删除旧 $20 对比，改由现行 License & ID Fees 页面直接支持 $30 duplicate/corrected fee；本次内容修改后须重新完成人工语义签字。',
   },
   '/directories/deadlines/': {
     status: 'evidence-checked',

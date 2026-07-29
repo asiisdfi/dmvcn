@@ -341,8 +341,8 @@ const MD_REAL_ID_LOOKUP =
   'https://realid.mva.maryland.gov/';
 const MD_LICENSES_IDS =
   'https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000';
-const MD_REAL_ID_FAQ =
-  'https://mva.maryland.gov/Pages/realidfaq.aspx';
+const MD_ID_CARD =
+  'https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card';
 const MD_DOCUMENT_REQUIREMENTS =
   'https://mva.maryland.gov/Documents/FO-150A.pdf';
 const MD_FEES =
@@ -371,8 +371,6 @@ const MD_INTERNATIONAL =
   'https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers';
 const MD_NONCOMPLIANT =
   'https://mva.maryland.gov/licenses-ids/additional-driver-id-services/noncompliant-drivers-licenses-ids';
-const MD_ID_CARD =
-  'https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card';
 const MD_HOME = 'https://mva.maryland.gov/';
 
 const VA_REAL_ID =
@@ -9976,13 +9974,12 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
     },
   },
   maryland: {
-    reviewedAt: '2026-07-17',
+    reviewedAt: '2026-07-29',
     reviewer: 'Codex AI 辅助证据核查',
     surfaces: ['overview', 'real-id'],
     sourceBodiesChecked: [
       MD_REAL_ID_LOOKUP,
       MD_LICENSES_IDS,
-      MD_REAL_ID_FAQ,
       MD_DOCUMENT_REQUIREMENTS,
       MD_FEES,
       MD_RENEW,
@@ -10004,16 +10001,15 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
     scope:
       '逐条比对 Maryland MVA 的 REAL ID Lookup、材料表、现行费用、续期补证、资料更新、新居民、考试、permit、驾驶教育、外国驾照、非合规证件和 Photo ID 正文。',
     notes:
-      '重写 Maryland 总览与 REAL ID 页面，补齐 30/60 天、12 个月过期边界、考试语言、外国驾照与非公民路径，并公开标注旧 REAL ID FAQ 和当前费用表的 $20/$30 冲突；所有声明已改为显式来源，仍待真实人工签字。',
+      '2026-07-29 确认 Maryland 2026 官网改版后的旧 REAL ID FAQ 已下线，删除该入口及 $20 旧金额对比；费用声明改由 2025 年 9 月 1 日起生效的现行费用表直接支持，其余州级显式来源映射保持不变。',
     claims: {
       'Maryland 的 REAL ID 办理第一步不是猜卡面，而是打开 MVA REAL ID Lookup 查询个人档案，因为即使卡上有星标或全州合规率很高，旧档案仍可能提示补交材料': [
         MD_REAL_ID_LOOKUP,
-        MD_REAL_ID_FAQ,
         MD_LICENSES_IDS,
       ],
       '需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA': [
-        MD_REAL_ID_FAQ,
         MD_DOCUMENT_REQUIREMENTS,
+        MD_ID_CARD,
       ],
       '新居民要在搬入 Maryland 后 60 天内转入普通外州驾照，CDL 的期限是 30 天': [
         MD_TRANSFER_LICENSE,
@@ -10026,7 +10022,7 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         MD_REPLACE,
         MD_UPDATE,
         MD_NEW_RESIDENTS,
-        MD_REAL_ID_FAQ,
+        MD_LICENSES_IDS,
         MD_TESTS,
       ],
       'Maryland MVA 说明有 60 多项常见业务可以线上处理，但是否可用仍取决于个人记录和通知': [
@@ -10037,8 +10033,7 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         MD_LICENSES_IDS,
         MD_REAL_ID_LOOKUP,
       ],
-      '旧 REAL ID FAQ 仍写升级费 $20，而 2025 年 9 月 1 日生效的当前 license fee 表把 duplicate 和 corrected license 都列为 $30，付款前应以当前费用表和交易报价再次确认': [
-        MD_REAL_ID_FAQ,
+      'Maryland 现行 License & ID Fees 页面自 2025 年 9 月 1 日起列出普通驾照 duplicate 和 corrected fee 均为 $30，实际金额仍应按证件类型、有效期和交易报价确认': [
         MD_FEES,
       ],
       '当前费用表列出普通驾照续期 $64 并对应最长 8 年，新申请人 21 岁及以上为 $88 或按每年 $11 计费': [
@@ -10103,30 +10098,29 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '先用 REAL ID Lookup 判断 MVA 是否已收齐自己的文件，再用 Online Document Guide 生成与个人身份和业务对应的清单': [
         MD_REAL_ID_LOOKUP,
-        MD_REAL_ID_FAQ,
+        MD_LICENSES_IDS,
       ],
       '年龄与身份文件应使用原件或签发机关认证件，普通 photocopy、手机照片和 digital scan 不被接受': [
-        MD_REAL_ID_FAQ,
+        MD_ID_CARD,
         MD_DOCUMENT_REQUIREMENTS,
         MD_TRANSFER_LICENSE,
       ],
       '美国公民常见的年龄与身份证明包括签发机关认证的出生证或有效美国 passport，非公民要按当前身份选择相应 lawful-status 文件': [
-        MD_REAL_ID_FAQ,
         MD_DOCUMENT_REQUIREMENTS,
         MD_ID_CARD,
       ],
-      'Social Security 材料要按 Online Document Guide 和个人通知准备，不要只凭旧 FAQ 推断可接受的文件或时效': [
-        MD_REAL_ID_FAQ,
+      'Social Security 材料要按 Online Document Guide 和个人通知准备，不要把某一份旧清单当成所有交易的统一要求': [
         MD_DOCUMENT_REQUIREMENTS,
         MD_RENEW,
+        MD_LICENSES_IDS,
       ],
       '准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致': [
-        MD_REAL_ID_FAQ,
         MD_DOCUMENT_REQUIREMENTS,
+        MD_ID_CARD,
         MD_TRANSFER_LICENSE,
       ],
       '出生证或其他身份文件姓名与当前姓名不一致时，要用 marriage certificate、divorce decree 或 court order 串起完整变更历史': [
-        MD_REAL_ID_FAQ,
+        MD_ID_CARD,
         MD_UPDATE,
       ],
       '临时或其他非公民身份申请人应准备可由 DHS SAVE 核验的当前移民文件，证件期限可能受 lawful stay 限制': [
@@ -10146,22 +10140,20 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '因为卡上有星标或看到全州 99% 以上合规率，就跳过个人 REAL ID Lookup': [
         MD_LICENSES_IDS,
         MD_REAL_ID_LOOKUP,
-        MD_REAL_ID_FAQ,
       ],
       '只带一份 Maryland 地址证明，或两份文件上的姓名和地址与 MVA 记录不一致': [
-        MD_REAL_ID_FAQ,
+        MD_ID_CARD,
         MD_DOCUMENT_REQUIREMENTS,
       ],
       '携带 photocopy、手机照片或自行公证件，误以为它们等同于签发机关认证副本': [
-        MD_REAL_ID_FAQ,
+        MD_ID_CARD,
         MD_DOCUMENT_REQUIREMENTS,
       ],
       '改过多次姓名却只带最近一次文件，无法连接出生姓名到 current legal name': [
-        MD_REAL_ID_FAQ,
+        MD_ID_CARD,
         MD_UPDATE,
       ],
-      '沿用旧 REAL ID FAQ 或费用页下方旧表中的 $20 金额，没有查看 2025 年 9 月 1 日生效的当前 license fee 表': [
-        MD_REAL_ID_FAQ,
+      '继续按旧网页或搜索摘要中的 $20 估算，没有查看 2025 年 9 月 1 日生效的当前 License & ID Fees 页面': [
         MD_FEES,
       ],
       '驾照过期至少一年仍尝试普通续期，忽略此时要按新申请人重新完成 vision、knowledge 和 skills tests': [
@@ -10194,11 +10186,11 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       ],
       '涉及 REAL ID 时先运行 REAL ID Lookup，再根据结果打开 Online Document Guide，而不是直接照抄通用材料示例': [
         MD_REAL_ID_LOOKUP,
-        MD_REAL_ID_FAQ,
+        MD_LICENSES_IDS,
       ],
       '逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件': [
-        MD_REAL_ID_FAQ,
         MD_DOCUMENT_REQUIREMENTS,
+        MD_ID_CARD,
         MD_INTERNATIONAL,
       ],
       '姓名已变化时先完成 SSA 更新并等待至少 72 小时，再预约 MVA correction': [
@@ -10221,9 +10213,8 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '需要考试时先确认 knowledge test 语言、等待期和车辆材料，繁体中文只适用于 noncommercial Class C knowledge test': [
         MD_TESTS,
       ],
-      '付款前打开当前 License & ID Fees 表并查看实际交易报价，尤其不要把旧 FAQ 的 $20 当作现行 duplicate 或 corrected fee': [
+      '付款前打开当前 License & ID Fees 表并查看实际交易报价，不要把旧网页或搜索摘要中的 $20 当作现行 duplicate 或 corrected fee': [
         MD_FEES,
-        MD_REAL_ID_FAQ,
       ],
       '交易完成后保留 receipt，并用 Product Tracking Tool 跟踪邮寄卡片，超过官方时限再联系 MVA': [
         MD_RENEW,

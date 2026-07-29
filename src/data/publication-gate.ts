@@ -1,5 +1,7 @@
 import { topics } from './content.ts';
 import {
+  COSTS_TIMING_MODIFIED_DATE,
+  COSTS_TIMING_REVIEW_DATE,
   HIGH_RISK_DIRECTORY_REVIEW_DATE,
   HIGH_RISK_DIRECTORY_ROUTES,
   HIGH_RISK_TOPIC_SLUGS,
@@ -46,8 +48,8 @@ const HIGH_RISK_DIRECTORY_REVISIONS = new Map<string, HighRiskContentRevision>([
   [
     '/directories/costs-timing/',
     {
-      modifiedAt: SEARCH_CONSOLE_UPDATE_DATE,
-      reviewedAt: HIGH_RISK_DIRECTORY_REVIEW_DATE,
+      modifiedAt: COSTS_TIMING_MODIFIED_DATE,
+      reviewedAt: COSTS_TIMING_REVIEW_DATE,
     },
   ],
   [

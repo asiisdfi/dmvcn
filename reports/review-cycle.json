@@ -95,9 +95,9 @@
     "eeatGeneratedAt": "2026-07-29T14:31:46.294Z",
     "officialAuditAgeDays": 0,
     "officialAuditDate": "2026-07-29",
-    "officialInventoryFingerprint": "ff5fee5eaeabba901a8421c4df6bade267edc52d258bbe2101dfb1bbf66b1ec4",
-    "officialUrls": 1663,
-    "pageFingerprint": "6f63eb021801ff90531e6f9590f858d19f6afb2c216e8cbe355da3a8b24e25bf"
+    "officialInventoryFingerprint": "3158ac41ad08dc5ec00fef374a4e8ece5cc237031bb52ddc07be23d7c7189de8",
+    "officialUrls": 1662,
+    "pageFingerprint": "a00b990b7f748ee001209fa1c0fc5051c0dbd3e050e7cd12716496d73a35dc10"
   },
   "summary": {
     "current": 154,
@@ -188,7 +188,7 @@
         "volatileCategory": "fees-processing",
         "volatileLabel": "费用、付款与处理时间",
         "volatileScope": "州级费用、付款方式、临时凭证、制证和寄送时间",
-        "visibleReviewedAt": "2026-07-21"
+        "visibleReviewedAt": "2026-07-29"
       },
       {
         "cycleDays": 30,
@@ -430,7 +430,7 @@
         "volatileCategory": "fees-processing",
         "volatileLabel": "费用、付款与处理时间",
         "volatileScope": "州级费用、付款方式、临时凭证、制证和寄送时间",
-        "visibleReviewedAt": "2026-07-21"
+        "visibleReviewedAt": "2026-07-29"
       },
       {
         "cycleDays": 30,
@@ -1087,7 +1087,7 @@
         "reviewPolicy": "risk-based",
         "reviewStatus": "ai-assisted",
         "risk": "medium",
-        "route": "/states/maryland/",
+        "route": "/states/massachusetts/",
         "state": "current",
         "volatileCategory": null,
         "volatileLabel": null,
@@ -1107,7 +1107,7 @@
         "reviewPolicy": "risk-based",
         "reviewStatus": "ai-assisted",
         "risk": "medium",
-        "route": "/states/maryland/real-id/",
+        "route": "/states/massachusetts/real-id/",
         "state": "current",
         "volatileCategory": null,
         "volatileLabel": null,
@@ -1127,7 +1127,7 @@
         "reviewPolicy": "risk-based",
         "reviewStatus": "ai-assisted",
         "risk": "medium",
-        "route": "/states/massachusetts/",
+        "route": "/states/michigan/",
         "state": "current",
         "volatileCategory": null,
         "volatileLabel": null,
@@ -1315,7 +1315,7 @@
       "volatileCategory": "fees-processing",
       "volatileLabel": "费用、付款与处理时间",
       "volatileScope": "州级费用、付款方式、临时凭证、制证和寄送时间",
-      "visibleReviewedAt": "2026-07-21"
+      "visibleReviewedAt": "2026-07-29"
     },
     {
       "cycleDays": 30,
@@ -2419,13 +2419,13 @@
     },
     {
       "cycleDays": 90,
-      "daysUntilDue": 78,
+      "daysUntilDue": 90,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "state-overview",
-      "evidenceReviewedAt": "2026-07-17",
-      "reviewAnchorDate": "2026-07-17",
-      "reviewDue": "2026-10-15",
+      "evidenceReviewedAt": "2026-07-29",
+      "reviewAnchorDate": "2026-07-29",
+      "reviewDue": "2026-10-27",
       "reviewMethod": "ai-assisted",
       "reviewPolicy": "risk-based",
       "reviewStatus": "ai-assisted",
@@ -2435,17 +2435,17 @@
       "volatileCategory": null,
       "volatileLabel": null,
       "volatileScope": null,
-      "visibleReviewedAt": "2026-07-17"
+      "visibleReviewedAt": "2026-07-29"
     },
     {
       "cycleDays": 90,
-      "daysUntilDue": 78,
+      "daysUntilDue": 90,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "state-real-id",
-      "evidenceReviewedAt": "2026-07-17",
-      "reviewAnchorDate": "2026-07-17",
-      "reviewDue": "2026-10-15",
+      "evidenceReviewedAt": "2026-07-29",
+      "reviewAnchorDate": "2026-07-29",
+      "reviewDue": "2026-10-27",
       "reviewMethod": "ai-assisted",
       "reviewPolicy": "risk-based",
       "reviewStatus": "ai-assisted",
@@ -2455,7 +2455,7 @@
       "volatileCategory": null,
       "volatileLabel": null,
       "volatileScope": null,
-      "visibleReviewedAt": "2026-07-17"
+      "visibleReviewedAt": "2026-07-29"
     },
     {
       "cycleDays": 90,

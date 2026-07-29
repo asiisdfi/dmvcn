@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-07-29T14:48:15.878Z",
+  "generatedAt": "2026-07-29T15:04:38.687Z",
   "auditDate": "2026-07-29",
   "inventory": {
-    "fingerprint": "ff5fee5eaeabba901a8421c4df6bade267edc52d258bbe2101dfb1bbf66b1ec4",
+    "fingerprint": "3158ac41ad08dc5ec00fef374a4e8ece5cc237031bb52ddc07be23d7c7189de8",
     "hosts": 149,
     "highRiskUrls": 318,
-    "urls": 1663
+    "urls": 1662
   },
   "run": {
     "batchLimit": 350,
-    "checked": 1,
+    "checked": 0,
     "checkedSummary": {
       "fail": 0,
       "ok": 0,
-      "watch": 1
+      "watch": 0
     },
     "concurrency": 18,
     "force": false,
@@ -24,7 +24,7 @@
   },
   "coverage": {
     "dueRemaining": 0,
-    "fresh": 1663,
+    "fresh": 1662,
     "fullCoverage": true,
     "lastFullCoverageAt": "2026-07-29",
     "percent": 100
@@ -39,7 +39,7 @@
     "confirmedHardFailures": 0,
     "freshFail": 0,
     "freshOk": 938,
-    "freshWatch": 725,
+    "freshWatch": 724,
     "highRiskGatePassed": true,
     "monthlyGatePassed": true,
     "pendingHardFailures": 0
@@ -144,14 +144,6 @@
     },
     {
       "count": 19,
-      "highRiskCount": 1,
-      "host": "mva.maryland.gov",
-      "statuses": [
-        "403"
-      ]
-    },
-    {
-      "count": 19,
       "highRiskCount": 0,
       "host": "www.ksrevenue.gov",
       "statuses": [
@@ -162,6 +154,14 @@
       "count": 18,
       "highRiskCount": 0,
       "host": "iowadot.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 18,
+      "highRiskCount": 1,
+      "host": "mva.maryland.gov",
       "statuses": [
         "403"
       ]

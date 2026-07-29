@@ -415,8 +415,8 @@
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-21"
+        "modifiedAt": "2026-07-29",
+        "reviewedAt": "2026-07-29"
       },
       "scores": {
         "factsAndSources": 25,
@@ -438,14 +438,14 @@
         "stateEvidenceItems": 0,
         "stateEvidenceLinks": 0,
         "hasInlineStateEvidence": false,
-        "directoryEvidenceItems": 171,
-        "directoryEvidenceLinks": 171,
+        "directoryEvidenceItems": 172,
+        "directoryEvidenceLinks": 172,
         "hasInlineDirectoryEvidence": true,
         "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": [
-        "内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
+        "内容版本更新于 2026-07-29，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
       ]
     },
     {
@@ -533,7 +533,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 702,
+        "sourceCount": 701,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -584,7 +584,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 233,
+        "sourceCount": 234,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -686,7 +686,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 266,
+        "sourceCount": 267,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1219,7 +1219,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1622,
+        "sourceCount": 1621,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -3238,15 +3238,15 @@
       "semanticReview": {
         "status": "evidence-checked",
         "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
+        "reviewedAt": "2026-07-29",
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Maryland MVA 的 REAL ID Lookup、材料表、现行费用、续期补证、资料更新、新居民、考试、permit、驾驶教育、外国驾照、非合规证件和 Photo ID 正文。",
-        "notes": "重写 Maryland 总览与 REAL ID 页面，补齐 30/60 天、12 个月过期边界、考试语言、外国驾照与非公民路径，并公开标注旧 REAL ID FAQ 和当前费用表的 $20/$30 冲突；所有声明已改为显式来源，仍待真实人工签字。"
+        "notes": "2026-07-29 确认 Maryland 2026 官网改版后的旧 REAL ID FAQ 已下线，删除该入口及 $20 旧金额对比；费用声明改由 2025 年 9 月 1 日起生效的现行费用表直接支持，其余州级显式来源映射保持不变。"
       },
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-29",
-        "reviewedAt": "2026-07-17"
+        "reviewedAt": "2026-07-29"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3259,14 +3259,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 21,
+        "sourceCount": 20,
         "factCheckCount": 27,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
         "stateEvidenceItems": 27,
-        "stateEvidenceLinks": 41,
+        "stateEvidenceLinks": 39,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -3289,15 +3289,15 @@
       "semanticReview": {
         "status": "evidence-checked",
         "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
+        "reviewedAt": "2026-07-29",
         "reviewer": "Codex AI 辅助证据核查",
         "scope": "逐条比对 Maryland MVA 的 REAL ID Lookup、材料表、现行费用、续期补证、资料更新、新居民、考试、permit、驾驶教育、外国驾照、非合规证件和 Photo ID 正文。",
-        "notes": "重写 Maryland 总览与 REAL ID 页面，补齐 30/60 天、12 个月过期边界、考试语言、外国驾照与非公民路径，并公开标注旧 REAL ID FAQ 和当前费用表的 $20/$30 冲突；所有声明已改为显式来源，仍待真实人工签字。"
+        "notes": "2026-07-29 确认 Maryland 2026 官网改版后的旧 REAL ID FAQ 已下线，删除该入口及 $20 旧金额对比；费用声明改由 2025 年 9 月 1 日起生效的现行费用表直接支持，其余州级显式来源映射保持不变。"
       },
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-29",
-        "reviewedAt": "2026-07-17"
+        "reviewedAt": "2026-07-29"
       },
       "scores": {
         "factsAndSources": 25,
@@ -3310,14 +3310,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 21,
+        "sourceCount": 20,
         "factCheckCount": 34,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
         "stateEvidenceItems": 34,
-        "stateEvidenceLinks": 67,
+        "stateEvidenceLinks": 63,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,

@@ -3,6 +3,8 @@ export const EDITORIAL_POLICY_DATE = '2026-07-17';
 export const EDITORIAL_POLICY_MODIFIED_DATE = '2026-07-29';
 export const EDITORIAL_IDENTITY_MODIFIED_DATE = '2026-07-24';
 export const HIGH_RISK_DIRECTORY_REVIEW_DATE = '2026-07-21';
+export const COSTS_TIMING_MODIFIED_DATE = '2026-07-29';
+export const COSTS_TIMING_REVIEW_DATE = '2026-07-29';
 export const DIRECTORY_REVIEW_DATE = '2026-07-21';
 export const STATE_EVIDENCE_RELEASE_DATE = '2026-07-17';
 export const SEARCH_CONSOLE_UPDATE_DATE = '2026-07-24';
@@ -35,6 +37,19 @@ export type EditorialUpdate = {
 };
 
 export const editorialUpdates: EditorialUpdate[] = [
+  {
+    date: '2026-07-29',
+    title: '替换 Maryland 已下线的 REAL ID FAQ',
+    summary:
+      'Maryland MVA 在 2026 年官网改版后下线旧 REAL ID FAQ。本站已删除该失效入口，不再比较旧页的 20 美元升级费，改为引用 2025 年 9 月 1 日起生效的现行 License & ID Fees 页面，并明确普通驾照 duplicate 和 corrected fee 当前均为 30 美元。费用目录在站长重新核对当前版本前继续保持 noindex。',
+    scope: [
+      'Maryland 州指南',
+      '费用与处理时间目录',
+      '失效官方来源替换',
+      '费用声明就近来源',
+      '高风险人工复核门禁',
+    ],
+  },
   {
     date: '2026-07-29',
     title: '旧人工签字不再覆盖后续内容修改',

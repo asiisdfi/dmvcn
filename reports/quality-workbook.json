@@ -150,7 +150,7 @@
         "expectedOutcome": "新签字日期覆盖当前内容版本后恢复索引",
         "blockersCount": 1,
         "blockers": [
-          "内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
+          "内容版本更新于 2026-07-29，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
         ],
         "criticalCount": 0,
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。",
@@ -179,7 +179,7 @@
         "expectedOutcome": "新签字日期覆盖当前内容版本后恢复索引",
         "blockersCount": 1,
         "blockers": [
-          "内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
+          "内容版本更新于 2026-07-29，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
         ],
         "criticalCount": 0,
         "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。",
@@ -505,7 +505,7 @@
       "expectedOutcome": "新签字日期覆盖当前内容版本后恢复索引",
       "blockersCount": 1,
       "blockers": [
-        "内容版本更新于 2026-07-24，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
+        "内容版本更新于 2026-07-29，晚于 2026-07-21 人工签字；重新人工语义核查前保持 noindex"
       ],
       "criticalCount": 0,
       "notes": "站长确认已完成页面与官方来源的人工复核，未发现需要退回的关键问题。",
@@ -1841,9 +1841,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-17",
+      "reviewedAt": "2026-07-29",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-15",
+      "reviewDue": "2026-10-27",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -1852,7 +1852,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "重写 Maryland 总览与 REAL ID 页面，补齐 30/60 天、12 个月过期边界、考试语言、外国驾照与非公民路径，并公开标注旧 REAL ID FAQ 和当前费用表的 $20/$30 冲突；所有声明已改为显式来源，仍待真实人工签字。",
+      "notes": "2026-07-29 确认 Maryland 2026 官网改版后的旧 REAL ID FAQ 已下线，删除该入口及 $20 旧金额对比；费用声明改由 2025 年 9 月 1 日起生效的现行费用表直接支持，其余州级显式来源映射保持不变。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {
@@ -1865,9 +1865,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-17",
+      "reviewedAt": "2026-07-29",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-15",
+      "reviewDue": "2026-10-27",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -1876,7 +1876,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "重写 Maryland 总览与 REAL ID 页面，补齐 30/60 天、12 个月过期边界、考试语言、外国驾照与非公民路径，并公开标注旧 REAL ID FAQ 和当前费用表的 $20/$30 冲突；所有声明已改为显式来源，仍待真实人工签字。",
+      "notes": "2026-07-29 确认 Maryland 2026 官网改版后的旧 REAL ID FAQ 已下线，删除该入口及 $20 旧金额对比；费用声明改由 2025 年 9 月 1 日起生效的现行费用表直接支持，其余州级显式来源映射保持不变。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {

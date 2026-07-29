@@ -1,5 +1,9 @@
 ---
-import { HIGH_RISK_DIRECTORY_REVIEW_DATE, SEARCH_CONSOLE_UPDATE_DATE, SITE_LAUNCH_DATE } from '../../data/editorial';
+import {
+  COSTS_TIMING_MODIFIED_DATE,
+  COSTS_TIMING_REVIEW_DATE,
+  SITE_LAUNCH_DATE,
+} from '../../data/editorial';
 import { ArrowRight, ExternalLink, Search } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBadge from '../../components/ReviewBadge.astro';
@@ -163,7 +167,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: '美国各州 DMV 费用、付款和拿证时间',
   description: '给在美国的中文用户按州核对 DMV、REAL ID、驾照续期与补证的费用入口、付款方式、临时凭证、邮寄和处理时间。',
-  dateModified: SEARCH_CONSOLE_UPDATE_DATE,
+  dateModified: COSTS_TIMING_MODIFIED_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
     '@type': 'ItemList',
@@ -178,7 +182,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="美国各州 DMV 费用与拿证时间：付款、临时凭证、邮寄" description="按州核对 DMV、REAL ID、驾照续期与补证的费用入口、付款方式、临时凭证、卡片邮寄和处理时间；金额以政府页面为准。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={SEARCH_CONSOLE_UPDATE_DATE} reviewedAt={HIGH_RISK_DIRECTORY_REVIEW_DATE}
+<BaseLayout title="美国各州 DMV 费用与拿证时间：付款、临时凭证、邮寄" description="按州核对 DMV、REAL ID、驾照续期与补证的费用入口、付款方式、临时凭证、卡片邮寄和处理时间；金额以政府页面为准。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={COSTS_TIMING_MODIFIED_DATE} reviewedAt={COSTS_TIMING_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">
@@ -189,7 +193,7 @@ const schema = {
       <p class="eyebrow">费用 / 拿证时间</p>
       <h1>美国各州 DMV 费用、付款和拿证时间</h1>
       <p class="lead">按州查看需要准备哪种付款方式、线上是否另收服务费、有没有临时凭证，以及新卡如何寄送。金额和处理时间会变，办理前应再打开对应政府页面确认。</p>
-      <ReviewBadge date={HIGH_RISK_DIRECTORY_REVIEW_DATE} />
+      <ReviewBadge date={COSTS_TIMING_REVIEW_DATE} />
       <div class="page-ledger" aria-label="费用和拿证时间表概况">
         <div>
           <strong>{rows.length} 州</strong>
