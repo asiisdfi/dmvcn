@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T09:57:17.982Z",
+    "generatedAt": "2026-07-29T11:48:57.157Z",
     "pages": 5,
     "claims": 821,
     "statesCovered": 50,
@@ -10387,6 +10387,20 @@
       "page": "identity-ssn",
       "stateId": "colorado",
       "category": "无 SSN / SSA",
+      "claim": "2026 年 7 月版 DR 2300A 允许口头提供 SSN，或出示 Social Security card、W-2、1099 等文件，号码会经 SSA 核验",
+      "sourceUrl": "https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A%20-%20PLP%20Checklist.pdf",
+      "sourceLabel": "对应官方来源：Colorado DR 2300A Identification Checklist",
+      "themes": [
+        "ssn"
+      ],
+      "failedThemes": [],
+      "explicitSourceAttribution": false,
+      "mappingMethod": "ai-assisted"
+    },
+    {
+      "page": "identity-ssn",
+      "stateId": "colorado",
+      "category": "无 SSN / SSA",
       "claim": "SSN 最稳妥的准备方式是带 signed Social Security card、W-2、显示全名和完整号码的 pay stub、SSA-1099 或其他 1099 之一",
       "sourceUrl": "https://dmv.colorado.gov/documents",
       "sourceLabel": "对应官方来源：Colorado DMV Required Identification Documents",
@@ -10425,22 +10439,6 @@
       ],
       "failedThemes": [
         "immigration-verification"
-      ],
-      "explicitSourceAttribution": false,
-      "mappingMethod": "ai-assisted"
-    },
-    {
-      "page": "identity-ssn",
-      "stateId": "colorado",
-      "category": "ITIN / affidavit",
-      "claim": "Standard 申请人按 DR 2300B/2300C 准备 identity、适用 lawful presence、一份 current address 和 CO-RCSA affidavit，不提交已经取消的旧税表或两年居住要求",
-      "sourceUrl": "https://dmv.colorado.gov/drivers/standard-license-and-ID-cards",
-      "sourceLabel": "对应官方来源：Colorado DMV Standard Licenses and IDs",
-      "themes": [
-        "lawful-presence"
-      ],
-      "failedThemes": [
-        "lawful-presence"
       ],
       "explicitSourceAttribution": false,
       "mappingMethod": "ai-assisted"

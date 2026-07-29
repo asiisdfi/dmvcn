@@ -4565,12 +4565,12 @@ export const states: StateGuide[] = [
     agency: 'Colorado Division of Motor Vehicles',
     agencyUrl: 'https://dmv.colorado.gov/',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-17',
-    reviewedAt: '2026-07-17',
+    modifiedAt: '2026-07-29',
+    reviewedAt: '2026-07-29',
     summary:
       '科罗拉多先按身份与用途分流：符合联邦条件的申请人办理带星 REAL ID，undocumented 或多数 temporarily lawfully present 居民办理带黑色限制栏的 Standard credential；成为 Colorado resident 后，驾照通常要在 30 天内转入，车辆由 county office 在 90 天内注册。',
     realIdSummary:
-      '首次 Colorado REAL ID 或外州转入通常要按 DR 2300A 准备 identity 与 lawful-presence 文件、Social Security number、两份不同的 Colorado physical-address 证明和完整姓名变化链；外州卡即使已经有 REAL ID 星标，也不会免除 Colorado 的文件核验。',
+      '首次 Colorado 非商业 REAL ID 或外州非商业驾照转入，通常要按 2026 年 7 月版 DR 2300A 准备 identity 与 lawful-presence 文件、Social Security number、两份 Colorado physical-address 证明和完整姓名变化链；申请 CLP 或转入外州 CDL 时改用 DR 2300D 商业申请清单。外州卡即使已有 REAL ID 星标，也不会免除 Colorado 的文件核验。',
     licenseSummary:
       'Colorado Standard driver license、permit 或 ID 是有效州身份证件，但不是 REAL ID，不能用于要求 REAL ID 的联邦用途；现行 CO-RCSA 路径面向 undocumented 与 temporarily lawfully present 居民，通常有效 3 年，并按身份类别使用 DR 2300B 或 DR 2300C。',
     appointmentNote:
@@ -4579,9 +4579,9 @@ export const states: StateGuide[] = [
       'Colorado 给符合 REAL ID 条件的居民签发带黑色或旧版金色星标的 credential；带黑色横幅并写有 NOT VALID FOR FEDERAL IDENTIFICATION, VOTING OR PUBLIC BENEFIT PURPOSES 的 Standard credential 不属于 REAL ID。',
       'REAL ID 不是合法驾驶的额外许可；18 岁以上旅客自 2025 年 5 月 7 日起进入 TSA checkpoint 时，可使用 REAL ID 或有效护照等 TSA 接受的替代证件。',
       'Colorado temporary paper credential 可以立即作为临时驾驶凭证，但 DMV 与 TSA 都提醒它本身不是可接受的 REAL ID 航空身份证件。',
-      '美国公民、永久居民、Freely Associated States 公民和适用 CDL 申请人的首次 Colorado credential，应按 Required Documents 或 DR 2300A 路径证明 identity、lawful presence、SSN 和 Colorado address。',
+      '美国公民、永久居民和 Freely Associated States 公民办理非商业首次 credential，应按 Required Documents 或 DR 2300A 证明 identity、lawful presence、SSN 和 Colorado address；申请 CLP 或转入外州 CDL 时，2026 年 7 月版 DR 2300A 要求改用 DR 2300D，并另带有效 Colorado driver license 或有效外州 CDL。',
       '身份与 lawful-presence 文件通常必须是未更改的原件或签发机关认证副本；普通复印件、手机照片、层压版本和仅经公证人认证的副本不能替代。',
-      'Required Documents 页面要求准备 SSN card、W-2、显示全名和完整 SSN 的 pay stub、SSA-1099 或其他 1099 之一；Driver License FAQ 也说明可口头提供号码，但材料条件复杂时携带文件更稳妥。',
+      '2026 年 7 月版 DR 2300A 允许口头提供 SSN，或出示 Social Security card、W-2、1099 等文件，号码会经 SSA 核验；Required Documents 网页还列出可携带的证明，有条件时带一份可减少现场不匹配。',
       'REAL ID 路径要带两份不同的 Colorado address 文件，两份都显示全名和当前 physical address、不得只有 P.O. Box，并在过去一年内出具。',
       '电子版地址证明可以在手机上出示；junk mail、手写收据、仅有 P.O. Box 或贴标签/手写改址的信封不接受。',
       '姓名与 identity、SSN 或旧 credential 不一致时，按身份类别准备能连接每次变化的认证文件；普通 REAL ID 姓名变更还要先让 SSA 更新记录。',
@@ -4614,7 +4614,7 @@ export const states: StateGuide[] = [
       'Colorado 居民不能同时持有 Colorado driver license/permit 和 ID card；首次 ID 要预约并交相应身份文件，未满 21 岁通常由 legal guardian 陪同并证明 guardianship。',
     ],
     documentHighlights: [
-      '先按身份选择正确清单：U.S. citizen/permanent resident/FAS/适用 CDL 用 Required Documents 或 DR 2300A；temporarily lawfully present 用 DR 2300B；undocumented 用 DR 2300C。',
+      '先按身份和业务选择清单：U.S. citizen、permanent resident 或 FAS 公民办理非商业 credential 用 Required Documents 或 DR 2300A；CLP 或外州 CDL 转入用 DR 2300D；temporarily lawfully present 用 DR 2300B；undocumented 用 DR 2300C。',
       'REAL ID 身份与 lawful-presence 材料带原件或签发机关认证副本；不要带手机照片、普通 photocopy、层压件或仅由 notary 认证的副本。',
       'SSN 最稳妥的准备方式是带 signed Social Security card、W-2、显示全名和完整号码的 pay stub、SSA-1099 或其他 1099 之一。',
       '准备两份不同来源的 Colorado residency：两份都显示全名、当前 physical address、完整日期且不超过一年；电子版可在手机上展示，但不能只有 P.O. Box。',
@@ -4628,6 +4628,7 @@ export const states: StateGuide[] = [
     ],
     commonMistakes: [
       '外州驾照已有 REAL ID 星标，就以为 Colorado 不会重新核验 identity、lawful presence、SSN 和两份地址。',
+      '申请 CLP 或转入外州 CDL 时仍只带 DR 2300A 材料，没有按当前 DR 2300D 准备现有驾照、商业资格身份文件和两份地址。',
       '用带黑色限制栏的 Standard credential 单独过 TSA，忽略它不是 REAL ID。',
       '把 paper temporary credential 当作 TSA 接受的正式带星证件。',
       'REAL ID 只带一份地址证明，或文件超过一年、只有 P.O. Box、没有申请人全名。',
@@ -4651,10 +4652,10 @@ export const states: StateGuide[] = [
     ],
     recommendedSteps: [
       '先判断用途：只需驾驶或州内身份，还是需要 TSA/联邦用途；有有效 passport 等 TSA accepted ID 时，不必把临行前办理 REAL ID 当作唯一方案。',
-      '再判断身份清单：DR 2300A、DR 2300B 或 DR 2300C，只使用与自己当前身份相符的一套，不混用 REAL ID 与 Standard 要求。',
+      '再按身份和商业或非商业业务选择 DR 2300A、DR 2300B、DR 2300C 或 DR 2300D，只使用与当前申请相符的一套，不混用 REAL ID、Standard 与 CDL 要求。',
       '确认交易类型：首次驾照、外州转入、外国驾照、permit、续期、duplicate、地址变更、姓名变更或 ID card。',
       '首次和转入先完成 online pre-registration，再用 Appointment Scheduling 选择 First Time CO DL/Permit/ID；保存 confirmation email 和 appointment ID。',
-      'REAL ID 按 identity/lawful presence、SSN、两份 current Colorado address、name-change chain 五组整理原件或认证副本。',
+      '非商业 REAL ID 按 identity/lawful presence、SSN、两份 current Colorado address、name-change chain 五组整理原件或认证副本；CLP 或外州 CDL 转入改按 DR 2300D。',
       'Standard 申请人按 DR 2300B/2300C 准备 identity、适用 lawful presence、一份 current address 和 CO-RCSA affidavit，不提交已经取消的旧税表或两年居住要求。',
       '姓名不一致时先完成 SSA、USCIS 或 home-country document 更新，再准备对应认证文件；普通姓名变更至少给 SSA 24 至 48 个工作小时同步。',
       '美国外州转入核对旧证是否有效或过期不足 1 年；没有原卡时在到访前 30 天内取得合格 MVR。',
@@ -4677,6 +4678,11 @@ export const states: StateGuide[] = [
         label: 'Required Identification Documents',
         url: 'https://dmv.colorado.gov/documents',
         description: 'DR 2300A 路径、原件、SSN、两份地址、预约和邮寄。',
+      },
+      {
+        label: 'Colorado DMV Forms Library',
+        url: 'https://dmv.colorado.gov/forms-number-order',
+        description: '从官方表格目录下载当前 DR 2300A、DR 2300B、DR 2300C 和 DR 2300D。',
       },
       {
         label: 'Standard Licenses and IDs',
@@ -4757,8 +4763,8 @@ export const states: StateGuide[] = [
       },
       {
         label: 'Colorado DR 2300A Identification Checklist',
-        url: 'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf',
-        note: '美国公民与永久居民 identity、lawful presence、SSN、residency 和 transfer 清单。',
+        url: 'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A%20-%20PLP%20Checklist.pdf',
+        note: '07/09/26 美国公民与永久居民 identity、lawful presence、SSN、residency、transfer 和商业申请分流清单。',
       },
       {
         label: 'Colorado DMV Standard Licenses and IDs',
@@ -4767,8 +4773,13 @@ export const states: StateGuide[] = [
       },
       {
         label: 'Colorado DR 2300B TLP Checklist',
-        url: 'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf',
-        note: 'Temporarily lawfully present identity、USCIS lawful-presence、SAVE、地址和 transfer。',
+        url: 'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B%20TLP%20Checklist.pdf',
+        note: '07/07/26 temporarily lawfully present identity、USCIS lawful-presence、地址和 transfer 清单。',
+      },
+      {
+        label: 'Colorado DR 2300D CDL Checklist',
+        url: 'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300D%20-%20CDL%20Checklist.pdf',
+        note: '07/09/26 CLP、CDL 首办和外州 commercial privilege 转入的身份、lawful presence、SSN 与地址清单。',
       },
       {
         label: 'Colorado DR 2300C Undocumented Checklist',

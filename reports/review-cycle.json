@@ -14,12 +14,12 @@
     "reviewAnchor": "办事页使用公开事实核对日期与证据复核日期中较早的一天计时；政策页使用公开事实核对日期。"
   },
   "source": {
-    "eeatGeneratedAt": "2026-07-29T09:57:13.676Z",
-    "officialAuditAgeDays": 5,
-    "officialAuditDate": "2026-07-24",
-    "officialInventoryFingerprint": "bcc9490fc21861be2c3b87c68fccfd10c69b7705fb29e6d6d7ffc6e57d3ff5fa",
-    "officialUrls": 1659,
-    "pageFingerprint": "99975f4789853c522a84b5f916c940a9193761ad96f146faf71f0b16dcc045c8"
+    "eeatGeneratedAt": "2026-07-29T11:48:53.368Z",
+    "officialAuditAgeDays": 0,
+    "officialAuditDate": "2026-07-29",
+    "officialInventoryFingerprint": "31677c5c81edbe5357d445955172e7fd4a79d139fef2ef5245e7fb06eeddebd2",
+    "officialUrls": 1661,
+    "pageFingerprint": "ec22e8eefd15b9e013be4876172d49c1cfe409950d940618964cfc17c95cb599"
   },
   "summary": {
     "current": 166,
@@ -416,38 +416,6 @@
         "reviewMethod": "ai-assisted",
         "reviewStatus": "ai-assisted",
         "risk": "medium",
-        "route": "/states/colorado/",
-        "state": "current",
-        "visibleReviewedAt": "2026-07-17"
-      },
-      {
-        "cycleDays": 90,
-        "daysUntilDue": 78,
-        "indexable": true,
-        "overdueDays": 0,
-        "pageType": "state-real-id",
-        "evidenceReviewedAt": "2026-07-17",
-        "reviewAnchorDate": "2026-07-17",
-        "reviewDue": "2026-10-15",
-        "reviewMethod": "ai-assisted",
-        "reviewStatus": "ai-assisted",
-        "risk": "medium",
-        "route": "/states/colorado/real-id/",
-        "state": "current",
-        "visibleReviewedAt": "2026-07-17"
-      },
-      {
-        "cycleDays": 90,
-        "daysUntilDue": 78,
-        "indexable": true,
-        "overdueDays": 0,
-        "pageType": "state-overview",
-        "evidenceReviewedAt": "2026-07-17",
-        "reviewAnchorDate": "2026-07-17",
-        "reviewDue": "2026-10-15",
-        "reviewMethod": "ai-assisted",
-        "reviewStatus": "ai-assisted",
-        "risk": "medium",
         "route": "/states/connecticut/",
         "state": "current",
         "visibleReviewedAt": "2026-07-17"
@@ -465,6 +433,38 @@
         "reviewStatus": "ai-assisted",
         "risk": "medium",
         "route": "/states/connecticut/real-id/",
+        "state": "current",
+        "visibleReviewedAt": "2026-07-17"
+      },
+      {
+        "cycleDays": 90,
+        "daysUntilDue": 78,
+        "indexable": true,
+        "overdueDays": 0,
+        "pageType": "state-overview",
+        "evidenceReviewedAt": "2026-07-17",
+        "reviewAnchorDate": "2026-07-17",
+        "reviewDue": "2026-10-15",
+        "reviewMethod": "ai-assisted",
+        "reviewStatus": "ai-assisted",
+        "risk": "medium",
+        "route": "/states/florida/",
+        "state": "current",
+        "visibleReviewedAt": "2026-07-17"
+      },
+      {
+        "cycleDays": 90,
+        "daysUntilDue": 78,
+        "indexable": true,
+        "overdueDays": 0,
+        "pageType": "state-real-id",
+        "evidenceReviewedAt": "2026-07-17",
+        "reviewAnchorDate": "2026-07-17",
+        "reviewDue": "2026-10-15",
+        "reviewMethod": "ai-assisted",
+        "reviewStatus": "ai-assisted",
+        "risk": "medium",
+        "route": "/states/florida/real-id/",
         "state": "current",
         "visibleReviewedAt": "2026-07-17"
       }
@@ -1049,35 +1049,35 @@
     },
     {
       "cycleDays": 90,
-      "daysUntilDue": 78,
+      "daysUntilDue": 90,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "state-overview",
-      "evidenceReviewedAt": "2026-07-17",
-      "reviewAnchorDate": "2026-07-17",
-      "reviewDue": "2026-10-15",
+      "evidenceReviewedAt": "2026-07-29",
+      "reviewAnchorDate": "2026-07-29",
+      "reviewDue": "2026-10-27",
       "reviewMethod": "ai-assisted",
       "reviewStatus": "ai-assisted",
       "risk": "medium",
       "route": "/states/colorado/",
       "state": "current",
-      "visibleReviewedAt": "2026-07-17"
+      "visibleReviewedAt": "2026-07-29"
     },
     {
       "cycleDays": 90,
-      "daysUntilDue": 78,
+      "daysUntilDue": 90,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "state-real-id",
-      "evidenceReviewedAt": "2026-07-17",
-      "reviewAnchorDate": "2026-07-17",
-      "reviewDue": "2026-10-15",
+      "evidenceReviewedAt": "2026-07-29",
+      "reviewAnchorDate": "2026-07-29",
+      "reviewDue": "2026-10-27",
       "reviewMethod": "ai-assisted",
       "reviewStatus": "ai-assisted",
       "risk": "medium",
       "route": "/states/colorado/real-id/",
       "state": "current",
-      "visibleReviewedAt": "2026-07-17"
+      "visibleReviewedAt": "2026-07-29"
     },
     {
       "cycleDays": 90,
@@ -3113,19 +3113,19 @@
     },
     {
       "cycleDays": 180,
-      "daysUntilDue": 175,
+      "daysUntilDue": 180,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "trust",
       "evidenceReviewedAt": null,
-      "reviewAnchorDate": "2026-07-24",
-      "reviewDue": "2027-01-20",
+      "reviewAnchorDate": "2026-07-29",
+      "reviewDue": "2027-01-25",
       "reviewMethod": null,
       "reviewStatus": "not-required",
       "risk": "policy",
       "route": "/updates/",
       "state": "current",
-      "visibleReviewedAt": "2026-07-24"
+      "visibleReviewedAt": "2026-07-29"
     }
   ],
   "status": {

@@ -65,6 +65,8 @@
 
 工作流只有仓库只读权限，所用 Action 均来自 GitHub 官方仓库，并固定到发布版本对应的完整提交 SHA。原始 Search Console 查询、页面查询映射、环境文件和 Vercel 配置均被 `.gitignore` 排除，不会上传到 Actions；CI 只核对已经脱敏并提交的计划、来源基线和成品页面。定时任务若因官方来源基线超过 30 天、事实复核逾期或任何发布门禁失败而变红，必须先更新对应证据和报告，不能跳过检查继续发布。
 
+`.github/workflows/official-source-audit.yml` 在每月 1 日和 15 日 07:43 UTC 重新访问全部已登记政府 URL，也可在 GitHub Actions 页面手动触发。工作流使用严格模式：来源清单覆盖不完整、普通硬失败或来源新鲜度检查失败都会让任务变红。当次 JSON、Markdown 和逐链接检查缓存作为 45 天 Actions 附件保存，并写入任务摘要；工作流保持仓库只读，不会因网络波动自动改正文或提交报告。
+
 ## 本地运行
 
 ```sh
@@ -89,7 +91,7 @@ LINK_AUDIT_OWNER=colorado npm run audit:links
 npm run audit:source-freshness
 ```
 
-`audit:links` 从结构化数据读取联邦、州级和专题来源，每次最多检查 350 个到期 URL，并把逐链接结果续写到本地 `reports/private/` 缓存。重复运行直到 `reports/official-link-audit.md` 显示月度覆盖 100%；`audit:source-freshness` 会核对 30 天新鲜度和来源 URL 指纹，并已纳入 `verify:launch`。`403`、`429`、5xx 和常见网络超时归为 `watch`；普通 `404`、`410` 等硬失败必须复查官方替代入口。
+`audit:links` 从结构化数据读取联邦、州级和专题来源，每次最多检查 350 个到期 URL，并把逐链接结果续写到本地 `reports/private/` 缓存。重复运行直到 `reports/official-link-audit.md` 显示月度覆盖 100%；`audit:source-freshness` 会核对 30 天新鲜度和来源 URL 指纹，并已纳入 `verify:launch`。周期性 Actions 巡检会执行 `audit:links:full`，从空白运行环境重新检查整份清单，不能借用本地旧缓存跳过 URL。`403`、`429`、5xx 和常见网络超时归为 `watch`；普通 `404`、`410` 等硬失败必须复查官方替代入口。
 
 ## 内容体检
 

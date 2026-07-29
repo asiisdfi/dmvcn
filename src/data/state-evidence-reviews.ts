@@ -576,12 +576,15 @@ const AZ_LAW_FEES = 'https://www.azleg.gov/ars/28/03002.htm';
 
 const CO_REAL_ID = 'https://dmv.colorado.gov/real-id-and-colorado';
 const CO_DOCUMENTS = 'https://dmv.colorado.gov/documents';
+const CO_FORMS = 'https://dmv.colorado.gov/forms-number-order';
 const CO_DR2300A =
-  'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A_e_wo.pdf';
+  'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300A%20-%20PLP%20Checklist.pdf';
 const CO_STANDARD =
   'https://dmv.colorado.gov/drivers/standard-license-and-ID-cards';
 const CO_DR2300B =
-  'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B_e_wo.pdf';
+  'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300B%20TLP%20Checklist.pdf';
+const CO_DR2300D =
+  'https://dmv.colorado.gov/sites/dmv/files/documents/DR%202300D%20-%20CDL%20Checklist.pdf';
 const CO_DR2300C =
   'https://dmv.colorado.gov/sites/dmv/files/documents/DR2300C.pdf';
 const CO_AFFIDAVIT =
@@ -12196,15 +12199,17 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
     },
   },
   colorado: {
-    reviewedAt: '2026-07-17',
+    reviewedAt: '2026-07-29',
     reviewer: 'Codex AI 辅助证据核查',
     surfaces: ['overview', 'real-id'],
     sourceBodiesChecked: [
       CO_REAL_ID,
       CO_DOCUMENTS,
+      CO_FORMS,
       CO_DR2300A,
       CO_STANDARD,
       CO_DR2300B,
+      CO_DR2300D,
       CO_DR2300C,
       CO_AFFIDAVIT,
       CO_NEW,
@@ -12223,9 +12228,9 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       TSA_IDENTIFICATION,
     ],
     scope:
-      '逐条打开并比对 Colorado DMV 的 REAL ID、DR 2300A/B/C、CO-RCSA、材料、预约、费用、新居民、外州与外国驾照、permit、考试语言、第三方路考、续期、改址改名、补证、ID 和邮寄正文。',
+      '复核 Colorado DMV 全页现有来源映射，并重新打开 2026 年 7 月更新的表格目录与 DR 2300A/B/D，核对非商业 REAL ID、TLP、CLP 和外州 CDL 转入分流；其余 CO-RCSA、费用、新居民、外国驾照、考试、续补证和邮寄声明沿用已核对来源。',
     notes:
-      '重写身份分流与办事路径，纳入 2025-03-31 后 Standard 新规则，区分中国大陆与 Taiwan reciprocity，并把费用、期限、材料、考试和法律后果改为显式来源；仍待真实人工签字。',
+      '替换两个已失效的 2024 表格地址，接入 07/09/26 DR 2300A、07/07/26 DR 2300B 和新增 DR 2300D，修正商业申请仍走普通材料清单的旧提示；本次为 AI 辅助来源复核，不冒充人工或专业审核。',
     claims: {
       '科罗拉多先按身份与用途分流：符合联邦条件的申请人办理带星 REAL ID，undocumented 或多数 temporarily lawfully present 居民办理带黑色限制栏的 Standard credential': [
         CO_REAL_ID,
@@ -12243,11 +12248,15 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         CO_DR2300B,
         CO_DR2300C,
       ],
-      '首次 Colorado REAL ID 或外州转入通常要按 DR 2300A 准备 identity 与 lawful-presence 文件、Social Security number、两份不同的 Colorado physical-address 证明和完整姓名变化链': [
+      '首次 Colorado 非商业 REAL ID 或外州非商业驾照转入，通常要按 2026 年 7 月版 DR 2300A 准备 identity 与 lawful-presence 文件、Social Security number、两份 Colorado physical-address 证明和完整姓名变化链': [
         CO_DOCUMENTS,
         CO_DR2300A,
       ],
-      '外州卡即使已经有 REAL ID 星标，也不会免除 Colorado 的文件核验': [
+      '申请 CLP 或转入外州 CDL 时改用 DR 2300D 商业申请清单': [
+        CO_DR2300A,
+        CO_DR2300D,
+      ],
+      '外州卡即使已有 REAL ID 星标，也不会免除 Colorado 的文件核验': [
         CO_DOCUMENTS,
         CO_REAL_ID,
       ],
@@ -12275,9 +12284,13 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         CO_REAL_ID,
         TSA_IDENTIFICATION,
       ],
-      '美国公民、永久居民、Freely Associated States 公民和适用 CDL 申请人的首次 Colorado credential，应按 Required Documents 或 DR 2300A 路径证明 identity、lawful presence、SSN 和 Colorado address': [
+      '美国公民、永久居民和 Freely Associated States 公民办理非商业首次 credential，应按 Required Documents 或 DR 2300A 证明 identity、lawful presence、SSN 和 Colorado address': [
         CO_DOCUMENTS,
         CO_DR2300A,
+      ],
+      '申请 CLP 或转入外州 CDL 时，2026 年 7 月版 DR 2300A 要求改用 DR 2300D，并另带有效 Colorado driver license 或有效外州 CDL': [
+        CO_DR2300A,
+        CO_DR2300D,
       ],
       '身份与 lawful-presence 文件通常必须是未更改的原件或签发机关认证副本': [
         CO_DOCUMENTS,
@@ -12287,13 +12300,13 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         CO_DOCUMENTS,
         CO_DR2300A,
       ],
-      'Required Documents 页面要求准备 SSN card、W-2、显示全名和完整 SSN 的 pay stub、SSA-1099 或其他 1099 之一': [
+      '2026 年 7 月版 DR 2300A 允许口头提供 SSN，或出示 Social Security card、W-2、1099 等文件，号码会经 SSA 核验': [
+        CO_DR2300A,
+        CO_FAQ,
+      ],
+      'Required Documents 网页还列出可携带的证明，有条件时带一份可减少现场不匹配': [
         CO_DOCUMENTS,
         CO_DR2300A,
-      ],
-      'Driver License FAQ 也说明可口头提供号码，但材料条件复杂时携带文件更稳妥': [
-        CO_FAQ,
-        CO_DOCUMENTS,
       ],
       'REAL ID 路径要带两份不同的 Colorado address 文件，两份都显示全名和当前 physical address、不得只有 P.O. Box，并在过去一年内出具': [
         CO_DOCUMENTS,
@@ -12481,10 +12494,11 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         CO_ID,
         CO_DOCUMENTS,
       ],
-      '先按身份选择正确清单：U.S. citizen/permanent resident/FAS/适用 CDL 用 Required Documents 或 DR 2300A': [
+      '先按身份和业务选择清单：U.S. citizen、permanent resident 或 FAS 公民办理非商业 credential 用 Required Documents 或 DR 2300A': [
         CO_DOCUMENTS,
         CO_DR2300A,
       ],
+      'CLP 或外州 CDL 转入用 DR 2300D': [CO_DR2300D],
       'temporarily lawfully present 用 DR 2300B': [
         CO_STANDARD,
         CO_DR2300B,
@@ -12568,9 +12582,10 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         CO_REAL_ID,
         TSA_IDENTIFICATION,
       ],
-      '再判断身份清单：DR 2300A、DR 2300B 或 DR 2300C，只使用与自己当前身份相符的一套，不混用 REAL ID 与 Standard 要求': [
+      '再按身份和商业或非商业业务选择 DR 2300A、DR 2300B、DR 2300C 或 DR 2300D，只使用与当前申请相符的一套，不混用 REAL ID、Standard 与 CDL 要求': [
         CO_DOCUMENTS,
         CO_STANDARD,
+        CO_DR2300D,
       ],
       '确认交易类型：首次驾照、外州转入、外国驾照、permit、续期、duplicate、地址变更、姓名变更或 ID card': [
         CO_APPOINTMENT,
@@ -12582,10 +12597,11 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
         CO_APPOINTMENT,
       ],
       '保存 confirmation email 和 appointment ID': [CO_APPOINTMENT],
-      'REAL ID 按 identity/lawful presence、SSN、两份 current Colorado address、name-change chain 五组整理原件或认证副本': [
+      '非商业 REAL ID 按 identity/lawful presence、SSN、两份 current Colorado address、name-change chain 五组整理原件或认证副本': [
         CO_DOCUMENTS,
         CO_DR2300A,
       ],
+      'CLP 或外州 CDL 转入改按 DR 2300D': [CO_DR2300D],
       'Standard 申请人按 DR 2300B/2300C 准备 identity、适用 lawful presence、一份 current address 和 CO-RCSA affidavit，不提交已经取消的旧税表或两年居住要求': [
         CO_STANDARD,
         CO_DR2300B,
@@ -12655,6 +12671,10 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       '外州驾照已有 REAL ID 星标，就以为 Colorado 不会重新核验 identity、lawful presence、SSN 和两份地址': [
         CO_DOCUMENTS,
         CO_REAL_ID,
+      ],
+      '申请 CLP 或转入外州 CDL 时仍只带 DR 2300A 材料，没有按当前 DR 2300D 准备现有驾照、商业资格身份文件和两份地址': [
+        CO_DR2300A,
+        CO_DR2300D,
       ],
       '用带黑色限制栏的 Standard credential 单独过 TSA，忽略它不是 REAL ID': [
         CO_STANDARD,

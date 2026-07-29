@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T09:57:20.467Z",
+    "generatedAt": "2026-07-29T11:48:59.284Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
@@ -528,7 +528,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 701,
+        "sourceCount": 702,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -681,7 +681,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 265,
+        "sourceCount": 266,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1214,7 +1214,7 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 1618,
+        "sourceCount": 1620,
         "factCheckCount": 0,
         "visibleThreeDates": true,
         "authorLink": true,
@@ -1805,15 +1805,15 @@
       "semanticReview": {
         "status": "evidence-checked",
         "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
+        "reviewedAt": "2026-07-29",
         "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条打开并比对 Colorado DMV 的 REAL ID、DR 2300A/B/C、CO-RCSA、材料、预约、费用、新居民、外州与外国驾照、permit、考试语言、第三方路考、续期、改址改名、补证、ID 和邮寄正文。",
-        "notes": "重写身份分流与办事路径，纳入 2025-03-31 后 Standard 新规则，区分中国大陆与 Taiwan reciprocity，并把费用、期限、材料、考试和法律后果改为显式来源；仍待真实人工签字。"
+        "scope": "复核 Colorado DMV 全页现有来源映射，并重新打开 2026 年 7 月更新的表格目录与 DR 2300A/B/D，核对非商业 REAL ID、TLP、CLP 和外州 CDL 转入分流；其余 CO-RCSA、费用、新居民、外国驾照、考试、续补证和邮寄声明沿用已核对来源。",
+        "notes": "替换两个已失效的 2024 表格地址，接入 07/09/26 DR 2300A、07/07/26 DR 2300B 和新增 DR 2300D，修正商业申请仍走普通材料清单的旧提示；本次为 AI 辅助来源复核，不冒充人工或专业审核。"
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-17",
-        "reviewedAt": "2026-07-17"
+        "modifiedAt": "2026-07-29",
+        "reviewedAt": "2026-07-29"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1826,14 +1826,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 22,
-        "factCheckCount": 74,
+        "sourceCount": 23,
+        "factCheckCount": 76,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 74,
-        "stateEvidenceLinks": 123,
+        "stateEvidenceItems": 76,
+        "stateEvidenceLinks": 127,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -1856,15 +1856,15 @@
       "semanticReview": {
         "status": "evidence-checked",
         "method": "ai-assisted",
-        "reviewedAt": "2026-07-17",
+        "reviewedAt": "2026-07-29",
         "reviewer": "Codex AI 辅助证据核查",
-        "scope": "逐条打开并比对 Colorado DMV 的 REAL ID、DR 2300A/B/C、CO-RCSA、材料、预约、费用、新居民、外州与外国驾照、permit、考试语言、第三方路考、续期、改址改名、补证、ID 和邮寄正文。",
-        "notes": "重写身份分流与办事路径，纳入 2025-03-31 后 Standard 新规则，区分中国大陆与 Taiwan reciprocity，并把费用、期限、材料、考试和法律后果改为显式来源；仍待真实人工签字。"
+        "scope": "复核 Colorado DMV 全页现有来源映射，并重新打开 2026 年 7 月更新的表格目录与 DR 2300A/B/D，核对非商业 REAL ID、TLP、CLP 和外州 CDL 转入分流；其余 CO-RCSA、费用、新居民、外国驾照、考试、续补证和邮寄声明沿用已核对来源。",
+        "notes": "替换两个已失效的 2024 表格地址，接入 07/09/26 DR 2300A、07/07/26 DR 2300B 和新增 DR 2300D，修正商业申请仍走普通材料清单的旧提示；本次为 AI 辅助来源复核，不冒充人工或专业审核。"
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-17",
-        "reviewedAt": "2026-07-17"
+        "modifiedAt": "2026-07-29",
+        "reviewedAt": "2026-07-29"
       },
       "scores": {
         "factsAndSources": 25,
@@ -1877,14 +1877,14 @@
         "technical": 5
       },
       "signals": {
-        "sourceCount": 22,
-        "factCheckCount": 71,
+        "sourceCount": 23,
+        "factCheckCount": 75,
         "visibleThreeDates": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
-        "stateEvidenceItems": 71,
-        "stateEvidenceLinks": 143,
+        "stateEvidenceItems": 75,
+        "stateEvidenceLinks": 150,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
@@ -8377,8 +8377,8 @@
       "semanticReview": null,
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-24"
+        "modifiedAt": "2026-07-29",
+        "reviewedAt": "2026-07-29"
       },
       "scores": {
         "factsAndSources": 25,

@@ -905,9 +905,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-17",
+      "reviewedAt": "2026-07-29",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-15",
+      "reviewDue": "2026-10-27",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -916,7 +916,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "重写身份分流与办事路径，纳入 2025-03-31 后 Standard 新规则，区分中国大陆与 Taiwan reciprocity，并把费用、期限、材料、考试和法律后果改为显式来源；仍待真实人工签字。",
+      "notes": "替换两个已失效的 2024 表格地址，接入 07/09/26 DR 2300A、07/07/26 DR 2300B 和新增 DR 2300D，修正商业申请仍走普通材料清单的旧提示；本次为 AI 辅助来源复核，不冒充人工或专业审核。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {
@@ -929,9 +929,9 @@
       "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
-      "reviewedAt": "2026-07-17",
+      "reviewedAt": "2026-07-29",
       "reviewCycleDays": 90,
-      "reviewDue": "2026-10-15",
+      "reviewDue": "2026-10-27",
       "overdueDays": 0,
       "priority": "P3",
       "action": "observation",
@@ -940,7 +940,7 @@
       "blockersCount": 0,
       "blockers": [],
       "criticalCount": 0,
-      "notes": "重写身份分流与办事路径，纳入 2025-03-31 后 Standard 新规则，区分中国大陆与 Taiwan reciprocity，并把费用、期限、材料、考试和法律后果改为显式来源；仍待真实人工签字。",
+      "notes": "替换两个已失效的 2024 表格地址，接入 07/09/26 DR 2300A、07/07/26 DR 2300B 和新增 DR 2300D，修正商业申请仍走普通材料清单的旧提示；本次为 AI 辅助来源复核，不冒充人工或专业审核。",
       "reviewer": "Codex AI 辅助证据核查"
     },
     {
