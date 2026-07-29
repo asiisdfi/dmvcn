@@ -7,6 +7,10 @@ on:
       - main
     paths:
       - .github/workflows/official-source-audit.yml
+      - scripts/audit-official-links.mjs
+      - scripts/audit-source-freshness.mjs
+      - src/data/content.ts
+      - src/data/review-manual-signoffs.ts
   schedule:
     - cron: '43 7 1,15 * *'
 

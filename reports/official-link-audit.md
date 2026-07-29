@@ -1,7 +1,7 @@
 # 官方来源链接审计 (2026-07-29)
 
 - 本报告检查链接可访问性，不代替逐条事实语义复核。
-- 本次检查 4 个；成功 4，观察 0，硬失败 0。
+- 本次检查 2 个；成功 0，观察 2，硬失败 0。
 - 月度覆盖 1661/1661（100%）；剩余 0 个。
 - 高风险页面来源覆盖 316/316（100%）。
 - 月度门禁：通过；高风险来源门禁：通过。
@@ -32,9 +32,9 @@
 - dds.georgia.gov：23 个（状态 000；高风险来源 6 个）。
 - dmv.ri.gov：23 个（状态 403；高风险来源 0 个）。
 - azdot.gov：20 个（状态 403；高风险来源 1 个）。
-- mva.maryland.gov：20 个（状态 403；高风险来源 1 个）。
+- mvdmt.gov：20 个（状态 403；高风险来源 0 个）。
 - www.michigan.gov：20 个（状态 403；高风险来源 0 个）。
-- mvdmt.gov：19 个（状态 403；高风险来源 0 个）。
+- mva.maryland.gov：19 个（状态 403；高风险来源 1 个）。
 - www.ksrevenue.gov：19 个（状态 000；高风险来源 0 个）。
 - iowadot.gov：18 个（状态 403；高风险来源 0 个）。
 - www.dot.nd.gov：18 个（状态 000；高风险来源 0 个）。
@@ -56,13 +56,13 @@
 - www.nhtsa.gov：5 个（状态 403；高风险来源 4 个）。
 - apps.mshp.dps.mo.gov：4 个（状态 000；高风险来源 0 个）。
 - codes.ohio.gov：4 个（状态 000；高风险来源 0 个）。
-- dojmt.gov：4 个（状态 403；高风险来源 0 个）。
 - www.kauai.gov：4 个（状态 403；高风险来源 0 个）。
 - www.ssa.gov：4 个（状态 000/403；高风险来源 4 个）。
 - www.vrl.hawaiicounty.gov：4 个（状态 403；高风险来源 0 个）。
 - apps.azdot.gov：3 个（状态 403；高风险来源 0 个）。
 - apps.ilsos.gov：3 个（状态 403；高风险来源 0 个）。
 - assets.dps.mn.gov：3 个（状态 403；高风险来源 0 个）。
+- dojmt.gov：3 个（状态 403；高风险来源 0 个）。
 - dps.arkansas.gov：2 个（状态 000；高风险来源 0 个）。
 - wp.kentuckystatepolice.ky.gov：2 个（状态 000；高风险来源 0 个）。
 - 432201.waitwell.us：1 个（状态 403；高风险来源 0 个）。
@@ -81,6 +81,7 @@
 - ndlegis.gov：1 个（状态 000；高风险来源 0 个）。
 - olis.oregonlegislature.gov：1 个（状态 000；高风险来源 0 个）。
 - onlineservices.dps.mn.gov：1 个（状态 403；高风险来源 0 个）。
+- realid.mva.maryland.gov：1 个（状态 000；高风险来源 0 个）。
 - realid.mvd.newmexico.gov：1 个（状态 000；高风险来源 0 个）。
 - secure.ssa.gov：1 个（状态 000；高风险来源 1 个）。
 - tax.ri.gov：1 个（状态 403；高风险来源 0 个）。

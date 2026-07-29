@@ -2628,7 +2628,7 @@ export const states: StateGuide[] = [
     agency: 'Maryland Motor Vehicle Administration',
     agencyUrl: 'https://mva.maryland.gov/',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-17',
+    modifiedAt: '2026-07-29',
     reviewedAt: '2026-07-17',
     summary:
       'Maryland 的 REAL ID 办理第一步不是猜卡面，而是打开 MVA REAL ID Lookup 查询个人档案，因为即使卡上有星标或全州合规率很高，旧档案仍可能提示补交材料。',
@@ -2711,7 +2711,7 @@ export const states: StateGuide[] = [
     actionLinks: [
       {
         label: 'Maryland REAL ID 状态查询',
-        url: 'https://mva.maryland.gov/Pages/realidlookup.aspx',
+        url: 'https://realid.mva.maryland.gov/',
         description: '先查询个人档案是否仍需补交 REAL ID 文件。',
       },
       {
@@ -2726,7 +2726,7 @@ export const states: StateGuide[] = [
       },
       {
         label: 'MVA 文件要求表 FO-150A',
-        url: 'https://mva.maryland.gov/documents/FO-150A.pdf',
+        url: 'https://mva.maryland.gov/Documents/FO-150A.pdf',
         description: '核对 compliant 与 noncompliant credential 的材料类别和住址文件。',
       },
       {
@@ -2818,7 +2818,7 @@ export const states: StateGuide[] = [
     sources: [
       {
         label: 'Maryland MVA REAL ID Lookup',
-        url: 'https://mva.maryland.gov/Pages/realidlookup.aspx',
+        url: 'https://realid.mva.maryland.gov/',
         note: '个人 REAL ID 文件状态查询入口。',
       },
       {
@@ -2833,7 +2833,7 @@ export const states: StateGuide[] = [
       },
       {
         label: 'Maryland MVA Document Requirements FO-150A',
-        url: 'https://mva.maryland.gov/documents/FO-150A.pdf',
+        url: 'https://mva.maryland.gov/Documents/FO-150A.pdf',
         note: '联邦合规与非合规 credential 的材料分类。',
       },
       {
@@ -11629,7 +11629,7 @@ export const states: StateGuide[] = [
     agency: 'Montana Motor Vehicle Division',
     agencyUrl: 'https://mvdmt.gov/',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-21',
+    modifiedAt: '2026-07-29',
     reviewedAt: '2026-07-21',
     summary:
       'Montana MVD Driver Services 办理驾照、learner license、ID、考试和 REAL ID；vehicle title、registration 与 plates 走 MVD vehicle service 或 county treasurer 路线。美国外州转入、中国或其他外国驾照、18 岁以上首次申请、REAL ID、续期、补证和资料变更不是同一流程。',
@@ -11767,7 +11767,7 @@ export const states: StateGuide[] = [
       },
       {
         label: 'Montana Driver Manual',
-        url: 'https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf',
+        url: 'https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf',
         description: 'Class D 资格、测试次数、续期、REAL ID 与新居民规则。',
       },
       {
@@ -11889,7 +11889,7 @@ export const states: StateGuide[] = [
       },
       {
         label: 'Montana Driver Manual',
-        url: 'https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf',
+        url: 'https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf',
         note: 'eligibility、one-credential rule、testing receipt、renewal、temporary status 与 REAL ID。',
       },
       {
@@ -11929,8 +11929,8 @@ export const states: StateGuide[] = [
       },
       {
         label: 'Montana Class D / ID Application',
-        url: 'https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf',
-        note: 'current legal name、residential / mailing address、citizenship、SSN 与 licensing questions。',
+        url: 'https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf',
+        note: '11-1400 current legal name、residential / mailing address、citizenship、SSN 与 licensing questions。',
       },
       {
         label: 'USCIS SAVE',

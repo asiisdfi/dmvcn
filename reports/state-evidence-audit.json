@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-07-29T11:48:58.161Z",
+    "generatedAt": "2026-07-29T12:04:58.815Z",
     "pages": 100,
     "states": 50,
     "claims": 4744,
@@ -14228,7 +14228,7 @@
       "context": "real-id",
       "claim": "Maryland 的 REAL ID 办理第一步不是猜卡面，而是打开 MVA REAL ID Lookup 查询个人档案，因为即使卡上有星标或全州合规率很高，旧档案仍可能提示补交材料",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidlookup.aspx",
+        "https://realid.mva.maryland.gov/",
         "https://mva.maryland.gov/Pages/realidfaq.aspx",
         "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000"
       ],
@@ -14291,7 +14291,7 @@
       "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
       "sourceUrls": [
         "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/documents/FO-150A.pdf"
+        "https://mva.maryland.gov/Documents/FO-150A.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Maryland MVA REAL ID FAQ",
@@ -14374,7 +14374,7 @@
       "claim": "Maryland MVA 公布全州 REAL ID 合规率超过 99%，这个比例不能替代个人 REAL ID Lookup 结果",
       "sourceUrls": [
         "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000",
-        "https://mva.maryland.gov/Pages/realidlookup.aspx"
+        "https://realid.mva.maryland.gov/"
       ],
       "sourceLabels": [
         "对应官方来源：Maryland MVA Licenses & IDs",
@@ -14806,7 +14806,7 @@
       "claim": "需要补交 Maryland REAL ID 材料时，通常要覆盖一份年龄与身份、Social Security 信息、两份 Maryland 实际住址证明和适用的完整姓名变更链，并把原件或签发机关认证件带到 MVA",
       "sourceUrls": [
         "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/documents/FO-150A.pdf"
+        "https://mva.maryland.gov/Documents/FO-150A.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Maryland MVA REAL ID FAQ",
@@ -14829,7 +14829,7 @@
       "context": "real-id",
       "claim": "先用 REAL ID Lookup 判断 MVA 是否已收齐自己的文件，再用 Online Document Guide 生成与个人身份和业务对应的清单",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidlookup.aspx",
+        "https://realid.mva.maryland.gov/",
         "https://mva.maryland.gov/Pages/realidfaq.aspx"
       ],
       "sourceLabels": [
@@ -14855,7 +14855,7 @@
       "claim": "年龄与身份文件应使用原件或签发机关认证件，普通 photocopy、手机照片和 digital scan 不被接受",
       "sourceUrls": [
         "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/documents/FO-150A.pdf",
+        "https://mva.maryland.gov/Documents/FO-150A.pdf",
         "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card"
       ],
       "sourceLabels": [
@@ -14878,7 +14878,7 @@
       "claim": "美国公民常见的年龄与身份证明包括签发机关认证的出生证或有效美国 passport，非公民要按当前身份选择相应 lawful-status 文件",
       "sourceUrls": [
         "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/documents/FO-150A.pdf",
+        "https://mva.maryland.gov/Documents/FO-150A.pdf",
         "https://mva.maryland.gov/licenses-ids/get-new-license-permit-or-id/identification-id-card"
       ],
       "sourceLabels": [
@@ -14902,7 +14902,7 @@
       "claim": "Social Security 材料要按 Online Document Guide 和个人通知准备，不要只凭旧 FAQ 推断可接受的文件或时效",
       "sourceUrls": [
         "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/documents/FO-150A.pdf",
+        "https://mva.maryland.gov/Documents/FO-150A.pdf",
         "https://mva.maryland.gov/licenses-ids/renew-license-or-id"
       ],
       "sourceLabels": [
@@ -14927,7 +14927,7 @@
       "claim": "准备两份印有本人姓名和 Maryland physical address 的住址材料，姓名与地址要和 MVA 记录一致",
       "sourceUrls": [
         "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/documents/FO-150A.pdf",
+        "https://mva.maryland.gov/Documents/FO-150A.pdf",
         "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/get-maryland-drivers-license-or-id-card"
       ],
       "sourceLabels": [
@@ -15091,7 +15091,7 @@
       "context": "real-id",
       "claim": "涉及 REAL ID 时先运行 REAL ID Lookup，再根据结果打开 Online Document Guide，而不是直接照抄通用材料示例",
       "sourceUrls": [
-        "https://mva.maryland.gov/Pages/realidlookup.aspx",
+        "https://realid.mva.maryland.gov/",
         "https://mva.maryland.gov/Pages/realidfaq.aspx"
       ],
       "sourceLabels": [
@@ -15117,7 +15117,7 @@
       "claim": "逐项核对年龄与身份、Social Security、两份 residency、lawful status 和完整姓名链，并只准备原件或签发机关认证件",
       "sourceUrls": [
         "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/documents/FO-150A.pdf",
+        "https://mva.maryland.gov/Documents/FO-150A.pdf",
         "https://mva.maryland.gov/your-mva-guide/new-maryland-residents/international-movers"
       ],
       "sourceLabels": [
@@ -15317,7 +15317,7 @@
       "claim": "因为卡上有星标或看到全州 99% 以上合规率，就跳过个人 REAL ID Lookup",
       "sourceUrls": [
         "https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000",
-        "https://mva.maryland.gov/Pages/realidlookup.aspx",
+        "https://realid.mva.maryland.gov/",
         "https://mva.maryland.gov/Pages/realidfaq.aspx"
       ],
       "sourceLabels": [
@@ -15340,7 +15340,7 @@
       "claim": "只带一份 Maryland 地址证明，或两份文件上的姓名和地址与 MVA 记录不一致",
       "sourceUrls": [
         "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/documents/FO-150A.pdf"
+        "https://mva.maryland.gov/Documents/FO-150A.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Maryland MVA REAL ID FAQ",
@@ -15362,7 +15362,7 @@
       "claim": "携带 photocopy、手机照片或自行公证件，误以为它们等同于签发机关认证副本",
       "sourceUrls": [
         "https://mva.maryland.gov/Pages/realidfaq.aspx",
-        "https://mva.maryland.gov/documents/FO-150A.pdf"
+        "https://mva.maryland.gov/Documents/FO-150A.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Maryland MVA REAL ID FAQ",
@@ -85668,7 +85668,7 @@
       "sourceUrls": [
         "https://mvdmt.gov/new-driver-license/drivers-new-to-montana/",
         "https://mvdmt.gov/required-documents/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Drivers New to Montana",
@@ -85903,7 +85903,7 @@
       "sourceUrls": [
         "https://mvdmt.gov/new-driver-license/drivers-new-to-montana/",
         "https://mvdmt.gov/required-documents/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Drivers New to Montana",
@@ -85926,7 +85926,7 @@
       "sourceUrls": [
         "https://mvdmt.gov/new-driver-license/drivers-new-to-montana/",
         "https://mvdmt.gov/required-documents/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Drivers New to Montana",
@@ -85949,7 +85949,7 @@
       "sourceUrls": [
         "https://mvdmt.gov/new-driver-license/drivers-new-to-montana/",
         "https://mvdmt.gov/required-documents/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Drivers New to Montana",
@@ -86235,7 +86235,7 @@
       "claim": "18+ 首次申请先通过 written test 才能预约 road test",
       "sourceUrls": [
         "https://mvdmt.gov/new-driver-license/adult-driver-license/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
         "https://mvdmt.gov/driver-license-exam-stations/",
         "https://mvdmt.gov/forms-driver-license/"
       ],
@@ -86261,7 +86261,7 @@
       "claim": "driver-license receipt 一年内有效，测试申请人有三次机会在这一年内完成全部 required examinations",
       "sourceUrls": [
         "https://mvdmt.gov/new-driver-license/adult-driver-license/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
         "https://mvdmt.gov/driver-license-exam-stations/",
         "https://mvdmt.gov/forms-driver-license/"
       ],
@@ -86304,8 +86304,8 @@
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
         "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf",
         "https://www.uscis.gov/save"
       ],
       "sourceLabels": [
@@ -86383,8 +86383,8 @@
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
         "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf",
         "https://www.uscis.gov/save"
       ],
       "sourceLabels": [
@@ -86410,8 +86410,8 @@
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
         "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf",
         "https://www.uscis.gov/save"
       ],
       "sourceLabels": [
@@ -86437,8 +86437,8 @@
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
         "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf",
         "https://www.uscis.gov/save"
       ],
       "sourceLabels": [
@@ -86711,7 +86711,7 @@
       "claim": "自 2025-05-07 起机场或适用 federal facility 需要 REAL ID 或 passport / passport card 等 TSA 接受的替代证件",
       "sourceUrls": [
         "https://mvdmt.gov/real-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
         "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
@@ -86735,7 +86735,7 @@
       "claim": "temporary paper credential 不是 REAL ID",
       "sourceUrls": [
         "https://mvdmt.gov/real-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
         "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
@@ -86911,7 +86911,7 @@
       "claim": "online / mail renewal 只限 U.S. citizen、处于到期前 6 个月至过期后 1 年、上一轮不是 online / mail 且在任何州都未 suspended / revoked 的申请人",
       "sourceUrls": [
         "https://mvdmt.gov/renew-license-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Renew License / ID",
@@ -86933,7 +86933,7 @@
       "claim": "online 不更新 photo 或 signature",
       "sourceUrls": [
         "https://mvdmt.gov/renew-license-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Renew License / ID",
@@ -86954,7 +86954,7 @@
       "claim": "Montana 没有过期后继续驾驶的 grace period：driving privilege 在 expiration date 午夜终止",
       "sourceUrls": [
         "https://mvdmt.gov/renew-license-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Renew License / ID",
@@ -86973,7 +86973,7 @@
       "claim": "可在一年内免 retest 续期，超过一年按新申请并完成适用考试",
       "sourceUrls": [
         "https://mvdmt.gov/renew-license-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Renew License / ID",
@@ -87109,7 +87109,7 @@
       "sourceUrls": [
         "https://mvdmt.gov/id-card/",
         "https://mvdmt.gov/faqs/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
         "https://mvdmt.gov/licensing-fees/"
       ],
       "sourceLabels": [
@@ -87155,7 +87155,7 @@
       "sourceUrls": [
         "https://mvdmt.gov/id-card/",
         "https://mvdmt.gov/faqs/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
         "https://mvdmt.gov/licensing-fees/"
       ],
       "sourceLabels": [
@@ -87177,7 +87177,7 @@
       "claim": "in-person renewal 后通常先拿 temporary license，永久卡约 2–4 周邮寄",
       "sourceUrls": [
         "https://mvdmt.gov/renew-license-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Renew License / ID",
@@ -87312,7 +87312,7 @@
       "sourceUrls": [
         "https://mvdmt.gov/new-driver-license/drivers-new-to-montana/",
         "https://mvdmt.gov/required-documents/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Drivers New to Montana",
@@ -87359,8 +87359,8 @@
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
         "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf",
         "https://www.uscis.gov/save"
       ],
       "sourceLabels": [
@@ -87410,8 +87410,8 @@
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
         "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf",
         "https://www.uscis.gov/save"
       ],
       "sourceLabels": [
@@ -87437,8 +87437,8 @@
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
         "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf",
         "https://www.uscis.gov/save"
       ],
       "sourceLabels": [
@@ -87595,7 +87595,7 @@
       "claim": "不在住址收信时可另填 mailing address",
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Required Documents",
@@ -87790,7 +87790,7 @@
       "claim": "renewal 现场带 expiring Montana credential",
       "sourceUrls": [
         "https://mvdmt.gov/renew-license-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Renew License / ID",
@@ -87882,7 +87882,7 @@
       "claim": "现场或邮寄完成后保留 temporary paper license，但机场另备 passport、passport card 等 TSA 当前接受证件",
       "sourceUrls": [
         "https://mvdmt.gov/real-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
         "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
@@ -87941,8 +87941,8 @@
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
         "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf",
         "https://www.uscis.gov/save"
       ],
       "sourceLabels": [
@@ -88046,7 +88046,7 @@
       "claim": "已有 passport / passport card 且只需驾驶时，可比较 standard 12-year credential",
       "sourceUrls": [
         "https://mvdmt.gov/real-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
         "https://www.tsa.gov/travel/security-screening/identification"
       ],
       "sourceLabels": [
@@ -88070,8 +88070,8 @@
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
         "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf",
         "https://www.uscis.gov/save"
       ],
       "sourceLabels": [
@@ -88148,7 +88148,7 @@
       "claim": "需要考试时先约 written、通过后再约 road",
       "sourceUrls": [
         "https://mvdmt.gov/new-driver-license/adult-driver-license/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
         "https://mvdmt.gov/driver-license-exam-stations/",
         "https://mvdmt.gov/forms-driver-license/"
       ],
@@ -88173,7 +88173,7 @@
       "claim": "用 current English manual 学习，三次机会和 one-year receipt 不要浪费在材料不全上",
       "sourceUrls": [
         "https://mvdmt.gov/new-driver-license/adult-driver-license/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
         "https://mvdmt.gov/driver-license-exam-stations/",
         "https://mvdmt.gov/forms-driver-license/"
       ],
@@ -88217,7 +88217,7 @@
       "claim": "续期先检查 6-month / 1-year window、U.S.-citizen 条件、上一轮办理方式和 suspension status",
       "sourceUrls": [
         "https://mvdmt.gov/renew-license-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Renew License / ID",
@@ -88487,7 +88487,7 @@
       "sourceUrls": [
         "https://mvdmt.gov/new-driver-license/drivers-new-to-montana/",
         "https://mvdmt.gov/required-documents/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Drivers New to Montana",
@@ -88510,8 +88510,8 @@
       "sourceUrls": [
         "https://mvdmt.gov/required-documents/",
         "https://mvdmt.gov/wp-content/uploads/2026/04/MT-REAL-ID-Checklist-20-0060-2026.pdf",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf",
-        "https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+        "https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf",
         "https://www.uscis.gov/save"
       ],
       "sourceLabels": [
@@ -88680,7 +88680,7 @@
       "claim": "license 过期后继续驾驶，以为一年内可续期就等于一年 driving grace",
       "sourceUrls": [
         "https://mvdmt.gov/renew-license-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Renew License / ID",
@@ -88701,7 +88701,7 @@
       "claim": "上一轮已 online / mail renewal、非 U.S. citizen 或 license suspended，仍直接走 online renewal",
       "sourceUrls": [
         "https://mvdmt.gov/renew-license-id/",
-        "https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf"
+        "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
       ],
       "sourceLabels": [
         "对应官方来源：Montana Renew License / ID",

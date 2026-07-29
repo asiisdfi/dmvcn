@@ -71,6 +71,12 @@ const automated404WatchHosts = new Set([
   // Minnesota DVS returns a uniform automated 404 from some network locations.
   'dps.mn.gov',
 ]);
+const automated404WatchUrls = new Set([
+  // These current official resources return 404 from GitHub runner IPs but are
+  // still linked or indexed by their agencies. Keep this allowlist URL-specific.
+  'https://mva.maryland.gov/Documents/FO-150A.pdf',
+  'https://mva.maryland.gov/Pages/realidfaq.aspx',
+]);
 const temporaryHttpStatuses = new Set([
   '401',
   '403',
@@ -82,7 +88,15 @@ const temporaryHttpStatuses = new Set([
   '503',
   '504',
 ]);
-const temporaryCurlErrors = new Set(['28', '35', '52', '56', '92']);
+const temporaryCurlErrors = new Set([
+  '23',
+  '28',
+  '35',
+  '52',
+  '56',
+  '60',
+  '92',
+]);
 const stateOwners = new Set(states.map((state) => state.id));
 const topicOwners = new Set(topics.map((topic) => topic.slug));
 const highRiskTopicOwners = new Set(
@@ -176,7 +190,8 @@ function classifyStatus(status, error, url) {
   if (temporaryHttpStatuses.has(status)) return 'watch';
   if (
     status === '404' &&
-    automated404WatchHosts.has(new URL(url).hostname)
+    (automated404WatchHosts.has(new URL(url).hostname) ||
+      automated404WatchUrls.has(url))
   ) {
     return 'watch';
   }
@@ -534,7 +549,7 @@ const report = {
   watchByHost,
   limitations: [
     'HTTP 可访问只证明链接可打开，不证明页面正文仍支持站内每一项事实。',
-    '401、403、408、425、429、5xx 和常见网络超时记为 watch，不自动当作来源失效。',
+    '401、403、408、425、429、5xx、常见网络/证书传输错误和经官方目录确认的云端伪 404 记为 watch，不自动当作来源失效。',
     '普通 404 或 410 首次记为待确认硬失败；跨日期连续两次失败后才记为确认失败。',
     '原始逐链接缓存保存在 reports/private，不提交到公开仓库。',
   ],

@@ -36,13 +36,14 @@ export type EditorialUpdate = {
 export const editorialUpdates: EditorialUpdate[] = [
   {
     date: '2026-07-29',
-    title: '更新 Colorado 2026 身份清单并增加定时来源巡检',
+    title: '更新 Colorado 与 Montana 官方材料并增加定时来源巡检',
     summary:
-      '全量政府链接检查发现 Colorado DR 2300A 和 DR 2300B 的 2024 版 PDF 地址已经失效。本站已从 Colorado DMV 当前表格目录换到 2026 年 7 月版清单，并补入新的 DR 2300D 商业申请清单，明确非商业 REAL ID、temporarily lawfully present、CLP 和外州 CDL 转入分别使用哪套材料。今后 GitHub 会在每月 1 日和 15 日从空白环境重查全部政府入口，硬失败会让巡检任务直接变红，但不会自动改写正文。',
+      '全量政府链接检查发现 Colorado DR 2300A、DR 2300B、Montana Class D / ID application 和 Montana Driver Manual 的旧地址已经失效。本站已从当前官方表格目录换到 Colorado 2026 年 7 月版清单、Montana 11-1400 表格和 2026 年 5 月 manual，并补入新的 DR 2300D 商业申请清单，明确非商业 REAL ID、temporarily lawfully present、CLP 和外州 CDL 转入分别使用哪套材料。今后 GitHub 会在每月 1 日和 15 日从空白环境重查全部政府入口，硬失败会让巡检任务直接变红，但不会自动改写正文。',
     scope: [
       'Colorado DR 2300A、DR 2300B 和 DR 2300D',
       'CLP 与外州 CDL 材料分流',
-      '两个失效 PDF 地址替换',
+      '四个失效 PDF 地址替换',
+      'Montana 11-1400 application 与 2026 年 5 月 manual',
       '每月两次全量政府来源巡检',
     ],
   },

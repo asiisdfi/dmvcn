@@ -91,7 +91,7 @@ LINK_AUDIT_OWNER=colorado npm run audit:links
 npm run audit:source-freshness
 ```
 
-`audit:links` 从结构化数据读取联邦、州级和专题来源，每次最多检查 350 个到期 URL，并把逐链接结果续写到本地 `reports/private/` 缓存。重复运行直到 `reports/official-link-audit.md` 显示月度覆盖 100%；`audit:source-freshness` 会核对 30 天新鲜度和来源 URL 指纹，并已纳入 `verify:launch`。周期性 Actions 巡检会执行 `audit:links:full`，从空白运行环境重新检查整份清单，不能借用本地旧缓存跳过 URL。`403`、`429`、5xx 和常见网络超时归为 `watch`；普通 `404`、`410` 等硬失败必须复查官方替代入口。
+`audit:links` 从结构化数据读取联邦、州级和专题来源，每次最多检查 350 个到期 URL，并把逐链接结果续写到本地 `reports/private/` 缓存。重复运行直到 `reports/official-link-audit.md` 显示月度覆盖 100%；`audit:source-freshness` 会核对 30 天新鲜度和来源 URL 指纹，并已纳入 `verify:launch`。周期性 Actions 巡检会执行 `audit:links:full`，从空白运行环境重新检查整份清单，不能借用本地旧缓存跳过 URL。`403`、`429`、5xx、常见网络/证书传输错误和已经由官方入口或官方索引再次确认的云端伪 `404` 归为 `watch`；其他 `404`、`410` 等硬失败必须复查官方替代入口。
 
 ## 内容体检
 

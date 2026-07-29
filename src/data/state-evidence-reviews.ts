@@ -338,13 +338,13 @@ const GA_CLASS_C =
   'https://dds.georgia.gov/section-2-continued-class-c-license';
 
 const MD_REAL_ID_LOOKUP =
-  'https://mva.maryland.gov/Pages/realidlookup.aspx';
+  'https://realid.mva.maryland.gov/';
 const MD_LICENSES_IDS =
   'https://mva.maryland.gov/licenses-ids?das_id=D0005110044_00000';
 const MD_REAL_ID_FAQ =
   'https://mva.maryland.gov/Pages/realidfaq.aspx';
 const MD_DOCUMENT_REQUIREMENTS =
-  'https://mva.maryland.gov/documents/FO-150A.pdf';
+  'https://mva.maryland.gov/Documents/FO-150A.pdf';
 const MD_FEES =
   'https://mva.maryland.gov/licenses-ids/license-id-fees';
 const MD_RENEW =
@@ -1422,7 +1422,7 @@ const MT_FEES = 'https://mvdmt.gov/licensing-fees/';
 const MT_ID_CARD = 'https://mvdmt.gov/id-card/';
 const MT_FORMS = 'https://mvdmt.gov/forms-driver-license/';
 const MT_MANUAL =
-  'https://mvdmt.gov/wp-content/uploads/2023/09/25-0100M-Montana-Driver-Manual-English.pdf';
+  'https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf';
 const MT_STATIONS = 'https://mvdmt.gov/driver-license-exam-stations/';
 const MT_FAQ = 'https://mvdmt.gov/faqs/';
 const MT_TAIWAN =
@@ -1435,7 +1435,7 @@ const MT_CITIZENSHIP = 'https://mvdmt.gov/citizenship-marker/';
 const MT_PROMOTION =
   'https://dojmt.gov/attorney-general-knudsen-waives-driver-license-and-id-fees-to-encourages-montanans-to-add-their-citizenship-marker-in-celebration-of-americas-250th-birthday-this-july/';
 const MT_APPLICATION =
-  'https://dojmt.gov/wp-content/uploads/Application-for-Class-D-Driver-License-and-application-For-Identification-Card.pdf';
+  'https://mvdmt.gov/wp-content/uploads/2023/11/11-1400-Application-for-Class-D-Driver-License-and-Application-for-Identification-Card-Fillable.pdf';
 const USCIS_SAVE = 'https://www.uscis.gov/save';
 
 const SC_DRIVER = 'https://dmv.sc.gov/driver-services/drivers-license';
@@ -2433,7 +2433,7 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
     scope:
       '逐条比对 Montana MVD 的 driver service、new resident、adult first driver、required documents、REAL ID 与 2026 checklist、renewal、replacement、address、name、fees、ID card、forms、manual、exam stations 和 FAQ；同时核对 Taiwan / Republic of Korea 互惠文件、2025 新卡公告、citizenship marker、2026 年 7 月临时费用公告、Class D / ID application、USCIS SAVE 与 TSA 身份证件规则。部分 mvdmt.gov 深层页限制普通直连，相关事实以可读取官方 PDF、官方页面索引正文和同机构交叉来源复核。',
     notes:
-      '重写 Montana 两页，拆开美国外州转入、Taiwan / Korea 互惠、中国大陆非互惠首次申请、standard / REAL ID、非公民 SAVE、考试语言、续期、补证、地址与姓名变更。未把中国大陆驾照、中文考试或翻译材料写成官网未公布的豁免或保证；所有映射为 AI 辅助证据核查，不冒充 Montana MVD、律师或人工专业审核。',
+      '重写 Montana 两页，拆开美国外州转入、Taiwan / Korea 互惠、中国大陆非互惠首次申请、standard / REAL ID、非公民 SAVE、考试语言、续期、补证、地址与姓名变更。2026-07-29 来源巡检仅把失效的旧 DOJ application 和旧 manual 地址换为 MVD 当前表格目录列出的 11-1400 PDF 与 2026 年 5 月 manual，没有把整页语义复核日期从 2026-07-21 向后移动。未把中国大陆驾照、中文考试或翻译材料写成官网未公布的豁免或保证；所有映射为 AI 辅助证据核查，不冒充 Montana MVD、律师或人工专业审核。',
     claims: normalizeReviewedClaims({
       ...mapReviewedClaims([
         'Montana MVD Driver Services 办理驾照、learner license、ID、考试和 REAL ID',

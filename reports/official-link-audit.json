@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-07-29T11:42:39.143Z",
+  "generatedAt": "2026-07-29T12:04:40.296Z",
   "auditDate": "2026-07-29",
   "inventory": {
-    "fingerprint": "31677c5c81edbe5357d445955172e7fd4a79d139fef2ef5245e7fb06eeddebd2",
-    "hosts": 147,
+    "fingerprint": "b2cfd9e82312faf89724c76530aada98d91deb8277d17347f9a7d6216939647d",
+    "hosts": 148,
     "highRiskUrls": 316,
     "urls": 1661
   },
   "run": {
     "batchLimit": 350,
-    "checked": 4,
+    "checked": 2,
     "checkedSummary": {
       "fail": 0,
-      "ok": 4,
-      "watch": 0
+      "ok": 0,
+      "watch": 2
     },
     "concurrency": 18,
     "force": false,
@@ -128,8 +128,8 @@
     },
     {
       "count": 20,
-      "highRiskCount": 1,
-      "host": "mva.maryland.gov",
+      "highRiskCount": 0,
+      "host": "mvdmt.gov",
       "statuses": [
         "403"
       ]
@@ -144,8 +144,8 @@
     },
     {
       "count": 19,
-      "highRiskCount": 0,
-      "host": "mvdmt.gov",
+      "highRiskCount": 1,
+      "host": "mva.maryland.gov",
       "statuses": [
         "403"
       ]
@@ -321,14 +321,6 @@
     {
       "count": 4,
       "highRiskCount": 0,
-      "host": "dojmt.gov",
-      "statuses": [
-        "403"
-      ]
-    },
-    {
-      "count": 4,
-      "highRiskCount": 0,
       "host": "www.kauai.gov",
       "statuses": [
         "403"
@@ -371,6 +363,14 @@
       "count": 3,
       "highRiskCount": 0,
       "host": "assets.dps.mn.gov",
+      "statuses": [
+        "403"
+      ]
+    },
+    {
+      "count": 3,
+      "highRiskCount": 0,
+      "host": "dojmt.gov",
       "statuses": [
         "403"
       ]
@@ -522,6 +522,14 @@
     {
       "count": 1,
       "highRiskCount": 0,
+      "host": "realid.mva.maryland.gov",
+      "statuses": [
+        "000"
+      ]
+    },
+    {
+      "count": 1,
+      "highRiskCount": 0,
       "host": "realid.mvd.newmexico.gov",
       "statuses": [
         "000"
@@ -586,7 +594,7 @@
   ],
   "limitations": [
     "HTTP 可访问只证明链接可打开，不证明页面正文仍支持站内每一项事实。",
-    "401、403、408、425、429、5xx 和常见网络超时记为 watch，不自动当作来源失效。",
+    "401、403、408、425、429、5xx、常见网络/证书传输错误和经官方目录确认的云端伪 404 记为 watch，不自动当作来源失效。",
     "普通 404 或 410 首次记为待确认硬失败；跨日期连续两次失败后才记为确认失败。",
     "原始逐链接缓存保存在 reports/private，不提交到公开仓库。"
   ]
