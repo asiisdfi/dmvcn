@@ -14,12 +14,12 @@
     "reviewAnchor": "办事页使用公开事实核对日期与证据复核日期中较早的一天计时；政策页使用公开事实核对日期。"
   },
   "source": {
-    "eeatGeneratedAt": "2026-07-29T09:38:29.445Z",
+    "eeatGeneratedAt": "2026-07-29T09:57:13.676Z",
     "officialAuditAgeDays": 5,
     "officialAuditDate": "2026-07-24",
     "officialInventoryFingerprint": "bcc9490fc21861be2c3b87c68fccfd10c69b7705fb29e6d6d7ffc6e57d3ff5fa",
     "officialUrls": 1659,
-    "pageFingerprint": "f98a7ed14636d93a315f938d29ab5fb947d8ba13a7ed02def381610719ce9bac"
+    "pageFingerprint": "99975f4789853c522a84b5f916c940a9193761ad96f146faf71f0b16dcc045c8"
   },
   "summary": {
     "current": 166,
@@ -841,19 +841,19 @@
     },
     {
       "cycleDays": 180,
-      "daysUntilDue": 175,
+      "daysUntilDue": 180,
       "indexable": true,
       "overdueDays": 0,
       "pageType": "trust",
       "evidenceReviewedAt": null,
-      "reviewAnchorDate": "2026-07-24",
-      "reviewDue": "2027-01-20",
+      "reviewAnchorDate": "2026-07-29",
+      "reviewDue": "2027-01-25",
       "reviewMethod": null,
       "reviewStatus": "not-required",
       "risk": "policy",
       "route": "/quality/",
       "state": "current",
-      "visibleReviewedAt": "2026-07-24"
+      "visibleReviewedAt": "2026-07-29"
     },
     {
       "cycleDays": 180,

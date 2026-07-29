@@ -1,6 +1,12 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  ALLOWED_QUERY_CLASSIFICATIONS,
+  isHumanReviewClassification,
+  isTargetQuerySignal,
+  isUnreviewedClassification,
+} from './lib/search-console-query-policy.mjs';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const reportPath = path.join(projectRoot, 'reports', 'search-console-export.csv');
@@ -19,8 +25,12 @@ const segmentReportPath = path.join(
 );
 const eeatReportPath = path.join(projectRoot, 'reports', 'eeat-inventory.json');
 const actionLogPath = path.join(projectRoot, 'reports', 'search-console-actions.json');
-const outputDir = path.join(projectRoot, 'reports');
-const privateOutputDir = path.join(outputDir, 'private');
+const outputDir = path.resolve(
+  process.env.SC_OUTPUT_DIR || path.join(projectRoot, 'reports'),
+);
+const privateOutputDir = path.resolve(
+  process.env.SC_PRIVATE_OUTPUT_DIR || path.join(outputDir, 'private'),
+);
 const sourcePath = process.env.SC_REPORT_PATH || reportPath;
 const querySourcePath = process.env.SC_QUERY_REPORT_PATH || queryReportPath;
 const pageQuerySourcePath = process.env.SC_PAGE_QUERY_REPORT_PATH || pageQuerySignalPath;
@@ -86,6 +96,7 @@ const defaultPlanRows = {
     executeNow: [],
     nextQueue: [],
     dataCollectionQueue: [],
+    queryReviewQueue: [],
     humanReviewQueue: [],
     indexingCleanupQueue: [],
   },
@@ -95,6 +106,7 @@ const defaultPlanRows = {
     refreshRule: [],
     newTopics: [],
     needsQueryEvidence: [],
+    queryReview: [],
     nonTarget: [],
     humanReview: [],
     cooldown: [],
@@ -250,6 +262,7 @@ function priorityScore(item) {
   if (item.action === 'refresh-rule-change') score += 30;
   if (item.action === 'new-topic') score += 20;
   if (item.action === 'needs-query-evidence') score += 10;
+  if (item.action === 'query-review') score += 15;
   if (item.action === 'human-review') score += 15;
 
   if (item.ctrCurrent < 1) score += 12;
@@ -399,15 +412,6 @@ const isDmvRelevantChineseQuery = (query) =>
   ) && !/^dmv\s*看$/i.test(query.trim());
 const isHighRiskChineseQuery = (query) =>
   /(精神|病史|痊愈|复职|吊销|暂停|债务|承担债务|法律责任)/.test(query);
-const isHumanReviewClassification = (classification) =>
-  String(classification).startsWith('human-review');
-const isTargetQuerySignal = (signal) =>
-  !isHumanReviewClassification(signal.classification) &&
-  signal.classification !== 'overlap-review' &&
-  (
-    isChineseQuery(signal.query) ||
-    ['selected-title', 'misrouted-intent'].includes(signal.classification)
-  );
 const topByImpressions = (items, limit = 25) =>
   [...items]
     .sort((a, b) => b.impressions - a.impressions || a.position - b.position)
@@ -424,6 +428,9 @@ const pageQuerySignals = pageQueryRows
     observedAt: getCell(row, ['observedat', 'date']),
   }))
   .filter((item) => item.route && item.query && siteRoutes.has(item.route));
+const invalidPageQueryClassifications = pageQuerySignals.filter(
+  (signal) => !ALLOWED_QUERY_CLASSIFICATIONS.has(signal.classification),
+);
 const pageQueryMap = new Map();
 for (const signal of pageQuerySignals) {
   const signals = pageQueryMap.get(signal.route) ?? [];
@@ -503,6 +510,11 @@ if (!queryItems.length) dataBlockers.push('缺少查询维度数据，不能证�
 if (!pageQuerySignals.length) {
   dataBlockers.push('缺少页面与查询映射，不能把查询意图归因到具体页面。');
 }
+if (invalidPageQueryClassifications.length > 0) {
+  dataBlockers.push(
+    `有 ${invalidPageQueryClassifications.length} 条页面查询缺少有效分类，不能用于内容决策。`,
+  );
+}
 if (
   oldestSignalAgeDays === null ||
   oldestSignalAgeDays < 0 ||
@@ -520,6 +532,7 @@ const dataSnapshot = {
   pageRows: rows.length,
   queryRows: queryItems.length,
   pageQuerySignals: pageQuerySignals.length,
+  invalidPageQueryClassifications: invalidPageQueryClassifications.length,
   pageQueryObservedFrom: signalObservedDates[0] ?? null,
   pageQueryObservedThrough: signalObservedDates.at(-1) ?? null,
   readyForPlanning: dataBlockers.length === 0,
@@ -658,6 +671,9 @@ const allRows = [...pageMap.values()].map((item) => {
   const humanReviewQuerySignals = allMatchedQuerySignals.filter((signal) =>
     isHumanReviewClassification(signal.classification),
   );
+  const unreviewedQuerySignals = allMatchedQuerySignals.filter((signal) =>
+    isUnreviewedClassification(signal.classification),
+  );
   const selectedTitleSignal = targetQuerySignals.find(
     (signal) => signal.classification === 'selected-title',
   );
@@ -673,6 +689,9 @@ const allRows = [...pageMap.values()].map((item) => {
   if (humanReviewQuerySignals.length > 0) {
     action = 'human-review';
     reason = '查询涉及医疗、复职或法律责任，必须先做人工语义和官方依据复核。';
+  } else if (unreviewedQuerySignals.length > 0) {
+    action = 'query-review';
+    reason = '页面已出现中文查询，但尚未确认它与本页搜索意图一致；完成分类前不改标题或正文。';
   } else if (selectedTitleSignal) {
     action = 'improve-title';
     reason = '已出现与州机构或具体业务一致的查询，标题和说明应采用用户实际用词。';
@@ -747,10 +766,12 @@ const allRows = [...pageMap.values()].map((item) => {
     queryEvidenceCount: allMatchedQuerySignals.length,
     targetQueryEvidenceCount: targetQuerySignals.length,
     humanReviewEvidenceCount: humanReviewQuerySignals.length,
+    unreviewedQueryEvidenceCount: unreviewedQuerySignals.length,
     nonTargetQueryEvidenceCount:
       allMatchedQuerySignals.length -
       targetQuerySignals.length -
-      humanReviewQuerySignals.length,
+      humanReviewQuerySignals.length -
+      unreviewedQuerySignals.length,
     queryClassifications: [
       ...new Set(allMatchedQuerySignals.map((signal) => signal.classification)),
     ].sort(),
@@ -761,7 +782,13 @@ const allRows = [...pageMap.values()].map((item) => {
     reviewDue: item.page.includes('/states/') ? '2026-10-15' : '2026-10-01',
     completedAction: completedAction ?? null,
   };
-}).filter((item) => item.impressionsCurrent >= 20 || item.impressionsDelta > 80);
+}).filter(
+  (item) =>
+    item.impressionsCurrent >= 20 ||
+    item.impressionsDelta > 80 ||
+    item.humanReviewEvidenceCount > 0 ||
+    item.unreviewedQueryEvidenceCount > 0,
+);
 
 for (const row of allRows) {
   row.score = row.action === 'cooldown' ? -1 : priorityScore(row);
@@ -780,6 +807,7 @@ const toPublicRow = (item) => {
     ...publicItem,
     hasQueryEvidence: item.queryEvidenceCount > 0,
     requiresHumanReview: humanReviewEvidenceCount > 0,
+    requiresQueryReview: item.unreviewedQueryEvidenceCount > 0,
   };
 };
 const publicRows = allRows.map(toPublicRow);
@@ -793,7 +821,8 @@ const eligibleContentRows = publicRows.filter(
   (item) =>
     contentActionNames.has(item.action) &&
     item.targetQueryEvidenceCount > 0 &&
-    !item.requiresHumanReview,
+    !item.requiresHumanReview &&
+    !item.requiresQueryReview,
 );
 const currentCapacity = availableEditorialSlots(actionLog, planDate);
 const nextWindow = nextEditorialWindow(actionLog, planDate);
@@ -832,6 +861,17 @@ const execution = {
         item.suggestedAction === 'needs-query-evidence',
     )
     .slice(0, 12),
+  queryReviewQueue: publicRows
+    .filter(
+      (item) =>
+        !item.requiresHumanReview &&
+        (
+          item.action === 'query-review' ||
+          item.suggestedAction === 'query-review' ||
+          item.requiresQueryReview
+        ),
+    )
+    .slice(0, 12),
   humanReviewQueue: publicRows
     .filter((item) => item.action === 'human-review' || item.requiresHumanReview)
     .slice(0, 12),
@@ -866,6 +906,17 @@ const report = {
     newTopics: publicRows.filter((item) => item.action === 'new-topic').slice(0, 20),
     needsQueryEvidence: publicRows
       .filter((item) => item.action === 'needs-query-evidence')
+      .slice(0, 20),
+    queryReview: publicRows
+      .filter(
+        (item) =>
+          !item.requiresHumanReview &&
+          (
+            item.action === 'query-review' ||
+            item.suggestedAction === 'query-review' ||
+            item.requiresQueryReview
+          ),
+      )
       .slice(0, 20),
     nonTarget: publicRows
       .filter((item) => item.action === 'observe-non-target')
@@ -916,8 +967,10 @@ const csvRows = [
     'hasQueryEvidence',
     'queryEvidenceCount',
     'targetQueryEvidenceCount',
+    'unreviewedQueryEvidenceCount',
     'nonTargetQueryEvidenceCount',
     'requiresHumanReview',
+    'requiresQueryReview',
     'queryClassifications',
     'reviewDue',
     'completedAt',
@@ -941,8 +994,10 @@ const csvRows = [
     item.hasQueryEvidence,
     item.queryEvidenceCount,
     item.targetQueryEvidenceCount,
+    item.unreviewedQueryEvidenceCount,
     item.nonTargetQueryEvidenceCount,
     item.requiresHumanReview,
+    item.requiresQueryReview,
     item.queryClassifications.join('|'),
     item.reviewDue,
     item.completedAction?.completedAt ?? '',
@@ -978,7 +1033,7 @@ const markdown = [
     ? [
         `- 可见查询：${publicQuerySignals.totalRows} 条；中文查询 ${publicQuerySignals.chineseRows} 条 / ${publicQuerySignals.chineseImpressions} 次曝光`,
         `- 泛英文 DMV 大词曝光：${publicQuerySignals.genericDmvImpressions}`,
-        `- 可自动处理的中文信号：${publicQuerySignals.chineseOpportunities}；需要人工复核：${publicQuerySignals.humanReviewSignals}`,
+        `- 中文候选信号：${publicQuerySignals.chineseOpportunities}；需要人工复核：${publicQuerySignals.humanReviewSignals}`,
         '- 原始查询词与页面映射保存在本地 `reports/private/`，不会提交到公开仓库。',
       ]
     : []),
@@ -1013,6 +1068,15 @@ const markdown = [
       )
     : ['- 当前没有待补查询映射的高曝光页面。']),
   '',
+  '## 先确认页面查询意图',
+  '',
+  ...(execution.queryReviewQueue.length
+    ? execution.queryReviewQueue.map(
+        (item) =>
+          `- ${item.route}（待分类查询证据 ${item.unreviewedQueryEvidenceCount} 条）— 先确认查询是否属于本页；完成分类前不改标题或正文。`,
+      )
+    : ['- 当前没有尚未分类的页面级中文查询。']),
+  '',
   '## 索引清理观察',
   '',
   ...(execution.indexingCleanupQueue.length
@@ -1033,7 +1097,7 @@ const markdown = [
   '## 中文查询信号',
   ...(querySignals
     ? [
-        `- 本月识别 ${publicQuerySignals.chineseOpportunities} 个可自动处理信号，优先用于标题、摘要、入口和内部链接校准。`,
+        `- 本月识别 ${publicQuerySignals.chineseOpportunities} 个中文候选信号；只有完成页面归属分类的信号才用于标题、摘要、入口和内部链接校准。`,
       ]
     : ['- 尚未导入查询维度 CSV。']),
   '',
@@ -1068,6 +1132,12 @@ const markdown = [
       `- ${item.route}（查询证据 ${item.queryEvidenceCount} 条）— ${actionReason(item)}`,
   ),
   '',
+  '## 待分类查询',
+  ...report.actions.queryReview.map(
+    (item) =>
+      `- ${item.route}（待分类查询证据 ${item.unreviewedQueryEvidenceCount} 条）— ${actionReason(item)}`,
+  ),
+  '',
   '## 规则变化/下滑复核',
   ...report.actions.refreshRule.map(
     (item) => `- ${item.route}（展现变化 ${item.impressionsDelta.toFixed(1)}%）— ${item.reason}`,
@@ -1093,6 +1163,7 @@ console.log(`- page-query signals=${pageQuerySignals.length}`);
 console.log(
   `- execution=${execution.status}, allowedNow=${execution.allowedNow}, nextCapacity=${execution.nextEligibleDate}`,
 );
+console.log(`- query review=${execution.queryReviewQueue.length}`);
 console.log(
   `- deindex watch=${indexingCleanupQueue.length} routes / ${dataSnapshot.excludedPageImpressions} impressions`,
 );

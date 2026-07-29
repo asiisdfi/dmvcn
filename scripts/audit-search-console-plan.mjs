@@ -77,6 +77,7 @@ const execution = report.execution ?? {};
 const executeNow = execution.executeNow ?? [];
 const nextQueue = execution.nextQueue ?? [];
 const dataCollectionQueue = execution.dataCollectionQueue ?? [];
+const queryReviewQueue = execution.queryReviewQueue ?? [];
 const humanReviewQueue = execution.humanReviewQueue ?? [];
 const indexingCleanupQueue = execution.indexingCleanupQueue ?? [];
 
@@ -118,10 +119,21 @@ for (const item of [...executeNow, ...nextQueue]) {
   if (item.requiresHumanReview) {
     errors.push(`${item.route}: executable content action still requires human review.`);
   }
+  if (item.requiresQueryReview) {
+    errors.push(`${item.route}: executable content action still has unreviewed query intent.`);
+  }
 }
 for (const item of dataCollectionQueue) {
   if (item.suggestedAction !== 'needs-query-evidence') {
     errors.push(`${item.route}: data-collection item is not marked needs-query-evidence.`);
+  }
+}
+for (const item of queryReviewQueue) {
+  if (!item.requiresQueryReview) {
+    errors.push(`${item.route}: query-review item has no unreviewed query evidence.`);
+  }
+  if (item.requiresHumanReview) {
+    errors.push(`${item.route}: high-risk query must use the human-review queue.`);
   }
 }
 for (const item of humanReviewQueue) {
@@ -167,6 +179,7 @@ const queueRoutes = [
   ...executeNow,
   ...nextQueue,
   ...dataCollectionQueue,
+  ...queryReviewQueue,
   ...humanReviewQueue,
   ...indexingCleanupQueue,
 ];
@@ -188,6 +201,7 @@ console.log(`Snapshot ready: ${Boolean(snapshot.readyForPlanning)}`);
 console.log(`Execution: ${execution.status ?? 'missing'}`);
 console.log(`Execute now: ${executeNow.length}`);
 console.log(`Query evidence pending: ${dataCollectionQueue.length}`);
+console.log(`Query classification pending: ${queryReviewQueue.length}`);
 console.log(`Human review: ${humanReviewQueue.length}`);
 console.log(`Index cleanup: ${indexingCleanupQueue.length} (${cleanupOverdue.length} overdue)`);
 console.log(`Errors: ${errors.length}`);

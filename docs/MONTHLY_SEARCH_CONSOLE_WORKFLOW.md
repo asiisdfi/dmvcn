@@ -9,9 +9,44 @@
 
 另外可以记录最近 24 小时脉冲：`reports/private/search-console-pulse.json`。短周期脉冲只用于发现异常国家、设备差异、noindex 历史可见性和有点击页面，不保存原始查询，也不能替代上述四类完整证据。
 
-这些原始文件不提交到公开仓库。导出和映射完成后运行：
+这些原始文件不提交到公开仓库。完整导出后，先用导入器校验并生成上述输入：
 
 ```bash
+npm run import:sc -- --global "/path/to/dmvcn.com-Performance-on-Search-YYYY-MM-DD.zip"
+```
+
+导入器直接读取 Google 导出的 ZIP 或解压目录，自动识别页面、查询、日期、国家、设备和过滤器 CSV，按日期曝光加权计算平均排名，并要求国家与设备汇总分别和全站点击、曝光完全一致。ZIP 文件名没有导出日期时，必须增加 `--observed-at YYYY-MM-DD`；自定义日期标签无法识别时才使用 `--window-days 30`。
+
+需要刷新页面级查询映射时，在私有目录准备 manifest：
+
+```csv
+route,export
+/states/massachusetts/real-id/,./exports/massachusetts-real-id.zip
+/topics/proof-of-residency/,./exports/proof-of-residency.zip
+```
+
+已人工确认归属的查询另存为私有分类表：
+
+```csv
+route,query,classification
+/topics/proof-of-residency/,示例地址材料词,selected-title
+```
+
+然后运行：
+
+```bash
+npm run import:sc -- \
+  --global "/path/to/global.zip" \
+  --pages "/path/to/page-manifest.csv" \
+  --classifications "/path/to/query-classifications.csv"
+```
+
+没有人工分类的中文页面查询默认写成 `unreviewed-intent`；医疗、复职、吊销、债务或法律责任相关查询默认进入 `human-review-untriaged`。两者都不能触发标题或正文修改。刷新某个页面时，导入器会替换该页面上次的查询集合，不会不断追加重复记录。
+
+需要先检查文件而不写入时增加 `--dry-run`。导入完成后运行：
+
+```bash
+npm run audit:search-console-import
 npm run plan:sc
 npm run audit:search-console
 npm run plan:growth
@@ -35,6 +70,7 @@ npm run audit:pulse
 - `dataSnapshot.readyForPlanning` 为 `true`
 - `execution.allowedNow` 大于 0
 - 页面有目标查询证据，不只是泛英文或本地曝光
+- 页面没有 `unreviewed-intent` 等待分类信号
 - 页面不在冷却期
 - 高风险查询已完成人工语义复核
 - 本周和本月仍有内容容量

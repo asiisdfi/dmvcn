@@ -111,6 +111,7 @@ type SearchConsoleAction = {
   impressionsDelta: number;
   reason: string;
   targetQueryEvidenceCount?: number;
+  unreviewedQueryEvidenceCount?: number;
 };
 
 type SearchConsoleIndexingAction = {
@@ -161,6 +162,7 @@ type SearchConsoleReport = {
     executeNow?: SearchConsoleAction[];
     nextQueue?: SearchConsoleAction[];
     dataCollectionQueue?: SearchConsoleAction[];
+    queryReviewQueue?: SearchConsoleAction[];
     humanReviewQueue?: SearchConsoleAction[];
     indexingCleanupQueue?: SearchConsoleIndexingAction[];
   };
@@ -237,8 +239,8 @@ type EeatReport = {
   pages: EeatPage[];
 };
 
-const QUALITY_MODIFIED_AT = '2026-07-24';
-const QUALITY_REVIEWED_AT = '2026-07-24';
+const QUALITY_MODIFIED_AT = '2026-07-29';
+const QUALITY_REVIEWED_AT = '2026-07-29';
 const today = QUALITY_REVIEWED_AT;
 const toIsoDate = (offsetDays: number) =>
   new Date(Date.parse(today) + offsetDays * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
@@ -460,6 +462,7 @@ const scExecution = searchConsolePlan?.execution;
 const scExecuteNow = scExecution?.executeNow ?? [];
 const scNextQueue = scExecution?.nextQueue ?? [];
 const scDataCollectionQueue = scExecution?.dataCollectionQueue ?? [];
+const scQueryReviewQueue = scExecution?.queryReviewQueue ?? [];
 const scHumanReviewQueue = scExecution?.humanReviewQueue ?? [];
 const scIndexingCleanupQueue = scExecution?.indexingCleanupQueue ?? [];
 const scIndexingImpressions = scIndexingCleanupQueue.reduce(
@@ -482,6 +485,7 @@ const scActionLabel: Record<string, string> = {
   'refresh-rule-change': '规则变更复核',
   'new-topic': '评估是否拆新专题',
   'needs-query-evidence': '先补查询映射',
+  'query-review': '先确认查询意图',
   'observe-non-target': '非目标曝光观察',
   'human-review': '人工复核',
   cooldown: '等待效果复评',
@@ -863,6 +867,22 @@ const scActionLabel: Record<string, string> = {
                 <ul class="check-list">
                   {scDataCollectionQueue.slice(0, 5).map((item) => (
                     <li><a href={item.route}>{item.route}</a><small>先核对该页面实际匹配的查询，不先扩写正文。</small></li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
+            {scQueryReviewQueue.length > 0 ? (
+              <>
+                <h3>需要先确认归属的查询</h3>
+                <ul class="check-list">
+                  {scQueryReviewQueue.slice(0, 5).map((item) => (
+                    <li>
+                      <a href={item.route}>{item.route}</a>
+                      <small>
+                        当前有 {item.unreviewedQueryEvidenceCount ?? 0} 条页面级查询尚未确认归属；完成分类前，不据此修改标题或正文。
+                      </small>
+                    </li>
                   ))}
                 </ul>
               </>

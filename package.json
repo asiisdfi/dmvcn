@@ -13,6 +13,7 @@
     "audit:links": "node --experimental-strip-types scripts/audit-official-links.mjs",
     "audit:links:full": "LINK_AUDIT_FORCE=1 LINK_AUDIT_LIMIT=0 node --experimental-strip-types scripts/audit-official-links.mjs",
     "audit:source-freshness": "node --experimental-strip-types scripts/audit-source-freshness.mjs",
+    "audit:search-console-import": "node scripts/audit-search-console-import.mjs",
     "audit:search-console": "node scripts/audit-search-console-plan.mjs",
     "audit:growth": "node scripts/audit-growth-scorecard.mjs",
     "audit:pulse": "node --experimental-strip-types scripts/audit-search-console-pulse.mjs",
@@ -34,8 +35,9 @@
     "plan:sc": "node scripts/build-search-console-plan.mjs",
     "plan:growth": "node scripts/build-growth-scorecard.mjs",
     "plan:pulse": "node --experimental-strip-types scripts/build-search-console-pulse.mjs",
+    "import:sc": "node scripts/import-search-console-export.mjs",
     "review:signoffs:import": "node --experimental-strip-types scripts/import-review-signoffs.mjs",
-    "verify:launch": "npm run audit:content && npm run audit:practice && npm run audit:source-freshness && npm run audit:search-console && npm run audit:growth && npm run audit:pulse && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:review-cycles && npm run audit:publication && npm run audit:site && npm run audit:internal-links && npm run audit:seo && npm run audit:metadata && npm run audit:performance && npm run audit:launch",
+    "verify:launch": "npm run audit:content && npm run audit:practice && npm run audit:source-freshness && npm run audit:search-console-import && npm run audit:search-console && npm run audit:growth && npm run audit:pulse && npm run build && npm run audit:directory-evidence && npm run audit:state-evidence && npm run audit:eeat && npm run audit:review-cycles && npm run audit:publication && npm run audit:site && npm run audit:internal-links && npm run audit:seo && npm run audit:metadata && npm run audit:performance && npm run audit:launch",
     "astro": "astro",
     "plan:signoff": "node scripts/build-signoff-template.mjs",
     "audit:publication": "node --experimental-strip-types scripts/audit-publication-gate.mjs"
@@ -45,6 +47,7 @@
     "astro": "^7.0.6"
   },
   "devDependencies": {
+    "fflate": "^0.8.2",
     "parse5": "^8.0.1"
   }
 }
