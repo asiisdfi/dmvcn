@@ -4,6 +4,7 @@ import { unzipSync } from 'fflate';
 import {
   ALLOWED_QUERY_CLASSIFICATIONS,
   isHumanReviewClassification,
+  isRoutingReviewQuerySignal,
   isTargetQuerySignal,
   isUnreviewedClassification,
 } from './search-console-query-policy.mjs';
@@ -446,6 +447,7 @@ async function readOptionalCsv(csvPath) {
 function classificationSummary(rows) {
   return {
     target: rows.filter(isTargetQuerySignal).length,
+    routingReview: rows.filter(isRoutingReviewQuerySignal).length,
     unreviewed: rows.filter((row) =>
       isUnreviewedClassification(row.classification),
     ).length,
@@ -455,6 +457,7 @@ function classificationSummary(rows) {
     observed: rows.filter(
       (row) =>
         !isTargetQuerySignal(row) &&
+        !isRoutingReviewQuerySignal(row) &&
         !isUnreviewedClassification(row.classification) &&
         !isHumanReviewClassification(row.classification),
     ).length,

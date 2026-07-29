@@ -41,7 +41,7 @@ npm run import:sc -- \
   --classifications "/path/to/query-classifications.csv"
 ```
 
-没有人工分类的中文页面查询默认写成 `unreviewed-intent`；医疗、复职、吊销、债务或法律责任相关查询默认进入 `human-review-untriaged`。两者都不能触发标题或正文修改。刷新某个页面时，导入器会替换该页面上次的查询集合，不会不断追加重复记录。
+没有人工分类的中文页面查询默认写成 `unreviewed-intent`；医疗、复职、吊销、债务或法律责任相关查询默认进入 `human-review-untriaged`。两者都不能触发标题或正文修改。`selected-title` 和 `target-intent` 表示查询确实属于当前页面；`misrouted-intent` 和 `overlap-review` 只用于检查落地页、内部链接或页面分工，不能作为扩写当前页面的依据。刷新某个页面时，导入器会替换该页面上次的查询集合，不会不断追加重复记录。
 
 需要先检查文件而不写入时增加 `--dry-run`。导入完成后运行：
 
@@ -69,13 +69,14 @@ npm run audit:pulse
 
 - `dataSnapshot.readyForPlanning` 为 `true`
 - `execution.allowedNow` 大于 0
-- 页面有目标查询证据，不只是泛英文或本地曝光
+- 页面有经过分类的目标查询，并且这些查询在当前窗口至少产生 1 次点击或合计 5 次展示
 - 页面没有 `unreviewed-intent` 等待分类信号
+- 页面没有待处理的 `misrouted-intent` 或 `overlap-review`
 - 页面不在冷却期
 - 高风险查询已完成人工语义复核
 - 本周和本月仍有内容容量
 
-没有页面级查询证据时，先在 Search Console 中过滤页面并补映射。已 `noindex` 但仍有曝光的 URL 进入索引清理观察，不作为扩写理由；每项必须记录开始日期和复查日期，逾期后仍有曝光会自动升级为索引状态检查。
+目标查询不足 5 次展示且没有点击时，页面进入低样本观察队列，不改标题或正文。查询落到不合适的页面，或多个页面争夺同一意图时，先检查 canonical、内部链接和页面分工，再决定合并、重定向或调整内容。没有页面级查询证据时，先在 Search Console 中过滤页面并补映射。已 `noindex` 但仍有曝光的 URL 进入索引清理观察，不作为扩写理由；每项必须记录开始日期和复查日期，逾期后仍有曝光会自动升级为索引状态检查。
 
 每次内容修改后写入 `reports/search-console-actions.json`，至少等待 14 天再用新数据复评。长期指标以完整 30 天自定义窗口验收，28 天窗口只用于趋势判断。
 

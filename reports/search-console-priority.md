@@ -24,8 +24,7 @@
 
 ## 下一轮候选
 
-- /states/massachusetts/real-id/（目标查询证据 1 条；展现 66 / 点击 0）— 已出现与州机构或具体业务一致的查询，标题和说明应采用用户实际用词。
-- /topics/proof-of-residency/（目标查询证据 1 条；展现 63 / 点击 1）— 已出现与州机构或具体业务一致的查询，标题和说明应采用用户实际用词。
+- 当前没有同时满足目标查询证据、风险门禁和冷却期要求的候选。
 
 ## 先补页面查询映射
 
@@ -34,6 +33,22 @@
 ## 先确认页面查询意图
 
 - 当前没有尚未分类的页面级中文查询。
+
+## 先复核落地页与页面分工
+
+- /topics/real-id-vs-standard-license/（路由复核信号 1 条）— 先判断查询是否落错页面或与其他页面重叠，不据此直接改标题或正文。
+- /topics/state-id-non-driver-id-real-id-card/（路由复核信号 3 条）— 先判断查询是否落错页面或与其他页面重叠，不据此直接改标题或正文。
+- /topics/real-id-basics/（路由复核信号 1 条）— 先判断查询是否落错页面或与其他页面重叠，不据此直接改标题或正文。
+- /directories/new-residents/（路由复核信号 1 条）— 先判断查询是否落错页面或与其他页面重叠，不据此直接改标题或正文。
+
+## 目标查询样本不足
+
+- /topics/proof-of-residency/（目标曝光 2 / 点击 0）— 未达到 5 次曝光或 1 次点击，继续观察。
+- /states/massachusetts/real-id/（目标曝光 1 / 点击 0）— 未达到 5 次曝光或 1 次点击，继续观察。
+- /states/new-york/real-id/（目标曝光 2 / 点击 0）— 未达到 5 次曝光或 1 次点击，继续观察。
+- /states/florida/（目标曝光 4 / 点击 0）— 未达到 5 次曝光或 1 次点击，继续观察。
+- /states/california/real-id/（目标曝光 2 / 点击 0）— 未达到 5 次曝光或 1 次点击，继续观察。
+- /topics/first-driver-license-road-test/（目标曝光 1 / 点击 0）— 未达到 5 次曝光或 1 次点击，继续观察。
 
 ## 索引清理观察
 
@@ -48,8 +63,6 @@
 - 本月识别 3 个涉及医疗、复职或法律责任的信号；不自动改写对应高风险页面。
 
 ## 算法建议：改标题/说明
-- /states/massachusetts/real-id/（展现 66 / CTR 0.00 / 位置 38.6）— 已出现与州机构或具体业务一致的查询，标题和说明应采用用户实际用词。
-- /topics/proof-of-residency/（展现 63 / CTR 1.59 / 位置 31.2）— 已出现与州机构或具体业务一致的查询，标题和说明应采用用户实际用词。
 
 ## 算法建议：改正文内容
 
@@ -57,7 +70,6 @@
 - /topics/lost-stolen-license-id-replacement-identity-theft/（展现 65）— 现有页面级信号来自泛英文或本地查询，不为非目标曝光扩写中文内容。
 - /states/new-jersey/（展现 135）— 现有页面级信号来自泛英文或本地查询，不为非目标曝光扩写中文内容。
 - /topics/sold-car-release-liability-plates-insurance/（展现 79）— 现有页面级信号来自泛英文或本地查询，不为非目标曝光扩写中文内容。
-- /topics/state-id-non-driver-id-real-id-card/（展现 66）— 现有页面级信号来自泛英文或本地查询，不为非目标曝光扩写中文内容。
 - /states/tennessee/（展现 65）— 现有页面级信号来自泛英文或本地查询，不为非目标曝光扩写中文内容。
 - /topics/temporary-tag-trip-permit-dealer-plate/（展现 61）— 现有页面级信号来自泛英文或本地查询，不为非目标曝光扩写中文内容。
 - /states/south-dakota/（展现 132）— 现有页面级信号来自泛英文或本地查询，不为非目标曝光扩写中文内容。
@@ -80,6 +92,20 @@
 
 ## 待分类查询
 
+## 路由与重叠复核
+- /topics/real-id-vs-standard-license/（路由复核信号 1 条）— 查询意图可能落错页面或与其他页面重叠；先核对落地页、内部链接和页面分工，不直接改标题或正文。
+- /topics/state-id-non-driver-id-real-id-card/（路由复核信号 3 条）— 查询意图可能落错页面或与其他页面重叠；先核对落地页、内部链接和页面分工，不直接改标题或正文。
+- /topics/real-id-basics/（路由复核信号 1 条）— 查询意图可能落错页面或与其他页面重叠；先核对落地页、内部链接和页面分工，不直接改标题或正文。
+- /directories/new-residents/（路由复核信号 1 条）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+
+## 低样本目标查询
+- /topics/proof-of-residency/（目标曝光 2 / 点击 0）— 目标查询目前只有 2 次曝光、0 次点击；达到 5 次曝光或 1 次点击前继续观察。
+- /states/massachusetts/real-id/（目标曝光 1 / 点击 0）— 目标查询目前只有 1 次曝光、0 次点击；达到 5 次曝光或 1 次点击前继续观察。
+- /states/new-york/real-id/（目标曝光 2 / 点击 0）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /states/florida/（目标曝光 4 / 点击 0）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
+- /states/california/real-id/（目标曝光 2 / 点击 0）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /topics/first-driver-license-road-test/（目标曝光 1 / 点击 0）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+
 ## 规则变化/下滑复核
 
 ## 等待效果复评
@@ -88,15 +114,15 @@
 - /states/massachusetts/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
 - /topics/vehicle-title-registration-insurance-after-move/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/new-york/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
-- /states/new-york/real-id/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
-- /directories/new-residents/（本次数据仍建议 improve-answer）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /states/new-york/real-id/（本次数据仍建议 observe-low-evidence）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /directories/new-residents/（本次数据仍建议 routing-review）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /directories/costs-timing/（本次数据仍建议 human-review）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/lost-stolen-license-plates-registration-card-sticker/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /topics/renewal-replacement-address/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /topics/gift-inherited-vehicle-title-transfer/（本次数据仍建议 human-review）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
 - /topics/teen-driver-permit-gdl-parent-guide/（本次数据仍建议 observe-non-target）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
 - /states/washington/（本次数据仍建议 observe）— 2026-07-24 已完成 improve-answer；等待 2026-08-07 后用新数据复评。
-- /states/florida/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
+- /states/florida/（本次数据仍建议 observe-low-evidence）— 2026-07-24 已完成 improve-title；等待 2026-08-07 后用新数据复评。
 - /topics/name-change-chain/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
-- /states/california/real-id/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
-- /topics/first-driver-license-road-test/（本次数据仍建议 improve-title）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /states/california/real-id/（本次数据仍建议 observe-low-evidence）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。
+- /topics/first-driver-license-road-test/（本次数据仍建议 observe-low-evidence）— 2026-07-24 已完成 improve-title-answer；等待 2026-08-07 后用新数据复评。

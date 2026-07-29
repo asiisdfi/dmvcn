@@ -1,12 +1,16 @@
 export const TARGET_QUERY_CLASSIFICATIONS = new Set([
   'selected-title',
   'target-intent',
+]);
+
+export const ROUTING_REVIEW_QUERY_CLASSIFICATIONS = new Set([
   'misrouted-intent',
+  'overlap-review',
 ]);
 
 export const ALLOWED_QUERY_CLASSIFICATIONS = new Set([
   ...TARGET_QUERY_CLASSIFICATIONS,
-  'overlap-review',
+  ...ROUTING_REVIEW_QUERY_CLASSIFICATIONS,
   'human-review',
   'human-review-legal-liability',
   'human-review-untriaged',
@@ -28,4 +32,10 @@ export function isUnreviewedClassification(classification) {
 
 export function isTargetQuerySignal(signal) {
   return TARGET_QUERY_CLASSIFICATIONS.has(String(signal?.classification ?? ''));
+}
+
+export function isRoutingReviewQuerySignal(signal) {
+  return ROUTING_REVIEW_QUERY_CLASSIFICATIONS.has(
+    String(signal?.classification ?? ''),
+  );
 }

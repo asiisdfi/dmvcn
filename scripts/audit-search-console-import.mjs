@@ -11,6 +11,7 @@ import {
 } from './lib/search-console-import.mjs';
 import {
   isHumanReviewClassification,
+  isRoutingReviewQuerySignal,
   isTargetQuerySignal,
   isUnreviewedClassification,
 } from './lib/search-console-query-policy.mjs';
@@ -79,7 +80,9 @@ try {
       '排名靠前的网页,点击次数,展示,点击率,排名\n' +
       'https://dmvcn.com/states/massachusetts/real-id/,2,150,1.33%,15\n' +
       'https://dmvcn.com/topics/proof-of-residency/,1,100,1%,20\n' +
-      'https://dmvcn.com/topics/older-driver-license-renewal-medical-review/,0,1,0%,25\n',
+      'https://dmvcn.com/topics/older-driver-license-renewal-medical-review/,0,1,0%,25\n' +
+      'https://dmvcn.com/directories/new-residents/,0,48,0%,22\n' +
+      'https://dmvcn.com/topics/real-id-basics/,0,1,0%,18\n',
     '国家_地区.csv':
       '国家/地区,点击次数,展示,点击率,排名\n' +
       '美国,3,250,1.2%,15\n' +
@@ -96,6 +99,8 @@ try {
   const massachusettsZip = path.join(inputDir, 'massachusetts.zip');
   const proofZip = path.join(inputDir, 'proof.zip');
   const medicalZip = path.join(inputDir, 'medical.zip');
+  const newResidentsZip = path.join(inputDir, 'new-residents.zip');
+  const realIdBasicsZip = path.join(inputDir, 'real-id-basics.zip');
   await writeZip(
     massachusettsZip,
     pageExport('/states/massachusetts/real-id/', [
@@ -106,13 +111,25 @@ try {
   await writeZip(
     proofZip,
     pageExport('/topics/proof-of-residency/', [
-      '示例地址材料词,0,2,0%,18',
+      '示例地址材料词,0,6,0%,18',
     ]),
   );
   await writeZip(
     medicalZip,
     pageExport('/topics/older-driver-license-renewal-medical-review/', [
       '示例精神健康办证词,0,1,0%,12',
+    ]),
+  );
+  await writeZip(
+    newResidentsZip,
+    pageExport('/directories/new-residents/', [
+      '示例误落页面词,0,7,0%,9',
+    ]),
+  );
+  await writeZip(
+    realIdBasicsZip,
+    pageExport('/topics/real-id-basics/', [
+      '示例低样本目标词,0,1,0%,18',
     ]),
   );
 
@@ -122,13 +139,17 @@ try {
     'route,export\n' +
       '/states/massachusetts/real-id/,massachusetts.zip\n' +
       '/topics/proof-of-residency/,proof.zip\n' +
-      '/topics/older-driver-license-renewal-medical-review/,medical.zip\n',
+      '/topics/older-driver-license-renewal-medical-review/,medical.zip\n' +
+      '/directories/new-residents/,new-residents.zip\n' +
+      '/topics/real-id-basics/,real-id-basics.zip\n',
   );
   const classificationPath = path.join(inputDir, 'classifications.csv');
   await writeFile(
     classificationPath,
     'route,query,classification\n' +
-      '/topics/proof-of-residency/,示例地址材料词,selected-title\n',
+      '/topics/proof-of-residency/,示例地址材料词,selected-title\n' +
+      '/directories/new-residents/,示例误落页面词,misrouted-intent\n' +
+      '/topics/real-id-basics/,示例低样本目标词,selected-title\n',
   );
 
   const summary = await importSearchConsoleExport({
@@ -145,9 +166,10 @@ try {
   check(summary.propertyTotals.impressions === 300, 'Impression total is incorrect.');
   check(summary.propertyTotals.ctr === 1, 'CTR total is incorrect.');
   check(summary.propertyTotals.position === 16.7, 'Weighted position is incorrect.');
-  check(summary.pageExports === 3, 'Page export count is incorrect.');
-  check(summary.refreshedPageSignals === 4, 'Page signal count is incorrect.');
-  check(summary.classifications.target === 1, 'Reviewed target count is incorrect.');
+  check(summary.pageExports === 5, 'Page export count is incorrect.');
+  check(summary.refreshedPageSignals === 6, 'Page signal count is incorrect.');
+  check(summary.classifications.target === 2, 'Reviewed target count is incorrect.');
+  check(summary.classifications.routingReview === 1, 'Routing-review count is incorrect.');
   check(summary.classifications.unreviewed === 1, 'Unreviewed count is incorrect.');
   check(summary.classifications.humanReview === 1, 'Human-review count is incorrect.');
   check(summary.classifications.observed === 1, 'Observed count is incorrect.');
@@ -180,9 +202,13 @@ try {
   const target = signals.find((signal) =>
     isTargetQuerySignal(signal),
   );
+  const routingReview = signals.find((signal) =>
+    isRoutingReviewQuerySignal(signal),
+  );
   check(Boolean(unreviewed), 'Unreviewed Chinese signal was not quarantined.');
   check(Boolean(humanReview), 'High-risk Chinese signal was not quarantined.');
   check(Boolean(target), 'Reviewed target signal was not retained.');
+  check(Boolean(routingReview), 'Misrouted signal was not retained.');
   check(
     !isTargetQuerySignal(unreviewed),
     'Unreviewed signal can incorrectly trigger a content action.',
@@ -190,6 +216,10 @@ try {
   check(
     !isTargetQuerySignal(humanReview),
     'Human-review signal can incorrectly trigger a content action.',
+  );
+  check(
+    !isTargetQuerySignal(routingReview),
+    'Misrouted signal can incorrectly trigger a content action.',
   );
   check(
     isUnreviewedClassification(unreviewed?.classification),
@@ -205,7 +235,7 @@ try {
   });
   const refreshedSignals = parseCsv(await readFile(signalsPath, 'utf8')).rows;
   check(
-    refreshedSignals.length === 4,
+    refreshedSignals.length === 6,
     'Refreshing page exports duplicated existing page-query signals.',
   );
 
@@ -266,6 +296,30 @@ try {
         '/topics/older-driver-license-renewal-medical-review/',
     ),
     'High-risk intent did not enter the human-review queue.',
+  );
+  check(
+    plan.execution.routingReviewQueue.some(
+      (item) => item.route === '/directories/new-residents/',
+    ),
+    'Misrouted intent did not enter the routing-review queue.',
+  );
+  check(
+    !plan.execution.executeNow.some(
+      (item) => item.route === '/directories/new-residents/',
+    ),
+    'Misrouted intent entered the execution queue.',
+  );
+  check(
+    plan.execution.lowEvidenceQueue.some(
+      (item) => item.route === '/topics/real-id-basics/',
+    ),
+    'Weak target intent did not enter the low-evidence queue.',
+  );
+  check(
+    !plan.execution.executeNow.some(
+      (item) => item.route === '/topics/real-id-basics/',
+    ),
+    'Weak target intent entered the execution queue.',
   );
   await execFileAsync(
     process.execPath,
@@ -339,9 +393,9 @@ try {
 
 console.log('# Search Console Import Gate');
 console.log('');
-console.log('Synthetic ZIP exports: 6');
+console.log('Synthetic ZIP exports: 8');
 console.log('Property totals: 3 clicks / 300 impressions');
-console.log('Page-query signals: 4');
+console.log('Page-query signals: 6');
 console.log(`Errors: ${errors.length}`);
 
 if (errors.length) {

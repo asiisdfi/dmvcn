@@ -78,8 +78,11 @@ const executeNow = execution.executeNow ?? [];
 const nextQueue = execution.nextQueue ?? [];
 const dataCollectionQueue = execution.dataCollectionQueue ?? [];
 const queryReviewQueue = execution.queryReviewQueue ?? [];
+const routingReviewQueue = execution.routingReviewQueue ?? [];
+const lowEvidenceQueue = execution.lowEvidenceQueue ?? [];
 const humanReviewQueue = execution.humanReviewQueue ?? [];
 const indexingCleanupQueue = execution.indexingCleanupQueue ?? [];
+const targetEvidenceThresholds = execution.targetEvidenceThresholds ?? {};
 
 if (
   planAgeDays === null ||
@@ -111,6 +114,14 @@ if (!snapshot.readyForPlanning) {
 if (snapshot.readyForPlanning && execution.status === 'hold-data') {
   errors.push('A ready data snapshot must not use hold-data.');
 }
+if (
+  !Number.isFinite(targetEvidenceThresholds.clicks) ||
+  targetEvidenceThresholds.clicks < 1 ||
+  !Number.isFinite(targetEvidenceThresholds.impressions) ||
+  targetEvidenceThresholds.impressions < 1
+) {
+  errors.push('Missing or invalid target-query evidence thresholds.');
+}
 
 for (const item of [...executeNow, ...nextQueue]) {
   if ((item.targetQueryEvidenceCount ?? 0) < 1) {
@@ -121,6 +132,19 @@ for (const item of [...executeNow, ...nextQueue]) {
   }
   if (item.requiresQueryReview) {
     errors.push(`${item.route}: executable content action still has unreviewed query intent.`);
+  }
+  if (item.requiresRoutingReview) {
+    errors.push(`${item.route}: executable content action still requires routing review.`);
+  }
+  if (!item.targetQueryEvidenceReady) {
+    errors.push(`${item.route}: executable content action has weak target-query evidence.`);
+  }
+  if (
+    (item.targetQueryClicks ?? 0) < (targetEvidenceThresholds.clicks ?? 1) &&
+    (item.targetQueryImpressions ?? 0) <
+      (targetEvidenceThresholds.impressions ?? 1)
+  ) {
+    errors.push(`${item.route}: executable target-query totals are below both thresholds.`);
   }
 }
 for (const item of dataCollectionQueue) {
@@ -134,6 +158,29 @@ for (const item of queryReviewQueue) {
   }
   if (item.requiresHumanReview) {
     errors.push(`${item.route}: high-risk query must use the human-review queue.`);
+  }
+}
+for (const item of routingReviewQueue) {
+  if (!item.requiresRoutingReview) {
+    errors.push(`${item.route}: routing-review item has no routing or overlap signal.`);
+  }
+  if (item.requiresHumanReview || item.requiresQueryReview) {
+    errors.push(`${item.route}: higher-risk review must not be hidden in routing review.`);
+  }
+}
+for (const item of lowEvidenceQueue) {
+  if ((item.targetQueryEvidenceCount ?? 0) < 1) {
+    errors.push(`${item.route}: low-evidence item has no target-query signal.`);
+  }
+  if (item.targetQueryEvidenceReady) {
+    errors.push(`${item.route}: decision-ready query is incorrectly marked low evidence.`);
+  }
+  if (
+    (item.targetQueryClicks ?? 0) >= (targetEvidenceThresholds.clicks ?? 1) ||
+    (item.targetQueryImpressions ?? 0) >=
+      (targetEvidenceThresholds.impressions ?? 1)
+  ) {
+    errors.push(`${item.route}: low-evidence query already meets an execution threshold.`);
   }
 }
 for (const item of humanReviewQueue) {
@@ -180,6 +227,8 @@ const queueRoutes = [
   ...nextQueue,
   ...dataCollectionQueue,
   ...queryReviewQueue,
+  ...routingReviewQueue,
+  ...lowEvidenceQueue,
   ...humanReviewQueue,
   ...indexingCleanupQueue,
 ];
@@ -202,6 +251,8 @@ console.log(`Execution: ${execution.status ?? 'missing'}`);
 console.log(`Execute now: ${executeNow.length}`);
 console.log(`Query evidence pending: ${dataCollectionQueue.length}`);
 console.log(`Query classification pending: ${queryReviewQueue.length}`);
+console.log(`Routing review: ${routingReviewQueue.length}`);
+console.log(`Low evidence: ${lowEvidenceQueue.length}`);
 console.log(`Human review: ${humanReviewQueue.length}`);
 console.log(`Index cleanup: ${indexingCleanupQueue.length} (${cleanupOverdue.length} overdue)`);
 console.log(`Errors: ${errors.length}`);

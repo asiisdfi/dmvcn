@@ -111,6 +111,10 @@ type SearchConsoleAction = {
   impressionsDelta: number;
   reason: string;
   targetQueryEvidenceCount?: number;
+  targetQueryImpressions?: number;
+  targetQueryClicks?: number;
+  targetQueryEvidenceReady?: boolean;
+  routingReviewEvidenceCount?: number;
   unreviewedQueryEvidenceCount?: number;
 };
 
@@ -163,6 +167,8 @@ type SearchConsoleReport = {
     nextQueue?: SearchConsoleAction[];
     dataCollectionQueue?: SearchConsoleAction[];
     queryReviewQueue?: SearchConsoleAction[];
+    routingReviewQueue?: SearchConsoleAction[];
+    lowEvidenceQueue?: SearchConsoleAction[];
     humanReviewQueue?: SearchConsoleAction[];
     indexingCleanupQueue?: SearchConsoleIndexingAction[];
   };
@@ -463,6 +469,8 @@ const scExecuteNow = scExecution?.executeNow ?? [];
 const scNextQueue = scExecution?.nextQueue ?? [];
 const scDataCollectionQueue = scExecution?.dataCollectionQueue ?? [];
 const scQueryReviewQueue = scExecution?.queryReviewQueue ?? [];
+const scRoutingReviewQueue = scExecution?.routingReviewQueue ?? [];
+const scLowEvidenceQueue = scExecution?.lowEvidenceQueue ?? [];
 const scHumanReviewQueue = scExecution?.humanReviewQueue ?? [];
 const scIndexingCleanupQueue = scExecution?.indexingCleanupQueue ?? [];
 const scIndexingImpressions = scIndexingCleanupQueue.reduce(
@@ -486,6 +494,8 @@ const scActionLabel: Record<string, string> = {
   'new-topic': '评估是否拆新专题',
   'needs-query-evidence': '先补查询映射',
   'query-review': '先确认查询意图',
+  'routing-review': '先检查落地页',
+  'observe-low-evidence': '等待更多目标查询',
   'observe-non-target': '非目标曝光观察',
   'human-review': '人工复核',
   cooldown: '等待效果复评',
@@ -842,7 +852,7 @@ const scActionLabel: Record<string, string> = {
                     <li>
                       <a href={item.route}>{item.route}</a> · <strong>{scActionLabel[item.action] ?? item.action}</strong>
                       <small>
-                        （目标查询证据 {item.targetQueryEvidenceCount ?? 0} 条 / 展现 {item.impressionsCurrent} / 点击 {item.clicksCurrent}）
+                        （目标查询 {item.targetQueryEvidenceCount ?? 0} 条 / 目标曝光 {item.targetQueryImpressions ?? 0} / 点击 {item.targetQueryClicks ?? 0}）
                       </small>
                       <p>{item.reason}</p>
                     </li>
@@ -881,6 +891,38 @@ const scActionLabel: Record<string, string> = {
                       <a href={item.route}>{item.route}</a>
                       <small>
                         当前有 {item.unreviewedQueryEvidenceCount ?? 0} 条页面级查询尚未确认归属；完成分类前，不据此修改标题或正文。
+                      </small>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
+            {scRoutingReviewQueue.length > 0 ? (
+              <>
+                <h3>需要检查落地页和页面分工</h3>
+                <ul class="check-list">
+                  {scRoutingReviewQueue.slice(0, 5).map((item) => (
+                    <li>
+                      <a href={item.route}>{item.route}</a>
+                      <small>
+                        当前有 {item.routingReviewEvidenceCount ?? 0} 条查询可能落错页面或与其他页面重叠；先检查落地页、内部链接和页面分工。
+                      </small>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+
+            {scLowEvidenceQueue.length > 0 ? (
+              <>
+                <h3>目标查询样本还不够</h3>
+                <ul class="check-list">
+                  {scLowEvidenceQueue.slice(0, 5).map((item) => (
+                    <li>
+                      <a href={item.route}>{item.route}</a>
+                      <small>
+                        当前目标查询曝光 {item.targetQueryImpressions ?? 0} 次、点击 {item.targetQueryClicks ?? 0} 次；达到最小证据门槛前不改标题或正文。
                       </small>
                     </li>
                   ))}

@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import {
   ALLOWED_QUERY_CLASSIFICATIONS,
   isHumanReviewClassification,
+  isRoutingReviewQuerySignal,
   isTargetQuerySignal,
   isUnreviewedClassification,
 } from './lib/search-console-query-policy.mjs';
@@ -64,6 +65,10 @@ const editorialTargets = {
   monthly: { min: 8, max: 12 },
 };
 const expectedProperty = 'sc-domain:dmvcn.com';
+const targetEvidenceThresholds = {
+  clicks: 1,
+  impressions: 5,
+};
 
 function currentCalendarDate() {
   const parts = new Intl.DateTimeFormat('en-US', {
@@ -92,11 +97,14 @@ const defaultPlanRows = {
   },
   execution: {
     status: 'hold-data',
+    targetEvidenceThresholds,
     allowedNow: 0,
     executeNow: [],
     nextQueue: [],
     dataCollectionQueue: [],
     queryReviewQueue: [],
+    routingReviewQueue: [],
+    lowEvidenceQueue: [],
     humanReviewQueue: [],
     indexingCleanupQueue: [],
   },
@@ -107,6 +115,8 @@ const defaultPlanRows = {
     newTopics: [],
     needsQueryEvidence: [],
     queryReview: [],
+    routingReview: [],
+    lowEvidence: [],
     nonTarget: [],
     humanReview: [],
     cooldown: [],
@@ -255,7 +265,13 @@ function nextEditorialWindow(actionLog, fromDate) {
 }
 
 function priorityScore(item) {
-  if (item.action === 'observe' || item.action === 'observe-non-target') return 0;
+  if (
+    item.action === 'observe' ||
+    item.action === 'observe-non-target' ||
+    item.action === 'observe-low-evidence'
+  ) {
+    return 0;
+  }
   let score = 0;
   if (item.action === 'improve-answer') score += 40;
   if (item.action === 'improve-title') score += 35;
@@ -263,6 +279,7 @@ function priorityScore(item) {
   if (item.action === 'new-topic') score += 20;
   if (item.action === 'needs-query-evidence') score += 10;
   if (item.action === 'query-review') score += 15;
+  if (item.action === 'routing-review') score += 15;
   if (item.action === 'human-review') score += 15;
 
   if (item.ctrCurrent < 1) score += 12;
@@ -416,6 +433,17 @@ const topByImpressions = (items, limit = 25) =>
   [...items]
     .sort((a, b) => b.impressions - a.impressions || a.position - b.position)
     .slice(0, limit);
+const queryEvidenceTotals = (items) => {
+  const clicks = items.reduce((sum, item) => sum + item.clicks, 0);
+  const impressions = items.reduce((sum, item) => sum + item.impressions, 0);
+  return {
+    clicks,
+    impressions,
+    ready:
+      clicks >= targetEvidenceThresholds.clicks ||
+      impressions >= targetEvidenceThresholds.impressions,
+  };
+};
 const chineseQueryItems = queryItems.filter((item) => isChineseQuery(item.query));
 const pageQuerySignals = pageQueryRows
   .map((row) => ({
@@ -668,15 +696,20 @@ const allRows = [...pageMap.values()].map((item) => {
   const allMatchedQuerySignals = pageQueryMap.get(item.page) ?? [];
   const matchedQuerySignals = topByImpressions(allMatchedQuerySignals, 8);
   const targetQuerySignals = allMatchedQuerySignals.filter(isTargetQuerySignal);
+  const routingReviewQuerySignals = allMatchedQuerySignals.filter(
+    isRoutingReviewQuerySignal,
+  );
   const humanReviewQuerySignals = allMatchedQuerySignals.filter((signal) =>
     isHumanReviewClassification(signal.classification),
   );
   const unreviewedQuerySignals = allMatchedQuerySignals.filter((signal) =>
     isUnreviewedClassification(signal.classification),
   );
-  const selectedTitleSignal = targetQuerySignals.find(
+  const targetQueryEvidence = queryEvidenceTotals(targetQuerySignals);
+  const selectedTitleSignals = targetQuerySignals.filter(
     (signal) => signal.classification === 'selected-title',
   );
+  const selectedTitleEvidence = queryEvidenceTotals(selectedTitleSignals);
   const preferredTopQuery = matchedQuerySignals.find((signal) =>
     ['selected-title', 'observe-generic-English'].includes(signal.classification),
   );
@@ -692,10 +725,14 @@ const allRows = [...pageMap.values()].map((item) => {
   } else if (unreviewedQuerySignals.length > 0) {
     action = 'query-review';
     reason = '页面已出现中文查询，但尚未确认它与本页搜索意图一致；完成分类前不改标题或正文。';
-  } else if (selectedTitleSignal) {
+  } else if (routingReviewQuerySignals.length > 0) {
+    action = 'routing-review';
+    reason = '查询意图可能落错页面或与其他页面重叠；先核对落地页、内部链接和页面分工，不直接改标题或正文。';
+  } else if (selectedTitleEvidence.ready) {
     action = 'improve-title';
-    reason = '已出现与州机构或具体业务一致的查询，标题和说明应采用用户实际用词。';
+    reason = '标题型目标查询达到最小证据门槛，可据此校准标题和说明。';
   } else if (
+    targetQueryEvidence.ready &&
     impressionsCurrent > 120 &&
     impressionsPrevious > 0 &&
     impressionsDelta <= -40
@@ -703,14 +740,14 @@ const allRows = [...pageMap.values()].map((item) => {
     action = 'refresh-rule-change';
     reason = '近期展现明显下滑，先核验官方规则变化和页面语义链路。';
   } else if (
-    targetQuerySignals.length > 0 &&
+    targetQueryEvidence.ready &&
     impressionsCurrent >= 50 &&
     clicksCurrent === 0
   ) {
     action = 'improve-answer';
     reason = '目标查询已有展现但没有点击，先补直接答案、失败场景和逐条来源映射。';
   } else if (
-    targetQuerySignals.length > 0 &&
+    targetQueryEvidence.ready &&
     impressionsCurrent >= 50 &&
     positionCurrent <= 20 &&
     ctrCurrent < 2.5
@@ -718,19 +755,25 @@ const allRows = [...pageMap.values()].map((item) => {
     action = 'improve-title';
     reason = '目标查询已经进入可见排名但 CTR 偏低，先校准标题和说明。';
   } else if (
-    targetQuerySignals.length > 0 &&
+    targetQueryEvidence.ready &&
     impressionsCurrent >= 60 &&
     positionCurrent > 20
   ) {
     action = 'improve-answer';
     reason = '目标查询展现较多但排名偏后，先补判断路径和高识别度答案结构。';
   } else if (
-    targetQuerySignals.length > 0 &&
+    targetQueryEvidence.ready &&
     impressionsPrevious === 0 &&
     impressionsCurrent >= 80
   ) {
     action = 'new-topic';
     reason = '新出现稳定流量，若现有页面承载不完整则分支新增专题。';
+  } else if (
+    targetQuerySignals.length > 0 &&
+    !targetQueryEvidence.ready
+  ) {
+    action = 'observe-low-evidence';
+    reason = `目标查询目前只有 ${targetQueryEvidence.impressions} 次曝光、${targetQueryEvidence.clicks} 次点击；达到 ${targetEvidenceThresholds.impressions} 次曝光或 ${targetEvidenceThresholds.clicks} 次点击前继续观察。`;
   } else if (matchedQuerySignals.length === 0 && impressionsCurrent >= 50) {
     action = 'needs-query-evidence';
     reason = '页面有展现，但还没有页面级查询映射；先在 Search Console 过滤该页并采集查询。';
@@ -765,11 +808,16 @@ const allRows = [...pageMap.values()].map((item) => {
     querySignals: matchedQuerySignals,
     queryEvidenceCount: allMatchedQuerySignals.length,
     targetQueryEvidenceCount: targetQuerySignals.length,
+    targetQueryImpressions: targetQueryEvidence.impressions,
+    targetQueryClicks: targetQueryEvidence.clicks,
+    targetQueryEvidenceReady: targetQueryEvidence.ready,
+    routingReviewEvidenceCount: routingReviewQuerySignals.length,
     humanReviewEvidenceCount: humanReviewQuerySignals.length,
     unreviewedQueryEvidenceCount: unreviewedQuerySignals.length,
     nonTargetQueryEvidenceCount:
       allMatchedQuerySignals.length -
       targetQuerySignals.length -
+      routingReviewQuerySignals.length -
       humanReviewQuerySignals.length -
       unreviewedQuerySignals.length,
     queryClassifications: [
@@ -786,6 +834,7 @@ const allRows = [...pageMap.values()].map((item) => {
   (item) =>
     item.impressionsCurrent >= 20 ||
     item.impressionsDelta > 80 ||
+    item.routingReviewEvidenceCount > 0 ||
     item.humanReviewEvidenceCount > 0 ||
     item.unreviewedQueryEvidenceCount > 0,
 );
@@ -808,6 +857,7 @@ const toPublicRow = (item) => {
     hasQueryEvidence: item.queryEvidenceCount > 0,
     requiresHumanReview: humanReviewEvidenceCount > 0,
     requiresQueryReview: item.unreviewedQueryEvidenceCount > 0,
+    requiresRoutingReview: item.routingReviewEvidenceCount > 0,
   };
 };
 const publicRows = allRows.map(toPublicRow);
@@ -820,9 +870,10 @@ const contentActionNames = new Set([
 const eligibleContentRows = publicRows.filter(
   (item) =>
     contentActionNames.has(item.action) &&
-    item.targetQueryEvidenceCount > 0 &&
+    item.targetQueryEvidenceReady &&
     !item.requiresHumanReview &&
-    !item.requiresQueryReview,
+    !item.requiresQueryReview &&
+    !item.requiresRoutingReview,
 );
 const currentCapacity = availableEditorialSlots(actionLog, planDate);
 const nextWindow = nextEditorialWindow(actionLog, planDate);
@@ -842,6 +893,7 @@ const nextQueueStart = allowedNow;
 const nextQueue = eligibleContentRows.slice(nextQueueStart, nextQueueStart + 12);
 const execution = {
   status: executionStatus,
+  targetEvidenceThresholds,
   targets: editorialTargets,
   currentPeriod: {
     through: planDate,
@@ -872,6 +924,25 @@ const execution = {
         ),
     )
     .slice(0, 12),
+  routingReviewQueue: publicRows
+    .filter(
+      (item) =>
+        !item.requiresHumanReview &&
+        !item.requiresQueryReview &&
+        (
+          item.action === 'routing-review' ||
+          item.suggestedAction === 'routing-review' ||
+          item.requiresRoutingReview
+        ),
+    )
+    .slice(0, 12),
+  lowEvidenceQueue: publicRows
+    .filter(
+      (item) =>
+        item.action === 'observe-low-evidence' ||
+        item.suggestedAction === 'observe-low-evidence',
+    )
+    .slice(0, 12),
   humanReviewQueue: publicRows
     .filter((item) => item.action === 'human-review' || item.requiresHumanReview)
     .slice(0, 12),
@@ -898,6 +969,12 @@ const report = {
     ...(indexingCleanupQueue.some((item) => item.status === 'untracked-noindex')
       ? ['存在未记录清理日期的 noindex 页面，需要补充索引治理记录。']
       : []),
+    ...(execution.lowEvidenceQueue.length
+      ? [`有 ${execution.lowEvidenceQueue.length} 个页面虽有目标查询，但尚未达到 ${targetEvidenceThresholds.impressions} 次曝光或 ${targetEvidenceThresholds.clicks} 次点击的最小内容决策门槛。`]
+      : []),
+    ...(execution.routingReviewQueue.length
+      ? [`有 ${execution.routingReviewQueue.length} 个页面存在误落页或意图重叠信号，先做路由和页面分工复核。`]
+      : []),
   ].filter(Boolean),
   actions: {
     improveAnswer: publicRows.filter((item) => item.action === 'improve-answer').slice(0, 20),
@@ -916,6 +993,20 @@ const report = {
             item.suggestedAction === 'query-review' ||
             item.requiresQueryReview
           ),
+      )
+      .slice(0, 20),
+    routingReview: publicRows
+      .filter(
+        (item) =>
+          item.action === 'routing-review' ||
+          item.suggestedAction === 'routing-review',
+      )
+      .slice(0, 20),
+    lowEvidence: publicRows
+      .filter(
+        (item) =>
+          item.action === 'observe-low-evidence' ||
+          item.suggestedAction === 'observe-low-evidence',
       )
       .slice(0, 20),
     nonTarget: publicRows
@@ -967,10 +1058,15 @@ const csvRows = [
     'hasQueryEvidence',
     'queryEvidenceCount',
     'targetQueryEvidenceCount',
+    'targetQueryImpressions',
+    'targetQueryClicks',
+    'targetQueryEvidenceReady',
+    'routingReviewEvidenceCount',
     'unreviewedQueryEvidenceCount',
     'nonTargetQueryEvidenceCount',
     'requiresHumanReview',
     'requiresQueryReview',
+    'requiresRoutingReview',
     'queryClassifications',
     'reviewDue',
     'completedAt',
@@ -994,10 +1090,15 @@ const csvRows = [
     item.hasQueryEvidence,
     item.queryEvidenceCount,
     item.targetQueryEvidenceCount,
+    item.targetQueryImpressions,
+    item.targetQueryClicks,
+    item.targetQueryEvidenceReady,
+    item.routingReviewEvidenceCount,
     item.unreviewedQueryEvidenceCount,
     item.nonTargetQueryEvidenceCount,
     item.requiresHumanReview,
     item.requiresQueryReview,
+    item.requiresRoutingReview,
     item.queryClassifications.join('|'),
     item.reviewDue,
     item.completedAction?.completedAt ?? '',
@@ -1019,7 +1120,7 @@ const executionStatusLabels = {
   'hold-no-qualified-query': '暂停：没有满足目标查询证据的候选',
 };
 const candidateLine = (item) =>
-  `- ${item.route}（目标查询证据 ${item.targetQueryEvidenceCount} 条；展现 ${item.impressionsCurrent} / 点击 ${item.clicksCurrent}）— ${actionReason(item)}`;
+  `- ${item.route}（目标查询 ${item.targetQueryEvidenceCount} 条；目标曝光 ${item.targetQueryImpressions} / 点击 ${item.targetQueryClicks}；页面曝光 ${item.impressionsCurrent}）— ${actionReason(item)}`;
 const markdown = [
   `# Search Console 月度行动建议 (${planDate})`,
   '',
@@ -1076,6 +1177,24 @@ const markdown = [
           `- ${item.route}（待分类查询证据 ${item.unreviewedQueryEvidenceCount} 条）— 先确认查询是否属于本页；完成分类前不改标题或正文。`,
       )
     : ['- 当前没有尚未分类的页面级中文查询。']),
+  '',
+  '## 先复核落地页与页面分工',
+  '',
+  ...(execution.routingReviewQueue.length
+    ? execution.routingReviewQueue.map(
+        (item) =>
+          `- ${item.route}（路由复核信号 ${item.routingReviewEvidenceCount} 条）— 先判断查询是否落错页面或与其他页面重叠，不据此直接改标题或正文。`,
+      )
+    : ['- 当前没有误落页或意图重叠信号。']),
+  '',
+  '## 目标查询样本不足',
+  '',
+  ...(execution.lowEvidenceQueue.length
+    ? execution.lowEvidenceQueue.map(
+        (item) =>
+          `- ${item.route}（目标曝光 ${item.targetQueryImpressions} / 点击 ${item.targetQueryClicks}）— 未达到 ${targetEvidenceThresholds.impressions} 次曝光或 ${targetEvidenceThresholds.clicks} 次点击，继续观察。`,
+      )
+    : ['- 当前没有低于最小证据门槛的目标查询页面。']),
   '',
   '## 索引清理观察',
   '',
@@ -1138,6 +1257,18 @@ const markdown = [
       `- ${item.route}（待分类查询证据 ${item.unreviewedQueryEvidenceCount} 条）— ${actionReason(item)}`,
   ),
   '',
+  '## 路由与重叠复核',
+  ...report.actions.routingReview.map(
+    (item) =>
+      `- ${item.route}（路由复核信号 ${item.routingReviewEvidenceCount} 条）— ${actionReason(item)}`,
+  ),
+  '',
+  '## 低样本目标查询',
+  ...report.actions.lowEvidence.map(
+    (item) =>
+      `- ${item.route}（目标曝光 ${item.targetQueryImpressions} / 点击 ${item.targetQueryClicks}）— ${actionReason(item)}`,
+  ),
+  '',
   '## 规则变化/下滑复核',
   ...report.actions.refreshRule.map(
     (item) => `- ${item.route}（展现变化 ${item.impressionsDelta.toFixed(1)}%）— ${item.reason}`,
@@ -1164,6 +1295,8 @@ console.log(
   `- execution=${execution.status}, allowedNow=${execution.allowedNow}, nextCapacity=${execution.nextEligibleDate}`,
 );
 console.log(`- query review=${execution.queryReviewQueue.length}`);
+console.log(`- routing review=${execution.routingReviewQueue.length}`);
+console.log(`- low evidence=${execution.lowEvidenceQueue.length}`);
 console.log(
   `- deindex watch=${indexingCleanupQueue.length} routes / ${dataSnapshot.excludedPageImpressions} impressions`,
 );

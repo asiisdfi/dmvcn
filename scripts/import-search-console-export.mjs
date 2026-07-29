@@ -81,7 +81,7 @@ try {
     `Page exports / refreshed signals: ${summary.pageExports} / ${summary.refreshedPageSignals}`,
   );
   console.log(
-    `Classifications: target=${summary.classifications.target}, unreviewed=${summary.classifications.unreviewed}, human-review=${summary.classifications.humanReview}, observed=${summary.classifications.observed}`,
+    `Classifications: target=${summary.classifications.target}, routing-review=${summary.classifications.routingReview}, unreviewed=${summary.classifications.unreviewed}, human-review=${summary.classifications.humanReview}, observed=${summary.classifications.observed}`,
   );
   console.log(`Mode: ${summary.dryRun ? 'dry-run' : 'written'}`);
 } catch (error) {
