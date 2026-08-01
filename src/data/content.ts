@@ -125,6 +125,12 @@ export type TopicGuide = {
     href: string;
     description: string;
   };
+  intentLinks?: {
+    title: string;
+    description: string;
+    label: string;
+    href: string;
+  }[];
   sources: Source[];
   relatedStateIds: string[];
 };
@@ -13554,7 +13560,7 @@ export const topics: TopicGuide[] = [
     title: 'REAL ID 到底要不要办',
     eyebrow: '联邦规则',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-21',
+    modifiedAt: '2026-08-01',
     reviewedAt: '2026-07-21',
     description:
       '先别急着预约。REAL ID 只解决州驾照/ID 的联邦身份用途；如果你有有效护照或其他 TSA 接受证件，很多场景可以先不升级。',
@@ -13663,6 +13669,15 @@ export const topics: TopicGuide[] = [
       'REAL ID 不改变驾驶资格本身；没有 REAL ID 通常仍可开车，但不能把普通州证件用于相应联邦身份用途。',
       '具体材料和卡面标记由州 DMV 执行，纽约、华盛顿、佐治亚等州的名称和标记可能不同。',
       '2026-07-21 复核 TSA 与 USA.gov：自 2026-02-01 起，无可接受 ID 的现行路径为 $45 ConfirmID；实际核验在机场完成，付款不保证成功，凭证从所填出发日起有效 10 天。',
+    ],
+    intentLinks: [
+      {
+        title: '要比较三类州证件',
+        description:
+          '如果你的问题是普通驾照、REAL ID 和 Enhanced ID 有什么区别，先看证件用途、申请资格和跨境范围的专门对比。',
+        label: '比较 REAL ID、Enhanced ID 和普通驾照',
+        href: '/topics/real-id-vs-standard-license/',
+      },
     ],
     sources: [
       ...federalSources,
@@ -15147,7 +15162,7 @@ export const topics: TopicGuide[] = [
     title: '不考驾照，只办 State ID / non-driver ID 怎么准备',
     eyebrow: '州身份证',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-13',
+    modifiedAt: '2026-08-01',
     reviewedAt: '2026-07-21',
     description:
       '不准备开车，也可以在很多州申请 state ID、non-driver ID、photo ID、Mass ID 或 Enhanced ID。先分清普通 ID、REAL ID-compliant ID、Enhanced ID、移动 ID、驾照换 ID、未成年人 ID 和无家可归 / 低收入费用减免，避免把 ID card 当成驾照或护照来用。',
@@ -15294,6 +15309,22 @@ export const topics: TopicGuide[] = [
       href: '/directories/document-rules/',
       description: '按州查看 identity、SSN、地址证明、P.O. Box、姓名变更、原件/认证副本和翻译要求。',
     },
+    intentLinks: [
+      {
+        title: '要比较证件用途',
+        description:
+          '如果你在判断 Standard、REAL ID 或 Enhanced 哪一种适合自己，先比较联邦用途、驾驶资格和边境用途。',
+        label: '查看 REAL ID、Enhanced ID 和普通驾照的区别',
+        href: '/topics/real-id-vs-standard-license/',
+      },
+      {
+        title: '准备在加州申请',
+        description:
+          '问题里有 California、加州或 CA DMV 时，材料、费用和办理方式应回到加州专页核对。',
+        label: '查看加州 REAL ID 与普通驾照申请指南',
+        href: '/states/california/real-id/',
+      },
+    ],
     sources: [
       {
         label: 'DHS REAL ID',

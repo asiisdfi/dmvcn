@@ -152,6 +152,24 @@ const schema = [
         </div>
       </section>
 
+      {topic.intentLinks && topic.intentLinks.length > 0 && (
+        <section class="panel" aria-labelledby="intent-links-title">
+          <h2 id="intent-links-title">按你的问题继续</h2>
+          <div class="route-card-grid">
+            {topic.intentLinks.map((link, index) => (
+              <div class="route-card compact">
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <h3>{link.title}</h3>
+                <p>{link.description}</p>
+                <a class="route-action" href={link.href}>
+                  {link.label} <ArrowRight size={15} aria-hidden="true" />
+                </a>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section class="panel">
         <h2>谁应该看</h2>
         <ul class="check-list">

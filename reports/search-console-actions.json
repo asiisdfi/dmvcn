@@ -198,5 +198,66 @@
     "evaluateAfter": "2026-08-26",
     "baselinePeriodEnd": "2026-07-26",
     "summary": "内容修改晚于现有人工签字，当前版本重新完成真实人工语义核查前退出索引和 sitemap。"
+  },
+  {
+    "route": "/topics/tickets-tolls-insurance-lapse-registration-hold/",
+    "action": "noindex",
+    "countsTowardCadence": false,
+    "completedAt": "2026-07-29",
+    "evaluateAfter": "2026-08-26",
+    "baselinePeriodEnd": "2026-07-26",
+    "summary": "内容修改晚于现有人工签字，当前版本重新完成真实人工语义核查前退出索引和 sitemap。"
+  },
+  {
+    "route": "/directories/deadlines/",
+    "action": "noindex",
+    "countsTowardCadence": false,
+    "completedAt": "2026-07-30",
+    "evaluateAfter": "2026-08-27",
+    "baselinePeriodEnd": "2026-07-26",
+    "summary": "内容修改晚于现有人工签字，当前版本重新完成真实人工语义核查前退出索引和 sitemap。"
+  },
+  {
+    "route": "/directories/document-rules/",
+    "action": "noindex",
+    "countsTowardCadence": false,
+    "completedAt": "2026-07-30",
+    "evaluateAfter": "2026-08-27",
+    "baselinePeriodEnd": "2026-07-26",
+    "summary": "内容修改晚于现有人工签字，当前版本重新完成真实人工语义核查前退出索引和 sitemap。"
+  },
+  {
+    "route": "/directories/identity-ssn/",
+    "action": "noindex",
+    "countsTowardCadence": false,
+    "completedAt": "2026-07-30",
+    "evaluateAfter": "2026-08-27",
+    "baselinePeriodEnd": "2026-07-26",
+    "summary": "内容修改晚于现有人工签字，当前版本重新完成真实人工语义核查前退出索引和 sitemap。"
+  },
+  {
+    "route": "/topics/real-id-basics/",
+    "action": "routing-action",
+    "routingReviewId": "real-id-basics-intent-split",
+    "targetRoutes": [
+      "/topics/real-id-vs-standard-license/"
+    ],
+    "completedAt": "2026-08-01",
+    "evaluateAfter": "2026-08-15",
+    "baselinePeriodEnd": "2026-07-26",
+    "summary": "在 REAL ID 基础页增加证件类型比较入口，把区别类查询引导到专门对比页。"
+  },
+  {
+    "route": "/topics/state-id-non-driver-id-real-id-card/",
+    "action": "routing-action",
+    "routingReviewId": "state-id-intent-split",
+    "targetRoutes": [
+      "/topics/real-id-vs-standard-license/",
+      "/states/california/real-id/"
+    ],
+    "completedAt": "2026-08-01",
+    "evaluateAfter": "2026-08-15",
+    "baselinePeriodEnd": "2026-07-26",
+    "summary": "在 State ID 页增加通用证件比较和加州 REAL ID 两条分流入口，避免州别与比较意图混在本页。"
   }
 ]

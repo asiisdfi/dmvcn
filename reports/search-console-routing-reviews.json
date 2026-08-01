@@ -34,7 +34,13 @@
     "reviewedThrough": "2026-07-29",
     "plannedFor": "2026-08-01",
     "action": "intent-links",
-    "summary": "REAL ID 基础页继续回答是否需要办理、联邦用途和替代证件；证件类型区别引导到专门比较页，不重复展开。"
+    "summary": "REAL ID 基础页继续回答是否需要办理、联邦用途和替代证件；证件类型区别引导到专门比较页，不重复展开。",
+    "implementedAt": "2026-08-01",
+    "evaluateAfter": "2026-08-15",
+    "changedRoutes": [
+      "/topics/real-id-basics/"
+    ],
+    "implementationSummary": "在 REAL ID 基础页增加证件类型比较入口，把区别类查询引导到专门对比页。"
   },
   {
     "id": "state-id-intent-split",
@@ -61,7 +67,13 @@
     "reviewedThrough": "2026-07-29",
     "plannedFor": "2026-08-01",
     "action": "intent-links",
-    "summary": "State ID 页继续回答不考驾照时如何办理 non-driver ID；通用证件区别引导到比较页，带州名的 REAL ID 需求回到对应州页面。"
+    "summary": "State ID 页继续回答不考驾照时如何办理 non-driver ID；通用证件区别引导到比较页，带州名的 REAL ID 需求回到对应州页面。",
+    "implementedAt": "2026-08-01",
+    "evaluateAfter": "2026-08-15",
+    "changedRoutes": [
+      "/topics/state-id-non-driver-id-real-id-card/"
+    ],
+    "implementationSummary": "在 State ID 页增加通用证件比较和加州 REAL ID 两条分流入口，避免州别与比较意图混在本页。"
   },
   {
     "id": "washington-id-renewal",

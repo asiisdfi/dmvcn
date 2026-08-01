@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T00:00:00.000Z",
+  "generatedAt": "2026-08-01T00:00:00.000Z",
   "objectiveDeadline": "2027-01-24",
   "source": {
     "property": "sc-domain:dmvcn.com",
@@ -48,7 +48,7 @@
       "position": 38.1
     },
     "rankedPages": {
-      "rowsWithImpressions": 121,
+      "rowsWithImpressions": 120,
       "top20": 15,
       "top10": 4
     },
@@ -605,43 +605,43 @@
         }
       ],
       "indexingNoise": {
-        "routes": 7,
-        "impressions": 5733,
-        "relativeToPropertyImpressionsPercent": 57.2,
+        "routes": 8,
+        "impressions": 5816,
+        "relativeToPropertyImpressionsPercent": 58,
         "overdue": 0,
         "note": "来自页面维度历史数据，与全站属性总量口径不同，只能观察规模，不能直接相减。"
       }
     },
     "pageDimension": {
-      "indexableRows": 121,
+      "indexableRows": 120,
       "clickSum": 24,
-      "impressionSum": 5215,
+      "impressionSum": 5132,
       "note": "仅用于页面排名和页面机会分析，不作为全站总量。"
     },
     "cadence": {
-      "month": "2026-07",
-      "completedActions": 20,
+      "month": "2026-08",
+      "completedActions": 2,
       "targetMin": 8,
       "targetMax": 12,
-      "status": "above-target",
+      "status": "below-target",
       "rollingSevenDays": {
-        "from": "2026-07-23",
-        "through": "2026-07-29",
-        "completedActions": 20,
+        "from": "2026-07-26",
+        "through": "2026-08-01",
+        "completedActions": 2,
         "targetMin": 2,
         "targetMax": 3,
-        "status": "above-target"
+        "status": "on-target"
       },
-      "activeCooldowns": 24,
+      "activeCooldowns": 26,
       "nextCooldownDate": "2026-08-07"
     },
     "quality": {
-      "indexablePages": 159,
-      "indexablePassed": 159,
+      "indexablePages": 155,
+      "indexablePassed": 155,
       "indexablePassRate": 100,
-      "highRiskHumanApprovalPending": 4,
+      "highRiskHumanApprovalPending": 8,
       "criticalPages": 0,
-      "blockedPages": 4,
+      "blockedPages": 8,
       "indexableCriticalPages": 0,
       "indexableBlockedPages": 0,
       "passed": true
@@ -702,18 +702,16 @@
     "completionComparable": false,
     "growthTargetsMet": false,
     "qualityGatePassed": true,
-    "weeklyCadenceStatus": "above-target",
-    "cadenceStatus": "above-target",
+    "weeklyCadenceStatus": "on-target",
+    "cadenceStatus": "below-target",
     "objectiveEvidenceComplete": false
   },
   "warnings": [
-    "4 个高风险页面正在等待当前内容版本的人工复核；这些页面保持 noindex，不计入可索引页面质量通过率。",
+    "8 个高风险页面正在等待当前内容版本的人工复核；这些页面保持 noindex，不计入可索引页面质量通过率。",
     "当前快照是 28 天窗口，只能跟踪趋势，不能证明 30 天目标完成。",
     "页面维度与全站属性采用不同聚合口径，本报告还会排除当前 noindex 页面，不能用页面行求和替代全站曝光总量。",
-    "7 个已 noindex 页面仍有 5733 次历史页面维度曝光，相当于全站属性曝光的 57.2%；两者口径不同，不能直接相减。",
+    "8 个已 noindex 页面仍有 5816 次历史页面维度曝光，相当于全站属性曝光的 58%；两者口径不同，不能直接相减。",
     "发现 1 个非目标国家有大量曝光但没有点击，不应据此扩写泛英文内容。",
-    "移动端仅占 6.7% 曝光，却贡献 53.8% 点击；移动端中文办事体验应作为增长基线。",
-    "本月已记录 20 个内容动作，超过 8–12 个计划节奏；除规则纠错外应等待冷却数据。",
-    "最近 7 天已记录 20 个内容动作，超过每周 2–3 个节奏；应先观察而不是继续批量修改。"
+    "移动端仅占 6.7% 曝光，却贡献 53.8% 点击；移动端中文办事体验应作为增长基线。"
   ]
 }

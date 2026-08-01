@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T00:00:00.000Z",
+  "generatedAt": "2026-08-01T00:00:00.000Z",
   "summary": {
     "pages": 140,
     "countsByClass": {
@@ -1044,8 +1044,8 @@
       "class": "topic",
       "title": "REAL ID 到底要不要办 | DMV中文办事库",
       "heading": "REAL ID 到底要不要办",
-      "contentChars": 2619,
-      "contentHash": "d0a913e41bc128faa561936776d33872cc8841c34603a1aca278ba7ceff74c72"
+      "contentChars": 2712,
+      "contentHash": "10e15faa1e2698dcefd62415a9794570aaed7f42f1dc56728efc06eb96984ae3"
     },
     {
       "route": "/topics/real-id-vs-standard-license/",
@@ -1108,8 +1108,8 @@
       "class": "topic",
       "title": "不考驾照，只办 State ID / non-driver ID 怎么准备 | DMV中文办事库",
       "heading": "不考驾照，只办 State ID / non-driver ID 怎么准备",
-      "contentChars": 6229,
-      "contentHash": "ffc32708f54b8cd5922d64563c67622ca185168c38ff66bafec1b420f7a5829b"
+      "contentChars": 6392,
+      "contentHash": "a2325782112710cbce65ec55471090912fd246a5556a32754f900ea17bd41205"
     },
     {
       "route": "/topics/student-temporary-resident-license-registration/",
@@ -1516,7 +1516,7 @@
         "/topics/real-id-basics/"
       ],
       "class": "topic",
-      "similarity": 0.174,
+      "similarity": 0.168,
       "boundaryStatus": "reviewed",
       "reviewedAt": "2026-07-29",
       "distinction": "机场页解决出行当天带什么证件、临时证件和 ConfirmID；基础页解决是否需要升级 REAL ID 以及可用替代证件。"
@@ -1527,7 +1527,7 @@
         "/topics/real-id-vs-standard-license/"
       ],
       "class": "topic",
-      "similarity": 0.157,
+      "similarity": 0.159,
       "boundaryStatus": "reviewed",
       "reviewedAt": "2026-07-29",
       "distinction": "基础页回答要不要办理及联邦用途；比较页专门区分 Standard、REAL ID 与 Enhanced 三类州证件。"
