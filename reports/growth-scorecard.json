@@ -7,15 +7,22 @@
       "label": "过去 28 天",
       "days": 28,
       "dataShownFrom": "2026-07-12",
-      "dataShownThrough": "2026-07-26",
-      "timeZone": "Asia/Shanghai"
+      "dataShownThrough": "2026-07-29",
+      "timeZone": "Asia/Shanghai",
+      "verification": {
+        "verified": true,
+        "method": "filter-label",
+        "labelDays": 28,
+        "chartSpanDays": 18,
+        "requestedDays": null
+      }
     },
     "windowEvidence": {
       "verified": true,
       "method": "filter-label",
       "days": 28,
       "labelDays": 28,
-      "chartSpanDays": 15
+      "chartSpanDays": 18
     },
     "pageReport": "reports/search-console-export.csv",
     "segmentReport": "reports/private/search-console-segments.json",
@@ -42,147 +49,177 @@
   },
   "current": {
     "propertyTotals": {
-      "clicks": 26,
-      "impressions": 10031,
+      "clicks": 33,
+      "impressions": 12851,
       "ctr": 0.3,
       "position": 38.1
     },
     "rankedPages": {
       "rowsWithImpressions": 120,
-      "top20": 15,
-      "top10": 4
+      "top20": 13,
+      "top10": 3
     },
     "traffic": {
-      "usClicks": 19,
-      "usImpressions": 2711,
-      "usClickShare": 73.1,
-      "usImpressionShare": 27,
+      "usClicks": 25,
+      "usImpressions": 3488,
+      "usClickShare": 75.8,
+      "usImpressionShare": 27.1,
       "countries": [
         {
           "code": "US",
           "label": "美国",
-          "clicks": 19,
-          "impressions": 2711
+          "clicks": 25,
+          "impressions": 3488
         },
         {
           "code": "TW",
           "label": "台湾",
           "clicks": 3,
-          "impressions": 62
+          "impressions": 76
         },
         {
           "code": "JP",
           "label": "日本",
           "clicks": 2,
-          "impressions": 21
+          "impressions": 23
         },
         {
           "code": "CN",
           "label": "中国",
           "clicks": 1,
-          "impressions": 40
+          "impressions": 51
         },
         {
           "code": "CA",
           "label": "加拿大",
           "clicks": 1,
-          "impressions": 30
+          "impressions": 35
+        },
+        {
+          "code": "DE",
+          "label": "德国",
+          "clicks": 1,
+          "impressions": 25
         },
         {
           "code": "VN",
           "label": "越南",
           "clicks": 0,
-          "impressions": 4310
+          "impressions": 4600
         },
         {
           "code": "ID",
           "label": "印度尼西亚",
           "clicks": 0,
-          "impressions": 293
-        },
-        {
-          "code": "GB",
-          "label": "英国",
-          "clicks": 0,
-          "impressions": 237
-        },
-        {
-          "code": "RU",
-          "label": "俄罗斯",
-          "clicks": 0,
-          "impressions": 210
+          "impressions": 460
         },
         {
           "code": "TH",
           "label": "泰国",
           "clicks": 0,
-          "impressions": 207
+          "impressions": 421
         },
         {
-          "code": "MY",
-          "label": "马来西亚",
+          "code": "RU",
+          "label": "俄罗斯",
           "clicks": 0,
-          "impressions": 203
+          "impressions": 413
         },
         {
           "code": "UA",
           "label": "乌克兰",
           "clicks": 0,
-          "impressions": 160
+          "impressions": 302
         },
         {
-          "code": "PH",
-          "label": "菲律宾",
+          "code": "MY",
+          "label": "马来西亚",
           "clicks": 0,
-          "impressions": 154
+          "impressions": 299
         },
         {
-          "code": "MA",
-          "label": "摩洛哥",
+          "code": "GB",
+          "label": "英国",
           "clicks": 0,
-          "impressions": 138
-        },
-        {
-          "code": "BD",
-          "label": "孟加拉",
-          "clicks": 0,
-          "impressions": 117
+          "impressions": 284
         },
         {
           "code": "TR",
           "label": "土耳其",
           "clicks": 0,
-          "impressions": 109
+          "impressions": 229
         },
         {
-          "code": "QA",
-          "label": "卡塔尔",
+          "code": "PH",
+          "label": "菲律宾",
           "clicks": 0,
-          "impressions": 97
+          "impressions": 227
         },
         {
-          "code": "DZ",
-          "label": "阿尔及利亚",
+          "code": "MA",
+          "label": "摩洛哥",
           "clicks": 0,
-          "impressions": 96
-        },
-        {
-          "code": "IN",
-          "label": "印度",
-          "clicks": 0,
-          "impressions": 86
+          "impressions": 200
         },
         {
           "code": "JO",
           "label": "约旦",
           "clicks": 0,
-          "impressions": 85
+          "impressions": 167
+        },
+        {
+          "code": "BD",
+          "label": "孟加拉",
+          "clicks": 0,
+          "impressions": 166
+        },
+        {
+          "code": "IN",
+          "label": "印度",
+          "clicks": 0,
+          "impressions": 154
+        },
+        {
+          "code": "DZ",
+          "label": "阿尔及利亚",
+          "clicks": 0,
+          "impressions": 149
         },
         {
           "code": "MX",
           "label": "墨西哥",
           "clicks": 0,
-          "impressions": 83
+          "impressions": 136
+        },
+        {
+          "code": "PK",
+          "label": "巴基斯坦",
+          "clicks": 0,
+          "impressions": 132
+        },
+        {
+          "code": "QA",
+          "label": "卡塔尔",
+          "clicks": 0,
+          "impressions": 124
+        },
+        {
+          "code": "SA",
+          "label": "沙特阿拉伯",
+          "clicks": 0,
+          "impressions": 114
+        },
+        {
+          "code": "IQ",
+          "label": "伊拉克",
+          "clicks": 0,
+          "impressions": 88
+        },
+        {
+          "code": "ES",
+          "label": "西班牙",
+          "clicks": 0,
+          "impressions": 64
         },
         {
           "code": "EG",
@@ -191,64 +228,40 @@
           "impressions": 58
         },
         {
-          "code": "SA",
-          "label": "沙特阿拉伯",
+          "code": "FR",
+          "label": "法国",
           "clicks": 0,
-          "impressions": 57
-        },
-        {
-          "code": "PK",
-          "label": "巴基斯坦",
-          "clicks": 0,
-          "impressions": 55
-        },
-        {
-          "code": "IQ",
-          "label": "伊拉克",
-          "clicks": 0,
-          "impressions": 48
+          "impressions": 54
         },
         {
           "code": "KR",
           "label": "韩国",
           "clicks": 0,
-          "impressions": 45
-        },
-        {
-          "code": "ES",
-          "label": "西班牙",
-          "clicks": 0,
-          "impressions": 42
-        },
-        {
-          "code": "BR",
-          "label": "巴西",
-          "clicks": 0,
-          "impressions": 41
+          "impressions": 47
         },
         {
           "code": "HK",
           "label": "中国香港",
           "clicks": 0,
-          "impressions": 30
+          "impressions": 47
         },
         {
-          "code": "FR",
-          "label": "法国",
+          "code": "BR",
+          "label": "巴西",
           "clicks": 0,
-          "impressions": 30
+          "impressions": 42
         },
         {
           "code": "SG",
           "label": "新加坡",
           "clicks": 0,
-          "impressions": 26
+          "impressions": 30
         },
         {
-          "code": "DE",
-          "label": "德国",
+          "code": "IE",
+          "label": "爱尔兰",
           "clicks": 0,
-          "impressions": 19
+          "impressions": 15
         },
         {
           "code": "IT",
@@ -257,16 +270,16 @@
           "impressions": 15
         },
         {
-          "code": "IE",
-          "label": "爱尔兰",
-          "clicks": 0,
-          "impressions": 12
-        },
-        {
           "code": "CO",
           "label": "哥伦比亚",
           "clicks": 0,
-          "impressions": 11
+          "impressions": 13
+        },
+        {
+          "code": "EC",
+          "label": "厄瓜多尔",
+          "clicks": 0,
+          "impressions": 10
         },
         {
           "code": "AE",
@@ -287,14 +300,14 @@
           "impressions": 9
         },
         {
-          "code": "EC",
-          "label": "厄瓜多尔",
-          "clicks": 0,
-          "impressions": 9
-        },
-        {
           "code": "NZ",
           "label": "新西兰",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "code": "NL",
+          "label": "荷兰",
           "clicks": 0,
           "impressions": 4
         },
@@ -329,8 +342,8 @@
           "impressions": 2
         },
         {
-          "code": "NL",
-          "label": "荷兰",
+          "code": "MM",
+          "label": "缅甸",
           "clicks": 0,
           "impressions": 2
         },
@@ -353,6 +366,12 @@
           "impressions": 2
         },
         {
+          "code": "AR",
+          "label": "阿根廷",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "code": "NG",
           "label": "尼日利亚",
           "clicks": 0,
@@ -361,6 +380,18 @@
         {
           "code": "LB",
           "label": "黎巴嫩",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "code": "MO",
+          "label": "澳门",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "code": "NP",
+          "label": "尼泊尔",
           "clicks": 0,
           "impressions": 1
         },
@@ -391,12 +422,6 @@
         {
           "code": "CR",
           "label": "哥斯达黎加",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "code": "MM",
-          "label": "缅甸",
           "clicks": 0,
           "impressions": 1
         },
@@ -461,14 +486,14 @@
           "impressions": 1
         },
         {
-          "code": "AR",
-          "label": "阿根廷",
+          "code": "GW",
+          "label": "几内亚比绍",
           "clicks": 0,
           "impressions": 1
         },
         {
-          "code": "GW",
-          "label": "几内亚比绍",
+          "code": "AT",
+          "label": "奥地利",
           "clicks": 0,
           "impressions": 1
         },
@@ -509,6 +534,12 @@
           "impressions": 1
         },
         {
+          "code": "GE",
+          "label": "格鲁吉亚",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "code": "TN",
           "label": "突尼斯",
           "clicks": 0,
@@ -537,62 +568,62 @@
         {
           "code": "MOBILE",
           "label": "移动设备",
-          "clicks": 14,
-          "impressions": 677
+          "clicks": 18,
+          "impressions": 1000
         },
         {
           "code": "DESKTOP",
           "label": "桌面",
-          "clicks": 11,
-          "impressions": 9326
+          "clicks": 14,
+          "impressions": 11808
         },
         {
           "code": "TABLET",
           "label": "平板电脑",
           "clicks": 1,
-          "impressions": 28
+          "impressions": 43
         }
       ]
     },
     "diagnostics": {
       "queryVisibility": {
         "visibleRows": 1000,
-        "visibleClicks": 2,
-        "visibleImpressions": 2407,
-        "impressionCoveragePercent": 24,
-        "chineseRows": 44,
-        "chineseClicks": 1,
-        "chineseImpressions": 98,
-        "chineseShareOfVisibleImpressions": 4.1,
+        "visibleClicks": 3,
+        "visibleImpressions": 2719,
+        "impressionCoveragePercent": 21.2,
+        "chineseRows": 48,
+        "chineseClicks": 2,
+        "chineseImpressions": 131,
+        "chineseShareOfVisibleImpressions": 4.8,
         "note": "仅保存汇总值；原始查询留在私有报告，不写入公开记分卡。"
       },
       "devices": [
         {
           "code": "MOBILE",
           "label": "移动设备",
-          "clicks": 14,
-          "impressions": 677,
-          "clickShare": 53.8,
-          "impressionShare": 6.7,
-          "ctr": 2.1
+          "clicks": 18,
+          "impressions": 1000,
+          "clickShare": 54.5,
+          "impressionShare": 7.8,
+          "ctr": 1.8
         },
         {
           "code": "DESKTOP",
           "label": "桌面",
-          "clicks": 11,
-          "impressions": 9326,
-          "clickShare": 42.3,
-          "impressionShare": 93,
+          "clicks": 14,
+          "impressions": 11808,
+          "clickShare": 42.4,
+          "impressionShare": 91.9,
           "ctr": 0.1
         },
         {
           "code": "TABLET",
           "label": "平板电脑",
           "clicks": 1,
-          "impressions": 28,
-          "clickShare": 3.8,
+          "impressions": 43,
+          "clickShare": 3,
           "impressionShare": 0.3,
-          "ctr": 3.6
+          "ctr": 2.3
         }
       ],
       "audienceAnomalies": [
@@ -600,22 +631,22 @@
           "code": "VN",
           "label": "越南",
           "clicks": 0,
-          "impressions": 4310,
-          "impressionShare": 43
+          "impressions": 4600,
+          "impressionShare": 35.8
         }
       ],
       "indexingNoise": {
         "routes": 8,
-        "impressions": 5816,
-        "relativeToPropertyImpressionsPercent": 58,
+        "impressions": 6177,
+        "relativeToPropertyImpressionsPercent": 48.1,
         "overdue": 0,
         "note": "来自页面维度历史数据，与全站属性总量口径不同，只能观察规模，不能直接相减。"
       }
     },
     "pageDimension": {
       "indexableRows": 120,
-      "clickSum": 24,
-      "impressionSum": 5132,
+      "clickSum": 31,
+      "impressionSum": 7636,
       "note": "仅用于页面排名和页面机会分析，不作为全站总量。"
     },
     "cadence": {
@@ -632,7 +663,7 @@
         "targetMax": 3,
         "status": "on-target"
       },
-      "activeCooldowns": 26,
+      "activeCooldowns": 30,
       "nextCooldownDate": "2026-08-07"
     },
     "quality": {
@@ -649,19 +680,19 @@
   },
   "checks": {
     "clicks": {
-      "actual": 26,
+      "actual": 33,
       "target": 500,
       "unit": "clicks",
-      "progressPercent": 5.2,
-      "remaining": 474,
+      "progressPercent": 6.6,
+      "remaining": 467,
       "met": false
     },
     "impressions": {
-      "actual": 10031,
+      "actual": 12851,
       "target": 50000,
       "unit": "impressions",
-      "progressPercent": 20.1,
-      "remaining": 39969,
+      "progressPercent": 25.7,
+      "remaining": 37149,
       "met": false
     },
     "ctr": {
@@ -673,26 +704,26 @@
       "met": false
     },
     "top20Pages": {
-      "actual": 15,
+      "actual": 13,
       "target": 30,
       "unit": "pages",
-      "progressPercent": 50,
-      "remaining": 15,
+      "progressPercent": 43.3,
+      "remaining": 17,
       "met": false
     },
     "top10Pages": {
-      "actual": 4,
+      "actual": 3,
       "target": 15,
       "unit": "pages",
-      "progressPercent": 26.7,
-      "remaining": 11,
+      "progressPercent": 20,
+      "remaining": 12,
       "met": false
     },
     "usClickShare": {
-      "actual": 73.1,
+      "actual": 75.8,
       "target": 70,
       "unit": "percent",
-      "progressPercent": 104.4,
+      "progressPercent": 108.3,
       "remaining": 0,
       "met": true
     }
@@ -710,8 +741,8 @@
     "8 个高风险页面正在等待当前内容版本的人工复核；这些页面保持 noindex，不计入可索引页面质量通过率。",
     "当前快照是 28 天窗口，只能跟踪趋势，不能证明 30 天目标完成。",
     "页面维度与全站属性采用不同聚合口径，本报告还会排除当前 noindex 页面，不能用页面行求和替代全站曝光总量。",
-    "8 个已 noindex 页面仍有 5816 次历史页面维度曝光，相当于全站属性曝光的 58%；两者口径不同，不能直接相减。",
+    "8 个已 noindex 页面仍有 6177 次历史页面维度曝光，相当于全站属性曝光的 48.1%；两者口径不同，不能直接相减。",
     "发现 1 个非目标国家有大量曝光但没有点击，不应据此扩写泛英文内容。",
-    "移动端仅占 6.7% 曝光，却贡献 53.8% 点击；移动端中文办事体验应作为增长基线。"
+    "移动端仅占 7.8% 曝光，却贡献 54.5% 点击；移动端中文办事体验应作为增长基线。"
   ]
 }

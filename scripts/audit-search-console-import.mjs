@@ -119,8 +119,12 @@ try {
       'https://dmvcn.com/topics/real-id-basics/,0,1,0%,18\n',
     '国家_地区.csv':
       '国家/地区,点击次数,展示,点击率,排名\n' +
-      '美国,3,250,1.2%,15\n' +
-      '越南,0,50,0%,25\n',
+      '美国,3,246,1.22%,15\n' +
+      '越南,0,50,0%,25\n' +
+      '澳门,0,1,0%,30\n' +
+      '尼泊尔,0,1,0%,30\n' +
+      '奥地利,0,1,0%,30\n' +
+      '格鲁吉亚,0,1,0%,30\n',
     '设备.csv':
       '设备,点击次数,展示,点击率,排名\n' +
       '移动设备,2,100,2%,12\n' +
@@ -286,6 +290,12 @@ try {
   check(
     segments.devices.reduce((sum, item) => sum + item.impressions, 0) === 300,
     'Device totals were not preserved.',
+  );
+  check(
+    ['MO', 'NP', 'AT', 'GE'].every((code) =>
+      segments.countries.some((country) => country.code === code),
+    ),
+    'Less common country codes were not imported.',
   );
 
   const unreviewed = signals.find(

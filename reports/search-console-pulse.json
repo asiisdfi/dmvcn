@@ -1,63 +1,70 @@
 {
-  "generatedAt": "2026-07-24T21:04:00+08:00",
+  "generatedAt": "2026-08-01T18:30:47+08:00",
   "source": {
     "property": "sc-domain:dmvcn.com",
     "pulseWindow": {
       "label": "最近 24 小时",
       "hours": 24,
-      "dataShownFrom": "2026-07-23",
-      "dataShownThrough": "2026-07-24",
+      "dataShownFrom": "2026-07-31",
+      "dataShownThrough": "2026-08-01",
       "timeZone": "Asia/Shanghai",
       "provisional": true,
-      "lastUpdatedHoursAgo": 4.5
+      "lastUpdatedHoursAgo": 2.5
     },
     "baselineWindow": {
       "label": "过去 28 天",
       "days": 28,
       "dataShownFrom": "2026-07-12",
-      "dataShownThrough": "2026-07-26",
-      "timeZone": "Asia/Shanghai"
+      "dataShownThrough": "2026-07-29",
+      "timeZone": "Asia/Shanghai",
+      "verification": {
+        "verified": true,
+        "method": "filter-label",
+        "labelDays": 28,
+        "chartSpanDays": 18,
+        "requestedDays": null
+      }
     },
     "dataPolicy": "24 小时数据仅用于异常监控和观察队列；不保存原始查询，不替代 30 天目标验收。"
   },
   "metrics": {
     "propertyTotals": {
-      "clicks": 3,
-      "impressions": 868,
-      "ctr": 0.3,
-      "position": 35.9
+      "clicks": 1,
+      "impressions": 607,
+      "ctr": 0.2,
+      "position": 42.2
     },
     "unitedStates": {
-      "clicks": 3,
-      "impressions": 193,
-      "ctr": 1.6,
-      "position": 37,
+      "clicks": 1,
+      "impressions": 226,
+      "ctr": 0.4,
+      "position": 48.8,
       "clickShare": 100,
-      "impressionShare": 22.2
+      "impressionShare": 37.2
     },
     "vietnam": {
       "clicks": 0,
-      "impressions": 591,
+      "impressions": 50,
       "ctr": 0,
-      "position": 35.9,
-      "impressionShare": 68.1
+      "position": 37.9,
+      "impressionShare": 8.2
     },
     "devices": [
       {
         "code": "MOBILE",
         "label": "移动设备",
-        "clicks": 2,
-        "impressions": 67,
-        "ctr": 3,
-        "position": 18.7
+        "clicks": 1,
+        "impressions": 54,
+        "ctr": 1.9,
+        "position": 22.2
       },
       {
         "code": "DESKTOP",
         "label": "桌面",
-        "clicks": 1,
-        "impressions": 799,
-        "ctr": 0.1,
-        "position": 37.3
+        "clicks": 0,
+        "impressions": 551,
+        "ctr": 0,
+        "position": 44.3
       },
       {
         "code": "TABLET",
@@ -65,25 +72,25 @@
         "clicks": 0,
         "impressions": 2,
         "ctr": 0,
-        "position": 43
+        "position": 6
       }
     ],
     "unitedStatesDevices": [
       {
         "code": "MOBILE",
         "label": "移动设备",
-        "clicks": 2,
-        "impressions": 64,
-        "ctr": 3.1,
-        "position": 19.2
+        "clicks": 1,
+        "impressions": 47,
+        "ctr": 2.1,
+        "position": 22.3
       },
       {
         "code": "DESKTOP",
         "label": "桌面",
-        "clicks": 1,
-        "impressions": 127,
-        "ctr": 0.8,
-        "position": 45.9
+        "clicks": 0,
+        "impressions": 174,
+        "ctr": 0,
+        "position": 57.2
       },
       {
         "code": "TABLET",
@@ -91,77 +98,69 @@
         "clicks": 0,
         "impressions": 2,
         "ctr": 0,
-        "position": 43
+        "position": 6
+      },
+      {
+        "code": "OTHER",
+        "label": "未按设备细分",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 0
       }
     ]
   },
   "diagnostics": {
     "baselineDaily": {
-      "observedDays": 15,
-      "clicks": 1.7,
-      "impressions": 668.7,
-      "unitedStatesClicks": 1.3,
-      "unitedStatesImpressions": 180.7,
-      "vietnamImpressions": 287.3
+      "observedDays": 18,
+      "clicks": 1.8,
+      "impressions": 713.9,
+      "unitedStatesClicks": 1.4,
+      "unitedStatesImpressions": 193.8,
+      "vietnamImpressions": 255.6
     },
     "momentum": {
-      "clicksPercentOfBaselineDaily": 176.5,
-      "impressionsPercentOfBaselineDaily": 129.8,
-      "unitedStatesClicksPercentOfBaselineDaily": 230.8,
-      "unitedStatesImpressionsPercentOfBaselineDaily": 106.8,
-      "vietnamImpressionsPercentOfBaselineDaily": 205.7
+      "clicksPercentOfBaselineDaily": 55.6,
+      "impressionsPercentOfBaselineDaily": 85,
+      "unitedStatesClicksPercentOfBaselineDaily": 71.4,
+      "unitedStatesImpressionsPercentOfBaselineDaily": 116.6,
+      "vietnamImpressionsPercentOfBaselineDaily": 19.6
     },
     "audienceNoise": {
-      "noiseDominated": true,
+      "noiseDominated": false,
       "country": "VN",
-      "impressions": 591,
-      "impressionShare": 68.1
+      "impressions": 50,
+      "impressionShare": 8.2
     },
     "noindexVisibility": {
       "routes": 3,
       "clicks": 0,
-      "impressions": 432,
-      "relativeToPropertyImpressionsPercent": 49.8,
+      "impressions": 0,
+      "relativeToPropertyImpressionsPercent": 0,
       "evaluateAfter": "2026-08-21",
       "note": "这是历史可见性规模提示，页面维度与全站属性口径不同，不能从全站曝光中直接相减。"
     },
     "clickedPageQueue": [
       {
-        "route": "/topics/temporary-tag-trip-permit-dealer-plate/",
+        "route": "/topics/lost-stolen-license-plates-registration-card-sticker/",
         "clicks": 1,
-        "impressions": 9,
-        "state": "observe-query-needed",
-        "earliestDecisionDate": "2026-08-01",
-        "note": "24 小时点击只进入观察队列；取得完整页面查询证据后才可安排内容动作。"
-      },
-      {
-        "route": "/topics/vehicle-title-registration-insurance-after-move/",
-        "clicks": 1,
-        "impressions": 7,
+        "impressions": 30,
         "state": "cooldown",
         "earliestDecisionDate": "2026-08-07",
         "note": "已完成内容动作，等待冷却期后使用完整查询数据复评。"
-      },
-      {
-        "route": "/topics/real-id-basics/",
-        "clicks": 1,
-        "impressions": 1,
-        "state": "observe-query-needed",
-        "earliestDecisionDate": "2026-08-01",
-        "note": "24 小时点击只进入观察队列；取得完整页面查询证据后才可安排内容动作。"
       }
     ],
     "visibleRows": {
-      "pages": 95,
-      "queries": 205,
+      "pages": 106,
+      "queries": 189,
       "rawQueriesPublished": false
     }
   },
   "execution": {
-    "searchPlanStatus": "hold-cadence",
+    "searchPlanStatus": "hold-no-qualified-query",
     "allowedNow": 0,
     "nextEligibleDate": "2026-08-01",
-    "nextEligibleSlots": 3
+    "nextEligibleSlots": 1
   },
   "status": {
     "provisional": true,
@@ -169,8 +168,8 @@
     "contentActionAllowed": false,
     "rawTrafficElevated": false,
     "qualifiedUsExposureTrend": "stable",
-    "noiseDominated": true,
-    "interpretation": "总曝光上升主要受非目标国家和历史索引可见性影响；美国点击信号单独观察。"
+    "noiseDominated": false,
+    "interpretation": "未发现主导总量的非目标曝光，仍需完整查询数据后再决定内容动作。"
   },
   "warnings": [
     "24 小时数据会持续补录和波动，不得用于宣称长期目标达标。",

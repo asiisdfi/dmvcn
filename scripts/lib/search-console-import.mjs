@@ -40,6 +40,8 @@ const COUNTRY_CODES = new Map(Object.entries({
   西班牙: 'ES',
   巴西: 'BR',
   中国香港: 'HK',
+  澳门: 'MO',
+  中国澳门: 'MO',
   法国: 'FR',
   新加坡: 'SG',
   德国: 'DE',
@@ -83,7 +85,10 @@ const COUNTRY_CODES = new Map(Object.entries({
   尼加拉瓜: 'NI',
   瑞典: 'SE',
   挪威: 'NO',
+  奥地利: 'AT',
+  格鲁吉亚: 'GE',
   斯里兰卡: 'LK',
+  尼泊尔: 'NP',
   瑞士: 'CH',
   塞内加尔: 'SN',
   突尼斯: 'TN',
@@ -97,6 +102,11 @@ const COUNTRY_CODES = new Map(Object.entries({
   Canada: 'CA',
   Vietnam: 'VN',
   Indonesia: 'ID',
+  Macao: 'MO',
+  Macau: 'MO',
+  Nepal: 'NP',
+  Austria: 'AT',
+  Georgia: 'GE',
   'United Kingdom': 'GB',
   Russia: 'RU',
 }));
@@ -517,14 +527,23 @@ export async function importSearchConsoleExport({
   const segmentPath = path.join(privateDir, 'search-console-segments.json');
   const countryCodes = await previousCountryCodes(segmentPath);
   const propertyTotals = buildPropertyTotals(globalFiles.chart.rows);
+  const missingCountryLabels = [
+    ...new Set(
+      globalFiles.countries.rows
+        .map((row) => cell(row, ['国家/地区', 'country']))
+        .filter((label) => label && !countryCodes.has(label)),
+    ),
+  ];
+  if (missingCountryLabels.length) {
+    throw new Error(
+      `Country codes are not registered for: ${missingCountryLabels
+        .map((label) => `"${label}"`)
+        .join(', ')}; add them before importing.`,
+    );
+  }
   const countries = globalFiles.countries.rows.map((row) => {
     const label = cell(row, ['国家/地区', 'country']);
     const code = countryCodes.get(label);
-    if (!code) {
-      throw new Error(
-        `Country code is not registered for "${label}"; add it before importing.`,
-      );
-    }
     return {
       code,
       label,
