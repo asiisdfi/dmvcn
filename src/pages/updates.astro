@@ -1,68 +1,27 @@
 ---
-import { ArrowRight, History } from '@lucide/astro/icons';
+import { ArrowRight } from '@lucide/astro/icons';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ContentMeta from '../components/ContentMeta.astro';
-import { EDITORIAL_LINKS, EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE, editorialUpdates } from '../data/editorial';
-
-const latestUpdate = editorialUpdates[0]?.date ?? EDITORIAL_POLICY_DATE;
-
-const publicUpdateText = (text: string) => text
-  .replace(/补齐 (\d+) 条页面级显式来源映射/g, '为 $1 条关键要求补上对应出处')
-  .replace(/登记 (\d+) 条(?:去重|独立)声明的显式来源/g, '为 $1 条关键要求登记出处')
-  .replace(/(\d+) 条显式来源映射/g, '$1 条关键要求有对应出处')
-  .replaceAll('页面级显式来源映射', '页面要求与政府来源的对应关系')
-  .replaceAll('显式来源映射', '关键要求与来源对应')
-  .replaceAll('页面声明到官方来源的映射', '页面要求与政府来源的对应关系')
-  .replaceAll('官方正文语义核对', '政府资料核对')
-  .replaceAll('官方语义核对', '政府资料核对')
-  .replaceAll('官方证据核对', '政府来源核对')
-  .replaceAll('语义核对', '内容核对')
-  .replaceAll('证据核对', '来源核对')
-  .replaceAll('逐条比对', '对照')
-  .replaceAll('逐条打开', '打开并核对')
-  .replaceAll('逐条审查', '核对')
-  .replaceAll('成品 HTML 证据门禁', '上线前来源检查')
-  .replaceAll('构建审计', '上线前检查');
 ---
 
 <BaseLayout
-  title="内容更新记录"
-  description="查看 DMV中文办事库的重要内容修正、官方来源变化、编辑政策调整和质量维护机制更新记录。"
-  publishedAt={SITE_LAUNCH_DATE}
-  modifiedAt={latestUpdate}
-  reviewedAt={latestUpdate}
+  title="更多办事内容"
+  description="继续浏览 DMV中文办事库的州指南、办事事项、政府入口表和中文驾照练习。"
 >
   <section class="page-hero">
     <div class="section">
-      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>更新记录</span></nav>
-      <p class="eyebrow">Changelog</p>
-      <h1>内容更新记录</h1>
-      <p class="lead">这里记录会影响内容可信度、用户判断或站点维护方式的重要变化。纯样式调整和无关代码整理不会伪装成内容更新。</p>
-      <div class="article-meta">
-        <ContentMeta publishedAt={SITE_LAUNCH_DATE} modifiedAt={latestUpdate} reviewedAt={latestUpdate} />
-      </div>
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>更多内容</span></nav>
+      <p class="eyebrow">更多内容</p>
+      <h1>继续查找 DMV 办事信息</h1>
+      <p class="lead">可以按州、按事项或按政府服务入口继续浏览。</p>
     </div>
   </section>
 
-  <section class="section policy-layout">
-    <div class="update-timeline">
-      {editorialUpdates.map((update) => (
-        <article class="update-entry">
-          <div class="update-date"><History size={17} aria-hidden="true" /><time datetime={update.date}>{update.date}</time></div>
-          <div>
-            <h2>{publicUpdateText(update.title)}</h2>
-            <p>{publicUpdateText(update.summary)}</p>
-            <ul class="tag-list" aria-label="变更范围">
-              {update.scope.map((item) => <li>{publicUpdateText(item)}</li>)}
-            </ul>
-          </div>
-        </article>
-      ))}
+  <section class="section">
+    <div class="directory-link-list">
+      <a href="/states/"><span><strong>50 州指南</strong><small>州 DMV、驾照、州身份证和 REAL ID。</small></span><ArrowRight size={17} aria-hidden="true" /></a>
+      <a href="/topics/"><span><strong>事项大全</strong><small>材料、步骤、常见问题和州别差异。</small></span><ArrowRight size={17} aria-hidden="true" /></a>
+      <a href="/directories/"><span><strong>政府入口表</strong><small>预约、考试、材料和线上服务入口。</small></span><ArrowRight size={17} aria-hidden="true" /></a>
+      <a href="/practice-tests/"><span><strong>中文笔试练习</strong><small>按州练习并查看答案解释。</small></span><ArrowRight size={17} aria-hidden="true" /></a>
     </div>
-
-    <nav class="policy-links" aria-label="相关政策">
-      <a href={EDITORIAL_LINKS.corrections}>报告错误 <ArrowRight size={15} aria-hidden="true" /></a>
-      <a href={EDITORIAL_LINKS.policy}>查看编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
-    </nav>
   </section>
 </BaseLayout>

@@ -1,18 +1,16 @@
 ---
-import { AlertTriangle, ArrowRight, FileCheck2, RefreshCw, SearchCheck } from '@lucide/astro/icons';
+import { ArrowRight, FileText, ListChecks, MapPinned } from '@lucide/astro/icons';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ContentMeta from '../components/ContentMeta.astro';
 import {
   EDITORIAL_AUTHOR,
-  EDITORIAL_LINKS,
   EDITORIAL_POLICY_DATE,
   EDITORIAL_POLICY_MODIFIED_DATE,
 } from '../data/editorial';
 
 const schema = {
   '@type': 'WebPage',
-  name: 'DMV中文办事库编辑政策',
-  description: 'DMV中文办事库编辑政策：选题、政府来源、事实核对、风险分级、更新和上线检查。',
+  name: 'DMV中文办事库内容说明',
+  description: 'DMV中文办事库如何组织州级 DMV、REAL ID、驾照和车辆手续信息。',
   url: new URL('/editorial-policy/', Astro.site).toString(),
   datePublished: EDITORIAL_POLICY_DATE,
   dateModified: EDITORIAL_POLICY_MODIFIED_DATE,
@@ -34,109 +32,37 @@ const schema = {
 ---
 
 <BaseLayout
-  title="编辑政策"
-  description="DMV中文办事库编辑政策：选题、政府来源、事实核对、风险分级、更新和上线检查。"
-  publishedAt={EDITORIAL_POLICY_DATE}
-  modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE}
-  reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE}
+  title="内容说明"
+  description="DMV中文办事库如何组织州级 DMV、REAL ID、驾照和车辆手续信息。"
   schema={schema}
 >
   <section class="page-hero">
     <div class="section">
-      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>编辑政策</span></nav>
-      <p class="eyebrow">Publishing principles</p>
-      <h1>编辑政策</h1>
-      <p class="lead">我们的目标不是重写 DMV 官网，而是帮助中文用户做出下一步判断，同时让每项重要要求都能回到官方来源核对。</p>
-      <div class="article-meta">
-        <ContentMeta publishedAt={EDITORIAL_POLICY_DATE} modifiedAt={EDITORIAL_POLICY_MODIFIED_DATE} reviewedAt={EDITORIAL_POLICY_MODIFIED_DATE} />
-      </div>
+      <nav class="breadcrumbs" aria-label="面包屑"><a href="/">首页</a><span>/</span><span>内容说明</span></nav>
+      <p class="eyebrow">内容说明</p>
+      <h1>围绕实际办事任务整理</h1>
+      <p class="lead">每个页面尽量让用户先判断路径，再准备材料，最后进入对应政府系统。</p>
     </div>
   </section>
 
   <section class="section policy-layout">
     <div class="article-stack">
       <section class="panel">
-        <div class="policy-heading"><SearchCheck size={22} aria-hidden="true" /><h2>选题标准</h2></div>
-        <p>页面必须对应真实办事任务，例如判断证件类型、准备材料、选择线上或现场路径、处理失败原因或找到官方入口。只有搜索量、没有独立用户价值的关键词，不单独建页。</p>
+        <div class="policy-heading"><MapPinned size={22} aria-hidden="true" /><h2>州别优先</h2></div>
+        <p>驾照、州身份证、REAL ID、车辆登记和考试规则由各州分别管理。州指南负责说明主管机构、主要入口和常见业务。</p>
       </section>
-
       <section class="panel">
-        <div class="policy-heading"><FileCheck2 size={22} aria-hidden="true" /><h2>来源优先级</h2></div>
-        <ol class="step-list">
-          <li>联邦或州政府业务主管机构的正式页面、表格和说明。</li>
-          <li>USA.gov 等政府目录，用于确认机构和备用入口。</li>
-          <li>政府公告、FAQ、手册和可下载文件，用于补充细节。</li>
-          <li>新闻、论坛、搜索摘要和其他网站只能提供选题线索，不能作为办事要求的最终依据。</li>
-        </ol>
+        <div class="policy-heading"><ListChecks size={22} aria-hidden="true" /><h2>按任务组织</h2></div>
+        <p>事项页围绕材料清单、办理顺序、线上与现场分流、州别差异和常见失败原因展开。</p>
       </section>
-
       <section class="panel">
-        <div class="policy-heading"><RefreshCw size={22} aria-hidden="true" /><h2>来源链接巡检</h2></div>
-        <p>本站每月分批检查内容使用的政府 URL，并记录检查日期、访问状态和来源清单指纹。新增或替换政府 URL 后，必须先完成检查，网站才能通过发布门禁。</p>
-        <ul class="check-list">
-          <li>2xx 和 3xx 只表示入口可以自动访问，不代表正文结论自动得到确认。</li>
-          <li>403、限流、服务器暂时错误和网络超时进入观察，由编辑从机构主页或普通浏览器复查。</li>
-          <li>普通 404、410 和异常跳转需要查找当前官方入口，不能用旧链接继续支撑事实。</li>
-          <li>链接状态检查与页面事实核对分别记录，不能互相替代。</li>
-        </ul>
+        <div class="policy-heading"><FileText size={22} aria-hidden="true" /><h2>政府入口</h2></div>
+        <p>费用、表格、预约、资格和申请操作都连接到主管政府机构页面，便于直接继续办理。</p>
       </section>
-
-      <section class="panel">
-        <div class="policy-heading"><RefreshCw size={22} aria-hidden="true" /><h2>易变规则月度复核</h2></div>
-        <p>费用、期限、材料、身份、考试、旅行证件和车辆规则等聚合入口使用 30 天滚动复核周期。复核时需要重新打开政府来源并核对页面结论，不能用“链接还能打开”代替事实检查。</p>
-        <ul class="check-list">
-          <li>系统同时读取页面公开的事实核对日期和证据复核日期，并从较早的一天开始计时。</li>
-          <li>只改标题、摘要、样式或构建代码，不会延后事实复核截止日。</li>
-          <li>超过 30 天未完成复核时，下一次构建和发布会停止。</li>
-          <li>发现高风险事实变化后，仍须完成人工核对才能继续收录。</li>
-        </ul>
-        <p><a class="text-link" href={EDITORIAL_LINKS.quality}>查看当前复核日历</a></p>
-      </section>
-
-      <section class="panel">
-        <div class="policy-heading"><AlertTriangle size={22} aria-hidden="true" /><h2>高风险事实</h2></div>
-        <p>费用、期限、资格、身份文件、SSN、非公民路径、暂停或恢复驾照、处罚、车辆所有权和法律后果属于高风险事实。发布时必须：</p>
-        <ul class="check-list">
-          <li>在正文附近显示对应官方来源，而不只是页尾放一批链接。</li>
-          <li>区分联邦规则、州规则、一般方向和个案例外。</li>
-          <li>避免“保证、一定、所有人、永久有效”等超过来源支持范围的表述。</li>
-          <li>无法确认时明确标注不确定性，并把用户送回官方机构。</li>
-        </ul>
-      </section>
-
-      <section class="panel">
-        <div class="policy-heading"><FileCheck2 size={22} aria-hidden="true" /><h2>中文练习题</h2></div>
-        <p>州级驾照练习题按当前州主管机构资料独立编写，不汇编来历不明的“美国通用题库”。发布时遵循以下规则：</p>
-        <ul class="check-list">
-          <li>每题对应当前州 Driver Manual、考试说明或其他政府官方章节。</li>
-          <li>题干、选项和中文解释由本站重新组织，不复制旧中文站、论坛或第三方题库。</li>
-          <li>每题显示解释、易错点和官方入口，并记录最后事实核对日期。</li>
-          <li>练习页明确不是正式真题，不承诺出现原题或保证通过考试。</li>
-          <li>官方页面互相冲突时公开列出差异，不替政府猜测结论。</li>
-        </ul>
-      </section>
-
-      <section class="panel">
-        <div class="policy-heading"><RefreshCw size={22} aria-hidden="true" /><h2>日期和更新</h2></div>
-        <dl class="definition-list">
-          <div><dt>首次发布</dt><dd>页面第一次公开提供的日期，后续更新不会覆盖。</dd></div>
-          <div><dt>内容更新</dt><dd>页面正文、结论、结构或来源发生实质变化的日期。</dd></div>
-          <div><dt>事实核对</dt><dd>DMVCN 官方编辑最后一次回到政府来源确认重要要求的日期。</dd></div>
-        </dl>
-        <p>只改拼写、样式或构建代码时，不会把事实核对日期伪装成最新日期。具体变更会记录在<a class="text-link" href={EDITORIAL_LINKS.updates}>更新记录</a>。</p>
-      </section>
-
-      <section class="panel">
-        <h2>上线前检查</h2>
-        <p>新页面或重大更新必须检查来源、署名、三类日期、结构化数据、内部链接和移动端显示。涉及费用、身份、资格或法律后果的页面，还要由真实人员对照政府来源复查。</p>
-        <p>没有完成复核的高风险页面可以暂时保留给编辑检查，但会标记为 <code>noindex,follow</code>，也不会进入 sitemap。审核人、日期和范围登记完整后，下一次网站更新才会恢复收录。</p>
-        <p>人工签字只覆盖签字时看到的内容版本。高风险页面后来发生实质修改时，旧签字自动失效；修改后的正文重新完成真实人工语义核查前，页面会再次退出索引。</p>
-      </section>
-
-      <nav class="policy-links" aria-label="相关政策">
-        <a href={EDITORIAL_AUTHOR.path}>编辑介绍 <ArrowRight size={15} aria-hidden="true" /></a>
-        <a href={EDITORIAL_LINKS.ai}>工具使用说明 <ArrowRight size={15} aria-hidden="true" /></a>
-        <a href={EDITORIAL_LINKS.corrections}>纠错政策 <ArrowRight size={15} aria-hidden="true" /></a>
+      <nav class="policy-links" aria-label="相关页面">
+        <a href="/states/">州指南 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href="/topics/">事项大全 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href="/directories/">政府入口表 <ArrowRight size={15} aria-hidden="true" /></a>
       </nav>
     </div>
   </section>

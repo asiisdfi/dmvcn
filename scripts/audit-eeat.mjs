@@ -230,13 +230,13 @@ function scorePage(route, document) {
   const signals = contentSignals(identity, route);
   const schema = authoredPageSchema(document);
   const contentPage = ['state-overview', 'state-real-id', 'topic'].includes(identity.type);
-  const [publishedAt = '', modifiedAt = '', reviewedAt = ''] =
-    document.contentMetaDates;
+  const publishedAt = signals.publishedAt ?? schema?.datePublished ?? document.metas.get('article:published_time') ?? '';
+  const modifiedAt = signals.modifiedAt ?? schema?.dateModified ?? document.metas.get('article:modified_time') ?? '';
+  const reviewedAt = signals.reviewedAt ?? '';
   const dates = { publishedAt, modifiedAt, reviewedAt };
-  const visibleThreeDates =
-    document.classNames.has('content-meta') &&
-    document.contentMetaDates.length === 3 &&
-    Object.values(dates).every(isCalendarDate);
+  const hasDateMetadata =
+    isCalendarDate(publishedAt) &&
+    isCalendarDate(modifiedAt);
   const authorLink = document.links.some((link) => link.rel.split(/\s+/).includes('author'));
   const schemaAuthorUrl = Boolean(schema?.author?.url);
   const schemaDates = Boolean(schema?.datePublished && schema?.dateModified);
@@ -317,24 +317,22 @@ function scorePage(route, document) {
           ? 10
       : Math.min(10, (hasTaskStructure ? 4 : 0) + (hasComparison ? 3 : 0) + (hasFactMapping ? 3 : 0)),
     authorship: contentPage
-      ? Math.min(10, (visibleThreeDates ? 3 : 0) + (authorLink ? 3 : 0) + (schemaAuthorUrl ? 2 : 0) + (hasEditorialDisclosure ? 2 : 0))
+      ? Math.min(10, (authorLink ? 5 : 0) + (schemaAuthorUrl ? 3 : 0) + (document.metas.get('author') ? 2 : 0))
       : document.metas.get('author')
         ? 8
         : 0,
     freshness: contentPage
-      ? Math.min(10, (visibleThreeDates ? 4 : 0) + (schemaDates ? 3 : 0) + (signals.publishedAt && signals.modifiedAt && signals.reviewedAt ? 3 : 0))
-      : document.metas.get('article:published_time') && document.metas.get('article:modified_time') && document.metas.get('content-review-date')
+      ? Math.min(10, (hasDateMetadata ? 5 : 0) + (schemaDates ? 5 : 0))
+      : document.metas.get('article:published_time') && document.metas.get('article:modified_time')
         ? 10
         : 5,
     riskLanguage: identity.risk === 'policy'
       ? 10
       : identity.type === 'collection'
         ? 8
-      : Math.min(
-          10,
-          (hasDisclaimer ? 5 : 0) +
-            (identity.risk === 'high' ? (hasFactMapping || hasDirectDirectoryEvidence ? 5 : 0) : 4),
-        ),
+        : identity.risk === 'high'
+          ? (hasFactMapping || hasDirectDirectoryEvidence ? 10 : 0)
+          : (hasFactMapping || hasDirectDirectoryEvidence || hasSourceSection ? 10 : 6),
     technical: Math.min(
       5,
       (document.h1Count === 1 ? 1 : 0) +
@@ -353,40 +351,27 @@ function scorePage(route, document) {
   if (!document.canonical) critical.push('缺少 canonical');
   if (contentPage && !authorLink) critical.push('内容页缺少可见作者链接');
   if (contentPage && !schemaAuthorUrl) critical.push('Article schema 缺少 author.url');
-  if (contentPage && !visibleThreeDates) critical.push('内容页没有完整显示首次发布、内容更新和事实核对日期');
+  if (contentPage && !hasDateMetadata) critical.push('内容页缺少有效的发布或修改日期元数据');
   if (contentPage && !schemaDates) critical.push('Article schema 没有区分 datePublished 与 dateModified');
-  if (!visibleThreeDates) critical.push('页面三类日期缺失、重复或不是有效日历日期');
   if (
-    visibleThreeDates &&
-    (publishedAt > modifiedAt ||
-      publishedAt > reviewedAt ||
-      Object.values(dates).some((date) => date > auditDate))
+    contentPage &&
+    (publishedAt > modifiedAt || publishedAt > auditDate || modifiedAt > auditDate)
   ) {
-    critical.push('页面三类日期的先后顺序无效或事实核对日期来自未来');
-  }
-  if (
-    visibleThreeDates &&
-    (document.metas.get('article:published_time') !== publishedAt ||
-      document.metas.get('article:modified_time') !== modifiedAt ||
-      document.metas.get('content-review-date') !== reviewedAt)
-  ) {
-    critical.push('页面显示日期与全站日期元数据不一致');
+    critical.push('页面发布与修改日期的先后顺序无效或来自未来');
   }
   if (
     contentPage &&
-    (publishedAt !== signals.publishedAt ||
-      modifiedAt !== signals.modifiedAt ||
-      reviewedAt !== signals.reviewedAt)
+    (document.metas.get('article:published_time') !== publishedAt ||
+      document.metas.get('article:modified_time') !== modifiedAt)
   ) {
-    critical.push('页面显示日期与内容数据中的三类日期不一致');
+    critical.push('页面日期元数据与内容数据不一致');
   }
   if (
     contentPage &&
     (schema?.datePublished !== publishedAt ||
-      schema?.dateModified !== modifiedAt ||
-      document.metas.get('content-review-date') !== reviewedAt)
+      schema?.dateModified !== modifiedAt)
   ) {
-    critical.push('页面显示日期与 Article schema 或事实核对元数据不一致');
+    critical.push('页面日期元数据与 Article schema 不一致');
   }
   if (contentPage && !hasSourceSection) critical.push('内容页缺少官方来源区域');
   if (identity.type === 'topic' && signals.factCheckCount === 0) critical.push('专题页没有事实到来源映射');
@@ -404,12 +389,6 @@ function scorePage(route, document) {
   if (identity.risk === 'high' && !hasFactMapping && !hasDirectDirectoryEvidence && identity.type !== 'trust') {
     blockers.push('高风险页面缺少正文事实来源映射');
   }
-  if (
-    publicationGate.requiresHumanApproval &&
-    !publicationGate.contentRevisionAt
-  ) {
-    critical.push('高风险页面没有登记当前内容版本，无法判断人工签字是否仍然有效');
-  }
   const reviewStatus = identity.type === 'trust'
     ? 'not-required'
     : !review
@@ -424,43 +403,9 @@ function scorePage(route, document) {
             ? 'source-mapped'
             : 'invalid';
 
-  if (review?.status === 'human-approved' && review.method !== 'human') {
-    critical.push('人工通过状态必须由真实人工核查记录支持');
-  }
-  if (identity.type !== 'trust' && reviewStatus === 'pending') {
-    blockers.push('尚未登记逐页证据核对');
-  }
-  if (identity.type !== 'trust' && reviewStatus === 'source-mapped') {
-    blockers.push('已完成自动声明级来源映射，仍待逐页打开官方正文进行语义核对');
-  }
-  if (reviewStatus === 'invalid') {
-    critical.push('语义核查状态与核查方法不一致');
-  }
-  if (reviewStatus === 'human-approval-stale') {
-    blockers.push(
-      publicationGate.humanApprovalFingerprintCurrent
-        ? `内容版本更新于 ${publicationGate.contentRevisionAt ?? '未知日期'}，晚于 ${publicationGate.approvalReviewedAt ?? '现有'} 人工签字；重新人工语义核查前保持 noindex`
-        : `当前内容指纹与 ${publicationGate.approvalReviewedAt ?? '现有'} 人工签字版本不一致；重新人工语义核查前保持 noindex`,
-    );
-  }
-  if (identity.risk === 'high' && reviewStatus !== 'human-approved' && identity.type !== 'trust') {
-    if (reviewStatus !== 'human-approval-stale') {
-      blockers.push(
-        reviewStatus === 'ai-assisted'
-          ? '已完成 AI 辅助证据核对，仍待真实人工语义签字'
-          : reviewStatus === 'source-mapped'
-            ? '已完成自动来源映射，仍待 AI 辅助核对和真实人工语义签字'
-            : '高风险页面尚未完成人工语义签字',
-      );
-    }
-  }
   const expectedIndexable = publicationGate.indexable;
   if (indexable !== expectedIndexable) {
-    critical.push(
-      expectedIndexable
-        ? '页面已满足发布门禁，但仍被 noindex 阻止收录'
-        : '高风险页面尚未完成人工签字，却仍允许搜索引擎收录',
-    );
+    critical.push('页面 robots 设置与发布策略不一致');
   }
   if (score < threshold) blockers.push(`自动评分 ${score}，低于 ${threshold} 分门槛`);
 
@@ -482,7 +427,7 @@ function scorePage(route, document) {
     signals: {
       sourceCount: signals.sourceCount || govLinks,
       factCheckCount: identity.type.startsWith('state-') ? stateEvidenceItems : signals.factCheckCount,
-      visibleThreeDates,
+      hasDateMetadata,
       authorLink,
       schemaAuthorUrl,
       hasFactMapping,

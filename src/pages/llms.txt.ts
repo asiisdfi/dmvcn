@@ -1,4 +1,4 @@
-import { REVIEW_DATE, SITE, states, topics } from '../data/content';
+import { SITE, states, topics } from '../data/content';
 
 const featuredTopicSlugs = [
   'real-id-basics',
@@ -58,9 +58,7 @@ export function GET({ site }: { site: URL }) {
     '',
     `> ${SITE.description}`,
     '',
-    `本站使用简体中文整理美国 50 州 DMV、REAL ID、驾照、州身份证和车辆业务信息。资料最后统一核对日期：${REVIEW_DATE}。`,
-    '',
-    `${SITE.disclaimer} 每篇指南保留官方来源链接和核对日期；引用办理要求时应同时引用对应政府来源。`,
+    '本站使用简体中文整理美国 50 州 DMV、REAL ID、驾照、州身份证和车辆业务信息。',
     '',
     '## 核心入口',
     '',
@@ -85,14 +83,10 @@ export function GET({ site }: { site: URL }) {
     '',
     '## Optional',
     '',
-    markdownLink(base, '内容质量与更新方法', '/quality/', '了解来源、更新时间和内容边界。'),
     markdownLink(base, 'DMVCN 官方编辑', '/authors/editorial-team/', '了解内容责任人、职责和能力边界。'),
-    markdownLink(base, '编辑政策', '/editorial-policy/', '查看选题、来源、风险和发布标准。'),
-    markdownLink(base, '工具使用说明', '/ai-policy/', '了解搜索、链接检查和内容整理工具如何参与编辑工作。'),
+    markdownLink(base, '内容说明', '/editorial-policy/', '了解州指南、事项页和政府入口的组织方式。'),
     markdownLink(base, '纠错政策', '/corrections/', '报告错误、失效链接或官方要求变化。'),
-    markdownLink(base, '内容更新记录', '/updates/', '查看重要内容和维护机制的变更。'),
-    markdownLink(base, '全部官方来源', '/sources/', '查看站内引用的政府来源集合。'),
-    markdownLink(base, '关于本站', '/about/', '了解站点定位和非政府声明。'),
+    markdownLink(base, '关于本站', '/about/', '了解站点定位和主要内容。'),
     markdownLink(base, '联系方式', '/contact/', '联系站点维护者。'),
     markdownLink(base, 'XML Sitemap', '/sitemap.xml', '发现站内全部可索引页面。'),
     '',

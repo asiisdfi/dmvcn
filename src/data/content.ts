@@ -10,7 +10,7 @@ export const SITE = {
   name: 'DMV中文办事库',
   shortName: 'DMV中文',
   description:
-    '面向在美国中文用户的 DMV、REAL ID、驾照和地址变更办事信息库。重要办事事实附官方来源，并标注核对日期。',
+    '面向在美国中文用户的 DMV、REAL ID、驾照、州身份证和车辆手续办事信息库。',
   disclaimer:
     '本站不是政府网站，也不提供法律、移民或税务建议。所有办理要求、费用和预约规则请以官方页面为准。',
   contactEmail,
@@ -69,23 +69,17 @@ export type StateGuide = {
 
 export function getStatePublicStatus(state: StateGuide): NonNullable<StateGuide['accessStatus']> {
   if (state.accessStatus) {
-    const needsExtraCare = state.accessStatus.tone === 'risk';
-
     return {
       ...state.accessStatus,
-      label: needsExtraCare ? '建议从备用入口进入' : '已提供备用入口',
-      note: needsExtraCare
-        ? '部分州政府深层页面可能因网络位置或安全验证无法直接打开。请从本页备用官方入口进入，并在提交前确认最新要求。'
-        : '部分州政府深层页面可能因网络位置或安全验证暂时无法打开。若遇到问题，请从本页备用官方入口重新进入州政府网站。',
+      label: '备用入口',
+      note: '州政府深层页面无法打开时，可从下方州机构主页或 USA.gov 目录进入。',
     };
   }
 
   return {
-    label: state.reviewedAt ? '内容已核对' : '待补核对',
-    tone: state.reviewedAt ? 'ready' : 'draft',
-    note: state.reviewedAt
-      ? '页面已完成基础来源整理；办理前仍请以官方页面的最新要求为准。'
-      : '页面还在补充核对，暂时只适合做初步方向参考。',
+    label: '打开指南',
+    tone: 'ready',
+    note: '',
   };
 }
 

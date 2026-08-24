@@ -2,7 +2,6 @@
 import { ArrowRight, BookOpenCheck, ExternalLink, Languages, ShieldCheck } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EditorialDisclosure from '../../components/EditorialDisclosure.astro';
-import ReviewBadge from '../../components/ReviewBadge.astro';
 import { EDITORIAL_AUTHOR } from '../../data/editorial';
 import { SITE } from '../../data/content';
 import { practiceTests } from '../../data/practice-tests';
@@ -70,10 +69,9 @@ const schema = [
       </nav>
       <p class="eyebrow">Practice Tests</p>
       <h1>按州练，不背“美国通用题库”</h1>
-      <p class="lead">美国驾照知识考试由各州管理。这里的题目按州官方手册重新编写，每题都能回到对应政府章节核对。</p>
-      <ReviewBadge />
+      <p class="lead">美国驾照知识考试由各州管理。这里按州提供中文练习、答案解释和对应的政府手册章节。</p>
       <div class="page-ledger" aria-label="中文笔试练习概况">
-        <div><strong>{practiceTests.length} 州</strong><span>已完成来源核对</span></div>
+        <div><strong>{practiceTests.length} 州</strong><span>州别中文题库</span></div>
         <div><strong>{questionCount} 题</strong><span>原创中文练习</span></div>
         <div><strong>{sourceCount} 个</strong><span>当前官方来源</span></div>
         <div><strong>逐题</strong><span>解释与章节入口</span></div>
@@ -101,7 +99,7 @@ const schema = [
             <div class="practice-test-meta">
               <span><BookOpenCheck size={15} aria-hidden="true" /> Road Rules + Road Signs</span>
               <span><Languages size={15} aria-hidden="true" /> 中文解释</span>
-              <span><ShieldCheck size={15} aria-hidden="true" /> 核对至 {test.reviewedAt}</span>
+              <span><ShieldCheck size={15} aria-hidden="true" /> 答案解释</span>
             </div>
           </div>
           <a class="button-link primary" href={`/practice-tests/${test.slug}/`}>
@@ -116,38 +114,30 @@ const schema = [
     <div class="section">
       <div class="section-header">
         <div>
-          <p class="eyebrow">题目标准</p>
-          <h2>每道题必须回答三个问题</h2>
+          <p class="eyebrow">练习内容</p>
+          <h2>答题后直接看解释和手册章节</h2>
         </div>
-        <a class="text-link" href="/editorial-policy/">查看编辑政策 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
-      <div class="comparison-table practice-standard-table" role="table" aria-label="练习题质量标准">
+      <div class="comparison-table practice-standard-table" role="table" aria-label="练习题内容">
         <div class="comparison-row comparison-head" role="row">
-          <span role="columnheader">检查项</span>
-          <span role="columnheader">本页会给出</span>
-          <span role="columnheader">不会采用</span>
+          <span role="columnheader">内容</span>
+          <span role="columnheader">练习方式</span>
+          <span role="columnheader">答题后</span>
         </div>
         <div class="comparison-row" role="row">
-          <strong role="cell">依据是什么</strong>
-          <p role="cell">州 DMV/DDS 当前考试说明、Driver Manual 的具体章节。</p>
-          <p role="cell">“网络整理”、论坛答案或无法追溯的截图。</p>
+          <strong role="cell">Road Rules</strong>
+          <p role="cell">路权、限速、校车、车灯和安全驾驶规则。</p>
+          <p role="cell">查看中文解释和相关手册章节。</p>
         </div>
         <div class="comparison-row" role="row">
-          <strong role="cell">为什么这样答</strong>
-          <p role="cell">中文解释、适用条件和最容易混淆的错误选项。</p>
-          <p role="cell">只显示 A/B/C/D 答案，不解释州别规则。</p>
+          <strong role="cell">Road Signs</strong>
+          <p role="cell">标志形状、颜色、信号灯和道路标线。</p>
+          <p role="cell">查看正确答案和易错点。</p>
         </div>
         <div class="comparison-row" role="row">
-          <strong role="cell">何时再核对</strong>
-          <p role="cell">页面事实核对日期、下次复核日期和官方入口。</p>
-          <p role="cell">虚构发布日期，或把自动构建时间当成内容更新。</p>
-        </div>
-      </div>
-      <div class="notice">
-        <ShieldCheck size={22} aria-hidden="true" />
-        <div>
-          <strong>本站题目不是 DDS 真题，也不保证正式考试原题出现</strong>
-          <p>用途是理解官方手册中的规则并发现薄弱章节。正式考试的题目、语言和现场安排以州政府当天说明为准。</p>
+          <strong role="cell">错题重练</strong>
+          <p role="cell">完成一组后集中查看答错的问题。</p>
+          <p role="cell">按薄弱章节继续练习。</p>
         </div>
       </div>
     </div>

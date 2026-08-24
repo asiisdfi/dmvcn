@@ -7,14 +7,14 @@ type Props = {
   title?: string;
 };
 
-const { sources, title = '官方来源' } = Astro.props as Props;
+const { sources, title = '政府机构与办理入口' } = Astro.props as Props;
 const primarySources = sources.slice(0, 12);
 const additionalSources = sources.slice(12);
 ---
 
 <section class="source-panel" id="official-sources" aria-labelledby="source-heading">
   <div>
-    <p class="eyebrow">核对依据</p>
+    <p class="eyebrow">相关链接</p>
     <h2 id="source-heading">{title}</h2>
   </div>
   <ul class="source-list">
@@ -31,7 +31,7 @@ const additionalSources = sources.slice(12);
   </ul>
   {additionalSources.length > 0 && (
     <details class="source-more">
-      <summary>查看其余 {additionalSources.length} 个官方来源</summary>
+      <summary>查看其余 {additionalSources.length} 个政府链接</summary>
       <ul class="source-list">
         {additionalSources.map((source, index) => (
           <li>

@@ -16,38 +16,38 @@ export const SEARCH_INTENT_BOUNDARIES: SearchIntentBoundary[] = [
   },
   {
     routes: [
-      '/topics/real-id-basics/',
-      '/topics/real-id-vs-standard-license/',
-    ],
-    reviewedAt: '2026-07-29',
-    distinction:
-      '基础页回答要不要办理及联邦用途；比较页专门区分 Standard、REAL ID 与 Enhanced 三类州证件。',
-  },
-  {
-    routes: [
-      '/topics/driver-license-suspension-reinstatement-sr22/',
-      '/topics/tickets-tolls-insurance-lapse-registration-hold/',
-    ],
-    reviewedAt: '2026-07-29',
-    distinction:
-      '吊销复职页处理驾驶资格恢复与 SR-22；罚单和欠费页处理 registration hold、保险中断及先清哪一项。',
-  },
-  {
-    routes: [
-      '/topics/proof-of-residency/',
-      '/topics/residency-proof-no-bills-po-box/',
-    ],
-    reviewedAt: '2026-07-29',
-    distinction:
-      '一般地址证明页解释常规文件组合；特殊地址页只处理没有本人账单、P.O. Box、同住或无固定住址等例外路径。',
-  },
-  {
-    routes: [
       '/directories/document-rules/',
       '/directories/identity-ssn/',
     ],
     reviewedAt: '2026-07-29',
     distinction:
       '材料规则表比较原件、认证副本、地址和翻译要求；身份与 SSN 表比较身份类别、SSN 核验和无 SSN 分支。',
+  },
+  {
+    routes: [
+      '/directories/appointments/',
+      '/directories/dmv-services/',
+    ],
+    reviewedAt: '2026-08-24',
+    distinction:
+      '预约目录按州查预约系统、办公室类型与地点；服务目录按州查主管机构和具体业务入口。',
+  },
+  {
+    routes: [
+      '/directories/appointments/',
+      '/directories/service-paths/',
+    ],
+    reviewedAt: '2026-08-24',
+    distinction:
+      '预约目录回答在哪里约、去哪个办公室；渠道目录回答某项业务能否在线、邮寄、kiosk 或必须现场办理。',
+  },
+  {
+    routes: [
+      '/directories/dmv-services/',
+      '/directories/service-paths/',
+    ],
+    reviewedAt: '2026-08-24',
+    distinction:
+      '服务目录用于找到主管机构与业务页面；渠道目录用于比较线上、现场、邮寄和预约路径。',
   },
 ];

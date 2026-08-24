@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-08-01T00:00:00.000Z",
+  "generatedAt": "2026-08-24T00:00:00.000Z",
   "summary": {
-    "pages": 140,
+    "pages": 150,
     "countsByClass": {
-      "topic": 33,
-      "directory": 6,
+      "topic": 37,
+      "directory": 12,
       "state-overview": 50,
       "state-real-id": 50,
       "practice": 1
     },
     "exactDuplicates": 0,
-    "reviewedBoundaries": 3,
-    "dormantBoundaries": 2,
-    "monitoredPairs": 34,
+    "reviewedBoundaries": 5,
+    "dormantBoundaries": 0,
+    "monitoredPairs": 15,
     "errors": 0
   },
   "rules": {
@@ -52,1130 +52,1254 @@
       "class": "directory",
       "title": "DMV 预约和办公室入口表 | DMV中文办事库",
       "heading": "DMV 预约和办公室入口表",
-      "contentChars": 27231,
-      "contentHash": "88a3046bd5197edb539d3f9eeb5fb0feee5abf2a658cbeae0125a91a590f1299"
+      "contentChars": 27097,
+      "contentHash": "83996de2c58d43def57ed683e6dd49d4fc5763e123097acff0a2e619a2fb3e9d"
+    },
+    {
+      "route": "/directories/costs-timing/",
+      "class": "directory",
+      "title": "美国各州 DMV 费用与拿证时间：付款、临时凭证、邮寄 | DMV中文办事库",
+      "heading": "美国各州 DMV 费用、付款和拿证时间",
+      "contentChars": 20417,
+      "contentHash": "cb1d1e71f32d004ac6a2f376937bbe82f3f8ead3ca0b42bfea18aeac8eb56fa7"
+    },
+    {
+      "route": "/directories/deadlines/",
+      "class": "directory",
+      "title": "DMV 期限提醒表 | DMV中文办事库",
+      "heading": "DMV 期限提醒表",
+      "contentChars": 15926,
+      "contentHash": "0f01311bf268be1cbdca584fb3a313c03b84811a7f76bc96431feb3a51b3867e"
+    },
+    {
+      "route": "/directories/dmv-services/",
+      "class": "directory",
+      "title": "美国各州 DMV 中文办事入口：预约、续期、补证 | DMV中文办事库",
+      "heading": "美国各州 DMV 中文办事入口",
+      "contentChars": 22902,
+      "contentHash": "3e708a24c91a312df1da1f67e5985cd41beb3c946c299bd1c77421d8ae07ca37"
+    },
+    {
+      "route": "/directories/document-rules/",
+      "class": "directory",
+      "title": "DMV 材料规则表 | DMV中文办事库",
+      "heading": "DMV 材料规则表",
+      "contentChars": 25383,
+      "contentHash": "9ce83373e1662b0d3bc05b6fcfb664c7197a76d7bdd6f3b2ae8aa3c9006608ee"
     },
     {
       "route": "/directories/foreign-license/",
       "class": "directory",
       "title": "DMV 外国/外州驾照转入和 IDP 入口表 | DMV中文办事库",
       "heading": "DMV 外国/外州驾照转入和 IDP 入口表",
-      "contentChars": 19567,
-      "contentHash": "2c4e0e89a5172acecb8ffe4f4ad9c8c002207201c8d2c6cd4f3e639b5164292d"
+      "contentChars": 19433,
+      "contentHash": "0641b38dc3c4a4f4246121dac966b25148d964660200b4aa9e4e4dc046d06f04"
+    },
+    {
+      "route": "/directories/identity-ssn/",
+      "class": "directory",
+      "title": "DMV SSN 和身份类别分流表 | DMV中文办事库",
+      "heading": "DMV SSN 和身份类别分流表",
+      "contentChars": 25651,
+      "contentHash": "e2f19889d330a1d758ac3a0a692b3fea99f5eb650f34a8ebeac5f927220cd2b0"
     },
     {
       "route": "/directories/language-access/",
       "class": "directory",
       "title": "DMV 考试语言、翻译和口译入口表 | DMV中文办事库",
       "heading": "DMV 考试语言、翻译和口译入口表",
-      "contentChars": 22772,
-      "contentHash": "77e25cbe38a9ffabddbf57301e5841399868e9c9af5bcf30b4e4c025e657569d"
+      "contentChars": 22638,
+      "contentHash": "676068a0fcd1a6b84fa03e69ab3bcf56bdda7b700f57e153530ce55646cf9387"
     },
     {
       "route": "/directories/new-residents/",
       "class": "directory",
       "title": "搬到美国新州后怎么办 DMV：换驾照、改地址、车辆登记 | DMV中文办事库",
       "heading": "搬到美国新州后，DMV 先办什么",
-      "contentChars": 15662,
-      "contentHash": "2e1e29e2818b4fe03c17dc8adce81375a1c8fc3ed199e4ae9e19dddd70adf4d8"
+      "contentChars": 15528,
+      "contentHash": "554bd952d222bbf4ae996ad952d186ce13a407ba0ec8e95f26a0cda7cb79ace7"
     },
     {
       "route": "/directories/real-id/",
       "class": "directory",
       "title": "50 州 REAL ID 官方入口表 | DMV中文办事库",
       "heading": "50 州 REAL ID 官方入口表",
-      "contentChars": 5512,
-      "contentHash": "baa3f4db469f4302f997c3b2d7ebef64ef55e2d21588e0ec580d30f989423a0c"
+      "contentChars": 5378,
+      "contentHash": "44419fcc8bf4f5990cd194574d97f7b521934c18e08265d3c31805faaf93738e"
+    },
+    {
+      "route": "/directories/service-paths/",
+      "class": "directory",
+      "title": "美国各州 DMV 中文办理方式：线上、现场与预约 | DMV中文办事库",
+      "heading": "美国各州 DMV 线上、现场和预约怎么选",
+      "contentChars": 27918,
+      "contentHash": "368ebdbb9f50346d4682d1b78d14fae9a68795f26905de3fbdb2482cae2df342"
     },
     {
       "route": "/directories/tests-permits/",
       "class": "directory",
       "title": "DMV 笔试、路考和 learner permit 入口表 | DMV中文办事库",
       "heading": "DMV 笔试、路考和 learner permit 入口表",
-      "contentChars": 26121,
-      "contentHash": "003c5b47e28b96861ade7a72f01c1ba444da33e9252c52ee31c42f12b36c4894"
+      "contentChars": 25987,
+      "contentHash": "4828defb53ddd57c9eb244bdbf3a55d8260d99ad25ab7727d2d7594acd12fa76"
     },
     {
       "route": "/practice-tests/georgia/",
       "class": "practice",
       "title": "佐治亚州驾照中文笔试练习 | DMV中文办事库",
       "heading": "佐治亚州驾照中文笔试练习",
-      "contentChars": 6025,
-      "contentHash": "a6cec5d837e06717f6a12556888185be77824d6da56b91a4dded6e583e997db9"
+      "contentChars": 5973,
+      "contentHash": "07ac53b685a4041bd424b1ba60b8f93e19a9c7dcf6fd88cb7e240a63a64bc6a8"
     },
     {
       "route": "/states/alabama/",
       "class": "state-overview",
       "title": "阿拉巴马州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "阿拉巴马州 DMV 办事总览",
-      "contentChars": 7430,
-      "contentHash": "2460aa2acd883a256518449d15dcb00213cfb04c55449858ebafc8d94011d6fa"
+      "contentChars": 7066,
+      "contentHash": "52323631ebee5603cfce66b7ac0167b1aa7b4cc83db342483d862db263ae2cf3"
     },
     {
       "route": "/states/alabama/real-id/",
       "class": "state-real-id",
       "title": "阿拉巴马州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "阿拉巴马州 REAL ID 中文材料清单",
-      "contentChars": 8193,
-      "contentHash": "47cf278af7dd081b84f5e56fac930b9639a74ca533739534b1550be6d80a81f7"
+      "contentChars": 7877,
+      "contentHash": "0f7a7aa12a354018b8f272679b708332ab1182ad098b122dc754c9c677ad9edb"
     },
     {
       "route": "/states/alaska/",
       "class": "state-overview",
       "title": "阿拉斯加州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "阿拉斯加州 DMV 办事总览",
-      "contentChars": 5271,
-      "contentHash": "36d0a2250b10d63cc3d61a6f961e7a503df79b683edae779701ce4c87583796a"
+      "contentChars": 4926,
+      "contentHash": "b5afd53d42ed7b3538646cd7a1944cb558464382ae29fa478189d3c9b84fb499"
     },
     {
       "route": "/states/alaska/real-id/",
       "class": "state-real-id",
       "title": "阿拉斯加州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "阿拉斯加州 REAL ID 中文材料清单",
-      "contentChars": 5290,
-      "contentHash": "4187633fb88a328798676020f0d34983898c8990f4f9273ebde8db69d25bf3a9"
+      "contentChars": 5080,
+      "contentHash": "4cc54bc8e5edafc0efb13ee15861c22a5dc73163252babf491e4943e4d5877a6"
     },
     {
       "route": "/states/arizona/",
       "class": "state-overview",
       "title": "亚利桑那州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "亚利桑那州 DMV 办事总览",
-      "contentChars": 10307,
-      "contentHash": "91b80accfa2c1998b311d32d6712791d936fe941371207908eeb27d8a1aec559"
+      "contentChars": 9827,
+      "contentHash": "c3b23991cb5f01fd28810448c3c23afeb71db4be8d00d52083c44196b367b6d1"
     },
     {
       "route": "/states/arizona/real-id/",
       "class": "state-real-id",
       "title": "亚利桑那州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "亚利桑那州 REAL ID 中文材料清单",
-      "contentChars": 9447,
-      "contentHash": "6d63ce9572496c8ea9c240481211edef8ea82e428e5c6b204ddddec3c82dd8cf"
+      "contentChars": 9073,
+      "contentHash": "d27368ba537828cb34adb848208365b3e5b986293d65ae6e868e11fa1addd508"
     },
     {
       "route": "/states/arkansas/",
       "class": "state-overview",
       "title": "阿肯色州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "阿肯色州 DMV 办事总览",
-      "contentChars": 6609,
-      "contentHash": "191ecb5d643c17e8d821f8b29743e1affa4e334ee75caa96837dddae41127378"
+      "contentChars": 6222,
+      "contentHash": "6e9c3c0ed54c9d9feebf82734131141aec9e595ad2c493d552e4e5e1581e95ce"
     },
     {
       "route": "/states/arkansas/real-id/",
       "class": "state-real-id",
       "title": "阿肯色州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "阿肯色州 REAL ID 中文材料清单",
-      "contentChars": 7127,
-      "contentHash": "a8e66dd2f57448ba77f961fa81c687c5fdb4e92f6afd565d30eb66eabccff910"
+      "contentChars": 6856,
+      "contentHash": "f709faf6d63ed623b1865642224bae782f69a53feb57715141142885aeafd672"
     },
     {
       "route": "/states/california/",
       "class": "state-overview",
       "title": "加州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "加州 DMV 办事总览",
-      "contentChars": 4382,
-      "contentHash": "2159825de5dfb836387114720a77004b89ba03f9bf789e21f4b745fa7a86d007"
+      "contentChars": 4160,
+      "contentHash": "8616144c882c1f5d3b2182332b921ae9b4f1d568d399fe122ae220431aaec4ac"
     },
     {
       "route": "/states/california/real-id/",
       "class": "state-real-id",
       "title": "加州 REAL ID 和普通驾照有什么区别：申请材料与步骤 | DMV中文办事库",
       "heading": "加州 REAL ID 和普通驾照有什么区别",
-      "contentChars": 3460,
-      "contentHash": "ae280f57d75278b5763a5e384f5d5068dfdbc8bb366e21457a78227c22ae08af"
+      "contentChars": 3328,
+      "contentHash": "24771f0be1431ecf66c1856df2e5cb57d955f3f6deec6edac872ffcd2e3f9b29"
     },
     {
       "route": "/states/colorado/",
       "class": "state-overview",
       "title": "科罗拉多州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "科罗拉多州 DMV 办事总览",
-      "contentChars": 12805,
-      "contentHash": "44fff2b1a18b550944a3b4b55b359785b41a58dac874b421a0a2438c5681882e"
+      "contentChars": 12306,
+      "contentHash": "ec855132cf383a9927ff8c6fb1988e367a63bdaacbde46d9a39b11ac1c056b96"
     },
     {
       "route": "/states/colorado/real-id/",
       "class": "state-real-id",
       "title": "科罗拉多州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "科罗拉多州 REAL ID 中文材料清单",
-      "contentChars": 12045,
-      "contentHash": "f54903a51d1495ed70a84ecdf093bce40c3ae02222cd6ae975d1334519fec1ff"
+      "contentChars": 11639,
+      "contentHash": "ff80606d62313669623e1537163bac22933a396620a020fa59e7631957d82845"
     },
     {
       "route": "/states/connecticut/",
       "class": "state-overview",
       "title": "康涅狄格州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "康涅狄格州 DMV 办事总览",
-      "contentChars": 17000,
-      "contentHash": "90ddfad5ff3b2df0db101316cc585cfd39b228d9fc4f63c0943c81a71d170aae"
+      "contentChars": 16361,
+      "contentHash": "e6158ed784dead04daabb3f6558d66d374f14fbbe34f0504dd048d2d9f9e0427"
     },
     {
       "route": "/states/connecticut/real-id/",
       "class": "state-real-id",
       "title": "康涅狄格州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "康涅狄格州 REAL ID 中文材料清单",
-      "contentChars": 12694,
-      "contentHash": "c03ac6df41513ea9242756e22748aafcd9e6f591d5b1b6e0b8bf234c36757fe1"
+      "contentChars": 12339,
+      "contentHash": "0255f710f06f82a86aa2d890b61f4e0d686748c4dad64521606887f83ba6a073"
     },
     {
       "route": "/states/delaware/",
       "class": "state-overview",
       "title": "特拉华州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "特拉华州 DMV 办事总览",
-      "contentChars": 10604,
-      "contentHash": "e0d4a3bd291523b76da02c189ed2d61cd2bb9b28fb8cc02b6cb962430f6fba56"
+      "contentChars": 10087,
+      "contentHash": "2144ad9eb27b57f0cb254e0cf875cec30d7e712826480af1da9991af8a24dac6"
     },
     {
       "route": "/states/delaware/real-id/",
       "class": "state-real-id",
       "title": "特拉华州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "特拉华州 REAL ID 中文材料清单",
-      "contentChars": 10278,
-      "contentHash": "968e1bc6526b36c2995aed846bab634ffc90cef72588097828d19194e2ffc1f2"
+      "contentChars": 9950,
+      "contentHash": "25077482137a4ee573945d018972bf9d52b5c4aef35c236edef99310cd09194c"
     },
     {
       "route": "/states/florida/",
       "class": "state-overview",
       "title": "佛罗里达州车管所（FLHSMV）中文指南：驾照、REAL ID 与车辆业务 | DMV中文办事库",
       "heading": "佛罗里达州车管所（FLHSMV）办事指南",
-      "contentChars": 5146,
-      "contentHash": "2ce1d941f708d48cf24fee9f1784a08650d798ce8525fa748258f6c5c4f67dc9"
+      "contentChars": 4874,
+      "contentHash": "faaf03a7bcf3492bf018b63807f800f97bba71e5c15effa11a84ecc35896e164"
     },
     {
       "route": "/states/florida/real-id/",
       "class": "state-real-id",
       "title": "佛州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "佛州 REAL ID 中文材料清单",
-      "contentChars": 4808,
-      "contentHash": "36c12fec1b4ef5389c505bb3114f5d1f3f92c4e2d38c592eddf5bd68561660c7"
+      "contentChars": 4577,
+      "contentHash": "0cf1f77aa932193ae6dabe6c0b2b01cf4eedc5c1bb8376a5a348eec21aeb5149"
     },
     {
       "route": "/states/georgia/",
       "class": "state-overview",
       "title": "佐治亚州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "佐治亚州 DMV 办事总览",
-      "contentChars": 6813,
-      "contentHash": "66c04f712c521b15a3f8844ea1d1cf78aaf1b74c921473c852089df1df308b13"
+      "contentChars": 6467,
+      "contentHash": "cb23cfe4a20dac34465ab8157f2c4ac3c1fc34ca6381abd774d4a513b361f675"
     },
     {
       "route": "/states/georgia/real-id/",
       "class": "state-real-id",
       "title": "佐治亚州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "佐治亚州 REAL ID 中文材料清单",
-      "contentChars": 5416,
-      "contentHash": "4985a53831442a63c8d800d6e34950c1a6f460f032f2ee2b8a67c068f1e85f69"
+      "contentChars": 5202,
+      "contentHash": "4c72e4e280df25abcfff3a736bf29ee057fc50fc8fa2946d5e942da65aefcdd3"
     },
     {
       "route": "/states/hawaii/",
       "class": "state-overview",
       "title": "夏威夷州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "夏威夷州 DMV 办事总览",
-      "contentChars": 9766,
-      "contentHash": "b1a06dc5c0ea563456cb4c072d86b3a64343ed8225f8c435deca95612a12334e"
+      "contentChars": 9276,
+      "contentHash": "f06210717e4c7b5df7def56ba07cf82520cef92b21bd807253d5ed950f18599c"
     },
     {
       "route": "/states/hawaii/real-id/",
       "class": "state-real-id",
       "title": "夏威夷州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "夏威夷州 REAL ID 中文材料清单",
-      "contentChars": 8977,
-      "contentHash": "92f20a9f9dd8dc45b1bd04daa11c0b10a5548333d0d446d1fc910ceb640f0298"
+      "contentChars": 8659,
+      "contentHash": "550026340df4e20f07625ff20239f996ee8d871ea901109542e08255a8c5a2d9"
     },
     {
       "route": "/states/idaho/",
       "class": "state-overview",
       "title": "爱达荷州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "爱达荷州 DMV 办事总览",
-      "contentChars": 6644,
-      "contentHash": "3da6af54e51a2da74974fa202cab7f356e8fc5df2f51b08f375e8611aa29d372"
+      "contentChars": 6302,
+      "contentHash": "5a0cfa378979363106aef9c30008d4df9eb413dfc7e7aaff52c2d535f749da4c"
     },
     {
       "route": "/states/idaho/real-id/",
       "class": "state-real-id",
       "title": "爱达荷州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "爱达荷州 REAL ID 中文材料清单",
-      "contentChars": 7833,
-      "contentHash": "263a9b9a8ff960858451fb1de04e5e07df37fb2b37516103b24728020879034a"
+      "contentChars": 7517,
+      "contentHash": "73a096efaa21d53f8d3c37f949241480cbb83bbda2dc481d1155867180555d71"
     },
     {
       "route": "/states/illinois/",
       "class": "state-overview",
       "title": "伊利诺伊州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "伊利诺伊州 DMV 办事总览",
-      "contentChars": 6877,
-      "contentHash": "c9184ed6789132cf99f37364c3a0ced6f2b15242fcfd5a2febadd8b8df69231a"
+      "contentChars": 6485,
+      "contentHash": "ef968d1532398f68d73546a83a4d1ddddf94e3697434f1f9f5c2ec3eda22c833"
     },
     {
       "route": "/states/illinois/real-id/",
       "class": "state-real-id",
       "title": "伊利诺伊州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "伊利诺伊州 REAL ID 中文材料清单",
-      "contentChars": 5846,
-      "contentHash": "9e7843d7234e1c0e2c2671fd894c89f27a69022534f476a7dde48ebe760712bc"
+      "contentChars": 5598,
+      "contentHash": "1a4b01413260a278d58d80ffc0fac3140ff51a28cd0cc6a9fd3e53bade4343b8"
     },
     {
       "route": "/states/indiana/",
       "class": "state-overview",
       "title": "印第安纳州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "印第安纳州 DMV 办事总览",
-      "contentChars": 4650,
-      "contentHash": "ee3a2a770579eec781df92d2f7a98187a99723e3de6b3a8233cee9ca83c32c0f"
+      "contentChars": 4387,
+      "contentHash": "2e55a75a0dc64121ca864fc45b9a894692975fc52e8c1ef10799293520c3e61f"
     },
     {
       "route": "/states/indiana/real-id/",
       "class": "state-real-id",
       "title": "印第安纳州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "印第安纳州 REAL ID 中文材料清单",
-      "contentChars": 5705,
-      "contentHash": "40c0031b312b6e829ae820a478585a161b5f67f6f8571d2849755405eeedbcea"
+      "contentChars": 5478,
+      "contentHash": "21c05632a74309dc6943156ceb1654dcc786b4af361c2b509b59b2a81fc2dd2a"
     },
     {
       "route": "/states/iowa/",
       "class": "state-overview",
       "title": "爱荷华州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "爱荷华州 DMV 办事总览",
-      "contentChars": 9266,
-      "contentHash": "70f6b260add0fb900387b160b3b0921e2669bbdea05cdb2d2ccedb560275f6db"
+      "contentChars": 8869,
+      "contentHash": "c8fee242edc749a85667f8dc72879bb083fd95a49de70d190c41e92988821241"
     },
     {
       "route": "/states/iowa/real-id/",
       "class": "state-real-id",
       "title": "爱荷华州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "爱荷华州 REAL ID 中文材料清单",
-      "contentChars": 9873,
-      "contentHash": "dc127fb42fad3e1fbf337a2b073fde55aced624b3f4a507e1eded0733222bb2f"
+      "contentChars": 9496,
+      "contentHash": "716fcfc43f49061f958b09ec19ed5d84cdccc457fd034e6d52e8389c8f5cac70"
     },
     {
       "route": "/states/kansas/",
       "class": "state-overview",
       "title": "堪萨斯州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "堪萨斯州 DMV 办事总览",
-      "contentChars": 7251,
-      "contentHash": "efbfe6833149cda5ef86daa7c31beee544eb97638e5114106d889e18e1b9760a"
+      "contentChars": 6878,
+      "contentHash": "ebf41556c512aba9f7e60b335a4e6c7fbb63a3464da5cc88670cafec0c2bf29a"
     },
     {
       "route": "/states/kansas/real-id/",
       "class": "state-real-id",
       "title": "堪萨斯州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "堪萨斯州 REAL ID 中文材料清单",
-      "contentChars": 8550,
-      "contentHash": "0fefdb2c5974f9ba609de0af496b8289fd822a1e4e666e48be831750877f2d0a"
+      "contentChars": 8186,
+      "contentHash": "cad7e1f6dadb3631fb6d5c693fd0c7435e46000aa611dcc0ee4f2e35c4f9a393"
     },
     {
       "route": "/states/kentucky/",
       "class": "state-overview",
       "title": "肯塔基州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "肯塔基州 DMV 办事总览",
-      "contentChars": 8500,
-      "contentHash": "f8b46fe9d5fff5ab3eb3ad5541df2bf9b2bf3e2d1abbc195132b8aea534fa686"
+      "contentChars": 8071,
+      "contentHash": "b07f766c94c882d1708546653b47319e1feb9a4bf89c4175131d873b953b1a1d"
     },
     {
       "route": "/states/kentucky/real-id/",
       "class": "state-real-id",
       "title": "肯塔基州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "肯塔基州 REAL ID 中文材料清单",
-      "contentChars": 9150,
-      "contentHash": "e7250e53cac42696ea435d2cfc2de0aea4cc383a261e04a2c7b35989d3f4ccab"
+      "contentChars": 8766,
+      "contentHash": "15bb699244b3cec9bc345b6a254e3d05e977a8e8c33d35cf215c0f90abc8b8ef"
     },
     {
       "route": "/states/louisiana/",
       "class": "state-overview",
       "title": "路易斯安那州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "路易斯安那州 DMV 办事总览",
-      "contentChars": 12513,
-      "contentHash": "37a95687e51af21c91859dd9bbf7c057b7151449a22293aecac51732faa91be4"
+      "contentChars": 12025,
+      "contentHash": "f1eef59fdb514091f89aa9e32f99df0d3e1b70c69c9148a9bf384a0380ed021d"
     },
     {
       "route": "/states/louisiana/real-id/",
       "class": "state-real-id",
       "title": "路易斯安那州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "路易斯安那州 REAL ID 中文材料清单",
-      "contentChars": 11682,
-      "contentHash": "0475602418bebb76eff865a2a05be4bd904a46fdc5284cfdd9477afd2e8c298a"
+      "contentChars": 11287,
+      "contentHash": "aba4b3972f04b8929a09b6f87cdccbf31e31f07640959e559c19b3e4bb6c1f4d"
     },
     {
       "route": "/states/maine/",
       "class": "state-overview",
       "title": "缅因州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "缅因州 DMV 办事总览",
-      "contentChars": 9001,
-      "contentHash": "9fe51eaa540d055d324e56b71b7d34b06858e1190c23d31db3aa9a0a5dce17ca"
+      "contentChars": 8569,
+      "contentHash": "f32a4e007a95688e2f5e4c3929a70cef061c5fdf16092d63f593f5b6a8fb5b00"
     },
     {
       "route": "/states/maine/real-id/",
       "class": "state-real-id",
       "title": "缅因州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "缅因州 REAL ID 中文材料清单",
-      "contentChars": 7413,
-      "contentHash": "62c902f14ab79b56fab17c8c5d513f0a3ea93c71dcfa49ea45930865a8fca40f"
+      "contentChars": 7136,
+      "contentHash": "9f3bc0181bf457a8c98b2d9dde2b6d8f59f630ba37504791b0432fb886a29375"
     },
     {
       "route": "/states/maryland/",
       "class": "state-overview",
       "title": "马里兰州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "马里兰州 DMV 办事总览",
-      "contentChars": 6381,
-      "contentHash": "1a3f5f0e39b70e1b86540fcb9c7fcf0dc486d618aff49a70a94ca4807fe23e80"
+      "contentChars": 6100,
+      "contentHash": "b030098a4197dc3772ae03e047c08d178a9ab7100554d0746c573f2585286cee"
     },
     {
       "route": "/states/maryland/real-id/",
       "class": "state-real-id",
       "title": "马里兰州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "马里兰州 REAL ID 中文材料清单",
-      "contentChars": 6327,
-      "contentHash": "dac215d4a62c0e83e9e8550660da8a1c22afdebc92f219c85b53bd0b1a434a9b"
+      "contentChars": 6074,
+      "contentHash": "6a4a8ca0bdba15f96bc356f23c0ea2ba2f93a41b38de9d5b13cb07e8a62137b6"
     },
     {
       "route": "/states/massachusetts/",
       "class": "state-overview",
       "title": "马萨诸塞州 RMV 中文指南：驾照续期、REAL ID 与预约 | DMV中文办事库",
       "heading": "马萨诸塞州 RMV 中文办事指南",
-      "contentChars": 6668,
-      "contentHash": "140204362b3c275b704c77bfabb04daf3b7546321656fb30688531279be5e0e6"
+      "contentChars": 6332,
+      "contentHash": "4e0ce005b815b8fedd9964a75f6a2ba7079eeb6f9cb639eb20b267e03871e395"
     },
     {
       "route": "/states/massachusetts/real-id/",
       "class": "state-real-id",
       "title": "马萨诸塞州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "马萨诸塞州 REAL ID 中文材料清单",
-      "contentChars": 5395,
-      "contentHash": "c0f22679c704d341dee7b3a92fa6f8ad301bc5eb0d454310db1d5d53f983b25e"
+      "contentChars": 5182,
+      "contentHash": "b0840e15ca056116d669ee0f9c790def2bc446ed83758f9f4be7c357b0119857"
     },
     {
       "route": "/states/michigan/",
       "class": "state-overview",
       "title": "密歇根州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "密歇根州 DMV 办事总览",
-      "contentChars": 9665,
-      "contentHash": "9e0c1b4249c891cbeb0a29f7e4926671514efbd87c28aa6d9fa0239bf8a095a3"
+      "contentChars": 9336,
+      "contentHash": "74d4a638c600a2f58de30008298f7942e984d14531a2cdea6752615aac0af3a2"
     },
     {
       "route": "/states/michigan/real-id/",
       "class": "state-real-id",
       "title": "密歇根州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "密歇根州 REAL ID 中文材料清单",
-      "contentChars": 7510,
-      "contentHash": "f2fcf26039f2a463c2c860e5f5082f63d2c822988b0d20925cc85f2b819099f0"
+      "contentChars": 7253,
+      "contentHash": "c0a45b0b8e3ef2d3ac6dd05e21e15d5d4e3314e9a448bb1aa2c33b19cb966dca"
     },
     {
       "route": "/states/minnesota/",
       "class": "state-overview",
       "title": "明尼苏达州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "明尼苏达州 DMV 办事总览",
-      "contentChars": 3438,
-      "contentHash": "4788623ba182d1edb23ea3f950b0808e85c41c56467ac55aca1caab9a68ec89e"
+      "contentChars": 3219,
+      "contentHash": "ff38ec364545eed2fc33a30d36d7654e4a23c6ce4a153467afff76844b87d758"
     },
     {
       "route": "/states/minnesota/real-id/",
       "class": "state-real-id",
       "title": "明尼苏达州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "明尼苏达州 REAL ID 中文材料清单",
-      "contentChars": 4500,
-      "contentHash": "0f6bb38c1e3b5b9d48271e6187450243de2863a334fe62ac42cd187c3d90dce4"
+      "contentChars": 4268,
+      "contentHash": "d8a24bfa3ecd6e2faaaac999228eebf59bb1e59d375e811bde7847af1d2b5995"
     },
     {
       "route": "/states/mississippi/",
       "class": "state-overview",
       "title": "密西西比州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "密西西比州 DMV 办事总览",
-      "contentChars": 10881,
-      "contentHash": "a89190522ae0a235565e8008d13b16982e6192e3b7f80d9cd0a32a1bde6dee7d"
+      "contentChars": 10453,
+      "contentHash": "68c8971af142a793d50e4fa5971b710cc299df4123f5a85ef7f3a06a3929ae17"
     },
     {
       "route": "/states/mississippi/real-id/",
       "class": "state-real-id",
       "title": "密西西比州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "密西西比州 REAL ID 中文材料清单",
-      "contentChars": 9381,
-      "contentHash": "7feb27c473f55eb9c94da1bb6ff83043140fe66bace49d9ad161cddb56ce114c"
+      "contentChars": 9084,
+      "contentHash": "b7e410b68f5fbea5e08bbd56bdc08cc8a0f1353b2bdf67250d242b7f06f172a4"
     },
     {
       "route": "/states/missouri/",
       "class": "state-overview",
       "title": "密苏里州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "密苏里州 DMV 办事总览",
-      "contentChars": 8043,
-      "contentHash": "a263122689f30322d313350948c7903d5b8a626a6ed074babf6ce25bacf99a51"
+      "contentChars": 7643,
+      "contentHash": "d17e860734609def757c87beeb50c9f0d002c17f20fe3a4eab9f109b1745362a"
     },
     {
       "route": "/states/missouri/real-id/",
       "class": "state-real-id",
       "title": "密苏里州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "密苏里州 REAL ID 中文材料清单",
-      "contentChars": 8758,
-      "contentHash": "b4cc17efbed364132999d408af0cf936429d84956d06cbf138de97700fe56664"
+      "contentChars": 8436,
+      "contentHash": "9df8acedbf7f02e44c1fe68a98f557330ed2bab01e8b5cecd4202ad92b5af705"
     },
     {
       "route": "/states/montana/",
       "class": "state-overview",
       "title": "蒙大拿州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "蒙大拿州 DMV 办事总览",
-      "contentChars": 13486,
-      "contentHash": "b821e592ff92c66f3bb8dc30c9db286c348a1280f75e8e445abe2ea5fc8c52cb"
+      "contentChars": 12824,
+      "contentHash": "e3964dc102f88a827baf1001ceff3d683147115d35aaeb4dd2cb1494b7d1e201"
     },
     {
       "route": "/states/montana/real-id/",
       "class": "state-real-id",
       "title": "蒙大拿州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "蒙大拿州 REAL ID 中文材料清单",
-      "contentChars": 12520,
-      "contentHash": "83920e424b4283e1c775888b7122ba5a6c818ebe8cc628cf9197ff1dcb1b1c2e"
+      "contentChars": 11986,
+      "contentHash": "2478d0823f3060d9774396fef061c9cf3b1d692330c2b42420df80f1ea2a5341"
     },
     {
       "route": "/states/nebraska/",
       "class": "state-overview",
       "title": "内布拉斯加州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "内布拉斯加州 DMV 办事总览",
-      "contentChars": 8920,
-      "contentHash": "b7c706bb9d81a14b18661e2f0fe1d9e3619846a0b74b2cbab4ee91bf4ba64dc7"
+      "contentChars": 8478,
+      "contentHash": "ac775dfa2772ec8b051364a78f1dd2f72e64b4ebf83ac45d85901b4792cae9c1"
     },
     {
       "route": "/states/nebraska/real-id/",
       "class": "state-real-id",
       "title": "内布拉斯加州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "内布拉斯加州 REAL ID 中文材料清单",
-      "contentChars": 9656,
-      "contentHash": "c6ced207bcf9f53834ce9c80a029c4cf36afeb81f11963a0b17b843173a99ca1"
+      "contentChars": 9292,
+      "contentHash": "2085e5d88437a65625626a0d74b47eec4ee49f5867bdfc348144a79de4112329"
     },
     {
       "route": "/states/nevada/",
       "class": "state-overview",
       "title": "内华达州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "内华达州 DMV 办事总览",
-      "contentChars": 13326,
-      "contentHash": "f2e58c7b259c4a049feba34b3383da48000f3c70413f6101d5433335fbc46a16"
+      "contentChars": 12782,
+      "contentHash": "59521fd98a313d36e3a65905175cf814c5474e8b62b620fe81185f6ba725ac44"
     },
     {
       "route": "/states/nevada/real-id/",
       "class": "state-real-id",
       "title": "内华达州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "内华达州 REAL ID 中文材料清单",
-      "contentChars": 11194,
-      "contentHash": "2ba97fcb970e51b50441e723efd2c82fb13072c9a3938ed844b01b0fe9765936"
+      "contentChars": 10804,
+      "contentHash": "75c5c12e30e31a21965754b11c1be1d7f7c09cec92257daf526fad605b9cf002"
     },
     {
       "route": "/states/new-hampshire/",
       "class": "state-overview",
       "title": "新罕布什尔州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "新罕布什尔州 DMV 办事总览",
-      "contentChars": 7622,
-      "contentHash": "84fa440069795130107dfcb9b23b39b70a05376cb2e7f8e79f567f561710b267"
+      "contentChars": 7261,
+      "contentHash": "213456184dbdd07a7c54062a35b9add4f08d4989b7d982c8b885c432042980d2"
     },
     {
       "route": "/states/new-hampshire/real-id/",
       "class": "state-real-id",
       "title": "新罕布什尔州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "新罕布什尔州 REAL ID 中文材料清单",
-      "contentChars": 8711,
-      "contentHash": "497da93c5b4b9a3422da6b299c2d3e9d85276fcd02b6c1e5910d6a9e0030d479"
+      "contentChars": 8373,
+      "contentHash": "e6f31cfd40ef33c3da1c4723623df42522679c6673b6e719b434ba02c75827bd"
     },
     {
       "route": "/states/new-jersey/",
       "class": "state-overview",
       "title": "新泽西 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "新泽西 DMV 办事总览",
-      "contentChars": 5400,
-      "contentHash": "3d9f7da77da01a57df06d8d2fa618258127fd259bb6f26f7d7699b283f7d9409"
+      "contentChars": 5063,
+      "contentHash": "94d1c20f02e7f578af056ea69d09e4a23db0809157fca34946179f55b64ad492"
     },
     {
       "route": "/states/new-jersey/real-id/",
       "class": "state-real-id",
       "title": "新泽西 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "新泽西 REAL ID 中文材料清单",
-      "contentChars": 4459,
-      "contentHash": "e894d60c7491fc3188e2400e59b74e5442672f4768d38df291f49b0d4fc1b84e"
+      "contentChars": 4245,
+      "contentHash": "eb510cb696f868b5ce685fd8ec55ed71b93fea72dadde44e604ebb722cc21df6"
     },
     {
       "route": "/states/new-mexico/",
       "class": "state-overview",
       "title": "新墨西哥州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "新墨西哥州 DMV 办事总览",
-      "contentChars": 7928,
-      "contentHash": "dcbe285190e8889853105ce2b7e87d9cb3a54222b4d19b202b68d6645af227e0"
+      "contentChars": 7504,
+      "contentHash": "9a2ba38cef412d1e434b9e00e99ed32bf94dee88acc40e9b7c5e8f8ac8b984d4"
     },
     {
       "route": "/states/new-mexico/real-id/",
       "class": "state-real-id",
       "title": "新墨西哥州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "新墨西哥州 REAL ID 中文材料清单",
-      "contentChars": 8614,
-      "contentHash": "0f304e9dc4401ccaa5a7250be7d4c86092618b9d6be567e36470cb28e7717cd5"
+      "contentChars": 8254,
+      "contentHash": "b135146fcfd1f4004acc1afae39fc557ed6c5425e04b0a078ebcfeecb78f5f9c"
     },
     {
       "route": "/states/new-york/",
       "class": "state-overview",
       "title": "纽约州 DMV 中文指南：驾照续期、REAL ID 与邮寄进度 | DMV中文办事库",
       "heading": "纽约州 DMV 中文办事指南",
-      "contentChars": 4635,
-      "contentHash": "e74fb005d9a9889b256ae7d51dd6725360dcc957896dbaacd6cf39063cd041c6"
+      "contentChars": 4407,
+      "contentHash": "1650cc1f4fe45d1ca0d525306d6da7cc050b42561aaf9b8cb264719e73f051ee"
     },
     {
       "route": "/states/new-york/real-id/",
       "class": "state-real-id",
       "title": "纽约州 REAL ID 怎么申请：材料、费用与预约步骤 | DMV中文办事库",
       "heading": "纽约州 REAL ID 申请指南",
-      "contentChars": 3493,
-      "contentHash": "fdcb4f6d1160d32747648f130df7d4b69e92144559e5c7298a7dc9ad2f1da7c9"
+      "contentChars": 3344,
+      "contentHash": "8e83cfc92365757a96fb7310fa6f3355442726a499a6c1a9d3d0910134efbb07"
     },
     {
       "route": "/states/north-carolina/",
       "class": "state-overview",
       "title": "北卡罗来纳州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "北卡罗来纳州 DMV 办事总览",
-      "contentChars": 9308,
-      "contentHash": "0b4e5aff014766ce3999abd773562c8b7ffa824af98191cf5997d7e6acb2da0d"
+      "contentChars": 8948,
+      "contentHash": "22115a4400a4a82682c9b2c3aad199c81beea064932f95b447c58d1fd37fada9"
     },
     {
       "route": "/states/north-carolina/real-id/",
       "class": "state-real-id",
       "title": "北卡罗来纳州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "北卡罗来纳州 REAL ID 中文材料清单",
-      "contentChars": 7679,
-      "contentHash": "6849e70fa6e10c6c4463ae96b20b2653884f87738cca57f0914ca65f497e172d"
+      "contentChars": 7408,
+      "contentHash": "db4045abf2987434fc4a1066eb6e8a4bc2feb812e1d3953fc71b18b9bcfe0825"
     },
     {
       "route": "/states/north-dakota/",
       "class": "state-overview",
       "title": "北达科他州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "北达科他州 DMV 办事总览",
-      "contentChars": 9843,
-      "contentHash": "8bf55d4c0465de9a444aedeb0d2cd43873094dbabba98124cb40039f3dcde13b"
+      "contentChars": 9335,
+      "contentHash": "02ea6f4f0ffea5207d8942bfccc53b9e0cf1988cfbbc88377069fc7301134520"
     },
     {
       "route": "/states/north-dakota/real-id/",
       "class": "state-real-id",
       "title": "北达科他州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "北达科他州 REAL ID 中文材料清单",
-      "contentChars": 9756,
-      "contentHash": "c4c8b3ce2710b18a10f4d3ee49591afb59304ad9cf1c0297ddc2aa635635b130"
+      "contentChars": 9346,
+      "contentHash": "dc872d22fe2f4a02f5276882b9c2825a83597410c5727b286cc9b065d8e9faa2"
     },
     {
       "route": "/states/ohio/",
       "class": "state-overview",
       "title": "俄亥俄州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "俄亥俄州 DMV 办事总览",
-      "contentChars": 9307,
-      "contentHash": "6ab942199c027952f5d18735af052c8a1b7cf449a72fd60d8633c8549052d1ab"
+      "contentChars": 8906,
+      "contentHash": "e5d28c77279990d87c9f35b8c41407a0d85afb0ad888aa50336a7eef3abdf6cb"
     },
     {
       "route": "/states/ohio/real-id/",
       "class": "state-real-id",
       "title": "俄亥俄州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "俄亥俄州 REAL ID 中文材料清单",
-      "contentChars": 8332,
-      "contentHash": "5e91fa03d18de9dc5f49a7057dceaface2bb25082ec78a5416aa19291411a8e8"
+      "contentChars": 8006,
+      "contentHash": "104de698c2003014d4b7497fddeed0ea7e1b9b417ec861997e741a5e166a1198"
     },
     {
       "route": "/states/oklahoma/",
       "class": "state-overview",
       "title": "俄克拉荷马州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "俄克拉荷马州 DMV 办事总览",
-      "contentChars": 8610,
-      "contentHash": "8d2074d5625b3c20627640528f59b1d1f9fbbf5a029c4e31c266472c5126bfe8"
+      "contentChars": 8220,
+      "contentHash": "256ed15cc9a0028cb769a5a62e77c0af09a44713ad2843979c9c99f2730852fe"
     },
     {
       "route": "/states/oklahoma/real-id/",
       "class": "state-real-id",
       "title": "俄克拉荷马州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "俄克拉荷马州 REAL ID 中文材料清单",
-      "contentChars": 9889,
-      "contentHash": "dd9ef4a831e82d85f5a4e51d06f3c79e9c33ffe0de273800fa0500066b9c8915"
+      "contentChars": 9575,
+      "contentHash": "f0b23634fa77868c1fb38feedc78322f9330fde11211f7dcc4cb656961e6f553"
     },
     {
       "route": "/states/oregon/",
       "class": "state-overview",
       "title": "俄勒冈州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "俄勒冈州 DMV 办事总览",
-      "contentChars": 15452,
-      "contentHash": "7f87a343fe52242706e4e7ea37b98d7883f7735c7910b6f058de5e7ef5f76d0e"
+      "contentChars": 14785,
+      "contentHash": "5e254902176cc9182a506bd363aca66f0ed48cbe73ef3f832097a4d8ccb2e3ec"
     },
     {
       "route": "/states/oregon/real-id/",
       "class": "state-real-id",
       "title": "俄勒冈州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "俄勒冈州 REAL ID 中文材料清单",
-      "contentChars": 11627,
-      "contentHash": "1eb4f535b8bcd8ee0bdc7742d40fc9e4246a8c3fd6986653ba1781712c43f6a8"
+      "contentChars": 11195,
+      "contentHash": "5c6a41d9b01475137cfdae39503e5752c012f0b97e96b91c73d7d29097dd610d"
     },
     {
       "route": "/states/pennsylvania/",
       "class": "state-overview",
       "title": "宾夕法尼亚州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "宾夕法尼亚州 DMV 办事总览",
-      "contentChars": 7315,
-      "contentHash": "05c2f273cc05afdf0da41972425afc5bc866f7227914d4c55715e92374de557e"
+      "contentChars": 6944,
+      "contentHash": "36887facdd91d7c6fa5b82b4058c6d640924c010590451ce8ff78ce0463b9b37"
     },
     {
       "route": "/states/pennsylvania/real-id/",
       "class": "state-real-id",
       "title": "宾夕法尼亚州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "宾夕法尼亚州 REAL ID 中文材料清单",
-      "contentChars": 7097,
-      "contentHash": "d575b1dab1892cbb2d79882176761121b1c377d82c3031899b524a0acf68681b"
+      "contentChars": 6837,
+      "contentHash": "b5699b3db2f61e29d3ba4cc3f9c889b222fc48f7d5648673cdfccb32510361d9"
     },
     {
       "route": "/states/rhode-island/",
       "class": "state-overview",
       "title": "罗得岛州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "罗得岛州 DMV 办事总览",
-      "contentChars": 5833,
-      "contentHash": "083ed4d5a723166830fa3251209465b0b07db6e89d353bc17ccd2e8650796287"
+      "contentChars": 5477,
+      "contentHash": "622e49170aa51d3f11f186ac0415fa175a19de7de093835744e7a85b9ad46375"
     },
     {
       "route": "/states/rhode-island/real-id/",
       "class": "state-real-id",
       "title": "罗得岛州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "罗得岛州 REAL ID 中文材料清单",
-      "contentChars": 8588,
-      "contentHash": "14b1f20eb714c37f7e0c3daa79119643cd2ea06a2d1749fbb3b97d51d6454e36"
+      "contentChars": 8199,
+      "contentHash": "611554450896717ed6f56fa53aa791b53e0abc517580b81e9442d3b669698278"
     },
     {
       "route": "/states/south-carolina/",
       "class": "state-overview",
       "title": "南卡罗来纳州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "南卡罗来纳州 DMV 办事总览",
-      "contentChars": 8405,
-      "contentHash": "2f84c519377d7149b38433e258b83e742771173162e595d4ddd9d010b3e9c20b"
+      "contentChars": 7920,
+      "contentHash": "5ca26a013b9a94aac260bdb24f749dc95e03daee6467a810c998f80e4f8f8d8c"
     },
     {
       "route": "/states/south-carolina/real-id/",
       "class": "state-real-id",
       "title": "南卡罗来纳州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "南卡罗来纳州 REAL ID 中文材料清单",
-      "contentChars": 8987,
-      "contentHash": "9f8bd080b005b3ec059457acedfb897bf9d91b19b36fa134fcf46a065f739e82"
+      "contentChars": 8582,
+      "contentHash": "81eb469121475b7435bc744cf48f8db6f8437e5b300a938f01360bc3f112cbde"
     },
     {
       "route": "/states/south-dakota/",
       "class": "state-overview",
       "title": "南达科他州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "南达科他州 DMV 办事总览",
-      "contentChars": 9197,
-      "contentHash": "98acd33a951df3865da9018a38f50ae7ed379ddb9a49c5ba79252633ff925e41"
+      "contentChars": 8760,
+      "contentHash": "43654f830f6b387fc006c7d6512783acc51be5aba2d77aad17aff88df51595d0"
     },
     {
       "route": "/states/south-dakota/real-id/",
       "class": "state-real-id",
       "title": "南达科他州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "南达科他州 REAL ID 中文材料清单",
-      "contentChars": 8599,
-      "contentHash": "4a3b637113b7768cb4e5eb6ff186c8ab0b35f7454a3a7a5d8ef045cbab601492"
+      "contentChars": 8275,
+      "contentHash": "3fc3f7f0a0b3e4c5c532ced25325335c2eef5097f2ebdcb8da611b0bb6d95bb8"
     },
     {
       "route": "/states/tennessee/",
       "class": "state-overview",
       "title": "田纳西州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "田纳西州 DMV 办事总览",
-      "contentChars": 6589,
-      "contentHash": "52b8e72ed3e631f18c8a5f5e256649bb12f640f4eb25e3fa203feb8de6ea4ae1"
+      "contentChars": 6292,
+      "contentHash": "91e32657f2d52fa0a46a27a1296c3f29926c5e972aeea3ef2fabecfb30de06ec"
     },
     {
       "route": "/states/tennessee/real-id/",
       "class": "state-real-id",
       "title": "田纳西州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "田纳西州 REAL ID 中文材料清单",
-      "contentChars": 7966,
-      "contentHash": "4a7d4a0d23d68c88701e3673ae275db96ff01187530c65788c840bdd503739a3"
+      "contentChars": 7716,
+      "contentHash": "bb582dc19c645f26faa0bd5d45d47dda9bf83ad4833dae53527d09874ac00005"
     },
     {
       "route": "/states/texas/",
       "class": "state-overview",
       "title": "德州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "德州 DMV 办事总览",
-      "contentChars": 5244,
-      "contentHash": "9c2555475a5b8b17743585e31da563083527c568d47357505b402fe1b15d26b2"
+      "contentChars": 4982,
+      "contentHash": "2508d2c4348898d87c64fceb12b3df13e62e6aca5ed3a0a4883ba8289524bda1"
     },
     {
       "route": "/states/texas/real-id/",
       "class": "state-real-id",
       "title": "德州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "德州 REAL ID 中文材料清单",
-      "contentChars": 4745,
-      "contentHash": "b7428306ba16a8a5bca795bec7d238ffad2398254c9b8a82ee185137b8bd1a65"
+      "contentChars": 4533,
+      "contentHash": "d65da1561809a781968c09b4d2139d13c3390c5d86519fe975447c5f4514de07"
     },
     {
       "route": "/states/utah/",
       "class": "state-overview",
       "title": "犹他州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "犹他州 DMV 办事总览",
-      "contentChars": 9321,
-      "contentHash": "2fe3758585dc2f507ba7df3f5102e4806d53f454ac9ab780b9a4480bc5440875"
+      "contentChars": 8876,
+      "contentHash": "b71dd43c0179e55829d918653a409181d4c917f1b3574325c3e93d4570feafce"
     },
     {
       "route": "/states/utah/real-id/",
       "class": "state-real-id",
       "title": "犹他州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "犹他州 REAL ID 中文材料清单",
-      "contentChars": 9242,
-      "contentHash": "523bd2d19019426579acedca2ce72a5d1777bc51e65c3ee54b32ce8ce048d7c2"
+      "contentChars": 8888,
+      "contentHash": "9870104b5f2e07de08bd5969fd12b1e379ef6bab7f61b8d0e17f74d49980a3f1"
     },
     {
       "route": "/states/vermont/",
       "class": "state-overview",
       "title": "佛蒙特州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "佛蒙特州 DMV 办事总览",
-      "contentChars": 10767,
-      "contentHash": "2dcd077a395c8012776cc30c9c0e4e9b73123b514ae29aee7649e720ce89c45b"
+      "contentChars": 10227,
+      "contentHash": "6b33519bba223981ede5e0aa3afb189fa00c8223182ad1483cfe11a43bfac876"
     },
     {
       "route": "/states/vermont/real-id/",
       "class": "state-real-id",
       "title": "佛蒙特州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "佛蒙特州 REAL ID 中文材料清单",
-      "contentChars": 11064,
-      "contentHash": "e1a607835406bab8b699d2b84459d9895ecb8a403a1faa016a22dfb44faa2a46"
+      "contentChars": 10597,
+      "contentHash": "e010e51c105089c35f94cec0722e9ace68046aa30091c1451e223cb6440a2ffe"
     },
     {
       "route": "/states/virginia/",
       "class": "state-overview",
       "title": "弗吉尼亚州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "弗吉尼亚州 DMV 办事总览",
-      "contentChars": 7900,
-      "contentHash": "b85a4d1c0b9c81e09120150023788dad013940387a1bd2ac5de63d320d4946df"
+      "contentChars": 7582,
+      "contentHash": "84347ae6caa879d52cdc93b3372ec7453d61742ab533c1ac05869bb23f05e95c"
     },
     {
       "route": "/states/virginia/real-id/",
       "class": "state-real-id",
       "title": "弗吉尼亚州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "弗吉尼亚州 REAL ID 中文材料清单",
-      "contentChars": 7196,
-      "contentHash": "1d6fed3422b409e769d248edf8ba6fd388b9b8dbcb2001e0e680796920c69e70"
+      "contentChars": 6934,
+      "contentHash": "f1a81c4f1a0d4cfd0c5a7515f40eb53e6bf7c67c2859423196e50f23998b24fc"
     },
     {
       "route": "/states/washington/",
       "class": "state-overview",
       "title": "华盛顿州 DOL 中文指南：身份证续期、驾照与 REAL ID | DMV中文办事库",
       "heading": "华盛顿州 DOL 中文办事指南",
-      "contentChars": 6191,
-      "contentHash": "95c852cc6bfddbbdfb3d58228a680083dba72d4edf7b801d474f7d98052012d0"
+      "contentChars": 5819,
+      "contentHash": "de7e4475088858fa87c07dfb7b8297cfc1148eeacedab73181a311b4ed9041a6"
     },
     {
       "route": "/states/washington/real-id/",
       "class": "state-real-id",
       "title": "华盛顿州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "华盛顿州 REAL ID 中文材料清单",
-      "contentChars": 5255,
-      "contentHash": "5623104afc84ba07283d30df2faa1ce02fe80464aca0430a65582d0fb5248c68"
+      "contentChars": 5024,
+      "contentHash": "e73bc6adf35e936ae87fd36f453df404a941c444bb4c5fb7f0a29a793884cfa1"
     },
     {
       "route": "/states/west-virginia/",
       "class": "state-overview",
       "title": "西弗吉尼亚州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "西弗吉尼亚州 DMV 办事总览",
-      "contentChars": 12505,
-      "contentHash": "1ae6bb4c17a3205a98a7eb4cf6a66e45441e7ee657b41064665966f90519160f"
+      "contentChars": 11897,
+      "contentHash": "f6ab427eabf0f2ac436c3963cac27901002ea1f053e2c8bbc739c961c87c4cf1"
     },
     {
       "route": "/states/west-virginia/real-id/",
       "class": "state-real-id",
       "title": "西弗吉尼亚州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "西弗吉尼亚州 REAL ID 中文材料清单",
-      "contentChars": 9339,
-      "contentHash": "1da36d7c9f80cf938c77dc0283602e54c0feb4e85287ebaf5fa1a635525d56d2"
+      "contentChars": 8915,
+      "contentHash": "cd5aa2d5417454ab85de3583739868a558380b010ee8464e7980a8a852afccba"
     },
     {
       "route": "/states/wisconsin/",
       "class": "state-overview",
       "title": "威斯康星州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "威斯康星州 DMV 办事总览",
-      "contentChars": 10512,
-      "contentHash": "457efc42bc6b49dd9fe21514485386e690d78130c7c198c9a615f9e850956b57"
+      "contentChars": 10052,
+      "contentHash": "1898994e60e76d3aa044e41ac475d4f53dcc0f1a3a6d6455974e8bc91a520b73"
     },
     {
       "route": "/states/wisconsin/real-id/",
       "class": "state-real-id",
       "title": "威斯康星州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "威斯康星州 REAL ID 中文材料清单",
-      "contentChars": 10337,
-      "contentHash": "80e3b713c025633c0b3d5d0069a59a919c20bafb287077bd46307c674c02188f"
+      "contentChars": 9980,
+      "contentHash": "6acf5248138eb0fa958769686b1ce6c209e1c7a0cf3b79463526a53fe0ed5ba5"
     },
     {
       "route": "/states/wyoming/",
       "class": "state-overview",
       "title": "怀俄明州 DMV / 驾照 / REAL ID 办事总览 | DMV中文办事库",
       "heading": "怀俄明州 DMV 办事总览",
-      "contentChars": 5483,
-      "contentHash": "002b0eb18931ffca973677021f9b9b2e04f508819f4c79f01856a129639ae5c8"
+      "contentChars": 5160,
+      "contentHash": "6dd4fc7d5df63fbe14e620886a0a4912fd052af17826399f54a41edb964e0502"
     },
     {
       "route": "/states/wyoming/real-id/",
       "class": "state-real-id",
       "title": "怀俄明州 REAL ID 中文材料清单 | DMV中文办事库",
       "heading": "怀俄明州 REAL ID 中文材料清单",
-      "contentChars": 6501,
-      "contentHash": "b5baa9f8763ddc29ff914ecbb99ee75ffd6f4e935a4a354346bff9d269019345"
+      "contentChars": 6247,
+      "contentHash": "b81592a14e265c0a1f700183fddfe1d787d9c71a3ab8f864123a16e487515028"
     },
     {
       "route": "/topics/airport-travel-after-real-id/",
       "class": "topic",
       "title": "REAL ID 后坐美国国内航班要带什么 | DMV中文办事库",
       "heading": "REAL ID 后坐美国国内航班要带什么",
-      "contentChars": 2555,
-      "contentHash": "b0049701f4616bd6668cd5b93503d9ffc836ccc25bcc5d17536a26c19a0d0468"
+      "contentChars": 2444,
+      "contentHash": "6dbd2c52cd83312a0528a957ff72ac119987ee5843026651175612222a0fc0fa"
     },
     {
       "route": "/topics/disabled-parking-placard-plates/",
       "class": "topic",
       "title": "残疾人停车 placard、disabled plates 和临时停车证怎么申请 | DMV中文办事库",
       "heading": "残疾人停车 placard、disabled plates 和临时停车证怎么申请",
-      "contentChars": 8884,
-      "contentHash": "a248597b07459ce3f9df204a1700491dcf12e4e3a1f51ffe6649462b872f3236"
+      "contentChars": 8777,
+      "contentHash": "7721adf93ffbbbcb8b8392b284120500b0cbc2aa2346cc97e7d17529a152a9f4"
     },
     {
       "route": "/topics/dmv-fees-mailing-temporary-license/",
       "class": "topic",
       "title": "DMV 费用、邮寄时间和临时证件怎么查 | DMV中文办事库",
       "heading": "DMV 费用、邮寄时间和临时证件怎么查",
-      "contentChars": 3737,
-      "contentHash": "c414fa1555871d586c790ce7f506cd4d55046fbb35f6e12b3f88c5cbce6ab272"
+      "contentChars": 3630,
+      "contentHash": "2d966929141fd45b51ffea793f284041827ea8117da2b9681f18037cf3cdfcd4"
     },
     {
       "route": "/topics/dmv-scam-text-fake-ticket-toll-real-id-phishing/",
       "class": "topic",
       "title": "DMV 诈骗短信、假罚单和假官网怎么识别 | DMV中文办事库",
       "heading": "DMV 诈骗短信、假罚单和假官网怎么识别",
-      "contentChars": 6064,
-      "contentHash": "f8ea77bbd98d09488efd6efb8e411714c59728254540a1f5554c24310f4dc842"
+      "contentChars": 5957,
+      "contentHash": "66f80e4a720d852be81b50530703f647a3741d6809fdaabb24637e657ccee512"
     },
     {
       "route": "/topics/dmv-test-language-translation-interpreter/",
       "class": "topic",
       "title": "DMV 中文笔试、文件翻译和口译怎么判断 | DMV中文办事库",
       "heading": "DMV 中文笔试、文件翻译和口译怎么判断",
-      "contentChars": 3906,
-      "contentHash": "ae7d9847fdc857fa8f0c576d7b069893638f70b863a1d4789132127f45d77d06"
+      "contentChars": 3799,
+      "contentHash": "634454156f163d5fe2ecb7a4054ff5b90db3c1541c180b89804fbc8fb98d2ebf"
     },
     {
       "route": "/topics/document-checklist/",
       "class": "topic",
       "title": "REAL ID 常见材料清单 | DMV中文办事库",
       "heading": "REAL ID 常见材料清单",
-      "contentChars": 2636,
-      "contentHash": "e6b26768622d9159cc81d578aa06eb9cd83a9148b4a4ba1631aa467f870c2a6e"
+      "contentChars": 2525,
+      "contentHash": "a7440299d8b1ffede8f42d462c0eb7ef8771896ad8aca98edc93c3416845fac6"
     },
     {
       "route": "/topics/driver-license-suspension-reinstatement-sr22/",
       "class": "topic",
       "title": "驾照被 suspend 或 revoke 后，恢复驾驶资格先做什么 | DMV中文办事库",
       "heading": "驾照被 suspend 或 revoke 后，恢复驾驶资格先做什么",
-      "contentChars": 6787,
-      "contentHash": "ba2bdef744d526b35d5c88bc0fc4fd81f3e6dc5a7bc6afd3358ae572638ae802"
+      "contentChars": 6680,
+      "contentHash": "c0138cad2b2cd448bbdd7beb6595c3c60c4b7fba6ddab95ee937c1b2d64c6d1d"
     },
     {
       "route": "/topics/driving-record-points-traffic-school/",
       "class": "topic",
       "title": "驾照记录、points 和 traffic school：怎么查、怎么影响保险和停牌 | DMV中文办事库",
       "heading": "驾照记录、points 和 traffic school：怎么查、怎么影响保险和停牌",
-      "contentChars": 8076,
-      "contentHash": "12a878598438e81a24ca5219ca9f0755e95beb9812f083a8b7e08796c5b49f8a"
+      "contentChars": 7969,
+      "contentHash": "109fc69beb5bdf408534bfae7daa7cc982e53eb01056d046858febc2f9fabf12"
     },
     {
       "route": "/topics/first-driver-license-road-test/",
       "class": "topic",
       "title": "第一次在美国考驾照：Permit、笔试、练车和路考流程 | DMV中文办事库",
       "heading": "第一次在美国考驾照：Permit、笔试、练车和路考流程",
-      "contentChars": 3640,
-      "contentHash": "bbcb6a65c841a99137d8aef63df5bc62824d7b471c679905eb878960e86d5c57"
+      "contentChars": 3529,
+      "contentHash": "b32da8c5e84fe4123e046c8b64a5d9e2f8bb20b3b2603612e9e9a7647182826d"
     },
     {
       "route": "/topics/foreign-license-idp-transfer/",
       "class": "topic",
       "title": "中国/外国驾照、IDP 和美国州驾照怎么衔接 | DMV中文办事库",
       "heading": "中国/外国驾照、IDP 和美国州驾照怎么衔接",
-      "contentChars": 4092,
-      "contentHash": "3626c097827bf3633cfeab490eac30c2b4b660025028ba786973045f5542a0f8"
+      "contentChars": 3985,
+      "contentHash": "9e4c2c150090e2ac748f0cd06f6497f38911c91fddff61425da21c6f5d96ac88"
+    },
+    {
+      "route": "/topics/gift-inherited-vehicle-title-transfer/",
+      "class": "topic",
+      "title": "亲属赠车或继承车辆怎么过户：Title、Lien、税费和车主去世 | DMV中文办事库",
+      "heading": "亲属赠车或继承车辆怎么过户：Title、Lien、税费和车主去世",
+      "contentChars": 9094,
+      "contentHash": "ea63954cc87c26f72ba3a83d17a6c058ca9024396cd60ab8451a3e6a95bdde64"
     },
     {
       "route": "/topics/lost-stolen-license-id-replacement-identity-theft/",
       "class": "topic",
       "title": "驾照或 State ID 丢失/被盗后，补证、报案和身份盗用怎么处理 | DMV中文办事库",
       "heading": "驾照或 State ID 丢失/被盗后，补证、报案和身份盗用怎么处理",
-      "contentChars": 7702,
-      "contentHash": "8e6360535e35de63e2f38b9c46a147c7a01468e83c0a355a61fe38847c3c21f1"
+      "contentChars": 7595,
+      "contentHash": "8e48bdf8f228685f40fffe55d05cc978068bf4e0d47531eee181ce12e693748a"
     },
     {
       "route": "/topics/lost-stolen-license-plates-registration-card-sticker/",
       "class": "topic",
       "title": "车牌、registration card 或 sticker 丢失、被盗怎么办 | DMV中文办事库",
       "heading": "车牌、registration card 或 sticker 丢失、被盗怎么办",
-      "contentChars": 8705,
-      "contentHash": "13b028656dd81cc1ed0ab1093c2663474407914e93472cb9ec1b2fa9a77426c0"
+      "contentChars": 8598,
+      "contentHash": "63dbae1abd0dd9062ae9ae011f388ead438d8274f9bf6feb2b1070ce41c9eea7"
+    },
+    {
+      "route": "/topics/lost-vehicle-title-replacement-electronic-title-lien-sale/",
+      "class": "topic",
+      "title": "车辆 Title 丢了怎么补：谁能申请、Lien 与卖车前处理 | DMV中文办事库",
+      "heading": "车辆 Title 丢了怎么补：谁能申请、Lien 与卖车前处理",
+      "contentChars": 7524,
+      "contentHash": "184c3dc8b5b15941dda776c23d4562ae5b1093d6c81658535cc8ba65ea60c655"
     },
     {
       "route": "/topics/moving-to-new-state/",
       "class": "topic",
       "title": "搬到新州后先办哪件事 | DMV中文办事库",
       "heading": "搬到新州后先办哪件事",
-      "contentChars": 4134,
-      "contentHash": "b36c9716b41acfe9fe6c28239c2dd7ba5a5251846c55496028ba37a72c75ffc9"
+      "contentChars": 4023,
+      "contentHash": "7c16ed7bd5cd49c5b22080b686a54dd1671dba7c14d43d557a5b898a51943377"
+    },
+    {
+      "route": "/topics/name-change-chain/",
+      "class": "topic",
+      "title": "在美国改名后先去哪里更新：SSA、驾照和姓名文件顺序 | DMV中文办事库",
+      "heading": "在美国改名后先去哪里更新：SSA、驾照和姓名文件顺序",
+      "contentChars": 4264,
+      "contentHash": "f0fad1525cdaf18037dc789cf6f22eb780eab731c6a6c52993902a59bcf34cf1"
     },
     {
       "route": "/topics/non-citizen-license-id/",
       "class": "topic",
       "title": "非美国公民办理驾照或 REAL ID 的注意点 | DMV中文办事库",
       "heading": "非美国公民办理驾照或 REAL ID 的注意点",
-      "contentChars": 4198,
-      "contentHash": "27e97aa831a648dadd848700c7745f236d3ae52515db8b5623d771a9f8437540"
+      "contentChars": 4091,
+      "contentHash": "8fd6639aeb963009d80292d0f53bf6b2e3aa597cd6466be1826bedd3bbd2afae"
     },
     {
       "route": "/topics/older-driver-license-renewal-medical-review/",
       "class": "topic",
       "title": "老人/高龄驾驶人续驾照、视力测试和医疗审查怎么处理 | DMV中文办事库",
       "heading": "老人/高龄驾驶人续驾照、视力测试和医疗审查怎么处理",
-      "contentChars": 8707,
-      "contentHash": "a89fe865d9ed5a1419c30c5cac1d8a957fdcad7eb2d45a4a107f712d7494c8f0"
+      "contentChars": 8600,
+      "contentHash": "1c48c1864bf65233f1df1a940b7d43932bddf01dfdbffbdb0012420697f57c84"
     },
     {
       "route": "/topics/online-office-appointment/",
       "class": "topic",
       "title": "DMV 业务先线上办还是预约到办公室 | DMV中文办事库",
       "heading": "DMV 业务先线上办还是预约到办公室",
-      "contentChars": 3477,
-      "contentHash": "8aa397d59f197f7bab6a576c0e270a193aab4021e97eb594bf432c1c186f23a5"
+      "contentChars": 3366,
+      "contentHash": "354c82e9d1d183a31676878e6bdbc99a3847b853aa3a68c6c41611b5eee67619"
     },
     {
       "route": "/topics/proof-of-residency/",
       "class": "topic",
       "title": "地址证明怎么准备 | DMV中文办事库",
       "heading": "地址证明怎么准备",
-      "contentChars": 3483,
-      "contentHash": "d9450e89e5df3e9dc715eba5276b64609f8332446f8ff78a20c581a881438a95"
+      "contentChars": 3372,
+      "contentHash": "14ad4bebd54599646796bb363998acf3237815827f6f9abc16c28421667a9ce1"
     },
     {
       "route": "/topics/real-id-basics/",
       "class": "topic",
       "title": "REAL ID 到底要不要办 | DMV中文办事库",
       "heading": "REAL ID 到底要不要办",
-      "contentChars": 2712,
-      "contentHash": "10e15faa1e2698dcefd62415a9794570aaed7f42f1dc56728efc06eb96984ae3"
+      "contentChars": 2601,
+      "contentHash": "9c5177819bf2543a3f31b6ad8a37fe4f79e967288578aa1fb4d84f77f925b355"
     },
     {
       "route": "/topics/real-id-vs-standard-license/",
       "class": "topic",
       "title": "REAL ID、Enhanced ID 和普通驾照怎么区分 | DMV中文办事库",
       "heading": "REAL ID、Enhanced ID 和普通驾照怎么区分",
-      "contentChars": 3153,
-      "contentHash": "28f9e108768e1edde11c9fa270f1b1136a74a82885a85d0a8163e43d5239ae36"
+      "contentChars": 3042,
+      "contentHash": "5aa38ed47968e7dccebaa284201d3a04245effdd46b5d0d71547fd466540be03"
     },
     {
       "route": "/topics/renewal-replacement-address/",
       "class": "topic",
       "title": "驾照续期、补证和改地址先做哪个：搬家或丢证办理顺序 | DMV中文办事库",
       "heading": "驾照续期、补证和改地址先做哪个：搬家或丢证办理顺序",
-      "contentChars": 3178,
-      "contentHash": "e747b5bfb61b4a15175764ecf7d40fbf6b433c40913c02945d90262d13309685"
+      "contentChars": 3067,
+      "contentHash": "13e6f026fdd876aacf4a5eca8a286e1010ad9c1b4091ec9b7639618fc92bf7e2"
     },
     {
       "route": "/topics/residency-proof-no-bills-po-box/",
       "class": "topic",
       "title": "没有自己账单、住亲友家或宿舍，地址证明怎么准备 | DMV中文办事库",
       "heading": "没有自己账单、住亲友家或宿舍，地址证明怎么准备",
-      "contentChars": 3810,
-      "contentHash": "eaad4f654f268359db2f1067da094f94a770d6b6c0bbd966010d067bd40df114"
+      "contentChars": 3703,
+      "contentHash": "9536926d37b378f33f4cddee539504110c217e05feb10c69d126e56062f51d4c"
     },
     {
       "route": "/topics/road-test-day-vehicle-sponsor-insurance-rental-retest/",
       "class": "topic",
       "title": "路考当天带什么：车辆、陪同人、保险、租车和失败重约 | DMV中文办事库",
       "heading": "路考当天带什么：车辆、陪同人、保险、租车和失败重约",
-      "contentChars": 6032,
-      "contentHash": "d93bea415699010d8d3d1d13e6cf6247c8443e2cf90658f19c59859c4ddd459c"
+      "contentChars": 5925,
+      "contentHash": "e8f6a4da7ed1a13ed6b3fbf58f4f63af21d46a78e3099f5d370e111b6f7e659f"
     },
     {
       "route": "/topics/sold-car-release-liability-plates-insurance/",
       "class": "topic",
       "title": "卖车、捐车或报废后，DMV 责任解除、车牌和保险怎么收尾 | DMV中文办事库",
       "heading": "卖车、捐车或报废后，DMV 责任解除、车牌和保险怎么收尾",
-      "contentChars": 4977,
-      "contentHash": "871e9beb903ee61be1b67ce70c518c226b82f969eca4938500826f4c507d9900"
+      "contentChars": 4870,
+      "contentHash": "e722df202f2a7d1c08bf7a1be744960207d48de8c666148e844368a06c2e8d01"
     },
     {
       "route": "/topics/ssn-and-itin/",
       "class": "topic",
       "title": "SSN、ITIN 和不可取得 SSN 的情况 | DMV中文办事库",
       "heading": "SSN、ITIN 和不可取得 SSN 的情况",
-      "contentChars": 4000,
-      "contentHash": "6866331d8827f733a451ea1c38bca3f953a6f7825e2997fd2f49853cb81d51d8"
+      "contentChars": 3889,
+      "contentHash": "10730743d19e5ca8a882835dda32287f73183b01ae3f468f194e8b0e93cec1ef"
     },
     {
       "route": "/topics/standard-license-driving-privilege-no-lawful-status/",
       "class": "topic",
       "title": "没有 lawful status，驾照、REAL ID 和 Driving Privilege Card 怎么分 | DMV中文办事库",
       "heading": "没有 lawful status，驾照、REAL ID 和 Driving Privilege Card 怎么分",
-      "contentChars": 4902,
-      "contentHash": "b8bf637910885ab1e46ddedbd80f578e082a4b70cc0bad972981ebfdfe7134d6"
+      "contentChars": 4795,
+      "contentHash": "61db527d3087f3e671bf5d7cb06f65d93d0640cd910845ddb528c7274f9f8605"
     },
     {
       "route": "/topics/state-id-non-driver-id-real-id-card/",
       "class": "topic",
       "title": "不考驾照，只办 State ID / non-driver ID 怎么准备 | DMV中文办事库",
       "heading": "不考驾照，只办 State ID / non-driver ID 怎么准备",
-      "contentChars": 6392,
-      "contentHash": "a2325782112710cbce65ec55471090912fd246a5556a32754f900ea17bd41205"
+      "contentChars": 6285,
+      "contentHash": "fcda5a62f900142a3fea5b7c1949e28f0251be715fd937f5a8c91a168fce91ab"
     },
     {
       "route": "/topics/student-temporary-resident-license-registration/",
       "class": "topic",
       "title": "留学生、访问学者和短期工作，算不算 resident，要不要换驾照或注册车 | DMV中文办事库",
       "heading": "留学生、访问学者和短期工作，算不算 resident，要不要换驾照或注册车",
-      "contentChars": 5660,
-      "contentHash": "91fc58cad67d25fadacf47ad201b876febc03bc075ecbeba3b767f341ffcb009"
+      "contentChars": 5553,
+      "contentHash": "28a71503e56ad7a3ecbc3fbadc808775e9116084b4e5586a94efa68328ca548e"
     },
     {
       "route": "/topics/teen-driver-permit-gdl-parent-guide/",
       "class": "topic",
       "title": "未成年人考驾照怎么开始：permit、驾校、练车小时和 GDL 限制 | DMV中文办事库",
       "heading": "未成年人考驾照怎么开始：permit、驾校、练车小时和 GDL 限制",
-      "contentChars": 8132,
-      "contentHash": "2789915aa538df9c772e17eba26d2fab1910a63c275e2baf6d02cf92fc296011"
+      "contentChars": 8025,
+      "contentHash": "e2c0b7cb9e42c9c82cfbe1beb30430a6e38cd6ec68ca7fed7ff3ba721357767d"
     },
     {
       "route": "/topics/temporary-tag-trip-permit-dealer-plate/",
       "class": "topic",
       "title": "临时牌照、temporary tag 和 trip permit：买车、搬州或没牌上路怎么办 | DMV中文办事库",
       "heading": "临时牌照、temporary tag 和 trip permit：买车、搬州或没牌上路怎么办",
-      "contentChars": 7893,
-      "contentHash": "bf1e5d5fd8b3444a03f2276b680667ee4d7b5ded0730a1ba056bd8f36c39aaff"
+      "contentChars": 7786,
+      "contentHash": "54de5b76ada6a09674fc6994017d275966e311abcbd7e83462d5674f49484227"
+    },
+    {
+      "route": "/topics/tickets-tolls-insurance-lapse-registration-hold/",
+      "class": "topic",
+      "title": "罚单、toll、保险 lapse 或 registration hold，先查 DMV 还是法院 | DMV中文办事库",
+      "heading": "罚单、toll、保险 lapse 或 registration hold，先查 DMV 还是法院",
+      "contentChars": 6517,
+      "contentHash": "3f34bb26116a004be85222f4f6788b5ee5301dc2424d0d1db68d3d91c18d4877"
     },
     {
       "route": "/topics/used-car-title-lien-salvage-odometer-check/",
       "class": "topic",
       "title": "买二手车前，title、lien、salvage 和 odometer 怎么查 | DMV中文办事库",
       "heading": "买二手车前，title、lien、salvage 和 odometer 怎么查",
-      "contentChars": 6585,
-      "contentHash": "18ad8d9069464b7e913e5ea9f7ba8ec6cc05766a61c1d0dd574df4b1a4851e07"
+      "contentChars": 6478,
+      "contentHash": "22e31ab908cfa604e3523a8c285b2887064c5bc2f0eb51ef105c1af85e93c8a5"
     },
     {
       "route": "/topics/vehicle-inspection-emissions-smog-vin-check/",
       "class": "topic",
       "title": "车辆年检、emissions、smog 和 VIN inspection，registration 卡住怎么办 | DMV中文办事库",
       "heading": "车辆年检、emissions、smog 和 VIN inspection，registration 卡住怎么办",
-      "contentChars": 5447,
-      "contentHash": "5b50174d9828c0a9de7ce2efbe54fff519f098cb5975a0a34126dc175bab211d"
+      "contentChars": 5340,
+      "contentHash": "82d7ab8c5b6271ec7c2c9d97a6e909a29729d37cf1b9de0827744c5ba35d6c82"
     },
     {
       "route": "/topics/vehicle-registration-renewal-expired-tags-non-operation/",
       "class": "topic",
       "title": "车辆 registration 过期或续期失败怎么办：车检、保险和停驶 | DMV中文办事库",
       "heading": "车辆 registration 过期或续期失败怎么办：车检、保险和停驶",
-      "contentChars": 8400,
-      "contentHash": "8390f80025e3bc3d2fc854ed7c9492889832f0713afd24b9a49e48e3826d5ba5"
+      "contentChars": 8293,
+      "contentHash": "2e7eef9306c3cd6c0ec02527d335e2bf1be503a5cf615dc033c22dd36c5d8558"
     },
     {
       "route": "/topics/vehicle-title-registration-insurance-after-move/",
       "class": "topic",
       "title": "买车或搬州后先办保险、title 还是 registration：车辆手续顺序 | DMV中文办事库",
       "heading": "买车或搬州后先办保险、title 还是 registration：车辆手续顺序",
-      "contentChars": 4237,
-      "contentHash": "a48b1a2d949c1d0ac3c43f5e66cf9dfd21ebacd379837508c8efa11e702ecb5e"
+      "contentChars": 4130,
+      "contentHash": "457410c97b3148370fe113cc70c1af7f7742d477fb026fac55e66bd175d04a04"
     }
   ],
   "pairs": [
+    {
+      "routes": [
+        "/directories/appointments/",
+        "/directories/dmv-services/"
+      ],
+      "class": "directory",
+      "similarity": 0.394,
+      "boundaryStatus": "reviewed",
+      "reviewedAt": "2026-08-24",
+      "distinction": "预约目录按州查预约系统、办公室类型与地点；服务目录按州查主管机构和具体业务入口。"
+    },
+    {
+      "routes": [
+        "/directories/dmv-services/",
+        "/directories/service-paths/"
+      ],
+      "class": "directory",
+      "similarity": 0.37,
+      "boundaryStatus": "reviewed",
+      "reviewedAt": "2026-08-24",
+      "distinction": "服务目录用于找到主管机构与业务页面；渠道目录用于比较线上、现场、邮寄和预约路径。"
+    },
+    {
+      "routes": [
+        "/directories/appointments/",
+        "/directories/service-paths/"
+      ],
+      "class": "directory",
+      "similarity": 0.346,
+      "boundaryStatus": "reviewed",
+      "reviewedAt": "2026-08-24",
+      "distinction": "预约目录回答在哪里约、去哪个办公室；渠道目录回答某项业务能否在线、邮寄、kiosk 或必须现场办理。"
+    },
+    {
+      "routes": [
+        "/directories/document-rules/",
+        "/directories/identity-ssn/"
+      ],
+      "class": "directory",
+      "similarity": 0.345,
+      "boundaryStatus": "reviewed",
+      "reviewedAt": "2026-07-29",
+      "distinction": "材料规则表比较原件、认证副本、地址和翻译要求；身份与 SSN 表比较身份类别、SSN 核验和无 SSN 分支。"
+    },
     {
       "routes": [
         "/states/california/real-id/",
         "/states/new-york/real-id/"
       ],
       "class": "state-real-id",
-      "similarity": 0.285,
+      "similarity": 0.27,
       "boundaryStatus": "observe",
       "reviewedAt": null,
       "distinction": null
@@ -1186,7 +1310,7 @@
         "/states/new-jersey/real-id/"
       ],
       "class": "state-real-id",
-      "similarity": 0.281,
+      "similarity": 0.268,
       "boundaryStatus": "observe",
       "reviewedAt": null,
       "distinction": null
@@ -1197,18 +1321,7 @@
         "/states/washington/real-id/"
       ],
       "class": "state-real-id",
-      "similarity": 0.279,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/indiana/real-id/",
-        "/states/tennessee/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.277,
+      "similarity": 0.266,
       "boundaryStatus": "observe",
       "reviewedAt": null,
       "distinction": null
@@ -1219,7 +1332,18 @@
         "/states/california/real-id/"
       ],
       "class": "state-real-id",
-      "similarity": 0.272,
+      "similarity": 0.262,
+      "boundaryStatus": "observe",
+      "reviewedAt": null,
+      "distinction": null
+    },
+    {
+      "routes": [
+        "/states/indiana/real-id/",
+        "/states/tennessee/real-id/"
+      ],
+      "class": "state-real-id",
+      "similarity": 0.262,
       "boundaryStatus": "observe",
       "reviewedAt": null,
       "distinction": null
@@ -1230,116 +1354,6 @@
         "/states/florida/real-id/"
       ],
       "class": "state-real-id",
-      "similarity": 0.27,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/arkansas/real-id/",
-        "/states/tennessee/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.267,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/california/real-id/",
-        "/states/massachusetts/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.266,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/california/real-id/",
-        "/states/texas/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.265,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/florida/real-id/",
-        "/states/new-jersey/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.265,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/florida/real-id/",
-        "/states/texas/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.265,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/alaska/real-id/",
-        "/states/indiana/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.262,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/alaska/real-id/",
-        "/states/arkansas/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.261,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/california/real-id/",
-        "/states/tennessee/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.259,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/alaska/real-id/",
-        "/states/new-york/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.257,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/iowa/real-id/",
-        "/states/north-dakota/real-id/"
-      ],
-      "class": "state-real-id",
       "similarity": 0.257,
       "boundaryStatus": "observe",
       "reviewedAt": null,
@@ -1348,50 +1362,6 @@
     {
       "routes": [
         "/states/arkansas/real-id/",
-        "/states/indiana/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.256,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/new-jersey/real-id/",
-        "/states/new-york/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.256,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/florida/real-id/",
-        "/states/new-york/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.255,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/texas/real-id/",
-        "/states/washington/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.255,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/new-jersey/real-id/",
         "/states/tennessee/real-id/"
       ],
       "class": "state-real-id",
@@ -1402,22 +1372,11 @@
     },
     {
       "routes": [
-        "/states/new-york/real-id/",
-        "/states/texas/real-id/"
+        "/states/california/real-id/",
+        "/states/massachusetts/real-id/"
       ],
       "class": "state-real-id",
-      "similarity": 0.254,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/alaska/real-id/",
-        "/states/tennessee/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.253,
+      "similarity": 0.252,
       "boundaryStatus": "observe",
       "reviewedAt": null,
       "distinction": null
@@ -1425,50 +1384,6 @@
     {
       "routes": [
         "/states/california/real-id/",
-        "/states/indiana/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.253,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/florida/real-id/",
-        "/states/washington/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.252,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/massachusetts/real-id/",
-        "/states/new-jersey/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.252,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/new-jersey/real-id/",
-        "/states/washington/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.252,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/tennessee/real-id/",
         "/states/texas/real-id/"
       ],
       "class": "state-real-id",
@@ -1479,30 +1394,8 @@
     },
     {
       "routes": [
-        "/states/alaska/real-id/",
-        "/states/massachusetts/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.251,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/florida/real-id/",
+        "/states/california/real-id/",
         "/states/tennessee/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.251,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/new-york/real-id/",
-        "/states/washington/real-id/"
       ],
       "class": "state-real-id",
       "similarity": 0.251,
@@ -1516,32 +1409,10 @@
         "/topics/real-id-basics/"
       ],
       "class": "topic",
-      "similarity": 0.168,
-      "boundaryStatus": "reviewed",
-      "reviewedAt": "2026-07-29",
-      "distinction": "机场页解决出行当天带什么证件、临时证件和 ConfirmID；基础页解决是否需要升级 REAL ID 以及可用替代证件。"
-    },
-    {
-      "routes": [
-        "/topics/real-id-basics/",
-        "/topics/real-id-vs-standard-license/"
-      ],
-      "class": "topic",
-      "similarity": 0.159,
-      "boundaryStatus": "reviewed",
-      "reviewedAt": "2026-07-29",
-      "distinction": "基础页回答要不要办理及联邦用途；比较页专门区分 Standard、REAL ID 与 Enhanced 三类州证件。"
-    },
-    {
-      "routes": [
-        "/topics/proof-of-residency/",
-        "/topics/residency-proof-no-bills-po-box/"
-      ],
-      "class": "topic",
       "similarity": 0.143,
       "boundaryStatus": "reviewed",
       "reviewedAt": "2026-07-29",
-      "distinction": "一般地址证明页解释常规文件组合；特殊地址页只处理没有本人账单、P.O. Box、同住或无固定住址等例外路径。"
+      "distinction": "机场页解决出行当天带什么证件、临时证件和 ConfirmID；基础页解决是否需要升级 REAL ID 以及可用替代证件。"
     }
   ],
   "errors": []

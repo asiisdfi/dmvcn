@@ -106,6 +106,7 @@ for (const relativePath of htmlFiles) {
     h1Count: 0,
     mainCount: 0,
     imageCount: 0,
+    noindex: false,
   };
 
   walk(tree, (node) => {
@@ -142,6 +143,13 @@ for (const relativePath of htmlFiles) {
 
     if (node.tagName === 'meta' && attrs.get('property') === 'og:image' && attrs.has('content')) {
       document.ogImages.push({ value: attrs.get('content'), label });
+    }
+    if (node.tagName === 'meta' && attrs.get('name') === 'robots') {
+      document.noindex = (attrs.get('content') ?? '')
+        .toLowerCase()
+        .split(',')
+        .map((directive) => directive.trim())
+        .includes('noindex');
     }
 
     if (node.tagName === 'script' && attrs.get('type') === 'application/ld+json') {
@@ -328,8 +336,13 @@ while (queue.length) {
 
 for (const relativePath of htmlFiles) {
   if (relativePath === '404.html') continue;
+  if (documents.get(relativePath)?.noindex) continue;
   if (!reachable.has(relativePath)) errors.push(`${relativePath}: page is not reachable from the homepage`);
 }
+
+const indexableHtmlFiles = htmlFiles.filter(
+  (relativePath) => relativePath !== '404.html' && !documents.get(relativePath)?.noindex,
+);
 
 const imageCount = [...documents.values()].reduce((total, document) => total + document.imageCount, 0);
 const jsonLdCount = [...documents.values()].reduce((total, document) => total + document.jsonLdItems.length, 0);
@@ -338,7 +351,8 @@ console.log('# Site Integrity Audit');
 console.log('');
 console.log(`Built files: ${relativeFiles.length}`);
 console.log(`HTML pages: ${htmlFiles.length}`);
-console.log(`Reachable HTML pages: ${reachable.size}/${htmlFiles.length - 1} plus 404`);
+console.log(`Indexable HTML pages: ${indexableHtmlFiles.length}`);
+console.log(`Reachable HTML pages: ${indexableHtmlFiles.filter((relativePath) => reachable.has(relativePath)).length}/${indexableHtmlFiles.length}`);
 console.log(`Internal navigation references: ${navigationReferences}`);
 console.log(`Internal resource references: ${resourceReferences}`);
 console.log(`Fragment references: ${fragmentReferences}`);

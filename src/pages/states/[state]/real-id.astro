@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, ShieldAlert } from '@lucide/astro/icons';
+import { ArrowRight } from '@lucide/astro/icons';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ContentMeta from '../../../components/ContentMeta.astro';
 import EditorialDisclosure from '../../../components/EditorialDisclosure.astro';
@@ -290,7 +290,7 @@ const schema = [
       <p class="lead">{state.realIdSummary}</p>
       <div class="article-meta">
         <ContentMeta publishedAt={state.publishedAt} modifiedAt={modifiedAt} reviewedAt={state.reviewedAt} />
-        <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href="#official-sources">政府链接 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
     </div>
   </section>
@@ -404,14 +404,6 @@ const schema = [
               <p>{faq.answer}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section class="notice">
-        <ShieldAlert size={22} aria-hidden="true" />
-        <div>
-          <strong>不要只按中文页准备材料</strong>
-          <p>中文说明用于理解流程和找到入口。最终文件类型、费用、预约、是否接受电子文件，都必须按 {state.agency} 官方页面确认。</p>
         </div>
       </section>
 

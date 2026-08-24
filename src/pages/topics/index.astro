@@ -1,7 +1,6 @@
 ---
 import { ArrowRight } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ReviewBadge from '../../components/ReviewBadge.astro';
 import { REVIEW_DATE, topics } from '../../data/content';
 import { SITE_LAUNCH_DATE } from '../../data/editorial';
 ---
@@ -20,7 +19,6 @@ import { SITE_LAUNCH_DATE } from '../../data/editorial';
       <p class="eyebrow">专题入口</p>
       <h1>DMV 高频专题</h1>
       <p class="lead">这些页面用来回答跨州高频问题，再把你带回具体州的官方入口。</p>
-      <ReviewBadge />
     </div>
   </section>
 
@@ -31,12 +29,12 @@ import { SITE_LAUNCH_DATE } from '../../data/editorial';
         <span>跨州专题</span>
       </div>
       <div>
-        <strong>{topics.filter((topic) => topic.reviewedAt).length}/{topics.length}</strong>
-        <span>已显示专题核对日期</span>
+        <strong>材料 + 步骤</strong>
+        <span>按办事任务组织</span>
       </div>
       <div>
-        <strong>官方来源</strong>
-        <span>每页保留来源列表</span>
+        <strong>政府入口</strong>
+        <span>直接进入主管机构</span>
       </div>
     </div>
 
@@ -47,15 +45,15 @@ import { SITE_LAUNCH_DATE } from '../../data/editorial';
             <span class="small-badge">{topic.eyebrow}</span>
             <span>
               <strong>{topic.title}</strong>
-              <small>{topic.reviewedAt ? `核对 ${topic.reviewedAt}` : '使用全站默认核对日期'}</small>
+              <small>{topic.eyebrow}</small>
             </span>
           </a>
           <div class="registry-copy">
             <p>{topic.description}</p>
-            <small>{topic.sources.length} 个官方来源 · {topic.relatedStateIds.length} 个关联州</small>
+            <small>{topic.relatedStateIds.length} 个关联州</small>
           </div>
           <div class="registry-status">
-            <span class="status-chip ready">已复核</span>
+            <span class="status-chip ready">中文指南</span>
           </div>
           <div class="registry-actions">
             <a href={`/topics/${topic.slug}/`}>

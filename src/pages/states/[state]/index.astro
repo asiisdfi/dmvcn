@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, ShieldAlert } from '@lucide/astro/icons';
+import { ArrowRight } from '@lucide/astro/icons';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ContentMeta from '../../../components/ContentMeta.astro';
 import EditorialDisclosure from '../../../components/EditorialDisclosure.astro';
@@ -216,7 +216,7 @@ const schema = [
       <p class="lead">{state.summary}</p>
       <div class="article-meta">
         <ContentMeta publishedAt={state.publishedAt} modifiedAt={modifiedAt} reviewedAt={state.reviewedAt} />
-        <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href="#official-sources">政府链接 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
     </div>
   </section>
@@ -246,8 +246,8 @@ const schema = [
       </section>
 
       <section class="panel fact-check-panel" aria-labelledby="state-evidence-heading">
-        <h2 id="state-evidence-heading">本州关键事实与官方依据</h2>
-        <p class="section-intro">这里把页面中的州别要求拆成单条判断，并直接连接到对应政府页面。</p>
+        <h2 id="state-evidence-heading">本州办事要点</h2>
+        <p class="section-intro">按事项查看州别要求，并直接进入相关政府页面。</p>
         <StateEvidenceList items={coreEvidence} ordered />
       </section>
 
@@ -332,14 +332,6 @@ const schema = [
               <p>{faq.answer}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section class="notice">
-        <ShieldAlert size={22} aria-hidden="true" />
-        <div>
-          <strong>办理前再确认一次</strong>
-          <p>{state.appointmentNote} {SITE.disclaimer}</p>
         </div>
       </section>
 

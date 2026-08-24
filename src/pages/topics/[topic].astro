@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, ExternalLink, ShieldAlert } from '@lucide/astro/icons';
+import { ArrowRight, ExternalLink } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentMeta from '../../components/ContentMeta.astro';
 import EditorialDisclosure from '../../components/EditorialDisclosure.astro';
@@ -115,7 +115,7 @@ const schema = [
       <p class="lead">{topic.description}</p>
       <div class="article-meta">
         <ContentMeta publishedAt={topic.publishedAt} modifiedAt={topic.modifiedAt} reviewedAt={topic.reviewedAt} />
-        <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href="#official-sources">政府链接 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
     </div>
   </section>
@@ -186,12 +186,12 @@ const schema = [
 
       {factChecks.length > 0 && (
         <section class="panel fact-check-panel" aria-labelledby="fact-check-heading">
-          <h2 id="fact-check-heading">重点事实与官方依据</h2>
+          <h2 id="fact-check-heading">重点办事信息</h2>
           <ol class="fact-check-list">
             {factChecks.map((item) => (
               <li>
                 <p>{item.claim}</p>
-                <div class="fact-source-links" aria-label="对应官方来源">
+                <div class="fact-source-links" aria-label="相关政府页面">
                   {item.sources.map((source) => (
                     <a href={source.url} target="_blank" rel="noreferrer">
                       <span class="source-index">{source.index}</span>
@@ -229,14 +229,6 @@ const schema = [
               <p>{faq.answer}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section class="notice">
-        <ShieldAlert size={22} aria-hidden="true" />
-        <div>
-          <strong>跨州信息只做方向判断</strong>
-          <p>{SITE.disclaimer} 涉及身份、居住证明、SSN 或非公民材料时，请回到具体州 DMV 页面确认。</p>
         </div>
       </section>
 

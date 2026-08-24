@@ -120,13 +120,13 @@ const schema = [
       <p class="lead">20 道短练习，分别覆盖 Road Rules 和 Road Signs。答题后立即查看中文解释、易错点和 Georgia DDS 官方章节。</p>
       <div class="article-meta">
         <ContentMeta publishedAt={test.publishedAt} modifiedAt={test.modifiedAt} reviewedAt={test.reviewedAt} />
-        <a href="#official-sources">查看官方来源 <ArrowRight size={15} aria-hidden="true" /></a>
+        <a href="#official-sources">政府链接 <ArrowRight size={15} aria-hidden="true" /></a>
       </div>
       <div class="page-ledger" aria-label="Georgia 中文笔试练习概况">
         <div><strong>{rulesCount} 题</strong><span>Road Rules</span></div>
         <div><strong>{signsCount} 题</strong><span>Road Signs</span></div>
         <div><strong>15 / 20</strong><span>正式考试每部分门槛</span></div>
-        <div><strong>{test.nextReviewAt}</strong><span>计划复核</span></div>
+        <div><strong>逐题</strong><span>解释与章节</span></div>
       </div>
     </div>
   </section>
@@ -174,7 +174,7 @@ const schema = [
           <button class="button practice-start-button" type="button" data-practice-begin>
             开始练习 <ArrowRight size={17} aria-hidden="true" />
           </button>
-          <p class="practice-disclaimer">本站原创练习，不是 Georgia DDS 真题或考试预约系统。</p>
+          <p class="practice-disclaimer">完成后可以集中重练错题。</p>
         </div>
 
         <div class="practice-runner" data-practice-runner hidden>
@@ -225,7 +225,7 @@ const schema = [
                     <p class="practice-trap"><strong>易错点：</strong>{question.commonTrap}</p>
                     {source && (
                       <a href={source.url} target="_blank" rel="noreferrer">
-                        官方依据：{source.label} · {question.sourceSection}
+                        手册章节：{source.label} · {question.sourceSection}
                         <ExternalLink size={14} aria-hidden="true" />
                       </a>
                     )}
@@ -271,7 +271,7 @@ const schema = [
 
         <noscript>
           <style>.practice-question[hidden] { display: block !important; }</style>
-          <p class="notice">浏览器未启用 JavaScript；页面已列出全部题目，请使用官方手册自行核对。</p>
+          <p class="notice">浏览器未启用 JavaScript；页面已列出全部题目和答案说明。</p>
         </noscript>
       </div>
     </div>
@@ -314,7 +314,7 @@ const schema = [
 
       <aside class="sidebar" aria-label="Georgia 练习相关入口">
         <div class="panel">
-          <h2>继续核对</h2>
+          <h2>相关入口</h2>
           <div class="quick-actions">
             <a class="button-link primary" href="https://dds.georgia.gov/testing-and-training/practice-test" target="_blank" rel="noreferrer">
               DDS 官方练习 <ExternalLink size={15} aria-hidden="true" />
@@ -462,7 +462,7 @@ const schema = [
             link.href = question.dataset.sourceUrl || '#official-sources';
             link.target = question.dataset.sourceUrl ? '_blank' : '';
             link.rel = question.dataset.sourceUrl ? 'noreferrer' : '';
-            link.textContent = question.dataset.sourceLabel || '查看官方来源';
+            link.textContent = question.dataset.sourceLabel || '打开政府页面';
             const text = document.createElement('span');
             text.textContent = title;
             item.append(text, link);

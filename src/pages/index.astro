@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, BadgeCheck, CalendarDays, CarFront, CircleAlert, IdCard, MapPinned, Route, ShieldAlert } from '@lucide/astro/icons';
+import { ArrowRight, BadgeCheck, CarFront, CircleAlert, IdCard, MapPinned, Route } from '@lucide/astro/icons';
 import ServiceFinder from '../components/ServiceFinder.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { REVIEW_DATE, SITE, states } from '../data/content';
@@ -222,16 +222,6 @@ const directoryTasks = [
     detail: '地址变更、搬州、续期和材料时效里的关键天数。',
     href: '/directories/deadlines/',
   },
-  {
-    label: '官方来源库',
-    detail: '查看本站引用过的联邦、州政府和官方办理入口。',
-    href: '/sources/',
-  },
-  {
-    label: '来源与更新',
-    detail: '看覆盖范围、核对日期、官方 URL 和链接使用说明。',
-    href: '/quality/',
-  },
 ];
 
 const primaryScenarios = [
@@ -361,19 +351,6 @@ const popularStates = states.filter((state) => popularStateIds.has(state.id));
         </ol>
       </section>
 
-      <section class="home-update-note">
-        <CalendarDays size={19} aria-hidden="true" />
-        <div>
-          <strong>资料最后核对 {REVIEW_DATE}</strong>
-          <p>我们保留每页的官方来源和核对日期。</p>
-          <a class="text-link" href="/quality/">查看更新说明 <ArrowRight size={15} aria-hidden="true" /></a>
-        </div>
-      </section>
-
-      <section class="home-independence-note">
-        <ShieldAlert size={19} aria-hidden="true" />
-        <p>{SITE.disclaimer}</p>
-      </section>
     </aside>
   </section>
 

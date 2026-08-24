@@ -1,13 +1,13 @@
 {
   "summary": {
-    "generatedAt": "2026-08-01T10:10:06.180Z",
+    "generatedAt": "2026-08-24T08:07:28.051Z",
     "threshold": 85,
     "strict": false,
     "pages": 166,
-    "passed": 158,
-    "indexablePages": 155,
-    "noindexPages": 11,
-    "indexablePassed": 155,
+    "passed": 166,
+    "indexablePages": 160,
+    "noindexPages": 6,
+    "indexablePassed": 160,
     "belowThreshold": 0,
     "evidenceReviewPending": 0,
     "sourceMappedReviews": 0,
@@ -16,10 +16,10 @@
     "staleHumanApprovals": 8,
     "highRiskHumanApprovalPending": 8,
     "criticalPages": 0,
-    "blockedPages": 8,
+    "blockedPages": 0,
     "indexableCriticalPages": 0,
     "indexableBlockedPages": 0,
-    "averageScore": 97
+    "averageScore": 98
   },
   "pages": [
     {
@@ -43,7 +43,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-13",
-        "reviewedAt": "2026-07-13"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 22,
@@ -58,8 +58,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -77,7 +77,7 @@
       "route": "/about/",
       "pageType": "trust",
       "risk": "policy",
-      "score": 98,
+      "score": 93,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -85,9 +85,9 @@
       "reviewMethod": null,
       "semanticReview": null,
       "dates": {
-        "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-17",
-        "reviewedAt": "2026-07-17"
+        "publishedAt": "",
+        "modifiedAt": "",
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -95,15 +95,15 @@
         "taskCompletion": 15,
         "uniqueValue": 10,
         "authorship": 8,
-        "freshness": 10,
+        "freshness": 5,
         "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": false,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -121,17 +121,17 @@
       "route": "/ai-policy/",
       "pageType": "trust",
       "risk": "policy",
-      "score": 98,
+      "score": 93,
       "threshold": 85,
       "pass": true,
-      "indexable": true,
+      "indexable": false,
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
       "dates": {
-        "publishedAt": "2026-07-17",
-        "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-24"
+        "publishedAt": "",
+        "modifiedAt": "",
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -139,15 +139,15 @@
         "taskCompletion": 15,
         "uniqueValue": 10,
         "authorship": 8,
-        "freshness": 10,
+        "freshness": 5,
         "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": false,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -165,7 +165,7 @@
       "route": "/authors/editorial-team/",
       "pageType": "trust",
       "risk": "policy",
-      "score": 98,
+      "score": 93,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -173,9 +173,9 @@
       "reviewMethod": null,
       "semanticReview": null,
       "dates": {
-        "publishedAt": "2026-07-17",
-        "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-24"
+        "publishedAt": "",
+        "modifiedAt": "",
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -183,15 +183,15 @@
         "taskCompletion": 15,
         "uniqueValue": 10,
         "authorship": 8,
-        "freshness": 10,
+        "freshness": 5,
         "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": false,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -219,7 +219,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-17",
-        "reviewedAt": "2026-07-17"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -234,8 +234,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -253,17 +253,17 @@
       "route": "/corrections/",
       "pageType": "trust",
       "risk": "policy",
-      "score": 98,
+      "score": 93,
       "threshold": 85,
       "pass": true,
-      "indexable": true,
+      "indexable": false,
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
       "dates": {
-        "publishedAt": "2026-07-17",
-        "modifiedAt": "2026-07-17",
-        "reviewedAt": "2026-07-17"
+        "publishedAt": "",
+        "modifiedAt": "",
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -271,15 +271,15 @@
         "taskCompletion": 15,
         "uniqueValue": 10,
         "authorship": 8,
-        "freshness": 10,
+        "freshness": 5,
         "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": false,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -314,7 +314,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-21",
-        "reviewedAt": "2026-07-21"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 22,
@@ -329,8 +329,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -348,7 +348,7 @@
       "route": "/directories/appointments/",
       "pageType": "directory",
       "risk": "standard",
-      "score": 97,
+      "score": 98,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -365,7 +365,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-21",
-        "reviewedAt": "2026-07-21"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -374,14 +374,14 @@
         "uniqueValue": 10,
         "authorship": 8,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 230,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -401,8 +401,8 @@
       "risk": "high",
       "score": 98,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
+      "pass": true,
+      "indexable": true,
       "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
@@ -417,7 +417,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-29",
-        "reviewedAt": "2026-07-29"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -432,8 +432,8 @@
       "signals": {
         "sourceCount": 322,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -449,9 +449,7 @@
         "approvalContentFingerprint": "4fb3e31643ce713c3db47a2f1040866859c0fd5ccf518a2d933bfd5c1e733746"
       },
       "critical": [],
-      "blockers": [
-        "当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex"
-      ]
+      "blockers": []
     },
     {
       "route": "/directories/deadlines/",
@@ -459,8 +457,8 @@
       "risk": "high",
       "score": 98,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
+      "pass": true,
+      "indexable": true,
       "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
@@ -475,7 +473,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-30",
-        "reviewedAt": "2026-07-30"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -490,8 +488,8 @@
       "signals": {
         "sourceCount": 263,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -507,18 +505,16 @@
         "approvalContentFingerprint": "7969c567dda577feaa1a7abe29207b5e5271e21ee6f97c218b4ce2d3d762d8fd"
       },
       "critical": [],
-      "blockers": [
-        "当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex"
-      ]
+      "blockers": []
     },
     {
       "route": "/directories/dmv-services/",
       "pageType": "directory",
       "risk": "standard",
-      "score": 92,
+      "score": 98,
       "threshold": 85,
       "pass": true,
-      "indexable": false,
+      "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
       "semanticReview": {
@@ -532,7 +528,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-21"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -541,14 +537,14 @@
         "uniqueValue": 10,
         "authorship": 8,
         "freshness": 10,
-        "riskLanguage": 4,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 701,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -568,8 +564,8 @@
       "risk": "high",
       "score": 98,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
+      "pass": true,
+      "indexable": true,
       "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
@@ -584,7 +580,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-30",
-        "reviewedAt": "2026-07-30"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -599,8 +595,8 @@
       "signals": {
         "sourceCount": 234,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -616,9 +612,7 @@
         "approvalContentFingerprint": "d374a93cd343400d717c3eab0d0ad3fa347e05040dc6599bc90cd185a326b2b3"
       },
       "critical": [],
-      "blockers": [
-        "当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex"
-      ]
+      "blockers": []
     },
     {
       "route": "/directories/foreign-license/",
@@ -642,7 +636,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-21",
-        "reviewedAt": "2026-07-21"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -657,8 +651,8 @@
       "signals": {
         "sourceCount": 174,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -682,8 +676,8 @@
       "risk": "high",
       "score": 98,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
+      "pass": true,
+      "indexable": true,
       "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
@@ -698,7 +692,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-30",
-        "reviewedAt": "2026-07-30"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -713,8 +707,8 @@
       "signals": {
         "sourceCount": 265,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -730,15 +724,13 @@
         "approvalContentFingerprint": "451ff146b364df74a48e60163370b16147809508b7f9af3f2789b4a0f9f2a530"
       },
       "critical": [],
-      "blockers": [
-        "当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex"
-      ]
+      "blockers": []
     },
     {
       "route": "/directories/language-access/",
       "pageType": "directory",
       "risk": "standard",
-      "score": 97,
+      "score": 98,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -755,7 +747,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-21",
-        "reviewedAt": "2026-07-21"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -764,14 +756,14 @@
         "uniqueValue": 10,
         "authorship": 8,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 211,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -789,7 +781,7 @@
       "route": "/directories/new-residents/",
       "pageType": "directory",
       "risk": "standard",
-      "score": 97,
+      "score": 98,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -806,7 +798,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-21"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -815,14 +807,14 @@
         "uniqueValue": 10,
         "authorship": 8,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 196,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -840,7 +832,7 @@
       "route": "/directories/real-id/",
       "pageType": "directory",
       "risk": "standard",
-      "score": 92,
+      "score": 98,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -857,7 +849,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-21",
-        "reviewedAt": "2026-07-21"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -866,14 +858,14 @@
         "uniqueValue": 10,
         "authorship": 8,
         "freshness": 10,
-        "riskLanguage": 4,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 49,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -891,10 +883,10 @@
       "route": "/directories/service-paths/",
       "pageType": "directory",
       "risk": "standard",
-      "score": 97,
+      "score": 98,
       "threshold": 85,
       "pass": true,
-      "indexable": false,
+      "indexable": true,
       "reviewStatus": "ai-assisted",
       "reviewMethod": "ai-assisted",
       "semanticReview": {
@@ -908,7 +900,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-21"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -917,14 +909,14 @@
         "uniqueValue": 10,
         "authorship": 8,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 245,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -942,7 +934,7 @@
       "route": "/directories/tests-permits/",
       "pageType": "directory",
       "risk": "standard",
-      "score": 97,
+      "score": 98,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -959,7 +951,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-21",
-        "reviewedAt": "2026-07-21"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -968,14 +960,14 @@
         "uniqueValue": 10,
         "authorship": 8,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 203,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -993,17 +985,17 @@
       "route": "/editorial-policy/",
       "pageType": "trust",
       "risk": "policy",
-      "score": 98,
+      "score": 93,
       "threshold": 85,
       "pass": true,
-      "indexable": true,
+      "indexable": false,
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
       "dates": {
         "publishedAt": "2026-07-17",
         "modifiedAt": "2026-07-29",
-        "reviewedAt": "2026-07-29"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -1011,15 +1003,15 @@
         "taskCompletion": 15,
         "uniqueValue": 10,
         "authorship": 8,
-        "freshness": 10,
+        "freshness": 5,
         "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": true,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -1054,7 +1046,7 @@
       "dates": {
         "publishedAt": "2026-07-19",
         "modifiedAt": "2026-07-19",
-        "reviewedAt": "2026-07-19"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 22,
@@ -1069,8 +1061,8 @@
       "signals": {
         "sourceCount": 1,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -1079,7 +1071,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1105,7 +1097,7 @@
       "dates": {
         "publishedAt": "2026-07-19",
         "modifiedAt": "2026-07-19",
-        "reviewedAt": "2026-07-19"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 22,
@@ -1120,7 +1112,7 @@
       "signals": {
         "sourceCount": 8,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": false,
@@ -1130,7 +1122,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1149,7 +1141,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-17",
-        "reviewedAt": "2026-07-17"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -1164,8 +1156,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -1183,17 +1175,17 @@
       "route": "/quality/",
       "pageType": "trust",
       "risk": "policy",
-      "score": 98,
+      "score": 93,
       "threshold": 85,
       "pass": true,
-      "indexable": true,
+      "indexable": false,
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
       "dates": {
-        "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-29",
-        "reviewedAt": "2026-07-29"
+        "publishedAt": "",
+        "modifiedAt": "",
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -1201,15 +1193,15 @@
         "taskCompletion": 15,
         "uniqueValue": 10,
         "authorship": 8,
-        "freshness": 10,
+        "freshness": 5,
         "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": false,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -1237,7 +1229,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-24",
-        "reviewedAt": "2026-07-13"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -1252,8 +1244,8 @@
       "signals": {
         "sourceCount": 1621,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -1288,7 +1280,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-13",
-        "reviewedAt": "2026-07-13"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 22,
@@ -1303,8 +1295,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -1322,7 +1314,7 @@
       "route": "/states/alabama/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1348,13 +1340,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 17,
         "factCheckCount": 32,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1364,7 +1356,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1373,7 +1365,7 @@
       "route": "/states/alabama/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1399,13 +1391,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 17,
         "factCheckCount": 51,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1415,7 +1407,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1424,7 +1416,7 @@
       "route": "/states/alaska/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1450,13 +1442,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 27,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1466,7 +1458,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1475,7 +1467,7 @@
       "route": "/states/alaska/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1501,13 +1493,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 35,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1517,7 +1509,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1526,7 +1518,7 @@
       "route": "/states/arizona/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1552,13 +1544,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 29,
         "factCheckCount": 64,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1568,7 +1560,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1577,7 +1569,7 @@
       "route": "/states/arizona/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1603,13 +1595,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 29,
         "factCheckCount": 61,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1619,7 +1611,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1628,7 +1620,7 @@
       "route": "/states/arkansas/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1654,13 +1646,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 14,
         "factCheckCount": 33,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1670,7 +1662,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1679,7 +1671,7 @@
       "route": "/states/arkansas/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1705,13 +1697,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 14,
         "factCheckCount": 46,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1721,7 +1713,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1730,7 +1722,7 @@
       "route": "/states/california/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1756,13 +1748,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 18,
         "factCheckCount": 20,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1772,7 +1764,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1781,7 +1773,7 @@
       "route": "/states/california/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1807,13 +1799,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 18,
         "factCheckCount": 17,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1823,7 +1815,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1832,7 +1824,7 @@
       "route": "/states/colorado/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1858,13 +1850,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 23,
         "factCheckCount": 76,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1874,7 +1866,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1883,7 +1875,7 @@
       "route": "/states/colorado/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1909,13 +1901,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 23,
         "factCheckCount": 75,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1925,7 +1917,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1934,7 +1926,7 @@
       "route": "/states/connecticut/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -1960,13 +1952,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 103,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -1976,7 +1968,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -1985,7 +1977,7 @@
       "route": "/states/connecticut/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2011,13 +2003,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 74,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2027,7 +2019,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2036,7 +2028,7 @@
       "route": "/states/delaware/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2062,13 +2054,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 22,
         "factCheckCount": 58,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2078,7 +2070,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2087,7 +2079,7 @@
       "route": "/states/delaware/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2113,13 +2105,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 22,
         "factCheckCount": 60,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2129,7 +2121,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2138,7 +2130,7 @@
       "route": "/states/florida/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2164,13 +2156,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 17,
         "factCheckCount": 28,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2180,7 +2172,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2189,7 +2181,7 @@
       "route": "/states/florida/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2215,13 +2207,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 17,
         "factCheckCount": 33,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2231,7 +2223,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2240,7 +2232,7 @@
       "route": "/states/georgia/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2266,13 +2258,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 23,
         "factCheckCount": 32,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2282,7 +2274,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2291,7 +2283,7 @@
       "route": "/states/georgia/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2317,13 +2309,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 23,
         "factCheckCount": 29,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2333,7 +2325,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2342,7 +2334,7 @@
       "route": "/states/hawaii/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2368,13 +2360,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 47,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2384,7 +2376,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2393,7 +2385,7 @@
       "route": "/states/hawaii/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2419,13 +2411,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 43,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2435,7 +2427,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2444,7 +2436,7 @@
       "route": "/states/idaho/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2470,13 +2462,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 33,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2486,7 +2478,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2495,7 +2487,7 @@
       "route": "/states/idaho/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2521,13 +2513,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 46,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2537,7 +2529,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2546,7 +2538,7 @@
       "route": "/states/illinois/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2572,13 +2564,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 35,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2588,7 +2580,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2597,7 +2589,7 @@
       "route": "/states/illinois/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2623,13 +2615,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 41,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2639,7 +2631,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2648,7 +2640,7 @@
       "route": "/states/indiana/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2674,13 +2666,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 14,
         "factCheckCount": 22,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2690,7 +2682,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2699,7 +2691,7 @@
       "route": "/states/indiana/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2725,13 +2717,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 14,
         "factCheckCount": 41,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2741,7 +2733,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2750,7 +2742,7 @@
       "route": "/states/iowa/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2776,13 +2768,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 31,
         "factCheckCount": 47,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2792,7 +2784,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2801,7 +2793,7 @@
       "route": "/states/iowa/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2827,13 +2819,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 31,
         "factCheckCount": 61,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2843,7 +2835,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2852,7 +2844,7 @@
       "route": "/states/kansas/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2878,13 +2870,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 38,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2894,7 +2886,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2903,7 +2895,7 @@
       "route": "/states/kansas/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2929,13 +2921,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 46,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2945,7 +2937,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -2954,7 +2946,7 @@
       "route": "/states/kentucky/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -2980,13 +2972,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 52,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -2996,7 +2988,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3005,7 +2997,7 @@
       "route": "/states/kentucky/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3031,13 +3023,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 61,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3047,7 +3039,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3056,7 +3048,7 @@
       "route": "/states/louisiana/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3082,13 +3074,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 27,
         "factCheckCount": 76,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3098,7 +3090,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3107,7 +3099,7 @@
       "route": "/states/louisiana/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3133,13 +3125,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 27,
         "factCheckCount": 71,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3149,7 +3141,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3158,7 +3150,7 @@
       "route": "/states/maine/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3184,13 +3176,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 17,
         "factCheckCount": 52,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3200,7 +3192,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3209,7 +3201,7 @@
       "route": "/states/maine/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3235,13 +3227,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 17,
         "factCheckCount": 52,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3251,7 +3243,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3260,7 +3252,7 @@
       "route": "/states/maryland/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3286,13 +3278,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 27,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3302,7 +3294,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3311,7 +3303,7 @@
       "route": "/states/maryland/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3337,13 +3329,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 34,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3353,7 +3345,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3362,7 +3354,7 @@
       "route": "/states/massachusetts/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3388,13 +3380,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 42,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3404,7 +3396,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3413,7 +3405,7 @@
       "route": "/states/massachusetts/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3439,13 +3431,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 38,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3455,7 +3447,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3464,7 +3456,7 @@
       "route": "/states/michigan/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3490,13 +3482,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 38,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3506,7 +3498,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3515,7 +3507,7 @@
       "route": "/states/michigan/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3541,13 +3533,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 40,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3557,7 +3549,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3566,7 +3558,7 @@
       "route": "/states/minnesota/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 95,
+      "score": 96,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3592,13 +3584,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 9,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3608,7 +3600,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3617,7 +3609,7 @@
       "route": "/states/minnesota/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3643,13 +3635,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 43,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3659,7 +3651,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3668,7 +3660,7 @@
       "route": "/states/mississippi/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3694,13 +3686,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 22,
         "factCheckCount": 48,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3710,7 +3702,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3719,7 +3711,7 @@
       "route": "/states/mississippi/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3745,13 +3737,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 22,
         "factCheckCount": 50,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3761,7 +3753,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3770,7 +3762,7 @@
       "route": "/states/missouri/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3796,13 +3788,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 17,
         "factCheckCount": 49,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3812,7 +3804,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3821,7 +3813,7 @@
       "route": "/states/missouri/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3847,13 +3839,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 17,
         "factCheckCount": 60,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3863,7 +3855,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3872,7 +3864,7 @@
       "route": "/states/montana/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3898,13 +3890,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 25,
         "factCheckCount": 70,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3914,7 +3906,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3923,7 +3915,7 @@
       "route": "/states/montana/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -3949,13 +3941,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 25,
         "factCheckCount": 70,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -3965,7 +3957,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -3974,7 +3966,7 @@
       "route": "/states/nebraska/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4000,13 +3992,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 55,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4016,7 +4008,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4025,7 +4017,7 @@
       "route": "/states/nebraska/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4051,13 +4043,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 63,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4067,7 +4059,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4076,7 +4068,7 @@
       "route": "/states/nevada/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4102,13 +4094,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 24,
         "factCheckCount": 75,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4118,7 +4110,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4127,7 +4119,7 @@
       "route": "/states/nevada/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4153,13 +4145,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 24,
         "factCheckCount": 72,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4169,7 +4161,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4178,7 +4170,7 @@
       "route": "/states/new-hampshire/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4204,13 +4196,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 23,
         "factCheckCount": 35,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4220,7 +4212,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4229,7 +4221,7 @@
       "route": "/states/new-hampshire/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4255,13 +4247,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 23,
         "factCheckCount": 53,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4271,7 +4263,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4280,7 +4272,7 @@
       "route": "/states/new-jersey/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4306,13 +4298,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 18,
         "factCheckCount": 37,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4322,7 +4314,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4331,7 +4323,7 @@
       "route": "/states/new-jersey/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4357,13 +4349,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 18,
         "factCheckCount": 33,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4373,7 +4365,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4382,7 +4374,7 @@
       "route": "/states/new-mexico/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4408,13 +4400,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 45,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4424,7 +4416,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4433,7 +4425,7 @@
       "route": "/states/new-mexico/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4459,13 +4451,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 56,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4475,7 +4467,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4484,7 +4476,7 @@
       "route": "/states/new-york/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4510,13 +4502,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 16,
         "factCheckCount": 30,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4526,7 +4518,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4535,7 +4527,7 @@
       "route": "/states/new-york/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4561,13 +4553,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 16,
         "factCheckCount": 25,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4577,7 +4569,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4586,7 +4578,7 @@
       "route": "/states/north-carolina/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4612,13 +4604,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 23,
         "factCheckCount": 38,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4628,7 +4620,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4637,7 +4629,7 @@
       "route": "/states/north-carolina/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4663,13 +4655,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 23,
         "factCheckCount": 40,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4679,7 +4671,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4688,7 +4680,7 @@
       "route": "/states/north-dakota/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4714,13 +4706,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 54,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4730,7 +4722,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4739,7 +4731,7 @@
       "route": "/states/north-dakota/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4765,13 +4757,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 66,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4781,7 +4773,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4790,7 +4782,7 @@
       "route": "/states/ohio/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4816,13 +4808,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 61,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4832,7 +4824,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4841,7 +4833,7 @@
       "route": "/states/ohio/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4867,13 +4859,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 57,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4883,7 +4875,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4892,7 +4884,7 @@
       "route": "/states/oklahoma/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4918,13 +4910,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 36,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4934,7 +4926,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4943,7 +4935,7 @@
       "route": "/states/oklahoma/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -4969,13 +4961,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 53,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -4985,7 +4977,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -4994,7 +4986,7 @@
       "route": "/states/oregon/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5020,13 +5012,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 88,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5036,7 +5028,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5045,7 +5037,7 @@
       "route": "/states/oregon/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5071,13 +5063,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 72,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5087,7 +5079,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5096,7 +5088,7 @@
       "route": "/states/pennsylvania/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5122,13 +5114,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 26,
         "factCheckCount": 43,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5138,7 +5130,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5147,7 +5139,7 @@
       "route": "/states/pennsylvania/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5173,13 +5165,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 26,
         "factCheckCount": 54,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5189,7 +5181,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5198,7 +5190,7 @@
       "route": "/states/rhode-island/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5224,13 +5216,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 26,
         "factCheckCount": 20,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5240,7 +5232,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5249,7 +5241,7 @@
       "route": "/states/rhode-island/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5275,13 +5267,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 26,
         "factCheckCount": 51,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5291,7 +5283,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5300,7 +5292,7 @@
       "route": "/states/south-carolina/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5326,13 +5318,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 25,
         "factCheckCount": 36,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5342,7 +5334,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5351,7 +5343,7 @@
       "route": "/states/south-carolina/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5377,13 +5369,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 25,
         "factCheckCount": 50,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5393,7 +5385,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5402,7 +5394,7 @@
       "route": "/states/south-dakota/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5428,13 +5420,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 43,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5444,7 +5436,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5453,7 +5445,7 @@
       "route": "/states/south-dakota/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5479,13 +5471,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 53,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5495,7 +5487,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5504,7 +5496,7 @@
       "route": "/states/tennessee/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5530,13 +5522,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 16,
         "factCheckCount": 28,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5546,7 +5538,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5555,7 +5547,7 @@
       "route": "/states/tennessee/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5581,13 +5573,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 16,
         "factCheckCount": 43,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5597,7 +5589,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5606,7 +5598,7 @@
       "route": "/states/texas/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5632,13 +5624,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 31,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5648,7 +5640,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5657,7 +5649,7 @@
       "route": "/states/texas/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5683,13 +5675,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 40,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5699,7 +5691,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5708,7 +5700,7 @@
       "route": "/states/utah/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5734,13 +5726,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 27,
         "factCheckCount": 55,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5750,7 +5742,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5759,7 +5751,7 @@
       "route": "/states/utah/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5785,13 +5777,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 27,
         "factCheckCount": 62,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5801,7 +5793,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5810,7 +5802,7 @@
       "route": "/states/vermont/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5836,13 +5828,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 33,
         "factCheckCount": 45,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5852,7 +5844,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5861,7 +5853,7 @@
       "route": "/states/vermont/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5887,13 +5879,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 33,
         "factCheckCount": 45,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5903,7 +5895,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5912,7 +5904,7 @@
       "route": "/states/virginia/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5938,13 +5930,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 22,
         "factCheckCount": 37,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -5954,7 +5946,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -5963,7 +5955,7 @@
       "route": "/states/virginia/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -5989,13 +5981,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 22,
         "factCheckCount": 38,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6005,7 +5997,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6014,7 +6006,7 @@
       "route": "/states/washington/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6040,13 +6032,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 22,
         "factCheckCount": 38,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6056,7 +6048,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6065,7 +6057,7 @@
       "route": "/states/washington/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6091,13 +6083,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 22,
         "factCheckCount": 39,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6107,7 +6099,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6116,7 +6108,7 @@
       "route": "/states/west-virginia/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6142,13 +6134,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 34,
         "factCheckCount": 60,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6158,7 +6150,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6167,7 +6159,7 @@
       "route": "/states/west-virginia/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6193,13 +6185,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 34,
         "factCheckCount": 47,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6209,7 +6201,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6218,7 +6210,7 @@
       "route": "/states/wisconsin/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6244,13 +6236,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 28,
         "factCheckCount": 61,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6260,7 +6252,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6269,7 +6261,7 @@
       "route": "/states/wisconsin/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6295,13 +6287,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 28,
         "factCheckCount": 67,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6311,7 +6303,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6320,7 +6312,7 @@
       "route": "/states/wyoming/",
       "pageType": "state-overview",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6346,13 +6338,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 14,
         "factCheckCount": 35,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6362,7 +6354,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6371,7 +6363,7 @@
       "route": "/states/wyoming/real-id/",
       "pageType": "state-real-id",
       "risk": "medium",
-      "score": 99,
+      "score": 100,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6397,13 +6389,13 @@
         "uniqueValue": 10,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 14,
         "factCheckCount": 43,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6413,7 +6405,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6432,7 +6424,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-17",
-        "reviewedAt": "2026-07-17"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -6447,8 +6439,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -6483,7 +6475,7 @@
       "dates": {
         "publishedAt": "2026-07-13",
         "modifiedAt": "2026-07-13",
-        "reviewedAt": "2026-07-13"
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 22,
@@ -6498,8 +6490,8 @@
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": true,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,
@@ -6517,7 +6509,7 @@
       "route": "/topics/airport-travel-after-real-id/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6543,13 +6535,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 10,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6559,7 +6551,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6601,7 +6593,7 @@
       "signals": {
         "sourceCount": 44,
         "factCheckCount": 12,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6611,7 +6603,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": true,
         "humanApprovalFingerprintCurrent": true,
         "contentFingerprint": "825a5b44f9ddf420e1d2b94fc286eb61a5e85a84f7f506ff084d8a3ce9ee800b",
@@ -6624,7 +6616,7 @@
       "route": "/topics/dmv-fees-mailing-temporary-license/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6650,13 +6642,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 14,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6666,7 +6658,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6675,7 +6667,7 @@
       "route": "/topics/dmv-scam-text-fake-ticket-toll-real-id-phishing/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6701,13 +6693,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 44,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6717,7 +6709,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6726,7 +6718,7 @@
       "route": "/topics/dmv-test-language-translation-interpreter/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6752,13 +6744,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 14,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6768,7 +6760,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6777,7 +6769,7 @@
       "route": "/topics/document-checklist/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6803,13 +6795,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 9,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6819,7 +6811,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6861,7 +6853,7 @@
       "signals": {
         "sourceCount": 28,
         "factCheckCount": 11,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6871,7 +6863,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": true,
         "humanApprovalFingerprintCurrent": true,
         "contentFingerprint": "3c6e740a4e47b8c11a1927de8e4b5ee9b484ed96fa59c851da3ea9ad3d34a9b2",
@@ -6884,7 +6876,7 @@
       "route": "/topics/driving-record-points-traffic-school/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6910,13 +6902,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 55,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6926,7 +6918,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6935,7 +6927,7 @@
       "route": "/topics/first-driver-license-road-test/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -6961,13 +6953,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 11,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -6977,7 +6969,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -6986,7 +6978,7 @@
       "route": "/topics/foreign-license-idp-transfer/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7012,13 +7004,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 13,
         "factCheckCount": 13,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7028,7 +7020,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7039,8 +7031,8 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
+      "pass": true,
+      "indexable": true,
       "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
@@ -7070,7 +7062,7 @@
       "signals": {
         "sourceCount": 52,
         "factCheckCount": 14,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7080,22 +7072,20 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": false,
         "humanApprovalFingerprintCurrent": false,
         "contentFingerprint": "691925a488c8d6d99fbd0f11645404eefc4d85893772ca2f263a2d534f8292b5",
         "approvalContentFingerprint": "ee3982002d0145de263573d45eea31f4bca66cbf474da4618aa83800be4d4c3a"
       },
       "critical": [],
-      "blockers": [
-        "当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/lost-stolen-license-id-replacement-identity-theft/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7121,13 +7111,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 59,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7137,7 +7127,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7146,7 +7136,7 @@
       "route": "/topics/lost-stolen-license-plates-registration-card-sticker/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7172,13 +7162,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 43,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7188,7 +7178,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7199,8 +7189,8 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
+      "pass": true,
+      "indexable": true,
       "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
@@ -7230,7 +7220,7 @@
       "signals": {
         "sourceCount": 20,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7240,22 +7230,20 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": false,
         "humanApprovalFingerprintCurrent": false,
         "contentFingerprint": "ff859c9bfd0463df385b873d12cc5bdfb24dfe653e7971c67f6527488db43739",
         "approvalContentFingerprint": "cc6ef372c75eaffec65de4579924ff51c83644a95aca61b6672644b422b4db69"
       },
       "critical": [],
-      "blockers": [
-        "当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/moving-to-new-state/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7281,13 +7269,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 9,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7297,7 +7285,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7308,8 +7296,8 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
+      "pass": true,
+      "indexable": true,
       "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
@@ -7339,7 +7327,7 @@
       "signals": {
         "sourceCount": 11,
         "factCheckCount": 13,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7349,16 +7337,14 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": false,
         "humanApprovalFingerprintCurrent": false,
         "contentFingerprint": "77adf1bb34ef55c29d3ad6fb4f4bf8299a3e7eb2b309d24578d48816e11fb7be",
         "approvalContentFingerprint": "a18e0b6a5e2719c9ac54302f0e54da0073a55f83e5e7606c624c92fde49b599b"
       },
       "critical": [],
-      "blockers": [
-        "当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/non-citizen-license-id/",
@@ -7397,7 +7383,7 @@
       "signals": {
         "sourceCount": 13,
         "factCheckCount": 12,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7407,7 +7393,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": true,
         "humanApprovalFingerprintCurrent": true,
         "contentFingerprint": "aeac1ae2907135a6ee98e09c19879e6d3360d6e3edd9d5ae744080f869740411",
@@ -7453,7 +7439,7 @@
       "signals": {
         "sourceCount": 64,
         "factCheckCount": 14,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7463,7 +7449,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": true,
         "humanApprovalFingerprintCurrent": true,
         "contentFingerprint": "794e6fad9ad41ed84427a7a0444f23405515700953679aefff58166b2b4072d9",
@@ -7476,7 +7462,7 @@
       "route": "/topics/online-office-appointment/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7502,13 +7488,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 12,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7518,7 +7504,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7527,7 +7513,7 @@
       "route": "/topics/proof-of-residency/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 95,
+      "score": 96,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7553,13 +7539,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 8,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7569,7 +7555,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7578,7 +7564,7 @@
       "route": "/topics/real-id-basics/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7604,13 +7590,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 9,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7620,7 +7606,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7629,7 +7615,7 @@
       "route": "/topics/real-id-vs-standard-license/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 95,
+      "score": 96,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7655,13 +7641,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 8,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7671,7 +7657,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7680,7 +7666,7 @@
       "route": "/topics/renewal-replacement-address/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7706,13 +7692,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 10,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7722,7 +7708,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7731,7 +7717,7 @@
       "route": "/topics/residency-proof-no-bills-po-box/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7757,13 +7743,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 19,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7773,7 +7759,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7782,7 +7768,7 @@
       "route": "/topics/road-test-day-vehicle-sponsor-insurance-rental-retest/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7808,13 +7794,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 14,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7824,7 +7810,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7833,7 +7819,7 @@
       "route": "/topics/sold-car-release-liability-plates-insurance/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -7859,13 +7845,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 18,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7875,7 +7861,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -7917,7 +7903,7 @@
       "signals": {
         "sourceCount": 10,
         "factCheckCount": 11,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7927,7 +7913,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": true,
         "humanApprovalFingerprintCurrent": true,
         "contentFingerprint": "548a166b0aebf6f9746b62e15abd14698207d80845cd235a1613890c84b08a3e",
@@ -7973,7 +7959,7 @@
       "signals": {
         "sourceCount": 18,
         "factCheckCount": 13,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -7983,7 +7969,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": true,
         "humanApprovalFingerprintCurrent": true,
         "contentFingerprint": "f61021702982da0c32ea3c417a5c29d68c415842d261763b652f0d3074a723d0",
@@ -7996,7 +7982,7 @@
       "route": "/topics/state-id-non-driver-id-real-id-card/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -8022,13 +8008,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 42,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -8038,7 +8024,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -8080,7 +8066,7 @@
       "signals": {
         "sourceCount": 28,
         "factCheckCount": 12,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -8090,7 +8076,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": true,
         "humanApprovalFingerprintCurrent": true,
         "contentFingerprint": "700ce8486872b1d03359de44911307279cade5727b1c6491c1835047bf3a74e5",
@@ -8103,7 +8089,7 @@
       "route": "/topics/teen-driver-permit-gdl-parent-guide/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -8129,13 +8115,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 60,
         "factCheckCount": 12,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -8145,7 +8131,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -8154,7 +8140,7 @@
       "route": "/topics/temporary-tag-trip-permit-dealer-plate/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -8180,13 +8166,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 35,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -8196,7 +8182,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -8207,8 +8193,8 @@
       "risk": "high",
       "score": 97,
       "threshold": 85,
-      "pass": false,
-      "indexable": false,
+      "pass": true,
+      "indexable": true,
       "reviewStatus": "human-approval-stale",
       "reviewMethod": "human",
       "semanticReview": {
@@ -8238,7 +8224,7 @@
       "signals": {
         "sourceCount": 23,
         "factCheckCount": 13,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -8248,16 +8234,14 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": false,
         "humanApprovalFingerprintCurrent": false,
         "contentFingerprint": "afd77218247c408371b8d9a883e42fd415717270b1ef89eaa05a07b68886cea9",
         "approvalContentFingerprint": "1c8c1345a21df576bc6489914d3a74256a6e3c2e1e4c22788e4cf303c57334e0"
       },
       "critical": [],
-      "blockers": [
-        "当前内容指纹与 2026-07-21 人工签字版本不一致；重新人工语义核查前保持 noindex"
-      ]
+      "blockers": []
     },
     {
       "route": "/topics/used-car-title-lien-salvage-odometer-check/",
@@ -8296,7 +8280,7 @@
       "signals": {
         "sourceCount": 28,
         "factCheckCount": 12,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -8306,7 +8290,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true,
+        "hasEditorialDisclosure": false,
         "humanApprovalDateCurrent": true,
         "humanApprovalFingerprintCurrent": true,
         "contentFingerprint": "34726acab0be4fb876341daf43e9388ed8381a547b79695975f0fba0d2756401",
@@ -8319,7 +8303,7 @@
       "route": "/topics/vehicle-inspection-emissions-smog-vin-check/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -8345,13 +8329,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 21,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -8361,7 +8345,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -8370,7 +8354,7 @@
       "route": "/topics/vehicle-registration-renewal-expired-tags-non-operation/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 95,
+      "score": 96,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -8396,13 +8380,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 24,
         "factCheckCount": 9,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -8412,7 +8396,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -8421,7 +8405,7 @@
       "route": "/topics/vehicle-title-registration-insurance-after-move/",
       "pageType": "topic",
       "risk": "medium",
-      "score": 96,
+      "score": 97,
       "threshold": 85,
       "pass": true,
       "indexable": true,
@@ -8447,13 +8431,13 @@
         "uniqueValue": 7,
         "authorship": 10,
         "freshness": 10,
-        "riskLanguage": 9,
+        "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 14,
         "factCheckCount": 10,
-        "visibleThreeDates": true,
+        "hasDateMetadata": true,
         "authorLink": true,
         "schemaAuthorUrl": true,
         "hasFactMapping": true,
@@ -8463,7 +8447,7 @@
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,
         "hasInlineDirectoryEvidence": false,
-        "hasEditorialDisclosure": true
+        "hasEditorialDisclosure": false
       },
       "critical": [],
       "blockers": []
@@ -8472,17 +8456,17 @@
       "route": "/updates/",
       "pageType": "trust",
       "risk": "policy",
-      "score": 98,
+      "score": 93,
       "threshold": 85,
       "pass": true,
-      "indexable": true,
+      "indexable": false,
       "reviewStatus": "not-required",
       "reviewMethod": null,
       "semanticReview": null,
       "dates": {
-        "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-30",
-        "reviewedAt": "2026-07-30"
+        "publishedAt": "",
+        "modifiedAt": "",
+        "reviewedAt": ""
       },
       "scores": {
         "factsAndSources": 25,
@@ -8490,15 +8474,15 @@
         "taskCompletion": 15,
         "uniqueValue": 10,
         "authorship": 8,
-        "freshness": 10,
+        "freshness": 5,
         "riskLanguage": 10,
         "technical": 5
       },
       "signals": {
         "sourceCount": 0,
         "factCheckCount": 0,
-        "visibleThreeDates": true,
-        "authorLink": true,
+        "hasDateMetadata": false,
+        "authorLink": false,
         "schemaAuthorUrl": false,
         "hasFactMapping": false,
         "stateEvidenceItems": 0,

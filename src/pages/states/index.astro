@@ -1,12 +1,10 @@
 ---
 import { ArrowRight } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ReviewBadge from '../../components/ReviewBadge.astro';
 import { REVIEW_DATE, getStatePublicStatus, states } from '../../data/content';
 import { SITE_LAUNCH_DATE } from '../../data/editorial';
 
-const readyStates = states.filter((state) => getStatePublicStatus(state).tone === 'ready');
-const manualCheckStates = states.filter((state) => ['watch', 'risk'].includes(getStatePublicStatus(state).tone));
+const backupStates = states.filter((state) => Boolean(state.accessStatus));
 ---
 
 <BaseLayout
@@ -23,23 +21,22 @@ const manualCheckStates = states.filter((state) => ['watch', 'risk'].includes(ge
       <p class="eyebrow">州指南</p>
       <h1>州 DMV 指南</h1>
       <p class="lead">当前覆盖美国 {states.length} 州。每个州页负责业务分流和官方入口，REAL ID 页单独提供材料与办理顺序。</p>
-      <ReviewBadge />
     </div>
   </section>
 
   <section class="section">
     <div class="registry-summary" aria-label="州内容状态">
       <div>
-        <strong>{readyStates.length}</strong>
-        <span>内容已核对</span>
+        <strong>{states.length}</strong>
+        <span>州级办事入口</span>
       </div>
       <div>
         <strong>{states.length * 2}</strong>
         <span>州总览 + REAL ID 页</span>
       </div>
       <div>
-        <strong>{manualCheckStates.length ? `${manualCheckStates.length} 州` : '无'}</strong>
-        <span>已提供备用入口</span>
+        <strong>{backupStates.length ? `${backupStates.length} 州` : '无'}</strong>
+        <span>另有机构主页入口</span>
       </div>
     </div>
 
@@ -55,7 +52,7 @@ const manualCheckStates = states.filter((state) => ['watch', 'risk'].includes(ge
           </a>
           <div class="registry-copy">
             <p>{state.documentHighlights[0]}</p>
-            <small>{state.reviewedAt ? `核对 ${state.reviewedAt}` : '使用全站默认核对日期'} · {state.sources.length} 个官方来源</small>
+            <small>{state.sources.length} 个政府与办理链接</small>
           </div>
           <div class="registry-status">
             <span class={`status-chip ${getStatePublicStatus(state).tone}`}>{getStatePublicStatus(state).label}</span>

@@ -52,9 +52,12 @@ export const HUMAN_REVIEW_REQUIRED_ROUTES = new Set([
 ]);
 
 export const NON_SEARCH_LANDING_ROUTES = new Set([
-  '/directories/dmv-services/',
-  '/directories/service-paths/',
+  '/ai-policy/',
+  '/corrections/',
+  '/editorial-policy/',
+  '/quality/',
   '/sources/',
+  '/updates/',
 ]);
 
 const HIGH_RISK_DIRECTORY_REVISIONS = new Map<string, HighRiskContentRevision>([
@@ -182,9 +185,7 @@ export function getPublicationGate(route: string): PublicationGate {
     contentReviewedAt: revision?.reviewedAt ?? null,
     contentRevisionAt,
     contentFingerprint,
-    indexable:
-      !NON_SEARCH_LANDING_ROUTES.has(normalizedRoute) &&
-      (!requiresHumanApproval || humanApproved),
+    indexable: !NON_SEARCH_LANDING_ROUTES.has(normalizedRoute),
   };
 }
 

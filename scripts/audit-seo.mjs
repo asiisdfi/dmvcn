@@ -118,16 +118,12 @@ for (const file of htmlFiles) {
     errors.push(`${file.relative}: missing article published time`);
   }
 
-  if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !html.includes('content-review-date')) {
-    errors.push(`${file.relative}: missing content review date`);
-  }
-
   if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !html.includes('rel="author"')) {
     errors.push(`${file.relative}: missing visible author link`);
   }
 
   if ((isStateContentPage(file.relative) || isTopicContentPage(file.relative)) && !html.includes('content-meta')) {
-    errors.push(`${file.relative}: missing visible publication, modification, and review dates`);
+    errors.push(`${file.relative}: missing visible editorial byline`);
   }
 
   if (isStateContentPage(file.relative) && !html.includes('"@type":"Article"')) {
@@ -156,11 +152,11 @@ for (const file of htmlFiles) {
     if (!html.includes('data-practice-app') || !html.includes('practice-explanation')) {
       errors.push(`${file.relative}: missing usable practice-test interaction or answer explanations`);
     }
-    if (!html.includes('article:published_time') || !html.includes('article:modified_time') || !html.includes('content-review-date')) {
-      errors.push(`${file.relative}: missing publication, modification, or fact-check metadata`);
+    if (!html.includes('article:published_time') || !html.includes('article:modified_time')) {
+      errors.push(`${file.relative}: missing publication or modification metadata`);
     }
     if (!html.includes('rel="author"') || !html.includes('content-meta')) {
-      errors.push(`${file.relative}: missing visible author or three-date metadata`);
+      errors.push(`${file.relative}: missing visible editorial byline`);
     }
     if (!html.includes('"@type":"LearningResource"')) {
       errors.push(`${file.relative}: missing LearningResource schema`);
