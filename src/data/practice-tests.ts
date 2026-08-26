@@ -57,7 +57,7 @@ export const georgiaPracticeTest: PracticeTest = {
   stateNameEn: 'Georgia',
   title: '佐治亚州驾照中文笔试练习',
   description:
-    '依据 Georgia DDS 当前考试说明与官方 Driver Manual 编写的 20 道原创中文练习题，逐题提供中文解释、易错点和官方章节。',
+    '依据 Georgia DDS 考试说明和官方 Driver Manual 编写的 20 道原创中文练习题，覆盖 Road Rules、Road Signs 与安全驾驶；每题提供答案、中文解释、易错点及对应政府手册章节，便于考前按主题复习。',
   publishedAt: '2026-07-19',
   modifiedAt: '2026-07-19',
   reviewedAt: '2026-07-19',

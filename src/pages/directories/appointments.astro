@@ -137,10 +137,12 @@ const quickFilters = [
   count: rows.filter((row) => row.searchText.includes(filter.value.toLowerCase())).length,
 }));
 
+const pageDescription =
+  '按美国 50 州查找 DMV 与 REAL ID 预约系统、办公室和服务中心类型、地点查询、walk-in、Same-Day REAL ID Center、县级承办点及现场办理提醒，避免约错业务或去错地点。';
 const schema = {
   '@type': 'CollectionPage',
   name: 'DMV 预约和办公室入口表',
-  description: '按州整理 DMV / REAL ID 预约、办公室类型、地点查询、walk-in、Same-Day REAL ID Center 和现场办理提醒。',
+  description: pageDescription,
   dateModified: DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
@@ -156,7 +158,7 @@ const schema = {
 };
 ---
 
-<BaseLayout title="DMV 预约和办公室入口表" description="按州查找 DMV / REAL ID 预约、办公室类型、地点查询、walk-in、Same-Day REAL ID Center 和现场办理提醒。" publishedAt={SITE_LAUNCH_DATE} modifiedAt={DIRECTORY_REVIEW_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
+<BaseLayout title="DMV 预约和办公室入口表" description={pageDescription} publishedAt={SITE_LAUNCH_DATE} modifiedAt={DIRECTORY_REVIEW_DATE} reviewedAt={DIRECTORY_REVIEW_DATE}
   showContentMeta={true}
    schema={schema}>
   <section class="page-hero">

@@ -10,7 +10,7 @@ export const SITE = {
   name: 'DMV中文办事库',
   shortName: 'DMV中文',
   description:
-    '面向在美国中文用户的 DMV、REAL ID、驾照、州身份证和车辆手续办事信息库。',
+    '面向在美国生活的中文用户，按州整理 DMV、REAL ID、首次申请和续换驾照、州身份证、搬州、车辆登记、预约与材料准备流程，并提供对应州政府办理入口。',
   disclaimer:
     '本站不是政府网站，也不提供法律、移民或税务建议。所有办理要求、费用和预约规则请以官方页面为准。',
   contactEmail,
@@ -3245,6 +3245,8 @@ export const states: StateGuide[] = [
     nameZh: '北卡罗来纳州',
     agency: 'North Carolina Division of Motor Vehicles',
     agencyUrl: 'https://www.ncdot.gov/dmv/',
+    seoDescription:
+      '北卡罗来纳州 NCDMV 中文指南，说明驾照与州身份证申请、REAL ID 材料、搬入新州后的换证和车辆登记顺序、地址变更、续期补证、预约与线上服务，并连接 North Carolina 政府办理入口。',
     publishedAt: '2026-07-13',
     modifiedAt: '2026-07-17',
     reviewedAt: '2026-07-17',

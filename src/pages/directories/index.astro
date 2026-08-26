@@ -99,10 +99,12 @@ const directoryCards = [
     icon: MapPinned,
   },
 ];
+const pageDescription =
+  '按州直达 REAL ID、驾照续期与补证、地址变更、预约、笔试路考、车辆登记、费用和材料规则等政府页面；适合已经知道要办什么、希望快速找到正确机构与官方系统的中文用户。';
 const schema = {
   '@type': 'CollectionPage',
   name: 'DMV 办事入口表',
-  description: '按州整理 REAL ID、DMV 常用业务、州指南和官方入口的中文目录。',
+  description: pageDescription,
   dateModified: DIRECTORY_REVIEW_DATE,
   inLanguage: 'zh-Hans',
   mainEntity: {
@@ -120,7 +122,7 @@ const schema = {
 
 <BaseLayout
   title="DMV 办事入口表"
-  description="按州查找 REAL ID、DMV 常用业务、州指南和官方入口的中文目录。"
+  description={pageDescription}
   publishedAt={SITE_LAUNCH_DATE}
   modifiedAt={DIRECTORY_REVIEW_DATE}
   reviewedAt={DIRECTORY_REVIEW_DATE}
