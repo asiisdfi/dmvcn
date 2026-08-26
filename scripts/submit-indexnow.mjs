@@ -1,5 +1,5 @@
 import {
-  INDEXNOW_ENDPOINT,
+  INDEXNOW_ENDPOINTS,
   INDEXNOW_KEY,
   INDEXNOW_KEY_FILE,
   INDEXNOW_ORIGIN,
@@ -43,26 +43,55 @@ if (dryRun) {
   process.exit(0);
 }
 
-const response = await fetch(INDEXNOW_ENDPOINT, {
-  method: 'POST',
-  headers: {
-    'content-type': 'application/json; charset=utf-8',
-    'user-agent': 'DMVCN-IndexNow/1.0',
-  },
-  body: JSON.stringify({
-    host: origin.hostname,
-    key: INDEXNOW_KEY,
-    keyLocation: keyLocation.toString(),
-    urlList: uniqueUrls,
-  }),
+const payload = JSON.stringify({
+  host: origin.hostname,
+  key: INDEXNOW_KEY,
+  keyLocation: keyLocation.toString(),
+  urlList: uniqueUrls,
 });
+let accepted = null;
+let lastNetworkError = null;
 
-if (![200, 202].includes(response.status)) {
-  const details = (await response.text()).trim();
-  throw new Error(
-    `IndexNow submission failed with HTTP ${response.status}${details ? `: ${details}` : ''}`,
-  );
+for (const endpoint of INDEXNOW_ENDPOINTS) {
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+          'user-agent': 'DMVCN-IndexNow/1.0',
+        },
+        body: payload,
+        signal: AbortSignal.timeout(20_000),
+      });
+
+      if ([200, 202].includes(response.status)) {
+        accepted = { endpoint, status: response.status };
+        break;
+      }
+
+      const details = (await response.text()).trim();
+      if (response.status < 500) {
+        throw new Error(
+          `IndexNow rejected the request with HTTP ${response.status}${details ? `: ${details}` : ''}`,
+        );
+      }
+      lastNetworkError = new Error(`IndexNow endpoint returned HTTP ${response.status}: ${endpoint}`);
+    } catch (error) {
+      if (error instanceof Error && error.message.startsWith('IndexNow rejected')) throw error;
+      lastNetworkError = error;
+    }
+
+    if (attempt < 3) await new Promise((resolve) => setTimeout(resolve, attempt * 1_000));
+  }
+  if (accepted) break;
 }
 
-console.log(`Submitted ${uniqueUrls.length} URLs to IndexNow (HTTP ${response.status}).`);
+if (!accepted) {
+  throw lastNetworkError ?? new Error('No IndexNow endpoint accepted the request.');
+}
+
+console.log(
+  `Submitted ${uniqueUrls.length} URLs to IndexNow via ${accepted.endpoint} (HTTP ${accepted.status}).`,
+);
 console.log(`Key location: ${keyLocation}`);
