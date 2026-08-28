@@ -43,6 +43,11 @@ const pageHeading = state.pageHeading ?? `${state.nameZh} DMV 办事总览`;
 const officialSources = uniqueSources(state.sources);
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const isCountyRouted = state.id === 'hawaii';
+const featuredActionLabels = new Set(state.overviewFeaturedActionLabels ?? []);
+const featuredActionLinks = (state.overviewFeaturedActionLabels ?? [])
+  .map((label) => state.actionLinks.find((link) => link.label === label))
+  .filter((link): link is StateGuide['actionLinks'][number] => Boolean(link));
+const remainingActionLinks = state.actionLinks.filter((link) => !featuredActionLabels.has(link.label));
 const linkLabel = (link: StateGuide['actionLinks'][number]) => link.label.toLowerCase();
 const findActionLink = (patterns: RegExp[]) =>
   patterns.map((pattern) => state.actionLinks.find((link) => pattern.test(linkLabel(link)))).find(Boolean);
@@ -245,6 +250,24 @@ const schema = [
         </div>
       </section>
 
+      {featuredActionLinks.length > 0 && (
+        <section class="panel" aria-labelledby="featured-state-actions">
+          <h2 id="featured-state-actions">{state.nameZh} 常用办理入口</h2>
+          <p class="section-intro">续期、预约、邮寄查询和语言协助分属不同政府页面，请按自己的业务直接进入。</p>
+          <div class="link-table">
+            {featuredActionLinks.map((link, index) => (
+              <div class="action-row">
+                <div>
+                  <strong>{link.label}</strong>
+                  <p>{link.description}</p>
+                </div>
+                <OfficialLinkButton href={link.url} label="打开官方页" variant={index === 0 ? 'primary' : 'secondary'} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section class="panel fact-check-panel" aria-labelledby="state-evidence-heading">
         <h2 id="state-evidence-heading">本州办事要点</h2>
         <p class="section-intro">按事项查看州别要求，并直接进入相关政府页面。</p>
@@ -308,10 +331,10 @@ const schema = [
         </ul>
       </section>
 
-      <section class="panel" id="official-entry">
-        <h2>官方入口</h2>
+      {remainingActionLinks.length > 0 && <section class="panel" id="official-entry">
+        <h2>{featuredActionLinks.length > 0 ? '其他官方入口' : '官方入口'}</h2>
         <div class="link-table">
-          {state.actionLinks.map((link, index) => (
+          {remainingActionLinks.map((link, index) => (
             <div class="action-row">
               <div>
                 <strong>{link.label}</strong>
@@ -321,7 +344,7 @@ const schema = [
             </div>
           ))}
         </div>
-      </section>
+      </section>}
 
       <section class="panel">
         <h2>常见问题</h2>

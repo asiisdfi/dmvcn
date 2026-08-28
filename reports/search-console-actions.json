@@ -259,5 +259,48 @@
     "evaluateAfter": "2026-08-15",
     "baselinePeriodEnd": "2026-07-26",
     "summary": "在 State ID 页增加通用证件比较和加州 REAL ID 两条分流入口，避免州别与比较意图混在本页。"
+  },
+  {
+    "route": "/updates/",
+    "action": "noindex",
+    "countsTowardCadence": false,
+    "completedAt": "2026-08-24",
+    "evaluateAfter": "2026-09-21",
+    "baselinePeriodEnd": "2026-08-23",
+    "summary": "更新记录页退出搜索索引和 sitemap，保留为站内维护入口。"
+  },
+  {
+    "route": "/quality/",
+    "action": "noindex",
+    "countsTowardCadence": false,
+    "completedAt": "2026-08-24",
+    "evaluateAfter": "2026-09-21",
+    "baselinePeriodEnd": "2026-08-23",
+    "summary": "内容质量说明页退出搜索索引和 sitemap，避免维护说明占用搜索结果。"
+  },
+  {
+    "route": "/ai-policy/",
+    "action": "noindex",
+    "countsTowardCadence": false,
+    "completedAt": "2026-08-24",
+    "evaluateAfter": "2026-09-21",
+    "baselinePeriodEnd": "2026-08-23",
+    "summary": "内容工具说明页退出搜索索引和 sitemap，避免内部说明成为搜索落地页。"
+  },
+  {
+    "route": "/states/new-york/",
+    "action": "improve-title-answer",
+    "completedAt": "2026-08-28",
+    "evaluateAfter": "2026-09-11",
+    "baselinePeriodEnd": "2026-08-25",
+    "summary": "按现有中文搜索需求调整标题和页面顺序，前置驾照续期、办公室预约、证件邮寄状态、中文语言协助和地址变更入口。"
+  },
+  {
+    "route": "/states/new-york/real-id/",
+    "action": "improve-title-answer",
+    "completedAt": "2026-08-28",
+    "evaluateAfter": "2026-09-11",
+    "baselinePeriodEnd": "2026-08-25",
+    "summary": "按现有中文搜索需求调整标题和页面顺序，前置 REAL ID 材料工具、ID-44、办公室和预约入口。"
   }
 ]

@@ -47,6 +47,9 @@ const pageHeading =
 const officialSources = uniqueSources([...state.sources, ...federalSources]);
 const stateEvidence = buildStateEvidence(state, 'real-id');
 const modifiedAt = getStateRealIdPageModifiedAt(state);
+const featuredActionLinks = (state.realIdFeaturedActionLabels ?? [])
+  .map((label) => state.actionLinks.find((link) => link.label === label))
+  .filter((link): link is StateGuide['actionLinks'][number] => Boolean(link));
 const realIdEvidence = stateEvidence.filter((item) => item.field === 'realIdSummary');
 const documentEvidence = stateEvidence.filter((item) => item.field === 'documentHighlights');
 const stepEvidence = stateEvidence.filter((item) => item.field === 'recommendedSteps');
@@ -318,6 +321,24 @@ const schema = [
           ))}
         </div>
       </section>
+
+      {featuredActionLinks.length > 0 && (
+        <section class="panel" aria-labelledby="featured-real-id-actions">
+          <h2 id="featured-real-id-actions">{state.nameZh} REAL ID 材料与预约入口</h2>
+          <p class="section-intro">先打开材料工具核对文件，再查看办理地点和预约方式。</p>
+          <div class="link-table">
+            {featuredActionLinks.map((link, index) => (
+              <div class="action-row">
+                <div>
+                  <strong>{link.label}</strong>
+                  <p>{link.description}</p>
+                </div>
+                <OfficialLinkButton href={link.url} label="打开官方页" variant={index === 0 ? 'primary' : 'secondary'} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section class="panel">
         <h2>适合先看这页的人</h2>

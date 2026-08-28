@@ -49,6 +49,8 @@ export type StateGuide = {
   realIdSummary: string;
   licenseSummary: string;
   appointmentNote: string;
+  overviewFeaturedActionLabels?: string[];
+  realIdFeaturedActionLabels?: string[];
   allCredentialsRealId?: boolean;
   realIdCredentialMode?: 'all-current-real-id' | 'single-compliant-card';
   documentHighlights: string[];
@@ -382,17 +384,17 @@ export const states: StateGuide[] = [
     nameZh: '纽约州',
     agency: 'New York DMV',
     agencyUrl: 'https://dmv.ny.gov/',
-    seoTitle: '纽约州 DMV 中文指南：驾照续期、REAL ID 与邮寄进度',
+    seoTitle: '纽约州 DMV 中文指南：驾照续期、预约、REAL ID 材料与邮寄查询',
     seoDescription:
-      '纽约州 DMV 中文办事指南：按驾照续期、补证、REAL ID、地址变更、证件邮寄进度、预约和新居民转入进入官方办理页面。',
-    pageHeading: '纽约州 DMV 中文办事指南',
-    realIdSeoTitle: '纽约州 REAL ID 怎么申请：材料、费用与预约步骤',
+      '纽约州 DMV 中文办事指南：查看驾照线上或邮寄续期、办公室预约、REAL ID 所需材料、证件邮寄状态、中文语言协助、地址变更和官方办理入口。',
+    pageHeading: '纽约州 DMV 中文指南：续期、预约和邮寄查询',
+    realIdSeoTitle: '纽约州 REAL ID 申请：所需材料、预约、费用与 Enhanced 区别',
     realIdSeoDescription:
-      '纽约州 REAL ID 中文申请指南：先比较 Standard、REAL ID 与 Enhanced，再用官方预审准备材料、确认费用并到 DMV office 完成申请。',
-    realIdPageHeading: '纽约州 REAL ID 申请指南',
-    realIdModifiedAt: '2026-07-24',
+      '纽约州 REAL ID 中文指南：使用 NY DMV Document Guide 和 ID-44 核对身份、SSN、两份住址与姓名材料，了解办公室预约、费用、Enhanced 区别和邮寄时间。',
+    realIdPageHeading: '纽约州 REAL ID 材料与预约指南',
+    realIdModifiedAt: '2026-08-28',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-07-24',
+    modifiedAt: '2026-08-28',
     reviewedAt: '2026-07-17',
     summary:
       '纽约州有 Standard、REAL ID 和 Enhanced 三类照片证件。先按用途选证件，再用官方 pre-screening 生成材料清单；从 Standard 升级为 REAL ID 或 Enhanced 必须到 DMV office。',
@@ -402,6 +404,19 @@ export const states: StateGuide[] = [
       'Standard 驾照仍可用于驾驶和普通照片 ID，但不能用于登美国国内航班或进入要求 REAL ID 的联邦场所；有效护照可替代 REAL ID。',
     appointmentNote:
       '按城市或 ZIP 搜索办公室后，点 View Details 查看现场服务和预约入口；并非所有办公室提供预约，且长等待时可能只允许有 reservation 的人进入。',
+    overviewFeaturedActionLabels: [
+      '续期驾照',
+      '办公室与预约',
+      '证件邮寄状态',
+      '中文与语言协助',
+      '地址变更',
+    ],
+    realIdFeaturedActionLabels: [
+      '纽约 REAL ID / Enhanced',
+      'DMV Document Guide',
+      'ID-44 材料 PDF',
+      '办公室与预约',
+    ],
     documentHighlights: [
       '先用 NY DMV pre-screening 生成个人清单，再以当前 ID-44（2/26）复核接受的文件和分值。',
       'REAL ID 需要 Social Security 证明、citizenship 或 lawful status、两份纽约州居住证明，以及累计 6 points 的姓名证明。',
@@ -482,7 +497,7 @@ export const states: StateGuide[] = [
         description: '纽约外州、美国属地、联邦区和加拿大省份驾照换证入口。',
       },
       {
-        label: 'Language Assistance',
+        label: '中文与语言协助',
         url: 'https://dmv.ny.gov/more-info/language-assistance',
         description: '纽约 DMV 语言协助、口译和重要文件多语言服务说明。',
       },

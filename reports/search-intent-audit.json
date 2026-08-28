@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T00:00:00.000Z",
+  "generatedAt": "2026-08-28T00:00:00.000Z",
   "summary": {
     "pages": 150,
     "countsByClass": {
@@ -76,8 +76,8 @@
       "class": "directory",
       "title": "美国各州 DMV 中文办事入口：预约、续期、补证 | DMV中文办事库",
       "heading": "美国各州 DMV 中文办事入口",
-      "contentChars": 22902,
-      "contentHash": "3e708a24c91a312df1da1f67e5985cd41beb3c946c299bd1c77421d8ae07ca37"
+      "contentChars": 22891,
+      "contentHash": "b2e6f589462a5c4c0530e213d42891d957bfcd33b96f41399d7117895a6b69d6"
     },
     {
       "route": "/directories/document-rules/",
@@ -108,8 +108,8 @@
       "class": "directory",
       "title": "DMV 考试语言、翻译和口译入口表 | DMV中文办事库",
       "heading": "DMV 考试语言、翻译和口译入口表",
-      "contentChars": 22638,
-      "contentHash": "676068a0fcd1a6b84fa03e69ab3bcf56bdda7b700f57e153530ce55646cf9387"
+      "contentChars": 22627,
+      "contentHash": "0da11bbb3a5cd891ba99f2b1d1b37d272964a0c719db820a94f3f5b976b46e2f"
     },
     {
       "route": "/directories/new-residents/",
@@ -650,18 +650,18 @@
     {
       "route": "/states/new-york/",
       "class": "state-overview",
-      "title": "纽约州 DMV 中文指南：驾照续期、REAL ID 与邮寄进度 | DMV中文办事库",
-      "heading": "纽约州 DMV 中文办事指南",
-      "contentChars": 4407,
-      "contentHash": "1650cc1f4fe45d1ca0d525306d6da7cc050b42561aaf9b8cb264719e73f051ee"
+      "title": "纽约州 DMV 中文指南：驾照续期、预约、REAL ID 材料与邮寄查询 | DMV中文办事库",
+      "heading": "纽约州 DMV 中文指南：续期、预约和邮寄查询",
+      "contentChars": 4461,
+      "contentHash": "1d2becdcc7ed2f8e3f41a945de4cad88a270fe0bcb845718d18ed8ae50a18dac"
     },
     {
       "route": "/states/new-york/real-id/",
       "class": "state-real-id",
-      "title": "纽约州 REAL ID 怎么申请：材料、费用与预约步骤 | DMV中文办事库",
-      "heading": "纽约州 REAL ID 申请指南",
-      "contentChars": 3344,
-      "contentHash": "8e83cfc92365757a96fb7310fa6f3355442726a499a6c1a9d3d0910134efbb07"
+      "title": "纽约州 REAL ID 申请：所需材料、预约、费用与 Enhanced 区别 | DMV中文办事库",
+      "heading": "纽约州 REAL ID 材料与预约指南",
+      "contentChars": 3563,
+      "contentHash": "4812aa8af64a00f7ac7b8c600795eea92c0e69d727dca43f477ab8d1ac5fb1cf"
     },
     {
       "route": "/states/north-carolina/",
@@ -1296,17 +1296,6 @@
     {
       "routes": [
         "/states/california/real-id/",
-        "/states/new-york/real-id/"
-      ],
-      "class": "state-real-id",
-      "similarity": 0.27,
-      "boundaryStatus": "observe",
-      "reviewedAt": null,
-      "distinction": null
-    },
-    {
-      "routes": [
-        "/states/california/real-id/",
         "/states/new-jersey/real-id/"
       ],
       "class": "state-real-id",
@@ -1344,6 +1333,17 @@
       ],
       "class": "state-real-id",
       "similarity": 0.262,
+      "boundaryStatus": "observe",
+      "reviewedAt": null,
+      "distinction": null
+    },
+    {
+      "routes": [
+        "/states/california/real-id/",
+        "/states/new-york/real-id/"
+      ],
+      "class": "state-real-id",
+      "similarity": 0.261,
       "boundaryStatus": "observe",
       "reviewedAt": null,
       "distinction": null
