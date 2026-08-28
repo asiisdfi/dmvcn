@@ -1,5 +1,6 @@
 ---
 import { ArrowRight, BadgeCheck, CarFront, CircleAlert, IdCard, MapPinned, Route } from '@lucide/astro/icons';
+import NewYorkAssistantEntry from '../components/NewYorkAssistantEntry.astro';
 import ServiceFinder from '../components/ServiceFinder.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { REVIEW_DATE, SITE, states } from '../data/content';
@@ -318,6 +319,7 @@ const popularStates = states.filter((state) => popularStateIds.has(state.id));
   <section class="finder-band">
     <div class="section">
       <ServiceFinder />
+      <NewYorkAssistantEntry task="real-id" />
     </div>
   </section>
 

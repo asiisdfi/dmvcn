@@ -1,0 +1,37 @@
+---
+import { ArrowRight, ListChecks } from '@lucide/astro/icons';
+
+type Props = {
+  task?: 'real-id' | 'first-license' | 'license-service';
+  compact?: boolean;
+};
+
+const { task = 'license-service', compact = false } = Astro.props as Props;
+const copy = {
+  'real-id': {
+    title: '纽约州 REAL ID 材料判断',
+    detail: '回答几个问题，先判断是否需要升级、还缺哪类材料、下一步去哪里办。',
+  },
+  'first-license': {
+    title: '纽约州首次驾照路线',
+    detail: '按现有驾照、年龄和当前进度，排出 permit、练车、课程和路考顺序。',
+  },
+  'license-service': {
+    title: '纽约州驾照办事助手',
+    detail: '续期、预约、地址变更和证件邮寄查询，按当前情况直接找到下一步。',
+  },
+}[task];
+---
+
+<aside class:list={['ny-assistant-entry', compact && 'is-compact']} aria-label={copy.title}>
+  <span class="ny-assistant-entry-icon"><ListChecks size={22} aria-hidden="true" /></span>
+  <div>
+    <p class="eyebrow">纽约州可用</p>
+    <h2>{copy.title}</h2>
+    <p>{copy.detail}</p>
+  </div>
+  <a href={`/tools/new-york-dmv-assistant/?task=${task}`}>
+    开始判断 <ArrowRight size={17} aria-hidden="true" />
+  </a>
+</aside>
+

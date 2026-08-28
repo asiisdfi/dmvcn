@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ContentMeta from '../../../components/ContentMeta.astro';
 import EditorialDisclosure from '../../../components/EditorialDisclosure.astro';
 import OfficialLinkButton from '../../../components/OfficialLinkButton.astro';
+import NewYorkAssistantEntry from '../../../components/NewYorkAssistantEntry.astro';
 import SourceList from '../../../components/SourceList.astro';
 import StateEvidenceList from '../../../components/StateEvidenceList.astro';
 import {
@@ -321,6 +322,8 @@ const schema = [
           ))}
         </div>
       </section>
+
+      {state.id === 'new-york' && <NewYorkAssistantEntry task="real-id" />}
 
       {featuredActionLinks.length > 0 && (
         <section class="panel" aria-labelledby="featured-real-id-actions">

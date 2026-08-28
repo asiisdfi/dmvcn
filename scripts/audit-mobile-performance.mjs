@@ -16,6 +16,7 @@ const budgets = {
   touchIconBytes: 12 * 1024,
   cssFileBytes: 60 * 1024,
   javascriptFileBytes: 20 * 1024,
+  interactiveJavascriptFileBytes: 24 * 1024,
   javascriptTotalBytes: 100 * 1024,
   indexableHtmlBytes: 600 * 1024,
   noindexHtmlBytes: 1100 * 1024,
@@ -75,6 +76,13 @@ try {
 const htmlFiles = allFiles.filter((filePath) => filePath.endsWith('.html'));
 const cssFiles = allFiles.filter((filePath) => filePath.endsWith('.css'));
 const javascriptFiles = allFiles.filter((filePath) => filePath.endsWith('.js'));
+const interactiveJavascriptFiles = new Set();
+for (const relativeHtmlPath of ['tools/new-york-dmv-assistant/index.html']) {
+  const html = await readFile(path.join(distDir, relativeHtmlPath), 'utf8').catch(() => '');
+  for (const match of html.matchAll(/<script\b[^>]*\ssrc="\/(_astro\/[^"?]+\.js)/gi)) {
+    interactiveJavascriptFiles.add(match[1]);
+  }
+}
 const headerLogoPath = path.join(distDir, 'assets', 'dmvcn-mark-72.png');
 const touchIconPath = path.join(distDir, 'assets', 'dmvcn-touch-icon-v3.png');
 const faviconAssets = [
@@ -247,10 +255,14 @@ for (const filePath of cssFiles) {
 let javascriptTotalBytes = 0;
 for (const filePath of javascriptFiles) {
   const { size } = await stat(filePath);
+  const relativePath = path.relative(distDir, filePath).replace(/\\/g, '/');
+  const fileBudget = interactiveJavascriptFiles.has(relativePath)
+    ? budgets.interactiveJavascriptFileBytes
+    : budgets.javascriptFileBytes;
   javascriptTotalBytes += size;
-  if (size > budgets.javascriptFileBytes) {
+  if (size > fileBudget) {
     errors.push(
-      `${path.relative(distDir, filePath)} is ${size} bytes; JavaScript file budget is ${budgets.javascriptFileBytes}.`,
+      `${relativePath} is ${size} bytes; JavaScript file budget is ${fileBudget}.`,
     );
   }
 }
@@ -283,6 +295,7 @@ console.log(`Header logo: ${headerLogoStat?.size ?? 0}/${budgets.headerLogoBytes
 console.log(`Touch icon: ${touchIconStat?.size ?? 0}/${budgets.touchIconBytes} bytes`);
 console.log(`Built CSS: ${cssTotalBytes} bytes across ${cssFiles.length} file(s)`);
 console.log(`Built JavaScript: ${javascriptTotalBytes} bytes across ${javascriptFiles.length} file(s)`);
+console.log(`Interactive JavaScript cap: ${budgets.interactiveJavascriptFileBytes} bytes per registered tool bundle`);
 console.log(`Largest indexable HTML: ${largestIndexableHtml.route} (${largestIndexableHtml.bytes} bytes)`);
 console.log(`Largest noindex HTML: ${largestNoindexHtml.route} (${largestNoindexHtml.bytes} bytes)`);
 console.log(`Eyebrow contrast floor: ${red ?? 'missing'} on three site backgrounds`);

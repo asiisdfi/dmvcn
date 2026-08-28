@@ -4,6 +4,12 @@ import { fileURLToPath } from 'node:url';
 import { parse } from 'parse5';
 import { federalSources, states, topics } from '../src/data/content.ts';
 import {
+  NEW_YORK_ASSISTANT_MODIFIED_AT,
+  NEW_YORK_ASSISTANT_PUBLISHED_AT,
+  NEW_YORK_ASSISTANT_REVIEWED_AT,
+  NEW_YORK_ASSISTANT_SOURCES,
+} from '../src/data/new-york-assistant.ts';
+import {
   HIGH_RISK_DIRECTORY_ROUTES,
   HIGH_RISK_TOPIC_SLUGS,
   TRUST_PAGE_PATHS,
@@ -166,6 +172,10 @@ function pageIdentity(route) {
 
   if (route === '/directories/') return { type: 'collection', id: route, risk: 'standard' };
 
+  if (route === '/tools/new-york-dmv-assistant/') {
+    return { type: 'tool', id: route, risk: 'medium' };
+  }
+
   if (route.startsWith('/directories/')) {
     const highRiskDirectory = HIGH_RISK_DIRECTORY_ROUTES.has(route);
     return { type: 'directory', id: route, risk: highRiskDirectory ? 'high' : 'standard' };
@@ -177,7 +187,7 @@ function pageIdentity(route) {
 
 function authoredPageSchema(document) {
   return document.jsonLd.find((item) =>
-    ['Article', 'WebPage'].includes(item?.['@type']),
+    ['Article', 'WebPage', 'WebApplication'].includes(item?.['@type']),
   );
 }
 
@@ -190,6 +200,16 @@ function officialLinkCount(document) {
 }
 
 function contentSignals(identity, route) {
+  if (identity.type === 'tool' && route === '/tools/new-york-dmv-assistant/') {
+    return {
+      sourceCount: Object.keys(NEW_YORK_ASSISTANT_SOURCES).length,
+      factCheckCount: 0,
+      publishedAt: NEW_YORK_ASSISTANT_PUBLISHED_AT,
+      modifiedAt: NEW_YORK_ASSISTANT_MODIFIED_AT,
+      reviewedAt: NEW_YORK_ASSISTANT_REVIEWED_AT,
+    };
+  }
+
   if (identity.type.startsWith('state-')) {
     const state = stateById.get(identity.id);
     return {
@@ -229,7 +249,7 @@ function scorePage(route, document) {
   const identity = pageIdentity(route);
   const signals = contentSignals(identity, route);
   const schema = authoredPageSchema(document);
-  const contentPage = ['state-overview', 'state-real-id', 'topic'].includes(identity.type);
+  const contentPage = ['state-overview', 'state-real-id', 'topic', 'tool'].includes(identity.type);
   const publishedAt = signals.publishedAt ?? schema?.datePublished ?? document.metas.get('article:published_time') ?? '';
   const modifiedAt = signals.modifiedAt ?? schema?.dateModified ?? document.metas.get('article:modified_time') ?? '';
   const reviewedAt = signals.reviewedAt ?? '';
@@ -241,8 +261,25 @@ function scorePage(route, document) {
   const schemaAuthorUrl = Boolean(schema?.author?.url);
   const schemaDates = Boolean(schema?.datePublished && schema?.dateModified);
   const govLinks = officialLinkCount(document);
-  const hasSourceSection = document.classNames.has('source-panel');
-  const hasFactMapping = document.classNames.has('fact-check-panel');
+  const toolSchema = identity.type === 'tool'
+    ? document.jsonLd.find((item) => item?.['@type'] === 'WebApplication')
+    : undefined;
+  const registeredToolSourceUrls = new Set(
+    Object.values(NEW_YORK_ASSISTANT_SOURCES).map((source) => source.url),
+  );
+  const toolCitations = Array.isArray(toolSchema?.citation) ? toolSchema.citation : [];
+  const hasToolEvidenceMapping =
+    identity.type === 'tool' &&
+    toolCitations.length === registeredToolSourceUrls.size &&
+    toolCitations.every((url) => registeredToolSourceUrls.has(url)) &&
+    document.classNames.has('ny-assistant-form') &&
+    document.classNames.has('ny-result-steps') &&
+    document.classNames.has('ny-result-links');
+  const hasSourceSection =
+    document.classNames.has('source-panel') ||
+    (identity.type === 'tool' && document.classNames.has('ny-result-links'));
+  const hasFactMapping =
+    document.classNames.has('fact-check-panel') || hasToolEvidenceMapping;
   const stateEvidenceItems = document.classCounts.get('state-evidence-item') ?? 0;
   const stateEvidenceLinks = document.classCounts.get('state-evidence-link') ?? 0;
   const hasInlineStateEvidence =
@@ -260,9 +297,12 @@ function scorePage(route, document) {
     document.classNames.has('directory-link-list') ||
     document.classNames.has('directory-card-grid') ||
     document.classNames.has('practice-shell') ||
-    document.classNames.has('practice-test-list');
-  const hasChecklist = document.classNames.has('check-list');
-  const hasSteps = document.classNames.has('step-list');
+    document.classNames.has('practice-test-list') ||
+    document.classNames.has('ny-assistant-workspace');
+  const hasChecklist =
+    document.classNames.has('check-list') || document.classNames.has('ny-result-checklist');
+  const hasSteps =
+    document.classNames.has('step-list') || document.classNames.has('ny-result-steps');
   const hasFaq = document.classNames.has('faq-list');
   const hasComparison =
     document.classNames.has('comparison-table') ||
@@ -299,6 +339,8 @@ function scorePage(route, document) {
       ? Math.min(15, signals.factCheckCount * 1.5)
       : identity.type.startsWith('state-')
         ? Math.min(15, stateEvidenceItems * 1.5)
+        : identity.type === 'tool' && hasToolEvidenceMapping
+          ? 15
         : identity.type === 'trust' || identity.type === 'collection'
           ? 15
           : hasDirectDirectoryEvidence
@@ -375,6 +417,9 @@ function scorePage(route, document) {
   }
   if (contentPage && !hasSourceSection) critical.push('内容页缺少官方来源区域');
   if (identity.type === 'topic' && signals.factCheckCount === 0) critical.push('专题页没有事实到来源映射');
+  if (identity.type === 'tool' && !hasToolEvidenceMapping) {
+    critical.push('交互工具的决策步骤没有绑定完整的登记官方来源');
+  }
   if (identity.type.startsWith('state-') && !hasInlineStateEvidence) {
     critical.push('州页面的具体声明没有逐条绑定已登记官方来源');
   }
@@ -431,6 +476,7 @@ function scorePage(route, document) {
       authorLink,
       schemaAuthorUrl,
       hasFactMapping,
+      hasToolEvidenceMapping,
       stateEvidenceItems,
       stateEvidenceLinks,
       hasInlineStateEvidence,

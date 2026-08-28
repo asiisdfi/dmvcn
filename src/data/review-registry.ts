@@ -69,6 +69,16 @@ function ensureSourceMapped(route: string, scope: string, note?: string): void {
  * completes the same comparison and is accurately identified.
  */
 export const semanticReviews: Record<string, SemanticReview> = {
+  '/tools/new-york-dmv-assistant/': {
+    status: 'evidence-checked',
+    method: 'ai-assisted',
+    reviewedAt: '2026-08-28',
+    reviewer: 'Codex AI 辅助证据核查',
+    scope:
+      '逐条比对纽约州 REAL ID、Document Guide、首次驾照、permit、pre-licensing、road test、续期、Temporary Visitor、地址变更、办公室和证件邮寄状态官方页面，并测试全部决策分支。',
+    notes:
+      '44 条完整决策路径均由确定性规则生成；16 个来源只允许 NY DMV 官方 HTTPS 域名。工具不收集姓名、证件号或地址，不把路线判断写成资格批准。',
+  },
   '/directories/appointments/': {
     status: 'evidence-checked',
     method: 'ai-assisted',

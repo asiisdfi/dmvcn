@@ -1,0 +1,546 @@
+---
+import {
+  ArrowRight,
+  Check,
+  CheckCircle2,
+  FileCheck2,
+  IdCard,
+  MapPinned,
+  Printer,
+  RotateCcw,
+  Route,
+  ShieldCheck,
+} from '@lucide/astro/icons';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import {
+  NEW_YORK_ASSISTANT_MODIFIED_AT,
+  NEW_YORK_ASSISTANT_PUBLISHED_AT,
+  NEW_YORK_ASSISTANT_REVIEWED_AT,
+  NEW_YORK_ASSISTANT_SOURCES,
+  type NewYorkAssistantTask,
+} from '../../../data/new-york-assistant';
+import { EDITORIAL_AUTHOR } from '../../../data/editorial';
+
+const title = '纽约州 DMV 办事助手：REAL ID、首次驾照、续期与预约';
+const description =
+  '纽约州 DMV 中文办事助手：按个人情况生成 REAL ID 材料判断、首次驾照步骤，以及驾照续期、预约、地址变更和邮寄查询路线。';
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const sources = Object.values(NEW_YORK_ASSISTANT_SOURCES);
+const schema = [
+  {
+    '@type': 'WebApplication',
+    name: '纽约州 DMV 办事助手',
+    description,
+    url: pageUrl,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Web',
+    inLanguage: 'zh-Hans',
+    isAccessibleForFree: true,
+    datePublished: NEW_YORK_ASSISTANT_PUBLISHED_AT,
+    dateModified: NEW_YORK_ASSISTANT_MODIFIED_AT,
+    author: {
+      '@type': 'Organization',
+      name: EDITORIAL_AUTHOR.name,
+      url: new URL(EDITORIAL_AUTHOR.path, Astro.site).toString(),
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': new URL('/#organization', Astro.site).toString(),
+    },
+    offers: {
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: 'USD',
+    },
+    citation: sources.map((source) => source.url),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: '首页',
+        item: new URL('/', Astro.site).toString(),
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: '纽约州 DMV 办事助手',
+        item: pageUrl,
+      },
+    ],
+  },
+];
+
+const tasks: Array<{
+  value: NewYorkAssistantTask;
+  label: string;
+  short: string;
+  Icon: typeof IdCard;
+}> = [
+  { value: 'real-id', label: 'REAL ID', short: '材料与升级判断', Icon: IdCard },
+  { value: 'first-license', label: '首次驾照', short: 'Permit 到路考', Icon: Route },
+  { value: 'license-service', label: '驾照服务', short: '续期、预约与邮寄', Icon: MapPinned },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  schema={schema}
+  publishedAt={NEW_YORK_ASSISTANT_PUBLISHED_AT}
+  modifiedAt={NEW_YORK_ASSISTANT_MODIFIED_AT}
+  reviewedAt={NEW_YORK_ASSISTANT_REVIEWED_AT}
+>
+  <section class="ny-assistant-page" data-ny-assistant>
+    <div class="ny-assistant-wrap">
+      <header class="ny-assistant-head">
+        <nav class="breadcrumbs" aria-label="面包屑">
+          <a href="/">首页</a><span>/</span><a href="/states/new-york/">纽约州</a><span>/</span><span>办事助手</span>
+        </nav>
+        <p class="eyebrow">New York DMV</p>
+        <h1>先回答情况，再拿办理路线</h1>
+        <p class="lead">不需要先读完整指南。选择你要办的事，页面会列出下一步、材料清单和 NY DMV 官方入口。</p>
+      </header>
+
+      <div class="ny-assistant-task-tabs" role="radiogroup" aria-label="选择办理事项">
+        {tasks.map(({ value, label, short, Icon }) => (
+          <label class="ny-assistant-task">
+            <input type="radio" name="assistant-task" value={value} data-task-input />
+            <span>
+              <Icon size={21} stroke-width={1.9} aria-hidden="true" />
+              <strong>{label}</strong>
+              <small>{short}</small>
+            </span>
+          </label>
+        ))}
+      </div>
+
+      <div class="ny-assistant-workspace">
+        <form class="ny-assistant-form" data-assistant-form novalidate>
+          <div class="ny-assistant-form-head">
+            <div>
+              <p class="eyebrow">你的情况</p>
+              <h2 data-form-title>REAL ID 判断</h2>
+            </div>
+            <span class="ny-assistant-progress" data-progress>0 / 1</span>
+          </div>
+
+          <div class="ny-assistant-questions">
+            <fieldset class="ny-assistant-question" data-question="realIdPurpose" data-task="real-id">
+              <legend>你办 REAL ID 的主要原因是什么？</legend>
+              <div class="ny-option-list">
+                <label><input type="radio" name="realIdPurpose" value="federal" /><span><strong>坐美国国内航班或进入联邦场所</strong><small>想用纽约州驾照或 ID 完成身份核验</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="realIdPurpose" value="driving" /><span><strong>只需要驾驶或普通身份证明</strong><small>近期没有联邦用途</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="realIdPurpose" value="unsure" /><span><strong>还不确定是否需要</strong><small>先比较 Standard、REAL ID、Enhanced 和护照</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="realIdCredential" data-task="real-id" hidden>
+              <legend>你现在的纽约州证件是哪一种？</legend>
+              <div class="ny-option-list">
+                <label><input type="radio" name="realIdCredential" value="compliant" /><span><strong>REAL ID 或 Enhanced</strong><small>卡面有星标或美国国旗标记</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="realIdCredential" value="standard" /><span><strong>Standard</strong><small>卡面标注 NOT FOR FEDERAL PURPOSES</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="realIdCredential" value="none" /><span><strong>还没有纽约州证件</strong><small>准备首次申请驾照或 non-driver ID</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="realIdIdentity" data-task="real-id" hidden>
+              <legend>身份和 Social Security 材料核对过了吗？</legend>
+              <div class="ny-option-list two">
+                <label><input type="radio" name="realIdIdentity" value="checked" /><span><strong>已经按 NY DMV 清单核对</strong><small>知道自己要带哪些原件</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="realIdIdentity" value="unsure" /><span><strong>还没有核对</strong><small>需要先跑官方材料预审</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="realIdName" data-task="real-id" hidden>
+              <legend>所有材料上的姓名一致吗？</legend>
+              <div class="ny-option-list two">
+                <label><input type="radio" name="realIdName" value="match" /><span><strong>一致</strong><small>没有需要解释的法定姓名变化</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="realIdName" value="changed" /><span><strong>有改名、婚姻或其他变化</strong><small>需要准备完整姓名链文件</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="realIdResidency" data-task="real-id" hidden>
+              <legend>有两份纽约州实际住址材料吗？</legend>
+              <div class="ny-option-list two">
+                <label><input type="radio" name="realIdResidency" value="two" /><span><strong>有两份</strong><small>都显示当前纽约州实际地址</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="realIdResidency" value="fewer" /><span><strong>不足两份</strong><small>或目前只有 P.O. Box</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="firstExisting" data-task="first-license" hidden>
+              <legend>你已经有美国其他州或加拿大驾照吗？</legend>
+              <div class="ny-option-list two">
+                <label><input type="radio" name="firstExisting" value="us-canada" /><span><strong>有</strong><small>先检查是否走外州驾照转入</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="firstExisting" value="none" /><span><strong>没有</strong><small>按纽约州首次驾照流程开始</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="firstAge" data-task="first-license" hidden>
+              <legend>申请人是否未满 18 岁？</legend>
+              <div class="ny-option-list two">
+                <label><input type="radio" name="firstAge" value="under-18" /><span><strong>未满 18 岁</strong><small>同时适用 Graduated Driver Licensing 规则</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="firstAge" value="adult" /><span><strong>18 岁或以上</strong><small>按成年首次申请人路线</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="firstStage" data-task="first-license" hidden>
+              <legend>你现在进行到哪一步？</legend>
+              <div class="ny-option-list">
+                <label><input type="radio" name="firstStage" value="start" /><span><strong>还没有 Learner Permit</strong><small>准备笔试和首次申请材料</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="firstStage" value="permit" /><span><strong>已经拿到 Permit</strong><small>正在练车或准备 Pre-Licensing</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="firstStage" value="ready" /><span><strong>练车和课程已经完成</strong><small>准备预约 Road Test</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="serviceType" data-task="license-service" hidden>
+              <legend>你现在要处理哪件事？</legend>
+              <div class="ny-option-list">
+                <label><input type="radio" name="serviceType" value="renewal" /><span><strong>驾照续期</strong><small>判断线上办理还是需要去 office</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="serviceType" value="mailing" /><span><strong>新证件还没收到</strong><small>查等待时间、号码和邮寄状态</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="serviceType" value="appointment" /><span><strong>找办公室或预约</strong><small>按 ZIP 和业务查服务地点</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="serviceType" value="address" /><span><strong>搬家后改地址</strong><small>先更新记录，再办续期或补证</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="renewalPlan" data-task="license-service" hidden>
+              <legend>续期后想保留哪种证件类型？</legend>
+              <div class="ny-option-list">
+                <label><input type="radio" name="renewalPlan" value="same" /><span><strong>保持现在的类型</strong><small>Standard 保持 Standard，REAL ID / Enhanced 保持原类型</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="renewalPlan" value="upgrade" /><span><strong>Standard 升级 REAL ID / Enhanced</strong><small>需要重新核验材料并到 office</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="renewalPlan" value="temporary-visitor" /><span><strong>证件有 Temporary Visitor 标记</strong><small>身份期限已更新，需要同步 DMV 记录</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="renewalExpiry" data-task="license-service" hidden>
+              <legend>当前驾照的到期情况是？</legend>
+              <div class="ny-option-list">
+                <label><input type="radio" name="renewalExpiry" value="more-than-one-year" /><span><strong>距离到期还有 1 年以上</strong><small>还没有进入普通续期窗口</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="renewalExpiry" value="within-one-year" /><span><strong>将在 1 年内到期</strong><small>已经进入普通续期时间范围</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="renewalExpiry" value="within-two-years" /><span><strong>过期未满 2 年</strong><small>仍在普通续期时间范围内</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="renewalExpiry" value="over-two-years" /><span><strong>过期满 2 年或更久</strong><small>需要按 Original License 路径重新申请</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="mailingAge" data-task="license-service" hidden>
+              <legend>从办完业务到现在有多久？</legend>
+              <div class="ny-option-list two">
+                <label><input type="radio" name="mailingAge" value="under-three-weeks" /><span><strong>还不到 3 周</strong><small>通常仍在 NY DMV 建议等待期内</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="mailingAge" value="three-weeks-plus" /><span><strong>已经 3 周或更久</strong><small>可以进入状态查询和后续处理</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="ny-assistant-question" data-question="mailingId" data-task="license-service" hidden>
+              <legend>手上有 Transaction ID 或线上确认号码吗？</legend>
+              <div class="ny-option-list two">
+                <label><input type="radio" name="mailingId" value="yes" /><span><strong>有</strong><small>同时准备交易日期即可查询</small></span><Check size={18} aria-hidden="true" /></label>
+                <label><input type="radio" name="mailingId" value="no" /><span><strong>没有或找不到</strong><small>先看临时证件和确认邮件中的号码位置</small></span><Check size={18} aria-hidden="true" /></label>
+              </div>
+            </fieldset>
+          </div>
+
+          <p class="ny-assistant-feedback" data-form-feedback role="status" aria-live="polite"></p>
+          <div class="ny-assistant-form-actions">
+            <button class="ny-primary-button" type="submit">
+              生成办理路线 <ArrowRight size={18} aria-hidden="true" />
+            </button>
+            <button class="ny-icon-button" type="button" data-reset aria-label="重新填写" title="重新填写">
+              <RotateCcw size={19} aria-hidden="true" />
+            </button>
+          </div>
+          <p class="ny-local-note"><ShieldCheck size={16} aria-hidden="true" />你的选择只保存在当前浏览器，不会上传。</p>
+        </form>
+
+        <aside class="ny-assistant-result" data-result aria-live="polite" aria-label="办理结果">
+          <div class="ny-result-empty" data-result-empty>
+            <FileCheck2 size={30} stroke-width={1.7} aria-hidden="true" />
+            <p class="eyebrow">办理结果</p>
+            <h2>路线会显示在这里</h2>
+            <p>完成左侧问题后，你会得到下一步、材料清单和对应的 NY DMV 官方入口。</p>
+          </div>
+
+          <div class="ny-result-content" data-result-content hidden>
+            <div class="ny-result-heading">
+              <span class="ny-result-status" data-result-status></span>
+              <h2 data-result-title></h2>
+              <p data-result-summary></p>
+            </div>
+
+            <section class="ny-result-section">
+              <h3>按这个顺序办</h3>
+              <ol class="ny-result-steps" data-result-steps></ol>
+            </section>
+
+            <section class="ny-result-section">
+              <h3>材料和信息清单</h3>
+              <div class="ny-result-checklist" data-result-checklist></div>
+            </section>
+
+            <section class="ny-result-section">
+              <h3>NY DMV 官方入口</h3>
+              <div class="ny-result-links" data-result-links></div>
+            </section>
+
+            <button class="ny-print-button" type="button" data-print>
+              <Printer size={18} aria-hidden="true" />打印这份路线
+            </button>
+          </div>
+        </aside>
+      </div>
+
+      <footer class="ny-assistant-foot">
+        <CheckCircle2 size={20} aria-hidden="true" />
+        <p>路线里的事实和入口均来自 NY DMV。提交申请、预约和付款仍在纽约州官方系统完成。</p>
+        <a href={EDITORIAL_AUTHOR.path} rel="author">DMVCN 官方整理</a>
+      </footer>
+    </div>
+  </section>
+
+  <script>
+    import {
+      buildNewYorkAssistantResult,
+      getRequiredNewYorkAssistantQuestions,
+      NEW_YORK_ASSISTANT_SOURCES,
+      type NewYorkAssistantAnswers,
+      type NewYorkAssistantQuestion,
+      type NewYorkAssistantTask,
+    } from '../../../data/new-york-assistant';
+
+    const root = document.querySelector<HTMLElement>('[data-ny-assistant]');
+    const form = root?.querySelector<HTMLFormElement>('[data-assistant-form]');
+    const storageKey = 'dmvcn:new-york-assistant:v2';
+    const validTasks: NewYorkAssistantTask[] = ['real-id', 'first-license', 'license-service'];
+
+    if (root && form) {
+      const taskInputs = [...root.querySelectorAll<HTMLInputElement>('[data-task-input]')];
+      const questionFields = [...form.querySelectorAll<HTMLFieldSetElement>('[data-question]')];
+      const progress = form.querySelector<HTMLElement>('[data-progress]');
+      const formTitle = form.querySelector<HTMLElement>('[data-form-title]');
+      const feedback = form.querySelector<HTMLElement>('[data-form-feedback]');
+      const resultEmpty = root.querySelector<HTMLElement>('[data-result-empty]');
+      const resultContent = root.querySelector<HTMLElement>('[data-result-content]');
+      const titleLabels: Record<NewYorkAssistantTask, string> = {
+        'real-id': 'REAL ID 判断',
+        'first-license': '首次驾照路线',
+        'license-service': '驾照服务路线',
+      };
+
+      const readStored = (): Partial<NewYorkAssistantAnswers> => {
+        try {
+          return JSON.parse(localStorage.getItem(storageKey) || '{}');
+        } catch {
+          return {};
+        }
+      };
+
+      const queryTask = new URLSearchParams(window.location.search).get('task') as NewYorkAssistantTask | null;
+      const stored = readStored();
+      const initialTask = queryTask && validTasks.includes(queryTask)
+        ? queryTask
+        : stored.task && validTasks.includes(stored.task)
+          ? stored.task
+          : 'real-id';
+
+      const collectAnswers = (): NewYorkAssistantAnswers => {
+        const data = new FormData(form);
+        const answers: Record<string, string> = { task: currentTask() };
+        for (const [name, value] of data.entries()) {
+          if (typeof value === 'string') answers[name] = value;
+        }
+        return answers as NewYorkAssistantAnswers;
+      };
+
+      const currentTask = (): NewYorkAssistantTask =>
+        (taskInputs.find((input) => input.checked)?.value as NewYorkAssistantTask | undefined) ?? 'real-id';
+
+      const restoreAnswers = (answers: Partial<NewYorkAssistantAnswers>) => {
+        for (const [name, value] of Object.entries(answers)) {
+          if (name === 'task' || typeof value !== 'string') continue;
+          const input = form.querySelector<HTMLInputElement>(`input[name="${name}"][value="${CSS.escape(value)}"]`);
+          if (input) input.checked = true;
+        }
+      };
+
+      const clearHiddenAnswers = (required: NewYorkAssistantQuestion[]) => {
+        const allowed = new Set(required);
+        for (const field of questionFields) {
+          const question = field.dataset.question as NewYorkAssistantQuestion;
+          if (allowed.has(question)) continue;
+          field.querySelectorAll<HTMLInputElement>('input').forEach((input) => {
+            input.checked = false;
+          });
+        }
+      };
+
+      const syncQuestions = () => {
+        let answers = collectAnswers();
+        let required = getRequiredNewYorkAssistantQuestions(answers);
+        clearHiddenAnswers(required);
+        answers = collectAnswers();
+        required = getRequiredNewYorkAssistantQuestions(answers);
+        const task = answers.task;
+
+        for (const field of questionFields) {
+          const question = field.dataset.question as NewYorkAssistantQuestion;
+          const visible = field.dataset.task === task && required.includes(question);
+          field.hidden = !visible;
+          field.querySelectorAll<HTMLInputElement>('input').forEach((input) => {
+            input.disabled = !visible;
+          });
+        }
+
+        const answered = required.filter((question) => Boolean(answers[question])).length;
+        if (progress) progress.textContent = `${answered} / ${required.length}`;
+        if (formTitle) formTitle.textContent = titleLabels[task];
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(answers));
+        } catch {
+          // The assistant still works when browser storage is unavailable.
+        }
+      };
+
+      const makeExternalLink = (label: string, href: string, primary = false) => {
+        const link = document.createElement('a');
+        link.href = href;
+        link.target = '_blank';
+        link.rel = 'noreferrer';
+        if (primary) link.classList.add('is-primary');
+        const span = document.createElement('span');
+        span.textContent = label;
+        link.append(span);
+        link.insertAdjacentHTML('beforeend', '<svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>');
+        return link;
+      };
+
+      const renderResult = (answers: NewYorkAssistantAnswers) => {
+        const result = buildNewYorkAssistantResult(answers);
+        if (!result || !resultContent || !resultEmpty) return;
+
+        const status = resultContent.querySelector<HTMLElement>('[data-result-status]');
+        const title = resultContent.querySelector<HTMLElement>('[data-result-title]');
+        const summary = resultContent.querySelector<HTMLElement>('[data-result-summary]');
+        const steps = resultContent.querySelector<HTMLOListElement>('[data-result-steps]');
+        const checklist = resultContent.querySelector<HTMLElement>('[data-result-checklist]');
+        const links = resultContent.querySelector<HTMLElement>('[data-result-links]');
+        if (!status || !title || !summary || !steps || !checklist || !links) return;
+
+        status.textContent = result.status;
+        title.textContent = result.title;
+        summary.textContent = result.summary;
+        steps.replaceChildren();
+        checklist.replaceChildren();
+        links.replaceChildren();
+
+        for (const [index, step] of result.steps.entries()) {
+          const item = document.createElement('li');
+          const number = document.createElement('span');
+          number.textContent = String(index + 1).padStart(2, '0');
+          const copy = document.createElement('div');
+          const heading = document.createElement('strong');
+          const detail = document.createElement('p');
+          heading.textContent = step.title;
+          detail.textContent = step.detail;
+          copy.append(heading, detail);
+          item.append(number, copy);
+          if (step.sourceId) {
+            const source = NEW_YORK_ASSISTANT_SOURCES[step.sourceId];
+            item.append(makeExternalLink('NY DMV', source.url));
+          }
+          steps.append(item);
+        }
+
+        const checkedKey = `${storageKey}:checked:${result.id}`;
+        const checkedItems: boolean[] = (() => {
+          try {
+            return JSON.parse(localStorage.getItem(checkedKey) || '[]');
+          } catch {
+            return [];
+          }
+        })();
+        for (const [index, item] of result.checklist.entries()) {
+          const label = document.createElement('label');
+          const input = document.createElement('input');
+          const box = document.createElement('span');
+          const text = document.createElement('span');
+          input.type = 'checkbox';
+          input.checked = Boolean(checkedItems[index]);
+          input.addEventListener('change', () => {
+            checkedItems[index] = input.checked;
+            try {
+              localStorage.setItem(checkedKey, JSON.stringify(checkedItems));
+            } catch {
+              // Checklist persistence is optional.
+            }
+          });
+          box.className = 'ny-check-box';
+          box.innerHTML = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg>';
+          text.textContent = item;
+          label.append(input, box, text);
+          checklist.append(label);
+        }
+
+        for (const link of result.links) {
+          links.append(makeExternalLink(link.label, link.url, link.primary));
+        }
+
+        resultEmpty.hidden = true;
+        resultContent.hidden = false;
+        resultContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      };
+
+      const selectTask = (task: NewYorkAssistantTask, restore = false) => {
+        const input = taskInputs.find((item) => item.value === task);
+        if (input) input.checked = true;
+        if (!restore) {
+          form.reset();
+          if (input) input.checked = true;
+          if (resultContent) resultContent.hidden = true;
+          if (resultEmpty) resultEmpty.hidden = false;
+        }
+        if (feedback) feedback.textContent = '';
+        syncQuestions();
+      };
+
+      taskInputs.forEach((input) => {
+        input.addEventListener('change', () => selectTask(input.value as NewYorkAssistantTask));
+      });
+
+      form.addEventListener('change', () => {
+        if (feedback) feedback.textContent = '';
+        syncQuestions();
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const answers = collectAnswers();
+        const required = getRequiredNewYorkAssistantQuestions(answers);
+        const missing = required.filter((question) => !answers[question]);
+        if (missing.length) {
+          if (feedback) feedback.textContent = '还差一步：请选择当前显示问题的答案。';
+          const firstMissing = form.querySelector<HTMLFieldSetElement>(`[data-question="${missing[0]}"]`);
+          firstMissing?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstMissing?.querySelector<HTMLInputElement>('input')?.focus();
+          return;
+        }
+        renderResult(answers);
+      });
+
+      form.querySelector<HTMLButtonElement>('[data-reset]')?.addEventListener('click', () => {
+        try {
+          localStorage.removeItem(storageKey);
+        } catch {
+          // Reset the visible form even when browser storage is unavailable.
+        }
+        form.reset();
+        selectTask(currentTask());
+      });
+      root.querySelector<HTMLButtonElement>('[data-print]')?.addEventListener('click', () => window.print());
+
+      taskInputs.find((input) => input.value === initialTask)!.checked = true;
+      restoreAnswers({ ...stored, task: initialTask });
+      syncQuestions();
+    }
+  </script>
+</BaseLayout>

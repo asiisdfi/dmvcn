@@ -33,6 +33,7 @@ const STATIC_ROUTES = [
   '/states/',
   '/terms/',
   '/topics/',
+  '/tools/new-york-dmv-assistant/',
   '/updates/',
 ];
 

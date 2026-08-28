@@ -126,6 +126,22 @@ const taskOptions: ChoiceOption[] = [
 
     if (feedback) feedback.textContent = '';
 
+    if (state === 'new-york') {
+      const assistantTasks: Record<string, string> = {
+        'real-id': 'real-id',
+        'topic:real-id-basics': 'real-id',
+        'topic:first-driver-license-road-test': 'first-license',
+        'topic:renewal-replacement-address': 'license-service',
+        'topic:online-office-appointment': 'license-service',
+        'topic:dmv-fees-mailing-temporary-license': 'license-service',
+      };
+      const assistantTask = assistantTasks[task];
+      if (assistantTask) {
+        window.location.href = `/tools/new-york-dmv-assistant/?task=${assistantTask}`;
+        return;
+      }
+    }
+
     if (task.startsWith('topic:')) {
       window.location.href = `/topics/${task.replace('topic:', '')}/`;
       return;

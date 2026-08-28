@@ -24,6 +24,7 @@ const knownSchemaTypes = new Set([
   'Organization',
   'ProfilePage',
   'Question',
+  'WebApplication',
   'WebSite',
   'WebPage',
 ]);
@@ -280,6 +281,30 @@ for (const filePath of htmlFiles) {
       webPage.dateModified < webPage.datePublished
     ) {
       errors.push(`${route}: WebPage identity, language, or dates are inconsistent.`);
+    }
+  }
+
+  for (const webApplication of findSchemas(schemas, 'WebApplication')) {
+    if (
+      webApplication.name?.length < 4 ||
+      webApplication.description !== descriptions[0] ||
+      webApplication.url !== canonicals[0] ||
+      webApplication.inLanguage !== 'zh-Hans' ||
+      webApplication.applicationCategory !== 'UtilitiesApplication' ||
+      webApplication.isAccessibleForFree !== true ||
+      webApplication.author?.url !== editorialAuthorUrl ||
+      webApplication.publisher?.['@id'] !== organizationId ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(webApplication.datePublished ?? '') ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(webApplication.dateModified ?? '') ||
+      webApplication.dateModified < webApplication.datePublished ||
+      webApplication.offers?.['@type'] !== 'Offer' ||
+      webApplication.offers?.price !== 0 ||
+      webApplication.offers?.priceCurrency !== 'USD' ||
+      !Array.isArray(webApplication.citation) ||
+      webApplication.citation.length < 1 ||
+      webApplication.citation.some((url) => !isAbsoluteHttps(url))
+    ) {
+      errors.push(`${route}: WebApplication identity, availability, offer, or citations are inconsistent.`);
     }
   }
 

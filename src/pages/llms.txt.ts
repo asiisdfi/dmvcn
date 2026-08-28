@@ -66,6 +66,7 @@ export function GET({ site }: { site: URL }) {
     markdownLink(base, '50 州指南', '/states/', '浏览全部州级 DMV / DPS / RMV / MVC / DOL 指南。'),
     markdownLink(base, '事项大全', '/topics/', '浏览 REAL ID、驾照、地址、考试和车辆业务专题。'),
     markdownLink(base, '官方入口表', '/directories/', '直接查找州政府预约、材料和线上服务入口。'),
+    markdownLink(base, '纽约州 DMV 办事助手', '/tools/new-york-dmv-assistant/', '按个人情况生成 REAL ID、首次驾照、续期、预约与邮寄查询路线。'),
     '',
     '## 重点办事指南',
     '',

@@ -3,6 +3,7 @@ import { ArrowRight, ExternalLink } from '@lucide/astro/icons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ContentMeta from '../../components/ContentMeta.astro';
 import EditorialDisclosure from '../../components/EditorialDisclosure.astro';
+import NewYorkAssistantEntry from '../../components/NewYorkAssistantEntry.astro';
 import SourceList from '../../components/SourceList.astro';
 import { SITE, states, topics, uniqueSources, type TopicGuide } from '../../data/content';
 import { EDITORIAL_AUTHOR } from '../../data/editorial';
@@ -30,6 +31,14 @@ const moreTopics = topics
   .slice(0, 5)
   .map(({ item }) => item);
 const officialSources = uniqueSources(topic.sources);
+const assistantTaskByTopic = {
+  'real-id-basics': 'real-id',
+  'first-driver-license-road-test': 'first-license',
+  'renewal-replacement-address': 'license-service',
+  'online-office-appointment': 'license-service',
+  'dmv-fees-mailing-temporary-license': 'license-service',
+} as const;
+const assistantTask = assistantTaskByTopic[topic.slug as keyof typeof assistantTaskByTopic];
 const sourceByUrl = new Map(officialSources.map((source, index) => [source.url, { ...source, index: index + 1 }]));
 const factChecks = (topic.factChecks ?? []).map((item) => ({
   claim: item.claim,
@@ -129,6 +138,8 @@ const schema = [
           <p>{topic.quickAnswer}</p>
         </section>
       )}
+
+      {assistantTask && <NewYorkAssistantEntry task={assistantTask} />}
 
       <section class="topic-snapshot" aria-labelledby="topic-snapshot-title">
         <div class="route-board-head">
