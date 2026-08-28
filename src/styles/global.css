@@ -3974,7 +3974,7 @@ h3 {
   }
 
   .ny-assistant-foot a {
-    width: 100%;
+    width: calc(100% - 29px);
     margin-left: 29px;
   }
 
