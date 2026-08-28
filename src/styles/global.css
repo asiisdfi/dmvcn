@@ -1885,7 +1885,9 @@ h3 {
   display: grid;
   grid-template-columns: 22px minmax(0, 1fr);
   gap: 8px;
-  align-items: start;
+  align-items: center;
+  min-height: 44px;
+  padding: 7px 0;
   cursor: pointer;
   font-size: 13px;
 }
@@ -1928,7 +1930,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  min-height: 42px;
+  min-height: 44px;
   padding: 8px 10px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1951,7 +1953,7 @@ h3 {
 .ny-print-button {
   gap: 7px;
   width: 100%;
-  min-height: 43px;
+  min-height: 44px;
   margin-top: 18px;
   padding: 8px 12px;
   border: 1px solid var(--line-strong);
