@@ -157,6 +157,10 @@ if (
   errors.push('AnalyticsConsent does not contain the expected opt-in loading gate.');
 }
 
+if (!analyticsSource.includes('dataLayer?.push(arguments)')) {
+  errors.push('AnalyticsConsent must queue gtag commands with the Google-compatible arguments object.');
+}
+
 for (const eventName of [
   'assistant_view',
   'assistant_task_select',

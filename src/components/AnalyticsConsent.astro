@@ -79,9 +79,9 @@ const analyticsConfigured = /^G-[A-Z0-9]+$/.test(measurementId);
     const loadAnalytics = () => {
       setAnalyticsDisabled(false);
       analyticsWindow.dataLayer = analyticsWindow.dataLayer ?? [];
-      analyticsWindow.gtag = analyticsWindow.gtag ?? ((...args: unknown[]) => {
-        analyticsWindow.dataLayer?.push(args);
-      });
+      analyticsWindow.gtag = analyticsWindow.gtag ?? function gtag() {
+        analyticsWindow.dataLayer?.push(arguments);
+      };
 
       analyticsWindow.gtag('consent', 'default', {
         analytics_storage: 'granted',
