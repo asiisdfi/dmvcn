@@ -1,5 +1,6 @@
 ---
 import { Menu, Search, X } from '@lucide/astro/icons';
+import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 import { SITE } from '../data/content';
 import { EDITORIAL_AUTHOR, EDITORIAL_LINKS } from '../data/editorial';
 import { isRouteIndexable } from '../data/publication-gate';
@@ -158,10 +159,13 @@ const isCurrentNav = (href: string) => href === '/' ? currentPath === '/' : curr
         <a href={EDITORIAL_LINKS.corrections}>纠错</a>
         <a href="/privacy/">隐私</a>
         <a href="/terms/">条款</a>
+        <button class="footer-settings-button" type="button" data-analytics-settings>统计设置</button>
         <a href="/practice-tests/">中文笔试</a>
         <a href="/directories/">入口表</a>
       </nav>
     </footer>
+
+    <AnalyticsConsent />
 
     <script>
       const navToggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');

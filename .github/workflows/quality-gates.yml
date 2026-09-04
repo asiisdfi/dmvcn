@@ -27,6 +27,7 @@ jobs:
       REPORT_TIME_ZONE: Asia/Shanghai
       PUBLIC_SITE_URL: https://dmvcn.com/
       PUBLIC_CONTACT_EMAIL: nwekechibuike1@gmail.com
+      PUBLIC_GA_MEASUREMENT_ID: G-MFWXDTF110
 
     steps:
       - name: Check out repository

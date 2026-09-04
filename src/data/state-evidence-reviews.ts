@@ -70,6 +70,8 @@ const NY_FEES = 'https://dmv.ny.gov/driver-license/fees-refunds';
 const NY_REPLACE =
   'https://dmv.ny.gov/driver-license/replace-a-license-or-permit';
 const NY_OFFICES = 'https://dmv.ny.gov/contact-us/office-locations';
+const NY_MAILING_STATUS =
+  'https://dmv.ny.gov/driver-license/check-license-permit-or-non-driver-id-mailing-status';
 
 const TX_REAL_ID = 'https://www.texas.gov/driver-services/texas-real-id/';
 const TX_ONLINE_ELIGIBILITY =
@@ -7711,20 +7713,26 @@ export const reviewedStateEvidence: Record<string, ReviewedStateEvidence> = {
       NY_FEES,
       NY_REPLACE,
       NY_OFFICES,
+      NY_MAILING_STATUS,
     ],
     scope:
       '逐条打开并比对 New York DMV 的证件类型、ID-44、Social Security、预约、续期、地址、费用、补证、permit test、路考、语言、外国驾照和外州换证正文。',
     notes:
       '按办事路径重写纽约州总览与 REAL ID 清单，纠正线上 permit test 的未满 18 岁适用范围，并把费用、期限、材料和身份声明改为显式来源；仍待真实人工签字。',
     claims: {
-      '纽约州有 Standard、REAL ID 和 Enhanced 三类照片证件': [NY_REAL_ID],
-      '先按用途选证件，再用官方 pre-screening 生成材料清单': [
-        NY_REAL_ID,
-        NY_DOCUMENT_GUIDE,
+      '纽约州驾照续期不一定要预约：保持现有证件类型时，符合条件者可网上或邮寄': [
+        NY_RENEW,
+        NY_OFFICES,
       ],
-      '从 Standard 升级为 REAL ID 或 Enhanced 必须到 DMV office': [
+      '升级 REAL ID / Enhanced、Temporary Visitor 等情况要到办公室': [
         NY_REAL_ID,
         NY_RENEW,
+      ],
+      '预约、邮寄查询、语言协助和材料入口在本页分开列出': [
+        NY_OFFICES,
+        NY_MAILING_STATUS,
+        NY_LANGUAGE,
+        NY_DOCUMENT_GUIDE,
       ],
       'Standard 驾照仍可用于驾驶和普通照片 ID，但不能用于登美国国内航班或进入要求 REAL ID 的联邦场所': [
         NY_REAL_ID,

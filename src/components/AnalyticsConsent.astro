@@ -1,0 +1,171 @@
+---
+const measurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() ?? '';
+const analyticsConfigured = /^G-[A-Z0-9]+$/.test(measurementId);
+---
+
+{analyticsConfigured && (
+  <aside
+    class="analytics-consent"
+    data-analytics-consent
+    data-measurement-id={measurementId}
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="analytics-consent-title"
+    hidden
+  >
+    <div class="analytics-consent-copy">
+      <strong id="analytics-consent-title">帮助我们改进办事指南</strong>
+      <p>
+        允许后，本站会用 Google Analytics 统计页面和常用功能，不会读取你在办事助手中的逐题选择。 <a class="text-link" href="/privacy/">查看隐私政策</a>
+      </p>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="button secondary" type="button" data-analytics-decline>暂不</button>
+      <button class="button primary" type="button" data-analytics-accept>允许统计</button>
+    </div>
+  </aside>
+)}
+
+<script>
+  type AnalyticsParameter = string | number | boolean;
+  type AnalyticsEventDetail = {
+    name?: string;
+    params?: Record<string, AnalyticsParameter>;
+  };
+  type AnalyticsWindow = Window & {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  };
+
+  const banner = document.querySelector<HTMLElement>('[data-analytics-consent]');
+  const settingsButtons = document.querySelectorAll<HTMLButtonElement>('[data-analytics-settings]');
+
+  if (banner && document.documentElement.dataset.analyticsConsentReady !== 'true') {
+    document.documentElement.dataset.analyticsConsentReady = 'true';
+
+    const analyticsWindow = window as AnalyticsWindow;
+    const measurementId = banner.dataset.measurementId ?? '';
+    const consentKey = 'dmvcn:analytics-consent:v1';
+    const disableKey = `ga-disable-${measurementId}`;
+    let choice: 'accepted' | 'declined' | null = null;
+
+    const readChoice = () => {
+      try {
+        const stored = localStorage.getItem(consentKey);
+        return stored === 'accepted' || stored === 'declined' ? stored : null;
+      } catch {
+        return null;
+      }
+    };
+
+    const saveChoice = (nextChoice: 'accepted' | 'declined') => {
+      choice = nextChoice;
+      try {
+        localStorage.setItem(consentKey, nextChoice);
+      } catch {
+        // Consent still applies to this page when browser storage is unavailable.
+      }
+    };
+
+    const setAnalyticsDisabled = (disabled: boolean) => {
+      (analyticsWindow as unknown as Record<string, unknown>)[disableKey] = disabled;
+    };
+
+    const dispatchReady = () => {
+      document.documentElement.dataset.analyticsReady = 'true';
+      window.dispatchEvent(new CustomEvent('dmvcn:analytics-ready'));
+    };
+
+    const loadAnalytics = () => {
+      setAnalyticsDisabled(false);
+      analyticsWindow.dataLayer = analyticsWindow.dataLayer ?? [];
+      analyticsWindow.gtag = analyticsWindow.gtag ?? ((...args: unknown[]) => {
+        analyticsWindow.dataLayer?.push(args);
+      });
+
+      analyticsWindow.gtag('consent', 'default', {
+        analytics_storage: 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+      });
+
+      if (!document.querySelector(`script[data-dmvcn-ga="${measurementId}"]`)) {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+        script.dataset.dmvcnGa = measurementId;
+        document.head.append(script);
+
+        analyticsWindow.gtag('js', new Date());
+        analyticsWindow.gtag('config', measurementId, {
+          allow_google_signals: false,
+          allow_ad_personalization_signals: false,
+        });
+      } else {
+        analyticsWindow.gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+
+      dispatchReady();
+    };
+
+    const removeAnalyticsCookies = () => {
+      const hostParts = window.location.hostname.split('.');
+      const domains = ['', window.location.hostname, `.${window.location.hostname}`];
+      if (hostParts.length > 2) domains.push(`.${hostParts.slice(-2).join('.')}`);
+
+      document.cookie.split(';').forEach((cookie) => {
+        const name = cookie.split('=')[0]?.trim() ?? '';
+        if (!name.startsWith('_ga')) return;
+        for (const domain of new Set(domains)) {
+          const domainPart = domain ? `;domain=${domain}` : '';
+          document.cookie = `${name}=;Max-Age=0;path=/${domainPart};SameSite=Lax`;
+        }
+      });
+    };
+
+    const disableAnalytics = () => {
+      setAnalyticsDisabled(true);
+      delete document.documentElement.dataset.analyticsReady;
+      analyticsWindow.gtag?.('consent', 'update', { analytics_storage: 'denied' });
+      removeAnalyticsCookies();
+    };
+
+    const showBanner = (focus = false) => {
+      banner.hidden = false;
+      if (focus) banner.querySelector<HTMLButtonElement>('[data-analytics-accept]')?.focus();
+    };
+
+    const hideBanner = () => {
+      banner.hidden = true;
+    };
+
+    banner.querySelector<HTMLButtonElement>('[data-analytics-accept]')?.addEventListener('click', () => {
+      saveChoice('accepted');
+      hideBanner();
+      loadAnalytics();
+    });
+
+    banner.querySelector<HTMLButtonElement>('[data-analytics-decline]')?.addEventListener('click', () => {
+      saveChoice('declined');
+      disableAnalytics();
+      hideBanner();
+    });
+
+    settingsButtons.forEach((button) => {
+      button.addEventListener('click', () => showBanner(true));
+    });
+
+    window.addEventListener('dmvcn:track', (event) => {
+      if (choice !== 'accepted' || !analyticsWindow.gtag) return;
+      const detail = (event as CustomEvent<AnalyticsEventDetail>).detail;
+      if (!detail?.name || !/^[a-z][a-z0-9_]{1,39}$/.test(detail.name)) return;
+      analyticsWindow.gtag('event', detail.name, detail.params ?? {});
+    });
+
+    choice = readChoice();
+    if (choice === 'accepted') loadAnalytics();
+    else if (choice === 'declined') disableAnalytics();
+    else showBanner();
+  }
+</script>

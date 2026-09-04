@@ -312,6 +312,11 @@ const tasks: Array<{
     const form = root?.querySelector<HTMLFormElement>('[data-assistant-form]');
     const storageKey = 'dmvcn:new-york-assistant:v2';
     const validTasks: NewYorkAssistantTask[] = ['real-id', 'first-license', 'license-service'];
+    type AnalyticsParameter = string | number | boolean;
+
+    const trackAssistant = (name: string, params: Record<string, AnalyticsParameter> = {}) => {
+      window.dispatchEvent(new CustomEvent('dmvcn:track', { detail: { name, params } }));
+    };
 
     if (root && form) {
       const taskInputs = [...root.querySelectorAll<HTMLInputElement>('[data-task-input]')];
@@ -326,6 +331,16 @@ const tasks: Array<{
         'first-license': '首次驾照路线',
         'license-service': '驾照服务路线',
       };
+      let assistantViewTracked = false;
+
+      const trackAssistantView = () => {
+        if (assistantViewTracked) return;
+        assistantViewTracked = true;
+        trackAssistant('assistant_view');
+      };
+
+      if (document.documentElement.dataset.analyticsReady === 'true') trackAssistantView();
+      else window.addEventListener('dmvcn:analytics-ready', trackAssistantView, { once: true });
 
       const readStored = (): Partial<NewYorkAssistantAnswers> => {
         try {
@@ -411,6 +426,14 @@ const tasks: Array<{
         span.textContent = label;
         link.append(span);
         link.insertAdjacentHTML('beforeend', '<svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>');
+        const officialSource = Object.entries(NEW_YORK_ASSISTANT_SOURCES)
+          .find(([, source]) => source.url === href)?.[0] ?? 'other';
+        link.addEventListener('click', () => {
+          trackAssistant('assistant_official_link_click', {
+            assistant_task: currentTask(),
+            official_source: officialSource,
+          });
+        });
         return link;
       };
 
@@ -487,6 +510,10 @@ const tasks: Array<{
 
         resultEmpty.hidden = true;
         resultContent.hidden = false;
+        trackAssistant('assistant_route_generate', {
+          assistant_task: answers.task,
+          assistant_result: result.id,
+        });
         resultContent.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       };
 
@@ -504,7 +531,11 @@ const tasks: Array<{
       };
 
       taskInputs.forEach((input) => {
-        input.addEventListener('change', () => selectTask(input.value as NewYorkAssistantTask));
+        input.addEventListener('change', () => {
+          const task = input.value as NewYorkAssistantTask;
+          selectTask(task);
+          trackAssistant('assistant_task_select', { assistant_task: task });
+        });
       });
 
       form.addEventListener('change', () => {
@@ -536,7 +567,10 @@ const tasks: Array<{
         form.reset();
         selectTask(currentTask());
       });
-      root.querySelector<HTMLButtonElement>('[data-print]')?.addEventListener('click', () => window.print());
+      root.querySelector<HTMLButtonElement>('[data-print]')?.addEventListener('click', () => {
+        trackAssistant('assistant_print', { assistant_task: currentTask() });
+        window.print();
+      });
 
       taskInputs.find((input) => input.value === initialTask)!.checked = true;
       restoreAnswers({ ...stored, task: initialTask });

@@ -27,16 +27,17 @@
 
 ## 重要上线前配置
 
-1. 在部署平台设置两个 Production 环境变量，不需要修改源码：
+1. 在部署平台设置三个 Production 环境变量，不需要修改源码：
 
    ```text
    PUBLIC_SITE_URL=https://www.your-domain.com
    PUBLIC_CONTACT_EMAIL=contact@your-domain.com
+   PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
    ```
 
-2. `PUBLIC_SITE_URL` 必须是 HTTPS 站点根地址。它会统一生成 canonical、Open Graph URL、robots 和 sitemap；`PUBLIC_CONTACT_EMAIL` 会显示在 Contact 页。
+2. `PUBLIC_SITE_URL` 必须是 HTTPS 站点根地址。它会统一生成 canonical、Open Graph URL、robots 和 sitemap；`PUBLIC_CONTACT_EMAIL` 会显示在 Contact 页；`PUBLIC_GA_MEASUREMENT_ID` 用于同意后加载 GA4。
 
-3. 第一版保持 Google Analytics 和 AdSense 关闭。以后接入时，同时更新脚本、隐私说明和适用的同意机制。
+3. Google Analytics 默认不加载。访客点击“允许统计”后才会启用页面统计；纽约州办事助手另外记录 `assistant_view`、`assistant_task_select`、`assistant_route_generate`、`assistant_official_link_click` 和 `assistant_print`。事件不包含逐题答案或身份材料。Google AdSense 仍保持关闭。
 
 4. 上线后在 Google Search Console 提交：
 
@@ -49,6 +50,7 @@
    ```sh
    PUBLIC_SITE_URL=https://www.your-domain.com \
    PUBLIC_CONTACT_EMAIL=contact@your-domain.com \
+   PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX \
    npm run verify:launch
    ```
 
@@ -195,7 +197,7 @@ npm run audit:internal-links
 npm run audit:launch
 ```
 
-脚本会检查真实 `PUBLIC_SITE_URL`、`PUBLIC_CONTACT_EMAIL`、构建后的首页 canonical、Contact 邮箱、robots.txt 和 sitemap。未配置真实域名或邮箱时会失败，这是预期的上线前提醒。
+脚本会检查真实 `PUBLIC_SITE_URL`、`PUBLIC_CONTACT_EMAIL`、有效的 `PUBLIC_GA_MEASUREMENT_ID`、同意后加载逻辑、隐私说明、构建后的首页 canonical、Contact 邮箱、robots.txt 和 sitemap。缺少生产配置时会失败，这是预期的上线前提醒。
 
 ## 扩展内容
 

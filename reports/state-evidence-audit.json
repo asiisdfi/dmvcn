@@ -1,17 +1,17 @@
 {
   "summary": {
-    "generatedAt": "2026-08-28T08:05:15.338Z",
+    "generatedAt": "2026-09-04T07:14:25.910Z",
     "pages": 100,
     "states": 50,
     "claims": 4744,
-    "links": 9319,
+    "links": 9322,
     "aiAssistedClaims": 4744,
     "aiAssistedPages": 100,
     "errors": 0,
     "coverage": {
       "overview": {
         "claims": 2244,
-        "links": 4298,
+        "links": 4301,
         "states": 50
       },
       "real-id": {
@@ -779,39 +779,22 @@
       "stateId": "new-york",
       "surface": "overview",
       "field": "summary",
-      "context": "real-id",
-      "claim": "纽约州有 Standard、REAL ID 和 Enhanced 三类照片证件",
+      "context": "appointment",
+      "claim": "纽约州驾照续期不一定要预约：保持现有证件类型时，符合条件者可网上或邮寄",
       "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id"
+        "https://dmv.ny.gov/driver-license/renew-a-driver-license",
+        "https://dmv.ny.gov/contact-us/office-locations"
       ],
       "sourceLabels": [
-        "NY DMV Enhanced or REAL ID"
+        "NY DMV Renew a Driver License",
+        "办公室与预约"
       ],
       "mappingMethod": "ai-assisted",
       "themes": [
-        "real-id",
-        "enhanced-id"
-      ],
-      "uncoveredThemes": [],
-      "valid": true
-    },
-    {
-      "stateId": "new-york",
-      "surface": "overview",
-      "field": "summary",
-      "context": "document",
-      "claim": "先按用途选证件，再用官方 pre-screening 生成材料清单",
-      "sourceUrls": [
-        "https://dmv.ny.gov/driver-license/enhanced-or-real-id",
-        "https://dmv.ny.gov/more-info/dmv-document-guide"
-      ],
-      "sourceLabels": [
-        "NY DMV Enhanced or REAL ID",
-        "NY DMV Document Guide"
-      ],
-      "mappingMethod": "ai-assisted",
-      "themes": [
-        "document"
+        "renewal",
+        "appointment",
+        "online-service",
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true
@@ -821,7 +804,7 @@
       "surface": "overview",
       "field": "summary",
       "context": "real-id",
-      "claim": "从 Standard 升级为 REAL ID 或 Enhanced 必须到 DMV office",
+      "claim": "升级 REAL ID / Enhanced、Temporary Visitor 等情况要到办公室",
       "sourceUrls": [
         "https://dmv.ny.gov/driver-license/enhanced-or-real-id",
         "https://dmv.ny.gov/driver-license/renew-a-driver-license"
@@ -833,7 +816,36 @@
       "mappingMethod": "ai-assisted",
       "themes": [
         "real-id",
-        "enhanced-id"
+        "enhanced-id",
+        "lawful-presence"
+      ],
+      "uncoveredThemes": [],
+      "valid": true
+    },
+    {
+      "stateId": "new-york",
+      "surface": "overview",
+      "field": "summary",
+      "context": "document",
+      "claim": "预约、邮寄查询、语言协助和材料入口在本页分开列出",
+      "sourceUrls": [
+        "https://dmv.ny.gov/contact-us/office-locations",
+        "https://dmv.ny.gov/driver-license/check-license-permit-or-non-driver-id-mailing-status",
+        "https://dmv.ny.gov/more-info/language-assistance",
+        "https://dmv.ny.gov/more-info/dmv-document-guide"
+      ],
+      "sourceLabels": [
+        "办公室与预约",
+        "NY DMV Check Photo Document Mailing Status",
+        "NY DMV Language Assistance",
+        "NY DMV Document Guide"
+      ],
+      "mappingMethod": "ai-assisted",
+      "themes": [
+        "document",
+        "appointment",
+        "language",
+        "processing-or-mail"
       ],
       "uncoveredThemes": [],
       "valid": true

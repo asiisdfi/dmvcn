@@ -1,14 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
+import { SITE_LAUNCH_DATE } from '../data/editorial';
+
+const PRIVACY_POLICY_DATE = '2026-09-04';
 ---
 
 <BaseLayout
   title="隐私政策"
-  description="DMV中文办事库隐私政策，说明本站不会收集身份证件、驾照、SSN 或移民文件等敏感材料。"
+  description="DMV中文办事库隐私政策，说明 Google Analytics 的使用、统计选择，以及本站不会收集的证件和身份材料。"
   publishedAt={SITE_LAUNCH_DATE}
-  modifiedAt={EDITORIAL_POLICY_DATE}
-  reviewedAt={EDITORIAL_POLICY_DATE}
+  modifiedAt={PRIVACY_POLICY_DATE}
+  reviewedAt={PRIVACY_POLICY_DATE}
   showContentMeta={true}
 >
   <section class="page-hero">
@@ -24,11 +26,16 @@ import { EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
     <div class="article-stack">
       <section class="panel">
         <h2>我们收集什么</h2>
-        <p>本站不提供账号系统、评论系统或文件上传功能。服务器和托管平台可能为安全、故障排查和流量管理保留基础访问日志；如果以后启用 Google Analytics 或广告服务，可能会产生访问统计、设备信息、来源页面和广告相关 cookie。</p>
+        <p>本站不提供账号、评论或文件上传功能。托管平台可能为安全、故障排查和流量管理保留基础访问日志。你允许统计后，本站会通过 Google Analytics 4 了解访问页面、来源页面、设备和浏览器类型、大致地区以及页面互动情况。</p>
       </section>
       <section class="panel">
         <h2>我们不收集什么</h2>
-        <p>不要通过本站提交 SSN、驾照号码、护照、移民文件、地址证明或任何敏感身份材料。官方办理应在对应 DMV、DPS、RMV、MVC 或 DDS 官方系统中完成。</p>
+        <p>本站不会要求或接收 SSN、驾照号码、护照、移民文件、地址证明或其他身份材料。办事助手只在当前浏览器保存你的选择；统计事件只包含办理事项类别、结果类型和按钮操作，不包含逐题答案或可识别个人身份的内容。</p>
+      </section>
+      <section class="panel">
+        <h2>Google Analytics 和 Cookie</h2>
+        <p>Google Analytics 只有在你点击“允许统计”后才会加载，并可能设置以 <code>_ga</code> 开头的 Cookie。我们关闭 Google Signals 和广告个性化信号，不把统计数据用于建立广告画像。页脚的“统计设置”可以随时重新打开选择；选择“暂不”后，本站会停止发送统计并尝试删除当前域名下的 Analytics Cookie。</p>
+        <p>Google 如何处理 Analytics 数据，适用 <a class="text-link" href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google 隐私权政策</a>。浏览器、网络拦截工具或 Google 自身设置也可能影响 Cookie 和数据保留方式。</p>
       </section>
       <section class="panel">
         <h2>第三方链接</h2>
@@ -36,7 +43,7 @@ import { EDITORIAL_POLICY_DATE, SITE_LAUNCH_DATE } from '../data/editorial';
       </section>
       <section class="panel">
         <h2>广告和统计</h2>
-        <p>本站目前未启用 Google AdSense 或站内分析工具。启用任何广告或统计服务时，本页会同步说明 cookie、广告个性化、数据用途和退出方式。</p>
+        <p>本站目前使用 Google Analytics 4 做访问和功能统计，尚未启用 Google AdSense。以后接入广告或改变数据用途时，本页会在功能上线时同步更新。</p>
       </section>
     </div>
   </section>

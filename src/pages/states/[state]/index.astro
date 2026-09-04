@@ -70,6 +70,54 @@ const serviceLink =
     url: state.agencyUrl,
     description: '从州机构首页选择续期、补证、地址变更或预约服务。',
   };
+const newYorkQuickAnswers = state.id === 'new-york'
+  ? [
+      {
+        question: '纽约驾照续期需要预约吗？',
+        answer:
+          '不一定。已有 REAL ID 或 Enhanced，或者续期后仍保持 Standard，通常可以网上或邮寄办理。升级证件、更新照片或驾照等级、从未取得 SSN、持 CDL，或证件带 Temporary Visitor 日期时，需要到办公室办理。现场业务应先查看具体办公室的预约规则；NY DMV 明确建议提前预约。',
+        sources: [
+          { label: '驾照续期条件', url: 'https://dmv.ny.gov/driver-license/renew-a-driver-license' },
+          { label: '办公室与预约', url: 'https://dmv.ny.gov/contact-us/office-locations' },
+        ],
+      },
+      {
+        question: '纽约驾照什么时候能续期，过期了还能续吗？',
+        answer:
+          '普通续期窗口是到期前 1 年至到期后 2 年。过期满 2 年后不能再走普通续期，需要按首次申请重新完成视力、笔试、课程和路考。',
+        sources: [
+          { label: 'NY DMV 续期时间', url: 'https://dmv.ny.gov/driver-license/renew-a-driver-license' },
+        ],
+      },
+      {
+        question: '纽约驾照或 ID 还没寄到，怎么查？',
+        answer:
+          'NY DMV 要求先预留 3 周。查询时要准备临时证件上的 Transaction ID，或线上确认邮件里的 confirmation number，再填写交易日期。地址错误、退件或邮寄途中丢失时，可在官方流程中核对地址并申请重新寄送。',
+        sources: [
+          {
+            label: '证件邮寄状态查询',
+            url: 'https://dmv.ny.gov/driver-license/check-license-permit-or-non-driver-id-mailing-status',
+          },
+        ],
+      },
+      {
+        question: '纽约 DMV 有中文电话或免费口译吗？',
+        answer:
+          '有。需要免费语言协助时可拨打 1-518-486-9786，并说明需要中文服务。NY DMV 将 Chinese 列入重要表格和文件覆盖的主要语言。',
+        sources: [
+          { label: '语言协助说明', url: 'https://dmv.ny.gov/more-info/language-assistance' },
+        ],
+      },
+      {
+        question: '纽约 REAL ID 能全程网上申请吗？',
+        answer:
+          '不能。首次领取照片证件，或从 Standard 升级为 REAL ID / Enhanced，都要到 DMV office 提交材料。可以先在线使用官方 pre-screening 生成清单、填写可下载申请，并选择在到访前提交材料预审。',
+        sources: [
+          { label: 'REAL ID / Enhanced 申请', url: 'https://dmv.ny.gov/driver-license/enhanced-or-real-id' },
+        ],
+      },
+    ]
+  : [];
 const routeCards = [
   {
     number: '01',
@@ -95,15 +143,27 @@ const routeCards = [
   },
   {
     number: '03',
-    title: '我要续期、补证或改地址',
-    text: isCountyRouted
+    title: state.id === 'new-york' ? '我要续期、预约或查邮寄' : '我要续期、补证或改地址',
+    text: state.id === 'new-york'
+      ? '按到期时间、证件类型和当前情况，判断网上办理、现场预约或邮寄查询路线。'
+      : isCountyRouted
       ? '这些业务和预约都由所在县处理，先从四县入口表选择自己的办理地。'
       : serviceLink
       ? `先处理地址和线上资格，再从 ${serviceLink.label} 进入对应业务。`
       : '先确认地址、证件状态和线上资格，再决定是否需要预约。',
-    href: isCountyRouted ? '#official-entry' : serviceLink?.url ?? '/topics/renewal-replacement-address/',
-    action: isCountyRouted ? '选择所在县' : serviceLink ? '打开办理入口' : '看顺序说明',
-    external: isCountyRouted ? false : Boolean(serviceLink),
+    href: state.id === 'new-york'
+      ? '/tools/new-york-dmv-assistant/?task=license-service'
+      : isCountyRouted
+        ? '#official-entry'
+        : serviceLink?.url ?? '/topics/renewal-replacement-address/',
+    action: state.id === 'new-york'
+      ? '按情况判断'
+      : isCountyRouted
+        ? '选择所在县'
+        : serviceLink
+          ? '打开办理入口'
+          : '看顺序说明',
+    external: state.id === 'new-york' || isCountyRouted ? false : Boolean(serviceLink),
   },
 ];
 const serviceComparisonRows = [
@@ -143,6 +203,7 @@ const overviewFaqs = [
       : `先回到 ${state.agency} 首页，再按 driver license、ID、REAL ID、renewal 或 appointment 等栏目进入。`,
   },
 ];
+const faqSchemaItems = [...newYorkQuickAnswers, ...overviewFaqs];
 const schema = [
   {
     '@type': 'Article',
@@ -169,7 +230,7 @@ const schema = [
   },
   {
     '@type': 'FAQPage',
-    mainEntity: overviewFaqs.map((faq) => ({
+    mainEntity: faqSchemaItems.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -252,6 +313,30 @@ const schema = [
       </section>
 
       {state.id === 'new-york' && <NewYorkAssistantEntry task="license-service" />}
+
+      {newYorkQuickAnswers.length > 0 && (
+        <section class="panel ny-quick-answers" aria-labelledby="ny-quick-answers-title">
+          <p class="eyebrow">纽约 DMV 快答</p>
+          <h2 id="ny-quick-answers-title">续期、预约、邮寄和中文服务</h2>
+          <div class="faq-list">
+            {newYorkQuickAnswers.map((item) => (
+              <article class="faq-item ny-quick-answer">
+                <h3>{item.question}</h3>
+                <div>
+                  <p>{item.answer}</p>
+                  <nav class="fact-source-links" aria-label={`${item.question}的官方来源`}>
+                    {item.sources.map((source) => (
+                      <a class="text-link" href={source.url} target="_blank" rel="noreferrer">
+                        {source.label} <ArrowRight size={14} aria-hidden="true" />
+                      </a>
+                    ))}
+                  </nav>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       {featuredActionLinks.length > 0 && (
         <section class="panel" aria-labelledby="featured-state-actions">

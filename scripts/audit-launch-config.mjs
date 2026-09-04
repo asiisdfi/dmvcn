@@ -4,6 +4,9 @@ const projectRoot = new URL('../', import.meta.url);
 const dataFile = new URL('src/data/content.ts', projectRoot);
 const configFile = new URL('astro.config.mjs', projectRoot);
 const privacyFile = new URL('src/pages/privacy.astro', projectRoot);
+const analyticsFile = new URL('src/components/AnalyticsConsent.astro', projectRoot);
+const baseLayoutFile = new URL('src/layouts/BaseLayout.astro', projectRoot);
+const assistantFile = new URL('src/pages/tools/new-york-dmv-assistant/index.astro', projectRoot);
 const distDir = new URL('dist/', projectRoot);
 const errors = [];
 const warnings = [];
@@ -97,11 +100,26 @@ function readEnvContactEmail() {
   return email;
 }
 
+function readEnvGaMeasurementId() {
+  const measurementId = process.env.PUBLIC_GA_MEASUREMENT_ID?.trim() ?? '';
+  if (!measurementId) return '';
+
+  if (!/^G-[A-Z0-9]+$/.test(measurementId)) {
+    errors.push(`PUBLIC_GA_MEASUREMENT_ID is not a valid GA4 measurement ID: ${measurementId}`);
+  }
+
+  return measurementId;
+}
+
 const siteUrl = readEnvSiteUrl();
 const contactEmail = readEnvContactEmail();
+const gaMeasurementId = readEnvGaMeasurementId();
 const dataSource = await readFile(dataFile, 'utf8');
 const configSource = await readFile(configFile, 'utf8');
 const privacySource = await readFile(privacyFile, 'utf8');
+const analyticsSource = await readFile(analyticsFile, 'utf8');
+const baseLayoutSource = await readFile(baseLayoutFile, 'utf8');
+const assistantSource = await readFile(assistantFile, 'utf8');
 
 if (!siteUrl) {
   errors.push('PUBLIC_SITE_URL is not set. Set it to the real production domain before launch.');
@@ -117,6 +135,38 @@ if (!contactEmail) {
 
 if (!dataSource.includes('PUBLIC_CONTACT_EMAIL')) {
   errors.push('SITE.contactEmail is not wired to PUBLIC_CONTACT_EMAIL.');
+}
+
+if (!gaMeasurementId) {
+  errors.push('PUBLIC_GA_MEASUREMENT_ID is not set. Set it to the production GA4 measurement ID.');
+}
+
+if (!analyticsSource.includes('PUBLIC_GA_MEASUREMENT_ID')) {
+  errors.push('AnalyticsConsent is not wired to PUBLIC_GA_MEASUREMENT_ID.');
+}
+
+if (!baseLayoutSource.includes('<AnalyticsConsent />')) {
+  errors.push('BaseLayout does not render the analytics consent component.');
+}
+
+if (
+  !analyticsSource.includes("choice === 'accepted'") ||
+  !analyticsSource.includes('loadAnalytics()') ||
+  !analyticsSource.includes('data-analytics-consent')
+) {
+  errors.push('AnalyticsConsent does not contain the expected opt-in loading gate.');
+}
+
+for (const eventName of [
+  'assistant_view',
+  'assistant_task_select',
+  'assistant_route_generate',
+  'assistant_official_link_click',
+  'assistant_print',
+]) {
+  if (!assistantSource.includes(`'${eventName}'`)) {
+    errors.push(`New York assistant is missing analytics event ${eventName}.`);
+  }
 }
 
 if (!(await exists(distDir))) {
@@ -156,6 +206,15 @@ if (!(await exists(distDir))) {
       errors.push('Built homepage is missing a canonical URL.');
     } else if (siteUrl && canonical !== siteUrl) {
       errors.push(`Built homepage canonical is ${canonical}; expected ${siteUrl}. Rebuild with the production environment.`);
+    }
+    if (!homepage.includes('data-analytics-consent')) {
+      errors.push('Built homepage is missing the analytics consent interface.');
+    }
+    if (gaMeasurementId && !homepage.includes(`data-measurement-id="${gaMeasurementId}"`)) {
+      errors.push('Built homepage does not contain PUBLIC_GA_MEASUREMENT_ID in the consent component.');
+    }
+    if (!homepage.includes('data-analytics-settings')) {
+      errors.push('Built homepage is missing the footer analytics settings control.');
     }
   }
 
@@ -225,16 +284,24 @@ if (!(await exists(distDir))) {
   }
 }
 
-if (/本站目前未启用 Google AdSense|启用任何广告或统计服务/.test(privacySource)) {
-  notes.push('Privacy mode: Google Analytics and AdSense are intentionally disabled for the initial launch.');
-} else {
-  warnings.push('Privacy page no longer states the current analytics and advertising status; verify the disclosure manually.');
+for (const disclosure of [
+  'Google Analytics 4',
+  '点击“允许统计”后才会加载',
+  '不包含逐题答案',
+  '尚未启用 Google AdSense',
+]) {
+  if (!privacySource.includes(disclosure)) {
+    errors.push(`Privacy page is missing the analytics disclosure: ${disclosure}`);
+  }
 }
+
+notes.push('Privacy mode: GA4 loads only after opt-in; Google Signals, ad personalization, and AdSense are disabled.');
 
 console.log('# Launch Config Audit');
 console.log('');
 console.log(`PUBLIC_SITE_URL: ${siteUrl || 'not set'}`);
 console.log(`PUBLIC_CONTACT_EMAIL: ${contactEmail || 'not set'}`);
+console.log(`PUBLIC_GA_MEASUREMENT_ID: ${gaMeasurementId || 'not set'}`);
 console.log(`Errors: ${errors.length}`);
 console.log(`Warnings: ${warnings.length}`);
 console.log('');

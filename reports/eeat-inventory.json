@@ -1,6 +1,6 @@
 {
   "summary": {
-    "generatedAt": "2026-08-28T08:05:16.501Z",
+    "generatedAt": "2026-09-04T07:14:27.066Z",
     "threshold": 85,
     "strict": false,
     "pages": 167,
@@ -1162,7 +1162,7 @@
       "semanticReview": null,
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-07-17",
+        "modifiedAt": "2026-09-04",
         "reviewedAt": ""
       },
       "scores": {
@@ -4580,7 +4580,7 @@
       },
       "dates": {
         "publishedAt": "2026-07-13",
-        "modifiedAt": "2026-08-28",
+        "modifiedAt": "2026-09-04",
         "reviewedAt": "2026-07-17"
       },
       "scores": {
@@ -4602,7 +4602,7 @@
         "hasFactMapping": true,
         "hasToolEvidenceMapping": false,
         "stateEvidenceItems": 30,
-        "stateEvidenceLinks": 35,
+        "stateEvidenceLinks": 38,
         "hasInlineStateEvidence": true,
         "directoryEvidenceItems": 0,
         "directoryEvidenceLinks": 0,

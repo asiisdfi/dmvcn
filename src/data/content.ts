@@ -394,10 +394,10 @@ export const states: StateGuide[] = [
     realIdPageHeading: '纽约州 REAL ID 材料与预约指南',
     realIdModifiedAt: '2026-08-28',
     publishedAt: '2026-07-13',
-    modifiedAt: '2026-08-28',
+    modifiedAt: '2026-09-04',
     reviewedAt: '2026-07-17',
     summary:
-      '纽约州有 Standard、REAL ID 和 Enhanced 三类照片证件。先按用途选证件，再用官方 pre-screening 生成材料清单；从 Standard 升级为 REAL ID 或 Enhanced 必须到 DMV office。',
+      '纽约州驾照续期不一定要预约：保持现有证件类型时，符合条件者可网上或邮寄；升级 REAL ID / Enhanced、Temporary Visitor 等情况要到办公室。预约、邮寄查询、语言协助和材料入口在本页分开列出。',
     realIdSummary:
       'REAL ID 没有额外证件费，但正常交易费仍适用；Enhanced 仅面向美国公民和纽约州居民，并在普通交易费之外加收 $30。',
     licenseSummary:
